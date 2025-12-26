@@ -114,6 +114,14 @@ if [[ "${USE_DOCKER}" == "1" ]]; then
     echo "Error: docker not found (OPENAPI_GENERATOR_DOCKER=1)." >&2
     exit 1
   fi
+  docker_user_args=()
+  if command -v id >/dev/null 2>&1; then
+    uid="$(id -u)"
+    gid="$(id -g)"
+    if [[ -n "${uid}" && -n "${gid}" ]]; then
+      docker_user_args=(--user "${uid}:${gid}")
+    fi
+  fi
 else
   if [[ -z "${GENERATOR_BIN}" ]]; then
     if command -v openapi-generator-cli >/dev/null 2>&1; then
@@ -215,6 +223,7 @@ for lang in "${langs[@]}"; do
       out_container="$(to_container_path "${out_path}")"
       cmd=(
         docker run --rm
+        "${docker_user_args[@]}"
         -v "${ROOT_DIR}:/local"
         -w /local
         "${DOCKER_IMAGE}"
