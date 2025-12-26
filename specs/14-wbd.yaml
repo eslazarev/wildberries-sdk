@@ -1,0 +1,3461 @@
+openapi: 3.0.1
+info:
+  version: wbd
+  title: Wildberries Цифровой
+  description: |
+    По вопросам работы с WBD API обращайтесь в <a href="https://digital.wildberries.ru/support" target="_blank">техническую поддержку</a>
+  x-file-name: wbd
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Введение WBD
+    description: ''
+  - name: Авторизация WBD
+    description: ''
+  - name: Предложения
+    description: ''
+  - name: Контент
+    description: ''
+  - name: Ключи активации
+    description: ''
+paths:
+  /api/v1/keys-api/keys:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Добавить ключи активации
+      description: |
+        Метод позволяет добавить ключи для предложения по ID.
+
+        <div class="description_important">
+          Предложение должно быть из категории (<code>section</code>):
+          <ul>
+              <li>Ключи активации — <code>3</code></li>
+              <li>Купоны и развлечения — <code>12</code></li>
+              <li>Подарочные сертификаты — <code>13</code></li>
+          </ul>
+        </div>
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: LoadKeys
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeysLoadRequest'
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Ключи активации
+      responses:
+        '200':
+          description: Успешно
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails403'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+    delete:
+      summary: Удалить ключи активации
+      description: |
+        Метод позволяет удалить ключи активации по их ID.
+
+        <div class="description_important">
+          Доступ к методу предоставляется через заявку в <a href="https://digital.wildberries.ru/support" target="_black">техническую поддержку</a>.
+        </div>
+
+        <div class="description_limit">
+            Максимум 100 запросов в секунду
+        </div>
+      operationId: DeleteKeysByIDs
+      parameters:
+        - name: ids
+          description: Список ID ключей
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Ключи активации
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeysDeleteResponse'
+              example:
+                statuses:
+                  - id: 12345
+                    code: '200'
+                    message: ok
+                    status: true
+                  - id: 12346
+                    code: '200'
+                    message: ok
+                    status: true
+        '207':
+          description: Не получилось удалить некоторые ключи
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeysDeleteResponse'
+              example:
+                statuses:
+                  - id: 42
+                    code: '200'
+                    message: ok
+                    status: true
+                  - id: 58
+                    code: '409'
+                    message: Ключ уже был продан.
+                    status: false
+                  - id: 59
+                    code: '409'
+                    message: Ключ уже был зарезервирован.
+                    status: false
+                  - id: 78
+                    code: '200'
+                    message: Ключ уже был удален.
+                    status: true
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails403'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/keys-api/keys/redeemed:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    get:
+      summary: Получить купленные ключи
+      description: |
+        Метод позволяет получить список купленных ключей с использованием фильтрации.<br><br>
+
+        **Описание параметров фильтрации**
+
+        - `offer_id` — Фильтрация по ID предложения. Позволяет выбрать ключи, связанные с определенным предложением.
+        - `skip` — Смещение. Указывает, сколько записей нужно пропустить в результирующем наборе.<br>
+        **Например**, если `skip` равно 20, то выборка начнется с 21 записи.
+        - `take` — Количество записей для получения. Указывает, сколько ключей должно быть возвращено в ответе.<br>
+        **Например**, если `take` равно 10, то в ответе будет не более 10 записей.
+        - `date_from` — Фильтрация по дате покупки начиная с указанной даты (включительно).<br> Формат даты: **RFC3339**.
+        - `date_to` — Фильтрация по дате покупки до указанной даты (не включительно).<br>
+        Формат даты: **RFC3339**.
+
+        <div class="description_limit">
+          Максимум 100 запросов в секунду
+        </div>
+      operationId: GetRedeemedKeys
+      parameters:
+        - name: offer_id
+          description: Фильтрация по ID предложения. Позволяет выбрать ключи, связанные с определенным предложением
+          in: query
+          schema:
+            type: integer
+            format: int64
+            x-nullable: false
+        - name: skip
+          description: Смещение. Указывает, сколько записей нужно пропустить в результирующем наборе. Используется для пагинации
+          in: query
+          schema:
+            default: 0
+            type: integer
+            format: int64
+          x-nullable: false
+        - name: take
+          description: Количество записей для получения. Указывает, сколько ключей должно быть возвращено в ответе
+          in: query
+          schema:
+            default: 50
+            type: integer
+            format: int64
+          x-nullable: false
+        - name: date_from
+          description: |
+            Фильтрация по дате покупки начиная с указанной даты (включительно).<br><br>
+
+            Формат даты: **RFC3339** (`2023-06-17T19:20:30Z`)
+          in: query
+          schema:
+            type: string
+            x-nullable: false
+        - name: date_to
+          description: |
+            Фильтрация по дате покупки до указанной даты (не включительно).
+
+            Формат даты: **RFC3339** (`2024-10-18T19:20:30Z`)
+          in: query
+          schema:
+            type: string
+            x-nullable: false
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Ключи активации
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeysRedeemedResponseList'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offer/keys/{offer_id}:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    get:
+      summary: Получить количество ключей для предложения
+      description: |
+        Метод позволяет получить информацию о количестве ключей у конкретного предложения.
+
+        <div class="description_limit">
+          Максимум 100 запросов в секунду
+        </div>
+      operationId: offerKeysCountGet
+      parameters:
+        - name: offer_id
+          required: true
+          description: ID предложения
+          in: path
+          schema:
+            type: integer
+            format: int64
+            x-nullable: false
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Ключи активации
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeysCountResponse'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offer/keys/{offer_id}/list:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    get:
+      summary: Получить список ключей
+      description: |
+        Метод позволяет получить список загруженных вами ключей для конкретного предложения.
+
+        <div class="description_important">
+          Доступ к методу предоставляется через заявку в <a href="https://digital.wildberries.ru/support" target="_black">техническую поддержку</a>.
+        </div>
+
+        <div class="description_limit">
+          Максимум 100 запросов в секунду
+        </div>
+      operationId: offerKeysGet
+      parameters:
+        - name: offer_id
+          description: ID предложения
+          required: true
+          in: path
+          schema:
+            type: integer
+            format: int64
+            x-nullable: false
+        - name: take
+          description: Количество записей для получения. Указывает, сколько ключей должно быть возвращено в ответе
+          in: query
+          schema:
+            default: 50
+            type: integer
+            format: uint32
+            x-nullable: false
+        - name: skip
+          description: Смещение. Указывает, сколько записей нужно пропустить в результирующем наборе. Используется для пагинации
+          in: query
+          schema:
+            default: 0
+            type: integer
+            format: uint32
+            x-nullable: false
+        - name: deleted
+          in: query
+          description: Указывает, будут ли в ответе присутствовать удалённые ключи
+          schema:
+            default: true
+            type: boolean
+            x-nullable: false
+        - name: sold
+          in: query
+          description: Указывает, будут ли в ответе присутствовать проданные ключи
+          schema:
+            default: true
+            type: boolean
+            x-nullable: false
+        - name: reserved
+          in: query
+          description: Указывает, будут ли в ответе присутствовать зарезервированные ключи
+          schema:
+            default: true
+            type: boolean
+            x-nullable: false
+        - name: expired
+          in: query
+          description: Указывает, будут ли в ответе присутствовать ключи с истекшим сроком действия
+          schema:
+            default: true
+            type: boolean
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Ключи активации
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeysResponseList'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails403'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offers:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Создать новое предложение
+      description: |
+        Метод позволяет создать новое предложение.<br><br>
+
+        **Обязательные поля**
+        - `title` — Название предложения
+        - `description` — Описание предложения
+        - `tags` — Теги предложения
+        - `section` — Категория предложения
+        - `catalog_path` — Подкатегория предложения
+        - `age_rating` — Возрастное ограничение предложения
+        - `price` — Цена предложения
+
+        **Добавить обложку**<br><br>
+
+        Обложка для предложения загружается **отдельно после создания предложения**.<br>
+        Вам необходимо воспользоваться методом [Добавить или обновить обложку предложения](/openapi/wbd#tag/Predlozheniya/operation/offersUploadThumbnail).<br><br>
+
+        **Добавить дополнительные медиафайлы**
+
+        1. Загрузить медиафайлы с помощью метода [Загрузить медиафайл для предложения](/openapi/wbd#tag/Predlozheniya/operation/contentGallery), метод возвращает список URI адресов загруженных медиафайлов.
+        2. Добавить URI медиафайлов в поле `gallery`.
+
+        **Категория и подкатегория предложения**<br><br>
+
+        Воспользуйтесь методом [Получить категории и их подкатегории](/openapi/wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID подкатегории и правильного сопоставления с категорией.<br><br>
+
+        **Предложение из категории "Услуги"**<br><br>
+
+        `section` — `8`<br><br>
+
+        Доступ к публикации контента этой категории предоставляется через заявку в <a href="https://digital.wildberries.ru/support" target="_blank">техническую поддержку</a>.<br><br>
+
+        **Предложение c уникальными ключами**<br><br>
+
+        Предложение c уникальными ключами относятся к категориям (`section`):
+        - **Ключи активации** — `3`
+        - **Купоны и развлечения** — `12`
+        - **Подарочные сертификаты** — `13`
+
+        Обязательные данные:
+        - Ключи к предложению
+        - Инструкция по активации ключа
+
+        **Загрузка ключей**<br><br>
+        Список ключей передается в параметре `keys` вашего запроса при создании предложения.<br>
+        В дальнейшем вы можете добавлять ключи с помощью метода [Добавить ключи активации](/openapi/wbd#tag/Klyuchi-aktivacii/operation/LoadKeys).<br><br>
+
+        **Добавление инструкции по активации ключа**<br><br>
+
+        Инструкцию по активации ключа необходимо добавить в поле `meta` в формате **JSON** используя следующий пример.<br>
+        Чтобы сделать текст более привлекательным и удобочитаемым, **используйте перенос строки** `\n`.<br><br>
+
+        **Пример:**
+
+        ```json
+        {
+            "meta":{
+                "key_instruction": "Инструкция по активации\n1. Зайдите на сайт ...\n2.Вставьте ключ в поле ..."
+            }
+        }
+        ```
+
+        **Предложение с контентом**<br><br>
+
+        Предложение с контентом относится к категориям (`section`):
+        - **Видеоконтент** — `1`
+        - **Аудиоконтент** — `2`
+        - **Электронные книги** — `4`
+        - **Аудиокниги** — `5`
+        - **Цифровые товары** — `6`
+
+        Обязательные данные:
+        - Контент для предложения
+
+        **Добавление контента**<br><br>
+
+        Если вы ещё не добавили контент в личный кабинет продавца, то вы можете это сделать по [инструкции](/openapi/wbd#tag/Kontent/Kak-dobavit-novyj-kontent).<br><br>
+
+        Для добавления контента вам необходимо передать в параметре `content` список данных используя пример ниже.<br><br>
+
+        **Пример:**
+
+        ```json
+        "content": [
+            {
+                "category_id": 1,
+                "content": 8942
+            },
+            {
+                "category_id": 1,
+                "content": 4211
+            }
+        ]
+        ```
+
+        где:
+        - `category_id` — ID категории контента
+        - `content` — ID контента
+
+        Эту информацию вы можете получить с помощью метод [Получить список своего контента](/openapi/wbd#tag/Kontent/operation/contentAuthorGet).
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: offerCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfferCreateRequest'
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfferResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offers/thumb:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Добавить или обновить обложку предложения
+      description: |
+        Метод позволяет добавить или обновить обложку предложения.<br>
+        Для добавления более привлекательной карточки предложения, мы рекомендуем:
+
+          1. Добавлять изображения с соотношением сторон 1:1.
+          2. Минимальный размер изображения 1200х1200 пикселей.
+          3. Фон контрастный белому.
+
+        <div class="description_important">
+          Максимальный размер файла: 5 Мб<br>
+          Допустимые форматы: PNG, JPEG
+        </div>
+
+        <div class="description_limit">
+          Максимум 10 запросов в секунду
+        </div>
+      operationId: offersUploadThumbnail
+      parameters:
+        - name: X-Content-Type
+          description: Тип изображения
+          in: header
+          schema:
+            enum:
+              - image/jpeg
+              - image/png
+            type: string
+          required: true
+          x-nullable: false
+        - name: X-Wbd-OfferId
+          description: ID предложения
+          in: header
+          schema:
+            type: integer
+            format: int64
+          required: true
+          x-nullable: false
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              description: Байты файла
+              type: string
+              format: binary
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offers/{offer_id}:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Редактировать предложение
+      description: |
+        Метод позволяет редактировать информацию о предложении.<br><br>
+
+        **Категория и подкатегория предложения**<br><br>
+
+        Воспользуйтесь методом [Получить категории и их подкатегории](/openapi/wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID подкатегории и правильного сопоставления с категорией.
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: offerUpdate
+      parameters:
+        - name: offer_id
+          description: ID предложения
+          in: path
+          schema:
+            type: integer
+            format: int64
+          required: true
+          x-nullable: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfferUpdateRequest'
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails403'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+    get:
+      summary: Получить информацию о предложении
+      description: |
+        Метод позволяет получить информацию о конкретном предложении.
+
+        <div class="description_limit">
+          Максимум 100 запросов в секунду
+        </div>
+      operationId: offerGet
+      parameters:
+        - name: offer_id
+          description: ID предложения
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          x-nullable: false
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfferResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offers/author:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    get:
+      summary: Получить список своих предложений
+      description: |
+        Метод позволяет получить список своих предложений с использованием фильтрации.<br><br>
+
+        **Описание параметров фильтрации**
+
+        - `search` — Поиск предложений по названию. Укажите часть или полное название предложения для поиска.
+        - `category` — Фильтрация предложений по категории контента. Список категорий находится в [таблице](/openapi/wbd#tag/Kontent/Kategorii-kontenta).
+        - `status` — Фильтрация предложений по статусу. Возможные значения:
+            - `0` — Черновик
+            - `1` — Опубликован
+            - `2` — Приостановлен
+        - `sort` — Сортировка предложений по дате создания или обновления. Укажите `created` для сортировки по дате создания и `updated` для сортировки по дате обновления.
+        - `sort_dir` — Направление сортировки. Укажите `asc` для сортировки по возрастанию или `desc` для сортировки по убыванию.
+        - `skip` — Смещение. Позволяет пропустить определенное количество предложений в результирующем наборе.<br>
+        **Например**, если `skip` равно 20, то выборка начнется с 21 записи.
+        - `take` — Количество предложений, которое нужно вернуть в ответе.<br>
+        **Например**, если `take` равно 10, то в ответе будет не более 10 записей.
+
+        <div class="description_limit">
+          Максимум 100 запросов в секунду
+        </div>
+      operationId: offersAuthorGet
+      parameters:
+        - name: search
+          description: Поиск по названию предложения
+          in: query
+          schema:
+            type: string
+          x-nullable: false
+        - name: category
+          description: |
+            Фильтрация по категории контента:
+            - `1` — Видеоконтент
+            - `2` — Аудиоконтент
+            - `4` — Документ
+          in: query
+          schema:
+            enum:
+              - 1
+              - 2
+              - 4
+            type: integer
+            format: int64
+          x-nullable: false
+        - name: status
+          description: |
+            Фильтрация по статусу:
+            - `0` — Черновик
+            - `1` — Опубликован
+            - `2` — Приостановлен
+          in: query
+          schema:
+            enum:
+              - 0
+              - 1
+              - 2
+            type: integer
+            format: int32
+          x-nullable: false
+        - name: sort
+          description: Сортировка предложений по дате создания или обновления
+          in: query
+          schema:
+            enum:
+              - created
+              - updated
+            type: string
+          x-nullable: false
+        - name: sort_dir
+          description: |
+            Направление сортировки:
+            - `asc` — по возрастанию
+            - `desc` — по убыванию
+          in: query
+          schema:
+            enum:
+              - asc
+              - desc
+            type: string
+          x-nullable: false
+        - name: skip
+          description: Смещение. Количество предложений, которые нужно пропустить в результирующем наборе
+          in: query
+          schema:
+            default: 0
+            type: integer
+            format: int64
+          x-nullable: false
+        - name: take
+          description: Количество предложений для получения
+          in: query
+          schema:
+            type: integer
+            format: int64
+            default: 50
+          x-nullable: false
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfferResponseList'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offer/price/{offer_id}:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Обновить цену
+      description: |
+        Метод позволяет изменить цену предложения и цену с учетом скидок.<br><br>
+
+        Если вы не хотите выставлять скидку, то в запросе необходимо **не передавать** параметр `discount_price` или выставить у него значение `0`.
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: offerUpdatePrice
+      parameters:
+        - name: offer_id
+          description: ID предложения
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          x-nullable: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfferPriceUpdateRequest'
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/offer/{offer_id}:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Обновить статус
+      description: |
+        Метод позволяет обновить статус вашего предложения.<br><br>
+
+        Возможные значения:
+        - `0` — Черновик
+        - `1` — Опубликован
+        - `2` — Приостановлен
+        - `3` — Удалён
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: offerUpdateStatus
+      parameters:
+        - name: offer_id
+          description: ID предложения
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            x-nullable: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfferStatusUpdateRequest'
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/catalog:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    get:
+      summary: Получить категории и их подкатегории
+      description: |
+        Метод позволяет получить дерево (структуру данных) с категориям и их подкатегориями.<br><br>
+
+        **Иерархия структуры данных**<br><br>
+
+        В нашей структуре есть три уровня иерархии:
+        1. **Корневой узел** — сущность **Каталог**
+        2. **Внешние узлы** представляют собой категории (`section`):
+        - `1` — Видеоконтент
+        - `2` — Аудиоконтент
+        - `3` — Ключи активации
+        - `4` — Электронные книги
+        - `5` — Аудиокниги
+        - `6` — Цифровые товары
+        - `8` — Услуги
+        - `12` — Купоны и развлечения
+        - `13` — Подарочные сертификаты
+        3. **Листья дерева** являются подкатегориями (`catalog_path`):
+        - `65` — Обучающие видео
+        - `66` — Спорт
+        - `67` — Мастер-класс
+        - `68` — Йога
+        - `69` — Медитации
+
+        <div class="description_limit">
+          Максимум 100 запросов в секунду
+        </div>
+      operationId: GetCatalog
+      tags:
+        - Предложения
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFullCatalogResponse'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/content/illustration:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Загрузить обложку контента
+      description: |
+        Метод позволяет загрузить обложку контента.
+
+        <div class="description_important">
+          Максимальный размер файла: 5 Мб<br>
+          Допустимые форматы: PNG, JPEG<br>
+          Рекомендации:
+          <ul>
+              <li>Соотношение сторон 1:1</li>
+          </ul>
+        </div>
+
+        Краткая инструкция по применению:
+        1. Убедитесь, что ваш файл соответствует указанным ограничениям и рекомендациям.
+        2. Вызовите этот метод.
+        3. При загрузке обложки вы получите список URI адресов для нового контента.
+        4. Воспользуйтесь методом [Инициализировать новый контент](/openapi/wbd#tag/Kontent/operation/contentUploadInit) и передайте список URI адресов в поле `meta` в формате **JSON** используя следующий пример.
+
+        **Пример:**
+
+        ```json
+        {
+            "meta": {
+                "thumbnail": [
+                    "vol6/529/013cfs7f229183179aj53d2b3bbb839a/480.jpg",
+                    "vol6/529/013cfs7f229183179aj53d2b3bbb839a/1280.jpg",
+                    "vol6/529/013cfs7f229183179aj53d2b3bbb839a/1920.jpg"
+                ]
+            }
+        }
+        ```
+
+        <div class="description_limit">
+          Максимум 10 запросов в секунду
+        </div>
+      operationId: contentUploadIllustration
+      parameters:
+        - name: X-Content-Type
+          description: Тип файла
+          in: header
+          schema:
+            type: string
+            enum:
+              - image/png
+              - image/jpeg
+          required: true
+          x-nullable: false
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              description: Байты файла
+              type: string
+              format: binary
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IllustrationResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/content/upload/init:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Инициализировать новый контент
+      description: |
+        Метод позволяет инициализировать (загрузить) информацию нового контента.<br><br>
+
+        Типы контента и требования к ним вы можете посмотреть в оглавлении [Работа с контентом](/openapi/wbd#tag/Kontent).<br><br>
+
+        Подготовка файла к последующей загрузке:
+        - Вам необходимо разбить файл на части (фреймы) не более 2 Мб.
+        - Передать размер (в байтах) каждой части и порядковый номер в параметре `parts`.
+
+        **Пример:**<br>
+        Файл размером 5 Мб, нужно разбить на 3 части — 2 Мб, 2 Мб и 1 Мб.
+        ```json
+        {
+            "parts": [
+                {
+                  "index": 1,
+                  "size": 2097152
+                },
+                {
+                  "index": 2,
+                  "size": 2097152
+                },
+                {
+                  "index": 3,
+                  "size": 1048576
+                }
+            ],
+        }
+        ```
+
+        В методе [Загрузить контент (файл)](/openapi/wbd#tag/Kontent/operation/contentUploadChunk) вам нужно будет загрузить 3 части файла с указанием их порядкового номера через `X-Wbd-Part-Index`.<br><br>
+
+        **Обязательные поля в метаданных (`meta`) для загрузки контента**<br><br>
+
+        Общие поля:
+        - `thumbnail`
+        - `rating`
+
+        Аудиоконтент:
+        - `author`
+
+        Документ:
+        - `author`
+        - `pages`
+
+        Краткая инструкция по применению:
+        1. Подготовьте метаданные и информацию о вашем контенте.
+        2. Убедитесь, что ваш контент соответствует [требованиям](/openapi/wbd#tag/Kontent/Trebovaniya-k-kontentu) (формат и размер файла).
+        3. Вызовите этот метод для инициализации нового контента.
+        4. В ответе вы получите `uuid` контента, необходимый для последующей загрузки самого файла.
+        5. Используйте метод [Загрузить файл контента](/openapi/wbd#tag/Kontent/operation/contentUploadChunk), чтобы загрузить файл.
+
+        <div class="description_limit">
+          Максимум 10 запросов в секунду
+        </div>
+      operationId: contentUploadInit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: Файл
+              in: body
+              required: true
+              $ref: '#/components/schemas/UploadInitRequest'
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadInitResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/content/upload/chunk:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Загрузить контент (файл)
+      description: |
+        Метод позволяет загрузить контент (файл) по частям.<br><br>
+
+        Краткая инструкция по применению:
+        1. Разбейте файл на части размером не более 2 Мб.
+        2. Для каждой части файла:
+          - Убедитесь, что заголовок `X-Content-Type` соответствует типу вашего контента (например, `video/mp4`, `audio/mpeg`, `application/pdf` и т.д.).
+          - Установите заголовок `X-Wbd-Part-Index` в соответствии с индексом текущей части (начиная с 1).
+          - Укажите `uuid` контента в заголовке `X-Wbd-Content-Uuid`, который вы получили при [инициализации нового контента](/openapi/wbd#tag/Kontent/operation/contentUploadInit).
+          - Отправьте байты (часть файла) в теле запроса.
+        3. Повторяйте шаг 2 для всех частей файла до завершения загрузки.
+
+        <div class="description_limit">
+          Максимум 10 запросов в секунду
+        </div>
+      operationId: contentUploadChunk
+      parameters:
+        - name: X-Content-Type
+          description: Тип файла
+          in: header
+          required: true
+          schema:
+            enum:
+              - video/mp4
+              - audio/mpeg
+              - text/plain
+              - application/pdf
+              - application/zip
+              - application/epub+zip
+            type: string
+          x-nullable: false
+        - name: X-Wbd-Part-Index
+          description: Индекс фрейма (части контента)
+          in: header
+          required: true
+          schema:
+            type: integer
+            format: int64
+          x-nullable: false
+        - name: X-Wbd-Content-Uuid
+          description: Уникальный ID полученный в [инициализации нового контента](./wbd#tag/Kontent/operation/contentUploadInit)
+          in: header
+          schema:
+            type: string
+          x-nullable: false
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              description: Байты файла
+              type: string
+              format: binary
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadChunkResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/content/author/{content_id}:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Редактировать контент
+      description: |
+        Метод позволяет редактировать информацию о контенте.
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: contentUpdate
+      parameters:
+        - name: content_id
+          description: ID контента
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          x-nullable: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContentRequest'
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+    get:
+      summary: Получить информацию о контенте
+      description: |
+        Метод позволяет получить информацию о конкретном контенте.
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: contentIdGet
+      parameters:
+        - in: path
+          name: content_id
+          description: ID контента
+          required: true
+          schema:
+            type: integer
+            format: int64
+            x-nullable: false
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/content/author:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    get:
+      summary: Получить список своего контента
+      description: |
+        Метод позволяет получить список своего контента с использованием фильтрации.<br><br>
+
+        **Описание параметров фильтрации**
+
+        - `search` — Поиск контента по названию. Укажите часть или полное название контента для поиска.
+        - `category` — Фильтрация контента по категории. Список категорий находится в [таблице](/openapi/wbd#tag/Kontent/Kategorii-kontenta), колонка — `catalog_id` — Идентифицировать категории.
+        - `status` — Фильтрация контента по статусу. Возможные значения:
+            - `0` — Создан
+            - `1` — Загружено на сервер
+            - `2` — Опубликован
+            - `3` — Ошибка в обработке или публикации
+            - `4` — Обрабатывается
+            - `5` — Отправлено на сервер
+        - `sort` — Сортировка контента по дате создания или обновления. Укажите `created` для сортировки по дате создания и `updated` для сортировки по дате обновления.
+        - `sort_dir` — Направление сортировки. Укажите `asc` для сортировки по возрастанию или `desc` для сортировки по убыванию.
+        - `skip` — Смещение. Позволяет пропустить определенное количество контента в результирующем наборе.<br>
+        **Например**, если `skip` равно 20, то выборка начнется с 21 записи.
+        - `take` — Количество контента, которое нужно вернуть в ответе.<br>
+        **Например**, если `take` равно 10, то в ответе будет не более 10 записей.
+
+        <div class="description_limit">
+          Максимум 100 запросов в секунду
+        </div>
+      operationId: contentAuthorGet
+      parameters:
+        - name: search
+          description: Поиск по названию контента
+          in: query
+          schema:
+            type: string
+            x-nullable: false
+        - name: category
+          description: |
+            Фильтрация по категории:
+            - `1` — Видеоконтент
+            - `2` — Аудиоконтент
+            - `4` — Документ
+          in: query
+          schema:
+            enum:
+              - 1
+              - 2
+              - 4
+            type: integer
+            format: int64
+            x-nullable: false
+        - name: status
+          description: |
+            Фильтрация по статусу:
+            - `0` — Создан
+            - `1` — Загружено на сервер
+            - `2` — Опубликован
+            - `3` — Ошибка в обработке или публикации
+            - `4` — Обрабатывается
+            - `5` — Отправлено на сервер
+          in: query
+          schema:
+            enum:
+              - 0
+              - 1
+              - 2
+              - 3
+              - 4
+              - 5
+            type: integer
+            format: int32
+          x-nullable: false
+        - name: sort
+          description: Сортировка контента по дате создания или обновления
+          in: query
+          schema:
+            type: string
+            enum:
+              - created
+              - updated
+          x-nullable: false
+        - name: sort_dir
+          description: |
+            Направление сортировки:
+            - `asc` — по возрастанию
+            - `desc` — по убыванию
+          in: query
+          schema:
+            enum:
+              - asc
+              - desc
+            type: string
+          x-nullable: false
+        - name: skip
+          description: Смещение. Количество контента, которые нужно пропустить в результирующем наборе.
+          in: query
+          schema:
+            type: integer
+            format: int64
+            default: 0
+          x-nullable: false
+        - name: take
+          description: Количество контента для получения
+          in: query
+          schema:
+            type: integer
+            format: int64
+            default: 50
+          x-nullable: false
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentList'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/content/download/{uri}:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    get:
+      summary: Скачать контент
+      description: |
+        Метод позволяет скачать контент по URI.<br><br>
+
+        **Получение URI-адреса контента**
+        1. Воспользуйтесь одним из методов для получения информации о контенте.
+            - [Получить информацию о контенте](/openapi/wbd#tag/Kontent/operation/contentIdGet)
+            - [Получить список своего контента](/openapi/wbd#tag/Kontent/operation/contentAuthorGet)
+        2. В информации о контенте возьмите URI-адрес из поля `uri` или `files`.
+
+        **Скачивание контента частями**<br><br>
+        Вы можете скачать файл частями с использованием заголовка `Range`.<br><br>
+
+        **Пример**: `Range: bytes=0-524287999`<br><br>
+
+        Ответ содержит заголовок `Content-Range` с информацией о скаченном файле.<br><br>
+
+        **Пример**: `Content-Range: bytes 0-524287999/1073741824`
+
+        <div class="description_limit">
+          Максимум 10 запросов в секунду
+        </div>
+      operationId: contentDownloadGet
+      parameters:
+        - name: uri
+          required: true
+          description: URI-адрес контента
+          in: path
+          schema:
+            type: string
+        - name: Range
+          required: false
+          description: |
+            Позволять скачивать файл частями.<br><br>
+
+            **Пример**: `bytes=0-524287999`
+          in: header
+          schema:
+            type: string
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+        '206':
+          description: Контент скачан частично
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+        '502':
+          description: Невозможно скачать контент
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails502'
+  /api/v1/content/delete:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Удалить контент
+      description: |
+        Метод позволяет удалить контент по ID.
+
+        <div class="description_limit">
+          Максимум 50 запросов в секунду
+        </div>
+      operationId: contentDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content_id:
+                  description: ID контента
+                  type: integer
+                  format: int64
+                  example: 493292
+                  x-nullable: false
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails404'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+  /api/v1/content/gallery:
+    servers:
+      - url: https://devapi-digital.wildberries.ru
+    post:
+      summary: Загрузить медиафайлы для предложения
+      description: |
+        Метод позволяет загружать медиафайлы на сервер.<br><br>
+
+        После успешной загрузки возвращает список URI-адресов, которые можно использовать для добавления дополнительных медиафайлов в предложение.<br><br>
+
+        Данный метод поможет вам добавить дополнительные медиафайлы при создании или обновлении предложения.
+        - [Создать новое предложение](/openapi/wbd#tag/Predlozheniya/operation/offerCreate)
+        - [Редактировать предложение](/openapi/wbd#tag/Predlozheniya/operation/offerUpdate)
+
+        <div class="description_important">
+          Ограничения по размеру:
+          <ul>
+              <li>изображение: <b>5 Мб</b></li>
+              <li>видео: <b>50 Мб</b></li>
+              <li>общий размер всех файлов: <b>100 Мб</b></li>
+          </ul>
+          Допустимые форматы:
+          <ul>
+              <li>изображение: <b>PNG, JPEG</b></li>
+              <li>видео: <b>MP4</b></li>
+          </ul>
+          Можно передать <b>до 8 медиафайлов</b>.
+        </div>
+
+        <div class="description_limit">
+          Максимум 10 запросов в секунду
+        </div>
+      operationId: contentGallery
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+              required:
+                - files
+      tags:
+        - Контент
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadGalleryResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails400'
+        '401':
+          description: Не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails401'
+        '500':
+          description: Внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails500'
+components:
+  schemas:
+    KeysDeleteResponse:
+      type: object
+      required:
+        - statuses
+      properties:
+        statuses:
+          description: Статусы удаления ключей
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - code
+              - message
+              - status
+            properties:
+              id:
+                description: ID ключа
+                type: integer
+                format: int64
+                x-nullable: false
+              code:
+                description: HTTP статус-код для каждой операции над ключом
+                type: string
+                x-nullable: false
+              message:
+                description: Описание к статусу удаления
+                type: string
+                x-nullable: false
+              status:
+                description: Флаг статуса удаления (`true` - успешно удален, `false` - ошибка)
+                type: boolean
+                x-nullable: false
+    OfferResponse:
+      type: object
+      properties:
+        id:
+          description: ID предложения
+          example: 42
+          type: integer
+          format: int64
+          x-nullable: false
+        title:
+          type: string
+          description: Название предложения
+          example: Книга `Спортивное питание`
+          x-nullable: false
+        description:
+          description: Описание предложения
+          example: Очень хорошая книга о спортивном питании.
+          type: string
+          x-nullable: false
+        section:
+          description: |
+            ID категории товара:
+            - `1` — Видеоконтент
+            - `2` — Аудиоконтент
+            - `3` — Ключи активации
+            - `4` — Электронные книги
+            - `5` — Аудиокниги
+            - `6` — Цифровые товары
+            - `8` — Услуги
+            - `12` — Купоны и развлечения
+            - `13` — Подарочные сертификаты
+          example: 4
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            - 8
+            - 9
+            - 10
+            - 12
+            - 13
+          type: integer
+          format: int32
+          x-nullable: false
+        catalog_path:
+          description: Массив ID подкатегорий, в котором находится предложение
+          example:
+            - 10
+          type: array
+          items:
+            type: integer
+            format: int64
+        price:
+          description: Цена предложения, ₽
+          example: 849
+          type: integer
+          format: int64
+          x-nullable: false
+        discount_price:
+          description: Цена с учетом скидки, ₽
+          example: 799
+          type: integer
+          format: int64
+          x-nullable: false
+        gallery:
+          description: Список URL-адресов дополнительных изображений, а так же видео превью
+          example:
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/video.mp4
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/0_1280.jpg
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/1_1280.png
+          items:
+            type: string
+            x-nullable: false
+          type: array
+        meta:
+          description: Метаданные предложения
+          type: string
+          x-nullable: false
+        tags:
+          description: Список тегов. Теги нужны для группирования, ранжирования и облегчения поиска вашего товара
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+          x-nullable: true
+        thumbnail:
+          description: Обложка предложения
+          example:
+            - vol6/842/900bec865s329db6c0efbf0f1a61ebee/480.jpg
+            - vol6/842/900bec865s329db6c0efbf0f1a61ebee/1280.jpg
+            - vol6/842/900bec865s329db6c0efbf0f1a61ebee/1920.jpg
+          type: array
+          items:
+            type: string
+            x-nullable: false
+        content:
+          description: Контент предложения
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferContent'
+        created:
+          description: Дата создания, UTC+3 (Москва)
+          example: '2024-06-10T07:29:30Z'
+          type: string
+          x-nullable: false
+        updated:
+          description: Дата обновления, UTC+3 (Москва)
+          example: '2024-06-17T22:12:13Z'
+          type: string
+          x-nullable: false
+        deleted:
+          description: Дата удаления, UTC+3 (Москва). `1970-01-01T00:00:00Z` — является нулевым значением
+          example: '2024-06-19T22:12:13Z'
+          type: string
+          x-nullable: false
+        status:
+          description: |
+            Статус вашего предложения:
+            - `0` — Добавить в черновик
+            - `1` — Опубликовать
+          example: 1
+          enum:
+            - 0
+            - 1
+          type: integer
+          format: int32
+          x-nullable: true
+          x-omitempty: false
+        view_count:
+          description: Количество просмотров
+          example: 47
+          type: integer
+          format: int64
+          x-nullable: false
+        purchase_count:
+          description: Количество покупок
+          example: 10
+          type: integer
+          format: int64
+          x-nullable: false
+        adult:
+          description: Флаг, который отвечает за ограничение контента для взрослых (блюр контента)
+          example: false
+          type: boolean
+          x-nullable: false
+          x-omitempty: false
+        age_rating:
+          description: Возрастное ограничение. Это система, которая используется для определения, подходит ли ваше предложение для определенной возрастной группы
+          example: 16+
+          enum:
+            - 0+
+            - 6+
+            - 12+
+            - 14+
+            - 16+
+            - 18+
+          type: string
+          x-nullable: false
+        rating:
+          description: Рейтинг предложения
+          example: 50
+          type: number
+          format: float64
+          x-nullable: false
+    OfferCreateRequest:
+      type: object
+      description: Новое предложение
+      required:
+        - title
+        - description
+        - tags
+        - section
+        - catalog_path
+        - age_rating
+        - price
+      properties:
+        title:
+          description: Название предложения.<br>Максимальная длина — **500 символов.**
+          example: Книга `Спортивное питание`
+          maxLength: 500
+          type: string
+          x-nullable: false
+        description:
+          description: Описание предложения. Это текст, который описывает ваше предложение и помогает людям понять, что именно представляет из себя продаваемый вами товар и чем он может быть полезен. Важно правильно назвать предложение и более подробно прописать его описание, чтобы пользователи узнали как можно больше информации еще до покупки.<br>Максимальная длина — **5000 символов.**
+          example: Очень хорошая книга о спортивном питании.
+          maxLength: 5000
+          type: string
+          x-nullable: false
+        tags:
+          description: |
+            Массив тегов. Теги нужны для группирования, ранжирования и облегчения поиска вашего товара.<br><br>
+
+            **Ограничения**:
+            - Максимальное количество тегов — **5**
+            - Максимальная длина тега — **45 символов**
+          type: array
+          minItems: 1
+          maxItems: 5
+          items:
+            maxLength: 45
+            type: string
+          example:
+            - life
+            - work
+            - gym
+        section:
+          description: |
+            ID категории предложения:
+            - `1` — Видеоконтент
+            - `2` — Аудиоконтент
+            - `3` — Ключи активации
+            - `4` — Электронные книги
+            - `5` — Аудиокниги
+            - `6` — Цифровые товары
+            - `8` — Услуги
+            - `12` — Купоны и развлечения
+            - `13` — Подарочные сертификаты
+          example: 4
+          type: integer
+          format: int32
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            - 8
+            - 9
+            - 12
+            - 13
+          x-nullable: false
+        catalog_path:
+          description: |
+            Массив ID подкатегорий, в котором находится предложение.<br>
+            Воспользуйтесь методом [Получить категории и их подкатегории](./wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID и правильного сопоставления с категорией.
+          example:
+            - 10
+          type: array
+          minItems: 1
+          items:
+            type: integer
+            format: int64
+          x-nullable: false
+        age_rating:
+          description: Возрастное ограничение. Это система, которая используется для определения, подходит ли ваше предложение для определенной возрастной группы.
+          example: 16+
+          enum:
+            - 0+
+            - 6+
+            - 12+
+            - 14+
+            - 16+
+            - 18+
+          type: string
+          x-nullable: false
+        price:
+          description: Цена предложения, ₽
+          example: 849
+          type: integer
+          format: int64
+          x-nullable: false
+        discount_price:
+          description: Цена с учетом скидки, ₽
+          example: 799
+          type: integer
+          format: int64
+          x-nullable: false
+        gallery:
+          description: |
+            Список URL-адресов дополнительных изображений, а так же видео превью.<br>
+            **Можно передать до 8 медиафайлов.**<br>
+            **Важно, чтобы все изображения были в формате JPG или PNG, а видео в формате MP4**
+          example:
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/video.mp4
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/0_1280.jpg
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/1_1280.png
+          type: array
+          maxItems: 8
+          items:
+            type: string
+            x-nullable: false
+        keys:
+          description: |
+            Список ключей.<br>
+            Это **обязательное поле**, если вы хотите создать предложение из категории (`section`):
+            - **Ключи активации** — `3`
+            - **Купоны и развлечения** — `12`
+            - **Подарочные сертификаты** — `13`
+
+            **Ограничения:**
+            - Максимальное количество ключей — **1000**
+            - Максимальная длина ключа — **200 символов**
+          example:
+            - 0181-c2a38--6379-69d8ae
+            - 1983-454e4--5379-0edbbc
+            - 6860-f1f20--8421-c1e6a1
+          type: array
+          maxItems: 1000
+          items:
+            maxLength: 200
+            type: string
+            x-nullable: false
+        status:
+          description: |
+            Задается статус вашего предложения:
+            - `0` — Добавить в черновик
+            - `1` — Опубликовать
+          example: 1
+          default: 0
+          enum:
+            - 0
+            - 1
+          type: integer
+          format: int32
+          x-nullable: false
+        content:
+          description: Список контента
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferCreateContent'
+          example:
+            - category_id: 4
+              content: 8942
+            - category_id: 4
+              content: 4211
+        meta:
+          $ref: '#/components/schemas/OfferMetaRequest'
+    OfferUpdateRequest:
+      type: object
+      description: Характеристика предложения
+      properties:
+        title:
+          description: Название предложения.<br>Максимальная длина — **500 символов.**
+          example: Книга `Спортивное питание`
+          maxLength: 500
+          type: string
+          x-nullable: false
+        description:
+          description: Описание предложения. Это текст, который описывает ваше предложение и помогает людям понять, что именно представляет из себя продаваемый вами товар и чем он может быть полезен. Важно правильно назвать предложение и более подробно прописать его описание, чтобы пользователи узнали как можно больше информации еще до покупки.<br>Максимальная длина — **5000 символов.**
+          example: Очень хорошая книга о спортивном питании.
+          maxLength: 5000
+          type: string
+          x-nullable: false
+        price:
+          description: Цена предложения, ₽
+          example: 849
+          type: integer
+          format: int64
+          x-nullable: false
+        discount_price:
+          description: Цена с учетом скидки, ₽
+          example: 799
+          type: integer
+          format: int64
+          x-nullable: true
+        gallery:
+          description: |
+            Список URL-адресов дополнительных изображений, а так же видео превью.<br>
+            **Можно передать до 8 медиафайлов.**<br>
+            **Важно, чтобы все изображения были в формате JPG или PNG, а видео в формате MP4**
+          example:
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/video.mp4
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/0_1280.jpg
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/1_1280.png
+          type: array
+          maxItems: 8
+          x-nullable: true
+          items:
+            type: string
+            x-nullable: false
+        age_rating:
+          description: Возрастное ограничение. Это система, которая используется для определения, подходит ли ваше предложение для определенной возрастной группы.
+          example: 16+
+          enum:
+            - 0+
+            - 6+
+            - 12+
+            - 14+
+            - 16+
+            - 18+
+          type: string
+          x-nullable: false
+        tags:
+          type: array
+          description: |
+            Массив тегов. Теги нужны для группирования, ранжирования и облегчения поиска вашего товара.<br><br>
+
+            **Ограничения**:
+            - Максимальное количество тегов — **5**
+            - Максимальная длина тега — **45 символов**
+          minItems: 1
+          maxItems: 5
+          items:
+            maxLength: 45
+            type: string
+          example:
+            - life
+            - work
+            - gym
+        status:
+          description: |
+            Статус вашего предложения:
+            - `0` — Добавить в черновик
+            - `1` — Опубликовать
+            - `2` — Приостановить продажу
+            - `3` — Удалить
+          example: 1
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          x-nullable: true
+        catalog_path:
+          description: |
+            Массив ID подкатегорий, в котором находится предложение.<br>
+            Воспользуйтесь методом [Получить категории и их подкатегории](./wbd#tag/Predlozheniya/operation/GetCatalog) для получения ID и правильного сопоставления с категорией.
+          example:
+            - 10
+          type: array
+          items:
+            type: integer
+            format: int64
+        meta:
+          $ref: '#/components/schemas/OfferMetaRequest'
+    OfferPriceUpdateRequest:
+      type: object
+      description: Новая цена для предложения
+      properties:
+        regular_price:
+          description: Цена, ₽
+          type: integer
+          format: int64
+          example: 5432
+        discount_price:
+          description: Цена с учетом скидки, ₽
+          type: integer
+          format: int64
+          example: 5000
+    KeysCountResponse:
+      type: object
+      required:
+        - total
+        - reserved
+        - available
+        - deleted
+      properties:
+        total:
+          description: Общее количество ключей
+          example: 10
+          type: integer
+          format: int64
+          x-nullable: false
+        available:
+          description: Количество свободных ключей
+          example: 5
+          type: integer
+          format: int64
+          x-nullable: false
+        reserved:
+          description: Количество зарезервированных ключей
+          example: 2
+          type: integer
+          format: int64
+          x-nullable: false
+        deleted:
+          description: Количество удаленных ключей
+          example: 2
+          type: integer
+          format: int64
+          x-nullable: false
+    OfferStatusUpdateRequest:
+      type: object
+      description: Новый статус
+      required:
+        - status
+      properties:
+        status:
+          type: integer
+          format: int32
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+    OfferMetaRequest:
+      type: object
+      description: Метаданные предложения
+      properties:
+        addresses:
+          description: Адреса где можно воспользоваться купонами, подарочными сертификатами
+          example: Москва, Нагатинская д. 1
+          maxLength: 1000
+          type: string
+          x-nullable: true
+        key_instruction:
+          description: Инструкция по активации ключа
+          example: |-
+            Инструкция по активации
+            1. Зайдите на сайт ...
+            2.Вставьте ключ в поле ...
+          maxLength: 5000
+          type: string
+          x-nullable: true
+    OfferResponseList:
+      type: object
+      required:
+        - total
+        - items
+      properties:
+        items:
+          description: Список предложений
+          items:
+            $ref: '#/components/schemas/OfferResponse'
+          type: array
+        total:
+          $ref: '#/components/schemas/Total'
+    KeyResponse:
+      type: object
+      required:
+        - id
+        - value
+        - created_at
+      properties:
+        id:
+          description: ID ключа
+          example: 42
+          type: integer
+          format: int64
+          x-nullable: false
+        value:
+          description: Значение ключа
+          example: 0181-c2a38--6379-69d8ae
+          type: string
+          x-nullable: false
+        created_at:
+          description: Дата и время создания ключа
+          type: string
+          example: '2022-06-15T09:19:02Z'
+          x-nullable: false
+        buyed_at:
+          description: Дата и время покупки ключа
+          type: string
+          example: 2022-07-03T011:30:30Z
+          x-omitempty: false
+          x-nullable: true
+        deleted_at:
+          description: Дата и время удаления ключа
+          type: string
+          example: 2022-07-03T011:30:30Z
+          x-omitempty: false
+          x-nullable: true
+    OfferContent:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          description: ID контента
+          format: int64
+          x-nullable: false
+          example: 542342523
+          type: integer
+        title:
+          description: Название контента
+          example: 'Книга ''Иван Тургенев: Отцы и дети'''
+          type: string
+          x-nullable: false
+        description:
+          description: Описание контента
+          example: Очень хорошая книга.
+          type: string
+          x-nullable: false
+        files:
+          description: Список с информацией о дополнительных файлах
+          type: array
+          items:
+            type: object
+            properties:
+              contentType:
+                description: Тип контента
+                example: application/fb2
+                type: string
+              size:
+                description: Размер файла
+                example: 3665547
+                type: integer
+                format: int64
+              uri:
+                description: URI адрес файла
+                example: vol13/689/98235be67bdefcew2a33c5f0e55b17eb/output.fb2
+                type: string
+        meta:
+          description: |
+            Хранит в себе метаданные контента:
+            - `bisac` —  ISBN (Международный стандартный книжный номер)
+            - `voice` — Актер озвучивающий аудиоконтент
+            - `author` — Автор контента
+            - `rating` — Возрастное ограничение
+            - `preview` — Короткий отрезок контента для предварительного просмотра
+            - `duration` — Продолжительность контента
+            - `thumbnail` — Список обложки для контента разного разрешения
+            - `dimensions` — Список разрешений видео
+            - `duration_ms` — Продолжительность контента в миллисекундах
+            - `translator` — Автор перевода
+            - `original_name` — Оригинальное название контента
+            - `pages` — Количество страниц в контенте
+            - `encoded_videos` — Список информации (размер, разрешение) для декодированного видео
+            - `encoded_audios` — Список информации (размер, битрейт) для декодированного аудио
+          type: string
+          x-nullable: false
+        playlist:
+          description: |
+            URI адрес на плейлист контента.<br><br>
+
+            Если контент является аудио или видео контентом, то файл декодируется в плейлист
+          example: vol14/147/f2671cfb67bd8c200b9464vd6f0dd97d/output.m3u8
+          type: string
+          x-nullable: false
+        category_id:
+          description: |
+            ID категории контента:
+            - `1` — Видеоконтент
+            - `2` — Аудиоконтент
+            - `4` — Документ
+          enum:
+            - 1
+            - 2
+            - 4
+          example: 4
+          type: integer
+          format: int64
+          x-nullable: false
+    GetFullCatalogResponse:
+      type: object
+      required:
+        - total
+        - items
+      properties:
+        items:
+          description: Дерево с категориям и их подкатегориями
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogNode'
+        total:
+          type: integer
+          format: int64
+          x-nullable: false
+    CatalogNode:
+      type: object
+      properties:
+        children:
+          description: Список дочерних узлов
+          type: array
+          example:
+            - id: 1
+              img: vol0/catalog/icons/1.svg
+              is_section: true
+              name: VIDEO
+              node_order: 0
+              parent_id: 0
+              section_id: 1
+              total: 6482
+              children:
+                - id: 65
+                  img: ''
+                  is_section: false
+                  name: Обучающие видео
+                  node_order: 1
+                  parent_id: 0
+                  section_id: 1
+                  total: 0
+                  children: []
+                - id: 66
+                  img: ''
+                  is_section: false
+                  name: Спорт
+                  node_order: 2
+                  parent_id: 0
+                  section_id: 1
+                  total: 0
+                  children: []
+                - id: 67
+                  img: ''
+                  is_section: false
+                  name: Мастер-класс
+                  node_order: 3
+                  parent_id: 0
+                  section_id: 1
+                  total: 0
+                  children: []
+            - id: 2
+              img: vol0/catalog/icons/2.svg
+              is_section: true
+              name: AUDIO
+              node_order: 0
+              parent_id: 0
+              section_id: 2
+              total: 1983
+              children:
+                - id: 73
+                  img: ''
+                  is_section: false
+                  name: Обучение
+                  node_order: 1
+                  section_id: 2
+                  total: 0
+                  children: []
+                - id: 74
+                  img: ''
+                  is_section: false
+                  name: Медитации
+                  node_order: 2
+                  parent_id: 0
+                  section_id: 2
+                  total: 0
+                  children: []
+                - id: 75
+                  img: ''
+                  is_section: false
+                  name: Мастер-класс
+                  node_order: 3
+                  parent_id: 0
+                  section_id: 2
+                  total: 0
+                  children: []
+          items:
+            $ref: '#/components/schemas/CatalogNode'
+        img:
+          type: string
+          description: |
+            URI адрес иконки категории
+          example: ''
+          x-nullable: false
+          x-omitempty: false
+        name:
+          description: Название узла
+          example: Каталог
+          type: string
+          x-nullable: false
+          x-omitempty: false
+        parent_id:
+          type: integer
+          description: |
+            Указывает на ID родителя подкатегории
+          format: int64
+          x-nullable: false
+          x-omitempty: false
+        path:
+          type: array
+          description: |
+            Список `id` (ID узла). Путь до элемента каталога.
+          example: null
+          x-nullable: true
+          items:
+            x-omitempty: false
+            type: integer
+            format: int64
+        id:
+          description: |
+            ID узла.
+
+            Если `is_section` = `true`, то `id` является ID категории (`section`).
+
+            Если `is_section` = `false`, то `id` является ID подкатегории (`is_path`).
+          type: integer
+          format: int64
+          x-nullable: false
+          x-omitempty: false
+        is_section:
+          description: Признак, является ли узел категорией (`section`)
+          example: false
+          x-nullable: false
+          x-omitempty: false
+          type: boolean
+        node_order:
+          type: integer
+          description: |
+            Порядок элементов подкатегорий, которые находятся на одном уровне
+          format: int64
+          x-nullable: false
+          x-omitempty: false
+        section_id:
+          description: ID категории (`section`). Если `is_section` = `false`, то `section_id` указывает на родительскую категорию.
+          type: integer
+          format: int64
+          x-nullable: false
+          x-omitempty: false
+        total:
+          description: Общее количество предложений в этой категории. Поле заполняется только у категорий (`section`).
+          type: integer
+          format: int64
+          x-nullable: false
+          x-omitempty: false
+    Tag:
+      type: object
+      properties:
+        id:
+          description: ID тега
+          type: integer
+          format: int64
+          example: 1
+          x-nullable: false
+        value:
+          description: Название тега
+          example: бизнес
+          type: string
+          x-nullable: false
+        value_translit:
+          description: Перевод названия тега
+          example: biznes
+          type: string
+          x-nullable: false
+        weight:
+          description: Вес тега
+          example: 100
+          type: number
+          format: float64
+          x-nullable: false
+    OfferCreateContent:
+      type: object
+      required:
+        - content
+        - category_id
+      properties:
+        category_id:
+          description: |
+            ID категории контента:
+            - `1` — Видео
+            - `2` — Аудиоконтент
+            - `4` — Документ
+          type: integer
+          format: int64
+          example: 1
+          x-nullable: false
+        content:
+          description: ID контента
+          type: integer
+          format: int64
+          example: 8942
+          x-nullable: false
+    KeysLoadRequest:
+      type: object
+      description: Список ключей и ID предложения
+      required:
+        - offer_id
+        - keys
+      properties:
+        keys:
+          type: array
+          description: |
+            Список ключей.<br><br>
+
+            **Ограничения:**
+            - Максимальное количество ключей — **1000**
+            - Максимальная длина ключа — **200 символов**
+          example:
+            - 0181-c2a38--6379-69d8ae
+            - 4444-m2d2--5555-77f7ff
+            - 21fd-1234--3333-4444ff
+          maxItems: 1000
+          items:
+            maxLength: 200
+            type: string
+            x-nullable: false
+        offer_id:
+          description: ID предложения
+          example: 4251
+          type: integer
+          format: int64
+          x-nullable: false
+    KeysResponseList:
+      type: object
+      required:
+        - total
+        - items
+      properties:
+        items:
+          description: Список ключей
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyResponse'
+          example:
+            - id: 42
+              value: 0181-c2a38--6379-69d8ae
+              created_at: '2022-06-15T09:19:02Z'
+              buyed_at: 2022-07-03T011:30:30Z
+            - id: 43
+              value: 4444-m2d2--5555-77f7ff
+              created_at: '2022-06-15T12:19:02Z'
+              deleted_at: '2023-02-03T16:22:02Z'
+        total:
+          description: Общее количество ключей
+          example: 10
+          type: integer
+          format: int64
+    IllustrationResponse:
+      description: Ответ содержит список URI адресов для контента, необходимый для метода [Инициализировать новый контент](./wbd#tag/Kontent/operation/contentUploadInit)
+      type: object
+      required:
+        - uris
+        - userId
+      properties:
+        uris:
+          description: Список URI адресов обложки разного разрешения
+          type: array
+          example:
+            - vol4/id_48361197/fc99358aedea2a0cf68c8dcd7f2a3696/480.jpg
+            - vol4/id_48361197/fc99358aedea2a0cf68c8dcd7f2a3696/1280.jpg
+            - vol4/id_48361197/fc99358aedea2a0cf68c8dcd7f2a3696/1920.jpg
+          items:
+            type: string
+            x-nullable: false
+        userId:
+          description: ID пользователя
+          example: 483611
+          type: integer
+          format: int64
+          x-nullable: false
+    UploadInitRequest:
+      type: object
+      required:
+        - title
+        - description
+        - catalog_id
+        - content_type
+        - meta
+        - parts
+      properties:
+        title:
+          description: Название контента.<br>Максимальная длина — **500 символов.**
+          example: 'Книга `Иван Тургенев: Отцы и дети'''
+          type: string
+          maxLength: 500
+          x-nullable: false
+        description:
+          description: Описание контента.<br>Максимальная длина — **1000 символов.**
+          example: Очень хорошая книга.
+          type: string
+          maxLength: 1000
+          x-nullable: false
+        catalog_id:
+          description: |
+            ID категории контента:
+            - `1` — Видеоконтент
+            - `2` — Аудиоконтент
+            - `4` — Документ
+          enum:
+            - 1
+            - 2
+            - 4
+          example: 4
+          type: integer
+          x-nullable: false
+        content_type:
+          description: |
+            Тип файла:
+            - Видеоконтент:
+                - `video/mp4`
+            - Аудиоконтент:
+                - `audio/mpeg`
+            - Документ:
+                - `application/pdf`
+                - `application/epub+zip`
+                - `text/plain`
+          enum:
+            - video/mp4
+            - audio/mpeg
+            - text/plain
+            - application/pdf
+            - application/epub+zip
+          example: application/epub+zip
+          type: string
+          x-nullable: false
+        parts:
+          description: |
+            Для оптимальной скорости загрузки контента следует разбить файл на фреймы по 2 Мб. В массиве указываются индекс каждого фрейма и его размер
+          example:
+            - index: 1
+              size: 2097152
+            - index: 2
+              size: 2097152
+            - index: 3
+              size: 1048576
+          type: array
+          items:
+            $ref: '#/components/schemas/ChunkPart'
+        meta:
+          $ref: '#/components/schemas/ContentMeta'
+    UploadInitResponse:
+      type: object
+      description: |
+        Ответ. Содержит UUID контента, необходимый для метода [Загрузить контент (файл)](./wbd#tag/Kontent/operation/contentUploadChunk)
+      properties:
+        content_id:
+          description: ID контента
+          example: 493292
+          type: integer
+          format: int64
+          x-nullable: false
+        uuid:
+          description: |
+            Уникальный ID. Этот ID необходим для загрузки самого файла в методе [Загрузка контента (файла)](./wbd#tag/Kontent/operation/contentUploadChunk)
+          example: 25f5e4c9-2cac-11ef-adbf-9cc2c45608a
+          type: string
+          x-nullable: false
+    UploadChunkResponse:
+      type: object
+      description: |
+        Файл успешно загружен.<br>
+        Ответ содержит URI адрес контента
+      properties:
+        chunk:
+          description: Количество переданных фреймов (частей контента)
+          type: integer
+          example: 3
+          x-nullable: false
+        uri:
+          description: |
+            URI адреса загруженного файла
+          example: vol19/924/e9e5d152ea3d9018bd061c62f75efbdf/content
+          type: string
+          x-nullable: false
+    ContentMeta:
+      type: object
+      x-nullable: true
+      required:
+        - thumbnail
+      description: |
+        Метаданные. Дополнительная информация о контенте
+      properties:
+        thumbnail:
+          description: URI адреса обложки контента
+          example:
+            - vol4/id_48361197/fc99358aedea2a0cf68c8dcd7f2a3696/480.jpg
+            - vol4/id_48361197/fc99358aedea2a0cf68c8dcd7f2a3696/1280.jpg
+            - vol4/id_48361197/fc99358aedea2a0cf68c8dcd7f2a3696/1920.jpg
+          type: array
+          items:
+            type: string
+            x-nullable: false
+        source_file_name:
+          description: Имя исходного файла
+          example: Иван_Тургенев:_Отцы_и_дети.epub
+          type: string
+          maxLength: 100
+          x-nullable: false
+        rating:
+          description: Возрастное ограничение
+          example: 16+
+          enum:
+            - 0+
+            - 6+
+            - 12+
+            - 14+
+            - 16+
+            - 18+
+          type: string
+          x-nullable: false
+        original_name:
+          description: Оригинальное название контента
+          example: Иван_Тургенев:_Отцы_и_дети
+          maxLength: 100
+          type: string
+          x-nullable: false
+        voice:
+          description: Актер озвучивающий аудиоконтент
+          example: Кузнецов В.Б.
+          type: string
+          maxLength: 100
+          x-nullable: false
+        bisac:
+          description: |
+            [ISBN](https://en.wikipedia.org/wiki/ISBN) (Международный стандартный книжный номер)
+            - Каждый ISBN уникален
+            - Состоит из 13 символов, начиная с префикса **978** или **979**
+          example: 978-5-389-04996-3
+          type: string
+          x-nullable: false
+        pages:
+          description: Количество страниц в книге (файле)
+          example: 354
+          type: integer
+          format: int32
+          x-nullable: false
+        author:
+          description: Автор контента
+          example: Иван Тургенев
+          type: string
+          maxLength: 100
+          x-nullable: false
+        translator:
+          description: |
+            Переводчик
+          example: Hare Richard
+          type: string
+          maxLength: 100
+          x-nullable: false
+        duration:
+          description: Продолжительность контента
+          type: string
+          example: '00:05:11'
+          x-nullable: false
+    ProblemDetails400:
+      type: object
+      required:
+        - title
+        - requestId
+      properties:
+        status:
+          description: Дубликат HTTP статус-код
+          example: 400
+          type: integer
+          format: int32
+          x-omitempty: true
+          x-nullable: false
+        title:
+          description: Короткое описание ошибки
+          example: bad request
+          type: string
+          x-nullable: false
+        detail:
+          description: Развернутое описание ошибки
+          example: value 'five' is invalid for parameter offer_id
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        code:
+          description: Служебная информация об ошибке
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        errors:
+          description: |
+            Массив ошибок. Для передачи нескольких ошибок
+          type: array
+          items:
+            $ref: '#/components/schemas/ProblemDetails400'
+          x-omitempty: true
+          x-nullable: false
+        requestId:
+          description: |
+            ID запроса. Дубликат заголовка `X-Request-Id`
+          example: b709d59bd0791513350332ffe5f813c1
+          type: string
+          x-nullable: false
+        origin:
+          description: Имя сервиса
+          example: gateway-dev
+          type: string
+          x-nullable: false
+          x-omitempty: true
+    ProblemDetails401:
+      type: object
+      required:
+        - title
+        - requestId
+      properties:
+        status:
+          description: Дубликат HTTP статус-код
+          example: 401
+          type: integer
+          format: int32
+          x-omitempty: true
+          x-nullable: false
+        title:
+          description: Короткое описание ошибки
+          example: unauthorized
+          type: string
+          x-nullable: false
+        detail:
+          description: Развернутое описание ошибки
+          example: authorization required
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        code:
+          description: Служебная информация об ошибке
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        requestId:
+          description: |
+            ID запроса. Дубликат заголовка `X-Request-Id`.
+          example: b709d59bd0791513350332ffe5f813c1
+          type: string
+          x-nullable: false
+        origin:
+          description: Имя сервиса
+          example: gateway-dev
+          type: string
+          x-nullable: false
+          x-omitempty: true
+    ProblemDetails403:
+      type: object
+      required:
+        - title
+        - requestId
+      properties:
+        status:
+          description: Дубликат HTTP статус-код
+          example: 400
+          type: integer
+          format: int32
+          x-omitempty: true
+          x-nullable: false
+        title:
+          description: Короткое описание ошибки
+          example: forbidden
+          type: string
+          x-nullable: false
+        code:
+          description: Служебная информация об ошибке
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        requestId:
+          description: |
+            ID запроса. Дубликат заголовка `X-Request-Id`
+          example: b709d59bd0791513350332ffe5f813c1
+          type: string
+          x-nullable: false
+        origin:
+          description: Имя сервиса
+          example: gateway-dev
+          type: string
+          x-nullable: false
+          x-omitempty: true
+    ProblemDetails404:
+      type: object
+      required:
+        - title
+        - requestId
+      properties:
+        status:
+          description: Дубликат HTTP статус-код
+          example: 404
+          type: integer
+          format: int32
+          x-omitempty: true
+          x-nullable: false
+        title:
+          description: Короткое описание ошибки
+          example: not found
+          type: string
+          x-nullable: false
+        detail:
+          description: Развернутое описание ошибки
+          example: content with id 789 not found
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        code:
+          description: Служебная информация об ошибке
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        requestId:
+          description: |
+            ID запроса. Дубликат заголовка `X-Request-Id`
+          example: b709d59bd0791513350332ffe5f813c1
+          type: string
+          x-nullable: false
+        origin:
+          description: Имя сервиса
+          example: gateway-dev
+          type: string
+          x-nullable: false
+          x-omitempty: true
+    ProblemDetails500:
+      type: object
+      required:
+        - title
+        - requestId
+      properties:
+        status:
+          description: Дубликат HTTP статус-код
+          example: 500
+          type: integer
+          format: int32
+          x-omitempty: true
+          x-nullable: false
+        title:
+          description: Короткое описание ошибки
+          example: internal server error
+          type: string
+          x-nullable: false
+        code:
+          description: Служебная информация ошибки
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        errors:
+          description: |
+            Массив ошибок. Для передачи нескольких ошибок
+          type: array
+          items:
+            $ref: '#/components/schemas/ProblemDetails500'
+          x-omitempty: true
+          x-nullable: false
+        requestId:
+          description: |
+            ID запроса. Дубликат заголовка `X-Request-Id`
+          example: b709d59bd0791513350332ffe5f813c1
+          type: string
+          x-nullable: false
+        origin:
+          description: Имя сервиса
+          example: gateway-dev
+          type: string
+          x-nullable: false
+          x-omitempty: true
+    ProblemDetails502:
+      type: object
+      required:
+        - title
+        - requestId
+      properties:
+        status:
+          description: Дубликат HTTP статус-код
+          example: 502
+          type: integer
+          format: int32
+          x-omitempty: true
+          x-nullable: false
+        title:
+          description: Короткое описание ошибки
+          example: bad gateway
+          type: string
+          x-nullable: false
+        code:
+          description: Служебная информация ошибки
+          type: string
+          x-omitempty: true
+          x-nullable: false
+        errors:
+          description: |
+            Массив ошибок. Для передачи нескольких ошибок
+          type: array
+          items:
+            $ref: '#/components/schemas/ProblemDetails502'
+          x-omitempty: true
+          x-nullable: false
+        requestId:
+          description: |
+            ID запроса. Дубликат заголовка `X-Request-Id`
+          example: b709d59bd0791513350332ffe5f813c1
+          type: string
+          x-nullable: false
+        origin:
+          description: Имя сервиса
+          example: gateway-dev
+          type: string
+          x-nullable: false
+          x-omitempty: true
+    KeyRedeemedResponse:
+      type: object
+      required:
+        - id
+        - value
+        - buyed_at
+        - created_at
+        - offer_id
+        - offer_title
+        - offer_price
+      properties:
+        id:
+          description: ID ключа
+          example: 54321
+          type: integer
+          format: int64
+          x-nullable: false
+        value:
+          description: Ключ
+          example: 0181-c2a38--6379-69d8ae
+          type: string
+          x-nullable: false
+        created_at:
+          description: Дата создания ключа
+          type: string
+          x-nullable: false
+          example: '2024-05-10T09:25:50Z'
+        buyed_at:
+          description: Дата покупки ключа
+          example: '2024-05-13T11:08:46Z'
+          type: string
+          x-nullable: false
+        offer_id:
+          description: ID предложения
+          example: 42124
+          type: integer
+          format: int64
+          x-nullable: false
+        offer_title:
+          description: Название предложения
+          example: Игра Red Dead Redemption (Steam)
+          type: string
+          x-nullable: false
+        offer_price:
+          description: Цена предложения
+          example: 2490
+          type: integer
+          format: int64
+          x-nullable: false
+    UpdateContentRequest:
+      type: object
+      description: Обновленные данные
+      properties:
+        title:
+          description: Название контента.<br>Максимальная длина — **500 символов.**
+          example: 'Книга ''Иван Тургенев: Отцы и дети'''
+          type: string
+          maxLength: 500
+          x-nullable: true
+        description:
+          description: Описание контента.<br>Максимальная длина — **1000 символов.**
+          example: Очень хорошая книга.
+          type: string
+          maxLength: 1000
+          x-nullable: true
+    ChunkPart:
+      type: object
+      required:
+        - index
+        - size
+      properties:
+        index:
+          description: Индекс фрейма (фрагмента)
+          x-nullable: false
+          type: integer
+          format: int64
+        size:
+          description: Размер фрейма (фрагмента) в байтах
+          type: integer
+          format: int64
+          x-nullable: false
+    Content:
+      type: object
+      required:
+        - id
+        - author_id
+        - title
+        - uri
+        - category_id
+        - status
+        - description
+        - created
+        - updated
+        - content_type
+        - playlist
+        - files
+      properties:
+        id:
+          description: ID контента
+          example: 5321
+          type: integer
+          format: int64
+          x-nullable: false
+        author_id:
+          description: ID автора
+          example: 93224
+          type: integer
+          format: int64
+          x-nullable: false
+        title:
+          description: Название контента
+          example: 'Книга ''Иван Тургенев: Отцы и дети'''
+          type: string
+          x-nullable: false
+        description:
+          description: Описание контента
+          example: Очень хорошая книга.
+          type: string
+          x-nullable: false
+        content_type:
+          description: |
+            Тип файла:
+            - Видеоконтент:
+                - `video/mp4`
+            - Аудиоконтент:
+                - `audio/mpeg`
+            - Документ:
+                - `application/pdf`
+                - `application/epub+zip`
+                - `text/plain`
+          enum:
+            - video/mp4
+            - audio/mpeg
+            - text/plain
+            - application/pdf
+            - application/epub+zip
+          example: application/epub+zip
+          x-nullable: false
+          type: string
+        uri:
+          description: URI адрес контента
+          example: vol19/924/e9e55159ea3d9018bd061c62f75efbdf/content
+          type: string
+          x-nullable: false
+        files:
+          description: Список с информацией о дополнительных файлах
+          type: array
+          items:
+            type: object
+            properties:
+              contentType:
+                description: Тип контента
+                example: application/fb2
+                type: string
+              size:
+                description: Размер файла
+                example: 3665547
+                type: integer
+                format: int64
+              uri:
+                description: URI адрес на файл
+                example: vol13/689/98235be67bdefcew2a33c5f0e55b17eb/output.fb2
+                type: string
+        playlist:
+          type: string
+          description: |
+            URI адрес на плейлист контента.<br><br>
+
+            Если контент является аудио или видео контентом, то файл декодируется в плейлист
+          example: vol14/147/f2671cfb67bd8c200b9464vd6f0dd97d/output.m3u8
+          x-nullable: false
+        meta:
+          description: |
+            Хранит в себе метаданные контента:
+            - `bisac` —  ISBN (Международный стандартный книжный номер)
+            - `voice` — Актер озвучивающий аудиоконтент
+            - `author` — Автор контента
+            - `rating` — Возрастное ограничение
+            - `preview` — Короткий отрезок контента для предварительного просмотра
+            - `duration` — Продолжительность контента
+            - `thumbnail` — Список обложки для контента разного разрешения
+            - `dimensions` — Список разрешений видео
+            - `duration_ms` — Продолжительность контента в миллисекундах
+            - `translator` — Автор перевода
+            - `original_name` — Оригинальное название контента
+            - `pages` — Количество страниц в контенте
+            - `encoded_videos` — Список информации (размер, разрешение) для декодированного видео
+            - `encoded_audios` — Список информации (размер, битрейт) для декодированного аудио
+        category_id:
+          description: |
+            ID категории контента:
+            - `1` — Видеоконтент
+            - `2` — Аудиоконтент
+            - `4` — Документ
+          enum:
+            - 1
+            - 2
+            - 4
+          example: 4
+          type: integer
+          format: int64
+          x-nullable: false
+        status:
+          description: |
+            Статус контента:
+            - `0` — Создан
+            - `1` — Загружено на сервер
+            - `2` — Опубликован
+            - `3` — Ошибка в обработке или публикации
+            - `4` — Обрабатывается
+            - `5` — Отправлено на сервер
+          example: 2
+          type: integer
+          format: int32
+          x-nullable: false
+        created:
+          description: Дата создания, UTC+3 (Москва)
+          example: '2024-06-10T07:29:30Z'
+          type: string
+          x-nullable: false
+        updated:
+          description: Дата обновления, UTC+3 (Москва)
+          example: '2024-06-17T22:12:13Z'
+          type: string
+          x-nullable: false
+    ContentList:
+      type: object
+      required:
+        - total
+        - items
+      properties:
+        items:
+          description: Список контента
+          type: array
+          items:
+            $ref: '#/components/schemas/Content'
+        total:
+          $ref: '#/components/schemas/Total'
+    UploadGalleryResponse:
+      type: object
+      description: |
+        Файлы успешно загружены.<br>
+        Ответ содержит список URI адресов медиафайлов
+      properties:
+        uris:
+          description: Список URI адресов медиафайлов
+          type: array
+          items:
+            type: string
+            x-nullable: false
+          example:
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/video.mp4
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/0_1280.jpg
+            - vol42/352/91b751bfb753ff365afbc8dca21b7f87/1_1280.png
+    KeysRedeemedResponseList:
+      type: object
+      required:
+        - total
+        - items
+      properties:
+        items:
+          description: Список проданных ключей
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyRedeemedResponse'
+        total:
+          $ref: '#/components/schemas/Total'
+    Total:
+      description: |
+        Общее количество записей, соответствующих заданным критериям выборки.
+
+        Параметры:
+        - `take` (integer): Количество записей, которые необходимо вернуть в текущем ответе. Например, если `take` равно 10, то в ответе будет не более 10 записей.
+        - `skip` (integer): Количество записей, которые необходимо пропустить перед началом выборки. Например, если `skip` равно 20, то выборка начнется с 21 записи.
+
+        Поле `total` показывает полное количество записей, соответствующих условиям фильтрации, без учета параметров `take` и `skip`
+      example: 10
+      type: integer
+      format: int64
+      x-nullable: false
+  securitySchemes:
+    ApiKeyAuth:
+      name: Authorization
+      description: |
+        Добавьте в заголовок запроса `Authorization: Bearer api_token`.<br>
+        В разделе [Авторизация](./wbd#tag/Avtorizaciya-WBD) вы можете ознакомиться с инструкцией по получению и применению токена
+      type: apiKey
+      in: header

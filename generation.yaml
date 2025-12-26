@@ -1,0 +1,36 @@
+version: 0.1
+
+specs:
+  - https://dev.wildberries.ru/yaml/ru/01-general.yaml
+  - https://dev.wildberries.ru/yaml/ru/02-products.yaml
+  - https://dev.wildberries.ru/yaml/ru/03-orders-fbs.yaml
+  - https://dev.wildberries.ru/yaml/ru/04-orders-dbw.yaml
+  - https://dev.wildberries.ru/yaml/ru/05-orders-dbs.yaml
+  - https://dev.wildberries.ru/yaml/ru/06-in-store-pickup.yaml
+  - https://dev.wildberries.ru/yaml/ru/07-orders-fbw.yaml
+  - https://dev.wildberries.ru/yaml/ru/08-promotion.yaml
+  - https://dev.wildberries.ru/yaml/ru/09-communications.yaml
+  - https://dev.wildberries.ru/yaml/ru/10-tariffs.yaml
+  - https://dev.wildberries.ru/yaml/ru/11-analytics.yaml
+  - https://dev.wildberries.ru/yaml/ru/12-reports.yaml
+  - https://dev.wildberries.ru/yaml/ru/13-finances.yaml
+  - https://dev.wildberries.ru/yaml/ru/14-wbd.yaml
+
+templates:
+  base_dir: tools/templates
+  files:
+    common:
+      - api.mustache
+      - model.mustache
+      - api_client.mustache
+      - configuration.mustache
+      - README.mustache
+    python:
+      - pyproject.mustache
+      - setup.mustache
+
+languages:
+  - name: python
+    generator: python
+    output_dir: clients/python
+    package_name_prefix: wildberries-sdk

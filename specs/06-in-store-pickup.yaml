@@ -1,0 +1,1527 @@
+openapi: 3.0.1
+info:
+  title: Заказы Самовывоз
+  x-file-name: in-store-pickup
+  description: |
+    Управление [сборочными заданиями](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) и [метаданными](/openapi/in-store-pickup#tag/Metadannye-Samovyvoz) заказов модели Самовывоз.
+  version: instorepickup
+servers:
+  - url: https://marketplace-api.wildberries.ru
+security:
+  - HeaderApiKey: []
+tags:
+  - name: Сборочные задания Самовывоз
+    description: ''
+  - name: Метаданные Самовывоз
+    description: ''
+paths:
+  /api/v3/click-collect/orders/new:
+    get:
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Получить список новых сборочных заданий
+      description: |
+        Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz), которые есть у продавца на момент запроса.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.NewOrders'
+              examples:
+                NewOrderClick:
+                  $ref: '#/components/examples/NewOrderClick'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/confirm:
+    patch:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Перевести на сборку
+      description: |
+        Метод переводит сборочное задание в статус `confirm` — на сборке.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 100 запросов | 600 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Подтверждено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка обновления статуса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                StatusMismatch:
+                  $ref: '#/components/examples/StatusMismatch'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/prepare:
+    patch:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Сообщить, что сборочное задание готово к выдаче
+      description: |
+        Метод переводит сборочное задание в статус `prepare` — готово к выдаче.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 100 запросов | 600 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Подтверждено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка обновления статуса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                StatusMismatch:
+                  $ref: '#/components/examples/StatusMismatch'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/client:
+    post:
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Информация о покупателе
+      description: |
+        Метод возвращает информацию о покупателе по ID сборочного задания.
+        <br><br>
+        Доступно только для сборочных заданий в статусах:
+          - `confirm` — на сборке
+          - `prepare` — готов к выдаче
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.OrdersRequest'
+        required: true
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.OrderClientInfoResp'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/client/identity:
+    post:
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Проверить, что заказ принадлежит покупателю
+      description: |
+        Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду.
+        <br><br>
+        Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 30 запросов | 2 секунды | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.CheckIdentityRequest'
+        required: true
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.CheckedIdentity'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.Error'
+              examples:
+                OrderNotFound:
+                  $ref: '#/components/examples/OrderNotFound'
+        '409':
+          description: Введён неверный проверочный код
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.Error'
+              examples:
+                InvalidPasscode:
+                  $ref: '#/components/examples/InvalidPasscode'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/receive:
+    patch:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Сообщить, что заказ принят покупателем
+      description: |
+        Метод переводит сборочное задание в статус `receive` — получено покупателем.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 100 запросов | 600 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Подтверждено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка обновления статуса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                StatusMismatch:
+                  $ref: '#/components/examples/StatusMismatch'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/reject:
+    patch:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Сообщить, что покупатель отказался от заказа
+      description: |
+        Метод переводит сборочное задание в статус `reject` — отказ при получении.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 100 запросов | 600 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Подтверждено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка обновления статуса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                StatusMismatch:
+                  $ref: '#/components/examples/StatusMismatch'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/status:
+    post:
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Получить статусы сборочных заданий
+      description: "Метод возвращает статусы сборочных заданий по их ID.\n<br><br>\n`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.\n\nВозможные значения `supplierStatus`:\n| Статус   | Описание            | Как перевести сборочное задание в данный статус |\n| -------  | ---------           | --------------------------------------|\n| `new`      | **Новое сборочное задание** |\n| `confirm`  | **На сборке**  | \t[Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1confirm/patch)\n| `prepare`  | **Готов к выдаче** | \t[Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1prepare/patch)\n| `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1receive/patch)\n| `reject`  | **Отказ покупателя при получении**    |  \t[Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1reject/patch)\n| `cancel`   | **Отменено продавцом**    |  \t[Отменить сборочное задание](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1%7BorderId%7D~1cancel/patch)\n| `cancel_shelf_life` | **Отмена по истечении срока хранения**    |  \tПереводится автоматически по возникновению события\n\n<br><br>\n`wbStatus` — статус системы Wildberries.\n\nВозможные значения `wbStatus`:\n- `waiting` - сборочное задание в работе\n- `sold` - заказ получен покупателем\n- `canceled` - отмена сборочного задания\n- `canceled_by_client` - покупатель отменил заказ при получении\n- `declined_by_client` - покупатель отменил заказ в первый чаc\n<br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку\n- `defect` - отмена заказа по причине брака\n- `ready_for_pickup` - сборочное задание готово к выдаче\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |\n\nОдин запрос с кодом ответа <code>409</code> учитывается как 10 запросов\n</div>\n"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.OrdersRequest'
+        required: true
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.OrderStatuses'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders:
+    get:
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Получить информацию о завершённых сборочных заданиях
+      description: |
+        Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
+
+        Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: limit
+          in: query
+          description: |
+            Параметр пагинации. Устанавливает предельное количество возвращаемых
+            данных.
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+        - name: next
+          in: query
+          description: |
+            Параметр пагинации. Устанавливает значение, с которого необходимо получить
+            следующий пакет данных. Для получения полного списка данных должен
+            быть равен `0` в первом запросе. Для следующих запросов необходимо
+            брать значения из одноимённого поля в ответе
+          required: true
+          schema:
+            type: integer
+        - name: dateFrom
+          in: query
+          description: Дата начала периода в формате Unix timestamp
+          required: true
+          schema:
+            type: integer
+        - name: dateTo
+          in: query
+          description: Дата конца периода в формате Unix timestamp
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.Orders'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/cancel:
+    patch:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Отменить сборочное задание
+      description: |
+        Метод отменяет сборочное задание и переводит в статус `cancel` — отменено продавцом.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 100 запросов | 600 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Отменено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка обновления статуса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                StatusMismatch:
+                  $ref: '#/components/examples/StatusMismatch'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/meta:
+    get:
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Метаданные Самовывоз
+      summary: Получить метаданные сборочного задания
+      description: |
+        Метод возвращает метаданные [сборочного задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya/paths/~1api~1v3~1orders~1new/get).
+        <br><br>
+        Перечень метаданных, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.
+        <br><br>
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления метаданных Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.OrdersMeta'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/429'
+    delete:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Метаданные Самовывоз
+      summary: Удалить метаданные сборочного задания
+      description: |
+        Метод удаляет значение метаданных сборочного задания для переданного ключа.
+        Возможные метаданные: `imei`, `uin`, `gtin`, `sgtin`
+        Передается только одно значение.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления метаданных Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 300 запросов | 200 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+        - name: key
+          in: query
+          description: |
+            Название метаданных для удаления (`imei`, `uin`, `gtin`, `sgtin`).
+            Передается только одно значение.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Удалено
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/meta/sgtin:
+    put:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Метаданные Самовывоз
+      summary: Закрепить за сборочным заданием код маркировки товара
+      description: |
+        Метод закрепляет за сборочным заданием код маркировки [Честный знак](https://честныйзнак.рф).
+        <br><br>
+        Закрепить код маркировки можно только, если в [метаданных сборочного задания](/openapi/in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1{orderId}~1meta/get) есть поле `sgtins`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1status/post) `confirm`.
+        <br><br>
+        Получить загруженные маркировки можно в [метаданных сборочного задания](/openapi/in-store-pickup#tag/Metadannye-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1{orderId}~1meta/get).
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 1000 запросов | 60 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.SGTINsRequest'
+        required: true
+      responses:
+        '204':
+          description: Обновлено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+                IncorrectRequest:
+                  $ref: '#/components/examples/IncorrectRequest'
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка добавления маркировки.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                FailedToUpdateMeta:
+                  $ref: '#/components/examples/FailedToUpdateMeta'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/meta/uin:
+    put:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Метаданные Самовывоз
+      summary: Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+      description: |
+        Метод обновляет УИН сборочного задания. У одного сборочного задания может быть
+        только один УИН. Добавлять маркировку можно только для сборочных заданий в статусе
+        `confirm` и доставка которых осуществляется силами WB.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 1000 запросов | 60 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.UINRequest'
+        required: true
+      responses:
+        '204':
+          description: Обновлено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+                IncorrectRequest:
+                  $ref: '#/components/examples/IncorrectRequest'
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка добавления маркировки.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                FailedToUpdateMeta:
+                  $ref: '#/components/examples/FailedToUpdateMeta'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/meta/imei:
+    put:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Метаданные Самовывоз
+      summary: Закрепить за сборочным заданием IMEI
+      description: |
+        Метод обновляет IMEI сборочного задания. У одного сборочного задания может
+        быть только один IMEI. Добавлять маркировку можно только для сборочных заданий в
+        статусе `confirm` и доставка которых осуществляется силами WB.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 1000 запросов | 60 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.IMEIRequest'
+        required: true
+      responses:
+        '204':
+          description: Обновлено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+                IncorrectRequest:
+                  $ref: '#/components/examples/IncorrectRequest'
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка добавления маркировки.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                FailedToUpdateMeta:
+                  $ref: '#/components/examples/FailedToUpdateMeta'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders/{orderId}/meta/gtin:
+    put:
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Метаданные Самовывоз
+      summary: Закрепить за сборочным заданием GTIN
+      description: |
+        Метод обновляет GTIN (уникальный ID товара в Беларуси) сборочного
+        задания. У одного сборочного задания может быть только один GTIN.
+        Добавлять маркировку можно только для сборочных заданий в статусе `confirm` и
+        доставка которых осуществляется силами WB.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления метаданных Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 1000 запросов | 60 миллисекунд | 20 запросов |
+
+        Один запрос с кодом ответа <code>409</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: orderId
+          in: path
+          description: ID сборочного задания
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.GTINRequest'
+        required: true
+      responses:
+        '204':
+          description: Обновлено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectRequestBody:
+                  $ref: '#/components/examples/IncorrectRequestBody'
+                IncorrectRequest:
+                  $ref: '#/components/examples/IncorrectRequest'
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Ошибка добавления маркировки.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                FailedToUpdateMeta:
+                  $ref: '#/components/examples/FailedToUpdateMeta'
+        '429':
+          $ref: '#/components/responses/429'
+components:
+  securitySchemes:
+    HeaderApiKey:
+      type: apiKey
+      name: Authorization
+      in: header
+  examples:
+    NewOrderClick:
+      value:
+        orders:
+          - ddate: 29.10.2024
+            salePrice: 14000
+            requiredMeta:
+              - sgtin
+            article: wb1702fyjh
+            rid: 1234567673554519872.0.0
+            createdAt: '2024-10-29T10:19:30Z'
+            warehouseAddress: Москва, район Якиманка, Софийская набережная, 4 с1
+            orderCode: 23457822-6667
+            payMode: prepaid
+            skus:
+              - '2041546265353'
+            id: 1234567890
+            warehouseId: 1234567
+            nmId: 123456789
+            chrtId: 987654321
+            price: 14000
+            finalPrice: 14000
+            convertedPrice: 14000
+            convertedFinalPrice: 14000
+            currencyCode: 643
+            convertedCurrencyCode: 643
+            cargoType: 1
+            isZeroOrder: false
+    IncorrectRequestBody:
+      value:
+        code: IncorrectRequestBody
+        message: Некорректное тело запроса
+    InvalidPasscode:
+      description: Введён неправильный проверочный код
+      value:
+        code: InvalidPasscode
+    OrderNotFound:
+      description: Заказ не найден
+      value:
+        code: NotFound
+    StatusMismatch:
+      value:
+        code: StatusMismatch
+        message: Несоответствие статусов, проверьте их правильность
+    FailedToUpdateMeta:
+      value:
+        code: FailedToUpdateMeta
+        message: Не удалось обновить метаданные сборочного задания. Убедитесь, что сборочное задание удовлетворяет всем необходимым требованиям (сборочное задание существует, находится в статусе "На сборке", сборочному заданию доступны метаданные см. описание метода **Получить метаданные сборочного задания**)
+    IncorrectParameter:
+      value:
+        code: IncorrectParameter
+        message: Передан некорректный параметр
+    IncorrectRequest:
+      value:
+        code: IncorrectRequest
+        message: Переданы некорректные данные
+  schemas:
+    api.CheckedIdentity:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          description: |
+            Принадлежит ли заказ покупателю:
+              - `true` — принадлежит
+              - `false` — значение не применяется. Если заказ не принадлежит покупателю, вы получите ответ со статус-кодом `409`
+    Error:
+      type: object
+      nullable: false
+      properties:
+        code:
+          type: string
+          description: Код ошибки
+          nullable: false
+        message:
+          type: string
+          description: Описание ошибки
+          nullable: false
+        data:
+          type: object
+          description: Дополнительные данные, обогащающие ошибку
+          nullable: true
+    api.CheckIdentityRequest:
+      type: object
+      properties:
+        orderCode:
+          type: string
+          description: Уникальный ID заказа покупателя
+        passcode:
+          type: string
+          description: Код подтверждения
+      example:
+        orderCode: 170046918-0011
+        passcode: '4567'
+    api.Error:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: object
+        message:
+          type: string
+    api.GTINRequest:
+      type: object
+      properties:
+        gtin:
+          type: string
+          description: GTIN
+      example:
+        gtin:
+          - '1234567890123456'
+    api.IMEIRequest:
+      type: object
+      properties:
+        imei:
+          type: string
+          description: IMEI
+      example:
+        imei:
+          - '123456789012345'
+    api.NewOrder:
+      type: object
+      properties:
+        ddate:
+          type: string
+          description: Планируемая дата доставки
+        salePrice:
+          description: |
+            Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
+          type: integer
+          nullable: true
+          example: 504600
+        requiredMeta:
+          type: array
+          nullable: true
+          description: |
+            Список метаданных, доступных для сборочного задания
+          items:
+            type: string
+        article:
+          type: string
+          description: Артикул продавца
+        rid:
+          type: string
+          description: |
+            Уникальный ID заказа. <br>
+            Примечание: поле `rid` — это поле `srid` в ответах методов:
+              - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)
+              - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)
+              - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)
+              - [Отчет о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
+              - [Отчет о продажах по реализации](./financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get)
+        createdAt:
+          type: string
+          description: Дата и время создания сборочного задания
+          format: date-time
+        warehouseAddress:
+          type: string
+          description: |
+            Адрес магазина (склада продавца), на который поступило сборочное
+            задание
+        orderCode:
+          type: string
+          description: |
+            Уникальный ID заказа покупателя
+        payMode:
+          description: |
+            Режим оплаты:
+              - `prepaid` — предоплатный
+              - `postpaid` — постоплатный
+              - `unknown` — неизвестный
+          type: string
+          example: prepaid
+        skus:
+          type: array
+          description: Массив баркодов товара
+          items:
+            type: string
+        id:
+          type: integer
+          description: ID сборочного задания
+        warehouseId:
+          type: integer
+          description: |
+            ID склада продавца, на который поступило сборочное
+            задание
+        nmId:
+          type: integer
+          description: Артикул WB
+        chrtId:
+          type: integer
+          description: ID размера товара в системе WB
+        price:
+          type: integer
+          description: |
+            Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.
+            Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+        finalPrice:
+          description: Cумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          type: integer
+          example: 5000
+        convertedPrice:
+          description: Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          type: integer
+          example: 5000
+        convertedFinalPrice:
+          description: Cумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
+          type: integer
+          example: 5000
+        currencyCode:
+          type: integer
+          description: Код валюты продажи
+          example: 643
+          format: ISO 4217
+        convertedCurrencyCode:
+          description: Код валюты страны продавца
+          format: ISO 4217
+          type: integer
+          example: 643
+        cargoType:
+          type: integer
+          nullable: false
+          description: |
+            Тип товара:
+              - `1` — малогабаритный товар (МГТ)
+              - `2` — сверхгабаритный товар (СГТ)
+              - `3` — крупногабаритный товар (КГТ+)
+          enum:
+            - 1
+            - 2
+            - 3
+        isZeroOrder:
+          type: boolean
+          description: |
+            Признак заказа товара с нулевым остатком:
+              - `false` — заказ сделан на товар с ненулевым остатком
+              - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
+    api.NewOrders:
+      type: object
+      properties:
+        orders:
+          type: array
+          description: Список сборочных заданий
+          items:
+            $ref: '#/components/schemas/api.NewOrder'
+    api.Order:
+      type: object
+      properties:
+        article:
+          type: string
+          description: Артикул продавца
+          example: wb6scpbwvp
+        cargoType:
+          type: integer
+          nullable: false
+          description: |
+            Тип товара:
+              - `1` — малогабаритный товар (МГТ)
+              - `2` — сверхгабаритный товар (СГТ)
+              - `3` — крупногабаритный товар (КГТ+)
+          enum:
+            - 1
+            - 2
+            - 3
+          example: 1
+        chrtId:
+          type: integer
+          description: ID размера товара в системе WB
+          example: 12345676
+        createdAt:
+          type: string
+          description: Дата и время создания сборочного задания
+          format: date-time
+          example: '2025-03-21T09:53:31Z'
+        price:
+          type: integer
+          description: |
+            Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.
+            Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          example: 5000
+        finalPrice:
+          description: Cумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          type: integer
+          example: 5000
+        convertedPrice:
+          description: Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          type: integer
+          example: 5000
+        convertedFinalPrice:
+          description: Cумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
+          type: integer
+          example: 5000
+        currencyCode:
+          type: integer
+          description: Код валюты продажи
+          format: ISO 4217
+          example: 643
+        convertedCurrencyCode:
+          description: Код валюты страны продавца
+          format: ISO 4217
+          type: integer
+          example: 643
+        id:
+          type: integer
+          description: ID сборочного задания
+          example: 123456789
+        isZeroOrder:
+          type: boolean
+          description: |
+            Признак заказа товара с нулевым остатком:
+              - `false` — заказ сделан на товар с ненулевым остатком
+              - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
+          example: false
+        nmId:
+          type: integer
+          description: Артикул WB
+          example: 1234567898765
+        orderCode:
+          type: string
+          description: |
+            Уникальный ID заказа покупателя
+          example: 21117866-0006
+        payMode:
+          description: |
+            Режим оплаты:
+              - `prepaid` — предоплатный
+              - `postpaid` — постоплатный
+              - `unknown` — неизвестный
+          type: string
+          example: prepaid
+        rid:
+          type: string
+          description: |
+            Уникальный ID заказа. <br>
+            Примечание: поле `rid` — это поле `srid` в ответах методов:
+              - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)
+              - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)
+              - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)
+              - [Отчет о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
+              - [Отчет о продажах по реализации](./financial-reports-and-accounting#tag/Finansovye-otchyoty/paths/~1api~1v5~1supplier~1reportDetailByPeriod/get)
+          example: 5044304527347733263.0.0
+        skus:
+          type: array
+          description: Массив баркодов товара
+          items:
+            type: string
+          example:
+            - '2043227963145'
+        warehouseAddress:
+          type: string
+          description: Адрес магазина (склада продавца), на который поступило сборочное задание
+          example: Москва, район Якиманка, Софийская набережная, 4 с1
+        warehouseId:
+          type: integer
+          description: ID склада продавца, на который поступило сборочное задание
+          example: 1162157
+    api.OrderClientInfo:
+      type: object
+      properties:
+        phone:
+          type: string
+          description: |
+            Телефон для связи с покупателем. Чтобы связаться с покупателем наберите
+            этот номер и введите добавочный код. Данный номер не является прямым
+            номером покупателя.
+        firstName:
+          type: string
+          description: Имя покупателя
+        orderID:
+          type: integer
+          description: ID сборочного задания
+        phoneCode:
+          type: integer
+          description: Добавочный код
+      example:
+        phone: '+71111111111'
+        firstName: Иван
+        orderID: 1234567
+        phoneCode: 1234567
+    api.OrderClientInfoResp:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/api.OrderClientInfo'
+    api.OrderStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID сборочного задания
+        supplierStatus:
+          type: string
+          description: Статус сборочного задания, установленный продавцом
+        wbStatus:
+          type: string
+          description: Статус сборочного задания в системе WB
+      example:
+        supplierStatus: confirm
+        wbStatus: waiting
+        id: 1234567
+    api.OrderStatuses:
+      type: object
+      properties:
+        orders:
+          type: array
+          description: Список статусов сборочных заданий
+          items:
+            $ref: '#/components/schemas/api.OrderStatus'
+    api.Orders:
+      type: object
+      properties:
+        next:
+          type: integer
+          description: |
+            Параметр пагинации. Содержит значение, которое необходимо указать в
+            запросе для получения следующего пакета данных
+          example: 12345566
+        orders:
+          type: array
+          description: Список сборочных заданий
+          items:
+            $ref: '#/components/schemas/api.Order'
+    api.OrdersMeta:
+      type: object
+      properties:
+        meta:
+          type: object
+          description: Метаданные сборочного задания
+          allOf:
+            - $ref: '#/components/schemas/api.baseMeta'
+    api.OrdersRequest:
+      type: object
+      properties:
+        orders:
+          type: array
+          description: Список ID сборочных заданий
+          items:
+            type: integer
+      example:
+        orders:
+          - 1234567
+    api.SGTINsRequest:
+      type: object
+      properties:
+        sgtins:
+          type: array
+          description: Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки
+          items:
+            type: string
+      example:
+        sgtins:
+          - '1234567890123456'
+    api.UINRequest:
+      type: object
+      properties:
+        uin:
+          type: string
+          description: УИН
+      example:
+        uin:
+          - '1234567890123456'
+    api.baseMeta:
+      type: object
+      properties:
+        gtin:
+          type: object
+          properties:
+            value:
+              nullable: true
+              type: string
+              example: '123456789012345'
+          description: GTIN
+        imei:
+          type: object
+          properties:
+            value:
+              nullable: true
+              type: string
+              example: '123456789012345'
+          description: IMEI
+        sgtin:
+          type: object
+          properties:
+            value:
+              type: array
+              items:
+                type: string
+              example:
+                - '123456789012345'
+              nullable: true
+          description: Код маркировки Честного знака
+        uin:
+          type: object
+          properties:
+            value:
+              nullable: true
+              type: string
+              example: '123456789012345'
+          description: УИН
+  responses:
+    '401':
+      description: Не авторизован
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: unauthorized
+            detail: 'token problem; token is malformed: could not base64 decode signature: illegal base64 data at input byte 84'
+            code: 07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75
+            requestId: 7b80742415072fe8b6b7f7761f1d1211
+            origin: s2s-api-auth-catalog
+            status: 401
+            statusText: Unauthorized
+            timestamp: '2024-09-30T06:52:38Z'
+    '429':
+      description: Слишком много запросов
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: too many requests
+            detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+            code: 07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]
+            requestId: 9d3c02cc698f8b041c661a7c28bed293
+            origin: s2s-api-auth-catalog
+            status: 429
+            statusText: Too Many Requests
+            timestamp: '2024-09-30T06:52:38Z'
+    AccessDenied:
+      description: Доступ запрещён
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: AccessDenied
+            message: Доступ запрещён
+    NotFound:
+      description: Не найдено
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: NotFound
+            message: Not Found

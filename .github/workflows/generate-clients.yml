@@ -1,0 +1,40 @@
+name: Generate clients
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - generation.yaml
+      - specs/**
+      - scripts/**
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download specs
+        run: bash scripts/download-specs-from-config.sh
+
+      - name: Generate clients
+        env:
+          OPENAPI_GENERATOR_DOCKER: "1"
+        run: bash scripts/generate-clients.sh
+
+      - name: Commit generated clients
+        run: |
+          git add clients/python
+          if git diff --cached --quiet; then
+            echo "No client changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: regenerate clients"
+          git push

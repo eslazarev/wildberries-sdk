@@ -1,0 +1,910 @@
+openapi: 3.0.0
+info:
+  title: Тарифы
+  version: tariffs
+  description: |
+    <div class="description_important">
+        Узнать больше о комиссиях и тарифах можно в <a href="https://seller.wildberries.ru/instructions/category/a04560b5-256d-48cb-8f09-60e283b5d493">справочном центре</a>
+    </div>
+
+    В разделе описаны методы получения:
+      1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)
+      2. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)
+      3. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)
+  x-file-name: tariffs
+security:
+  - HeaderApiKey: []
+tags:
+  - name: Комиссии
+    description: ''
+  - name: Тарифы на остаток
+    description: ''
+  - name: Тарифы на поставку
+    description: ''
+  - name: Стоимость возврата продавцу
+    description: ''
+paths:
+  /api/v1/tariffs/commission:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      summary: Комиссия по категориям товаров
+      tags:
+        - Комиссии
+      description: |
+        Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 1 запрос | 1 минута | 2 запроса |
+        </div>
+      parameters:
+        - $ref: '#/components/parameters/Locale'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/Commission'
+                  - $ref: '#/components/schemas/CommissionChina'
+                  - $ref: '#/components/schemas/CommissionTurkey'
+                  - $ref: '#/components/schemas/CommissionUzbekistan'
+                  - $ref: '#/components/schemas/CommissionUAE'
+              examples:
+                Commission:
+                  $ref: '#/components/examples/Commission'
+                CommissionChina:
+                  $ref: '#/components/examples/CommissionChina'
+                CommissionTurkey:
+                  $ref: '#/components/examples/CommissionTurkey'
+                CommissionUzbekistan:
+                  $ref: '#/components/examples/CommissionUzbekistan'
+                CommissionUAE:
+                  $ref: '#/components/examples/CommissionUAE'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+              example:
+                detail: 'parameter "locale" in query has an error: value is not one of the allowed values ["ru","en","zh"]'
+                origin: api-statistics
+                requestId: 102d2641a931c41bed60649d6c99d80a
+                title: Bad Request
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/tariffs/box:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      summary: Тарифы для коробов
+      tags:
+        - Тарифы на остаток
+      description: "Для товаров, которые поставляются на\_склад в коробах, метод возвращает [тарифы на остаток](https://seller.wildberries.ru/dynamic-product-categories):\n  - доставка со склада или пункта приёма до покупателя\n  - доставка от покупателя до пункта приёма\n  - хранение на\_складе WB\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 минута | 60 запросов | 1 секунда | 5 запросов |\n</div>\n"
+      parameters:
+        - $ref: '#/components/parameters/Date'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TariffsBoxResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+              example:
+                detail: Invalid date param
+                origin: tariffs
+                requestId: 70da980b108e6f52ce7630921bd05b1a
+                title: Bad Request
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/tariffs/pallet:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      summary: Тарифы для монопаллет
+      tags:
+        - Тарифы на остаток
+      description: "Для товаров, которые поставляются на\_склад WB на\_монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):\n  - доставки со склада до покупателя\n  - доставки от покупателя до склада\n  - хранения на\_складе WB\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 минута | 60 запросов | 1 секунда | 5 запросов |\n</div>\n"
+      parameters:
+        - $ref: '#/components/parameters/Date'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TariffsPalletResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+              example:
+                detail: 'parameter "date" in query has an error: value is required but missing'
+                origin: tariffs
+                requestId: 7bc5c30d95933058d0e0bddc79b9da547
+                title: Bad Request
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/tariffs/v1/acceptance/coefficients:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Тарифы на поставку
+      summary: Тарифы на поставку
+      description: |
+        Метод возвращает тарифы на поставку для конкретных складов на ближайшие 14 дней.
+
+        <div class="description_important">
+          Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code>
+        </div>
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 6 запросов | 10 секунд | 6 запросов |
+        </div>
+      parameters:
+        - name: warehouseIDs
+          in: query
+          description: ID складов.<br>По умолчанию возвращаются данные по всем складам
+          schema:
+            type: string
+          example: 507,117501
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.AcceptanceCoefficient'
+              examples:
+                ResponseCoefficients:
+                  $ref: '#/components/examples/ResponseCoefficients'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadWarehouseIDsParamNew:
+                  $ref: '#/components/examples/Response400CoefficientsNew'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+        '404':
+          description: Не найдено
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/tariffs/return:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      summary: "Тарифы на\_возврат"
+      tags:
+        - Стоимость возврата продавцу
+      description: "Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):\n  - на\_перевозку товаров со склада WB или из пункта приёма до продавца\n  - на\_обратную перевозку возвратов, которые не забрал продавец\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 минута | 60 запросов | 1 секунда | 5 запросов |\n</div>\n"
+      parameters:
+        - $ref: '#/components/parameters/Date'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnTariffsResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+              example:
+                detail: 'parameter "date" in query has an error: empty value is not allowed'
+                origin: tariffs
+                requestId: e8096bddcfe5e3ff75f1afd26755364c
+                title: Bad Request
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+components:
+  examples:
+    ResponseCoefficients:
+      value:
+        - date: '2024-04-11T00:00:00Z'
+          coefficient: -1
+          warehouseID: 217081
+          warehouseName: Сц Брянск 2
+          allowUnload: false
+          boxTypeID: 6
+          storageCoef: null
+          deliveryCoef: null
+          deliveryBaseLiter: null
+          deliveryAdditionalLiter: null
+          storageBaseLiter: null
+          storageAdditionalLiter: null
+          isSortingCenter: true
+    Response400CoefficientsNew:
+      value:
+        status: 400
+        title: bad request
+        detail: Неверный формат warehouseIDs
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Значение параметра `warehouseIDs` не указано, или некорректно
+    Commission:
+      summary: Commission
+      description: Комиссия
+      value:
+        report:
+          - kgvpBooking: 14.5
+            kgvpMarketplace: 15.5
+            kgvpPickup: 14.5
+            kgvpSupplier: 12.5
+            kgvpSupplierExpress: 3
+            paidStorageKgvp: 15.5
+            parentID: 657
+            parentName: Бытовая техника
+            subjectID: 6461
+            subjectName: Оборудование зуботехническое
+    CommissionChina:
+      summary: CommissionChina
+      description: Комиссия Китай
+      value:
+        report:
+          - kgvpChina: 15.5
+            parentID: 657
+            parentName: 国内设备
+            subjectID: 6461
+            subjectName: 牙齿矫正设备
+    CommissionTurkey:
+      summary: CommissionTurkey
+      description: Комиссия Турция
+      value:
+        report:
+          - kgvpTurkey: 15.5
+            parentID: 657
+            parentName: Home appliance
+            subjectID: 6461
+            subjectName: Dental equipment
+    CommissionUzbekistan:
+      summary: CommissionUzbekistan
+      description: Комиссия Узбекистан
+      value:
+        report:
+          - kgvpUzbekistan: 15.5
+            parentID: 657
+            parentName: Бытовая техника
+            subjectID: 6461
+            subjectName: Оборудование зуботехническое
+    CommissionUAE:
+      summary: CommissionUAE
+      description: Комиссия ОАЭ
+      value:
+        report:
+          - kgvpUAE: 15.5
+            parentID: 657
+            parentName: Home appliance
+            subjectID: 6461
+            subjectName: Dental equipment
+  securitySchemes:
+    HeaderApiKey:
+      type: apiKey
+      name: Authorization
+      in: header
+  parameters:
+    Date:
+      in: query
+      name: date
+      required: true
+      description: Дата в формате ГГГГ-ММ-ДД
+      schema:
+        type: string
+    Locale:
+      name: locale
+      in: query
+      schema:
+        type: string
+        example: ru
+      description: |
+        Язык полей ответа `parentName` и `subjectName`:
+          - `ru` — русский
+          - `en` — английский
+          - `zh` — китайский
+  schemas:
+    models.TariffsBoxResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/models.WarehousesBoxRates'
+    models.WarehousesBoxRates:
+      type: object
+      properties:
+        dtNextBox:
+          type: string
+          description: Дата начала следующего тарифа
+          example: '2024-02-01'
+        dtTillMax:
+          type: string
+          description: Дата окончания последнего установленного тарифа
+          example: '2024-03-31'
+        warehouseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/models.WarehouseBoxRates'
+          nullable: true
+          description: Тарифы для коробов, сгруппированные по складам
+    models.WarehouseBoxRates:
+      type: object
+      properties:
+        boxDeliveryBase:
+          type: string
+          description: "Логистика, первый литр,\_₽"
+          example: '48'
+        boxDeliveryCoefExpr:
+          type: string
+          description: "Коэффициент **Логистика**,\_%. На\_него умножается стоимость логистики. Уже учтён в\_тарифах"
+          example: '160'
+        boxDeliveryLiter:
+          type: string
+          description: "Логистика, дополнительный литр,\_₽"
+          example: 11,2
+        boxDeliveryMarketplaceBase:
+          type: string
+          description: "Логистика FBS, первый литр,\_₽"
+          example: '40'
+        boxDeliveryMarketplaceCoefExpr:
+          type: string
+          description: "Коэффициент **FBS**,\_%. На\_него умножается стоимость логистики FBS. Уже учтён в\_тарифах"
+          example: '125'
+        boxDeliveryMarketplaceLiter:
+          type: string
+          description: "Логистика FBS, дополнительный литр,\_₽"
+          example: '11'
+        boxStorageBase:
+          type: string
+          description: "Хранение в\_день, первый литр,\_₽"
+          example: 0,14
+        boxStorageCoefExpr:
+          type: string
+          description: "Коэффициент **Хранение**,\_%. На\_него умножается стоимость хранения в день. Уже учтён в\_тарифах"
+          example: '115'
+        boxStorageLiter:
+          type: string
+          description: "Хранение в\_день, дополнительный литр,\_₽"
+          example: 0,07
+        geoName:
+          type: string
+          description: "Страна, для РФ\_—\_округ"
+          example: Центральный федеральный округ
+        warehouseName:
+          type: string
+          description: Название склада
+          example: Коледино
+    models.TariffsPalletResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/models.WarehousesPalletRates'
+    models.WarehousesPalletRates:
+      type: object
+      properties:
+        dtNextPallet:
+          type: string
+          description: Дата начала следующего тарифа
+          example: '2024-02-01'
+        dtTillMax:
+          type: string
+          description: Дата окончания последнего установленного тарифа
+          example: '2024-03-31'
+        warehouseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/models.WarehousePalletRates'
+          nullable: true
+          description: Тарифы для монопаллет, сгруппированные по складам
+    models.WarehousePalletRates:
+      type: object
+      properties:
+        palletDeliveryExpr:
+          type: string
+          description: Коэффициент доставки, %. На него умножается стоимость доставки. Во всех тарифах этот коэффициент уже учтён
+          example: '170'
+        palletDeliveryValueBase:
+          type: string
+          description: "Доставка 1\_литра,\_₽"
+          example: '51'
+        palletDeliveryValueLiter:
+          type: string
+          description: "Доставка каждого дополнительного литра,\_₽"
+          example: 11,9
+        palletStorageExpr:
+          type: string
+          description: Коэффициент хранения, %. На него умножается стоимость хранения. Во всех тарифах этот коэффициент уже учтён
+          example: '155'
+        palletStorageValueExpr:
+          type: string
+          description: "Хранение 1\_монопаллеты,\_₽"
+          example: '35.65'
+        warehouseName:
+          type: string
+          description: Название склада
+          example: Коледино
+    models.ReturnTariffsResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/models.WarehousesReturnRates'
+    models.WarehousesReturnRates:
+      type: object
+      properties:
+        dtNextDeliveryDumpKgt:
+          type: string
+          description: Дата начала следующего тарифа при грузовой доставке
+          example: '2024-02-01'
+        dtNextDeliveryDumpSrg:
+          type: string
+          description: Дата начала следующего тарифа для неопознанных товаров
+          example: '2024-02-01'
+        dtNextDeliveryDumpSup:
+          type: string
+          description: Дата начала следующего тарифа при обычной доставке
+          example: '2024-02-01'
+        warehouseList:
+          type: array
+          items:
+            $ref: '#/components/schemas/models.WarehouseReturnRates'
+          nullable: true
+          description: "Тарифы на\_возврат, сгруппированные по складам:\n  - стоимость возврата брака и возврата по инициативе продавца при грузовой доставке.\n  - стоимость возврата неопознанного складом товара.\n  - стоимость возврата брака, возврата по инициативе продавца и автовозвратов Маркетплейс (в пункт выдачи и обратно).\n\nМожно получить стоимость возврата в пункт выдачи (ПВЗ) и обратной логистики\_— если продавец не забрал товары из пункта выдачи за\_7 дней.\n"
+    models.WarehouseReturnRates:
+      type: object
+      properties:
+        deliveryDumpKgtOfficeBase:
+          type: string
+          description: "**Стоимость возврата при грузовой доставке, доставка на\_ПВЗ (базовая цена\_за\_1\_л),\_₽**\nПрименяется для крупногабаритных товаров, когда:\n  - продавец хочет вывезти товары со склада WB;\n  - на\_складе обнаружили бракованные товары;\n  - покупатель возвращает товар, но его нельзя вернуть в продажу.\n"
+          example: 1 039
+        deliveryDumpKgtOfficeLiter:
+          type: string
+          description: "**Стоимость возврата при грузовой доставке, доставка на\_ПВЗ (доп. литр),\_₽**<br>\nСтоимость за\_каждый дополнительный литр.\n"
+          example: 9,1
+        deliveryDumpKgtReturnExpr:
+          type: string
+          description: "**Стоимость возврата при грузовой доставке, обратная логистика невостребованного возврата,\_₽**<br>\nГрузовая доставка невостребованного возврата обратно на\_склад WB. За единицу товара.\n"
+          example: 1 050
+        deliveryDumpSrgOfficeExpr:
+          type: string
+          description: |
+            **Стоимость возврата неопознанного складом товара за каждую единицу, доставка на ПВЗ, ₽**<br>
+            Применяется для товаров, которые не смогли принять на складе.
+          example: '170'
+        deliveryDumpSrgReturnExpr:
+          type: string
+          description: |
+            **Стоимость возврата неопознанного складом товара за каждую единицу, обратная логистика невостребованного возврата, ₽** <br>Доставка невостребованного возврата обратно на склад WB.
+          example: '170'
+        deliveryDumpSupCourierBase:
+          type: string
+          description: |
+            **Стоимость возврата, доставка курьером (базовая цена за 1 л), ₽**
+
+            Применяется, когда:
+              - продавец хочет вывезти товары со склада Wildberries
+              - на складе обнаружили бракованные товары
+              - покупатель возвращает товар, но его нельзя вернуть в продажу
+              - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
+          example: '229'
+        deliveryDumpSupCourierLiter:
+          type: string
+          description: |
+            **Стоимость возврата, доставка курьером (доп. л), ₽**
+            <br>Стоимость за каждый дополнительный литр.
+          example: 9,1
+        deliveryDumpSupOfficeBase:
+          type: string
+          description: |
+            **Стоимость возврата, доставка на ПВЗ (базовая цена за 1 л), ₽**
+
+            Применяется, когда:
+              - продавец хочет вывезти товары со склада Wildberries
+              - на складе обнаружили бракованные товары
+              - покупатель возвращает товар, но его нельзя вернуть в продажу
+              - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
+          example: '129'
+        deliveryDumpSupOfficeLiter:
+          type: string
+          description: |
+            **Стоимость возврата, доставка на ПВЗ (доп. литр), ₽** <br>Стоимость за каждый дополнительный литр
+          example: 9,1
+        deliveryDumpSupReturnExpr:
+          type: string
+          description: |
+            **Стоимость возврата, обратная логистика невостребованного возврата, за единицу товара, ₽**<br>
+            Доставка невостребованного возврата обратно на склад Wildberries.
+
+            Применяется, когда:
+              - продавец хочет вывезти товары со склада Wildberries
+              - на складе обнаружили бракованные товары
+              - покупатель возвращает товар, но его нельзя вернуть в продажу
+              - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
+          example: '250'
+        warehouseName:
+          type: string
+          description: Название склада
+          example: Электросталь
+    models.ErrorModel:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP статус-код
+        title:
+          type: string
+          description: ID ошибки
+        detail:
+          type: string
+          description: Описание ошибки
+        requestId:
+          type: string
+          description: ID запроса
+        origin:
+          type: string
+          description: Сервис, вернувший ошибку
+    models.AcceptanceCoefficient:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Дата начала действия коэффициента
+        coefficient:
+          type: number
+          description: |
+            Коэффициент приёмки:
+              - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`
+              - `0` — бесплатная приёмка
+              - от `1` — множитель стоимости приёмки
+        warehouseID:
+          type: integer
+          description: ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok/paths/~1api~1v1~1warehouses/get)
+        warehouseName:
+          type: string
+          description: Название склада
+        allowUnload:
+          type: boolean
+          description: |
+            Доступность приёмки для поставок данного типа, смотри значение поля `boxTypeID`:
+
+             - `true` — приёмка доступна
+             - `false` — приёмка не доступна
+        boxTypeID:
+          type: integer
+          description: |
+            ID типа поставки:
+              - `2` — Короба
+              - `5` — Монопаллеты
+              - `6` — Суперсейф
+            <br>Для типа поставки **QR-поставка с коробами** поле не возвращается
+        storageCoef:
+          type: string
+          nullable: true
+          description: Коэффициент хранения
+        deliveryCoef:
+          type: string
+          nullable: true
+          description: Коэффициент логистики
+        deliveryBaseLiter:
+          type: string
+          nullable: true
+          description: Стоимость логистики первого литра
+        deliveryAdditionalLiter:
+          type: string
+          nullable: true
+          description: Стоимость логистики каждого следующего литра
+        storageBaseLiter:
+          type: string
+          nullable: true
+          description: |
+            Стоимость хранения:
+              - для паллет — стоимость за одну паллету
+              - для коробов — стоимость хранения за первый литр
+        storageAdditionalLiter:
+          type: string
+          nullable: true
+          description: |
+            Стоимость хранения каждого последующего литра:
+              - для паллет — всегда будет `null`, т.к. стоимость хранения за единицу паллеты определяется в `StorageBaseLiter`
+              - для коробов — стоимость хранения за каждый последующий литр
+        isSortingCenter:
+          type: boolean
+          description: |
+            Тип склада:
+
+             - `true` — сортировочный центр (СЦ)
+             - `false` — обычный
+    TariffsBoxResponse:
+      type: object
+      properties:
+        response:
+          $ref: '#/components/schemas/models.TariffsBoxResponse'
+    TariffsPalletResponse:
+      type: object
+      properties:
+        response:
+          $ref: '#/components/schemas/models.TariffsPalletResponse'
+    ReturnTariffsResponse:
+      type: object
+      properties:
+        response:
+          $ref: '#/components/schemas/models.ReturnTariffsResponse'
+    Commission:
+      additionalProperties: false
+      type: object
+      properties:
+        report:
+          type: array
+          description: Список комиссий
+          items:
+            type: object
+            properties:
+              kgvpBooking:
+                type: number
+                description: Комиссия по модели «Бронирование», %
+              kgvpMarketplace:
+                type: number
+                description: Комиссия по модели «Маркетплейс» (`FBS`), %
+              kgvpPickup:
+                type: number
+                description: Комиссия по модели «Самовывоз из магазина продавца» (`C&C`), %
+              kgvpSupplier:
+                type: number
+                description: Комиссия по моделям «Витрина» (`DBS`) и «Курьер WB» (`DBW`), %
+              kgvpSupplierExpress:
+                type: number
+                description: Комиссия по модели «Витрина экспресс» (`EDBS`), %
+              paidStorageKgvp:
+                type: number
+                description: Комиссия по модели «Склад WB» (`FBW`), %
+              parentID:
+                type: integer
+                description: ID родительской категории
+              parentName:
+                type: string
+                description: Название родительской категории
+              subjectID:
+                type: integer
+                description: ID предмета
+              subjectName:
+                type: string
+                description: Название предмета
+    CommissionChina:
+      type: object
+      properties:
+        report:
+          type: array
+          description: Список комиссий
+          items:
+            type: object
+            properties:
+              kgvpChina:
+                type: number
+                description: Комиссия для продавцов из Китая, %
+              parentID:
+                type: integer
+                description: ID родительской категории
+              parentName:
+                type: string
+                description: Название родительской категории
+              subjectID:
+                type: integer
+                description: ID предмета
+              subjectName:
+                type: string
+                description: Название предмета
+    CommissionTurkey:
+      type: object
+      properties:
+        report:
+          type: array
+          description: Список комиссий
+          items:
+            type: object
+            properties:
+              kgvpTurkey:
+                type: number
+                description: Комиссия для продавцов из Турции, %
+              parentID:
+                type: integer
+                description: ID родительской категории
+              parentName:
+                type: string
+                description: Название родительской категории
+              subjectID:
+                type: integer
+                description: ID предмета
+              subjectName:
+                type: string
+                description: Название предмета
+    CommissionUzbekistan:
+      type: object
+      properties:
+        report:
+          type: array
+          description: Список комиссий
+          items:
+            type: object
+            properties:
+              kgvpUzbekistan:
+                type: number
+                description: Комиссия для продавцов из Узбекистана, %
+              parentID:
+                type: integer
+                description: ID родительской категории
+              parentName:
+                type: string
+                description: Название родительской категории
+              subjectID:
+                type: integer
+                description: ID предмета
+              subjectName:
+                type: string
+                description: Название предмета
+    CommissionUAE:
+      type: object
+      properties:
+        report:
+          type: array
+          description: Список комиссий
+          items:
+            type: object
+            properties:
+              kgvpUAE:
+                type: number
+                description: Комиссия для продавцов из ОАЭ, %
+              parentID:
+                type: integer
+                description: ID родительской категории
+              parentName:
+                type: string
+                description: Название родительской категории
+              subjectID:
+                type: integer
+                description: ID предмета
+              subjectName:
+                type: string
+                description: Название предмета
+    BadRequest:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Детали ошибки
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+        requestId:
+          type: string
+          description: Уникальный ID запроса
+        title:
+          type: string
+          description: Заголовок ошибки
+  responses:
+    '401':
+      description: Не авторизован
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: unauthorized
+            detail: 'token problem; token is malformed: could not base64 decode signature: illegal base64 data at input byte 84'
+            code: 07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75
+            requestId: 7b80742415072fe8b6b7f7761f1d1211
+            origin: s2s-api-auth-catalog
+            status: 401
+            statusText: Unauthorized
+            timestamp: '2024-09-30T06:52:38Z'
+    '429':
+      description: Слишком много запросов
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: too many requests
+            detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+            code: 07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]
+            requestId: 9d3c02cc698f8b041c661a7c28bed293
+            origin: s2s-api-auth-catalog
+            status: 429
+            statusText: Too Many Requests
+            timestamp: '2024-09-30T06:52:38Z'

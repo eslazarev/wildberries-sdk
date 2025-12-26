@@ -1,0 +1,1044 @@
+openapi: 3.0.1
+info:
+  title: Общее
+  version: general
+  x-file-name: general
+  description: |
+    В этом разделе:
+      - [общая информация о WB API](/openapi/api-information#tag/Vvedenie)
+      - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API)
+      - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token)
+      - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP)
+      - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov)
+      - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)
+
+    С помощью методов этого раздела вы можете:
+      - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get)
+      - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get)
+      - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get)
+      - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)
+security:
+  - HeaderApiKey: []
+tags:
+  - name: Введение
+    description: ''
+  - name: Авторизация
+    description: ''
+  - name: Проверка подключения к WB API
+    description: ''
+  - name: API новостей
+    description: ''
+  - name: Информация о продавце
+    description: ''
+  - name: Управление пользователями продавца
+    description: ''
+paths:
+  /ping:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: all
+      tags:
+        - Проверка подключения к WB API
+      security:
+        - HeaderApiKey: []
+      summary: Проверка подключения
+      description: |
+        Метод проверяет:
+          1. Успешно ли запрос доходит до WB API
+          2. Валидность токена авторизации и URL запроса
+          3. Совпадают ли категория токена и сервис
+
+        <div class="description_important">
+          Метод не предназначен для проверки доступности сервисов WB
+        </div>
+
+        У каждого сервиса есть свой вариант метода в зависимости от домена:
+
+        | Категория | URL запроса |
+        |---------------|-----------------------|
+        | Контент | `https://content-api.wildberries.ru/ping`<br>`https://content-api-sandbox.wildberries.ru/ping` |
+        | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` |
+        | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`<br>`https://discounts-prices-api-sandbox.wildberries.ru/ping` |
+        | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` |
+        | Статистика | `https://statistics-api.wildberries.ru/ping`<br>`https://statistics-api-sandbox.wildberries.ru/ping` |
+        | Продвижение | `https://advert-api.wildberries.ru/ping`<br>`https://advert-api-sandbox.wildberries.ru/ping` |
+        | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`<br>`https://feedbacks-api-sandbox.wildberries.ru/ping` |
+        | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` |
+        | Поставки | `https://supplies-api.wildberries.ru/ping` |
+        | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` |
+        | Документы | `https://documents-api.wildberries.ru/ping` |
+        | Финансы | `https://finance-api.wildberries.ru/ping` |
+        | Тарифы, Новости, Информация о продавце | `https://common-api.wildberries.ru/ping` |
+        | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
+
+        <div class="description_limit">
+          Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  TS:
+                    type: string
+                    description: Timestamp запроса
+                  Status:
+                    type: string
+                    enum:
+                      - OK
+                    description: Статус
+              example:
+                TS: '2024-08-16T11:19:05+03:00'
+                Status: OK
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/communications/v2/news:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      tags:
+        - API новостей
+      security:
+        - HeaderApiKey: []
+      summary: Получение новостей портала продавцов
+      description: |
+        Метод позволяет получать новости портала продавцов. <br> Для получения успешного ответа необходимо указать
+        один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 1 запрос | 1 минута | 10 запросов |
+        </div>
+      parameters:
+        - in: query
+          name: from
+          required: false
+          schema:
+            type: string
+            format: date
+            description: Дата, от которой необходимо выдать новости
+            example: '2025-02-06'
+        - in: query
+          name: fromID
+          required: false
+          schema:
+            type: integer
+            format: uint64
+          description: ID новости, начиная с которой — включая её — нужно получить список новостей
+          example: 7369
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    description: Новости
+                    items:
+                      type: object
+                      properties:
+                        content:
+                          type: string
+                          description: Текст новости
+                          format: plaintext
+                        date:
+                          format: date-time
+                          type: string
+                          description: Дата и время публикации новости
+                        header:
+                          type: string
+                          description: Заголовок новости
+                        id:
+                          type: integer
+                          description: ID новости
+                        types:
+                          type: array
+                          description: Теги новости
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                description: ID тега
+                              name:
+                                type: string
+                                description: Название тега
+              example:
+                data:
+                  - content: |
+                      Теперь в кампаниях ВБ.Медиа вы можете размещать баннеры для пользователей, которые взаимодействовали
+                      с товарами из определённой категории: покупали, искали, добавляли в корзину и избранное. Также можно
+                      выбрать период, за который хотите учитывать эти действия.Например, вы продаёте обувь. Рекламу можно
+                      показать людям, которые добавляли в корзину или избранное товары из этой категории за последние 14
+                      дней. Возможно, пользователи, которые попадают под этот критерий, уже совершили покупку. Поэтому вы
+                      можете уточнить настройки показа: добавить параметр «Не покупал товар из категории „Обувь“ в последние
+                      14 дней». Так вероятность того, что ваш баннер приведёт к покупке, будет выше.Чтобы запустить рекламу,
+                      создайте в кабинете ВБ.Медиа кампанию «По показам» и на шаге 4 включите «Поведенческие параметры».
+                      Эти параметры можно комбинировать с таргетированием по предполагаемым интересам, полу, возрасту и
+                      региону.Подробнее о том, как настроить таргетинг, — в инструкции «По показам».Запустить рекламу на
+                      Wildberries
+                    date: '2025-02-05T14:10:35+03:00'
+                    header: |
+                      Новые настройки кампаний в ВБ.Медиа: таргетируйте рекламу в зависимости от того, как аудитория
+                      использует сервисы Wildberries
+                    id: 7369
+                    types:
+                      - id: 4
+                        name: Маркетинг
+                  - content: |
+                      Добавили получение отчётов по текстам поисковых запросов в формате CSV. В описания методов «Создать
+                      отчёт» и «Получить отчёт» добавили описания и примеры моделей: • запросов — SearchReportTextReq, •
+                      успешных ответов (статус-код 200) — SearchReportTextRes.В ответ метода «Поисковые запросы по товару»
+                      добавили 8 полей и структуры price и medianPosition. Узнать больше можно в Журнале изменений.Эти методы
+                      доступны только с подпиской «Джем»
+                    date: '2025-02-06T18:14:58+03:00'
+                    header: Изменения в API «Аналитики и данных»
+                    id: 7373
+                    types:
+                      - id: 8
+                        name: API
+                      - id: 41
+                        name: Аналитика продавца
+        '400':
+          description: Неправильный запрос
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/seller-info:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      tags:
+        - Информация о продавце
+      security:
+        - HeaderApiKey: []
+      summary: Получение информации о продавце
+      description: |
+        Метод позволяет получать наименование продавца и ID его профиля.
+        <br> В запросе можно использовать любой токен, у которого не выбрана опция **Тестовый контур**.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 1 запрос | 1 минута | 10 запросов |
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Наименование продавца
+                  sid:
+                    format: UUID
+                    type: string
+                    description: Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/Avtorizaciya/Kak-ustroen-token)
+                  tradeMark:
+                    type: string
+                    description: Торговое наименование продавца
+              example:
+                name: ИП Кружинин В. Р.
+                sid: e8923014-e233-47q8-898e-3cc86d67ea61
+                tradeMark: Flax Store
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/invite:
+    servers:
+      - url: https://user-management-api.wildberries.ru
+    post:
+      tags:
+        - Управление пользователями продавца
+      security:
+        - HeaderApiKey: []
+      summary: Создать приглашение для нового пользователя
+      description: |
+        Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.<br>
+        Как выдаются права доступа:
+        - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и **Джем** (`changeJam`)
+        - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию
+        - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию
+        - Если в `access` дважды указан один и тот же раздел (`code`):
+          - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан
+          - при одинаковых значениях `"disabled": true` доступ не будет выдан
+          - при одинаковых значениях `"disabled": false` доступ будет выдан
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 секунда | 1 запрос | 1 секунда | 5 запросов |
+        </div>
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createInviteRequest'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createInviteResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/users:
+    servers:
+      - url: https://user-management-api.wildberries.ru
+    get:
+      tags:
+        - Управление пользователями продавца
+      security:
+        - HeaderApiKey: []
+      summary: Получить список активных или приглашённых пользователей продавца
+      description: |
+        Метод возвращает список активных или приглашённых пользователей профиля продавца.<br><br>
+        Чтобы выбрать список, укажите значение параметра `isInviteOnly`:
+          - `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ
+          - `isInviteOnly=false` или не указан — список активных пользователей
+
+        По каждому пользователю можно получить:
+          - роль пользователя
+          - разделы, к которым есть доступы
+          - статус приглашения
+
+        Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 секунда | 1 запрос | 1 секунда | 5 запросов |
+        </div>
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            format: int64
+            maximum: 100
+            default: 100
+          description: Количество активных или приглашённых пользователей в ответе
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            format: int64
+            default: 0
+          description: |
+            Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+        - in: query
+          name: isInviteOnly
+          schema:
+            type: boolean
+            default: false
+          description: |
+            - `true` — список приглашённых пользователей, которые ещё не активировали доступ
+            - `false` или не указан — список активных пользователей профиля продавца
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getUsersResponse'
+              examples:
+                invitesOnly:
+                  summary: isInviteOnly=true
+                  description: Список приглашённых пользователей
+                  value:
+                    total: 2
+                    countInResponse: 2
+                    users:
+                      - id: 0
+                        role: ''
+                        position: Аналитик
+                        phone: '79998888888'
+                        email: ''
+                        isOwner: false
+                        firstName: ''
+                        secondName: ''
+                        patronymic: ''
+                        goodsReturn: false
+                        isInvitee: true
+                        inviteeInfo:
+                          phoneNumber: '79998888888'
+                          position: Аналитик
+                          inviteUuid: 00000000-0000-4000-8000-000000000001
+                          expiredAt: '2025-12-01T00:00:00Z'
+                          isActive: true
+                        access:
+                          - code: supply
+                            disabled: true
+                          - code: changeJam
+                            disabled: true
+                          - code: showcase
+                            disabled: false
+                          - code: suppliersDocuments
+                            disabled: false
+                          - code: discountPrice
+                            disabled: true
+                          - code: feedbacks
+                            disabled: false
+                          - code: questions
+                            disabled: false
+                          - code: wbPoint
+                            disabled: false
+                          - code: brands
+                            disabled: true
+                          - code: pointsForReviews
+                            disabled: false
+                          - code: pinFeedbacks
+                            disabled: false
+                          - code: finance
+                            disabled: true
+                          - code: feedbacksQuestions
+                            disabled: false
+                          - code: balance
+                            disabled: false
+                      - id: 0
+                        role: ''
+                        position: ''
+                        phone: 7999XXXX102
+                        email: ''
+                        isOwner: false
+                        firstName: ''
+                        secondName: ''
+                        patronymic: ''
+                        goodsReturn: false
+                        isInvitee: true
+                        inviteeInfo:
+                          phoneNumber: '79996666666'
+                          position: Аналитик
+                          inviteUuid: 00000000-0000-4000-8000-000000000002
+                          expiredAt: '2025-12-10T00:00:00Z'
+                          isActive: false
+                        access:
+                          - code: supply
+                            disabled: true
+                          - code: changeJam
+                            disabled: true
+                          - code: showcase
+                            disabled: false
+                          - code: suppliersDocuments
+                            disabled: false
+                          - code: discountPrice
+                            disabled: true
+                          - code: feedbacks
+                            disabled: false
+                          - code: questions
+                            disabled: false
+                          - code: wbPoint
+                            disabled: false
+                          - code: brands
+                            disabled: true
+                          - code: pointsForReviews
+                            disabled: false
+                          - code: pinFeedbacks
+                            disabled: false
+                          - code: finance
+                            disabled: true
+                          - code: feedbacksQuestions
+                            disabled: false
+                          - code: balance
+                            disabled: false
+                usersOnly:
+                  summary: isInviteOnly=false
+                  description: Список активных пользователей
+                  value:
+                    total: 2
+                    countInResponse: 2
+                    users:
+                      - id: 1001
+                        role: user
+                        position: Аналитик
+                        phone: '79999999999'
+                        email: user1@example.com
+                        isOwner: true
+                        firstName: Иван
+                        secondName: Иванов
+                        patronymic: ''
+                        goodsReturn: true
+                        isInvitee: false
+                        inviteeInfo: null
+                        access:
+                          - code: supply
+                            disabled: true
+                          - code: changeJam
+                            disabled: true
+                          - code: showcase
+                            disabled: false
+                          - code: suppliersDocuments
+                            disabled: false
+                          - code: discountPrice
+                            disabled: true
+                          - code: feedbacks
+                            disabled: false
+                          - code: questions
+                            disabled: false
+                          - code: wbPoint
+                            disabled: false
+                          - code: brands
+                            disabled: true
+                          - code: pointsForReviews
+                            disabled: false
+                          - code: pinFeedbacks
+                            disabled: false
+                          - code: finance
+                            disabled: true
+                          - code: feedbacksQuestions
+                            disabled: false
+                          - code: balance
+                            disabled: false
+                      - id: 1002
+                        role: user
+                        position: Менеджер
+                        phone: '79997777777'
+                        email: user2@example.com
+                        isOwner: false
+                        firstName: Владимир
+                        secondName: Смирнов
+                        patronymic: ''
+                        goodsReturn: true
+                        isInvitee: true
+                        inviteeInfo:
+                          phoneNumber: '79997777777'
+                          position: Менеджер
+                          inviteUuid: 00000000-0000-4000-8000-000000000001
+                          expiredAt: '2025-12-01T00:00:00Z'
+                          isActive: true
+                        access:
+                          - code: supply
+                            disabled: true
+                          - code: changeJam
+                            disabled: true
+                          - code: showcase
+                            disabled: false
+                          - code: suppliersDocuments
+                            disabled: false
+                          - code: discountPrice
+                            disabled: true
+                          - code: feedbacks
+                            disabled: false
+                          - code: questions
+                            disabled: false
+                          - code: wbPoint
+                            disabled: false
+                          - code: brands
+                            disabled: true
+                          - code: pointsForReviews
+                            disabled: false
+                          - code: pinFeedbacks
+                            disabled: false
+                          - code: finance
+                            disabled: true
+                          - code: feedbacksQuestions
+                            disabled: false
+                          - code: balance
+                            disabled: false
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/users/access:
+    servers:
+      - url: https://user-management-api.wildberries.ru
+    put:
+      tags:
+        - Управление пользователями продавца
+      security:
+        - HeaderApiKey: []
+      summary: Изменить права доступа пользователей
+      description: |
+        Метод меняет права доступа одному или нескольким пользователям.<br>
+        <br>
+        Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 секунда | 1 запрос | 1 секунда | 5 запросов |
+        </div>
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateUserAccessRequest'
+      responses:
+        '200':
+          description: Успешно
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/user:
+    servers:
+      - url: https://user-management-api.wildberries.ru
+    delete:
+      tags:
+        - Управление пользователями продавца
+      security:
+        - HeaderApiKey: []
+      summary: Удалить пользователя
+      description: |
+        Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca/paths/~1api~1v1~1users/get). Этому пользователю будет закрыт доступ в профиль продавца.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 секунда | 1 запрос | 1 секунда | 10 запросов |
+        </div>
+      parameters:
+        - in: query
+          name: deletedUserID
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: ID пользователя, которому будет закрыт доступ
+      responses:
+        '200':
+          description: Успешно
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+components:
+  securitySchemes:
+    HeaderApiKey:
+      type: apiKey
+      name: Authorization
+      in: header
+  schemas:
+    Access:
+      type: array
+      description: Настройки доступа к разделам профиля продавца
+      items:
+        type: object
+        required:
+          - code
+          - disabled
+        properties:
+          code:
+            type: string
+            description: |
+              Код раздела профиля продавца, к которому пользователь получит доступ:
+              * `balance` — Просмотр баланса и вывод средств
+              * `brands` — Управление брендами
+              * `changeJam` — Доступ к подключению подписки **Джем**: **А/Б тесты**, отметки на фото, автозапуски видео, сравнение карточек
+              * `discountPrice` — Изменение цен на товары, управление скидками и акциями
+              * `finance` — Финансовая аналитика. Статистика по балансу, финансовые отчёты, история платежей
+              * `showcase` — Управление витриной магазина
+              * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой
+              * `supply` — Создание и управление поставками FBW
+              * `feedbacksQuestions` — Просмотр и ответы на вопросы и отзывы покупателей, жалобы на отзывы
+              * `questions` — Просмотр и ответы на вопросы покупателей
+              * `pinFeedbacks` — Возможность закреплять и откреплять отзывы
+              * `pointsForReviews` — Баллы за отзывы
+              * `feedbacks` — Просмотр и ответы на отзывы покупателей
+              * `wbPoint` — WB Point
+            enum:
+              - balance
+              - brands
+              - changeJam
+              - discountPrice
+              - finance
+              - showcase
+              - suppliersDocuments
+              - supply
+              - feedbacksQuestions
+              - questions
+              - pinFeedbacks
+              - pointsForReviews
+              - feedbacks
+              - wbPoint
+          disabled:
+            type: boolean
+            description: |
+              * `true` — доступ к разделу запрещён
+              * `false` — доступ к разделу разрешён
+      example:
+        - code: balance
+          disabled: false
+        - code: pointsForReviews
+          disabled: false
+        - code: brands
+          disabled: true
+        - code: finance
+          disabled: true
+        - code: supply
+          disabled: true
+    getUsersResponse:
+      type: object
+      required:
+        - users
+        - total
+        - countInResponse
+      properties:
+        total:
+          type: integer
+          description: Общее количество активных или приглашённых пользователей
+        countInResponse:
+          type: integer
+          description: Количество активных или приглашённых пользователей на текущей странице
+        users:
+          type: array
+          description: Информация о пользователях
+          items:
+            type: object
+            required:
+              - id
+              - role
+              - position
+              - phone
+              - email
+              - isOwner
+              - firstName
+              - secondName
+              - patronymic
+              - goodsReturn
+              - isInvitee
+              - inviteeInfo
+              - access
+            properties:
+              id:
+                type: integer
+                description: ID пользователя
+              role:
+                type: string
+                description: |
+                  Роль пользователя:
+                    * `user` — пользователь, который активировал доступ
+                    * ` ` (пустая строка) — пользователь, который не активировал доступ
+                enum:
+                  - user
+                  - ''
+              position:
+                type: string
+                description: Должность пользователя
+              phone:
+                type: string
+                description: Номер телефона пользователя
+              email:
+                type: string
+                description: Email пользователя
+              isOwner:
+                type: boolean
+                description: Является ли пользователь владельцем профиля продавца
+              firstName:
+                type: string
+                description: Имя пользователя
+              secondName:
+                type: string
+                description: Фамилия пользователя
+              patronymic:
+                type: string
+                description: Отчество пользователя
+              goodsReturn:
+                type: boolean
+                description: Может ли пользователь одобрять возвраты товаров
+              isInvitee:
+                type: boolean
+                description: Приглашён ли пользователь
+              inviteeInfo:
+                type: object
+                nullable: true
+                description: Информация о приглашении, если пользователь приглашён
+                properties:
+                  phoneNumber:
+                    type: string
+                    description: Номер телефона приглашённого пользователя
+                  position:
+                    type: string
+                    description: Должность приглашённого пользователя
+                  inviteUuid:
+                    type: string
+                    description: ID приглашения
+                    format: UUID
+                  expiredAt:
+                    type: string
+                    format: date-time
+                    description: Дата и время окончания срока действия приглашения
+                  isActive:
+                    type: boolean
+                    description: |
+                      - `true` — приглашение активно
+                      - `false` — приглашение неактивно
+              access:
+                $ref: '#/components/schemas/Access'
+    createInviteRequest:
+      type: object
+      required:
+        - invite
+      properties:
+        access:
+          $ref: '#/components/schemas/Access'
+        invite:
+          type: object
+          required:
+            - phoneNumber
+          properties:
+            phoneNumber:
+              type: string
+              description: |
+                Номер телефона пользователя для приглашения.
+                <details><summary><strong>Поддерживаются номера телефонов из стран:</strong></summary>• Азербайджан<br>• Армения<br>• Барбадос<br>• Беларусь<br>• Бразилия<br>• Гонконг<br>• Грузия<br>• Италия<br>• Казахстан<br>• Китай<br>• Кыргызстан<br>• Макао<br>• ОАЭ<br>• Россия<br>• Сербия<br>• Таджикистан<br>• Турция<br>• Узбекистан<br>• Чехия<br>• Швеция</details>
+            position:
+              type: string
+              maxLength: 150
+              description: Должность пользователя
+      example:
+        access:
+          - code: balance
+            disabled: false
+          - code: pointsForReviews
+            disabled: false
+          - code: brands
+            disabled: true
+          - code: finance
+            disabled: true
+          - code: supply
+            disabled: true
+        invite:
+          phoneNumber: '79999999999'
+          position: Менеджер
+    createInviteResponse:
+      type: object
+      required:
+        - inviteID
+        - expiredAt
+        - isSuccess
+        - inviteUrl
+      description: Данные приглашения
+      properties:
+        inviteID:
+          type: string
+          format: uuid
+          description: ID приглашения
+        expiredAt:
+          type: string
+          format: date-time
+          description: Дата и время окончания срока действия приглашения
+        isSuccess:
+          type: boolean
+          description: |
+            - `true` — приглашение создано успешно
+            - `false` — повторите запрос
+        inviteUrl:
+          type: string
+          format: uri
+          description: URL приглашения, по которому должен перейти пользователь
+      example:
+        inviteID: 741b8aa6-08ac-4782-8a9d-d931bcbbf608
+        expiredAt: '2025-10-06T10:56:04.335060746Z'
+        isSuccess: true
+        inviteUrl: https://seller.wildberries.ru/supplier-settings/supplier-card?inviteId=e5a813c7-65e0-4599-a550-a6b3d85661ed
+    updateUserAccessRequest:
+      type: object
+      required:
+        - usersAccesses
+      properties:
+        usersAccesses:
+          type: array
+          description: Настройки доступа для пользователя
+          items:
+            $ref: '#/components/schemas/UserAccess'
+      example:
+        usersAccesses:
+          - userId: 42334965
+            access:
+              - code: balance
+                disabled: false
+              - code: finance
+                disabled: true
+              - code: feedbacks
+                disabled: false
+          - userId: 52334965
+            access:
+              - code: balance
+                disabled: true
+              - code: changeJam
+                disabled: false
+              - code: showcase
+                disabled: false
+    UserAccess:
+      type: object
+      properties:
+        userId:
+          type: integer
+          description: ID пользователя
+        access:
+          $ref: '#/components/schemas/Access'
+    errorResponse:
+      type: object
+      required:
+        - title
+        - detail
+        - requestId
+        - origin
+        - status
+      properties:
+        title:
+          type: string
+          description: Заголовок ошибки
+        detail:
+          type: string
+          description: Детали ошибки
+        requestId:
+          type: string
+          description: ID запроса
+        origin:
+          type: string
+          description: Название внутреннего сервиса
+        status:
+          type: number
+          description: HTTP статус-код
+      example:
+        title: Bad Request
+        status: 400
+        detail: 'bad request cause: user is not in current supplier'
+        requestId: c479c04d0b576a9ba0b20fdf235004c2
+        origin: public-acl
+  responses:
+    '401':
+      description: Не авторизован
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: unauthorized
+            detail: 'token problem; token is malformed: could not base64 decode signature: illegal base64 data at input byte 84'
+            code: 07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75
+            requestId: 7b80742415072fe8b6b7f7761f1d1211
+            origin: s2s-api-auth-catalog
+            status: 401
+            statusText: Unauthorized
+            timestamp: '2024-09-30T06:52:38Z'
+    '429':
+      description: Слишком много запросов
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: too many requests
+            detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+            code: 07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]
+            requestId: 9d3c02cc698f8b041c661a7c28bed293
+            origin: s2s-api-auth-catalog
+            status: 429
+            statusText: Too Many Requests
+            timestamp: '2024-09-30T06:52:38Z'

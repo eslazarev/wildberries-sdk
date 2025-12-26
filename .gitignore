@@ -1,0 +1,43 @@
+# OS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+
+# Env
+.env
+.env.*
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Go
+bin/
+
+# Java
+*.class
+target/
+
+# .NET
+bin/
+obj/
+
+# Rust
+target/
+
+# Build outputs
+build/
+dist/
+
+# Misc
+*.tmp
+*.swp

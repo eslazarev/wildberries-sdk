@@ -1,0 +1,1366 @@
+openapi: 3.0.1
+info:
+  title: Поставки FBW
+  version: ordersfbw
+  description: |
+    <div class="description_important">
+        Узнать больше о поставках FBW можно в <a href="https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e">справочном центре</a>
+    </div>
+
+    В разделе описаны методы получения:
+      - [информации для формирования поставок](/openapi/orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok)
+      - [информации о поставках](/openapi/orders-fbw#tag/Informaciya-o-postavkah)
+  x-file-name: orders-fbw
+security:
+  - HeaderApiKey: []
+tags:
+  - name: Информация для формирования поставок
+    description: ''
+  - name: Информация о поставках
+    description: ''
+paths:
+  /api/v1/acceptance/coefficients:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: supplies
+      deprecated: true
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Информация для формирования поставок
+      summary: Коэффициенты приёмки
+      description: |
+        Метод находится в разделе [Тарифы](/openapi/wb-tariffs#tag/Tarify-na-postavku/paths/~1api~1tariffs~1v1~1acceptance~1coefficients/get) и называется **Тарифы на поставку** `GET /api/tariffs/v1/acceptance/coefficients`. Он доступен по домену `https://common-api.wildberries.ru` с <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токеном</a> любой категории.
+
+        Доступ к этому методу с доменом `https://supplies-api.wildberries.ru` будет отключен [3 февраля](https://dev.wildberries.ru/release-notes?id=370)
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 6 запросов | 10 секунд | 6 запросов |
+        </div>
+      parameters:
+        - name: warehouseIDs
+          in: query
+          description: ID складов.<br>По умолчанию возвращаются данные по всем складам
+          schema:
+            type: string
+          example: 507,117501
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.AcceptanceCoefficient'
+              examples:
+                ResponseCoefficients:
+                  $ref: '#/components/examples/ResponseCoefficients'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadWarehouseIDsParamNew:
+                  $ref: '#/components/examples/Response400CoefficientsNew'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+        '404':
+          description: Не найдено
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/acceptance/options:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: supplies
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Информация для формирования поставок
+      summary: Опции приёмки
+      description: |
+        Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 6 запросов | 10 секунд | 6 запросов |
+        </div>
+      parameters:
+        - name: warehouseID
+          in: query
+          description: ID склада. <br> Если параметр не указан, возвращаются данные по всем складам.<br> **Максимум одно значение**
+          schema:
+            type: integer
+          example: 507
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              maxItems: 5000
+              items:
+                $ref: '#/components/schemas/models.Good'
+            examples:
+              RequestOptions:
+                $ref: '#/components/examples/RequestOptions'
+        required: true
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.OptionsResultModel'
+              examples:
+                Response:
+                  $ref: '#/components/examples/OptionsResponse'
+        '400':
+          description: Некорректный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadWarehouseIDsParam:
+                  $ref: '#/components/examples/Response400Options'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+        '404':
+          description: Не найдено
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/warehouses:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: supplies
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Информация для формирования поставок
+      summary: Список складов
+      description: |
+        Метод возвращает список складов WB.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 6 запросов | 10 секунд | 6 запросов |
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.WarehousesResultItems'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          description: Доступ запрещён
+        '404':
+          description: Не найдено
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/transit-tariffs:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: supplies
+      tags:
+        - Информация для формирования поставок
+      summary: Транзитные направления
+      description: |
+        Метод возвращает информацию о доступных транзитных направлениях.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 6 запросов | 10 секунд | 10 запросов |
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.TransitTariff'
+              examples:
+                ResponseTariffs:
+                  $ref: '#/components/examples/ResponseTariffs'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/supplies:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: supplies
+      tags:
+        - Информация о поставках
+      summary: Список поставок
+      description: |
+        Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 30 запросов | 2 секунды | 10 запросов |
+        </div>
+      parameters:
+        - name: limit
+          in: query
+          description: Количество записей в ответе
+          schema:
+            type: integer
+            default: 1000
+            maximum: 1000
+            minimum: 1
+        - name: offset
+          in: query
+          description: После какого элемента выдавать данные
+          schema:
+            type: integer
+            default: 0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/models.SuppliesFiltersRequest'
+            example:
+              dates:
+                - from: '2024-03-04'
+                  till: '2025-03-24'
+                  type: factDate
+              statusIDs:
+                - 5
+                - 6
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.Supply'
+              example:
+                - phone: +7 916 *** 44 44
+                  supplyID: null
+                  preorderID: 34597755
+                  createDate: '2024-12-29T16:58:26+03:00'
+                  supplyDate: null
+                  factDate: null
+                  updatedDate: null
+                  statusID: 1
+                - phone: +7 916 *** 33 33
+                  supplyID: 26596368
+                  preorderID: 34601223
+                  createDate: '2024-12-29T16:57:59+03:00'
+                  supplyDate: '2024-12-29T00:00:00+03:00'
+                  factDate: null
+                  updatedDate: null
+                  statusID: 2
+                - phone: +7 000 *** 36 76
+                  supplyID: 22677736
+                  preorderID: 27363170
+                  createDate: '2024-08-22T18:10:59+03:00'
+                  supplyDate: '2024-08-22T00:00:00+03:00'
+                  factDate: '2024-08-22T12:24:14+03:00'
+                  updatedDate: '2024-08-22T18:33:45+03:00'
+                  statusID: 6
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadTypeFormat:
+                  $ref: '#/components/examples/BadTypeFormat'
+                BadLimitFormat:
+                  $ref: '#/components/examples/BadLimitFormat'
+                BadOffsetFormat:
+                  $ref: '#/components/examples/BadOffsetFormat'
+                BadFromOrTill:
+                  $ref: '#/components/examples/BadFromOrTill'
+                BadStatusIDs:
+                  $ref: '#/components/examples/BadStatusIDs'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/supplies/{ID}:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: supplies
+      tags:
+        - Информация о поставках
+      summary: Детали поставки
+      description: |
+        Метод возвращает детали поставки по ID.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 30 запросов | 2 секунды | 10 запросов |
+        </div>
+      parameters:
+        - name: ID
+          in: path
+          description: ID поставки или заказа
+          required: true
+          schema:
+            type: integer
+        - name: isPreorderID
+          in: query
+          description: |
+            Поиск по:
+              - `true` — ID заказа, если в `ID` передаёте ID заказа
+              - `false` — ID поставки, если в `ID` передаёте ID поставки
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.SupplyDetails'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadPathParamFormat:
+                  $ref: '#/components/examples/BadPathParamFormat'
+                BadisPreorderIDFormat:
+                  $ref: '#/components/examples/BadisPreorderIDFormat'
+                PreorderIdSearchError:
+                  $ref: '#/components/examples/PreorderIdSearchError'
+                BadID:
+                  $ref: '#/components/examples/BadID'
+        '401':
+          $ref: '#/components/responses/401'
+        '404':
+          description: Не найдено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                SupplyNotFound:
+                  $ref: '#/components/examples/SupplyNotFound'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/supplies/{ID}/goods:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: supplies
+      tags:
+        - Информация о поставках
+      summary: Товары поставки
+      description: |
+        Метод возвращает информацию о товарах в поставке.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 30 запросов | 2 секунды | 10 запросов |
+        </div>
+      parameters:
+        - name: limit
+          in: query
+          description: Количество записей в ответе
+          schema:
+            type: integer
+            default: 100
+            maximum: 1000
+            minimum: 1
+        - name: offset
+          in: query
+          description: После какого элемента выдавать данные
+          schema:
+            type: integer
+            default: 0
+        - name: isPreorderID
+          in: query
+          description: |
+            Поиск по:
+              - `true` — ID заказа, если в `ID` передаёте ID заказа
+              - `false` — ID поставки, если в `ID` передаёте ID поставки
+          schema:
+            type: boolean
+            default: false
+        - name: ID
+          in: path
+          description: ID поставки или заказа
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.GoodInSupply'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadOffsetFormat:
+                  $ref: '#/components/examples/BadOffsetFormat'
+                BadisPreorderIDFormat:
+                  $ref: '#/components/examples/BadisPreorderIDFormat'
+                BadPathParamFormat:
+                  $ref: '#/components/examples/BadPathParamFormat'
+                BadLimitFormat:
+                  $ref: '#/components/examples/BadLimitFormat'
+                BadSupplyIDGoods:
+                  $ref: '#/components/examples/BadSupplyIDGoods'
+                BadID:
+                  $ref: '#/components/examples/BadID'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v1/supplies/{ID}/package:
+    servers:
+      - url: https://supplies-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: supplies
+      tags:
+        - Информация о поставках
+      summary: Упаковка поставки
+      description: |
+        Метод возвращает информацию об упаковке поставки.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 минута | 30 запросов | 2 секунды | 10 запросов |
+        </div>
+      parameters:
+        - name: ID
+          in: path
+          description: ID поставки
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.Box'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadPathParamFormat:
+                  $ref: '#/components/examples/BadPathParamFormat'
+                BadSupplyIDPackage:
+                  $ref: '#/components/examples/BadSupplyIDPackage'
+                BadID:
+                  $ref: '#/components/examples/BadID'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+components:
+  securitySchemes:
+    HeaderApiKey:
+      type: apiKey
+      name: Authorization
+      in: header
+  schemas:
+    models.TransitTariff:
+      type: object
+      properties:
+        transitWarehouseName:
+          type: string
+          description: Транзитный склад
+        destinationWarehouseName:
+          type: string
+          description: Склад назначения
+        activeFrom:
+          type: string
+          description: С какого числа доступно транзитное направление
+          format: date-time
+        boxTariff:
+          nullable: true
+          type: array
+          description: Тариф за транзит коробов. Если `null`, транзит для коробов недоступен
+          items:
+            $ref: '#/components/schemas/models.VolumeTariff'
+        palletTariff:
+          type: integer
+          description: Тариф за паллету, ₽
+    models.VolumeTariff:
+      type: object
+      properties:
+        from:
+          type: integer
+          description: Объём поставки от, литры
+        to:
+          type: integer
+          description: Объём поставки до, литры
+        value:
+          type: number
+          description: Тариф, ₽ за литр
+    models.Box:
+      type: object
+      properties:
+        packageCode:
+          type: string
+          description: Штрих-код упаковки
+        quantity:
+          type: integer
+          description: Суммарное количество товара в упаковке, шт
+        barcodes:
+          type: array
+          description: Список упакованных товаров
+          items:
+            $ref: '#/components/schemas/models.GoodInBox'
+      example:
+        packageCode: WB_689
+        quantity: 1
+        barcodes:
+          - barcode: '1234567891234'
+            quantity: 1
+    models.GoodInBox:
+      type: object
+      properties:
+        barcode:
+          type: string
+          description: Баркод
+        quantity:
+          type: integer
+          description: Количество, шт
+    models.SuppliesFiltersRequest:
+      properties:
+        dates:
+          description: Фильтр по датам
+          items:
+            $ref: '#/components/schemas/models.DateFilterRequest'
+          type: array
+        statusIDs:
+          description: |
+            Фильтр поставок по статусам. Возможные значения:
+              - `1` — Не запланировано
+              - `2` — Запланировано
+              - `3` — Отгрузка разрешена
+              - `4` — Идёт приёмка
+              - `5` — Принято
+              - `6` — Отгружено на воротах
+          items:
+            $ref: '#/components/schemas/models.HandySupplyStatus'
+          type: array
+      type: object
+    models.GoodInSupply:
+      type: object
+      properties:
+        barcode:
+          description: Баркод товара
+          type: string
+        vendorCode:
+          type: string
+          description: Артикул продавца
+        nmID:
+          type: integer
+          description: Артикул WB
+        needKiz:
+          description: |
+            Нужен ли [код маркировки](https://честныйзнак.рф/) для этого товара:
+              - `false` — не нужен
+              - `true` — нужен
+          type: boolean
+        tnved:
+          type: string
+          description: |
+            Код ТНВЭД.
+            <br>
+            Если `"needKiz":true`, а `"tnved":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post)
+          nullable: true
+        techSize:
+          type: string
+          description: Размер товара, указанный продавцом
+        color:
+          description: Цвет товара
+          type: string
+          nullable: true
+        supplierBoxAmount:
+          type: integer
+          nullable: true
+          description: Указано в упаковке, шт
+        quantity:
+          type: integer
+          description: Указано в поставке/заказе, шт
+        readyForSaleQuantity:
+          type: integer
+          nullable: true
+          description: Поступило в продажу, шт
+        acceptedQuantity:
+          type: integer
+          nullable: true
+          description: Принято, шт
+        unloadingQuantity:
+          type: integer
+          nullable: true
+          description: Количество товара на раскладке, шт
+      example:
+        barcode: '1234567891234'
+        vendorCode: wb4sewt0vg
+        nmID: 987456654
+        needKiz: true
+        tnved: '6204430000'
+        techSize: C
+        color: красный
+        supplierBoxAmount: 10
+        quantity: 10
+        readyForSaleQuantity: 0
+        unloadingQuantity: 0
+        acceptedQuantity: 0
+    models.DateFilterRequest:
+      properties:
+        from:
+          type: string
+          description: Дата начала периода
+          format: ISO 8601
+        till:
+          type: string
+          description: Дата окончания периода
+          format: ISO 8601
+        type:
+          type: string
+          enum:
+            - factDate
+            - createDate
+            - supplyDate
+            - updatedDate
+          description: |
+            Тип дат:
+              - `factDate` — дата фактической отгрузки поставки
+              - `createDate` — дата создания поставки
+              - `supplyDate` — плановая дата отгрузки поставки
+              - `updatedDate` — дата изменения поставки
+      required:
+        - type
+      type: object
+    models.SupplyDetails:
+      type: object
+      properties:
+        phone:
+          description: Телефон пользователя, создавшего поставку
+          type: string
+        statusID:
+          description: |
+            ID статуса поставки:
+              - `1` — Не запланировано
+              - `2` — Запланировано
+              - `3` — Отгрузка разрешена
+              - `4` — Идёт приёмка
+              - `5` — Принято
+              - `6` — Отгружено на воротах
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+          type: integer
+        virtualTypeID:
+          description: |
+            ID типа виртуальной поставки. Отображается только для поставок с `"boxTypeID":0`.
+              - `0` — Перенос остатков
+              - `1` — Обезличка
+              - `4` — QR-поставка
+              - `5` — Допринято
+              - `6` — Скан-приёмка
+          type: integer
+        boxTypeID:
+          description: |
+            ID типа поставки:
+              - `0` — Без коробов (виртуальная поставка)
+              - `1` и `2` — Короба
+              - `5` — Монопаллеты
+              - `6` — Суперсейф
+          type: integer
+        createDate:
+          description: Дата и время создания поставки
+          type: string
+        supplyDate:
+          description: Плановая дата отгрузки поставки
+          type: string
+          nullable: true
+        factDate:
+          description: Дата фактической отгрузки поставки
+          type: string
+          nullable: true
+        updatedDate:
+          description: Дата изменения поставки
+          type: string
+          nullable: true
+        warehouseID:
+          description: ID склада, на который планируется поставка
+          type: integer
+        warehouseName:
+          description: Название склада, на который планируется поставка
+          type: string
+        actualWarehouseID:
+          description: ID склада, на который поставка была привезена
+          type: integer
+          nullable: true
+        actualWarehouseName:
+          description: Название склада, на который поставка привезена
+          type: string
+        transitWarehouseID:
+          description: ID транзитного склада
+          type: integer
+          nullable: true
+        transitWarehouseName:
+          description: Название транзитного склада
+          type: string
+        acceptanceCost:
+          description: Предварительная стоимость приёмки, ₽
+          type: number
+          nullable: true
+        paidAcceptanceCoefficient:
+          description: Коэффициент приёмки
+          type: number
+          nullable: true
+        rejectReason:
+          description: Причина, по которой поставка не может быть принята
+          type: string
+          nullable: true
+        supplierAssignName:
+          description: Краткое название продавца
+          type: string
+        storageCoef:
+          description: Коэффициент хранения
+          type: string
+          nullable: true
+        deliveryCoef:
+          description: Коэффициент логистики
+          type: string
+          nullable: true
+        quantity:
+          type: integer
+          description: Добавлено в поставку/заказ, шт
+        readyForSaleQuantity:
+          type: integer
+          nullable: false
+          description: Поступило в продажу, шт
+        acceptedQuantity:
+          type: integer
+          nullable: false
+          description: Принято, шт
+        unloadingQuantity:
+          type: integer
+          nullable: false
+          description: Количество товара, находящегося на раскладке, шт
+        depersonalizedQuantity:
+          type: integer
+          nullable: true
+          description: Количество обезличенного товара, шт
+      example:
+        phone: +7 903 *** 98 62
+        statusID: 5
+        boxTypeID: 5
+        createDate: '2025-07-15T17:17:45+03:00'
+        supplyDate: '2025-07-15T00:00:00+03:00'
+        factDate: '2025-07-18T11:37:32+03:00'
+        updatedDate: '2025-07-18T12:59:53+03:00'
+        warehouseID: 507
+        warehouseName: Коледино
+        actualWarehouseID: 507
+        actualWarehouseName: Коледино
+        transitWarehouseID: null
+        transitWarehouseName: ''
+        acceptanceCost: 5000
+        paidAcceptanceCoefficient: 10
+        rejectReason: null
+        supplierAssignName: Магазн
+        storageCoef: '215'
+        deliveryCoef: '200'
+        quantity: 10
+        readyForSaleQuantity: 0
+        acceptedQuantity: 10
+        unloadingQuantity: 10
+        depersonalizedQuantity: 0
+    models.HandySupplyStatus:
+      enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      type: integer
+      x-enum-varnames:
+        - NotPlanned
+        - Planned
+        - AllowUnload
+        - Accepting
+        - Accepted
+        - Virtual
+        - UnloadedOnGate
+    models.Supply:
+      properties:
+        phone:
+          description: Телефон пользователя, создавшего поставку
+          type: string
+        supplyID:
+          description: ID поставки. Если `null`, это заказ, тогда используйте значение поля `preorderID`
+          type: integer
+          nullable: true
+        preorderID:
+          description: ID заказа (незапланированная поставка). Для всех виртуальных поставок будет `0`
+          type: integer
+        createDate:
+          description: Дата и время создания поставки
+          type: string
+        supplyDate:
+          description: Плановая дата отгрузки поставки
+          type: string
+          nullable: true
+        factDate:
+          description: Дата фактической отгрузки поставки
+          type: string
+          nullable: true
+        updatedDate:
+          description: Дата изменения поставки
+          type: string
+          nullable: true
+        statusID:
+          description: |
+            ID статуса поставки:
+              - `1` — Не запланировано
+              - `2` — Запланировано
+              - `3` — Отгрузка разрешена
+              - `4` — Идёт приёмка
+              - `5` — Принято
+              - `6` — Отгружено на воротах
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+          type: integer
+      type: object
+    models.AcceptanceCoefficient:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Дата начала действия коэффициента
+        coefficient:
+          type: number
+          description: |
+            Коэффициент приёмки:
+              - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`
+              - `0` — бесплатная приёмка
+              - от `1` — множитель стоимости приёмки
+        warehouseID:
+          type: integer
+          description: ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok/paths/~1api~1v1~1warehouses/get)
+        warehouseName:
+          type: string
+          description: Название склада
+        allowUnload:
+          type: boolean
+          description: |
+            Доступность приёмки для поставок данного типа, смотри значение поля `boxTypeID`:
+
+             - `true` — приёмка доступна
+             - `false` — приёмка не доступна
+        boxTypeID:
+          type: integer
+          description: |
+            ID типа поставки:
+              - `2` — Короба
+              - `5` — Монопаллеты
+              - `6` — Суперсейф
+            <br>Для типа поставки **QR-поставка с коробами** поле не возвращается
+        storageCoef:
+          type: string
+          nullable: true
+          description: Коэффициент хранения
+        deliveryCoef:
+          type: string
+          nullable: true
+          description: Коэффициент логистики
+        deliveryBaseLiter:
+          type: string
+          nullable: true
+          description: Стоимость логистики первого литра
+        deliveryAdditionalLiter:
+          type: string
+          nullable: true
+          description: Стоимость логистики каждого следующего литра
+        storageBaseLiter:
+          type: string
+          nullable: true
+          description: |
+            Стоимость хранения:
+              - для паллет — стоимость за одну паллету
+              - для коробов — стоимость хранения за первый литр
+        storageAdditionalLiter:
+          type: string
+          nullable: true
+          description: |
+            Стоимость хранения каждого последующего литра:
+              - для паллет — всегда будет `null`, т.к. стоимость хранения за единицу паллеты определяется в `StorageBaseLiter`
+              - для коробов — стоимость хранения за каждый последующий литр
+        isSortingCenter:
+          type: boolean
+          description: |
+            Тип склада:
+
+             - `true` — сортировочный центр (СЦ)
+             - `false` — обычный
+    models.WarehousesResultItems:
+      type: object
+      properties:
+        ID:
+          type: integer
+          description: ID склада
+        name:
+          type: string
+          description: Название склада
+        address:
+          type: string
+          description: Адрес склада
+        workTime:
+          type: string
+          description: Режим работы склада
+        isActive:
+          type: boolean
+          description: |
+            Доступен ли в качестве склада назначения:
+            - `true` — да
+            - `false` — нет
+        isTransitActive:
+          type: boolean
+          description: |
+            Доступен ли в качестве транзитного склада:
+            - `true` — да
+            - `false` — нет
+      example:
+        ID: 300461
+        name: Гомель 2
+        address: Гомель, Могилёвская улица 1/А
+        workTime: 24/7
+        isActive: false
+        isTransitActive: true
+    models.Good:
+      type: object
+      properties:
+        quantity:
+          type: integer
+          description: |
+            Суммарное количество товаров, планируемых для поставки. <br>  **Максимум 999999**
+          minimum: 1
+          maximum: 999999
+        barcode:
+          type: string
+          description: Баркод из карточки товара
+    models.ErrorModel:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP статус-код
+        title:
+          type: string
+          description: ID ошибки
+        detail:
+          type: string
+          description: Описание ошибки
+        requestId:
+          type: string
+          description: ID запроса
+        origin:
+          type: string
+          description: Сервис, вернувший ошибку
+    models.OptionsResultModel:
+      type: object
+      properties:
+        result:
+          type: array
+          items:
+            type: object
+            properties:
+              barcode:
+                type: string
+                description: Баркод из карточки товара
+              error:
+                type: object
+                description: Данные ошибки. При наличии
+                properties:
+                  title:
+                    type: string
+                    description: ID ошибки
+                  detail:
+                    type: string
+                    description: Описание ошибки
+              isError:
+                type: boolean
+                description: |
+                  Наличие ошибки:
+                    - `true` — ошибка есть
+                    - Поля нет — ошибка отсутствует
+              warehouses:
+                type: array
+                nullable: true
+                description: Список складов. При наличии ошибки будет `null`
+                items:
+                  type: object
+                  properties:
+                    warehouseID:
+                      type: integer
+                      description: ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok/paths/~1api~1v1~1warehouses/get)
+                    canBox:
+                      type: boolean
+                      description: |
+                        Тип упаковки **Короб**:
+                          - `true` — доступен
+                          - `false` — недоступен
+                    canMonopallet:
+                      type: boolean
+                      description: |
+                        Тип упаковки **Монопаллета**:
+                          - `true` — доступен
+                          - `false` — недоступен
+                    canSupersafe:
+                      type: boolean
+                      description: |
+                        Тип упаковки **Суперсейф**:
+                          - `true` — доступен
+                          - `false` — недоступен
+        requestId:
+          type: string
+          description: ID запроса при наличии ошибок
+  examples:
+    RequestOptions:
+      value:
+        - quantity: 1
+          barcode: k
+        - quantity: 7
+          barcode: '1111111111'
+    ResponseCoefficients:
+      value:
+        - date: '2024-04-11T00:00:00Z'
+          coefficient: -1
+          warehouseID: 217081
+          warehouseName: Сц Брянск 2
+          allowUnload: false
+          boxTypeID: 6
+          storageCoef: null
+          deliveryCoef: null
+          deliveryBaseLiter: null
+          deliveryAdditionalLiter: null
+          storageBaseLiter: null
+          storageAdditionalLiter: null
+          isSortingCenter: true
+    Response400CoefficientsNew:
+      value:
+        status: 400
+        title: bad request
+        detail: Неверный формат warehouseIDs
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Значение параметра `warehouseIDs` не указано, или некорректно
+    OptionsResponse:
+      value:
+        result:
+          - barcode: кrrr
+            warehouses: null
+            error:
+              title: barcode validation error
+              detail: barcode кrrr is not found
+            isError: true
+          - barcode: '123456789'
+            warehouses:
+              - warehouseID: 205349
+                canBox: true
+                canMonopallet: false
+                canSupersafe: false
+              - warehouseID: 211622
+                canBox: false
+                canMonopallet: true
+                canSupersafe: false
+              - warehouseID: 214951
+                canBox: true
+                canMonopallet: false
+                canSupersafe: false
+              - warehouseID: 206319
+                canBox: true
+                canMonopallet: false
+                canSupersafe: false
+        requestId: kr53d2bRKYmkK2N6zaNKHs
+    Response400Options:
+      value:
+        status: 400
+        title: bad request
+        detail: Неверный формат warehouseID
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Значение параметра `warehouseID` не указано, или некорректно
+    BadTypeFormat:
+      value:
+        status: 400
+        title: bad request
+        detail: 'Выберите значение параметра ''Type'' из списка: ''factDate createDate supplyDate updatedDate'''
+        requestId: 31aba083c7144409c3cbbb968e693f16
+        origin: supply-api
+      description: Значение параметра `type` не указано или некорректно
+    BadStatusIDs:
+      value:
+        status: 400
+        title: bad request
+        detail: 'Выберите значение параметра ''StatusIDs[0]'' из списка: ''1 2 3 4 5 6'''
+        requestId: 52d7410a596b40cecfeb70c41ae5ac99
+        origin: supply-api
+      description: Значение параметра `statusIDs` некорректно
+    BadFromOrTill:
+      value:
+        status: 400
+        title: bad request
+        detail: 'ошибка при считывании даты "11-03-2019". Дата должна быть в формате ISO Date: 2006-01-02'
+        requestId: 7916f0258e363ad2b6663e980903818d
+        origin: supply-api
+      description: Указанная дата некорректна
+    BadOffsetFormat:
+      value:
+        status: 400
+        title: bad request
+        detail: Неверный формат offset
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Значение параметра `offset` некорректно
+    BadLimitFormat:
+      value:
+        status: 400
+        title: bad request
+        detail: Неверный формат limit
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Значение параметра `limit` некорректно
+    BadisPreorderIDFormat:
+      value:
+        status: 400
+        title: bad request
+        detail: Неверный формат isPreorderID
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Значение параметра `isPreorderID` не указано или некорректно
+    BadPathParamFormat:
+      value:
+        status: 400
+        title: bad request
+        detail: неверный формат id (должен быть int64)
+        requestId: aee7d3a5378ef3c7ec0e7a5bc94abfcf
+        origin: supply-api
+      description: Значение параметра `ID` не указано или некорректно
+    PreorderIdSearchError:
+      value:
+        status: 400
+        title: bad request
+        detail: 'fail to get supply details: по заказу 123456789 найдена поставка 987654321. Используйте поиск по ID поставки'
+        requestId: bc28456e85d5590c74decbcd9f63cd91
+        origin: supply-api
+      description: По заказу найдена поставка. Используйте поиск по ID поставки
+    BadID:
+      value:
+        status: 400
+        title: bad request
+        detail: id выходит за рамки int64
+        requestId: 0e35ac7fdbb94695db4004cb4c4ca12b
+        origin: supply-api
+      description: Длина значения параметра ID превышена
+    SupplyNotFound:
+      value:
+        status: 404
+        title: not found
+        detail: поставка 1234 не найдена
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+    BadSupplyIDGoods:
+      value:
+        status: 400
+        title: bad request
+        detail: 'fail to get box barcodes info: fail to get barcodes info: internal error: get supply by id: Поставка не найдена'
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Не найдена указанная поставка
+    BadSupplyIDPackage:
+      value:
+        status: 400
+        title: bad request
+        detail: 'fail to get barcodes info: internal error: get supply by id: Поставка не найдена'
+        requestId: a6bdc2a4d2fde51c2036fa8af2483886
+        origin: supply-api
+      description: Не найдена указанная поставка
+    ResponseTariffs:
+      value:
+        - transitWarehouseName: Обухово
+          destinationWarehouseName: Краснодар
+          activeFrom: '2024-11-03T21:01:00Z'
+          boxTariff: null
+          palletTariff: 7500
+        - transitWarehouseName: СЦ Гомель 2
+          destinationWarehouseName: Краснодар (Тихорецкая)
+          activeFrom: '2025-04-08T21:00:48.019Z'
+          boxTariff:
+            - from: 0
+              to: 1500
+              value: 5.3
+            - from: 1500
+              to: 0
+              value: 3.9
+          palletTariff: 6500
+  responses:
+    '401':
+      description: Не авторизован
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: unauthorized
+            detail: 'token problem; token is malformed: could not base64 decode signature: illegal base64 data at input byte 84'
+            code: 07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75
+            requestId: 7b80742415072fe8b6b7f7761f1d1211
+            origin: s2s-api-auth-catalog
+            status: 401
+            statusText: Unauthorized
+            timestamp: '2024-09-30T06:52:38Z'
+    '429':
+      description: Слишком много запросов
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: Уникальный ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: too many requests
+            detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+            code: 07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]
+            requestId: 9d3c02cc698f8b041c661a7c28bed293
+            origin: s2s-api-auth-catalog
+            status: 429
+            statusText: Too Many Requests
+            timestamp: '2024-09-30T06:52:38Z'
