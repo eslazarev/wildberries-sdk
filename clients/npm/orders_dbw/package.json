@@ -1,6 +1,6 @@
 {
   "name": "wildberries-sdk-orders-dbw",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "OpenAPI client for wildberries-sdk-orders-dbw",
   "author": "OpenAPI-Generator",
   "repository": {
