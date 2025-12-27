@@ -1,6 +1,6 @@
 {
   "name": "wildberries-sdk-tariffs",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "OpenAPI client for wildberries-sdk-tariffs",
   "author": "OpenAPI-Generator",
   "repository": {

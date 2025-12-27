@@ -536,7 +536,7 @@ conf = wildberries_sdk.wbd.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: wbd\n"\
-               "SDK Package Version: 0.1.6".\
+               "SDK Package Version: 0.1.7".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
