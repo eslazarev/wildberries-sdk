@@ -1,0 +1,1 @@
+"""Wildberries SDK aggregated package."""
