@@ -30,9 +30,12 @@ jobs:
           PACKAGE_VERSION: ${{ steps.bump.outputs.version }}
         run: bash scripts/generate-clients.sh
 
+      - name: Prepare Python package
+        run: bash scripts/prepare-pypi-package.sh
+
       - name: Commit generated clients
         run: |
-          git add pyproject.toml clients/python
+          git add pyproject.toml clients/python src/wildberries_sdk
           if git diff --cached --quiet; then
             echo "No client changes to commit."
             exit 0

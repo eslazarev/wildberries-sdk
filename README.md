@@ -2,7 +2,7 @@
 
 В этом репозитории находятся сгенерированные SDK-клиенты Wildberries для разных языков на основе OpenAPI спецификаций Wildberries.
 
-В данный момент представлены все доступные спецификации:
+В данный момент представлены **все доступные** спецификации:
 
 - General: [`specs/01-general.yaml`](specs/01-general.yaml)
 - Products: [`specs/02-products.yaml`](specs/02-products.yaml)
