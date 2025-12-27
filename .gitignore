@@ -38,6 +38,9 @@ target/
 build/
 dist/
 src/
+npm/
+!clients/npm/
+!docs/npm/
 
 # Misc
 *.tmp

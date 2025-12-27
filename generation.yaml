@@ -34,3 +34,7 @@ languages:
     generator: python
     output_dir: clients/python
     package_name_prefix: wildberries-sdk
+  - name: typescript
+    generator: typescript-fetch
+    output_dir: clients/npm
+    package_name_prefix: wildberries-sdk

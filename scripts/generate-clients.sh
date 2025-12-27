@@ -119,6 +119,100 @@ cleanup_output_dir() {
   done
 }
 
+fix_typescript_enum_keys() {
+  local dir="$1"
+  python3 - <<PY
+from pathlib import Path
+
+root = Path("${dir}")
+
+def fix_file(path: Path) -> None:
+    lines = path.read_text(encoding="utf-8").splitlines()
+    out = []
+    in_enum = False
+    counter = 1
+    changed = False
+
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("export const ") and stripped.endswith("= {"):
+            in_enum = True
+            counter = 1
+            out.append(line)
+            continue
+        if in_enum:
+            if stripped.startswith("} as const;"):
+                in_enum = False
+                out.append(line)
+                continue
+            if stripped.startswith(":"):
+                indent = line[:len(line) - len(line.lstrip())]
+                rest = line.lstrip()[1:].lstrip()
+                out.append(f"{indent}Value{counter}: {rest}")
+                counter += 1
+                changed = True
+                continue
+        out.append(line)
+
+    if changed:
+        path.write_text("\n".join(out) + "\n", encoding="utf-8")
+
+for path in root.rglob("*.ts"):
+    fix_file(path)
+PY
+}
+
+rewrite_typescript_index() {
+  local out_path="$1"
+  local index_file="${out_path}/src/index.ts"
+  if [[ ! -f "${index_file}" ]]; then
+    return
+  fi
+  cat > "${index_file}" <<'TS'
+/* tslint:disable */
+/* eslint-disable */
+export * from './apis/index';
+export * from './models/index';
+export {
+  BASE_PATH,
+  Configuration,
+  ConfigurationParameters,
+  DefaultConfig,
+  BaseAPI,
+  FetchError,
+  RequiredError,
+  COLLECTION_FORMATS,
+  FetchAPI,
+  Json,
+  HTTPMethod,
+  HTTPHeaders,
+  HTTPQuery,
+  HTTPBody,
+  HTTPRequestInit,
+  ModelPropertyNaming,
+  InitOverrideFunction,
+  FetchParams,
+  RequestOpts,
+  Consume,
+  RequestContext,
+  ResponseContext,
+  ErrorContext,
+  Middleware,
+  ApiResponse,
+  ResponseTransformer,
+  JSONApiResponse,
+  VoidApiResponse,
+  BlobApiResponse,
+  TextApiResponse,
+  querystring,
+  exists,
+  mapValues,
+  canConsumeForm,
+} from './runtime';
+export { ResponseError as RuntimeResponseError } from './runtime';
+TS
+}
+
 flatten_python_package() {
   local out_path="$1"
   local old_pkg="$2"
@@ -321,6 +415,10 @@ for lang in "${langs[@]}"; do
     if [[ "${generator}" == "python" ]]; then
       new_subpkg="$(sanitize_package_name "${dir_name}")"
       flatten_python_package "${out_path}" "${pkg}" "${new_subpkg}"
+    fi
+    if is_npm_generator "${generator}"; then
+      fix_typescript_enum_keys "${out_path}"
+      rewrite_typescript_index "${out_path}"
     fi
     cleanup_output_dir "${out_path}"
   done

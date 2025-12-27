@@ -19,4 +19,14 @@
 - Finances: [`specs/13-finances.yaml`](specs/13-finances.yaml)
 - WBD: [`specs/14-wbd.yaml`](specs/14-wbd.yaml)
 
+## Документация и пакеты
 
+### Python
+
+- PyPI: https://pypi.org/project/wildberries-sdk/
+- README: [docs/python/README.md](docs/python/README.md)
+
+### Node.js
+
+- npm: https://www.npmjs.com/package/wildberries-sdk
+- README: [docs/npm/README.md](docs/npm/README.md)

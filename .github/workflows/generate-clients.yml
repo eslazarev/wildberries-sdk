@@ -35,7 +35,7 @@ jobs:
 
       - name: Commit generated clients
         run: |
-          git add pyproject.toml clients/python
+          git add pyproject.toml clients/python clients/npm
           if git diff --cached --quiet; then
             echo "No client changes to commit."
             exit 0
@@ -60,3 +60,26 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: /usr/bin/python3 -m twine upload dist/*
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Prepare npm package
+        env:
+          PACKAGE_VERSION: ${{ steps.bump.outputs.version }}
+        run: bash scripts/prepare-npm-package.sh
+
+      - name: Build npm package
+        working-directory: npm
+        run: |
+          npm install
+          npm run build
+
+      - name: Publish npm package
+        working-directory: npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
