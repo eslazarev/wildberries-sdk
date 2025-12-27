@@ -536,7 +536,7 @@ conf = wildberries_sdk.finances.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: finances\n"\
-               "SDK Package Version: 0.1.4".\
+               "SDK Package Version: 0.1.2".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
