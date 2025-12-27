@@ -35,7 +35,7 @@ jobs:
 
       - name: Commit generated clients
         run: |
-          git add pyproject.toml clients/python src/wildberries_sdk
+          git add pyproject.toml clients/python
           if git diff --cached --quiet; then
             echo "No client changes to commit."
             exit 0
