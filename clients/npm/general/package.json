@@ -1,6 +1,6 @@
 {
   "name": "wildberries-sdk-general",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "OpenAPI client for wildberries-sdk-general",
   "author": "OpenAPI-Generator",
   "repository": {
