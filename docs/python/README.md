@@ -13,9 +13,7 @@ import os
 
 from wildberries_sdk import communications
 
-token = os.getenv("WILDBERRIES_API_TOKEN") or os.getenv("WB_API_TOKEN")
-if not token:
-    raise RuntimeError("Нужен WILDBERRIES_API_TOKEN или WB_API_TOKEN")
+token = os.getenv("WB_API_TOKEN")
 
 config = communications.Configuration(host="https://feedbacks-api.wildberries.ru")
 config.api_key["HeaderApiKey"] = token
