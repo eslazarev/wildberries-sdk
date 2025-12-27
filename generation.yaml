@@ -38,3 +38,7 @@ languages:
     generator: typescript-fetch
     output_dir: clients/npm
     package_name_prefix: wildberries-sdk
+  - name: php
+    generator: php
+    output_dir: clients/php
+    package_name_prefix: wildberries-sdk
