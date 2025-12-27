@@ -1,18 +1,14 @@
 name: Generate clients
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - generation.yaml
-      - specs/**
-      - scripts/**
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     permissions:
       contents: write
     steps:
@@ -22,14 +18,21 @@ jobs:
       - name: Download specs
         run: bash scripts/download-specs-from-config.sh
 
+      - name: Bump version
+        id: bump
+        run: |
+          new_version=$(bash scripts/bump-version.sh)
+          echo "version=${new_version}" >> "$GITHUB_OUTPUT"
+
       - name: Generate clients
         env:
           OPENAPI_GENERATOR_DOCKER: "1"
+          PACKAGE_VERSION: ${{ steps.bump.outputs.version }}
         run: bash scripts/generate-clients.sh
 
       - name: Commit generated clients
         run: |
-          git add clients/python
+          git add pyproject.toml clients/python
           if git diff --cached --quiet; then
             echo "No client changes to commit."
             exit 0

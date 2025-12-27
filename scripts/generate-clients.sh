@@ -47,6 +47,26 @@ sanitize_package_name() {
   echo "${name}"
 }
 
+sanitize_npm_name() {
+  local name="$1"
+  name="$(echo "${name}" | tr '[:upper:]' '[:lower:]')"
+  name="$(echo "${name}" | tr '_' '-')"
+  name="$(echo "${name}" | tr -c 'a-z0-9-' '-')"
+  name="$(echo "${name}" | sed -E 's/-+/-/g; s/^-+//; s/-+$//')"
+  if [[ -z "${name}" ]]; then
+    name="package"
+  fi
+  echo "${name}"
+}
+
+is_npm_generator() {
+  local generator="$1"
+  if [[ "${generator}" == typescript* || "${generator}" == javascript* ]]; then
+    return 0
+  fi
+  return 1
+}
+
 strip_numeric_prefix() {
   local name="$1"
   name="$(echo "${name}" | sed -E 's/^[0-9]+[-_]+//')"
@@ -97,6 +117,37 @@ cleanup_output_dir() {
       rm -rf "${dir}/${d}"
     fi
   done
+}
+
+flatten_python_package() {
+  local out_path="$1"
+  local old_pkg="$2"
+  local new_subpkg="$3"
+  local pkg_dir="${out_path}/${old_pkg}"
+
+  if [[ ! -d "${pkg_dir}" ]]; then
+    return
+  fi
+
+  shopt -s dotglob
+  for item in "${pkg_dir}"/*; do
+    mv "${item}" "${out_path}/"
+  done
+  shopt -u dotglob
+  rmdir "${pkg_dir}" || true
+
+  python3 - <<PY
+from pathlib import Path
+
+root = Path("${out_path}")
+old = "${old_pkg}"
+new = "wildberries_sdk.${new_subpkg}"
+
+for path in root.rglob("*.py"):
+    data = path.read_text(encoding="utf-8")
+    if old in data:
+        path.write_text(data.replace(old, new), encoding="utf-8")
+PY
 }
 
 to_container_path() {
@@ -216,8 +267,20 @@ for lang in "${langs[@]}"; do
       pkg="${prefix}_${base}"
     fi
     pkg="$(sanitize_package_name "${pkg}")"
+    additional_props="packageName=${pkg},packageVersion=${PACKAGE_VERSION}"
+    if is_npm_generator "${generator}"; then
+      npm_pkg="${base}"
+      if [[ -n "${prefix}" ]]; then
+        npm_pkg="${prefix}-${base}"
+      fi
+      npm_pkg="$(sanitize_npm_name "${npm_pkg}")"
+      additional_props="${additional_props},npmName=${npm_pkg},npmVersion=${PACKAGE_VERSION}"
+    fi
 
     echo "Generating ${name} for ${filename}"
+    if [[ "${generator}" == "python" ]]; then
+      rm -rf "${out_path}"
+    fi
     if [[ "${USE_DOCKER}" == "1" ]]; then
       in_container="$(to_container_path "${input}")"
       out_container="$(to_container_path "${out_path}")"
@@ -231,7 +294,7 @@ for lang in "${langs[@]}"; do
         -g "${generator}"
         -i "${in_container}"
         -o "${out_container}"
-        --additional-properties "packageName=${pkg},packageVersion=${PACKAGE_VERSION}"
+        --additional-properties "${additional_props}"
       )
     else
       cmd=(
@@ -239,7 +302,7 @@ for lang in "${langs[@]}"; do
         -g "${generator}"
         -i "${input}"
         -o "${out_path}"
-        --additional-properties "packageName=${pkg},packageVersion=${PACKAGE_VERSION}"
+        --additional-properties "${additional_props}"
       )
     fi
     if [[ "${SKIP_VALIDATE_SPEC}" == "1" ]]; then
@@ -255,6 +318,10 @@ for lang in "${langs[@]}"; do
       cmd+=("${extra_args[@]}")
     fi
     "${cmd[@]}"
+    if [[ "${generator}" == "python" ]]; then
+      new_subpkg="$(sanitize_package_name "${dir_name}")"
+      flatten_python_package "${out_path}" "${pkg}" "${new_subpkg}"
+    fi
     cleanup_output_dir "${out_path}"
   done
 done
