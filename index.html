@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Wildberries OpenAPI clients for Python." />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Wildberries SDK (Python)</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Wildberries SDK (Python)
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Установка</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#communications">Пример (communications)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Доступные клиенты</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api">Методы API</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#general-general">general (general)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#products-products">products (products)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#orders_fbs-orders_fbs">orders_fbs (orders_fbs)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#orders_dbw-orders_dbw">orders_dbw (orders_dbw)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#orders_dbs-orders_dbs">orders_dbs (orders_dbs)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#in_store_pickup-in_store_pickup">in_store_pickup (in_store_pickup)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#orders_fbw-orders_fbw">orders_fbw (orders_fbw)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#promotion-promotion">promotion (promotion)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#communications-communications">communications (communications)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tariffs-tariffs">tariffs (tariffs)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#analytics-analytics">analytics (analytics)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reports-reports">reports (reports)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#finances-finances">finances (finances)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#wbd-wbd">wbd (wbd)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Wildberries SDK (Python)</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="wildberries-sdk-python">wildberries-sdk (Python)<a class="headerlink" href="#wildberries-sdk-python" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Установка<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">pip install wildberries-sdk
+</code></pre>
+<h2 id="communications">Пример (communications)<a class="headerlink" href="#communications" title="Permanent link">&para;</a></h2>
+<pre><code class="language-python">import os
+
+from wildberries_sdk import communications
+
+token = os.getenv(&quot;WB_API_TOKEN&quot;)
+
+config = communications.Configuration(host=&quot;https://feedbacks-api.wildberries.ru&quot;)
+config.api_key[&quot;HeaderApiKey&quot;] = token
+
+client = communications.ApiClient(configuration=config)
+api = communications.DefaultApi(api_client=client)
+
+response = api.api_v1_feedbacks_get(
+    is_answered=True,
+    take=100,
+    skip=0,
+)
+
+print(response)
+</code></pre>
+<h2 id="_2">Доступные клиенты<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Импортируйте каждый клиент как <code>wildberries_sdk.&lt;client&gt;</code>:</p>
+<ul>
+<li><code>wildberries_sdk.general</code></li>
+<li><code>wildberries_sdk.products</code></li>
+<li><code>wildberries_sdk.orders_fbs</code></li>
+<li><code>wildberries_sdk.orders_dbw</code></li>
+<li><code>wildberries_sdk.orders_dbs</code></li>
+<li><code>wildberries_sdk.in_store_pickup</code></li>
+<li><code>wildberries_sdk.orders_fbw</code></li>
+<li><code>wildberries_sdk.promotion</code></li>
+<li><code>wildberries_sdk.communications</code></li>
+<li><code>wildberries_sdk.tariffs</code></li>
+<li><code>wildberries_sdk.analytics</code></li>
+<li><code>wildberries_sdk.reports</code></li>
+<li><code>wildberries_sdk.finances</code></li>
+<li><code>wildberries_sdk.wbd</code></li>
+</ul>
+<!-- PY_METHODS_LIST_START -->
+<h2 id="api">Методы API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h3 id="general-general">general (<code>general</code>)<a class="headerlink" href="#general-general" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>general.DefaultApi.api_communications_v2_news_get</code> — <code>GET /api/communications/v2/news</code> — Получение новостей портала продавцов</li>
+<li><code>general.DefaultApi.api_v1_invite_post</code> — <code>POST /api/v1/invite</code> — Создать приглашение для нового пользователя</li>
+<li><code>general.DefaultApi.api_v1_seller_info_get</code> — <code>GET /api/v1/seller-info</code> — Получение информации о продавце</li>
+<li><code>general.DefaultApi.api_v1_user_delete</code> — <code>DELETE /api/v1/user</code> — Удалить пользователя</li>
+<li><code>general.DefaultApi.api_v1_users_access_put</code> — <code>PUT /api/v1/users/access</code> — Изменить права доступа пользователей</li>
+<li><code>general.DefaultApi.api_v1_users_get</code> — <code>GET /api/v1/users</code> — Получить список активных или приглашённых пользователей продавца</li>
+<li><code>general.DefaultApi.ping_get</code> — <code>GET /ping</code> — Проверка подключения</li>
+</ul>
+<h3 id="products-products">products (<code>products</code>)<a class="headerlink" href="#products-products" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>products.DefaultApi.api_content_v1_brands_get</code> — <code>GET /api/content/v1/brands</code> — Бренды</li>
+<li><code>products.DefaultApi.api_v2_buffer_goods_task_get</code> — <code>GET /api/v2/buffer/goods/task</code> — Детализация необработанной загрузки</li>
+<li><code>products.DefaultApi.api_v2_buffer_tasks_get</code> — <code>GET /api/v2/buffer/tasks</code> — Состояние необработанной загрузки</li>
+<li><code>products.DefaultApi.api_v2_history_goods_task_get</code> — <code>GET /api/v2/history/goods/task</code> — Детализация обработанной загрузки</li>
+<li><code>products.DefaultApi.api_v2_history_tasks_get</code> — <code>GET /api/v2/history/tasks</code> — Состояние обработанной загрузки</li>
+<li><code>products.DefaultApi.api_v2_list_goods_filter_get</code> — <code>GET /api/v2/list/goods/filter</code> — Получить товары с ценами</li>
+<li><code>products.DefaultApi.api_v2_list_goods_filter_post</code> — <code>POST /api/v2/list/goods/filter</code> — Получить товары с ценами по артикулам</li>
+<li><code>products.DefaultApi.api_v2_list_goods_size_nm_get</code> — <code>GET /api/v2/list/goods/size/nm</code> — Получить размеры товара с ценами</li>
+<li><code>products.DefaultApi.api_v2_quarantine_goods_get</code> — <code>GET /api/v2/quarantine/goods</code> — Получить товары в карантине</li>
+<li><code>products.DefaultApi.api_v2_upload_task_club_discount_post</code> — <code>POST /api/v2/upload/task/club-discount</code> — Установить скидки WB Клуба</li>
+<li><code>products.DefaultApi.api_v2_upload_task_post</code> — <code>POST /api/v2/upload/task</code> — Установить цены и скидки</li>
+<li><code>products.DefaultApi.api_v2_upload_task_size_post</code> — <code>POST /api/v2/upload/task/size</code> — Установить цены для размеров</li>
+<li><code>products.DefaultApi.api_v3_dbw_warehouses_warehouse_id_contacts_get</code> — <code>GET /api/v3/dbw/warehouses/{warehouseId}/contacts</code> — Список контактов</li>
+<li><code>products.DefaultApi.api_v3_dbw_warehouses_warehouse_id_contacts_put</code> — <code>PUT /api/v3/dbw/warehouses/{warehouseId}/contacts</code> — Обновить список контактов</li>
+<li><code>products.DefaultApi.api_v3_offices_get</code> — <code>GET /api/v3/offices</code> — Получить список складов WB</li>
+<li><code>products.DefaultApi.api_v3_stocks_warehouse_id_delete</code> — <code>DELETE /api/v3/stocks/{warehouseId}</code> — Удалить остатки товаров</li>
+<li><code>products.DefaultApi.api_v3_stocks_warehouse_id_post</code> — <code>POST /api/v3/stocks/{warehouseId}</code> — Получить остатки товаров</li>
+<li><code>products.DefaultApi.api_v3_stocks_warehouse_id_put</code> — <code>PUT /api/v3/stocks/{warehouseId}</code> — Обновить остатки товаров</li>
+<li><code>products.DefaultApi.api_v3_warehouses_get</code> — <code>GET /api/v3/warehouses</code> — Получить список складов продавца</li>
+<li><code>products.DefaultApi.api_v3_warehouses_post</code> — <code>POST /api/v3/warehouses</code> — Создать склад продавца</li>
+<li><code>products.DefaultApi.api_v3_warehouses_warehouse_id_delete</code> — <code>DELETE /api/v3/warehouses/{warehouseId}</code> — Удалить склад продавца</li>
+<li><code>products.DefaultApi.api_v3_warehouses_warehouse_id_put</code> — <code>PUT /api/v3/warehouses/{warehouseId}</code> — Обновить склад продавца</li>
+<li><code>products.DefaultApi.content_v2_barcodes_post</code> — <code>POST /content/v2/barcodes</code> — Генерация баркодов</li>
+<li><code>products.DefaultApi.content_v2_cards_delete_trash_post</code> — <code>POST /content/v2/cards/delete/trash</code> — Перенос карточек товаров в корзину</li>
+<li><code>products.DefaultApi.content_v2_cards_error_list_post</code> — <code>POST /content/v2/cards/error/list</code> — Список несозданных карточек товаров с ошибками</li>
+<li><code>products.DefaultApi.content_v2_cards_limits_get</code> — <code>GET /content/v2/cards/limits</code> — Лимиты карточек товаров</li>
+<li><code>products.DefaultApi.content_v2_cards_move_nm_post</code> — <code>POST /content/v2/cards/moveNm</code> — Объединение и разъединение карточек товаров</li>
+<li><code>products.DefaultApi.content_v2_cards_recover_post</code> — <code>POST /content/v2/cards/recover</code> — Восстановление карточек товаров из корзины</li>
+<li><code>products.DefaultApi.content_v2_cards_update_post</code> — <code>POST /content/v2/cards/update</code> — Редактирование карточек товаров</li>
+<li><code>products.DefaultApi.content_v2_cards_upload_add_post</code> — <code>POST /content/v2/cards/upload/add</code> — Создание карточек товаров с присоединением</li>
+<li><code>products.DefaultApi.content_v2_cards_upload_post</code> — <code>POST /content/v2/cards/upload</code> — Создание карточек товаров</li>
+<li><code>products.DefaultApi.content_v2_directory_colors_get</code> — <code>GET /content/v2/directory/colors</code> — Цвет</li>
+<li><code>products.DefaultApi.content_v2_directory_countries_get</code> — <code>GET /content/v2/directory/countries</code> — Страна производства</li>
+<li><code>products.DefaultApi.content_v2_directory_kinds_get</code> — <code>GET /content/v2/directory/kinds</code> — Пол</li>
+<li><code>products.DefaultApi.content_v2_directory_seasons_get</code> — <code>GET /content/v2/directory/seasons</code> — Сезон</li>
+<li><code>products.DefaultApi.content_v2_directory_tnved_get</code> — <code>GET /content/v2/directory/tnved</code> — ТНВЭД-код</li>
+<li><code>products.DefaultApi.content_v2_directory_vat_get</code> — <code>GET /content/v2/directory/vat</code> — Ставка НДС</li>
+<li><code>products.DefaultApi.content_v2_get_cards_list_post</code> — <code>POST /content/v2/get/cards/list</code> — Список карточек товаров</li>
+<li><code>products.DefaultApi.content_v2_get_cards_trash_post</code> — <code>POST /content/v2/get/cards/trash</code> — Список карточек товаров в корзине</li>
+<li><code>products.DefaultApi.content_v2_object_all_get</code> — <code>GET /content/v2/object/all</code> — Список предметов</li>
+<li><code>products.DefaultApi.content_v2_object_charcs_subject_id_get</code> — <code>GET /content/v2/object/charcs/{subjectId}</code> — Характеристики предмета</li>
+<li><code>products.DefaultApi.content_v2_object_parent_all_get</code> — <code>GET /content/v2/object/parent/all</code> — Родительские категории товаров</li>
+<li><code>products.DefaultApi.content_v2_tag_id_delete</code> — <code>DELETE /content/v2/tag/{id}</code> — Удаление ярлыка</li>
+<li><code>products.DefaultApi.content_v2_tag_id_patch</code> — <code>PATCH /content/v2/tag/{id}</code> — Изменение ярлыка</li>
+<li><code>products.DefaultApi.content_v2_tag_nomenclature_link_post</code> — <code>POST /content/v2/tag/nomenclature/link</code> — Управление ярлыками в карточке товара</li>
+<li><code>products.DefaultApi.content_v2_tag_post</code> — <code>POST /content/v2/tag</code> — Создание ярлыка</li>
+<li><code>products.DefaultApi.content_v2_tags_get</code> — <code>GET /content/v2/tags</code> — Список ярлыков</li>
+<li><code>products.DefaultApi.content_v3_media_file_post</code> — <code>POST /content/v3/media/file</code> — Загрузить медиафайл</li>
+<li><code>products.DefaultApi.content_v3_media_save_post</code> — <code>POST /content/v3/media/save</code> — Загрузить медиафайлы по ссылкам</li>
+</ul>
+<h3 id="orders_fbs-orders_fbs">orders_fbs (<code>orders_fbs</code>)<a class="headerlink" href="#orders_fbs-orders_fbs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>orders_fbs.DefaultApi.api_marketplace_v3_orders_meta_post</code> — <code>POST /api/marketplace/v3/orders/meta</code> — Получить метаданные сборочных заданий</li>
+<li><code>orders_fbs.DefaultApi.api_marketplace_v3_supplies_supply_id_order_ids_get</code> — <code>GET /api/marketplace/v3/supplies/{supplyId}/order-ids</code> — Получить ID сборочных заданий поставки</li>
+<li><code>orders_fbs.DefaultApi.api_marketplace_v3_supplies_supply_id_orders_patch</code> — <code>PATCH /api/marketplace/v3/supplies/{supplyId}/orders</code> — Добавить сборочные задания к поставке</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_client_post</code> — <code>POST /api/v3/orders/client</code> — Заказы с информацией по клиенту</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_get</code> — <code>GET /api/v3/orders</code> — Получить информацию о сборочных заданиях</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_new_get</code> — <code>GET /api/v3/orders/new</code> — Получить список новых сборочных заданий</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_order_id_cancel_patch</code> — <code>PATCH /api/v3/orders/{orderId}/cancel</code> — Отменить сборочное задание</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_order_id_meta_delete</code> — <code>DELETE /api/v3/orders/{orderId}/meta</code> — Удалить метаданные сборочного задания</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_order_id_meta_expiration_put</code> — <code>PUT /api/v3/orders/{orderId}/meta/expiration</code> — Закрепить за сборочным заданием срок годности товара</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_order_id_meta_gtin_put</code> — <code>PUT /api/v3/orders/{orderId}/meta/gtin</code> — Закрепить за сборочным заданием GTIN</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_order_id_meta_imei_put</code> — <code>PUT /api/v3/orders/{orderId}/meta/imei</code> — Закрепить за сборочным заданием IMEI</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_order_id_meta_sgtin_put</code> — <code>PUT /api/v3/orders/{orderId}/meta/sgtin</code> — Закрепить за сборочным заданием код маркировки товара</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_order_id_meta_uin_put</code> — <code>PUT /api/v3/orders/{orderId}/meta/uin</code> — Закрепить за сборочным заданием УИН</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_status_history_post</code> — <code>POST /api/v3/orders/status/history</code> — История статусов для сборочных заданий кроссбордера</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_status_post</code> — <code>POST /api/v3/orders/status</code> — Получить статусы сборочных заданий</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_stickers_cross_border_post</code> — <code>POST /api/v3/orders/stickers/cross-border</code> — Получить стикеры сборочных заданий кроссбордера</li>
+<li><code>orders_fbs.DefaultApi.api_v3_orders_stickers_post</code> — <code>POST /api/v3/orders/stickers</code> — Получить стикеры сборочных заданий</li>
+<li><code>orders_fbs.DefaultApi.api_v3_passes_get</code> — <code>GET /api/v3/passes</code> — Получить список пропусков</li>
+<li><code>orders_fbs.DefaultApi.api_v3_passes_offices_get</code> — <code>GET /api/v3/passes/offices</code> — Получить список складов, для которых требуется пропуск</li>
+<li><code>orders_fbs.DefaultApi.api_v3_passes_pass_id_delete</code> — <code>DELETE /api/v3/passes/{passId}</code> — Удалить пропуск</li>
+<li><code>orders_fbs.DefaultApi.api_v3_passes_pass_id_put</code> — <code>PUT /api/v3/passes/{passId}</code> — Обновить пропуск</li>
+<li><code>orders_fbs.DefaultApi.api_v3_passes_post</code> — <code>POST /api/v3/passes</code> — Создать пропуск</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_get</code> — <code>GET /api/v3/supplies</code> — Получить список поставок</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_orders_reshipment_get</code> — <code>GET /api/v3/supplies/orders/reshipment</code> — Получить все сборочные задания для повторной отгрузки</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_post</code> — <code>POST /api/v3/supplies</code> — Создать новую поставку</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_barcode_get</code> — <code>GET /api/v3/supplies/{supplyId}/barcode</code> — Получить QR-код поставки</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_delete</code> — <code>DELETE /api/v3/supplies/{supplyId}</code> — Удалить поставку</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_deliver_patch</code> — <code>PATCH /api/v3/supplies/{supplyId}/deliver</code> — Передать поставку в доставку</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_get</code> — <code>GET /api/v3/supplies/{supplyId}</code> — Получить информацию о поставке</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_orders_get</code> — <code>GET /api/v3/supplies/{supplyId}/orders</code> — (Deprecated) Получить сборочные задания в поставке</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_delete</code> — <code>DELETE /api/v3/supplies/{supplyId}/trbx</code> — Удалить короба из поставки</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_get</code> — <code>GET /api/v3/supplies/{supplyId}/trbx</code> — Получить список коробов поставки</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_post</code> — <code>POST /api/v3/supplies/{supplyId}/trbx</code> — Добавить короба к поставке</li>
+<li><code>orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_stickers_post</code> — <code>POST /api/v3/supplies/{supplyId}/trbx/stickers</code> — Получить стикеры коробов поставки</li>
+</ul>
+<h3 id="orders_dbw-orders_dbw">orders_dbw (<code>orders_dbw</code>)<a class="headerlink" href="#orders_dbw-orders_dbw" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_courier_post</code> — <code>POST /api/v3/dbw/orders/courier</code> — Информация о курьере</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_delivery_date_post</code> — <code>POST /api/v3/dbw/orders/delivery-date</code> — Дата и время доставки</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_get</code> — <code>GET /api/v3/dbw/orders</code> — Получить информацию о завершенных сборочных заданиях</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_new_get</code> — <code>GET /api/v3/dbw/orders/new</code> — Получить список новых сборочных заданий</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_assemble_patch</code> — <code>PATCH /api/v3/dbw/orders/{orderId}/assemble</code> — Перевести в доставку</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_cancel_patch</code> — <code>PATCH /api/v3/dbw/orders/{orderId}/cancel</code> — Отменить сборочное задание</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_confirm_patch</code> — <code>PATCH /api/v3/dbw/orders/{orderId}/confirm</code> — Перевести на сборку</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_meta_delete</code> — <code>DELETE /api/v3/dbw/orders/{orderId}/meta</code> — Удалить метаданные сборочного задания</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_meta_get</code> — <code>GET /api/v3/dbw/orders/{orderId}/meta</code> — Получить метаданные сборочного задания</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_meta_gtin_put</code> — <code>PUT /api/v3/dbw/orders/{orderId}/meta/gtin</code> — Закрепить за сборочным заданием GTIN</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_meta_imei_put</code> — <code>PUT /api/v3/dbw/orders/{orderId}/meta/imei</code> — Закрепить за сборочным заданием IMEI</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_meta_sgtin_put</code> — <code>PUT /api/v3/dbw/orders/{orderId}/meta/sgtin</code> — Закрепить за сборочным заданием код маркировки товара</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_order_id_meta_uin_put</code> — <code>PUT /api/v3/dbw/orders/{orderId}/meta/uin</code> — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_status_post</code> — <code>POST /api/v3/dbw/orders/status</code> — Получить статусы сборочных заданий</li>
+<li><code>orders_dbw.DefaultApi.api_v3_dbw_orders_stickers_post</code> — <code>POST /api/v3/dbw/orders/stickers</code> — Получить стикеры сборочных заданий</li>
+</ul>
+<h3 id="orders_dbs-orders_dbs">orders_dbs (<code>orders_dbs</code>)<a class="headerlink" href="#orders_dbs-orders_dbs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_groups_info_post</code> — <code>POST /api/v3/dbs/groups/info</code> — Получить информацию о платной доставке</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_client_post</code> — <code>POST /api/v3/dbs/orders/client</code> — Информация о покупателе</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_delivery_date_post</code> — <code>POST /api/v3/dbs/orders/delivery-date</code> — Дата и время доставки</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_get</code> — <code>GET /api/v3/dbs/orders</code> — Получить информацию о завершенных сборочных заданиях</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_new_get</code> — <code>GET /api/v3/dbs/orders/new</code> — Получить список новых сборочных заданий</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_cancel_patch</code> — <code>PATCH /api/v3/dbs/orders/{orderId}/cancel</code> — Отменить сборочное задание</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_confirm_patch</code> — <code>PATCH /api/v3/dbs/orders/{orderId}/confirm</code> — Перевести на сборку</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_deliver_patch</code> — <code>PATCH /api/v3/dbs/orders/{orderId}/deliver</code> — Перевести в доставку</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_meta_delete</code> — <code>DELETE /api/v3/dbs/orders/{orderId}/meta</code> — Удалить метаданные сборочного задания</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_meta_get</code> — <code>GET /api/v3/dbs/orders/{orderId}/meta</code> — Получить метаданные сборочного задания</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_meta_gtin_put</code> — <code>PUT /api/v3/dbs/orders/{orderId}/meta/gtin</code> — Закрепить за сборочным заданием GTIN</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_meta_imei_put</code> — <code>PUT /api/v3/dbs/orders/{orderId}/meta/imei</code> — Закрепить за сборочным заданием IMEI</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_meta_sgtin_put</code> — <code>PUT /api/v3/dbs/orders/{orderId}/meta/sgtin</code> — Закрепить за сборочным заданием код маркировки товара</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_meta_uin_put</code> — <code>PUT /api/v3/dbs/orders/{orderId}/meta/uin</code> — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_receive_patch</code> — <code>PATCH /api/v3/dbs/orders/{orderId}/receive</code> — Сообщить, что заказ принят покупателем</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_order_id_reject_patch</code> — <code>PATCH /api/v3/dbs/orders/{orderId}/reject</code> — Сообщить, что покупатель отказался от заказа</li>
+<li><code>orders_dbs.DefaultApi.api_v3_dbs_orders_status_post</code> — <code>POST /api/v3/dbs/orders/status</code> — Получить статусы сборочных заданий</li>
+</ul>
+<h3 id="in_store_pickup-in_store_pickup">in_store_pickup (<code>in_store_pickup</code>)<a class="headerlink" href="#in_store_pickup-in_store_pickup" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_client_identity_post</code> — <code>POST /api/v3/click-collect/orders/client/identity</code> — Проверить, что заказ принадлежит покупателю</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_client_post</code> — <code>POST /api/v3/click-collect/orders/client</code> — Информация о покупателе</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_get</code> — <code>GET /api/v3/click-collect/orders</code> — Получить информацию о завершённых сборочных заданиях</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_new_get</code> — <code>GET /api/v3/click-collect/orders/new</code> — Получить список новых сборочных заданий</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_cancel_patch</code> — <code>PATCH /api/v3/click-collect/orders/{orderId}/cancel</code> — Отменить сборочное задание</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_confirm_patch</code> — <code>PATCH /api/v3/click-collect/orders/{orderId}/confirm</code> — Перевести на сборку</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_delete</code> — <code>DELETE /api/v3/click-collect/orders/{orderId}/meta</code> — Удалить метаданные сборочного задания</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_get</code> — <code>GET /api/v3/click-collect/orders/{orderId}/meta</code> — Получить метаданные сборочного задания</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_gtin_put</code> — <code>PUT /api/v3/click-collect/orders/{orderId}/meta/gtin</code> — Закрепить за сборочным заданием GTIN</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_imei_put</code> — <code>PUT /api/v3/click-collect/orders/{orderId}/meta/imei</code> — Закрепить за сборочным заданием IMEI</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_sgtin_put</code> — <code>PUT /api/v3/click-collect/orders/{orderId}/meta/sgtin</code> — Закрепить за сборочным заданием код маркировки товара</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_meta_uin_put</code> — <code>PUT /api/v3/click-collect/orders/{orderId}/meta/uin</code> — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_prepare_patch</code> — <code>PATCH /api/v3/click-collect/orders/{orderId}/prepare</code> — Сообщить, что сборочное задание готово к выдаче</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_receive_patch</code> — <code>PATCH /api/v3/click-collect/orders/{orderId}/receive</code> — Сообщить, что заказ принят покупателем</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_order_id_reject_patch</code> — <code>PATCH /api/v3/click-collect/orders/{orderId}/reject</code> — Сообщить, что покупатель отказался от заказа</li>
+<li><code>in_store_pickup.DefaultApi.api_v3_click_collect_orders_status_post</code> — <code>POST /api/v3/click-collect/orders/status</code> — Получить статусы сборочных заданий</li>
+</ul>
+<h3 id="orders_fbw-orders_fbw">orders_fbw (<code>orders_fbw</code>)<a class="headerlink" href="#orders_fbw-orders_fbw" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>orders_fbw.DefaultApi.api_v1_acceptance_coefficients_get</code> — <code>GET /api/v1/acceptance/coefficients</code> — (Deprecated) Коэффициенты приёмки</li>
+<li><code>orders_fbw.DefaultApi.api_v1_acceptance_options_post</code> — <code>POST /api/v1/acceptance/options</code> — Опции приёмки</li>
+<li><code>orders_fbw.DefaultApi.api_v1_supplies_id_get</code> — <code>GET /api/v1/supplies/{ID}</code> — Детали поставки</li>
+<li><code>orders_fbw.DefaultApi.api_v1_supplies_id_goods_get</code> — <code>GET /api/v1/supplies/{ID}/goods</code> — Товары поставки</li>
+<li><code>orders_fbw.DefaultApi.api_v1_supplies_id_package_get</code> — <code>GET /api/v1/supplies/{ID}/package</code> — Упаковка поставки</li>
+<li><code>orders_fbw.DefaultApi.api_v1_supplies_post</code> — <code>POST /api/v1/supplies</code> — Список поставок</li>
+<li><code>orders_fbw.DefaultApi.api_v1_transit_tariffs_get</code> — <code>GET /api/v1/transit-tariffs</code> — Транзитные направления</li>
+<li><code>orders_fbw.DefaultApi.api_v1_warehouses_get</code> — <code>GET /api/v1/warehouses</code> — Список складов</li>
+</ul>
+<h3 id="promotion-promotion">promotion (<code>promotion</code>)<a class="headerlink" href="#promotion-promotion" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>promotion.DefaultApi.adv_v0_auction_adverts_get</code> — <code>GET /adv/v0/auction/adverts</code> — (Deprecated) Информация о кампаниях с ручной ставкой</li>
+<li><code>promotion.DefaultApi.adv_v0_auction_bids_patch</code> — <code>PATCH /adv/v0/auction/bids</code> — (Deprecated) Изменение ставок в кампаниях</li>
+<li><code>promotion.DefaultApi.adv_v0_auction_nms_patch</code> — <code>PATCH /adv/v0/auction/nms</code> — Изменение списка карточек товаров в кампаниях</li>
+<li><code>promotion.DefaultApi.adv_v0_auction_placements_put</code> — <code>PUT /adv/v0/auction/placements</code> — Изменение мест размещения в кампаниях с ручной ставкой</li>
+<li><code>promotion.DefaultApi.adv_v0_bids_min_post</code> — <code>POST /adv/v0/bids/min</code> — (Deprecated) Минимальные ставки для карточек товаров</li>
+<li><code>promotion.DefaultApi.adv_v0_bids_patch</code> — <code>PATCH /adv/v0/bids</code> — (Deprecated) Изменение ставок</li>
+<li><code>promotion.DefaultApi.adv_v0_config_get</code> — <code>GET /adv/v0/config</code> — (Deprecated) Конфигурационные значения Продвижения</li>
+<li><code>promotion.DefaultApi.adv_v0_delete_get</code> — <code>GET /adv/v0/delete</code> — Удаление кампании</li>
+<li><code>promotion.DefaultApi.adv_v0_normquery_bids_delete</code> — <code>DELETE /adv/v0/normquery/bids</code> — Удалить ставки поисковых кластеров</li>
+<li><code>promotion.DefaultApi.adv_v0_normquery_bids_post</code> — <code>POST /adv/v0/normquery/bids</code> — Установить ставки для поисковых кластеров</li>
+<li><code>promotion.DefaultApi.adv_v0_normquery_get_bids_post</code> — <code>POST /adv/v0/normquery/get-bids</code> — Список ставок поисковых кластеров</li>
+<li><code>promotion.DefaultApi.adv_v0_normquery_get_minus_post</code> — <code>POST /adv/v0/normquery/get-minus</code> — Список минус-фраз кампаний</li>
+<li><code>promotion.DefaultApi.adv_v0_normquery_set_minus_post</code> — <code>POST /adv/v0/normquery/set-minus</code> — Установка и удаление минус-фраз</li>
+<li><code>promotion.DefaultApi.adv_v0_normquery_stats_post</code> — <code>POST /adv/v0/normquery/stats</code> — Статистика поисковых кластеров</li>
+<li><code>promotion.DefaultApi.adv_v0_pause_get</code> — <code>GET /adv/v0/pause</code> — Пауза кампании</li>
+<li><code>promotion.DefaultApi.adv_v0_rename_post</code> — <code>POST /adv/v0/rename</code> — Переименование кампании</li>
+<li><code>promotion.DefaultApi.adv_v0_start_get</code> — <code>GET /adv/v0/start</code> — Запуск кампании</li>
+<li><code>promotion.DefaultApi.adv_v0_stats_keywords_get</code> — <code>GET /adv/v0/stats/keywords</code> — (Deprecated) Статистика по ключевым фразам</li>
+<li><code>promotion.DefaultApi.adv_v0_stop_get</code> — <code>GET /adv/v0/stop</code> — Завершение кампании</li>
+<li><code>promotion.DefaultApi.adv_v1_advert_get</code> — <code>GET /adv/v1/advert</code> — Информация о медиакампании</li>
+<li><code>promotion.DefaultApi.adv_v1_adverts_get</code> — <code>GET /adv/v1/adverts</code> — Список медиакампаний</li>
+<li><code>promotion.DefaultApi.adv_v1_auto_getnmtoadd_get</code> — <code>GET /adv/v1/auto/getnmtoadd</code> — (Deprecated) Список карточек товаров для кампании с единой ставкой</li>
+<li><code>promotion.DefaultApi.adv_v1_auto_set_excluded_post</code> — <code>POST /adv/v1/auto/set-excluded</code> — (Deprecated) Установка/удаление минус-фраз для кампании с единой ставкой</li>
+<li><code>promotion.DefaultApi.adv_v1_auto_updatenm_post</code> — <code>POST /adv/v1/auto/updatenm</code> — (Deprecated) Изменение списка карточек товаров в кампании с единой ставкой</li>
+<li><code>promotion.DefaultApi.adv_v1_balance_get</code> — <code>GET /adv/v1/balance</code> — Баланс</li>
+<li><code>promotion.DefaultApi.adv_v1_budget_deposit_post</code> — <code>POST /adv/v1/budget/deposit</code> — Пополнение бюджета кампании</li>
+<li><code>promotion.DefaultApi.adv_v1_budget_get</code> — <code>GET /adv/v1/budget</code> — Бюджет кампании</li>
+<li><code>promotion.DefaultApi.adv_v1_count_get</code> — <code>GET /adv/v1/count</code> — Количество медиакампаний</li>
+<li><code>promotion.DefaultApi.adv_v1_payments_get</code> — <code>GET /adv/v1/payments</code> — Получение истории пополнений счёта</li>
+<li><code>promotion.DefaultApi.adv_v1_promotion_adverts_post</code> — <code>POST /adv/v1/promotion/adverts</code> — (Deprecated) Информация о кампаниях</li>
+<li><code>promotion.DefaultApi.adv_v1_promotion_count_get</code> — <code>GET /adv/v1/promotion/count</code> — Списки кампаний</li>
+<li><code>promotion.DefaultApi.adv_v1_search_set_excluded_post</code> — <code>POST /adv/v1/search/set-excluded</code> — (Deprecated) Установка/удаление минус-фраз в поиске</li>
+<li><code>promotion.DefaultApi.adv_v1_search_set_plus_get</code> — <code>GET /adv/v1/search/set-plus</code> — (Deprecated) Управление активностью фиксированных фраз</li>
+<li><code>promotion.DefaultApi.adv_v1_search_set_plus_post</code> — <code>POST /adv/v1/search/set-plus</code> — (Deprecated) Установка/удаление фиксированных фраз</li>
+<li><code>promotion.DefaultApi.adv_v1_stat_words_get</code> — <code>GET /adv/v1/stat/words</code> — (Deprecated) Статистика кампании c ручной ставкой по ключевым фразам</li>
+<li><code>promotion.DefaultApi.adv_v1_stats_post</code> — <code>POST /adv/v1/stats</code> — Статистика медиакампаний</li>
+<li><code>promotion.DefaultApi.adv_v1_supplier_subjects_get</code> — <code>GET /adv/v1/supplier/subjects</code> — Предметы для кампаний</li>
+<li><code>promotion.DefaultApi.adv_v1_upd_get</code> — <code>GET /adv/v1/upd</code> — Получение истории затрат</li>
+<li><code>promotion.DefaultApi.adv_v2_auto_stat_words_get</code> — <code>GET /adv/v2/auto/stat-words</code> — (Deprecated) Статистика кампании с единой ставкой по кластерам фраз</li>
+<li><code>promotion.DefaultApi.adv_v2_fullstats_post</code> — <code>POST /adv/v2/fullstats</code> — (Deprecated) Статистика кампаний</li>
+<li><code>promotion.DefaultApi.adv_v2_seacat_save_ad_post</code> — <code>POST /adv/v2/seacat/save-ad</code> — Создать кампанию</li>
+<li><code>promotion.DefaultApi.adv_v2_supplier_nms_post</code> — <code>POST /adv/v2/supplier/nms</code> — Карточки товаров для кампаний</li>
+<li><code>promotion.DefaultApi.adv_v3_fullstats_get</code> — <code>GET /adv/v3/fullstats</code> — Статистика кампаний</li>
+<li><code>promotion.DefaultApi.api_advert_v1_bids_min_post</code> — <code>POST /api/advert/v1/bids/min</code> — Минимальные ставки для карточек товаров</li>
+<li><code>promotion.DefaultApi.api_advert_v1_bids_patch</code> — <code>PATCH /api/advert/v1/bids</code> — Изменение ставок в кампаниях</li>
+<li><code>promotion.DefaultApi.api_advert_v2_adverts_get</code> — <code>GET /api/advert/v2/adverts</code> — Информация о кампаниях</li>
+<li><code>promotion.DefaultApi.api_v1_calendar_promotions_details_get</code> — <code>GET /api/v1/calendar/promotions/details</code> — Детальная информация об акциях</li>
+<li><code>promotion.DefaultApi.api_v1_calendar_promotions_get</code> — <code>GET /api/v1/calendar/promotions</code> — Список акций</li>
+<li><code>promotion.DefaultApi.api_v1_calendar_promotions_nomenclatures_get</code> — <code>GET /api/v1/calendar/promotions/nomenclatures</code> — Список товаров для участия в акции</li>
+<li><code>promotion.DefaultApi.api_v1_calendar_promotions_upload_post</code> — <code>POST /api/v1/calendar/promotions/upload</code> — Добавить товар в акцию</li>
+</ul>
+<h3 id="communications-communications">communications (<code>communications</code>)<a class="headerlink" href="#communications-communications" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>communications.DefaultApi.api_feedbacks_v1_pins_count_get</code> — <code>GET /api/feedbacks/v1/pins/count</code> — Количество закреплённых и откреплённых отзывов</li>
+<li><code>communications.DefaultApi.api_feedbacks_v1_pins_delete</code> — <code>DELETE /api/feedbacks/v1/pins</code> — Открепить отзывы</li>
+<li><code>communications.DefaultApi.api_feedbacks_v1_pins_get</code> — <code>GET /api/feedbacks/v1/pins</code> — Список закреплённых и откреплённых отзывов</li>
+<li><code>communications.DefaultApi.api_feedbacks_v1_pins_limits_get</code> — <code>GET /api/feedbacks/v1/pins/limits</code> — Лимиты закреплённых отзывов</li>
+<li><code>communications.DefaultApi.api_feedbacks_v1_pins_post</code> — <code>POST /api/feedbacks/v1/pins</code> — Закрепить отзывы</li>
+<li><code>communications.DefaultApi.api_v1_claim_patch</code> — <code>PATCH /api/v1/claim</code> — Ответ на заявку покупателя</li>
+<li><code>communications.DefaultApi.api_v1_claims_get</code> — <code>GET /api/v1/claims</code> — Заявки покупателей на возврат</li>
+<li><code>communications.DefaultApi.api_v1_feedback_get</code> — <code>GET /api/v1/feedback</code> — Получить отзыв по ID</li>
+<li><code>communications.DefaultApi.api_v1_feedbacks_answer_patch</code> — <code>PATCH /api/v1/feedbacks/answer</code> — Отредактировать ответ на отзыв</li>
+<li><code>communications.DefaultApi.api_v1_feedbacks_answer_post</code> — <code>POST /api/v1/feedbacks/answer</code> — Ответить на отзыв</li>
+<li><code>communications.DefaultApi.api_v1_feedbacks_archive_get</code> — <code>GET /api/v1/feedbacks/archive</code> — Список архивных отзывов</li>
+<li><code>communications.DefaultApi.api_v1_feedbacks_count_get</code> — <code>GET /api/v1/feedbacks/count</code> — Количество отзывов</li>
+<li><code>communications.DefaultApi.api_v1_feedbacks_count_unanswered_get</code> — <code>GET /api/v1/feedbacks/count-unanswered</code> — Необработанные отзывы</li>
+<li><code>communications.DefaultApi.api_v1_feedbacks_get</code> — <code>GET /api/v1/feedbacks</code> — Список отзывов</li>
+<li><code>communications.DefaultApi.api_v1_feedbacks_order_return_post</code> — <code>POST /api/v1/feedbacks/order/return</code> — Возврат товара по ID отзыва</li>
+<li><code>communications.DefaultApi.api_v1_new_feedbacks_questions_get</code> — <code>GET /api/v1/new-feedbacks-questions</code> — Непросмотренные отзывы и вопросы</li>
+<li><code>communications.DefaultApi.api_v1_question_get</code> — <code>GET /api/v1/question</code> — Получить вопрос по ID</li>
+<li><code>communications.DefaultApi.api_v1_questions_count_get</code> — <code>GET /api/v1/questions/count</code> — Количество вопросов</li>
+<li><code>communications.DefaultApi.api_v1_questions_count_unanswered_get</code> — <code>GET /api/v1/questions/count-unanswered</code> — Неотвеченные вопросы</li>
+<li><code>communications.DefaultApi.api_v1_questions_get</code> — <code>GET /api/v1/questions</code> — Список вопросов</li>
+<li><code>communications.DefaultApi.api_v1_questions_patch</code> — <code>PATCH /api/v1/questions</code> — Работа с вопросами</li>
+<li><code>communications.DefaultApi.api_v1_seller_chats_get</code> — <code>GET /api/v1/seller/chats</code> — Список чатов</li>
+<li><code>communications.DefaultApi.api_v1_seller_download_id_get</code> — <code>GET /api/v1/seller/download/{id}</code> — Получить файл из сообщения</li>
+<li><code>communications.DefaultApi.api_v1_seller_events_get</code> — <code>GET /api/v1/seller/events</code> — События чатов</li>
+<li><code>communications.DefaultApi.api_v1_seller_message_post</code> — <code>POST /api/v1/seller/message</code> — Отправить сообщение</li>
+</ul>
+<h3 id="tariffs-tariffs">tariffs (<code>tariffs</code>)<a class="headerlink" href="#tariffs-tariffs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>tariffs.DefaultApi.api_tariffs_v1_acceptance_coefficients_get</code> — <code>GET /api/tariffs/v1/acceptance/coefficients</code> — Тарифы на поставку</li>
+<li><code>tariffs.DefaultApi.api_v1_tariffs_box_get</code> — <code>GET /api/v1/tariffs/box</code> — Тарифы для коробов</li>
+<li><code>tariffs.DefaultApi.api_v1_tariffs_commission_get</code> — <code>GET /api/v1/tariffs/commission</code> — Комиссия по категориям товаров</li>
+<li><code>tariffs.DefaultApi.api_v1_tariffs_pallet_get</code> — <code>GET /api/v1/tariffs/pallet</code> — Тарифы для монопаллет</li>
+<li><code>tariffs.DefaultApi.api_v1_tariffs_return_get</code> — <code>GET /api/v1/tariffs/return</code> — Тарифы на возврат</li>
+</ul>
+<h3 id="analytics-analytics">analytics (<code>analytics</code>)<a class="headerlink" href="#analytics-analytics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>analytics.DefaultApi.api_v2_nm_report_downloads_file_download_id_get</code> — <code>GET /api/v2/nm-report/downloads/file/{downloadId}</code> — Получить отчёт</li>
+<li><code>analytics.DefaultApi.api_v2_nm_report_downloads_get</code> — <code>GET /api/v2/nm-report/downloads</code> — Получить список отчётов</li>
+<li><code>analytics.DefaultApi.api_v2_nm_report_downloads_post</code> — <code>POST /api/v2/nm-report/downloads</code> — Создать отчёт</li>
+<li><code>analytics.DefaultApi.api_v2_nm_report_downloads_retry_post</code> — <code>POST /api/v2/nm-report/downloads/retry</code> — Сгенерировать отчёт повторно</li>
+<li><code>analytics.DefaultApi.api_v2_search_report_product_orders_post</code> — <code>POST /api/v2/search-report/product/orders</code> — Заказы и позиции по поисковым запросам товара</li>
+<li><code>analytics.DefaultApi.api_v2_search_report_product_search_texts_post</code> — <code>POST /api/v2/search-report/product/search-texts</code> — Поисковые запросы по товару</li>
+<li><code>analytics.DefaultApi.api_v2_search_report_report_post</code> — <code>POST /api/v2/search-report/report</code> — Основная страница</li>
+<li><code>analytics.DefaultApi.api_v2_search_report_table_details_post</code> — <code>POST /api/v2/search-report/table/details</code> — Пагинация по товарам в группе</li>
+<li><code>analytics.DefaultApi.api_v2_search_report_table_groups_post</code> — <code>POST /api/v2/search-report/table/groups</code> — Пагинация по группам</li>
+<li><code>analytics.DefaultApi.api_v2_stocks_report_offices_post</code> — <code>POST /api/v2/stocks-report/offices</code> — Данные по складам</li>
+<li><code>analytics.DefaultApi.api_v2_stocks_report_products_groups_post</code> — <code>POST /api/v2/stocks-report/products/groups</code> — Данные по группам</li>
+<li><code>analytics.DefaultApi.api_v2_stocks_report_products_products_post</code> — <code>POST /api/v2/stocks-report/products/products</code> — Данные по товарам</li>
+<li><code>analytics.DefaultApi.api_v2_stocks_report_products_sizes_post</code> — <code>POST /api/v2/stocks-report/products/sizes</code> — Данные по размерам</li>
+<li><code>analytics.DefaultApi.post_sales_funnel_grouped_history</code> — <code>POST /api/analytics/v3/sales-funnel/grouped/history</code> — Статистика групп карточек товаров по дням</li>
+<li><code>analytics.DefaultApi.post_sales_funnel_products</code> — <code>POST /api/analytics/v3/sales-funnel/products</code> — Статистика карточек товаров за период</li>
+<li><code>analytics.DefaultApi.post_sales_funnel_products_history</code> — <code>POST /api/analytics/v3/sales-funnel/products/history</code> — Статистика карточек товаров по дням</li>
+</ul>
+<h3 id="reports-reports">reports (<code>reports</code>)<a class="headerlink" href="#reports-reports" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>reports.DefaultApi.api_v1_acceptance_report_get</code> — <code>GET /api/v1/acceptance_report</code> — Создать отчёт</li>
+<li><code>reports.DefaultApi.api_v1_acceptance_report_tasks_task_id_download_get</code> — <code>GET /api/v1/acceptance_report/tasks/{task_id}/download</code> — Получить отчёт</li>
+<li><code>reports.DefaultApi.api_v1_acceptance_report_tasks_task_id_status_get</code> — <code>GET /api/v1/acceptance_report/tasks/{task_id}/status</code> — Проверить статус</li>
+<li><code>reports.DefaultApi.api_v1_analytics_antifraud_details_get</code> — <code>GET /api/v1/analytics/antifraud-details</code> — Самовыкупы</li>
+<li><code>reports.DefaultApi.api_v1_analytics_banned_products_blocked_get</code> — <code>GET /api/v1/analytics/banned-products/blocked</code> — Заблокированные карточки</li>
+<li><code>reports.DefaultApi.api_v1_analytics_banned_products_shadowed_get</code> — <code>GET /api/v1/analytics/banned-products/shadowed</code> — Скрытые из каталога</li>
+<li><code>reports.DefaultApi.api_v1_analytics_brand_share_brands_get</code> — <code>GET /api/v1/analytics/brand-share/brands</code> — Бренды продавца</li>
+<li><code>reports.DefaultApi.api_v1_analytics_brand_share_get</code> — <code>GET /api/v1/analytics/brand-share</code> — Получить отчёт</li>
+<li><code>reports.DefaultApi.api_v1_analytics_brand_share_parent_subjects_get</code> — <code>GET /api/v1/analytics/brand-share/parent-subjects</code> — Родительские категории бренда</li>
+<li><code>reports.DefaultApi.api_v1_analytics_characteristics_change_get</code> — <code>GET /api/v1/analytics/characteristics-change</code> — (Deprecated) Смена характеристик</li>
+<li><code>reports.DefaultApi.api_v1_analytics_excise_report_post</code> — <code>POST /api/v1/analytics/excise-report</code> — Получить отчёт</li>
+<li><code>reports.DefaultApi.api_v1_analytics_goods_labeling_get</code> — <code>GET /api/v1/analytics/goods-labeling</code> — Маркировка товара</li>
+<li><code>reports.DefaultApi.api_v1_analytics_goods_return_get</code> — <code>GET /api/v1/analytics/goods-return</code> — Получить отчёт</li>
+<li><code>reports.DefaultApi.api_v1_analytics_incorrect_attachments_get</code> — <code>GET /api/v1/analytics/incorrect-attachments</code> — (Deprecated) Подмена товара</li>
+<li><code>reports.DefaultApi.api_v1_analytics_region_sale_get</code> — <code>GET /api/v1/analytics/region-sale</code> — Получить отчёт</li>
+<li><code>reports.DefaultApi.api_v1_analytics_warehouse_measurements_get</code> — <code>GET /api/v1/analytics/warehouse-measurements</code> — (Deprecated) Занижение габаритов упаковки</li>
+<li><code>reports.DefaultApi.api_v1_paid_storage_get</code> — <code>GET /api/v1/paid_storage</code> — Создать отчёт</li>
+<li><code>reports.DefaultApi.api_v1_paid_storage_tasks_task_id_download_get</code> — <code>GET /api/v1/paid_storage/tasks/{task_id}/download</code> — Получить отчёт</li>
+<li><code>reports.DefaultApi.api_v1_paid_storage_tasks_task_id_status_get</code> — <code>GET /api/v1/paid_storage/tasks/{task_id}/status</code> — Проверить статус</li>
+<li><code>reports.DefaultApi.api_v1_supplier_incomes_get</code> — <code>GET /api/v1/supplier/incomes</code> — (Deprecated) Поставки</li>
+<li><code>reports.DefaultApi.api_v1_supplier_orders_get</code> — <code>GET /api/v1/supplier/orders</code> — Заказы</li>
+<li><code>reports.DefaultApi.api_v1_supplier_sales_get</code> — <code>GET /api/v1/supplier/sales</code> — Продажи</li>
+<li><code>reports.DefaultApi.api_v1_supplier_stocks_get</code> — <code>GET /api/v1/supplier/stocks</code> — Склады</li>
+<li><code>reports.DefaultApi.api_v1_warehouse_remains_get</code> — <code>GET /api/v1/warehouse_remains</code> — Создать отчёт</li>
+<li><code>reports.DefaultApi.api_v1_warehouse_remains_tasks_task_id_download_get</code> — <code>GET /api/v1/warehouse_remains/tasks/{task_id}/download</code> — Получить отчёт</li>
+<li><code>reports.DefaultApi.api_v1_warehouse_remains_tasks_task_id_status_get</code> — <code>GET /api/v1/warehouse_remains/tasks/{task_id}/status</code> — Проверить статус</li>
+<li><code>reports.DefaultApi.get_deductions</code> — <code>GET /api/analytics/v1/deductions</code> — Подмены и неверные вложения</li>
+<li><code>reports.DefaultApi.get_measurement_penalties</code> — <code>GET /api/analytics/v1/measurement-penalties</code> — Удержания за занижение габаритов упаковки</li>
+<li><code>reports.DefaultApi.get_warehouse_measurements</code> — <code>GET /api/analytics/v1/warehouse-measurements</code> — Замеры склада</li>
+</ul>
+<h3 id="finances-finances">finances (<code>finances</code>)<a class="headerlink" href="#finances-finances" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>finances.DefaultApi.api_v1_account_balance_get</code> — <code>GET /api/v1/account/balance</code> — Получить баланс продавца</li>
+<li><code>finances.DefaultApi.api_v1_documents_categories_get</code> — <code>GET /api/v1/documents/categories</code> — Категории документов</li>
+<li><code>finances.DefaultApi.api_v1_documents_download_all_post</code> — <code>POST /api/v1/documents/download/all</code> — Получить документы</li>
+<li><code>finances.DefaultApi.api_v1_documents_download_get</code> — <code>GET /api/v1/documents/download</code> — Получить документ</li>
+<li><code>finances.DefaultApi.api_v1_documents_list_get</code> — <code>GET /api/v1/documents/list</code> — Список документов</li>
+<li><code>finances.DefaultApi.api_v5_supplier_report_detail_by_period_get</code> — <code>GET /api/v5/supplier/reportDetailByPeriod</code> — Отчёт о продажах по реализации</li>
+</ul>
+<h3 id="wbd-wbd">wbd (<code>wbd</code>)<a class="headerlink" href="#wbd-wbd" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>wbd.DefaultApi.content_author_get</code> — <code>GET /api/v1/content/author</code> — Получить список своего контента</li>
+<li><code>wbd.DefaultApi.content_delete</code> — <code>POST /api/v1/content/delete</code> — Удалить контент</li>
+<li><code>wbd.DefaultApi.content_download_get</code> — <code>GET /api/v1/content/download/{uri}</code> — Скачать контент</li>
+<li><code>wbd.DefaultApi.content_gallery</code> — <code>POST /api/v1/content/gallery</code> — Загрузить медиафайлы для предложения</li>
+<li><code>wbd.DefaultApi.content_id_get</code> — <code>GET /api/v1/content/author/{content_id}</code> — Получить информацию о контенте</li>
+<li><code>wbd.DefaultApi.content_update</code> — <code>POST /api/v1/content/author/{content_id}</code> — Редактировать контент</li>
+<li><code>wbd.DefaultApi.content_upload_chunk</code> — <code>POST /api/v1/content/upload/chunk</code> — Загрузить контент (файл)</li>
+<li><code>wbd.DefaultApi.content_upload_illustration</code> — <code>POST /api/v1/content/illustration</code> — Загрузить обложку контента</li>
+<li><code>wbd.DefaultApi.content_upload_init</code> — <code>POST /api/v1/content/upload/init</code> — Инициализировать новый контент</li>
+<li><code>wbd.DefaultApi.delete_keys_by_ids</code> — <code>DELETE /api/v1/keys-api/keys</code> — Удалить ключи активации</li>
+<li><code>wbd.DefaultApi.get_catalog</code> — <code>GET /api/v1/catalog</code> — Получить категории и их подкатегории</li>
+<li><code>wbd.DefaultApi.get_redeemed_keys</code> — <code>GET /api/v1/keys-api/keys/redeemed</code> — Получить купленные ключи</li>
+<li><code>wbd.DefaultApi.load_keys</code> — <code>POST /api/v1/keys-api/keys</code> — Добавить ключи активации</li>
+<li><code>wbd.DefaultApi.offer_create</code> — <code>POST /api/v1/offers</code> — Создать новое предложение</li>
+<li><code>wbd.DefaultApi.offer_get</code> — <code>GET /api/v1/offers/{offer_id}</code> — Получить информацию о предложении</li>
+<li><code>wbd.DefaultApi.offer_keys_count_get</code> — <code>GET /api/v1/offer/keys/{offer_id}</code> — Получить количество ключей для предложения</li>
+<li><code>wbd.DefaultApi.offer_keys_get</code> — <code>GET /api/v1/offer/keys/{offer_id}/list</code> — Получить список ключей</li>
+<li><code>wbd.DefaultApi.offer_update</code> — <code>POST /api/v1/offers/{offer_id}</code> — Редактировать предложение</li>
+<li><code>wbd.DefaultApi.offer_update_price</code> — <code>POST /api/v1/offer/price/{offer_id}</code> — Обновить цену</li>
+<li><code>wbd.DefaultApi.offer_update_status</code> — <code>POST /api/v1/offer/{offer_id}</code> — Обновить статус</li>
+<li><code>wbd.DefaultApi.offers_author_get</code> — <code>GET /api/v1/offers/author</code> — Получить список своих предложений</li>
+<li><code>wbd.DefaultApi.offers_upload_thumbnail</code> — <code>POST /api/v1/offers/thumb</code> — Добавить или обновить обложку предложения</li>
+</ul>
+<!-- PY_METHODS_LIST_END -->
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-01-12 18:24:18.862393+00:00
+-->
