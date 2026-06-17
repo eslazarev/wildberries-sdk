@@ -443,8 +443,8 @@ paths:
                   $ref: '#/components/examples/BadPathParamFormat'
                 BadLimitFormat:
                   $ref: '#/components/examples/BadLimitFormat'
-                BadSupplyIDGoods:
-                  $ref: '#/components/examples/BadSupplyIDGoods'
+                BadSupplyIDItems:
+                  $ref: '#/components/examples/BadSupplyIDItems'
                 BadID:
                   $ref: '#/components/examples/BadID'
         '401':
@@ -624,7 +624,7 @@ components:
           description: |
             Код ТНВЭД.
             <br>
-            Если `"needKiz":true`, а `"tnved":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post)
+            Если `"needKiz":true`, а `"tnved":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post)
           nullable: true
         techSize:
           type: string
@@ -1174,7 +1174,7 @@ components:
         detail: поставка 1234 не найдена
         requestId: a6bdc2a4d2fde51c2036fa8af2483886
         origin: supply-api
-    BadSupplyIDGoods:
+    BadSupplyIDItems:
       value:
         status: 400
         title: bad request
