@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiV2SearchReportProductOrdersPost200Response{}
 
 // ApiV2SearchReportProductOrdersPost200Response struct for ApiV2SearchReportProductOrdersPost200Response
 type ApiV2SearchReportProductOrdersPost200Response struct {
-	Data ProductOrdersResponse `json:"data"`
+	Data ItemOrdersResponse `json:"data"`
 }
 
 type _ApiV2SearchReportProductOrdersPost200Response ApiV2SearchReportProductOrdersPost200Response
@@ -30,7 +30,7 @@ type _ApiV2SearchReportProductOrdersPost200Response ApiV2SearchReportProductOrde
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2SearchReportProductOrdersPost200Response(data ProductOrdersResponse) *ApiV2SearchReportProductOrdersPost200Response {
+func NewApiV2SearchReportProductOrdersPost200Response(data ItemOrdersResponse) *ApiV2SearchReportProductOrdersPost200Response {
 	this := ApiV2SearchReportProductOrdersPost200Response{}
 	this.Data = data
 	return &this
@@ -45,9 +45,9 @@ func NewApiV2SearchReportProductOrdersPost200ResponseWithDefaults() *ApiV2Search
 }
 
 // GetData returns the Data field value
-func (o *ApiV2SearchReportProductOrdersPost200Response) GetData() ProductOrdersResponse {
+func (o *ApiV2SearchReportProductOrdersPost200Response) GetData() ItemOrdersResponse {
 	if o == nil {
-		var ret ProductOrdersResponse
+		var ret ItemOrdersResponse
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *ApiV2SearchReportProductOrdersPost200Response) GetData() ProductOrdersR
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *ApiV2SearchReportProductOrdersPost200Response) GetDataOk() (*ProductOrdersResponse, bool) {
+func (o *ApiV2SearchReportProductOrdersPost200Response) GetDataOk() (*ItemOrdersResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *ApiV2SearchReportProductOrdersPost200Response) GetDataOk() (*ProductOrd
 }
 
 // SetData sets field value
-func (o *ApiV2SearchReportProductOrdersPost200Response) SetData(v ProductOrdersResponse) {
+func (o *ApiV2SearchReportProductOrdersPost200Response) SetData(v ItemOrdersResponse) {
 	o.Data = v
 }
 

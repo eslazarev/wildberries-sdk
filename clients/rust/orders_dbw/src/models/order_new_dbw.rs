@@ -20,7 +20,7 @@ pub struct OrderNewDbw {
     /// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
     #[serde(rename = "salePrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub sale_price: Option<Option<i32>>,
-    /// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products/#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`
+    /// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`
     #[serde(rename = "requiredMeta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub required_meta: Option<Option<Vec<String>>>,
     /// Комментарий покупателя

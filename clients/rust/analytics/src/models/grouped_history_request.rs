@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GroupedHistoryRequest {
     #[serde(rename = "selectedPeriod")]
-    pub selected_period: Box<models::ProductsRequestSelectedPeriod>,
+    pub selected_period: Box<models::ItemsRequestSelectedPeriod>,
     /// Список брендов для фильтрации
     #[serde(rename = "brandNames", skip_serializing_if = "Option::is_none")]
     pub brand_names: Option<Vec<String>>,
@@ -32,7 +32,7 @@ pub struct GroupedHistoryRequest {
 }
 
 impl GroupedHistoryRequest {
-    pub fn new(selected_period: models::ProductsRequestSelectedPeriod) -> GroupedHistoryRequest {
+    pub fn new(selected_period: models::ItemsRequestSelectedPeriod) -> GroupedHistoryRequest {
         GroupedHistoryRequest {
             selected_period: Box::new(selected_period),
             brand_names: None,

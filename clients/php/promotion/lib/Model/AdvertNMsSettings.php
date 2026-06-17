@@ -58,7 +58,7 @@ class AdvertNMsSettings implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $openAPITypes = [
         'bids_kopecks' => '\Wildberries\Sdk\Promotion\Model\AdvertBidsKopecks',
-        'subject' => '\Wildberries\Sdk\Promotion\Model\AdvertSubject',
+        'subject' => '\Wildberries\Sdk\Promotion\Model\AdvertSubcategory',
         'nm_id' => 'int'
     ];
 
@@ -342,7 +342,7 @@ class AdvertNMsSettings implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets subject
      *
-     * @return \Wildberries\Sdk\Promotion\Model\AdvertSubject
+     * @return \Wildberries\Sdk\Promotion\Model\AdvertSubcategory
      */
     public function getSubject()
     {
@@ -352,7 +352,7 @@ class AdvertNMsSettings implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets subject
      *
-     * @param \Wildberries\Sdk\Promotion\Model\AdvertSubject $subject subject
+     * @param \Wildberries\Sdk\Promotion\Model\AdvertSubcategory $subject subject
      *
      * @return self
      */

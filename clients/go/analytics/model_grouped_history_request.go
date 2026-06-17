@@ -21,7 +21,7 @@ var _ MappedNullable = &GroupedHistoryRequest{}
 
 // GroupedHistoryRequest struct for GroupedHistoryRequest
 type GroupedHistoryRequest struct {
-	SelectedPeriod ProductsRequestSelectedPeriod `json:"selectedPeriod"`
+	SelectedPeriod ItemsRequestSelectedPeriod `json:"selectedPeriod"`
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID предметов для фильтрации
@@ -39,7 +39,7 @@ type _GroupedHistoryRequest GroupedHistoryRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGroupedHistoryRequest(selectedPeriod ProductsRequestSelectedPeriod) *GroupedHistoryRequest {
+func NewGroupedHistoryRequest(selectedPeriod ItemsRequestSelectedPeriod) *GroupedHistoryRequest {
 	this := GroupedHistoryRequest{}
 	this.SelectedPeriod = selectedPeriod
 	var aggregationLevel Level = DAY
@@ -58,9 +58,9 @@ func NewGroupedHistoryRequestWithDefaults() *GroupedHistoryRequest {
 }
 
 // GetSelectedPeriod returns the SelectedPeriod field value
-func (o *GroupedHistoryRequest) GetSelectedPeriod() ProductsRequestSelectedPeriod {
+func (o *GroupedHistoryRequest) GetSelectedPeriod() ItemsRequestSelectedPeriod {
 	if o == nil {
-		var ret ProductsRequestSelectedPeriod
+		var ret ItemsRequestSelectedPeriod
 		return ret
 	}
 
@@ -69,7 +69,7 @@ func (o *GroupedHistoryRequest) GetSelectedPeriod() ProductsRequestSelectedPerio
 
 // GetSelectedPeriodOk returns a tuple with the SelectedPeriod field value
 // and a boolean to check if the value has been set.
-func (o *GroupedHistoryRequest) GetSelectedPeriodOk() (*ProductsRequestSelectedPeriod, bool) {
+func (o *GroupedHistoryRequest) GetSelectedPeriodOk() (*ItemsRequestSelectedPeriod, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -77,7 +77,7 @@ func (o *GroupedHistoryRequest) GetSelectedPeriodOk() (*ProductsRequestSelectedP
 }
 
 // SetSelectedPeriod sets field value
-func (o *GroupedHistoryRequest) SetSelectedPeriod(v ProductsRequestSelectedPeriod) {
+func (o *GroupedHistoryRequest) SetSelectedPeriod(v ItemsRequestSelectedPeriod) {
 	o.SelectedPeriod = v
 }
 

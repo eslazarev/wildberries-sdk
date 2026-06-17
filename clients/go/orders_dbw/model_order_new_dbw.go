@@ -23,7 +23,7 @@ type OrderNewDBW struct {
 	Address NullableOrderNewDBWAddress `json:"address,omitempty"`
 	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
-	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products/#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`
+	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `\"subjectId\":515`
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Комментарий покупателя
 	Comment *string `json:"comment,omitempty"`

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.107"
+__version__ = "0.1.108"
 
 # Define package exports
 __all__ = [
@@ -44,7 +44,7 @@ __all__ = [
     "CommonInfo",
     "CommonInfoAdvertisedProducts",
     "CommonInfoSupplierRating",
-    "CommonProductFilters",
+    "CommonItemFilters",
     "CommonReportFilters",
     "CommonResponseProperties",
     "CommonShippingOfficeFilters",
@@ -63,15 +63,32 @@ __all__ = [
     "FloatGraphByPeriodItem",
     "GroupedHistoryRequest",
     "History",
-    "HistoryProduct",
+    "HistoryItem",
     "InventoryHistoryReportReq",
     "InventoryHistoryReportReqParams",
     "InventoryMetricsReportReq",
     "InventoryRequest",
     "InventoryWbResponse",
     "InventoryWbResponseItemsInner",
+    "Item",
+    "ItemHistoryRequest",
+    "ItemHistoryResponseInner",
+    "ItemHistoryResponseInnerProduct",
+    "ItemOrdersMetrics",
+    "ItemOrdersRequest",
+    "ItemOrdersResponse",
+    "ItemOrdersTextItem",
     "ItemRatingRequest",
     "ItemRatingResponse",
+    "ItemSearchTextsRequest",
+    "ItemSearchTextsResponse",
+    "ItemStocks",
+    "ItemsRequest",
+    "ItemsRequestSelectedPeriod",
+    "ItemsResponse",
+    "ItemsResponseProductsInner",
+    "ItemsResponseProductsInnerProduct",
+    "ItemsResponseProductsInnerStatistic",
     "Level",
     "MainRequest",
     "MainResponse",
@@ -100,35 +117,18 @@ __all__ = [
     "PostSalesFunnelProducts402Response",
     "PostV1ItemRating200Response",
     "PostV1StocksReportWbWarehouses200Response",
-    "Product",
-    "ProductHistoryRequest",
-    "ProductHistoryResponseInner",
-    "ProductHistoryResponseInnerProduct",
-    "ProductOrdersMetrics",
-    "ProductOrdersRequest",
-    "ProductOrdersResponse",
-    "ProductOrdersTextItem",
-    "ProductSearchTextsRequest",
-    "ProductSearchTextsResponse",
-    "ProductStocks",
-    "ProductsRequest",
-    "ProductsRequestSelectedPeriod",
-    "ProductsResponse",
-    "ProductsResponseProductsInner",
-    "ProductsResponseProductsInnerProduct",
-    "ProductsResponseProductsInnerStatistic",
     "Response429Download",
     "Response429DownloadDaily",
     "SalesFunnelGroupReq",
     "SalesFunnelGroupReqParams",
-    "SalesFunnelProductReq",
-    "SalesFunnelProductReqParams",
+    "SalesFunnelItemReq",
+    "SalesFunnelItemReqParams",
     "SearchReportGroupReq",
     "SearchReportGroupReqParams",
+    "SearchReportItemReq",
+    "SearchReportItemReqParams",
     "SearchReportPositionChartItem",
     "SearchReportPositionClusters",
-    "SearchReportProductReq",
-    "SearchReportProductReqParams",
     "SearchReportTextReq",
     "SearchReportTextReqParams",
     "Statistic",
@@ -154,16 +154,16 @@ __all__ = [
     "TableItemBaseCommon",
     "TableItemBaseCommonFeedbackRating",
     "TableItemFloat",
+    "TableItemItem",
+    "TableItemItemAllOfAvgPosition",
+    "TableItemItemAllOfPrice",
+    "TableItemItemSt",
+    "TableItemItemStMetrics",
+    "TableItemItemStMetricsAllOfCurrentPrice",
+    "TableItemRequest",
+    "TableItemResponse",
     "TableOfficeItem",
     "TableOrderBy",
-    "TableProductItem",
-    "TableProductItemAllOfAvgPosition",
-    "TableProductItemAllOfPrice",
-    "TableProductItemSt",
-    "TableProductItemStMetrics",
-    "TableProductItemStMetricsAllOfCurrentPrice",
-    "TableProductRequest",
-    "TableProductResponse",
     "TableSearchTextItem",
     "TableSearchTextItemAllOfOpenCard",
     "TableShippingOfficeItem",
@@ -213,7 +213,7 @@ from wildberries_sdk.analytics.models.api_v2_stocks_report_products_sizes_post20
 from wildberries_sdk.analytics.models.common_info import CommonInfo as CommonInfo
 from wildberries_sdk.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts as CommonInfoAdvertisedProducts
 from wildberries_sdk.analytics.models.common_info_supplier_rating import CommonInfoSupplierRating as CommonInfoSupplierRating
-from wildberries_sdk.analytics.models.common_product_filters import CommonProductFilters as CommonProductFilters
+from wildberries_sdk.analytics.models.common_item_filters import CommonItemFilters as CommonItemFilters
 from wildberries_sdk.analytics.models.common_report_filters import CommonReportFilters as CommonReportFilters
 from wildberries_sdk.analytics.models.common_response_properties import CommonResponseProperties as CommonResponseProperties
 from wildberries_sdk.analytics.models.common_shipping_office_filters import CommonShippingOfficeFilters as CommonShippingOfficeFilters
@@ -232,15 +232,32 @@ from wildberries_sdk.analytics.models.feedbacks_increase_item_five_star import F
 from wildberries_sdk.analytics.models.float_graph_by_period_item import FloatGraphByPeriodItem as FloatGraphByPeriodItem
 from wildberries_sdk.analytics.models.grouped_history_request import GroupedHistoryRequest as GroupedHistoryRequest
 from wildberries_sdk.analytics.models.history import History as History
-from wildberries_sdk.analytics.models.history_product import HistoryProduct as HistoryProduct
+from wildberries_sdk.analytics.models.history_item import HistoryItem as HistoryItem
 from wildberries_sdk.analytics.models.inventory_history_report_req import InventoryHistoryReportReq as InventoryHistoryReportReq
 from wildberries_sdk.analytics.models.inventory_history_report_req_params import InventoryHistoryReportReqParams as InventoryHistoryReportReqParams
 from wildberries_sdk.analytics.models.inventory_metrics_report_req import InventoryMetricsReportReq as InventoryMetricsReportReq
 from wildberries_sdk.analytics.models.inventory_request import InventoryRequest as InventoryRequest
 from wildberries_sdk.analytics.models.inventory_wb_response import InventoryWbResponse as InventoryWbResponse
 from wildberries_sdk.analytics.models.inventory_wb_response_items_inner import InventoryWbResponseItemsInner as InventoryWbResponseItemsInner
+from wildberries_sdk.analytics.models.item import Item as Item
+from wildberries_sdk.analytics.models.item_history_request import ItemHistoryRequest as ItemHistoryRequest
+from wildberries_sdk.analytics.models.item_history_response_inner import ItemHistoryResponseInner as ItemHistoryResponseInner
+from wildberries_sdk.analytics.models.item_history_response_inner_product import ItemHistoryResponseInnerProduct as ItemHistoryResponseInnerProduct
+from wildberries_sdk.analytics.models.item_orders_metrics import ItemOrdersMetrics as ItemOrdersMetrics
+from wildberries_sdk.analytics.models.item_orders_request import ItemOrdersRequest as ItemOrdersRequest
+from wildberries_sdk.analytics.models.item_orders_response import ItemOrdersResponse as ItemOrdersResponse
+from wildberries_sdk.analytics.models.item_orders_text_item import ItemOrdersTextItem as ItemOrdersTextItem
 from wildberries_sdk.analytics.models.item_rating_request import ItemRatingRequest as ItemRatingRequest
 from wildberries_sdk.analytics.models.item_rating_response import ItemRatingResponse as ItemRatingResponse
+from wildberries_sdk.analytics.models.item_search_texts_request import ItemSearchTextsRequest as ItemSearchTextsRequest
+from wildberries_sdk.analytics.models.item_search_texts_response import ItemSearchTextsResponse as ItemSearchTextsResponse
+from wildberries_sdk.analytics.models.item_stocks import ItemStocks as ItemStocks
+from wildberries_sdk.analytics.models.items_request import ItemsRequest as ItemsRequest
+from wildberries_sdk.analytics.models.items_request_selected_period import ItemsRequestSelectedPeriod as ItemsRequestSelectedPeriod
+from wildberries_sdk.analytics.models.items_response import ItemsResponse as ItemsResponse
+from wildberries_sdk.analytics.models.items_response_products_inner import ItemsResponseProductsInner as ItemsResponseProductsInner
+from wildberries_sdk.analytics.models.items_response_products_inner_product import ItemsResponseProductsInnerProduct as ItemsResponseProductsInnerProduct
+from wildberries_sdk.analytics.models.items_response_products_inner_statistic import ItemsResponseProductsInnerStatistic as ItemsResponseProductsInnerStatistic
 from wildberries_sdk.analytics.models.level import Level as Level
 from wildberries_sdk.analytics.models.main_request import MainRequest as MainRequest
 from wildberries_sdk.analytics.models.main_response import MainResponse as MainResponse
@@ -269,35 +286,18 @@ from wildberries_sdk.analytics.models.post_sales_funnel_products401_response imp
 from wildberries_sdk.analytics.models.post_sales_funnel_products402_response import PostSalesFunnelProducts402Response as PostSalesFunnelProducts402Response
 from wildberries_sdk.analytics.models.post_v1_item_rating200_response import PostV1ItemRating200Response as PostV1ItemRating200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response as PostV1StocksReportWbWarehouses200Response
-from wildberries_sdk.analytics.models.product import Product as Product
-from wildberries_sdk.analytics.models.product_history_request import ProductHistoryRequest as ProductHistoryRequest
-from wildberries_sdk.analytics.models.product_history_response_inner import ProductHistoryResponseInner as ProductHistoryResponseInner
-from wildberries_sdk.analytics.models.product_history_response_inner_product import ProductHistoryResponseInnerProduct as ProductHistoryResponseInnerProduct
-from wildberries_sdk.analytics.models.product_orders_metrics import ProductOrdersMetrics as ProductOrdersMetrics
-from wildberries_sdk.analytics.models.product_orders_request import ProductOrdersRequest as ProductOrdersRequest
-from wildberries_sdk.analytics.models.product_orders_response import ProductOrdersResponse as ProductOrdersResponse
-from wildberries_sdk.analytics.models.product_orders_text_item import ProductOrdersTextItem as ProductOrdersTextItem
-from wildberries_sdk.analytics.models.product_search_texts_request import ProductSearchTextsRequest as ProductSearchTextsRequest
-from wildberries_sdk.analytics.models.product_search_texts_response import ProductSearchTextsResponse as ProductSearchTextsResponse
-from wildberries_sdk.analytics.models.product_stocks import ProductStocks as ProductStocks
-from wildberries_sdk.analytics.models.products_request import ProductsRequest as ProductsRequest
-from wildberries_sdk.analytics.models.products_request_selected_period import ProductsRequestSelectedPeriod as ProductsRequestSelectedPeriod
-from wildberries_sdk.analytics.models.products_response import ProductsResponse as ProductsResponse
-from wildberries_sdk.analytics.models.products_response_products_inner import ProductsResponseProductsInner as ProductsResponseProductsInner
-from wildberries_sdk.analytics.models.products_response_products_inner_product import ProductsResponseProductsInnerProduct as ProductsResponseProductsInnerProduct
-from wildberries_sdk.analytics.models.products_response_products_inner_statistic import ProductsResponseProductsInnerStatistic as ProductsResponseProductsInnerStatistic
 from wildberries_sdk.analytics.models.response429_download import Response429Download as Response429Download
 from wildberries_sdk.analytics.models.response429_download_daily import Response429DownloadDaily as Response429DownloadDaily
 from wildberries_sdk.analytics.models.sales_funnel_group_req import SalesFunnelGroupReq as SalesFunnelGroupReq
 from wildberries_sdk.analytics.models.sales_funnel_group_req_params import SalesFunnelGroupReqParams as SalesFunnelGroupReqParams
-from wildberries_sdk.analytics.models.sales_funnel_product_req import SalesFunnelProductReq as SalesFunnelProductReq
-from wildberries_sdk.analytics.models.sales_funnel_product_req_params import SalesFunnelProductReqParams as SalesFunnelProductReqParams
+from wildberries_sdk.analytics.models.sales_funnel_item_req import SalesFunnelItemReq as SalesFunnelItemReq
+from wildberries_sdk.analytics.models.sales_funnel_item_req_params import SalesFunnelItemReqParams as SalesFunnelItemReqParams
 from wildberries_sdk.analytics.models.search_report_group_req import SearchReportGroupReq as SearchReportGroupReq
 from wildberries_sdk.analytics.models.search_report_group_req_params import SearchReportGroupReqParams as SearchReportGroupReqParams
+from wildberries_sdk.analytics.models.search_report_item_req import SearchReportItemReq as SearchReportItemReq
+from wildberries_sdk.analytics.models.search_report_item_req_params import SearchReportItemReqParams as SearchReportItemReqParams
 from wildberries_sdk.analytics.models.search_report_position_chart_item import SearchReportPositionChartItem as SearchReportPositionChartItem
 from wildberries_sdk.analytics.models.search_report_position_clusters import SearchReportPositionClusters as SearchReportPositionClusters
-from wildberries_sdk.analytics.models.search_report_product_req import SearchReportProductReq as SearchReportProductReq
-from wildberries_sdk.analytics.models.search_report_product_req_params import SearchReportProductReqParams as SearchReportProductReqParams
 from wildberries_sdk.analytics.models.search_report_text_req import SearchReportTextReq as SearchReportTextReq
 from wildberries_sdk.analytics.models.search_report_text_req_params import SearchReportTextReqParams as SearchReportTextReqParams
 from wildberries_sdk.analytics.models.statistic import Statistic as Statistic
@@ -323,16 +323,16 @@ from wildberries_sdk.analytics.models.table_group_response_st import TableGroupR
 from wildberries_sdk.analytics.models.table_item_base_common import TableItemBaseCommon as TableItemBaseCommon
 from wildberries_sdk.analytics.models.table_item_base_common_feedback_rating import TableItemBaseCommonFeedbackRating as TableItemBaseCommonFeedbackRating
 from wildberries_sdk.analytics.models.table_item_float import TableItemFloat as TableItemFloat
+from wildberries_sdk.analytics.models.table_item_item import TableItemItem as TableItemItem
+from wildberries_sdk.analytics.models.table_item_item_all_of_avg_position import TableItemItemAllOfAvgPosition as TableItemItemAllOfAvgPosition
+from wildberries_sdk.analytics.models.table_item_item_all_of_price import TableItemItemAllOfPrice as TableItemItemAllOfPrice
+from wildberries_sdk.analytics.models.table_item_item_st import TableItemItemSt as TableItemItemSt
+from wildberries_sdk.analytics.models.table_item_item_st_metrics import TableItemItemStMetrics as TableItemItemStMetrics
+from wildberries_sdk.analytics.models.table_item_item_st_metrics_all_of_current_price import TableItemItemStMetricsAllOfCurrentPrice as TableItemItemStMetricsAllOfCurrentPrice
+from wildberries_sdk.analytics.models.table_item_request import TableItemRequest as TableItemRequest
+from wildberries_sdk.analytics.models.table_item_response import TableItemResponse as TableItemResponse
 from wildberries_sdk.analytics.models.table_office_item import TableOfficeItem as TableOfficeItem
 from wildberries_sdk.analytics.models.table_order_by import TableOrderBy as TableOrderBy
-from wildberries_sdk.analytics.models.table_product_item import TableProductItem as TableProductItem
-from wildberries_sdk.analytics.models.table_product_item_all_of_avg_position import TableProductItemAllOfAvgPosition as TableProductItemAllOfAvgPosition
-from wildberries_sdk.analytics.models.table_product_item_all_of_price import TableProductItemAllOfPrice as TableProductItemAllOfPrice
-from wildberries_sdk.analytics.models.table_product_item_st import TableProductItemSt as TableProductItemSt
-from wildberries_sdk.analytics.models.table_product_item_st_metrics import TableProductItemStMetrics as TableProductItemStMetrics
-from wildberries_sdk.analytics.models.table_product_item_st_metrics_all_of_current_price import TableProductItemStMetricsAllOfCurrentPrice as TableProductItemStMetricsAllOfCurrentPrice
-from wildberries_sdk.analytics.models.table_product_request import TableProductRequest as TableProductRequest
-from wildberries_sdk.analytics.models.table_product_response import TableProductResponse as TableProductResponse
 from wildberries_sdk.analytics.models.table_search_text_item import TableSearchTextItem as TableSearchTextItem
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_open_card import TableSearchTextItemAllOfOpenCard as TableSearchTextItemAllOfOpenCard
 from wildberries_sdk.analytics.models.table_shipping_office_item import TableShippingOfficeItem as TableShippingOfficeItem

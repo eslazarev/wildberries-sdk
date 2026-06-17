@@ -3542,7 +3542,7 @@ components:
           example: Иван
           type: string
         goodCard:
-          $ref: "#/components/schemas/GoodCard"
+          $ref: "#/components/schemas/Listing"
         lastMessage:
           allOf:
           - $ref: "#/components/schemas/LastMessage"
@@ -3706,7 +3706,7 @@ components:
           url: url
       properties:
         goodCard:
-          $ref: "#/components/schemas/GoodCard"
+          $ref: "#/components/schemas/Listing"
         files:
           description: Файлы
           items:
@@ -3754,7 +3754,7 @@ components:
           description: Размер файла в байтах
           type: integer
       type: object
-    GoodCard:
+    Listing:
       description: Информация о заказе
       example:
         date: date
@@ -3792,7 +3792,7 @@ components:
               - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailed)
           type: string
         size:
-          description: "Размер товара, соответствует `wbSize` в [карточке товара](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1get~1cards~1list/post)"
+          description: "Размер товара, соответствует `wbSize` в [карточке товара](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post)"
           type: string
       type: object
     LastMessage:
@@ -5115,7 +5115,7 @@ components:
           type: boolean
       type: object
     _api_v1_feedback_get_200_response_data_productDetails:
-      description: Product information
+      description: Item information
       example:
         nmId: 5
         imtId: 5

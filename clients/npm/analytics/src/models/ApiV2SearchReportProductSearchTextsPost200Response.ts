@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ProductSearchTextsResponse } from './ProductSearchTextsResponse';
+import type { ItemSearchTextsResponse } from './ItemSearchTextsResponse';
 import {
-    ProductSearchTextsResponseFromJSON,
-    ProductSearchTextsResponseFromJSONTyped,
-    ProductSearchTextsResponseToJSON,
-    ProductSearchTextsResponseToJSONTyped,
-} from './ProductSearchTextsResponse';
+    ItemSearchTextsResponseFromJSON,
+    ItemSearchTextsResponseFromJSONTyped,
+    ItemSearchTextsResponseToJSON,
+    ItemSearchTextsResponseToJSONTyped,
+} from './ItemSearchTextsResponse';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface ApiV2SearchReportProductSearchTextsPost200Response {
     /**
      * 
-     * @type {ProductSearchTextsResponse}
+     * @type {ItemSearchTextsResponse}
      * @memberof ApiV2SearchReportProductSearchTextsPost200Response
      */
-    data: ProductSearchTextsResponse;
+    data: ItemSearchTextsResponse;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ApiV2SearchReportProductSearchTextsPost200ResponseFromJSONTyped(
     }
     return {
         
-        'data': ProductSearchTextsResponseFromJSON(json['data']),
+        'data': ItemSearchTextsResponseFromJSON(json['data']),
     };
 }
 
@@ -68,7 +68,7 @@ export function ApiV2SearchReportProductSearchTextsPost200ResponseToJSONTyped(va
 
     return {
         
-        'data': ProductSearchTextsResponseToJSON(value['data']),
+        'data': ItemSearchTextsResponseToJSON(value['data']),
     };
 }
 

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { AdvertSubject } from './AdvertSubject';
+import type { AdvertSubcategory } from './AdvertSubcategory';
 import {
-    AdvertSubjectFromJSON,
-    AdvertSubjectFromJSONTyped,
-    AdvertSubjectToJSON,
-    AdvertSubjectToJSONTyped,
-} from './AdvertSubject';
+    AdvertSubcategoryFromJSON,
+    AdvertSubcategoryFromJSONTyped,
+    AdvertSubcategoryToJSON,
+    AdvertSubcategoryToJSONTyped,
+} from './AdvertSubcategory';
 import type { AdvertBidsKopecks } from './AdvertBidsKopecks';
 import {
     AdvertBidsKopecksFromJSON,
@@ -42,10 +42,10 @@ export interface AdvertNMsSettings {
     bidsKopecks: AdvertBidsKopecks;
     /**
      * 
-     * @type {AdvertSubject}
+     * @type {AdvertSubcategory}
      * @memberof AdvertNMsSettings
      */
-    subject: AdvertSubject;
+    subject: AdvertSubcategory;
     /**
      * Артикул WB
      * @type {number}
@@ -75,7 +75,7 @@ export function AdvertNMsSettingsFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'bidsKopecks': AdvertBidsKopecksFromJSON(json['bids_kopecks']),
-        'subject': AdvertSubjectFromJSON(json['subject']),
+        'subject': AdvertSubcategoryFromJSON(json['subject']),
         'nmId': json['nm_id'],
     };
 }
@@ -92,7 +92,7 @@ export function AdvertNMsSettingsToJSONTyped(value?: AdvertNMsSettings | null, i
     return {
         
         'bids_kopecks': AdvertBidsKopecksToJSON(value['bidsKopecks']),
-        'subject': AdvertSubjectToJSON(value['subject']),
+        'subject': AdvertSubcategoryToJSON(value['subject']),
         'nm_id': value['nmId'],
     };
 }

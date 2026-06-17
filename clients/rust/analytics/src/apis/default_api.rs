@@ -185,9 +185,9 @@ pub enum PostV1StocksReportWbWarehousesError {
 
 
 /// Метод формирует данные для таблицы:   - о заказах по каждому поисковому запросу для конкретного товара   - о позициях товара в результатах поиска по каждому запросу  Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_important\">   Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_search_report_product_orders_post(configuration: &configuration::Configuration, product_orders_request: models::ProductOrdersRequest) -> Result<models::ApiV2SearchReportProductOrdersPost200Response, Error<ApiV2SearchReportProductOrdersPostError>> {
+pub async fn api_v2_search_report_product_orders_post(configuration: &configuration::Configuration, item_orders_request: models::ItemOrdersRequest) -> Result<models::ApiV2SearchReportProductOrdersPost200Response, Error<ApiV2SearchReportProductOrdersPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_product_orders_request = product_orders_request;
+    let p_body_item_orders_request = item_orders_request;
 
     let uri_str = format!("{}/api/v2/search-report/product/orders", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -203,7 +203,7 @@ pub async fn api_v2_search_report_product_orders_post(configuration: &configurat
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_product_orders_request);
+    req_builder = req_builder.json(&p_body_item_orders_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -231,9 +231,9 @@ pub async fn api_v2_search_report_product_orders_post(configuration: &configurat
 }
 
 /// Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100.  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_search_report_product_search_texts_post(configuration: &configuration::Configuration, product_search_texts_request: models::ProductSearchTextsRequest) -> Result<models::ApiV2SearchReportProductSearchTextsPost200Response, Error<ApiV2SearchReportProductSearchTextsPostError>> {
+pub async fn api_v2_search_report_product_search_texts_post(configuration: &configuration::Configuration, item_search_texts_request: models::ItemSearchTextsRequest) -> Result<models::ApiV2SearchReportProductSearchTextsPost200Response, Error<ApiV2SearchReportProductSearchTextsPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_product_search_texts_request = product_search_texts_request;
+    let p_body_item_search_texts_request = item_search_texts_request;
 
     let uri_str = format!("{}/api/v2/search-report/product/search-texts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -249,7 +249,7 @@ pub async fn api_v2_search_report_product_search_texts_post(configuration: &conf
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_product_search_texts_request);
+    req_builder = req_builder.json(&p_body_item_search_texts_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -507,9 +507,9 @@ pub async fn api_v2_stocks_report_products_groups_post(configuration: &configura
 }
 
 /// Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v2_stocks_report_products_products_post(configuration: &configuration::Configuration, table_product_request: models::TableProductRequest) -> Result<models::ApiV2StocksReportProductsProductsPost200Response, Error<ApiV2StocksReportProductsProductsPostError>> {
+pub async fn api_v2_stocks_report_products_products_post(configuration: &configuration::Configuration, table_item_request: models::TableItemRequest) -> Result<models::ApiV2StocksReportProductsProductsPost200Response, Error<ApiV2StocksReportProductsProductsPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_table_product_request = table_product_request;
+    let p_body_table_item_request = table_item_request;
 
     let uri_str = format!("{}/api/v2/stocks-report/products/products", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -525,7 +525,7 @@ pub async fn api_v2_stocks_report_products_products_post(configuration: &configu
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_table_product_request);
+    req_builder = req_builder.json(&p_body_table_item_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -645,9 +645,9 @@ pub async fn post_sales_funnel_grouped_history(configuration: &configuration::Co
 }
 
 /// Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br><br>  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.<br><br>  Можно получить отчёт максимум за последние 365 дней.<br><br>  В данных предыдущего периода:   * Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`   * Если дата начала  `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`  Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn post_sales_funnel_products(configuration: &configuration::Configuration, products_request: models::ProductsRequest) -> Result<models::PostSalesFunnelProducts200Response, Error<PostSalesFunnelProductsError>> {
+pub async fn post_sales_funnel_products(configuration: &configuration::Configuration, items_request: models::ItemsRequest) -> Result<models::PostSalesFunnelProducts200Response, Error<PostSalesFunnelProductsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_products_request = products_request;
+    let p_body_items_request = items_request;
 
     let uri_str = format!("{}/api/analytics/v3/sales-funnel/products", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -663,7 +663,7 @@ pub async fn post_sales_funnel_products(configuration: &configuration::Configura
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_products_request);
+    req_builder = req_builder.json(&p_body_items_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -691,9 +691,9 @@ pub async fn post_sales_funnel_products(configuration: &configuration::Configura
 }
 
 /// Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn post_sales_funnel_products_history(configuration: &configuration::Configuration, product_history_request: models::ProductHistoryRequest) -> Result<Vec<models::ProductHistoryResponseInner>, Error<PostSalesFunnelProductsHistoryError>> {
+pub async fn post_sales_funnel_products_history(configuration: &configuration::Configuration, item_history_request: models::ItemHistoryRequest) -> Result<Vec<models::ItemHistoryResponseInner>, Error<PostSalesFunnelProductsHistoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_product_history_request = product_history_request;
+    let p_body_item_history_request = item_history_request;
 
     let uri_str = format!("{}/api/analytics/v3/sales-funnel/products/history", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -709,7 +709,7 @@ pub async fn post_sales_funnel_products_history(configuration: &configuration::C
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_product_history_request);
+    req_builder = req_builder.json(&p_body_item_history_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -726,8 +726,8 @@ pub async fn post_sales_funnel_products_history(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ProductHistoryResponseInner&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ProductHistoryResponseInner&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ItemHistoryResponseInner&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ItemHistoryResponseInner&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

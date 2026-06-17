@@ -1712,7 +1712,7 @@ ApiV3OrdersOrderIdCancelPatch Отменить сборочное задание
 
 <div class="description_important">
 Сборочное задание можно отменить до его передачи Wildberries.
-Чтобы проверить, можно ли отменить сборочное задание, используйте метод <a href ="https://dev.wildberries.ru/docs/openapi/orders-fbs/#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post">POST /api/v3/orders/status</a>, поле <code>isCancellable</code>.
+Чтобы проверить, можно ли отменить сборочное задание, используйте метод <a href ="https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post">POST /api/v3/orders/status</a>, поле <code>isCancellable</code>.
 </div>
 
 <div class="description_limit">

@@ -57,7 +57,7 @@ class GroupedHistoryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
-        'selected_period' => '\Wildberries\Sdk\Analytics\Model\ProductsRequestSelectedPeriod',
+        'selected_period' => '\Wildberries\Sdk\Analytics\Model\ItemsRequestSelectedPeriod',
         'brand_names' => 'string[]',
         'subject_ids' => 'int[]',
         'tag_ids' => 'int[]',
@@ -330,7 +330,7 @@ class GroupedHistoryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets selected_period
      *
-     * @return \Wildberries\Sdk\Analytics\Model\ProductsRequestSelectedPeriod
+     * @return \Wildberries\Sdk\Analytics\Model\ItemsRequestSelectedPeriod
      */
     public function getSelectedPeriod()
     {
@@ -340,7 +340,7 @@ class GroupedHistoryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets selected_period
      *
-     * @param \Wildberries\Sdk\Analytics\Model\ProductsRequestSelectedPeriod $selected_period selected_period
+     * @param \Wildberries\Sdk\Analytics\Model\ItemsRequestSelectedPeriod $selected_period selected_period
      *
      * @return self
      */

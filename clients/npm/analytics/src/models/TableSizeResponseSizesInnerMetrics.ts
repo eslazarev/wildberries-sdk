@@ -20,13 +20,13 @@ import {
     TableCommonMetricsSaleRateToJSON,
     TableCommonMetricsSaleRateToJSONTyped,
 } from './TableCommonMetricsSaleRate';
-import type { TableProductItemStMetricsAllOfCurrentPrice } from './TableProductItemStMetricsAllOfCurrentPrice';
+import type { TableItemItemStMetricsAllOfCurrentPrice } from './TableItemItemStMetricsAllOfCurrentPrice';
 import {
-    TableProductItemStMetricsAllOfCurrentPriceFromJSON,
-    TableProductItemStMetricsAllOfCurrentPriceFromJSONTyped,
-    TableProductItemStMetricsAllOfCurrentPriceToJSON,
-    TableProductItemStMetricsAllOfCurrentPriceToJSONTyped,
-} from './TableProductItemStMetricsAllOfCurrentPrice';
+    TableItemItemStMetricsAllOfCurrentPriceFromJSON,
+    TableItemItemStMetricsAllOfCurrentPriceFromJSONTyped,
+    TableItemItemStMetricsAllOfCurrentPriceToJSON,
+    TableItemItemStMetricsAllOfCurrentPriceToJSONTyped,
+} from './TableItemItemStMetricsAllOfCurrentPrice';
 import type { FloatGraphByPeriodItem } from './FloatGraphByPeriodItem';
 import {
     FloatGraphByPeriodItemFromJSON,
@@ -163,10 +163,10 @@ export interface TableSizeResponseSizesInnerMetrics {
     lostBuyoutsSum: number;
     /**
      * 
-     * @type {TableProductItemStMetricsAllOfCurrentPrice}
+     * @type {TableItemItemStMetricsAllOfCurrentPrice}
      * @memberof TableSizeResponseSizesInnerMetrics
      */
-    currentPrice: TableProductItemStMetricsAllOfCurrentPrice;
+    currentPrice: TableItemItemStMetricsAllOfCurrentPrice;
 }
 
 /**
@@ -223,7 +223,7 @@ export function TableSizeResponseSizesInnerMetricsFromJSONTyped(json: any, ignor
         'lostOrdersSum': json['lostOrdersSum'],
         'lostBuyoutsCount': json['lostBuyoutsCount'],
         'lostBuyoutsSum': json['lostBuyoutsSum'],
-        'currentPrice': TableProductItemStMetricsAllOfCurrentPriceFromJSON(json['currentPrice']),
+        'currentPrice': TableItemItemStMetricsAllOfCurrentPriceFromJSON(json['currentPrice']),
     };
 }
 
@@ -256,7 +256,7 @@ export function TableSizeResponseSizesInnerMetricsToJSONTyped(value?: TableSizeR
         'lostOrdersSum': value['lostOrdersSum'],
         'lostBuyoutsCount': value['lostBuyoutsCount'],
         'lostBuyoutsSum': value['lostBuyoutsSum'],
-        'currentPrice': TableProductItemStMetricsAllOfCurrentPriceToJSON(value['currentPrice']),
+        'currentPrice': TableItemItemStMetricsAllOfCurrentPriceToJSON(value['currentPrice']),
     };
 }
 

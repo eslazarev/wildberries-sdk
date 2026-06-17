@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 pub struct PostSalesFunnelGroupedHistory200Response {
     /// Статистика
     #[serde(rename = "data")]
-    pub data: Vec<models::ProductHistoryResponseInner>,
+    pub data: Vec<models::ItemHistoryResponseInner>,
 }
 
 impl PostSalesFunnelGroupedHistory200Response {
-    pub fn new(data: Vec<models::ProductHistoryResponseInner>) -> PostSalesFunnelGroupedHistory200Response {
+    pub fn new(data: Vec<models::ItemHistoryResponseInner>) -> PostSalesFunnelGroupedHistory200Response {
         PostSalesFunnelGroupedHistory200Response {
             data,
         }

@@ -20,13 +20,13 @@ import {
     TableCommonMetricsToJSON,
     TableCommonMetricsToJSONTyped,
 } from './TableCommonMetrics';
-import type { TableProductItemSt } from './TableProductItemSt';
+import type { TableItemItemSt } from './TableItemItemSt';
 import {
-    TableProductItemStFromJSON,
-    TableProductItemStFromJSONTyped,
-    TableProductItemStToJSON,
-    TableProductItemStToJSONTyped,
-} from './TableProductItemSt';
+    TableItemItemStFromJSON,
+    TableItemItemStFromJSONTyped,
+    TableItemItemStToJSON,
+    TableItemItemStToJSONTyped,
+} from './TableItemItemSt';
 
 /**
  * Данные по группе
@@ -72,10 +72,10 @@ export interface TableGroupItemSt {
     metrics: TableCommonMetrics;
     /**
      * Товары группы
-     * @type {Array<TableProductItemSt>}
+     * @type {Array<TableItemItemSt>}
      * @memberof TableGroupItemSt
      */
-    items: Array<TableProductItemSt>;
+    items: Array<TableItemItemSt>;
 }
 
 /**
@@ -108,7 +108,7 @@ export function TableGroupItemStFromJSONTyped(json: any, ignoreDiscriminator: bo
         'tagID': json['tagID'],
         'tagName': json['tagName'],
         'metrics': TableCommonMetricsFromJSON(json['metrics']),
-        'items': ((json['items'] as Array<any>).map(TableProductItemStFromJSON)),
+        'items': ((json['items'] as Array<any>).map(TableItemItemStFromJSON)),
     };
 }
 
@@ -129,7 +129,7 @@ export function TableGroupItemStToJSONTyped(value?: TableGroupItemSt | null, ign
         'tagID': value['tagID'],
         'tagName': value['tagName'],
         'metrics': TableCommonMetricsToJSON(value['metrics']),
-        'items': ((value['items'] as Array<any>).map(TableProductItemStToJSON)),
+        'items': ((value['items'] as Array<any>).map(TableItemItemStToJSON)),
     };
 }
 

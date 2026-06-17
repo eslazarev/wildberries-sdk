@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ProductHistoryResponseInner } from './ProductHistoryResponseInner';
+import type { ItemHistoryResponseInner } from './ItemHistoryResponseInner';
 import {
-    ProductHistoryResponseInnerFromJSON,
-    ProductHistoryResponseInnerFromJSONTyped,
-    ProductHistoryResponseInnerToJSON,
-    ProductHistoryResponseInnerToJSONTyped,
-} from './ProductHistoryResponseInner';
+    ItemHistoryResponseInnerFromJSON,
+    ItemHistoryResponseInnerFromJSONTyped,
+    ItemHistoryResponseInnerToJSON,
+    ItemHistoryResponseInnerToJSONTyped,
+} from './ItemHistoryResponseInner';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface PostSalesFunnelGroupedHistory200Response {
     /**
      * Статистика
-     * @type {Array<ProductHistoryResponseInner>}
+     * @type {Array<ItemHistoryResponseInner>}
      * @memberof PostSalesFunnelGroupedHistory200Response
      */
-    data: Array<ProductHistoryResponseInner>;
+    data: Array<ItemHistoryResponseInner>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PostSalesFunnelGroupedHistory200ResponseFromJSONTyped(json: any,
     }
     return {
         
-        'data': ((json['data'] as Array<any>).map(ProductHistoryResponseInnerFromJSON)),
+        'data': ((json['data'] as Array<any>).map(ItemHistoryResponseInnerFromJSON)),
     };
 }
 
@@ -68,7 +68,7 @@ export function PostSalesFunnelGroupedHistory200ResponseToJSONTyped(value?: Post
 
     return {
         
-        'data': ((value['data'] as Array<any>).map(ProductHistoryResponseInnerToJSON)),
+        'data': ((value['data'] as Array<any>).map(ItemHistoryResponseInnerToJSON)),
     };
 }
 

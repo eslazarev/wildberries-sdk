@@ -57,7 +57,7 @@ class ApiV2SearchReportProductSearchTextsPost200Response implements ModelInterfa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\Wildberries\Sdk\Analytics\Model\ProductSearchTextsResponse'
+        'data' => '\Wildberries\Sdk\Analytics\Model\ItemSearchTextsResponse'
     ];
 
     /**
@@ -295,7 +295,7 @@ class ApiV2SearchReportProductSearchTextsPost200Response implements ModelInterfa
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Analytics\Model\ProductSearchTextsResponse
+     * @return \Wildberries\Sdk\Analytics\Model\ItemSearchTextsResponse
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class ApiV2SearchReportProductSearchTextsPost200Response implements ModelInterfa
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Analytics\Model\ProductSearchTextsResponse $data data
+     * @param \Wildberries\Sdk\Analytics\Model\ItemSearchTextsResponse $data data
      *
      * @return self
      */

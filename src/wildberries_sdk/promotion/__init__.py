@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.107"
+__version__ = "0.1.108"
 
 # Define package exports
 __all__ = [
@@ -64,7 +64,7 @@ __all__ = [
     "AdvertBidsKopecks",
     "AdvertNMsSettings",
     "AdvertSettings",
-    "AdvertSubject",
+    "AdvertSubcategory",
     "ApiAdvertV1BidsMinPost200Response",
     "ApiAdvertV1BidsMinPost200ResponseBidsInner",
     "ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner",
@@ -107,7 +107,7 @@ __all__ = [
     "GetRecomResDataInner",
     "Model400Response",
     "PlacementType",
-    "PromotionsGoodsList",
+    "PromotionsItemsList",
     "RequestWithCampaignID",
     "RequestWithDate",
     "RequestWithInterval",
@@ -222,7 +222,7 @@ from wildberries_sdk.promotion.models.adv_v2_supplier_nms_post200_response_inner
 from wildberries_sdk.promotion.models.advert_bids_kopecks import AdvertBidsKopecks as AdvertBidsKopecks
 from wildberries_sdk.promotion.models.advert_nms_settings import AdvertNMsSettings as AdvertNMsSettings
 from wildberries_sdk.promotion.models.advert_settings import AdvertSettings as AdvertSettings
-from wildberries_sdk.promotion.models.advert_subject import AdvertSubject as AdvertSubject
+from wildberries_sdk.promotion.models.advert_subcategory import AdvertSubcategory as AdvertSubcategory
 from wildberries_sdk.promotion.models.api_advert_v1_bids_min_post200_response import ApiAdvertV1BidsMinPost200Response as ApiAdvertV1BidsMinPost200Response
 from wildberries_sdk.promotion.models.api_advert_v1_bids_min_post200_response_bids_inner import ApiAdvertV1BidsMinPost200ResponseBidsInner as ApiAdvertV1BidsMinPost200ResponseBidsInner
 from wildberries_sdk.promotion.models.api_advert_v1_bids_min_post200_response_bids_inner_bids_inner import ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner as ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner
@@ -265,7 +265,7 @@ from wildberries_sdk.promotion.models.get_recom_res import GetRecomRes as GetRec
 from wildberries_sdk.promotion.models.get_recom_res_data_inner import GetRecomResDataInner as GetRecomResDataInner
 from wildberries_sdk.promotion.models.model400_response import Model400Response as Model400Response
 from wildberries_sdk.promotion.models.placement_type import PlacementType as PlacementType
-from wildberries_sdk.promotion.models.promotions_goods_list import PromotionsGoodsList as PromotionsGoodsList
+from wildberries_sdk.promotion.models.promotions_items_list import PromotionsItemsList as PromotionsItemsList
 from wildberries_sdk.promotion.models.request_with_campaign_id import RequestWithCampaignID as RequestWithCampaignID
 from wildberries_sdk.promotion.models.request_with_date import RequestWithDate as RequestWithDate
 from wildberries_sdk.promotion.models.request_with_interval import RequestWithInterval as RequestWithInterval

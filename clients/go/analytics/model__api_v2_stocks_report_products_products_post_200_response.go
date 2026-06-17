@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiV2StocksReportProductsProductsPost200Response{}
 
 // ApiV2StocksReportProductsProductsPost200Response struct for ApiV2StocksReportProductsProductsPost200Response
 type ApiV2StocksReportProductsProductsPost200Response struct {
-	Data TableProductResponse `json:"data"`
+	Data TableItemResponse `json:"data"`
 }
 
 type _ApiV2StocksReportProductsProductsPost200Response ApiV2StocksReportProductsProductsPost200Response
@@ -30,7 +30,7 @@ type _ApiV2StocksReportProductsProductsPost200Response ApiV2StocksReportProducts
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2StocksReportProductsProductsPost200Response(data TableProductResponse) *ApiV2StocksReportProductsProductsPost200Response {
+func NewApiV2StocksReportProductsProductsPost200Response(data TableItemResponse) *ApiV2StocksReportProductsProductsPost200Response {
 	this := ApiV2StocksReportProductsProductsPost200Response{}
 	this.Data = data
 	return &this
@@ -45,9 +45,9 @@ func NewApiV2StocksReportProductsProductsPost200ResponseWithDefaults() *ApiV2Sto
 }
 
 // GetData returns the Data field value
-func (o *ApiV2StocksReportProductsProductsPost200Response) GetData() TableProductResponse {
+func (o *ApiV2StocksReportProductsProductsPost200Response) GetData() TableItemResponse {
 	if o == nil {
-		var ret TableProductResponse
+		var ret TableItemResponse
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *ApiV2StocksReportProductsProductsPost200Response) GetData() TableProduc
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *ApiV2StocksReportProductsProductsPost200Response) GetDataOk() (*TableProductResponse, bool) {
+func (o *ApiV2StocksReportProductsProductsPost200Response) GetDataOk() (*TableItemResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *ApiV2StocksReportProductsProductsPost200Response) GetDataOk() (*TablePr
 }
 
 // SetData sets field value
-func (o *ApiV2StocksReportProductsProductsPost200Response) SetData(v TableProductResponse) {
+func (o *ApiV2StocksReportProductsProductsPost200Response) SetData(v TableItemResponse) {
 	o.Data = v
 }
 

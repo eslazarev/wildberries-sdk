@@ -21,9 +21,9 @@ type ApiV2NmReportDownloadsPostRequest struct {
 	InventoryHistoryReportReq *InventoryHistoryReportReq
 	InventoryMetricsReportReq *InventoryMetricsReportReq
 	SalesFunnelGroupReq *SalesFunnelGroupReq
-	SalesFunnelProductReq *SalesFunnelProductReq
+	SalesFunnelItemReq *SalesFunnelItemReq
 	SearchReportGroupReq *SearchReportGroupReq
-	SearchReportProductReq *SearchReportProductReq
+	SearchReportItemReq *SearchReportItemReq
 	SearchReportTextReq *SearchReportTextReq
 }
 
@@ -48,10 +48,10 @@ func SalesFunnelGroupReqAsApiV2NmReportDownloadsPostRequest(v *SalesFunnelGroupR
 	}
 }
 
-// SalesFunnelProductReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns SalesFunnelProductReq wrapped in ApiV2NmReportDownloadsPostRequest
-func SalesFunnelProductReqAsApiV2NmReportDownloadsPostRequest(v *SalesFunnelProductReq) ApiV2NmReportDownloadsPostRequest {
+// SalesFunnelItemReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns SalesFunnelItemReq wrapped in ApiV2NmReportDownloadsPostRequest
+func SalesFunnelItemReqAsApiV2NmReportDownloadsPostRequest(v *SalesFunnelItemReq) ApiV2NmReportDownloadsPostRequest {
 	return ApiV2NmReportDownloadsPostRequest{
-		SalesFunnelProductReq: v,
+		SalesFunnelItemReq: v,
 	}
 }
 
@@ -62,10 +62,10 @@ func SearchReportGroupReqAsApiV2NmReportDownloadsPostRequest(v *SearchReportGrou
 	}
 }
 
-// SearchReportProductReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns SearchReportProductReq wrapped in ApiV2NmReportDownloadsPostRequest
-func SearchReportProductReqAsApiV2NmReportDownloadsPostRequest(v *SearchReportProductReq) ApiV2NmReportDownloadsPostRequest {
+// SearchReportItemReqAsApiV2NmReportDownloadsPostRequest is a convenience function that returns SearchReportItemReq wrapped in ApiV2NmReportDownloadsPostRequest
+func SearchReportItemReqAsApiV2NmReportDownloadsPostRequest(v *SearchReportItemReq) ApiV2NmReportDownloadsPostRequest {
 	return ApiV2NmReportDownloadsPostRequest{
-		SearchReportProductReq: v,
+		SearchReportItemReq: v,
 	}
 }
 
@@ -132,21 +132,21 @@ func (dst *ApiV2NmReportDownloadsPostRequest) UnmarshalJSON(data []byte) error {
 		dst.SalesFunnelGroupReq = nil
 	}
 
-	// try to unmarshal data into SalesFunnelProductReq
-	err = newStrictDecoder(data).Decode(&dst.SalesFunnelProductReq)
+	// try to unmarshal data into SalesFunnelItemReq
+	err = newStrictDecoder(data).Decode(&dst.SalesFunnelItemReq)
 	if err == nil {
-		jsonSalesFunnelProductReq, _ := json.Marshal(dst.SalesFunnelProductReq)
-		if string(jsonSalesFunnelProductReq) == "{}" { // empty struct
-			dst.SalesFunnelProductReq = nil
+		jsonSalesFunnelItemReq, _ := json.Marshal(dst.SalesFunnelItemReq)
+		if string(jsonSalesFunnelItemReq) == "{}" { // empty struct
+			dst.SalesFunnelItemReq = nil
 		} else {
-			if err = validator.Validate(dst.SalesFunnelProductReq); err != nil {
-				dst.SalesFunnelProductReq = nil
+			if err = validator.Validate(dst.SalesFunnelItemReq); err != nil {
+				dst.SalesFunnelItemReq = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.SalesFunnelProductReq = nil
+		dst.SalesFunnelItemReq = nil
 	}
 
 	// try to unmarshal data into SearchReportGroupReq
@@ -166,21 +166,21 @@ func (dst *ApiV2NmReportDownloadsPostRequest) UnmarshalJSON(data []byte) error {
 		dst.SearchReportGroupReq = nil
 	}
 
-	// try to unmarshal data into SearchReportProductReq
-	err = newStrictDecoder(data).Decode(&dst.SearchReportProductReq)
+	// try to unmarshal data into SearchReportItemReq
+	err = newStrictDecoder(data).Decode(&dst.SearchReportItemReq)
 	if err == nil {
-		jsonSearchReportProductReq, _ := json.Marshal(dst.SearchReportProductReq)
-		if string(jsonSearchReportProductReq) == "{}" { // empty struct
-			dst.SearchReportProductReq = nil
+		jsonSearchReportItemReq, _ := json.Marshal(dst.SearchReportItemReq)
+		if string(jsonSearchReportItemReq) == "{}" { // empty struct
+			dst.SearchReportItemReq = nil
 		} else {
-			if err = validator.Validate(dst.SearchReportProductReq); err != nil {
-				dst.SearchReportProductReq = nil
+			if err = validator.Validate(dst.SearchReportItemReq); err != nil {
+				dst.SearchReportItemReq = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.SearchReportProductReq = nil
+		dst.SearchReportItemReq = nil
 	}
 
 	// try to unmarshal data into SearchReportTextReq
@@ -205,9 +205,9 @@ func (dst *ApiV2NmReportDownloadsPostRequest) UnmarshalJSON(data []byte) error {
 		dst.InventoryHistoryReportReq = nil
 		dst.InventoryMetricsReportReq = nil
 		dst.SalesFunnelGroupReq = nil
-		dst.SalesFunnelProductReq = nil
+		dst.SalesFunnelItemReq = nil
 		dst.SearchReportGroupReq = nil
-		dst.SearchReportProductReq = nil
+		dst.SearchReportItemReq = nil
 		dst.SearchReportTextReq = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(ApiV2NmReportDownloadsPostRequest)")
@@ -232,16 +232,16 @@ func (src ApiV2NmReportDownloadsPostRequest) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.SalesFunnelGroupReq)
 	}
 
-	if src.SalesFunnelProductReq != nil {
-		return json.Marshal(&src.SalesFunnelProductReq)
+	if src.SalesFunnelItemReq != nil {
+		return json.Marshal(&src.SalesFunnelItemReq)
 	}
 
 	if src.SearchReportGroupReq != nil {
 		return json.Marshal(&src.SearchReportGroupReq)
 	}
 
-	if src.SearchReportProductReq != nil {
-		return json.Marshal(&src.SearchReportProductReq)
+	if src.SearchReportItemReq != nil {
+		return json.Marshal(&src.SearchReportItemReq)
 	}
 
 	if src.SearchReportTextReq != nil {
@@ -268,16 +268,16 @@ func (obj *ApiV2NmReportDownloadsPostRequest) GetActualInstance() (interface{}) 
 		return obj.SalesFunnelGroupReq
 	}
 
-	if obj.SalesFunnelProductReq != nil {
-		return obj.SalesFunnelProductReq
+	if obj.SalesFunnelItemReq != nil {
+		return obj.SalesFunnelItemReq
 	}
 
 	if obj.SearchReportGroupReq != nil {
 		return obj.SearchReportGroupReq
 	}
 
-	if obj.SearchReportProductReq != nil {
-		return obj.SearchReportProductReq
+	if obj.SearchReportItemReq != nil {
+		return obj.SearchReportItemReq
 	}
 
 	if obj.SearchReportTextReq != nil {
@@ -302,16 +302,16 @@ func (obj ApiV2NmReportDownloadsPostRequest) GetActualInstanceValue() (interface
 		return *obj.SalesFunnelGroupReq
 	}
 
-	if obj.SalesFunnelProductReq != nil {
-		return *obj.SalesFunnelProductReq
+	if obj.SalesFunnelItemReq != nil {
+		return *obj.SalesFunnelItemReq
 	}
 
 	if obj.SearchReportGroupReq != nil {
 		return *obj.SearchReportGroupReq
 	}
 
-	if obj.SearchReportProductReq != nil {
-		return *obj.SearchReportProductReq
+	if obj.SearchReportItemReq != nil {
+		return *obj.SearchReportItemReq
 	}
 
 	if obj.SearchReportTextReq != nil {

@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from wildberries_sdk.analytics.models.items_request_selected_period import ItemsRequestSelectedPeriod
 from wildberries_sdk.analytics.models.level import Level
-from wildberries_sdk.analytics.models.products_request_selected_period import ProductsRequestSelectedPeriod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +29,7 @@ class GroupedHistoryRequest(BaseModel):
     """
     GroupedHistoryRequest
     """ # noqa: E501
-    selected_period: ProductsRequestSelectedPeriod = Field(alias="selectedPeriod")
+    selected_period: ItemsRequestSelectedPeriod = Field(alias="selectedPeriod")
     brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames", json_schema_extra={"examples": [["nike", "adidas"]]})
     subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds", json_schema_extra={"examples": [[64, 334]]})
     tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds", json_schema_extra={"examples": [[32, 53]]})
@@ -91,7 +91,7 @@ class GroupedHistoryRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "selectedPeriod": ProductsRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
+            "selectedPeriod": ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
             "brandNames": obj.get("brandNames"),
             "subjectIds": obj.get("subjectIds"),
             "tagIds": obj.get("tagIds"),

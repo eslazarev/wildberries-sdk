@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.product_orders_response import ProductOrdersResponse
+from wildberries_sdk.analytics.models.item_orders_response import ItemOrdersResponse
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class ApiV2SearchReportProductOrdersPost200Response(BaseModel):
     """
     ApiV2SearchReportProductOrdersPost200Response
     """ # noqa: E501
-    data: ProductOrdersResponse
+    data: ItemOrdersResponse
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class ApiV2SearchReportProductOrdersPost200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": ProductOrdersResponse.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": ItemOrdersResponse.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

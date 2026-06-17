@@ -25,7 +25,7 @@ type Chat struct {
 	ReplySign *string `json:"replySign,omitempty"`
 	// Имя покупателя
 	ClientName *string `json:"clientName,omitempty"`
-	GoodCard *GoodCard `json:"goodCard,omitempty"`
+	GoodCard *Listing `json:"goodCard,omitempty"`
 	// Последнее сообщение в чате
 	LastMessage *LastMessage `json:"lastMessage,omitempty"`
 }
@@ -144,9 +144,9 @@ func (o *Chat) SetClientName(v string) {
 }
 
 // GetGoodCard returns the GoodCard field value if set, zero value otherwise.
-func (o *Chat) GetGoodCard() GoodCard {
+func (o *Chat) GetGoodCard() Listing {
 	if o == nil || IsNil(o.GoodCard) {
-		var ret GoodCard
+		var ret Listing
 		return ret
 	}
 	return *o.GoodCard
@@ -154,7 +154,7 @@ func (o *Chat) GetGoodCard() GoodCard {
 
 // GetGoodCardOk returns a tuple with the GoodCard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Chat) GetGoodCardOk() (*GoodCard, bool) {
+func (o *Chat) GetGoodCardOk() (*Listing, bool) {
 	if o == nil || IsNil(o.GoodCard) {
 		return nil, false
 	}
@@ -170,8 +170,8 @@ func (o *Chat) HasGoodCard() bool {
 	return false
 }
 
-// SetGoodCard gets a reference to the given GoodCard and assigns it to the GoodCard field.
-func (o *Chat) SetGoodCard(v GoodCard) {
+// SetGoodCard gets a reference to the given Listing and assigns it to the GoodCard field.
+func (o *Chat) SetGoodCard(v Listing) {
 	o.GoodCard = &v
 }
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &PostSalesFunnelGroupedHistory200Response{}
 // PostSalesFunnelGroupedHistory200Response struct for PostSalesFunnelGroupedHistory200Response
 type PostSalesFunnelGroupedHistory200Response struct {
 	// Статистика
-	Data []ProductHistoryResponseInner `json:"data"`
+	Data []ItemHistoryResponseInner `json:"data"`
 }
 
 type _PostSalesFunnelGroupedHistory200Response PostSalesFunnelGroupedHistory200Response
@@ -31,7 +31,7 @@ type _PostSalesFunnelGroupedHistory200Response PostSalesFunnelGroupedHistory200R
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostSalesFunnelGroupedHistory200Response(data []ProductHistoryResponseInner) *PostSalesFunnelGroupedHistory200Response {
+func NewPostSalesFunnelGroupedHistory200Response(data []ItemHistoryResponseInner) *PostSalesFunnelGroupedHistory200Response {
 	this := PostSalesFunnelGroupedHistory200Response{}
 	this.Data = data
 	return &this
@@ -46,9 +46,9 @@ func NewPostSalesFunnelGroupedHistory200ResponseWithDefaults() *PostSalesFunnelG
 }
 
 // GetData returns the Data field value
-func (o *PostSalesFunnelGroupedHistory200Response) GetData() []ProductHistoryResponseInner {
+func (o *PostSalesFunnelGroupedHistory200Response) GetData() []ItemHistoryResponseInner {
 	if o == nil {
-		var ret []ProductHistoryResponseInner
+		var ret []ItemHistoryResponseInner
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PostSalesFunnelGroupedHistory200Response) GetData() []ProductHistoryRes
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *PostSalesFunnelGroupedHistory200Response) GetDataOk() ([]ProductHistoryResponseInner, bool) {
+func (o *PostSalesFunnelGroupedHistory200Response) GetDataOk() ([]ItemHistoryResponseInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *PostSalesFunnelGroupedHistory200Response) GetDataOk() ([]ProductHistory
 }
 
 // SetData sets field value
-func (o *PostSalesFunnelGroupedHistory200Response) SetData(v []ProductHistoryResponseInner) {
+func (o *PostSalesFunnelGroupedHistory200Response) SetData(v []ItemHistoryResponseInner) {
 	o.Data = v
 }
 

@@ -60,7 +60,7 @@ class Chat implements ModelInterface, ArrayAccess, \JsonSerializable
         'chat_id' => 'string',
         'reply_sign' => 'string',
         'client_name' => 'string',
-        'good_card' => '\Wildberries\Sdk\Communications\Model\GoodCard',
+        'good_card' => '\Wildberries\Sdk\Communications\Model\Listing',
         'last_message' => '\Wildberries\Sdk\Communications\Model\LastMessage'
     ];
 
@@ -401,7 +401,7 @@ class Chat implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets good_card
      *
-     * @return \Wildberries\Sdk\Communications\Model\GoodCard|null
+     * @return \Wildberries\Sdk\Communications\Model\Listing|null
      */
     public function getGoodCard()
     {
@@ -411,7 +411,7 @@ class Chat implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets good_card
      *
-     * @param \Wildberries\Sdk\Communications\Model\GoodCard|null $good_card good_card
+     * @param \Wildberries\Sdk\Communications\Model\Listing|null $good_card good_card
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class ApiV1CalendarPromotionsNomenclaturesGet200ResponseData implements ModelInt
      * @var string[]
      */
     protected static $openAPITypes = [
-        'nomenclatures' => '\Wildberries\Sdk\Promotion\Model\PromotionsGoodsList[]'
+        'nomenclatures' => '\Wildberries\Sdk\Promotion\Model\PromotionsItemsList[]'
     ];
 
     /**
@@ -293,7 +293,7 @@ class ApiV1CalendarPromotionsNomenclaturesGet200ResponseData implements ModelInt
     /**
      * Gets nomenclatures
      *
-     * @return \Wildberries\Sdk\Promotion\Model\PromotionsGoodsList[]|null
+     * @return \Wildberries\Sdk\Promotion\Model\PromotionsItemsList[]|null
      */
     public function getNomenclatures()
     {
@@ -303,7 +303,7 @@ class ApiV1CalendarPromotionsNomenclaturesGet200ResponseData implements ModelInt
     /**
      * Sets nomenclatures
      *
-     * @param \Wildberries\Sdk\Promotion\Model\PromotionsGoodsList[]|null $nomenclatures Список товаров
+     * @param \Wildberries\Sdk\Promotion\Model\PromotionsItemsList[]|null $nomenclatures Список товаров
      *
      * @return self
      */

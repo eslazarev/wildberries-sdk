@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PromotionsGoodsList } from './PromotionsGoodsList';
+import type { PromotionsItemsList } from './PromotionsItemsList';
 import {
-    PromotionsGoodsListFromJSON,
-    PromotionsGoodsListFromJSONTyped,
-    PromotionsGoodsListToJSON,
-    PromotionsGoodsListToJSONTyped,
-} from './PromotionsGoodsList';
+    PromotionsItemsListFromJSON,
+    PromotionsItemsListFromJSONTyped,
+    PromotionsItemsListToJSON,
+    PromotionsItemsListToJSONTyped,
+} from './PromotionsItemsList';
 
 /**
  * Данные ответа
@@ -29,10 +29,10 @@ import {
 export interface ApiV1CalendarPromotionsNomenclaturesGet200ResponseData {
     /**
      * Список товаров
-     * @type {Array<PromotionsGoodsList>}
+     * @type {Array<PromotionsItemsList>}
      * @memberof ApiV1CalendarPromotionsNomenclaturesGet200ResponseData
      */
-    nomenclatures?: Array<PromotionsGoodsList>;
+    nomenclatures?: Array<PromotionsItemsList>;
 }
 
 /**
@@ -52,7 +52,7 @@ export function ApiV1CalendarPromotionsNomenclaturesGet200ResponseDataFromJSONTy
     }
     return {
         
-        'nomenclatures': json['nomenclatures'] == null ? undefined : ((json['nomenclatures'] as Array<any>).map(PromotionsGoodsListFromJSON)),
+        'nomenclatures': json['nomenclatures'] == null ? undefined : ((json['nomenclatures'] as Array<any>).map(PromotionsItemsListFromJSON)),
     };
 }
 
@@ -67,7 +67,7 @@ export function ApiV1CalendarPromotionsNomenclaturesGet200ResponseDataToJSONType
 
     return {
         
-        'nomenclatures': value['nomenclatures'] == null ? undefined : ((value['nomenclatures'] as Array<any>).map(PromotionsGoodsListToJSON)),
+        'nomenclatures': value['nomenclatures'] == null ? undefined : ((value['nomenclatures'] as Array<any>).map(PromotionsItemsListToJSON)),
     };
 }
 

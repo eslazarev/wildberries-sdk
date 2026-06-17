@@ -76,7 +76,7 @@ class TableSizeResponseSizesInnerMetrics implements ModelInterface, ArrayAccess,
         'lost_orders_sum' => 'float',
         'lost_buyouts_count' => 'float',
         'lost_buyouts_sum' => 'float',
-        'current_price' => '\Wildberries\Sdk\Analytics\Model\TableProductItemStMetricsAllOfCurrentPrice'
+        'current_price' => '\Wildberries\Sdk\Analytics\Model\TableItemItemStMetricsAllOfCurrentPrice'
     ];
 
     /**
@@ -962,7 +962,7 @@ class TableSizeResponseSizesInnerMetrics implements ModelInterface, ArrayAccess,
     /**
      * Gets current_price
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableProductItemStMetricsAllOfCurrentPrice
+     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemStMetricsAllOfCurrentPrice
      */
     public function getCurrentPrice()
     {
@@ -972,7 +972,7 @@ class TableSizeResponseSizesInnerMetrics implements ModelInterface, ArrayAccess,
     /**
      * Sets current_price
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableProductItemStMetricsAllOfCurrentPrice $current_price current_price
+     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemStMetricsAllOfCurrentPrice $current_price current_price
      *
      * @return self
      */

@@ -27,7 +27,7 @@ type ModelsGoodInSupply struct {
 	NmID *int32 `json:"nmID,omitempty"`
 	// Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен 
 	NeedKiz *bool `json:"needKiz,omitempty"`
-	// Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post) 
+	// Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post) 
 	Tnved NullableString `json:"tnved,omitempty"`
 	// Размер товара, указанный продавцом
 	TechSize *string `json:"techSize,omitempty"`

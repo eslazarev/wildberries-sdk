@@ -89,7 +89,7 @@ SDK выпускается с security-first процессом:
 - `PUT /api/v1/users/access` — Изменить права доступа пользователей
 - `GET /ping` — Проверка подключения
 
-### Работа с товарами (`02-products.yaml`)
+### Работа с товарами (`02-items.yaml`)
 - `GET /api/content/v1/brands` — Бренды
 - `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж (postV1UploadTaskB2bWholesale)
 - `GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки

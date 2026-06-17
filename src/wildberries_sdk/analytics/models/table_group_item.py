@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.analytics.models.table_group_item_metrics import TableGroupItemMetrics
-from wildberries_sdk.analytics.models.table_product_item import TableProductItem
+from wildberries_sdk.analytics.models.table_item_item import TableItemItem
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -35,7 +35,7 @@ class TableGroupItem(BaseModel):
     tag_name: Optional[StrictStr] = Field(default=None, description="Название ярлыка", alias="tagName", json_schema_extra={"examples": ["phones"]})
     tag_id: Optional[StrictInt] = Field(default=None, description="ID ярлыка", alias="tagId", json_schema_extra={"examples": [65]})
     metrics: TableGroupItemMetrics
-    items: List[TableProductItem] = Field(description="Массив товаров группы")
+    items: List[TableItemItem] = Field(description="Массив товаров группы")
     __properties: ClassVar[List[str]] = ["subjectName", "subjectId", "brandName", "tagName", "tagId", "metrics", "items"]
 
     model_config = ConfigDict(
@@ -105,7 +105,7 @@ class TableGroupItem(BaseModel):
             "tagName": obj.get("tagName"),
             "tagId": obj.get("tagId"),
             "metrics": TableGroupItemMetrics.from_dict(obj["metrics"]) if obj.get("metrics") is not None else None,
-            "items": [TableProductItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
+            "items": [TableItemItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
         })
         return _obj
 

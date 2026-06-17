@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "reportType")]
 pub enum ApiV2NmReportDownloadsPostRequest {
     #[serde(rename="DETAIL_HISTORY_REPORT")]
-    DetailHistoryReport(Box<models::SalesFunnelProductReq>),
+    DetailHistoryReport(Box<models::SalesFunnelItemReq>),
     #[serde(rename="GROUPED_HISTORY_REPORT")]
     GroupedHistoryReport(Box<models::SalesFunnelGroupReq>),
     #[serde(rename="SEARCH_QUERIES_PREMIUM_REPORT_GROUP")]
     SearchQueriesPremiumReportGroup(Box<models::SearchReportGroupReq>),
     #[serde(rename="SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT")]
-    SearchQueriesPremiumReportProduct(Box<models::SearchReportProductReq>),
+    SearchQueriesPremiumReportProduct(Box<models::SearchReportItemReq>),
     #[serde(rename="SEARCH_QUERIES_PREMIUM_REPORT_TEXT")]
     SearchQueriesPremiumReportText(Box<models::SearchReportTextReq>),
     #[serde(rename="STOCK_HISTORY_REPORT_CSV")]

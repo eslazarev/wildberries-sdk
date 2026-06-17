@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from wildberries_sdk.analytics.models.float_graph_by_period_item import FloatGraphByPeriodItem
 from wildberries_sdk.analytics.models.table_common_metrics_sale_rate import TableCommonMetricsSaleRate
-from wildberries_sdk.analytics.models.table_product_item_st_metrics_all_of_current_price import TableProductItemStMetricsAllOfCurrentPrice
+from wildberries_sdk.analytics.models.table_item_item_st_metrics_all_of_current_price import TableItemItemStMetricsAllOfCurrentPrice
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -48,7 +48,7 @@ class TableSizeResponseSizesInnerMetrics(BaseModel):
     lost_orders_sum: Union[StrictFloat, StrictInt] = Field(description="Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostOrdersSum", json_schema_extra={"examples": [155000.25]})
     lost_buyouts_count: Union[StrictFloat, StrictInt] = Field(description="Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostBuyoutsCount", json_schema_extra={"examples": [123.55]})
     lost_buyouts_sum: Union[StrictFloat, StrictInt] = Field(description="Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostBuyoutsSum", json_schema_extra={"examples": [225555.15]})
-    current_price: TableProductItemStMetricsAllOfCurrentPrice = Field(alias="currentPrice")
+    current_price: TableItemItemStMetricsAllOfCurrentPrice = Field(alias="currentPrice")
     __properties: ClassVar[List[str]] = ["ordersCount", "ordersSum", "avgOrders", "avgOrdersByMonth", "buyoutCount", "buyoutSum", "buyoutPercent", "stockCount", "stockSum", "saleRate", "avgStockTurnover", "toClientCount", "fromClientCount", "officeMissingTime", "lostOrdersCount", "lostOrdersSum", "lostBuyoutsCount", "lostBuyoutsSum", "currentPrice"]
 
     model_config = ConfigDict(
@@ -139,7 +139,7 @@ class TableSizeResponseSizesInnerMetrics(BaseModel):
             "lostOrdersSum": obj.get("lostOrdersSum"),
             "lostBuyoutsCount": obj.get("lostBuyoutsCount"),
             "lostBuyoutsSum": obj.get("lostBuyoutsSum"),
-            "currentPrice": TableProductItemStMetricsAllOfCurrentPrice.from_dict(obj["currentPrice"]) if obj.get("currentPrice") is not None else None
+            "currentPrice": TableItemItemStMetricsAllOfCurrentPrice.from_dict(obj["currentPrice"]) if obj.get("currentPrice") is not None else None
         })
         return _obj
 

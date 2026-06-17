@@ -487,7 +487,7 @@ class ModelsGoodInSupply implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tnved
      *
-     * @param string|null $tnved Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post)
+     * @param string|null $tnved Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post)
      *
      * @return self
      */

@@ -33,13 +33,13 @@ import {
     SalesFunnelGroupReqFromJSONTyped,
     SalesFunnelGroupReqToJSON,
 } from './SalesFunnelGroupReq';
-import type { SalesFunnelProductReq } from './SalesFunnelProductReq';
+import type { SalesFunnelItemReq } from './SalesFunnelItemReq';
 import {
-    instanceOfSalesFunnelProductReq,
-    SalesFunnelProductReqFromJSON,
-    SalesFunnelProductReqFromJSONTyped,
-    SalesFunnelProductReqToJSON,
-} from './SalesFunnelProductReq';
+    instanceOfSalesFunnelItemReq,
+    SalesFunnelItemReqFromJSON,
+    SalesFunnelItemReqFromJSONTyped,
+    SalesFunnelItemReqToJSON,
+} from './SalesFunnelItemReq';
 import type { SearchReportGroupReq } from './SearchReportGroupReq';
 import {
     instanceOfSearchReportGroupReq,
@@ -47,13 +47,13 @@ import {
     SearchReportGroupReqFromJSONTyped,
     SearchReportGroupReqToJSON,
 } from './SearchReportGroupReq';
-import type { SearchReportProductReq } from './SearchReportProductReq';
+import type { SearchReportItemReq } from './SearchReportItemReq';
 import {
-    instanceOfSearchReportProductReq,
-    SearchReportProductReqFromJSON,
-    SearchReportProductReqFromJSONTyped,
-    SearchReportProductReqToJSON,
-} from './SearchReportProductReq';
+    instanceOfSearchReportItemReq,
+    SearchReportItemReqFromJSON,
+    SearchReportItemReqFromJSONTyped,
+    SearchReportItemReqToJSON,
+} from './SearchReportItemReq';
 import type { SearchReportTextReq } from './SearchReportTextReq';
 import {
     instanceOfSearchReportTextReq,
@@ -67,7 +67,7 @@ import {
  * 
  * @export
  */
-export type ApiV2NmReportDownloadsPostRequest = { reportType: 'DETAIL_HISTORY_REPORT' } & SalesFunnelProductReq | { reportType: 'GROUPED_HISTORY_REPORT' } & SalesFunnelGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP' } & SearchReportGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } & SearchReportProductReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } & SearchReportTextReq | { reportType: 'STOCK_HISTORY_DAILY_CSV' } & InventoryHistoryReportReq | { reportType: 'STOCK_HISTORY_REPORT_CSV' } & InventoryMetricsReportReq;
+export type ApiV2NmReportDownloadsPostRequest = { reportType: 'DETAIL_HISTORY_REPORT' } & SalesFunnelItemReq | { reportType: 'GROUPED_HISTORY_REPORT' } & SalesFunnelGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP' } & SearchReportGroupReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } & SearchReportItemReq | { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } & SearchReportTextReq | { reportType: 'STOCK_HISTORY_DAILY_CSV' } & InventoryHistoryReportReq | { reportType: 'STOCK_HISTORY_REPORT_CSV' } & InventoryMetricsReportReq;
 
 export function ApiV2NmReportDownloadsPostRequestFromJSON(json: any): ApiV2NmReportDownloadsPostRequest {
     return ApiV2NmReportDownloadsPostRequestFromJSONTyped(json, false);
@@ -79,13 +79,13 @@ export function ApiV2NmReportDownloadsPostRequestFromJSONTyped(json: any, ignore
     }
     switch (json['reportType']) {
         case 'DETAIL_HISTORY_REPORT':
-            return Object.assign({}, SalesFunnelProductReqFromJSONTyped(json, true), { reportType: 'DETAIL_HISTORY_REPORT' } as const);
+            return Object.assign({}, SalesFunnelItemReqFromJSONTyped(json, true), { reportType: 'DETAIL_HISTORY_REPORT' } as const);
         case 'GROUPED_HISTORY_REPORT':
             return Object.assign({}, SalesFunnelGroupReqFromJSONTyped(json, true), { reportType: 'GROUPED_HISTORY_REPORT' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP':
             return Object.assign({}, SearchReportGroupReqFromJSONTyped(json, true), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT':
-            return Object.assign({}, SearchReportProductReqFromJSONTyped(json, true), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } as const);
+            return Object.assign({}, SearchReportItemReqFromJSONTyped(json, true), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT':
             return Object.assign({}, SearchReportTextReqFromJSONTyped(json, true), { reportType: 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } as const);
         case 'STOCK_HISTORY_DAILY_CSV':
@@ -107,13 +107,13 @@ export function ApiV2NmReportDownloadsPostRequestToJSONTyped(value?: ApiV2NmRepo
     }
     switch (value['reportType']) {
         case 'DETAIL_HISTORY_REPORT':
-            return Object.assign({}, SalesFunnelProductReqToJSON(value), { 'reportType': 'DETAIL_HISTORY_REPORT' } as const);
+            return Object.assign({}, SalesFunnelItemReqToJSON(value), { 'reportType': 'DETAIL_HISTORY_REPORT' } as const);
         case 'GROUPED_HISTORY_REPORT':
             return Object.assign({}, SalesFunnelGroupReqToJSON(value), { 'reportType': 'GROUPED_HISTORY_REPORT' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP':
             return Object.assign({}, SearchReportGroupReqToJSON(value), { 'reportType': 'SEARCH_QUERIES_PREMIUM_REPORT_GROUP' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT':
-            return Object.assign({}, SearchReportProductReqToJSON(value), { 'reportType': 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } as const);
+            return Object.assign({}, SearchReportItemReqToJSON(value), { 'reportType': 'SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT' } as const);
         case 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT':
             return Object.assign({}, SearchReportTextReqToJSON(value), { 'reportType': 'SEARCH_QUERIES_PREMIUM_REPORT_TEXT' } as const);
         case 'STOCK_HISTORY_DAILY_CSV':

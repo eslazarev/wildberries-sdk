@@ -26,7 +26,7 @@
   "autoload": {
     "psr-4": {
       "Wildberries\\Sdk\\General\\": "clients/php/general/lib/",
-      "Wildberries\\Sdk\\Products\\": "clients/php/products/lib/",
+      "Wildberries\\Sdk\\Items\\": "clients/php/items/lib/",
       "Wildberries\\Sdk\\OrdersFbs\\": "clients/php/orders_fbs/lib/",
       "Wildberries\\Sdk\\OrdersDbw\\": "clients/php/orders_dbw/lib/",
       "Wildberries\\Sdk\\OrdersDbs\\": "clients/php/orders_dbs/lib/",

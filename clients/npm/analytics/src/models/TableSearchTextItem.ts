@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableProductItemAllOfPrice } from './TableProductItemAllOfPrice';
-import {
-    TableProductItemAllOfPriceFromJSON,
-    TableProductItemAllOfPriceFromJSONTyped,
-    TableProductItemAllOfPriceToJSON,
-    TableProductItemAllOfPriceToJSONTyped,
-} from './TableProductItemAllOfPrice';
 import type { TableSearchTextItemAllOfOpenCard } from './TableSearchTextItemAllOfOpenCard';
 import {
     TableSearchTextItemAllOfOpenCardFromJSON,
@@ -27,13 +20,20 @@ import {
     TableSearchTextItemAllOfOpenCardToJSON,
     TableSearchTextItemAllOfOpenCardToJSONTyped,
 } from './TableSearchTextItemAllOfOpenCard';
-import type { TableProductItemAllOfAvgPosition } from './TableProductItemAllOfAvgPosition';
+import type { TableItemItemAllOfAvgPosition } from './TableItemItemAllOfAvgPosition';
 import {
-    TableProductItemAllOfAvgPositionFromJSON,
-    TableProductItemAllOfAvgPositionFromJSONTyped,
-    TableProductItemAllOfAvgPositionToJSON,
-    TableProductItemAllOfAvgPositionToJSONTyped,
-} from './TableProductItemAllOfAvgPosition';
+    TableItemItemAllOfAvgPositionFromJSON,
+    TableItemItemAllOfAvgPositionFromJSONTyped,
+    TableItemItemAllOfAvgPositionToJSON,
+    TableItemItemAllOfAvgPositionToJSONTyped,
+} from './TableItemItemAllOfAvgPosition';
+import type { TableItemItemAllOfPrice } from './TableItemItemAllOfPrice';
+import {
+    TableItemItemAllOfPriceFromJSON,
+    TableItemItemAllOfPriceFromJSONTyped,
+    TableItemItemAllOfPriceToJSON,
+    TableItemItemAllOfPriceToJSONTyped,
+} from './TableItemItemAllOfPrice';
 
 /**
  * 
@@ -97,16 +97,16 @@ export interface TableSearchTextItem {
     feedbackRating: number;
     /**
      * 
-     * @type {TableProductItemAllOfPrice}
+     * @type {TableItemItemAllOfPrice}
      * @memberof TableSearchTextItem
      */
-    price: TableProductItemAllOfPrice;
+    price: TableItemItemAllOfPrice;
     /**
      * 
-     * @type {TableProductItemAllOfAvgPosition}
+     * @type {TableItemItemAllOfAvgPosition}
      * @memberof TableSearchTextItem
      */
-    frequency: TableProductItemAllOfAvgPosition;
+    frequency: TableItemItemAllOfAvgPosition;
     /**
      * Количество обращений с поисковым запросом за неделю
      * @type {number}
@@ -115,16 +115,16 @@ export interface TableSearchTextItem {
     weekFrequency: number;
     /**
      * 
-     * @type {TableProductItemAllOfAvgPosition}
+     * @type {TableItemItemAllOfAvgPosition}
      * @memberof TableSearchTextItem
      */
-    medianPosition: TableProductItemAllOfAvgPosition;
+    medianPosition: TableItemItemAllOfAvgPosition;
     /**
      * 
-     * @type {TableProductItemAllOfAvgPosition}
+     * @type {TableItemItemAllOfAvgPosition}
      * @memberof TableSearchTextItem
      */
-    avgPosition: TableProductItemAllOfAvgPosition;
+    avgPosition: TableItemItemAllOfAvgPosition;
     /**
      * 
      * @type {TableSearchTextItemAllOfOpenCard}
@@ -157,10 +157,10 @@ export interface TableSearchTextItem {
     cartToOrder: TableSearchTextItemAllOfOpenCard;
     /**
      * 
-     * @type {TableProductItemAllOfAvgPosition}
+     * @type {TableItemItemAllOfAvgPosition}
      * @memberof TableSearchTextItem
      */
-    visibility: TableProductItemAllOfAvgPosition;
+    visibility: TableItemItemAllOfAvgPosition;
 }
 
 /**
@@ -209,17 +209,17 @@ export function TableSearchTextItemFromJSONTyped(json: any, ignoreDiscriminator:
         'isCardRated': json['isCardRated'],
         'rating': json['rating'],
         'feedbackRating': json['feedbackRating'],
-        'price': TableProductItemAllOfPriceFromJSON(json['price']),
-        'frequency': TableProductItemAllOfAvgPositionFromJSON(json['frequency']),
+        'price': TableItemItemAllOfPriceFromJSON(json['price']),
+        'frequency': TableItemItemAllOfAvgPositionFromJSON(json['frequency']),
         'weekFrequency': json['weekFrequency'],
-        'medianPosition': TableProductItemAllOfAvgPositionFromJSON(json['medianPosition']),
-        'avgPosition': TableProductItemAllOfAvgPositionFromJSON(json['avgPosition']),
+        'medianPosition': TableItemItemAllOfAvgPositionFromJSON(json['medianPosition']),
+        'avgPosition': TableItemItemAllOfAvgPositionFromJSON(json['avgPosition']),
         'openCard': TableSearchTextItemAllOfOpenCardFromJSON(json['openCard']),
         'addToCart': TableSearchTextItemAllOfOpenCardFromJSON(json['addToCart']),
         'openToCart': TableSearchTextItemAllOfOpenCardFromJSON(json['openToCart']),
         'orders': TableSearchTextItemAllOfOpenCardFromJSON(json['orders']),
         'cartToOrder': TableSearchTextItemAllOfOpenCardFromJSON(json['cartToOrder']),
-        'visibility': TableProductItemAllOfAvgPositionFromJSON(json['visibility']),
+        'visibility': TableItemItemAllOfAvgPositionFromJSON(json['visibility']),
     };
 }
 
@@ -243,17 +243,17 @@ export function TableSearchTextItemToJSONTyped(value?: TableSearchTextItem | nul
         'isCardRated': value['isCardRated'],
         'rating': value['rating'],
         'feedbackRating': value['feedbackRating'],
-        'price': TableProductItemAllOfPriceToJSON(value['price']),
-        'frequency': TableProductItemAllOfAvgPositionToJSON(value['frequency']),
+        'price': TableItemItemAllOfPriceToJSON(value['price']),
+        'frequency': TableItemItemAllOfAvgPositionToJSON(value['frequency']),
         'weekFrequency': value['weekFrequency'],
-        'medianPosition': TableProductItemAllOfAvgPositionToJSON(value['medianPosition']),
-        'avgPosition': TableProductItemAllOfAvgPositionToJSON(value['avgPosition']),
+        'medianPosition': TableItemItemAllOfAvgPositionToJSON(value['medianPosition']),
+        'avgPosition': TableItemItemAllOfAvgPositionToJSON(value['avgPosition']),
         'openCard': TableSearchTextItemAllOfOpenCardToJSON(value['openCard']),
         'addToCart': TableSearchTextItemAllOfOpenCardToJSON(value['addToCart']),
         'openToCart': TableSearchTextItemAllOfOpenCardToJSON(value['openToCart']),
         'orders': TableSearchTextItemAllOfOpenCardToJSON(value['orders']),
         'cartToOrder': TableSearchTextItemAllOfOpenCardToJSON(value['cartToOrder']),
-        'visibility': TableProductItemAllOfAvgPositionToJSON(value['visibility']),
+        'visibility': TableItemItemAllOfAvgPositionToJSON(value['visibility']),
     };
 }
 

@@ -625,7 +625,7 @@ class DefaultApi:
     ) -> ApiV1TariffsCommissionGet200Response:
         """Комиссия по категориям товаров
 
-        Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -696,7 +696,7 @@ class DefaultApi:
     ) -> ApiResponse[ApiV1TariffsCommissionGet200Response]:
         """Комиссия по категориям товаров
 
-        Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str
@@ -767,7 +767,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Комиссия по категориям товаров
 
-        Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
         :type locale: str

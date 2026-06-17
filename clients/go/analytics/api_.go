@@ -25,11 +25,11 @@ type DefaultApiService service
 type ApiApiV2SearchReportProductOrdersPostRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	productOrdersRequest *ProductOrdersRequest
+	itemOrdersRequest *ItemOrdersRequest
 }
 
-func (r ApiApiV2SearchReportProductOrdersPostRequest) ProductOrdersRequest(productOrdersRequest ProductOrdersRequest) ApiApiV2SearchReportProductOrdersPostRequest {
-	r.productOrdersRequest = &productOrdersRequest
+func (r ApiApiV2SearchReportProductOrdersPostRequest) ItemOrdersRequest(itemOrdersRequest ItemOrdersRequest) ApiApiV2SearchReportProductOrdersPostRequest {
+	r.itemOrdersRequest = &itemOrdersRequest
 	return r
 }
 
@@ -95,8 +95,8 @@ func (a *DefaultApiService) ApiV2SearchReportProductOrdersPostExecute(r ApiApiV2
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.productOrdersRequest == nil {
-		return localVarReturnValue, nil, reportError("productOrdersRequest is required and must be specified")
+	if r.itemOrdersRequest == nil {
+		return localVarReturnValue, nil, reportError("itemOrdersRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -117,7 +117,7 @@ func (a *DefaultApiService) ApiV2SearchReportProductOrdersPostExecute(r ApiApiV2
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.productOrdersRequest
+	localVarPostBody = r.itemOrdersRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -226,11 +226,11 @@ func (a *DefaultApiService) ApiV2SearchReportProductOrdersPostExecute(r ApiApiV2
 type ApiApiV2SearchReportProductSearchTextsPostRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	productSearchTextsRequest *ProductSearchTextsRequest
+	itemSearchTextsRequest *ItemSearchTextsRequest
 }
 
-func (r ApiApiV2SearchReportProductSearchTextsPostRequest) ProductSearchTextsRequest(productSearchTextsRequest ProductSearchTextsRequest) ApiApiV2SearchReportProductSearchTextsPostRequest {
-	r.productSearchTextsRequest = &productSearchTextsRequest
+func (r ApiApiV2SearchReportProductSearchTextsPostRequest) ItemSearchTextsRequest(itemSearchTextsRequest ItemSearchTextsRequest) ApiApiV2SearchReportProductSearchTextsPostRequest {
+	r.itemSearchTextsRequest = &itemSearchTextsRequest
 	return r
 }
 
@@ -294,8 +294,8 @@ func (a *DefaultApiService) ApiV2SearchReportProductSearchTextsPostExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.productSearchTextsRequest == nil {
-		return localVarReturnValue, nil, reportError("productSearchTextsRequest is required and must be specified")
+	if r.itemSearchTextsRequest == nil {
+		return localVarReturnValue, nil, reportError("itemSearchTextsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -316,7 +316,7 @@ func (a *DefaultApiService) ApiV2SearchReportProductSearchTextsPostExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.productSearchTextsRequest
+	localVarPostBody = r.itemSearchTextsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1421,11 +1421,11 @@ func (a *DefaultApiService) ApiV2StocksReportProductsGroupsPostExecute(r ApiApiV
 type ApiApiV2StocksReportProductsProductsPostRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	tableProductRequest *TableProductRequest
+	tableItemRequest *TableItemRequest
 }
 
-func (r ApiApiV2StocksReportProductsProductsPostRequest) TableProductRequest(tableProductRequest TableProductRequest) ApiApiV2StocksReportProductsProductsPostRequest {
-	r.tableProductRequest = &tableProductRequest
+func (r ApiApiV2StocksReportProductsProductsPostRequest) TableItemRequest(tableItemRequest TableItemRequest) ApiApiV2StocksReportProductsProductsPostRequest {
+	r.tableItemRequest = &tableItemRequest
 	return r
 }
 
@@ -1485,8 +1485,8 @@ func (a *DefaultApiService) ApiV2StocksReportProductsProductsPostExecute(r ApiAp
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.tableProductRequest == nil {
-		return localVarReturnValue, nil, reportError("tableProductRequest is required and must be specified")
+	if r.tableItemRequest == nil {
+		return localVarReturnValue, nil, reportError("tableItemRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1507,7 +1507,7 @@ func (a *DefaultApiService) ApiV2StocksReportProductsProductsPostExecute(r ApiAp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tableProductRequest
+	localVarPostBody = r.tableItemRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2030,11 +2030,11 @@ func (a *DefaultApiService) PostSalesFunnelGroupedHistoryExecute(r ApiPostSalesF
 type ApiPostSalesFunnelProductsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	productsRequest *ProductsRequest
+	itemsRequest *ItemsRequest
 }
 
-func (r ApiPostSalesFunnelProductsRequest) ProductsRequest(productsRequest ProductsRequest) ApiPostSalesFunnelProductsRequest {
-	r.productsRequest = &productsRequest
+func (r ApiPostSalesFunnelProductsRequest) ItemsRequest(itemsRequest ItemsRequest) ApiPostSalesFunnelProductsRequest {
+	r.itemsRequest = &itemsRequest
 	return r
 }
 
@@ -2114,8 +2114,8 @@ func (a *DefaultApiService) PostSalesFunnelProductsExecute(r ApiPostSalesFunnelP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.productsRequest == nil {
-		return localVarReturnValue, nil, reportError("productsRequest is required and must be specified")
+	if r.itemsRequest == nil {
+		return localVarReturnValue, nil, reportError("itemsRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2136,7 +2136,7 @@ func (a *DefaultApiService) PostSalesFunnelProductsExecute(r ApiPostSalesFunnelP
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.productsRequest
+	localVarPostBody = r.itemsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2245,15 +2245,15 @@ func (a *DefaultApiService) PostSalesFunnelProductsExecute(r ApiPostSalesFunnelP
 type ApiPostSalesFunnelProductsHistoryRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	productHistoryRequest *ProductHistoryRequest
+	itemHistoryRequest *ItemHistoryRequest
 }
 
-func (r ApiPostSalesFunnelProductsHistoryRequest) ProductHistoryRequest(productHistoryRequest ProductHistoryRequest) ApiPostSalesFunnelProductsHistoryRequest {
-	r.productHistoryRequest = &productHistoryRequest
+func (r ApiPostSalesFunnelProductsHistoryRequest) ItemHistoryRequest(itemHistoryRequest ItemHistoryRequest) ApiPostSalesFunnelProductsHistoryRequest {
+	r.itemHistoryRequest = &itemHistoryRequest
 	return r
 }
 
-func (r ApiPostSalesFunnelProductsHistoryRequest) Execute() ([]ProductHistoryResponseInner, *http.Response, error) {
+func (r ApiPostSalesFunnelProductsHistoryRequest) Execute() ([]ItemHistoryResponseInner, *http.Response, error) {
 	return r.ApiService.PostSalesFunnelProductsHistoryExecute(r)
 }
 
@@ -2303,13 +2303,13 @@ func (a *DefaultApiService) PostSalesFunnelProductsHistory(ctx context.Context) 
 }
 
 // Execute executes the request
-//  @return []ProductHistoryResponseInner
-func (a *DefaultApiService) PostSalesFunnelProductsHistoryExecute(r ApiPostSalesFunnelProductsHistoryRequest) ([]ProductHistoryResponseInner, *http.Response, error) {
+//  @return []ItemHistoryResponseInner
+func (a *DefaultApiService) PostSalesFunnelProductsHistoryExecute(r ApiPostSalesFunnelProductsHistoryRequest) ([]ItemHistoryResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ProductHistoryResponseInner
+		localVarReturnValue  []ItemHistoryResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostSalesFunnelProductsHistory")
@@ -2322,8 +2322,8 @@ func (a *DefaultApiService) PostSalesFunnelProductsHistoryExecute(r ApiPostSales
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.productHistoryRequest == nil {
-		return localVarReturnValue, nil, reportError("productHistoryRequest is required and must be specified")
+	if r.itemHistoryRequest == nil {
+		return localVarReturnValue, nil, reportError("itemHistoryRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2344,7 +2344,7 @@ func (a *DefaultApiService) PostSalesFunnelProductsHistoryExecute(r ApiPostSales
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.productHistoryRequest
+	localVarPostBody = r.itemHistoryRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

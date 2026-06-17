@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.107"
+__version__ = "0.1.108"
 
 # Define package exports
 __all__ = [
@@ -82,9 +82,9 @@ __all__ = [
     "EventsResponse",
     "EventsResult",
     "File",
-    "GoodCard",
     "Image",
     "LastMessage",
+    "Listing",
     "MessageResponse",
     "MessageResponseResult",
     "OpenapiPinReviewItem",
@@ -172,9 +172,9 @@ from wildberries_sdk.communications.models.event_type import EventType as EventT
 from wildberries_sdk.communications.models.events_response import EventsResponse as EventsResponse
 from wildberries_sdk.communications.models.events_result import EventsResult as EventsResult
 from wildberries_sdk.communications.models.file import File as File
-from wildberries_sdk.communications.models.good_card import GoodCard as GoodCard
 from wildberries_sdk.communications.models.image import Image as Image
 from wildberries_sdk.communications.models.last_message import LastMessage as LastMessage
+from wildberries_sdk.communications.models.listing import Listing as Listing
 from wildberries_sdk.communications.models.message_response import MessageResponse as MessageResponse
 from wildberries_sdk.communications.models.message_response_result import MessageResponseResult as MessageResponseResult
 from wildberries_sdk.communications.models.openapi_pin_review_item import OpenapiPinReviewItem as OpenapiPinReviewItem

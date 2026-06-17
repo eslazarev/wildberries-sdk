@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.product_history_response_inner import ProductHistoryResponseInner
+from wildberries_sdk.analytics.models.item_history_response_inner import ItemHistoryResponseInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class PostSalesFunnelGroupedHistory200Response(BaseModel):
     """
     PostSalesFunnelGroupedHistory200Response
     """ # noqa: E501
-    data: List[ProductHistoryResponseInner] = Field(description="Статистика")
+    data: List[ItemHistoryResponseInner] = Field(description="Статистика")
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class PostSalesFunnelGroupedHistory200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [ProductHistoryResponseInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [ItemHistoryResponseInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

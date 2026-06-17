@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ProductsRequestSelectedPeriod } from './ProductsRequestSelectedPeriod';
+import type { ItemsRequestSelectedPeriod } from './ItemsRequestSelectedPeriod';
 import {
-    ProductsRequestSelectedPeriodFromJSON,
-    ProductsRequestSelectedPeriodFromJSONTyped,
-    ProductsRequestSelectedPeriodToJSON,
-    ProductsRequestSelectedPeriodToJSONTyped,
-} from './ProductsRequestSelectedPeriod';
+    ItemsRequestSelectedPeriodFromJSON,
+    ItemsRequestSelectedPeriodFromJSONTyped,
+    ItemsRequestSelectedPeriodToJSON,
+    ItemsRequestSelectedPeriodToJSONTyped,
+} from './ItemsRequestSelectedPeriod';
 import type { Level } from './Level';
 import {
     LevelFromJSON,
@@ -36,10 +36,10 @@ import {
 export interface GroupedHistoryRequest {
     /**
      * 
-     * @type {ProductsRequestSelectedPeriod}
+     * @type {ItemsRequestSelectedPeriod}
      * @memberof GroupedHistoryRequest
      */
-    selectedPeriod: ProductsRequestSelectedPeriod;
+    selectedPeriod: ItemsRequestSelectedPeriod;
     /**
      * Список брендов для фильтрации
      * @type {Array<string>}
@@ -92,7 +92,7 @@ export function GroupedHistoryRequestFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'selectedPeriod': ProductsRequestSelectedPeriodFromJSON(json['selectedPeriod']),
+        'selectedPeriod': ItemsRequestSelectedPeriodFromJSON(json['selectedPeriod']),
         'brandNames': json['brandNames'] == null ? undefined : json['brandNames'],
         'subjectIds': json['subjectIds'] == null ? undefined : json['subjectIds'],
         'tagIds': json['tagIds'] == null ? undefined : json['tagIds'],
@@ -112,7 +112,7 @@ export function GroupedHistoryRequestToJSONTyped(value?: GroupedHistoryRequest |
 
     return {
         
-        'selectedPeriod': ProductsRequestSelectedPeriodToJSON(value['selectedPeriod']),
+        'selectedPeriod': ItemsRequestSelectedPeriodToJSON(value['selectedPeriod']),
         'brandNames': value['brandNames'],
         'subjectIds': value['subjectIds'],
         'tagIds': value['tagIds'],

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableProductItem } from './TableProductItem';
+import type { TableItemItem } from './TableItemItem';
 import {
-    TableProductItemFromJSON,
-    TableProductItemFromJSONTyped,
-    TableProductItemToJSON,
-    TableProductItemToJSONTyped,
-} from './TableProductItem';
+    TableItemItemFromJSON,
+    TableItemItemFromJSONTyped,
+    TableItemItemToJSON,
+    TableItemItemToJSONTyped,
+} from './TableItemItem';
 
 /**
  * 
@@ -30,10 +30,10 @@ export interface TableDetailsResponse {
     /**
      * Список товаров в группе по фильтру
      * 
-     * @type {Array<TableProductItem>}
+     * @type {Array<TableItemItem>}
      * @memberof TableDetailsResponse
      */
-    products: Array<TableProductItem>;
+    products: Array<TableItemItem>;
     /**
      * Валюта отчёта
      * @type {string}
@@ -61,7 +61,7 @@ export function TableDetailsResponseFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'products': ((json['products'] as Array<any>).map(TableProductItemFromJSON)),
+        'products': ((json['products'] as Array<any>).map(TableItemItemFromJSON)),
         'currency': json['currency'],
     };
 }
@@ -77,7 +77,7 @@ export function TableDetailsResponseToJSONTyped(value?: TableDetailsResponse | n
 
     return {
         
-        'products': ((value['products'] as Array<any>).map(TableProductItemToJSON)),
+        'products': ((value['products'] as Array<any>).map(TableItemItemToJSON)),
         'currency': value['currency'],
     };
 }

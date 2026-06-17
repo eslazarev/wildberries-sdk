@@ -79,7 +79,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProductsRequest"
+              $ref: "#/components/schemas/ItemsRequest"
         required: true
       responses:
         "200":
@@ -201,14 +201,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProductHistoryRequest"
+              $ref: "#/components/schemas/ItemHistoryRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProductHistoryResponse"
+                $ref: "#/components/schemas/ItemHistoryResponse"
           description: Успешно
         "400":
           content:
@@ -554,12 +554,12 @@ paths:
         content:
           application/json:
             examples:
-              SalesFunnelProductReq:
+              SalesFunnelItemReq:
                 description: Воронка продаж. По артикулам WB
                 value:
                   id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: DETAIL_HISTORY_REPORT
-                  userReportName: Card report
+                  userReportName: Listing report
                   params:
                     nmIDs:
                     - 1234567
@@ -579,7 +579,7 @@ paths:
                 value:
                   id: 06eea887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: GROUPED_HISTORY_REPORT
-                  userReportName: Subject report
+                  userReportName: Subcategory report
                   params:
                     subjectIds:
                     - 1234567
@@ -598,7 +598,7 @@ paths:
                 value:
                   id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: SEARCH_QUERIES_PREMIUM_REPORT_GROUP
-                  userReportName: Subject report
+                  userReportName: Subcategory report
                   params:
                     currentPeriod:
                       start: 2024-02-10
@@ -624,12 +624,12 @@ paths:
                     positionCluster: all
                     includeSubstitutedSKUs: true
                     includeSearchTexts: false
-              SearchReportProductReq:
+              SearchReportItemReq:
                 description: Отчёт по параметрам поиска. По артикулам WB
                 value:
                   id: 06eea887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT
-                  userReportName: Card report
+                  userReportName: Listing report
                   params:
                     currentPeriod:
                       start: 2024-02-10
@@ -654,7 +654,7 @@ paths:
                 value:
                   id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: SEARCH_QUERIES_PREMIUM_REPORT_TEXT
-                  userReportName: Subject report
+                  userReportName: Subcategory report
                   params:
                     currentPeriod:
                       start: 2024-02-10
@@ -941,14 +941,14 @@ paths:
           content:
             application/zip:
               examples:
-                SalesFunnelProductRes:
-                  $ref: "#/components/examples/SalesFunnelProductRes"
+                SalesFunnelItemRes:
+                  $ref: "#/components/examples/SalesFunnelItemRes"
                 SalesFunnelGroupRes:
                   $ref: "#/components/examples/SalesFunnelGroupRes"
                 SearchReportGroupRes:
                   $ref: "#/components/examples/SearchReportGroupRes"
-                SearchReportProductRes:
-                  $ref: "#/components/examples/SearchReportProductRes"
+                SearchReportItemRes:
+                  $ref: "#/components/examples/SearchReportItemRes"
                 SearchReportTextRes:
                   $ref: "#/components/examples/SearchReportTextRes"
                 InventoryMetricsReportRes:
@@ -1581,7 +1581,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProductSearchTextsRequest"
+              $ref: "#/components/schemas/ItemSearchTextsRequest"
         required: true
       responses:
         "200":
@@ -1680,7 +1680,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProductOrdersRequest"
+              $ref: "#/components/schemas/ItemOrdersRequest"
         required: true
       responses:
         "200":
@@ -1955,7 +1955,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/TableProductRequest"
+              $ref: "#/components/schemas/TableItemRequest"
         required: true
       responses:
         "200":
@@ -2306,7 +2306,7 @@ paths:
     - url: https://seller-analytics-api.wildberries.ru
 components:
   examples:
-    SalesFunnelProductRes:
+    SalesFunnelItemRes:
       description: ""
       value: |
         nmID, dt, openCardCount, addToCartCount, ordersCount, ordersSumRub, buyoutsCount, buyoutsSumRub, cancelCount, cancelSumRub, addToCartConversion, cartToOrderConversion, buyoutPercent, addToWishlist, currency
@@ -2328,7 +2328,7 @@ components:
         SubjectName,SubjectID,BrandName,TagID,AveragePosition,OpenCard,AddToCart,OpenToCart,Orders,CartToOrder,Visibility,AveragePositionPast,OpenCardPast,AddToCartPast,OpenToCartPast,OrdersPast,CartToOrderPast,VisibilityPast
         Смартфоны,0,Abble,0,1,4,0,0,0,0,100,1,8,0,0,0,0,100
         Смартфоны,0,abble,0,1,63,0,0,0,0,100,1,91,0,0,0,0,100
-    SearchReportProductRes:
+    SearchReportItemRes:
       description: ""
       value: |
         NmID,VendorCode,Name,Subject,Brand,IsAdvertised,IsRated,Rating,FeedbackRating,MinPrice,MaxPrice,AveragePosition,OpenCard,AddToCart,OpenToCart,Orders,CartToOrder,Visibility,AveragePositionPast,OpenCardPast,AddToCartPast,OpenToCartPast,OrdersPast,CartToOrderPast,VisibilityPast,IsSubstitutedSKU,Currency
@@ -3143,13 +3143,13 @@ components:
         items:
           description: Массив товаров группы
           items:
-            $ref: "#/components/schemas/TableProductItem"
+            $ref: "#/components/schemas/TableItemItem"
           type: array
       required:
       - items
       - metrics
       type: object
-    TableProductItem:
+    TableItemItem:
       allOf:
       - properties:
           nmId:
@@ -3202,21 +3202,21 @@ components:
             format: float64
             type: number
           price:
-            $ref: "#/components/schemas/TableProductItem_allOf_price"
+            $ref: "#/components/schemas/TableItemItem_allOf_price"
           avgPosition:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           openCard:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           addToCart:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           openToCart:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           orders:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           cartToOrder:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           visibility:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
         type: object
       example:
         nmId: 268913787
@@ -3770,7 +3770,7 @@ components:
           description: |
             Список товаров в группе по фильтру
           items:
-            $ref: "#/components/schemas/TableProductItem"
+            $ref: "#/components/schemas/TableItemItem"
           type: array
         currency:
           description: Валюта отчёта
@@ -3780,7 +3780,7 @@ components:
       - currency
       - products
       type: object
-    ProductSearchTextsRequest:
+    ItemSearchTextsRequest:
       description: |
         Параметры для запроса по рейтингу поисковых запросов:
           - `currentPeriod` — текущий период
@@ -3856,7 +3856,7 @@ components:
       - orderBy
       - topOrderBy
       type: object
-    ProductSearchTextsResponse:
+    ItemSearchTextsResponse:
       example:
         items:
         - text: костюм
@@ -4007,18 +4007,18 @@ components:
             format: float64
             type: number
           price:
-            $ref: "#/components/schemas/TableProductItem_allOf_price"
+            $ref: "#/components/schemas/TableItemItem_allOf_price"
           frequency:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           weekFrequency:
             description: Количество обращений с поисковым запросом за неделю
             example: 140
             format: uint64
             type: integer
           medianPosition:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           avgPosition:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
           openCard:
             $ref: "#/components/schemas/TableSearchTextItem_allOf_openCard"
           addToCart:
@@ -4030,7 +4030,7 @@ components:
           cartToOrder:
             $ref: "#/components/schemas/TableSearchTextItem_allOf_openCard"
           visibility:
-            $ref: "#/components/schemas/TableProductItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
         required:
         - addToCart
         - avgPosition
@@ -4100,7 +4100,7 @@ components:
           current: 5
           dynamics: 50
       type: object
-    ProductOrdersRequest:
+    ItemOrdersRequest:
       example:
         period:
           start: 2024-02-10
@@ -4133,7 +4133,7 @@ components:
       - period
       - searchTexts
       type: object
-    ProductOrdersResponse:
+    ItemOrdersResponse:
       example:
         total:
         - dt: 2024-02-10
@@ -4165,18 +4165,18 @@ components:
         total:
           description: Итог по товарам
           items:
-            $ref: "#/components/schemas/ProductOrdersMetrics"
+            $ref: "#/components/schemas/ItemOrdersMetrics"
           type: array
         items:
           description: Элементы таблицы
           items:
-            $ref: "#/components/schemas/ProductOrdersTextItem"
+            $ref: "#/components/schemas/ItemOrdersTextItem"
           type: array
       required:
       - items
       - total
       type: object
-    ProductOrdersTextItem:
+    ItemOrdersTextItem:
       example:
         text: text
         frequency: 0
@@ -4198,14 +4198,14 @@ components:
         dateItems:
           description: Статистика по датам
           items:
-            $ref: "#/components/schemas/ProductOrdersMetrics"
+            $ref: "#/components/schemas/ItemOrdersMetrics"
           type: array
       required:
       - dateItems
       - frequency
       - text
       type: object
-    ProductOrdersMetrics:
+    ItemOrdersMetrics:
       example:
         dt: 2024-02-10
         avgPosition: 10
@@ -4487,7 +4487,7 @@ components:
       - requestId
       - title
       type: object
-    SalesFunnelProductReq:
+    SalesFunnelItemReq:
       properties:
         id:
           description: ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
@@ -4502,7 +4502,7 @@ components:
             ки"
           type: string
         params:
-          $ref: "#/components/schemas/SalesFunnelProductReq_params"
+          $ref: "#/components/schemas/SalesFunnelItemReq_params"
       required:
       - id
       - params
@@ -4550,7 +4550,7 @@ components:
       - params
       - reportType
       type: object
-    SearchReportProductReq:
+    SearchReportItemReq:
       properties:
         id:
           description: ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
@@ -4565,7 +4565,7 @@ components:
             ки"
           type: string
         params:
-          $ref: "#/components/schemas/SearchReportProductReq_params"
+          $ref: "#/components/schemas/SearchReportItemReq_params"
       required:
       - id
       - params
@@ -5337,7 +5337,7 @@ components:
         items:
           description: Товары группы
           items:
-            $ref: "#/components/schemas/TableProductItemSt"
+            $ref: "#/components/schemas/TableItemItemSt"
           type: array
       required:
       - brandName
@@ -5491,7 +5491,7 @@ components:
       - start
       - value
       type: object
-    TableProductItemSt:
+    TableItemItemSt:
       description: Данные по товару
       example:
         nmID: 123456789
@@ -5573,7 +5573,7 @@ components:
           example: true
           type: boolean
         metrics:
-          $ref: "#/components/schemas/TableProductItemSt_metrics"
+          $ref: "#/components/schemas/TableItemItemSt_metrics"
       required:
       - brandName
       - hasSizes
@@ -5585,9 +5585,9 @@ components:
       - subjectName
       - vendorCode
       type: object
-    TableProductRequest:
+    TableItemRequest:
       allOf:
-      - $ref: "#/components/schemas/CommonProductFilters"
+      - $ref: "#/components/schemas/CommonItemFilters"
       - properties:
           limit:
             default: 100
@@ -5625,7 +5625,7 @@ components:
         - balanced
         limit: 150
         offset: 100
-    CommonProductFilters:
+    CommonItemFilters:
       description: Общие фильтры по товару
       properties:
         nmIDs:
@@ -5690,7 +5690,7 @@ components:
       - skipDeletedNm
       - stockType
       type: object
-    TableProductResponse:
+    TableItemResponse:
       example:
         items:
         - nmID: 123456789
@@ -5784,7 +5784,7 @@ components:
         items:
           description: Множество данных по товарам
           items:
-            $ref: "#/components/schemas/TableProductItemSt"
+            $ref: "#/components/schemas/TableItemItemSt"
           type: array
         currency:
           description: Валюта отчёта
@@ -6158,7 +6158,7 @@ components:
       - stockSum
       - toClientCount
       type: object
-    ProductsRequest:
+    ItemsRequest:
       example:
         selectedPeriod:
           start: 2023-06-01
@@ -6185,9 +6185,9 @@ components:
         offset: 10
       properties:
         selectedPeriod:
-          $ref: "#/components/schemas/ProductsRequest_selectedPeriod"
+          $ref: "#/components/schemas/ItemsRequest_selectedPeriod"
         pastPeriod:
-          $ref: "#/components/schemas/ProductsRequest_selectedPeriod"
+          $ref: "#/components/schemas/ItemsRequest_selectedPeriod"
         nmIds:
           description: |
             Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
@@ -6248,7 +6248,7 @@ components:
       required:
       - selectedPeriod
       type: object
-    ProductHistoryRequest:
+    ItemHistoryRequest:
       example:
         selectedPeriod:
           start: 2023-06-01
@@ -6263,7 +6263,7 @@ components:
         aggregationLevel: day
       properties:
         selectedPeriod:
-          $ref: "#/components/schemas/ProductsRequest_selectedPeriod"
+          $ref: "#/components/schemas/ItemsRequest_selectedPeriod"
         nmIds:
           description: |
             Артикулы WB, по которым нужно составить отчёт
@@ -6300,7 +6300,7 @@ components:
         aggregationLevel: day
       properties:
         selectedPeriod:
-          $ref: "#/components/schemas/ProductsRequest_selectedPeriod"
+          $ref: "#/components/schemas/ItemsRequest_selectedPeriod"
         brandNames:
           description: Список брендов для фильтрации
           example:
@@ -6336,12 +6336,12 @@ components:
       required:
       - selectedPeriod
       type: object
-    ProductsResponse:
+    ItemsResponse:
       properties:
         products:
           description: Список карточек товаров
           items:
-            $ref: "#/components/schemas/ProductsResponse_products_inner"
+            $ref: "#/components/schemas/ItemsResponse_products_inner"
           type: array
         currency:
           description: Валюта отчёта
@@ -6350,16 +6350,16 @@ components:
       required:
       - currency
       - products
-    ProductHistoryResponse:
+    ItemHistoryResponse:
       items:
-        $ref: "#/components/schemas/ProductHistoryResponse_inner"
+        $ref: "#/components/schemas/ItemHistoryResponse_inner"
       type: array
     GroupedHistoryResponse:
       description: Статистика
       items:
-        $ref: "#/components/schemas/ProductHistoryResponse_inner"
+        $ref: "#/components/schemas/ItemHistoryResponse_inner"
       type: array
-    Product:
+    Item:
       properties:
         nmId:
           description: Артикул WB
@@ -6404,7 +6404,7 @@ components:
           format: float32
           type: number
         stocks:
-          $ref: "#/components/schemas/Product_stocks"
+          $ref: "#/components/schemas/Item_stocks"
       required:
       - brandName
       - feedbackRating
@@ -6416,7 +6416,7 @@ components:
       - tags
       - title
       - vendorCode
-    HistoryProduct:
+    HistoryItem:
       properties:
         nmId:
           description: Артикул WB
@@ -7596,7 +7596,7 @@ components:
       allOf:
       - description: Статистика
         type: object
-      - $ref: "#/components/schemas/ProductsResponse"
+      - $ref: "#/components/schemas/ItemsResponse"
       example:
         products:
         - product:
@@ -8186,7 +8186,7 @@ components:
         data:
           description: Статистика
           items:
-            $ref: "#/components/schemas/ProductHistoryResponse_inner"
+            $ref: "#/components/schemas/ItemHistoryResponse_inner"
           type: array
       required:
       - data
@@ -8238,19 +8238,19 @@ components:
     _api_v2_nm_report_downloads_post_request:
       discriminator:
         mapping:
-          DETAIL_HISTORY_REPORT: "#/components/schemas/SalesFunnelProductReq"
+          DETAIL_HISTORY_REPORT: "#/components/schemas/SalesFunnelItemReq"
           GROUPED_HISTORY_REPORT: "#/components/schemas/SalesFunnelGroupReq"
           SEARCH_QUERIES_PREMIUM_REPORT_GROUP: "#/components/schemas/SearchReportGroupReq"
-          SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT: "#/components/schemas/SearchReportProductReq"
+          SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT: "#/components/schemas/SearchReportItemReq"
           SEARCH_QUERIES_PREMIUM_REPORT_TEXT: "#/components/schemas/SearchReportTextReq"
           STOCK_HISTORY_REPORT_CSV: "#/components/schemas/InventoryMetricsReportReq"
           STOCK_HISTORY_DAILY_CSV: "#/components/schemas/InventoryHistoryReportReq"
         propertyName: reportType
       oneOf:
-      - $ref: "#/components/schemas/SalesFunnelProductReq"
+      - $ref: "#/components/schemas/SalesFunnelItemReq"
       - $ref: "#/components/schemas/SalesFunnelGroupReq"
       - $ref: "#/components/schemas/SearchReportGroupReq"
-      - $ref: "#/components/schemas/SearchReportProductReq"
+      - $ref: "#/components/schemas/SearchReportItemReq"
       - $ref: "#/components/schemas/SearchReportTextReq"
       - $ref: "#/components/schemas/InventoryMetricsReportReq"
       - $ref: "#/components/schemas/InventoryHistoryReportReq"
@@ -8824,7 +8824,7 @@ components:
       - $ref: "#/components/schemas/CommonResponseProperties"
       - properties:
           data:
-            $ref: "#/components/schemas/ProductSearchTextsResponse"
+            $ref: "#/components/schemas/ItemSearchTextsResponse"
         required:
         - data
         type: object
@@ -8927,7 +8927,7 @@ components:
       - $ref: "#/components/schemas/CommonResponseProperties"
       - properties:
           data:
-            $ref: "#/components/schemas/ProductOrdersResponse"
+            $ref: "#/components/schemas/ItemOrdersResponse"
         required:
         - data
         type: object
@@ -9276,7 +9276,7 @@ components:
       nullable: true
       properties:
         data:
-          $ref: "#/components/schemas/TableProductResponse"
+          $ref: "#/components/schemas/TableItemResponse"
       required:
       - data
       type: object
@@ -9632,7 +9632,7 @@ components:
       - orders
       - visibility
       type: object
-    TableProductItem_allOf_price:
+    TableItemItem_allOf_price:
       description: Цена
       example:
         minPrice: 150
@@ -9654,7 +9654,7 @@ components:
       - maxPrice
       - minPrice
       type: object
-    TableProductItem_allOf_avgPosition:
+    TableItemItem_allOf_avgPosition:
       description: Средняя позиция товара в результатах поиска
       example:
         current: 5
@@ -9696,7 +9696,7 @@ components:
       - current
       - percentile
       type: object
-    SalesFunnelProductReq_params:
+    SalesFunnelItemReq_params:
       description: Параметры отчёта
       properties:
         nmIDs:
@@ -9886,7 +9886,7 @@ components:
       - positionCluster
       - subjectIds
       type: object
-    SearchReportProductReq_params:
+    SearchReportItemReq_params:
       description: Параметры отчёта
       properties:
         currentPeriod:
@@ -10152,7 +10152,7 @@ components:
       - days
       - hours
       type: object
-    TableProductItemSt_metrics_allOf_currentPrice:
+    TableItemItemSt_metrics_allOf_currentPrice:
       description: Текущая цена
       example:
         minPrice: 50
@@ -10174,12 +10174,12 @@ components:
       - maxPrice
       - minPrice
       type: object
-    TableProductItemSt_metrics:
+    TableItemItemSt_metrics:
       allOf:
       - $ref: "#/components/schemas/TableCommonMetrics"
       - properties:
           currentPrice:
-            $ref: "#/components/schemas/TableProductItemSt_metrics_allOf_currentPrice"
+            $ref: "#/components/schemas/TableItemItemSt_metrics_allOf_currentPrice"
           availability:
             description: |
               Доступность товара:
@@ -10243,7 +10243,7 @@ components:
       - $ref: "#/components/schemas/TableCommonMetrics"
       - properties:
           currentPrice:
-            $ref: "#/components/schemas/TableProductItemSt_metrics_allOf_currentPrice"
+            $ref: "#/components/schemas/TableItemItemSt_metrics_allOf_currentPrice"
         required:
         - currentPrice
         type: object
@@ -10375,7 +10375,7 @@ components:
       - officeID
       - officeName
       type: object
-    ProductsRequest_selectedPeriod:
+    ItemsRequest_selectedPeriod:
       allOf:
       - description: Запрашиваемый период
         type: object
@@ -10383,11 +10383,11 @@ components:
       example:
         start: 2023-06-01
         end: 2024-03-01
-    ProductsResponse_products_inner_product:
+    ItemsResponse_products_inner_product:
       allOf:
       - description: Карточка товара
         type: object
-      - $ref: "#/components/schemas/Product"
+      - $ref: "#/components/schemas/Item"
       example:
         nmId: 268913787
         title: Кроссовки для бега
@@ -10406,7 +10406,7 @@ components:
           wb: 0
           mp: 0
           balanceSum: 0
-    ProductsResponse_products_inner_statistic:
+    ItemsResponse_products_inner_statistic:
       allOf:
       - description: Статистика
         type: object
@@ -10510,7 +10510,7 @@ components:
             addToCartPercent: 19
             cartToOrderPercent: 65
             buyoutPercent: 0
-    ProductsResponse_products_inner:
+    ItemsResponse_products_inner:
       example:
         product:
           nmId: 268913787
@@ -10631,18 +10631,18 @@ components:
               buyoutPercent: 0
       properties:
         product:
-          $ref: "#/components/schemas/ProductsResponse_products_inner_product"
+          $ref: "#/components/schemas/ItemsResponse_products_inner_product"
         statistic:
-          $ref: "#/components/schemas/ProductsResponse_products_inner_statistic"
+          $ref: "#/components/schemas/ItemsResponse_products_inner_statistic"
       required:
       - product
       - statistic
       type: object
-    ProductHistoryResponse_inner_product:
+    ItemHistoryResponse_inner_product:
       allOf:
       - description: Карточка товара
         type: object
-      - $ref: "#/components/schemas/HistoryProduct"
+      - $ref: "#/components/schemas/HistoryItem"
       example:
         nmId: 268913787
         title: Кроссовки для бега
@@ -10650,7 +10650,7 @@ components:
         brandName: Demix
         subjectId: 105
         subjectName: Кроссовки
-    ProductHistoryResponse_inner:
+    ItemHistoryResponse_inner:
       example:
         product:
           nmId: 268913787
@@ -10685,7 +10685,7 @@ components:
         currency: RUB
       properties:
         product:
-          $ref: "#/components/schemas/ProductHistoryResponse_inner_product"
+          $ref: "#/components/schemas/ItemHistoryResponse_inner_product"
         history:
           description: Статистика за период
           items:
@@ -10700,7 +10700,7 @@ components:
       - history
       - product
       type: object
-    Product_stocks:
+    Item_stocks:
       description: Остатки
       example:
         wb: 0

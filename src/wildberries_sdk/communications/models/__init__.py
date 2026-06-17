@@ -67,9 +67,9 @@ from wildberries_sdk.communications.models.event_type import EventType
 from wildberries_sdk.communications.models.events_response import EventsResponse
 from wildberries_sdk.communications.models.events_result import EventsResult
 from wildberries_sdk.communications.models.file import File
-from wildberries_sdk.communications.models.good_card import GoodCard
 from wildberries_sdk.communications.models.image import Image
 from wildberries_sdk.communications.models.last_message import LastMessage
+from wildberries_sdk.communications.models.listing import Listing
 from wildberries_sdk.communications.models.message_response import MessageResponse
 from wildberries_sdk.communications.models.message_response_result import MessageResponseResult
 from wildberries_sdk.communications.models.openapi_pin_review_item import OpenapiPinReviewItem

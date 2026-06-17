@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.communications.models.good_card import GoodCard
 from wildberries_sdk.communications.models.last_message import LastMessage
+from wildberries_sdk.communications.models.listing import Listing
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,7 +32,7 @@ class Chat(BaseModel):
     chat_id: Optional[StrictStr] = Field(default=None, description="ID чата", alias="chatID", json_schema_extra={"examples": ["1:4019cd7d-cca8-4e90-8b11-f78afbea42e3"]})
     reply_sign: Optional[StrictStr] = Field(default=None, description="Подпись чата. Требуется при [отправке сообщения](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1message/post) ", alias="replySign", json_schema_extra={"examples": ["1:4019cd7d-cca8-4e90-8b11-f78afbea42e3:54828159:bc3a4c04079f5956cff170b25e73523aa1208b5c0bd7aea1e520a64ae3e212b1ebae6712661f3afd27520fa785fa3042254e8a3100ce00644322054ae7cfcd0e"]})
     client_name: Optional[StrictStr] = Field(default=None, description="Имя покупателя", alias="clientName", json_schema_extra={"examples": ["Иван"]})
-    good_card: Optional[GoodCard] = Field(default=None, alias="goodCard")
+    good_card: Optional[Listing] = Field(default=None, alias="goodCard")
     last_message: Optional[LastMessage] = Field(default=None, description="Последнее сообщение в чате", alias="lastMessage")
     __properties: ClassVar[List[str]] = ["chatID", "replySign", "clientName", "goodCard", "lastMessage"]
 
@@ -96,7 +96,7 @@ class Chat(BaseModel):
             "chatID": obj.get("chatID"),
             "replySign": obj.get("replySign"),
             "clientName": obj.get("clientName"),
-            "goodCard": GoodCard.from_dict(obj["goodCard"]) if obj.get("goodCard") is not None else None,
+            "goodCard": Listing.from_dict(obj["goodCard"]) if obj.get("goodCard") is not None else None,
             "lastMessage": LastMessage.from_dict(obj["lastMessage"]) if obj.get("lastMessage") is not None else None
         })
         return _obj

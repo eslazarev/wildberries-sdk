@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableProductResponse } from './TableProductResponse';
+import type { TableItemResponse } from './TableItemResponse';
 import {
-    TableProductResponseFromJSON,
-    TableProductResponseFromJSONTyped,
-    TableProductResponseToJSON,
-    TableProductResponseToJSONTyped,
-} from './TableProductResponse';
+    TableItemResponseFromJSON,
+    TableItemResponseFromJSONTyped,
+    TableItemResponseToJSON,
+    TableItemResponseToJSONTyped,
+} from './TableItemResponse';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface ApiV2StocksReportProductsProductsPost200Response {
     /**
      * 
-     * @type {TableProductResponse}
+     * @type {TableItemResponse}
      * @memberof ApiV2StocksReportProductsProductsPost200Response
      */
-    data: TableProductResponse;
+    data: TableItemResponse;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ApiV2StocksReportProductsProductsPost200ResponseFromJSONTyped(js
     }
     return {
         
-        'data': TableProductResponseFromJSON(json['data']),
+        'data': TableItemResponseFromJSON(json['data']),
     };
 }
 
@@ -68,7 +68,7 @@ export function ApiV2StocksReportProductsProductsPost200ResponseToJSONTyped(valu
 
     return {
         
-        'data': TableProductResponseToJSON(value['data']),
+        'data': TableItemResponseToJSON(value['data']),
     };
 }
 

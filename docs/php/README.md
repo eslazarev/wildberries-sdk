@@ -81,57 +81,57 @@ var_dump($response);
 - `general.DefaultApi.getCommonV1Subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
 - `general.WBAPIApi.pingGet` — `GET /ping` — Проверка подключения
 
-### products (`products`)
-- `products.DefaultApi.apiContentV1BrandsGet` — `GET /api/content/v1/brands` — Бренды
-- `products.DefaultApi.apiV2BufferGoodsTaskGet` — `GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки
-- `products.DefaultApi.apiV2BufferTasksGet` — `GET /api/v2/buffer/tasks` — Состояние необработанной загрузки
-- `products.DefaultApi.apiV2HistoryGoodsTaskGet` — `GET /api/v2/history/goods/task` — Детализация обработанной загрузки
-- `products.DefaultApi.apiV2HistoryTasksGet` — `GET /api/v2/history/tasks` — Состояние обработанной загрузки
-- `products.DefaultApi.apiV2ListGoodsFilterGet` — `GET /api/v2/list/goods/filter` — Получить товары с ценами
-- `products.DefaultApi.apiV2ListGoodsFilterPost` — `POST /api/v2/list/goods/filter` — Получить товары с ценами по артикулам
-- `products.DefaultApi.apiV2ListGoodsSizeNmGet` — `GET /api/v2/list/goods/size/nm` — Получить размеры товара с ценами
-- `products.DefaultApi.apiV2QuarantineGoodsGet` — `GET /api/v2/quarantine/goods` — Получить товары в карантине
-- `products.DefaultApi.apiV2UploadTaskClubDiscountPost` — `POST /api/v2/upload/task/club-discount` — Установить скидки WB Клуба
-- `products.DefaultApi.apiV2UploadTaskPost` — `POST /api/v2/upload/task` — Установить цены и скидки
-- `products.DefaultApi.apiV2UploadTaskSizePost` — `POST /api/v2/upload/task/size` — Установить цены для размеров
-- `products.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsGet` — `GET /api/v3/dbw/warehouses/{warehouseId}/contacts` — Список контактов
-- `products.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsPut` — `PUT /api/v3/dbw/warehouses/{warehouseId}/contacts` — Обновить список контактов
-- `products.DefaultApi.apiV3OfficesGet` — `GET /api/v3/offices` — Получить список складов WB
-- `products.DefaultApi.apiV3StocksWarehouseIdDelete` — `DELETE /api/v3/stocks/{warehouseId}` — Удалить остатки товаров
-- `products.DefaultApi.apiV3StocksWarehouseIdPost` — `POST /api/v3/stocks/{warehouseId}` — Получить остатки товаров
-- `products.DefaultApi.apiV3StocksWarehouseIdPut` — `PUT /api/v3/stocks/{warehouseId}` — Обновить остатки товаров
-- `products.DefaultApi.apiV3WarehousesGet` — `GET /api/v3/warehouses` — Получить список складов продавца
-- `products.DefaultApi.apiV3WarehousesPost` — `POST /api/v3/warehouses` — Создать склад продавца
-- `products.DefaultApi.apiV3WarehousesWarehouseIdDelete` — `DELETE /api/v3/warehouses/{warehouseId}` — Удалить склад продавца
-- `products.DefaultApi.apiV3WarehousesWarehouseIdPut` — `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца
-- `products.DefaultApi.contentV2BarcodesPost` — `POST /content/v2/barcodes` — Генерация баркодов
-- `products.DefaultApi.contentV2CardsDeleteTrashPost` — `POST /content/v2/cards/delete/trash` — Перенос карточек товаров в корзину
-- `products.DefaultApi.contentV2CardsErrorListPost` — `POST /content/v2/cards/error/list` — Список несозданных карточек товаров с ошибками
-- `products.DefaultApi.contentV2CardsLimitsGet` — `GET /content/v2/cards/limits` — Лимиты карточек товаров
-- `products.DefaultApi.contentV2CardsMoveNmPost` — `POST /content/v2/cards/moveNm` — Объединение и разъединение карточек товаров
-- `products.DefaultApi.contentV2CardsRecoverPost` — `POST /content/v2/cards/recover` — Восстановление карточек товаров из корзины
-- `products.DefaultApi.contentV2CardsUpdatePost` — `POST /content/v2/cards/update` — Редактирование карточек товаров
-- `products.DefaultApi.contentV2CardsUploadAddPost` — `POST /content/v2/cards/upload/add` — Создание карточек товаров с присоединением
-- `products.DefaultApi.contentV2CardsUploadPost` — `POST /content/v2/cards/upload` — Создание карточек товаров
-- `products.DefaultApi.contentV2DirectoryColorsGet` — `GET /content/v2/directory/colors` — Цвет
-- `products.DefaultApi.contentV2DirectoryCountriesGet` — `GET /content/v2/directory/countries` — Страна производства
-- `products.DefaultApi.contentV2DirectoryKindsGet` — `GET /content/v2/directory/kinds` — Пол
-- `products.DefaultApi.contentV2DirectorySeasonsGet` — `GET /content/v2/directory/seasons` — Сезон
-- `products.DefaultApi.contentV2DirectoryTnvedGet` — `GET /content/v2/directory/tnved` — ТНВЭД-код
-- `products.DefaultApi.contentV2DirectoryVatGet` — `GET /content/v2/directory/vat` — Ставка НДС
-- `products.DefaultApi.contentV2GetCardsListPost` — `POST /content/v2/get/cards/list` — Список карточек товаров
-- `products.DefaultApi.contentV2GetCardsTrashPost` — `POST /content/v2/get/cards/trash` — Список карточек товаров в корзине
-- `products.DefaultApi.contentV2ObjectAllGet` — `GET /content/v2/object/all` — Список предметов
-- `products.DefaultApi.contentV2ObjectCharcsSubjectIdGet` — `GET /content/v2/object/charcs/{subjectId}` — Характеристики предмета
-- `products.DefaultApi.contentV2ObjectParentAllGet` — `GET /content/v2/object/parent/all` — Родительские категории товаров
-- `products.DefaultApi.contentV2TagIdDelete` — `DELETE /content/v2/tag/{id}` — Удаление ярлыка
-- `products.DefaultApi.contentV2TagIdPatch` — `PATCH /content/v2/tag/{id}` — Изменение ярлыка
-- `products.DefaultApi.contentV2TagNomenclatureLinkPost` — `POST /content/v2/tag/nomenclature/link` — Управление ярлыками в карточке товара
-- `products.DefaultApi.contentV2TagPost` — `POST /content/v2/tag` — Создание ярлыка
-- `products.DefaultApi.contentV2TagsGet` — `GET /content/v2/tags` — Список ярлыков
-- `products.DefaultApi.contentV3MediaFilePost` — `POST /content/v3/media/file` — Загрузить медиафайл
-- `products.DefaultApi.contentV3MediaSavePost` — `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
-- `products.DefaultApi.postV1UploadTaskB2bWholesale` — `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж
+### items (`items`)
+- `items.DefaultApi.apiContentV1BrandsGet` — `GET /api/content/v1/brands` — Бренды
+- `items.DefaultApi.apiV2BufferGoodsTaskGet` — `GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки
+- `items.DefaultApi.apiV2BufferTasksGet` — `GET /api/v2/buffer/tasks` — Состояние необработанной загрузки
+- `items.DefaultApi.apiV2HistoryGoodsTaskGet` — `GET /api/v2/history/goods/task` — Детализация обработанной загрузки
+- `items.DefaultApi.apiV2HistoryTasksGet` — `GET /api/v2/history/tasks` — Состояние обработанной загрузки
+- `items.DefaultApi.apiV2ListGoodsFilterGet` — `GET /api/v2/list/goods/filter` — Получить товары с ценами
+- `items.DefaultApi.apiV2ListGoodsFilterPost` — `POST /api/v2/list/goods/filter` — Получить товары с ценами по артикулам
+- `items.DefaultApi.apiV2ListGoodsSizeNmGet` — `GET /api/v2/list/goods/size/nm` — Получить размеры товара с ценами
+- `items.DefaultApi.apiV2QuarantineGoodsGet` — `GET /api/v2/quarantine/goods` — Получить товары в карантине
+- `items.DefaultApi.apiV2UploadTaskClubDiscountPost` — `POST /api/v2/upload/task/club-discount` — Установить скидки WB Клуба
+- `items.DefaultApi.apiV2UploadTaskPost` — `POST /api/v2/upload/task` — Установить цены и скидки
+- `items.DefaultApi.apiV2UploadTaskSizePost` — `POST /api/v2/upload/task/size` — Установить цены для размеров
+- `items.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsGet` — `GET /api/v3/dbw/warehouses/{warehouseId}/contacts` — Список контактов
+- `items.DefaultApi.apiV3DbwWarehousesWarehouseIdContactsPut` — `PUT /api/v3/dbw/warehouses/{warehouseId}/contacts` — Обновить список контактов
+- `items.DefaultApi.apiV3OfficesGet` — `GET /api/v3/offices` — Получить список складов WB
+- `items.DefaultApi.apiV3StocksWarehouseIdDelete` — `DELETE /api/v3/stocks/{warehouseId}` — Удалить остатки товаров
+- `items.DefaultApi.apiV3StocksWarehouseIdPost` — `POST /api/v3/stocks/{warehouseId}` — Получить остатки товаров
+- `items.DefaultApi.apiV3StocksWarehouseIdPut` — `PUT /api/v3/stocks/{warehouseId}` — Обновить остатки товаров
+- `items.DefaultApi.apiV3WarehousesGet` — `GET /api/v3/warehouses` — Получить список складов продавца
+- `items.DefaultApi.apiV3WarehousesPost` — `POST /api/v3/warehouses` — Создать склад продавца
+- `items.DefaultApi.apiV3WarehousesWarehouseIdDelete` — `DELETE /api/v3/warehouses/{warehouseId}` — Удалить склад продавца
+- `items.DefaultApi.apiV3WarehousesWarehouseIdPut` — `PUT /api/v3/warehouses/{warehouseId}` — Обновить склад продавца
+- `items.DefaultApi.contentV2BarcodesPost` — `POST /content/v2/barcodes` — Генерация баркодов
+- `items.DefaultApi.contentV2CardsDeleteTrashPost` — `POST /content/v2/cards/delete/trash` — Перенос карточек товаров в корзину
+- `items.DefaultApi.contentV2CardsErrorListPost` — `POST /content/v2/cards/error/list` — Список несозданных карточек товаров с ошибками
+- `items.DefaultApi.contentV2CardsLimitsGet` — `GET /content/v2/cards/limits` — Лимиты карточек товаров
+- `items.DefaultApi.contentV2CardsMoveNmPost` — `POST /content/v2/cards/moveNm` — Объединение и разъединение карточек товаров
+- `items.DefaultApi.contentV2CardsRecoverPost` — `POST /content/v2/cards/recover` — Восстановление карточек товаров из корзины
+- `items.DefaultApi.contentV2CardsUpdatePost` — `POST /content/v2/cards/update` — Редактирование карточек товаров
+- `items.DefaultApi.contentV2CardsUploadAddPost` — `POST /content/v2/cards/upload/add` — Создание карточек товаров с присоединением
+- `items.DefaultApi.contentV2CardsUploadPost` — `POST /content/v2/cards/upload` — Создание карточек товаров
+- `items.DefaultApi.contentV2DirectoryColorsGet` — `GET /content/v2/directory/colors` — Цвет
+- `items.DefaultApi.contentV2DirectoryCountriesGet` — `GET /content/v2/directory/countries` — Страна производства
+- `items.DefaultApi.contentV2DirectoryKindsGet` — `GET /content/v2/directory/kinds` — Пол
+- `items.DefaultApi.contentV2DirectorySeasonsGet` — `GET /content/v2/directory/seasons` — Сезон
+- `items.DefaultApi.contentV2DirectoryTnvedGet` — `GET /content/v2/directory/tnved` — ТНВЭД-код
+- `items.DefaultApi.contentV2DirectoryVatGet` — `GET /content/v2/directory/vat` — Ставка НДС
+- `items.DefaultApi.contentV2GetCardsListPost` — `POST /content/v2/get/cards/list` — Список карточек товаров
+- `items.DefaultApi.contentV2GetCardsTrashPost` — `POST /content/v2/get/cards/trash` — Список карточек товаров в корзине
+- `items.DefaultApi.contentV2ObjectAllGet` — `GET /content/v2/object/all` — Список предметов
+- `items.DefaultApi.contentV2ObjectCharcsSubjectIdGet` — `GET /content/v2/object/charcs/{subjectId}` — Характеристики предмета
+- `items.DefaultApi.contentV2ObjectParentAllGet` — `GET /content/v2/object/parent/all` — Родительские категории товаров
+- `items.DefaultApi.contentV2TagIdDelete` — `DELETE /content/v2/tag/{id}` — Удаление ярлыка
+- `items.DefaultApi.contentV2TagIdPatch` — `PATCH /content/v2/tag/{id}` — Изменение ярлыка
+- `items.DefaultApi.contentV2TagNomenclatureLinkPost` — `POST /content/v2/tag/nomenclature/link` — Управление ярлыками в карточке товара
+- `items.DefaultApi.contentV2TagPost` — `POST /content/v2/tag` — Создание ярлыка
+- `items.DefaultApi.contentV2TagsGet` — `GET /content/v2/tags` — Список ярлыков
+- `items.DefaultApi.contentV3MediaFilePost` — `POST /content/v3/media/file` — Загрузить медиафайл
+- `items.DefaultApi.contentV3MediaSavePost` — `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
+- `items.DefaultApi.postV1UploadTaskB2bWholesale` — `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
 - `orders_fbs.FBSApi.apiMarketplaceV3FbsOrdersArchiveGet` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий

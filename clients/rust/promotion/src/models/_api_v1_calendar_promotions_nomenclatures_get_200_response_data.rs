@@ -16,7 +16,7 @@ use serde::{Deserialize, Serialize};
 pub struct ApiV1CalendarPromotionsNomenclaturesGet200ResponseData {
     /// Список товаров
     #[serde(rename = "nomenclatures", skip_serializing_if = "Option::is_none")]
-    pub nomenclatures: Option<Vec<models::PromotionsGoodsList>>,
+    pub nomenclatures: Option<Vec<models::PromotionsItemsList>>,
 }
 
 impl ApiV1CalendarPromotionsNomenclaturesGet200ResponseData {

@@ -17,7 +17,7 @@ import (
 // checks if the ApiV1FeedbackGet200ResponseDataProductDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiV1FeedbackGet200ResponseDataProductDetails{}
 
-// ApiV1FeedbackGet200ResponseDataProductDetails Product information
+// ApiV1FeedbackGet200ResponseDataProductDetails Item information
 type ApiV1FeedbackGet200ResponseDataProductDetails struct {
 	// Артикул WB
 	NmId *int32 `json:"nmId,omitempty"`

@@ -19,7 +19,7 @@ var _ MappedNullable = &EventAttachments{}
 
 // EventAttachments Вложения
 type EventAttachments struct {
-	GoodCard *GoodCard `json:"goodCard,omitempty"`
+	GoodCard *Listing `json:"goodCard,omitempty"`
 	// Файлы
 	Files []File `json:"files,omitempty"`
 	// Изображения
@@ -44,9 +44,9 @@ func NewEventAttachmentsWithDefaults() *EventAttachments {
 }
 
 // GetGoodCard returns the GoodCard field value if set, zero value otherwise.
-func (o *EventAttachments) GetGoodCard() GoodCard {
+func (o *EventAttachments) GetGoodCard() Listing {
 	if o == nil || IsNil(o.GoodCard) {
-		var ret GoodCard
+		var ret Listing
 		return ret
 	}
 	return *o.GoodCard
@@ -54,7 +54,7 @@ func (o *EventAttachments) GetGoodCard() GoodCard {
 
 // GetGoodCardOk returns a tuple with the GoodCard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EventAttachments) GetGoodCardOk() (*GoodCard, bool) {
+func (o *EventAttachments) GetGoodCardOk() (*Listing, bool) {
 	if o == nil || IsNil(o.GoodCard) {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *EventAttachments) HasGoodCard() bool {
 	return false
 }
 
-// SetGoodCard gets a reference to the given GoodCard and assigns it to the GoodCard field.
-func (o *EventAttachments) SetGoodCard(v GoodCard) {
+// SetGoodCard gets a reference to the given Listing and assigns it to the GoodCard field.
+func (o *EventAttachments) SetGoodCard(v Listing) {
 	o.GoodCard = &v
 }
 

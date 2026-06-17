@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiV1CalendarPromotionsNomenclaturesGet200ResponseData{}
 // ApiV1CalendarPromotionsNomenclaturesGet200ResponseData Данные ответа
 type ApiV1CalendarPromotionsNomenclaturesGet200ResponseData struct {
 	// Список товаров
-	Nomenclatures []PromotionsGoodsList `json:"nomenclatures,omitempty"`
+	Nomenclatures []PromotionsItemsList `json:"nomenclatures,omitempty"`
 }
 
 // NewApiV1CalendarPromotionsNomenclaturesGet200ResponseData instantiates a new ApiV1CalendarPromotionsNomenclaturesGet200ResponseData object
@@ -41,9 +41,9 @@ func NewApiV1CalendarPromotionsNomenclaturesGet200ResponseDataWithDefaults() *Ap
 }
 
 // GetNomenclatures returns the Nomenclatures field value if set, zero value otherwise.
-func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclatures() []PromotionsGoodsList {
+func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclatures() []PromotionsItemsList {
 	if o == nil || IsNil(o.Nomenclatures) {
-		var ret []PromotionsGoodsList
+		var ret []PromotionsItemsList
 		return ret
 	}
 	return o.Nomenclatures
@@ -51,7 +51,7 @@ func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclature
 
 // GetNomenclaturesOk returns a tuple with the Nomenclatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclaturesOk() ([]PromotionsGoodsList, bool) {
+func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclaturesOk() ([]PromotionsItemsList, bool) {
 	if o == nil || IsNil(o.Nomenclatures) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) HasNomenclature
 	return false
 }
 
-// SetNomenclatures gets a reference to the given []PromotionsGoodsList and assigns it to the Nomenclatures field.
-func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) SetNomenclatures(v []PromotionsGoodsList) {
+// SetNomenclatures gets a reference to the given []PromotionsItemsList and assigns it to the Nomenclatures field.
+func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) SetNomenclatures(v []PromotionsItemsList) {
 	o.Nomenclatures = v
 }
 

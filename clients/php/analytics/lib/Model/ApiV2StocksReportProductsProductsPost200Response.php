@@ -57,7 +57,7 @@ class ApiV2StocksReportProductsProductsPost200Response implements ModelInterface
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\Wildberries\Sdk\Analytics\Model\TableProductResponse'
+        'data' => '\Wildberries\Sdk\Analytics\Model\TableItemResponse'
     ];
 
     /**
@@ -295,7 +295,7 @@ class ApiV2StocksReportProductsProductsPost200Response implements ModelInterface
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableProductResponse
+     * @return \Wildberries\Sdk\Analytics\Model\TableItemResponse
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class ApiV2StocksReportProductsProductsPost200Response implements ModelInterface
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableProductResponse $data data
+     * @param \Wildberries\Sdk\Analytics\Model\TableItemResponse $data data
      *
      * @return self
      */

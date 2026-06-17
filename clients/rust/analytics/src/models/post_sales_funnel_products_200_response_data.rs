@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct PostSalesFunnelProducts200ResponseData {
     /// Список карточек товаров
     #[serde(rename = "products")]
-    pub products: Vec<models::ProductsResponseProductsInner>,
+    pub products: Vec<models::ItemsResponseProductsInner>,
     /// Валюта отчёта
     #[serde(rename = "currency")]
     pub currency: String,
 }
 
 impl PostSalesFunnelProducts200ResponseData {
-    pub fn new(products: Vec<models::ProductsResponseProductsInner>, currency: String) -> PostSalesFunnelProducts200ResponseData {
+    pub fn new(products: Vec<models::ItemsResponseProductsInner>, currency: String) -> PostSalesFunnelProducts200ResponseData {
         PostSalesFunnelProducts200ResponseData {
             products,
             currency,

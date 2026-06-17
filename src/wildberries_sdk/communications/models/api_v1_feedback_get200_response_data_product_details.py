@@ -25,7 +25,7 @@ from pydantic_core import to_jsonable_python
 
 class ApiV1FeedbackGet200ResponseDataProductDetails(BaseModel):
     """
-    Product information
+    Item information
     """ # noqa: E501
     nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
     imt_id: Optional[StrictInt] = Field(default=None, description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров", alias="imtId")

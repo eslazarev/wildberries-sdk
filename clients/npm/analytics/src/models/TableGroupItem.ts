@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableProductItem } from './TableProductItem';
-import {
-    TableProductItemFromJSON,
-    TableProductItemFromJSONTyped,
-    TableProductItemToJSON,
-    TableProductItemToJSONTyped,
-} from './TableProductItem';
 import type { TableGroupItemMetrics } from './TableGroupItemMetrics';
 import {
     TableGroupItemMetricsFromJSON,
@@ -27,6 +20,13 @@ import {
     TableGroupItemMetricsToJSON,
     TableGroupItemMetricsToJSONTyped,
 } from './TableGroupItemMetrics';
+import type { TableItemItem } from './TableItemItem';
+import {
+    TableItemItemFromJSON,
+    TableItemItemFromJSONTyped,
+    TableItemItemToJSON,
+    TableItemItemToJSONTyped,
+} from './TableItemItem';
 
 /**
  * К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:
@@ -76,10 +76,10 @@ export interface TableGroupItem {
     metrics: TableGroupItemMetrics;
     /**
      * Массив товаров группы
-     * @type {Array<TableProductItem>}
+     * @type {Array<TableItemItem>}
      * @memberof TableGroupItem
      */
-    items: Array<TableProductItem>;
+    items: Array<TableItemItem>;
 }
 
 /**
@@ -107,7 +107,7 @@ export function TableGroupItemFromJSONTyped(json: any, ignoreDiscriminator: bool
         'tagName': json['tagName'] == null ? undefined : json['tagName'],
         'tagId': json['tagId'] == null ? undefined : json['tagId'],
         'metrics': TableGroupItemMetricsFromJSON(json['metrics']),
-        'items': ((json['items'] as Array<any>).map(TableProductItemFromJSON)),
+        'items': ((json['items'] as Array<any>).map(TableItemItemFromJSON)),
     };
 }
 
@@ -128,7 +128,7 @@ export function TableGroupItemToJSONTyped(value?: TableGroupItem | null, ignoreD
         'tagName': value['tagName'],
         'tagId': value['tagId'],
         'metrics': TableGroupItemMetricsToJSON(value['metrics']),
-        'items': ((value['items'] as Array<any>).map(TableProductItemToJSON)),
+        'items': ((value['items'] as Array<any>).map(TableItemItemToJSON)),
     };
 }
 

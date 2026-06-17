@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Listing } from './Listing';
+import {
+    ListingFromJSON,
+    ListingFromJSONTyped,
+    ListingToJSON,
+    ListingToJSONTyped,
+} from './Listing';
 import type { Image } from './Image';
 import {
     ImageFromJSON,
@@ -20,13 +27,6 @@ import {
     ImageToJSON,
     ImageToJSONTyped,
 } from './Image';
-import type { GoodCard } from './GoodCard';
-import {
-    GoodCardFromJSON,
-    GoodCardFromJSONTyped,
-    GoodCardToJSON,
-    GoodCardToJSONTyped,
-} from './GoodCard';
 
 /**
  * Вложения
@@ -36,10 +36,10 @@ import {
 export interface EventAttachments {
     /**
      * 
-     * @type {GoodCard}
+     * @type {Listing}
      * @memberof EventAttachments
      */
-    goodCard?: GoodCard;
+    goodCard?: Listing;
     /**
      * Файлы
      * @type {Array<any>}
@@ -71,7 +71,7 @@ export function EventAttachmentsFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'goodCard': json['goodCard'] == null ? undefined : GoodCardFromJSON(json['goodCard']),
+        'goodCard': json['goodCard'] == null ? undefined : ListingFromJSON(json['goodCard']),
         'files': json['files'] == null ? undefined : json['files'],
         'images': json['images'] == null ? undefined : ((json['images'] as Array<any>).map(ImageFromJSON)),
     };
@@ -88,7 +88,7 @@ export function EventAttachmentsToJSONTyped(value?: EventAttachments | null, ign
 
     return {
         
-        'goodCard': GoodCardToJSON(value['goodCard']),
+        'goodCard': ListingToJSON(value['goodCard']),
         'files': value['files'],
         'images': value['images'] == null ? undefined : ((value['images'] as Array<any>).map(ImageToJSON)),
     };

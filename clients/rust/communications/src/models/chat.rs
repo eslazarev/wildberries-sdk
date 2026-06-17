@@ -23,7 +23,7 @@ pub struct Chat {
     #[serde(rename = "clientName", skip_serializing_if = "Option::is_none")]
     pub client_name: Option<String>,
     #[serde(rename = "goodCard", skip_serializing_if = "Option::is_none")]
-    pub good_card: Option<Box<models::GoodCard>>,
+    pub good_card: Option<Box<models::Listing>>,
     /// Последнее сообщение в чате
     #[serde(rename = "lastMessage", skip_serializing_if = "Option::is_none")]
     pub last_message: Option<Box<models::LastMessage>>,

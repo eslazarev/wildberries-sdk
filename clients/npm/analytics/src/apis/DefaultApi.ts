@@ -94,10 +94,35 @@ import {
     InventoryRequestToJSON,
 } from '../models/InventoryRequest';
 import {
+    type ItemHistoryRequest,
+    ItemHistoryRequestFromJSON,
+    ItemHistoryRequestToJSON,
+} from '../models/ItemHistoryRequest';
+import {
+    type ItemHistoryResponseInner,
+    ItemHistoryResponseInnerFromJSON,
+    ItemHistoryResponseInnerToJSON,
+} from '../models/ItemHistoryResponseInner';
+import {
+    type ItemOrdersRequest,
+    ItemOrdersRequestFromJSON,
+    ItemOrdersRequestToJSON,
+} from '../models/ItemOrdersRequest';
+import {
     type ItemRatingRequest,
     ItemRatingRequestFromJSON,
     ItemRatingRequestToJSON,
 } from '../models/ItemRatingRequest';
+import {
+    type ItemSearchTextsRequest,
+    ItemSearchTextsRequestFromJSON,
+    ItemSearchTextsRequestToJSON,
+} from '../models/ItemSearchTextsRequest';
+import {
+    type ItemsRequest,
+    ItemsRequestFromJSON,
+    ItemsRequestToJSON,
+} from '../models/ItemsRequest';
 import {
     type MainRequest,
     MainRequestFromJSON,
@@ -134,31 +159,6 @@ import {
     PostV1StocksReportWbWarehouses200ResponseToJSON,
 } from '../models/PostV1StocksReportWbWarehouses200Response';
 import {
-    type ProductHistoryRequest,
-    ProductHistoryRequestFromJSON,
-    ProductHistoryRequestToJSON,
-} from '../models/ProductHistoryRequest';
-import {
-    type ProductHistoryResponseInner,
-    ProductHistoryResponseInnerFromJSON,
-    ProductHistoryResponseInnerToJSON,
-} from '../models/ProductHistoryResponseInner';
-import {
-    type ProductOrdersRequest,
-    ProductOrdersRequestFromJSON,
-    ProductOrdersRequestToJSON,
-} from '../models/ProductOrdersRequest';
-import {
-    type ProductSearchTextsRequest,
-    ProductSearchTextsRequestFromJSON,
-    ProductSearchTextsRequestToJSON,
-} from '../models/ProductSearchTextsRequest';
-import {
-    type ProductsRequest,
-    ProductsRequestFromJSON,
-    ProductsRequestToJSON,
-} from '../models/ProductsRequest';
-import {
     type TableDetailsRequest,
     TableDetailsRequestFromJSON,
     TableDetailsRequestToJSON,
@@ -174,17 +174,17 @@ import {
     TableGroupRequestStToJSON,
 } from '../models/TableGroupRequestSt';
 import {
-    type TableProductRequest,
-    TableProductRequestFromJSON,
-    TableProductRequestToJSON,
-} from '../models/TableProductRequest';
+    type TableItemRequest,
+    TableItemRequestFromJSON,
+    TableItemRequestToJSON,
+} from '../models/TableItemRequest';
 
 export interface ApiV2SearchReportProductOrdersPostRequest {
-    productOrdersRequest: ProductOrdersRequest;
+    itemOrdersRequest: ItemOrdersRequest;
 }
 
 export interface ApiV2SearchReportProductSearchTextsPostRequest {
-    productSearchTextsRequest: ProductSearchTextsRequest;
+    itemSearchTextsRequest: ItemSearchTextsRequest;
 }
 
 export interface ApiV2SearchReportReportPostRequest {
@@ -208,7 +208,7 @@ export interface ApiV2StocksReportProductsGroupsPostRequest {
 }
 
 export interface ApiV2StocksReportProductsProductsPostRequest {
-    tableProductRequest: TableProductRequest;
+    tableItemRequest: TableItemRequest;
 }
 
 export interface ApiV2StocksReportProductsSizesPostRequest {
@@ -220,11 +220,11 @@ export interface PostSalesFunnelGroupedHistoryRequest {
 }
 
 export interface PostSalesFunnelProductsRequest {
-    productsRequest: ProductsRequest;
+    itemsRequest: ItemsRequest;
 }
 
 export interface PostSalesFunnelProductsHistoryRequest {
-    productHistoryRequest: ProductHistoryRequest;
+    itemHistoryRequest: ItemHistoryRequest;
 }
 
 export interface PostV1ItemRatingRequest {
@@ -244,10 +244,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for apiV2SearchReportProductOrdersPost without sending the request
      */
     async apiV2SearchReportProductOrdersPostRequestOpts(requestParameters: ApiV2SearchReportProductOrdersPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['productOrdersRequest'] == null) {
+        if (requestParameters['itemOrdersRequest'] == null) {
             throw new runtime.RequiredError(
-                'productOrdersRequest',
-                'Required parameter "productOrdersRequest" was null or undefined when calling apiV2SearchReportProductOrdersPost().'
+                'itemOrdersRequest',
+                'Required parameter "itemOrdersRequest" was null or undefined when calling apiV2SearchReportProductOrdersPost().'
             );
         }
 
@@ -269,7 +269,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ProductOrdersRequestToJSON(requestParameters['productOrdersRequest']),
+            body: ItemOrdersRequestToJSON(requestParameters['itemOrdersRequest']),
         };
     }
 
@@ -297,10 +297,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for apiV2SearchReportProductSearchTextsPost without sending the request
      */
     async apiV2SearchReportProductSearchTextsPostRequestOpts(requestParameters: ApiV2SearchReportProductSearchTextsPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['productSearchTextsRequest'] == null) {
+        if (requestParameters['itemSearchTextsRequest'] == null) {
             throw new runtime.RequiredError(
-                'productSearchTextsRequest',
-                'Required parameter "productSearchTextsRequest" was null or undefined when calling apiV2SearchReportProductSearchTextsPost().'
+                'itemSearchTextsRequest',
+                'Required parameter "itemSearchTextsRequest" was null or undefined when calling apiV2SearchReportProductSearchTextsPost().'
             );
         }
 
@@ -322,7 +322,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ProductSearchTextsRequestToJSON(requestParameters['productSearchTextsRequest']),
+            body: ItemSearchTextsRequestToJSON(requestParameters['itemSearchTextsRequest']),
         };
     }
 
@@ -615,10 +615,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for apiV2StocksReportProductsProductsPost without sending the request
      */
     async apiV2StocksReportProductsProductsPostRequestOpts(requestParameters: ApiV2StocksReportProductsProductsPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['tableProductRequest'] == null) {
+        if (requestParameters['tableItemRequest'] == null) {
             throw new runtime.RequiredError(
-                'tableProductRequest',
-                'Required parameter "tableProductRequest" was null or undefined when calling apiV2StocksReportProductsProductsPost().'
+                'tableItemRequest',
+                'Required parameter "tableItemRequest" was null or undefined when calling apiV2StocksReportProductsProductsPost().'
             );
         }
 
@@ -640,7 +640,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: TableProductRequestToJSON(requestParameters['tableProductRequest']),
+            body: TableItemRequestToJSON(requestParameters['tableItemRequest']),
         };
     }
 
@@ -774,10 +774,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postSalesFunnelProducts without sending the request
      */
     async postSalesFunnelProductsRequestOpts(requestParameters: PostSalesFunnelProductsRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['productsRequest'] == null) {
+        if (requestParameters['itemsRequest'] == null) {
             throw new runtime.RequiredError(
-                'productsRequest',
-                'Required parameter "productsRequest" was null or undefined when calling postSalesFunnelProducts().'
+                'itemsRequest',
+                'Required parameter "itemsRequest" was null or undefined when calling postSalesFunnelProducts().'
             );
         }
 
@@ -799,7 +799,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ProductsRequestToJSON(requestParameters['productsRequest']),
+            body: ItemsRequestToJSON(requestParameters['itemsRequest']),
         };
     }
 
@@ -827,10 +827,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postSalesFunnelProductsHistory without sending the request
      */
     async postSalesFunnelProductsHistoryRequestOpts(requestParameters: PostSalesFunnelProductsHistoryRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['productHistoryRequest'] == null) {
+        if (requestParameters['itemHistoryRequest'] == null) {
             throw new runtime.RequiredError(
-                'productHistoryRequest',
-                'Required parameter "productHistoryRequest" was null or undefined when calling postSalesFunnelProductsHistory().'
+                'itemHistoryRequest',
+                'Required parameter "itemHistoryRequest" was null or undefined when calling postSalesFunnelProductsHistory().'
             );
         }
 
@@ -852,7 +852,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ProductHistoryRequestToJSON(requestParameters['productHistoryRequest']),
+            body: ItemHistoryRequestToJSON(requestParameters['itemHistoryRequest']),
         };
     }
 
@@ -860,18 +860,18 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href=\'https://seller.wildberries.ru/monetization/jam\'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Статистика карточек товаров по дням
      */
-    async postSalesFunnelProductsHistoryRaw(requestParameters: PostSalesFunnelProductsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProductHistoryResponseInner>>> {
+    async postSalesFunnelProductsHistoryRaw(requestParameters: PostSalesFunnelProductsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ItemHistoryResponseInner>>> {
         const requestOptions = await this.postSalesFunnelProductsHistoryRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ProductHistoryResponseInnerFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ItemHistoryResponseInnerFromJSON));
     }
 
     /**
      * Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href=\'https://seller.wildberries.ru/monetization/jam\'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Статистика карточек товаров по дням
      */
-    async postSalesFunnelProductsHistory(requestParameters: PostSalesFunnelProductsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProductHistoryResponseInner>> {
+    async postSalesFunnelProductsHistory(requestParameters: PostSalesFunnelProductsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ItemHistoryResponseInner>> {
         const response = await this.postSalesFunnelProductsHistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }

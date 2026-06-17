@@ -22,7 +22,7 @@ var _ MappedNullable = &AdvertNMsSettings{}
 // AdvertNMsSettings struct for AdvertNMsSettings
 type AdvertNMsSettings struct {
 	BidsKopecks AdvertBidsKopecks `json:"bids_kopecks"`
-	Subject AdvertSubject `json:"subject"`
+	Subject AdvertSubcategory `json:"subject"`
 	// Артикул WB
 	NmId int64 `json:"nm_id"`
 }
@@ -33,7 +33,7 @@ type _AdvertNMsSettings AdvertNMsSettings
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdvertNMsSettings(bidsKopecks AdvertBidsKopecks, subject AdvertSubject, nmId int64) *AdvertNMsSettings {
+func NewAdvertNMsSettings(bidsKopecks AdvertBidsKopecks, subject AdvertSubcategory, nmId int64) *AdvertNMsSettings {
 	this := AdvertNMsSettings{}
 	this.BidsKopecks = bidsKopecks
 	this.Subject = subject
@@ -74,9 +74,9 @@ func (o *AdvertNMsSettings) SetBidsKopecks(v AdvertBidsKopecks) {
 }
 
 // GetSubject returns the Subject field value
-func (o *AdvertNMsSettings) GetSubject() AdvertSubject {
+func (o *AdvertNMsSettings) GetSubject() AdvertSubcategory {
 	if o == nil {
-		var ret AdvertSubject
+		var ret AdvertSubcategory
 		return ret
 	}
 
@@ -85,7 +85,7 @@ func (o *AdvertNMsSettings) GetSubject() AdvertSubject {
 
 // GetSubjectOk returns a tuple with the Subject field value
 // and a boolean to check if the value has been set.
-func (o *AdvertNMsSettings) GetSubjectOk() (*AdvertSubject, bool) {
+func (o *AdvertNMsSettings) GetSubjectOk() (*AdvertSubcategory, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *AdvertNMsSettings) GetSubjectOk() (*AdvertSubject, bool) {
 }
 
 // SetSubject sets field value
-func (o *AdvertNMsSettings) SetSubject(v AdvertSubject) {
+func (o *AdvertNMsSettings) SetSubject(v AdvertSubcategory) {
 	o.Subject = v
 }
 

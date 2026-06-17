@@ -33,12 +33,12 @@ pub struct TableGroupItem {
     pub metrics: Box<models::TableGroupItemMetrics>,
     /// Массив товаров группы
     #[serde(rename = "items")]
-    pub items: Vec<models::TableProductItem>,
+    pub items: Vec<models::TableItemItem>,
 }
 
 impl TableGroupItem {
     /// К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:   - `subjectName` — название предмета   - `brandName` — бренд   - `tagName` — название ярлыка 
-    pub fn new(metrics: models::TableGroupItemMetrics, items: Vec<models::TableProductItem>) -> TableGroupItem {
+    pub fn new(metrics: models::TableGroupItemMetrics, items: Vec<models::TableItemItem>) -> TableGroupItem {
         TableGroupItem {
             subject_name: None,
             subject_id: None,

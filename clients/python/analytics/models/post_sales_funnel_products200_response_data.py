@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.products_response_products_inner import ProductsResponseProductsInner
+from wildberries_sdk.analytics.models.items_response_products_inner import ItemsResponseProductsInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class PostSalesFunnelProducts200ResponseData(BaseModel):
     """
     PostSalesFunnelProducts200ResponseData
     """ # noqa: E501
-    products: List[ProductsResponseProductsInner] = Field(description="Список карточек товаров")
+    products: List[ItemsResponseProductsInner] = Field(description="Список карточек товаров")
     currency: StrictStr = Field(description="Валюта отчёта", json_schema_extra={"examples": ["RUB"]})
     __properties: ClassVar[List[str]] = ["products", "currency"]
 
@@ -90,7 +90,7 @@ class PostSalesFunnelProducts200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "products": [ProductsResponseProductsInner.from_dict(_item) for _item in obj["products"]] if obj.get("products") is not None else None,
+            "products": [ItemsResponseProductsInner.from_dict(_item) for _item in obj["products"]] if obj.get("products") is not None else None,
             "currency": obj.get("currency")
         })
         return _obj

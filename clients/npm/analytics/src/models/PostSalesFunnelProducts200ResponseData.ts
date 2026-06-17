@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ProductsResponseProductsInner } from './ProductsResponseProductsInner';
+import type { ItemsResponseProductsInner } from './ItemsResponseProductsInner';
 import {
-    ProductsResponseProductsInnerFromJSON,
-    ProductsResponseProductsInnerFromJSONTyped,
-    ProductsResponseProductsInnerToJSON,
-    ProductsResponseProductsInnerToJSONTyped,
-} from './ProductsResponseProductsInner';
+    ItemsResponseProductsInnerFromJSON,
+    ItemsResponseProductsInnerFromJSONTyped,
+    ItemsResponseProductsInnerToJSON,
+    ItemsResponseProductsInnerToJSONTyped,
+} from './ItemsResponseProductsInner';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface PostSalesFunnelProducts200ResponseData {
     /**
      * Список карточек товаров
-     * @type {Array<ProductsResponseProductsInner>}
+     * @type {Array<ItemsResponseProductsInner>}
      * @memberof PostSalesFunnelProducts200ResponseData
      */
-    products: Array<ProductsResponseProductsInner>;
+    products: Array<ItemsResponseProductsInner>;
     /**
      * Валюта отчёта
      * @type {string}
@@ -60,7 +60,7 @@ export function PostSalesFunnelProducts200ResponseDataFromJSONTyped(json: any, i
     }
     return {
         
-        'products': ((json['products'] as Array<any>).map(ProductsResponseProductsInnerFromJSON)),
+        'products': ((json['products'] as Array<any>).map(ItemsResponseProductsInnerFromJSON)),
         'currency': json['currency'],
     };
 }
@@ -76,7 +76,7 @@ export function PostSalesFunnelProducts200ResponseDataToJSONTyped(value?: PostSa
 
     return {
         
-        'products': ((value['products'] as Array<any>).map(ProductsResponseProductsInnerToJSON)),
+        'products': ((value['products'] as Array<any>).map(ItemsResponseProductsInnerToJSON)),
         'currency': value['currency'],
     };
 }

@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.promotion.models.advert_bids_kopecks import AdvertBidsKopecks
-from wildberries_sdk.promotion.models.advert_subject import AdvertSubject
+from wildberries_sdk.promotion.models.advert_subcategory import AdvertSubcategory
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,7 +30,7 @@ class AdvertNMsSettings(BaseModel):
     AdvertNMsSettings
     """ # noqa: E501
     bids_kopecks: AdvertBidsKopecks
-    subject: AdvertSubject
+    subject: AdvertSubcategory
     nm_id: StrictInt = Field(description="Артикул WB")
     __properties: ClassVar[List[str]] = ["bids_kopecks", "subject", "nm_id"]
 
@@ -92,7 +92,7 @@ class AdvertNMsSettings(BaseModel):
 
         _obj = cls.model_validate({
             "bids_kopecks": AdvertBidsKopecks.from_dict(obj["bids_kopecks"]) if obj.get("bids_kopecks") is not None else None,
-            "subject": AdvertSubject.from_dict(obj["subject"]) if obj.get("subject") is not None else None,
+            "subject": AdvertSubcategory.from_dict(obj["subject"]) if obj.get("subject") is not None else None,
             "nm_id": obj.get("nm_id")
         })
         return _obj

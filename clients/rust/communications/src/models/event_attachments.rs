@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EventAttachments {
     #[serde(rename = "goodCard", skip_serializing_if = "Option::is_none")]
-    pub good_card: Option<Box<models::GoodCard>>,
+    pub good_card: Option<Box<models::Listing>>,
     /// Файлы
     #[serde(rename = "files", skip_serializing_if = "Option::is_none")]
     pub files: Option<Vec<models::File>>,

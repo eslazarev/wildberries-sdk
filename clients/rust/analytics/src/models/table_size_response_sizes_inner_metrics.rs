@@ -66,12 +66,12 @@ pub struct TableSizeResponseSizesInnerMetrics {
     #[serde(rename = "lostBuyoutsSum")]
     pub lost_buyouts_sum: f64,
     #[serde(rename = "currentPrice")]
-    pub current_price: Box<models::TableProductItemStMetricsAllOfCurrentPrice>,
+    pub current_price: Box<models::TableItemItemStMetricsAllOfCurrentPrice>,
 }
 
 impl TableSizeResponseSizesInnerMetrics {
     /// Метрики размера
-    pub fn new(orders_count: i32, orders_sum: i32, avg_orders: f64, avg_orders_by_month: Vec<models::FloatGraphByPeriodItem>, buyout_count: i32, buyout_sum: i32, buyout_percent: i32, stock_count: i32, stock_sum: i32, sale_rate: models::TableCommonMetricsSaleRate, avg_stock_turnover: models::TableCommonMetricsSaleRate, to_client_count: i32, from_client_count: i32, office_missing_time: models::TableCommonMetricsSaleRate, lost_orders_count: f64, lost_orders_sum: f64, lost_buyouts_count: f64, lost_buyouts_sum: f64, current_price: models::TableProductItemStMetricsAllOfCurrentPrice) -> TableSizeResponseSizesInnerMetrics {
+    pub fn new(orders_count: i32, orders_sum: i32, avg_orders: f64, avg_orders_by_month: Vec<models::FloatGraphByPeriodItem>, buyout_count: i32, buyout_sum: i32, buyout_percent: i32, stock_count: i32, stock_sum: i32, sale_rate: models::TableCommonMetricsSaleRate, avg_stock_turnover: models::TableCommonMetricsSaleRate, to_client_count: i32, from_client_count: i32, office_missing_time: models::TableCommonMetricsSaleRate, lost_orders_count: f64, lost_orders_sum: f64, lost_buyouts_count: f64, lost_buyouts_sum: f64, current_price: models::TableItemItemStMetricsAllOfCurrentPrice) -> TableSizeResponseSizesInnerMetrics {
         TableSizeResponseSizesInnerMetrics {
             orders_count,
             orders_sum,

@@ -25,7 +25,7 @@ pub struct ModelsGoodInSupply {
     /// Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен 
     #[serde(rename = "needKiz", skip_serializing_if = "Option::is_none")]
     pub need_kiz: Option<bool>,
-    /// Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post) 
+    /// Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post) 
     #[serde(rename = "tnved", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tnved: Option<Option<String>>,
     /// Размер товара, указанный продавцом

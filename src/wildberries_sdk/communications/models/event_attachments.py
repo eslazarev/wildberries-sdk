@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.communications.models.file import File
-from wildberries_sdk.communications.models.good_card import GoodCard
 from wildberries_sdk.communications.models.image import Image
+from wildberries_sdk.communications.models.listing import Listing
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,7 +30,7 @@ class EventAttachments(BaseModel):
     """
     Вложения
     """ # noqa: E501
-    good_card: Optional[GoodCard] = Field(default=None, alias="goodCard")
+    good_card: Optional[Listing] = Field(default=None, alias="goodCard")
     files: Optional[List[File]] = Field(default=None, description="Файлы")
     images: Optional[List[Image]] = Field(default=None, description="Изображения")
     __properties: ClassVar[List[str]] = ["goodCard", "files", "images"]
@@ -103,7 +103,7 @@ class EventAttachments(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "goodCard": GoodCard.from_dict(obj["goodCard"]) if obj.get("goodCard") is not None else None,
+            "goodCard": Listing.from_dict(obj["goodCard"]) if obj.get("goodCard") is not None else None,
             "files": [File.from_dict(_item) for _item in obj["files"]] if obj.get("files") is not None else None,
             "images": [Image.from_dict(_item) for _item in obj["images"]] if obj.get("images") is not None else None
         })

@@ -57,7 +57,7 @@ class PostSalesFunnelProducts200ResponseData implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $openAPITypes = [
-        'products' => '\Wildberries\Sdk\Analytics\Model\ProductsResponseProductsInner[]',
+        'products' => '\Wildberries\Sdk\Analytics\Model\ItemsResponseProductsInner[]',
         'currency' => 'string'
     ];
 
@@ -305,7 +305,7 @@ class PostSalesFunnelProducts200ResponseData implements ModelInterface, ArrayAcc
     /**
      * Gets products
      *
-     * @return \Wildberries\Sdk\Analytics\Model\ProductsResponseProductsInner[]
+     * @return \Wildberries\Sdk\Analytics\Model\ItemsResponseProductsInner[]
      */
     public function getProducts()
     {
@@ -315,7 +315,7 @@ class PostSalesFunnelProducts200ResponseData implements ModelInterface, ArrayAcc
     /**
      * Sets products
      *
-     * @param \Wildberries\Sdk\Analytics\Model\ProductsResponseProductsInner[] $products Список карточек товаров
+     * @param \Wildberries\Sdk\Analytics\Model\ItemsResponseProductsInner[] $products Список карточек товаров
      *
      * @return self
      */

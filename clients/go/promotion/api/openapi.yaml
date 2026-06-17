@@ -483,7 +483,7 @@ paths:
   /adv/v1/supplier/subjects:
     get:
       description: |
-        Метод возвращает список [предметов](/openapi/work-with-products#tag/Kategorii-predmety-i-harakteristiki/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get).
+        Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -573,7 +573,7 @@ paths:
   /adv/v2/supplier/nms:
     post:
       description: |
-        Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/Sozdanie-kampanij/paths/~1adv~1v1~1supplier~1subjects/get), также доступных для добавления в кампанию.
+        Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/Sozdanie-kampanij/paths/~1adv~1v1~1supplier~1subjects/get), также доступных для добавления в кампанию.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -5001,7 +5001,7 @@ components:
           schema:
             $ref: "#/components/schemas/_api_v1_calendar_promotions_get_400_response"
       description: Неправильный запрос
-    ResponsePromotionsGoodsLists:
+    ResponsePromotionsItemsLists:
       content:
         application/json:
           schema:
@@ -6177,7 +6177,7 @@ components:
         error:
           type: string
       type: object
-    PromotionsGoodsList:
+    PromotionsItemsList:
       example:
         id: 162579635
         inAction: true
@@ -6304,7 +6304,7 @@ components:
         bids_kopecks:
           $ref: "#/components/schemas/AdvertBidsKopecks"
         subject:
-          $ref: "#/components/schemas/AdvertSubject"
+          $ref: "#/components/schemas/AdvertSubcategory"
         nm_id:
           description: Артикул WB
           format: int64
@@ -6314,7 +6314,7 @@ components:
       - nm_id
       - subject
       type: object
-    AdvertSubject:
+    AdvertSubcategory:
       description: Предмет
       example:
         id: 5
@@ -9047,7 +9047,7 @@ components:
         nomenclatures:
           description: Список товаров
           items:
-            $ref: "#/components/schemas/PromotionsGoodsList"
+            $ref: "#/components/schemas/PromotionsItemsList"
           type: array
       type: object
     _api_v1_calendar_promotions_nomenclatures_get_200_response:

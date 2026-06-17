@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Product information
+ * Item information
  * @export
  * @interface ApiV1FeedbackGet200ResponseDataProductDetails
  */

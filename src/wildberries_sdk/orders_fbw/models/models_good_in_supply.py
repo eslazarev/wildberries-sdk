@@ -31,7 +31,7 @@ class ModelsGoodInSupply(BaseModel):
     vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
     nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
     need_kiz: Optional[StrictBool] = Field(default=None, description="Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен ", alias="needKiz")
-    tnved: Optional[StrictStr] = Field(default=None, description="Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post) ")
+    tnved: Optional[StrictStr] = Field(default=None, description="Код ТНВЭД. <br> Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post) ")
     tech_size: Optional[StrictStr] = Field(default=None, description="Размер товара, указанный продавцом", alias="techSize")
     color: Optional[StrictStr] = Field(default=None, description="Цвет товара")
     supplier_box_amount: Optional[StrictInt] = Field(default=None, description="Указано в упаковке, шт", alias="supplierBoxAmount")

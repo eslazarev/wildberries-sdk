@@ -173,7 +173,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductOrdersRequest $product_orders_request product_orders_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemOrdersRequest $item_orders_request item_orders_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductOrdersPost'] to see the possible values for this operation
@@ -182,9 +182,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductOrdersPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
      */
-    public function apiV2SearchReportProductOrdersPost($product_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
+    public function apiV2SearchReportProductOrdersPost($item_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
     {
-        list($response) = $this->apiV2SearchReportProductOrdersPostWithHttpInfo($product_orders_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->apiV2SearchReportProductOrdersPostWithHttpInfo($item_orders_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -197,7 +197,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductOrdersRequest $product_orders_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemOrdersRequest $item_orders_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductOrdersPost'] to see the possible values for this operation
@@ -206,9 +206,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductOrdersPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV2SearchReportProductOrdersPostWithHttpInfo($product_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
+    public function apiV2SearchReportProductOrdersPostWithHttpInfo($item_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
     {
-        $request = $this->apiV2SearchReportProductOrdersPostRequest($product_orders_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV2SearchReportProductOrdersPostRequest($item_orders_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -358,7 +358,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductOrdersRequest $product_orders_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemOrdersRequest $item_orders_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductOrdersPost'] to see the possible values for this operation
@@ -366,9 +366,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2SearchReportProductOrdersPostAsync($product_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
+    public function apiV2SearchReportProductOrdersPostAsync($item_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
     {
-        return $this->apiV2SearchReportProductOrdersPostAsyncWithHttpInfo($product_orders_request, $hostIndex, $variables, $contentType)
+        return $this->apiV2SearchReportProductOrdersPostAsyncWithHttpInfo($item_orders_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -385,7 +385,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductOrdersRequest $product_orders_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemOrdersRequest $item_orders_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductOrdersPost'] to see the possible values for this operation
@@ -393,10 +393,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2SearchReportProductOrdersPostAsyncWithHttpInfo($product_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
+    public function apiV2SearchReportProductOrdersPostAsyncWithHttpInfo($item_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
     {
         $returnType = '\Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductOrdersPost200Response';
-        $request = $this->apiV2SearchReportProductOrdersPostRequest($product_orders_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV2SearchReportProductOrdersPostRequest($item_orders_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -441,7 +441,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductOrdersRequest $product_orders_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemOrdersRequest $item_orders_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductOrdersPost'] to see the possible values for this operation
@@ -449,13 +449,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV2SearchReportProductOrdersPostRequest($product_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
+    public function apiV2SearchReportProductOrdersPostRequest($item_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
     {
 
-        // verify the required parameter 'product_orders_request' is set
-        if ($product_orders_request === null || (is_array($product_orders_request) && count($product_orders_request) === 0)) {
+        // verify the required parameter 'item_orders_request' is set
+        if ($item_orders_request === null || (is_array($item_orders_request) && count($item_orders_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product_orders_request when calling apiV2SearchReportProductOrdersPost'
+                'Missing the required parameter $item_orders_request when calling apiV2SearchReportProductOrdersPost'
             );
         }
 
@@ -478,12 +478,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($product_orders_request)) {
+        if (isset($item_orders_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($product_orders_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_orders_request));
             } else {
-                $httpBody = $product_orders_request;
+                $httpBody = $item_orders_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -572,7 +572,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductSearchTextsRequest $product_search_texts_request product_search_texts_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemSearchTextsRequest $item_search_texts_request item_search_texts_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductSearchTextsPost'] to see the possible values for this operation
@@ -581,9 +581,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductSearchTextsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
      */
-    public function apiV2SearchReportProductSearchTextsPost($product_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
+    public function apiV2SearchReportProductSearchTextsPost($item_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
     {
-        list($response) = $this->apiV2SearchReportProductSearchTextsPostWithHttpInfo($product_search_texts_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->apiV2SearchReportProductSearchTextsPostWithHttpInfo($item_search_texts_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -596,7 +596,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductSearchTextsRequest $product_search_texts_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemSearchTextsRequest $item_search_texts_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductSearchTextsPost'] to see the possible values for this operation
@@ -605,9 +605,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductSearchTextsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV2SearchReportProductSearchTextsPostWithHttpInfo($product_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
+    public function apiV2SearchReportProductSearchTextsPostWithHttpInfo($item_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
     {
-        $request = $this->apiV2SearchReportProductSearchTextsPostRequest($product_search_texts_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV2SearchReportProductSearchTextsPostRequest($item_search_texts_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -757,7 +757,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductSearchTextsRequest $product_search_texts_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemSearchTextsRequest $item_search_texts_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductSearchTextsPost'] to see the possible values for this operation
@@ -765,9 +765,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2SearchReportProductSearchTextsPostAsync($product_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
+    public function apiV2SearchReportProductSearchTextsPostAsync($item_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
     {
-        return $this->apiV2SearchReportProductSearchTextsPostAsyncWithHttpInfo($product_search_texts_request, $hostIndex, $variables, $contentType)
+        return $this->apiV2SearchReportProductSearchTextsPostAsyncWithHttpInfo($item_search_texts_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -784,7 +784,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductSearchTextsRequest $product_search_texts_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemSearchTextsRequest $item_search_texts_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductSearchTextsPost'] to see the possible values for this operation
@@ -792,10 +792,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2SearchReportProductSearchTextsPostAsyncWithHttpInfo($product_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
+    public function apiV2SearchReportProductSearchTextsPostAsyncWithHttpInfo($item_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
     {
         $returnType = '\Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductSearchTextsPost200Response';
-        $request = $this->apiV2SearchReportProductSearchTextsPostRequest($product_search_texts_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV2SearchReportProductSearchTextsPostRequest($item_search_texts_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -840,7 +840,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductSearchTextsRequest $product_search_texts_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemSearchTextsRequest $item_search_texts_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2SearchReportProductSearchTextsPost'] to see the possible values for this operation
@@ -848,13 +848,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV2SearchReportProductSearchTextsPostRequest($product_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
+    public function apiV2SearchReportProductSearchTextsPostRequest($item_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
     {
 
-        // verify the required parameter 'product_search_texts_request' is set
-        if ($product_search_texts_request === null || (is_array($product_search_texts_request) && count($product_search_texts_request) === 0)) {
+        // verify the required parameter 'item_search_texts_request' is set
+        if ($item_search_texts_request === null || (is_array($item_search_texts_request) && count($item_search_texts_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product_search_texts_request when calling apiV2SearchReportProductSearchTextsPost'
+                'Missing the required parameter $item_search_texts_request when calling apiV2SearchReportProductSearchTextsPost'
             );
         }
 
@@ -877,12 +877,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($product_search_texts_request)) {
+        if (isset($item_search_texts_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($product_search_texts_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_search_texts_request));
             } else {
-                $httpBody = $product_search_texts_request;
+                $httpBody = $item_search_texts_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2966,7 +2966,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\TableProductRequest $table_product_request table_product_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableItemRequest $table_item_request table_item_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2StocksReportProductsProductsPost'] to see the possible values for this operation
@@ -2975,9 +2975,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsProductsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
      */
-    public function apiV2StocksReportProductsProductsPost($table_product_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
+    public function apiV2StocksReportProductsProductsPost($table_item_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
     {
-        list($response) = $this->apiV2StocksReportProductsProductsPostWithHttpInfo($table_product_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->apiV2StocksReportProductsProductsPostWithHttpInfo($table_item_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -2990,7 +2990,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\TableProductRequest $table_product_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableItemRequest $table_item_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2StocksReportProductsProductsPost'] to see the possible values for this operation
@@ -2999,9 +2999,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsProductsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV2StocksReportProductsProductsPostWithHttpInfo($table_product_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
+    public function apiV2StocksReportProductsProductsPostWithHttpInfo($table_item_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
     {
-        $request = $this->apiV2StocksReportProductsProductsPostRequest($table_product_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV2StocksReportProductsProductsPostRequest($table_item_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3151,7 +3151,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\TableProductRequest $table_product_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableItemRequest $table_item_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2StocksReportProductsProductsPost'] to see the possible values for this operation
@@ -3159,9 +3159,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2StocksReportProductsProductsPostAsync($table_product_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
+    public function apiV2StocksReportProductsProductsPostAsync($table_item_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
     {
-        return $this->apiV2StocksReportProductsProductsPostAsyncWithHttpInfo($table_product_request, $hostIndex, $variables, $contentType)
+        return $this->apiV2StocksReportProductsProductsPostAsyncWithHttpInfo($table_item_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3178,7 +3178,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\TableProductRequest $table_product_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableItemRequest $table_item_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2StocksReportProductsProductsPost'] to see the possible values for this operation
@@ -3186,10 +3186,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV2StocksReportProductsProductsPostAsyncWithHttpInfo($table_product_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
+    public function apiV2StocksReportProductsProductsPostAsyncWithHttpInfo($table_item_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
     {
         $returnType = '\Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsProductsPost200Response';
-        $request = $this->apiV2StocksReportProductsProductsPostRequest($table_product_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV2StocksReportProductsProductsPostRequest($table_item_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3234,7 +3234,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\TableProductRequest $table_product_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableItemRequest $table_item_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV2StocksReportProductsProductsPost'] to see the possible values for this operation
@@ -3242,13 +3242,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV2StocksReportProductsProductsPostRequest($table_product_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
+    public function apiV2StocksReportProductsProductsPostRequest($table_item_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
     {
 
-        // verify the required parameter 'table_product_request' is set
-        if ($table_product_request === null || (is_array($table_product_request) && count($table_product_request) === 0)) {
+        // verify the required parameter 'table_item_request' is set
+        if ($table_item_request === null || (is_array($table_item_request) && count($table_item_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $table_product_request when calling apiV2StocksReportProductsProductsPost'
+                'Missing the required parameter $table_item_request when calling apiV2StocksReportProductsProductsPost'
             );
         }
 
@@ -3271,12 +3271,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($table_product_request)) {
+        if (isset($table_item_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_product_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_item_request));
             } else {
-                $httpBody = $table_product_request;
+                $httpBody = $table_item_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4163,7 +4163,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductsRequest $products_request products_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request items_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
@@ -4172,9 +4172,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
      */
-    public function postSalesFunnelProducts($products_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
+    public function postSalesFunnelProducts($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
     {
-        list($response) = $this->postSalesFunnelProductsWithHttpInfo($products_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->postSalesFunnelProductsWithHttpInfo($items_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -4187,7 +4187,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductsRequest $products_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
@@ -4196,9 +4196,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postSalesFunnelProductsWithHttpInfo($products_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
+    public function postSalesFunnelProductsWithHttpInfo($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
     {
-        $request = $this->postSalesFunnelProductsRequest($products_request, $hostIndex, $variables, $contentType);
+        $request = $this->postSalesFunnelProductsRequest($items_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4348,7 +4348,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductsRequest $products_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
@@ -4356,9 +4356,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postSalesFunnelProductsAsync($products_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
+    public function postSalesFunnelProductsAsync($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
     {
-        return $this->postSalesFunnelProductsAsyncWithHttpInfo($products_request, $hostIndex, $variables, $contentType)
+        return $this->postSalesFunnelProductsAsyncWithHttpInfo($items_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4375,7 +4375,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductsRequest $products_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
@@ -4383,10 +4383,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postSalesFunnelProductsAsyncWithHttpInfo($products_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
+    public function postSalesFunnelProductsAsyncWithHttpInfo($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
     {
         $returnType = '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response';
-        $request = $this->postSalesFunnelProductsRequest($products_request, $hostIndex, $variables, $contentType);
+        $request = $this->postSalesFunnelProductsRequest($items_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4431,7 +4431,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductsRequest $products_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
@@ -4439,13 +4439,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postSalesFunnelProductsRequest($products_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
+    public function postSalesFunnelProductsRequest($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
     {
 
-        // verify the required parameter 'products_request' is set
-        if ($products_request === null || (is_array($products_request) && count($products_request) === 0)) {
+        // verify the required parameter 'items_request' is set
+        if ($items_request === null || (is_array($items_request) && count($items_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $products_request when calling postSalesFunnelProducts'
+                'Missing the required parameter $items_request when calling postSalesFunnelProducts'
             );
         }
 
@@ -4468,12 +4468,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($products_request)) {
+        if (isset($items_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($products_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($items_request));
             } else {
-                $httpBody = $products_request;
+                $httpBody = $items_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4562,18 +4562,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductHistoryRequest $product_history_request product_history_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request item_history_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
      */
-    public function postSalesFunnelProductsHistory($product_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
+    public function postSalesFunnelProductsHistory($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
     {
-        list($response) = $this->postSalesFunnelProductsHistoryWithHttpInfo($product_history_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->postSalesFunnelProductsHistoryWithHttpInfo($item_history_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -4586,18 +4586,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductHistoryRequest $product_history_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postSalesFunnelProductsHistoryWithHttpInfo($product_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
+    public function postSalesFunnelProductsHistoryWithHttpInfo($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
     {
-        $request = $this->postSalesFunnelProductsHistoryRequest($product_history_request, $hostIndex, $variables, $contentType);
+        $request = $this->postSalesFunnelProductsHistoryRequest($item_history_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4625,7 +4625,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]',
+                        '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
                         $request,
                         $response,
                     );
@@ -4677,7 +4677,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]',
+                '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
                 $request,
                 $response,
             );
@@ -4686,7 +4686,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]',
+                        '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4747,7 +4747,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductHistoryRequest $product_history_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
@@ -4755,9 +4755,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postSalesFunnelProductsHistoryAsync($product_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
+    public function postSalesFunnelProductsHistoryAsync($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
     {
-        return $this->postSalesFunnelProductsHistoryAsyncWithHttpInfo($product_history_request, $hostIndex, $variables, $contentType)
+        return $this->postSalesFunnelProductsHistoryAsyncWithHttpInfo($item_history_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4774,7 +4774,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductHistoryRequest $product_history_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
@@ -4782,10 +4782,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postSalesFunnelProductsHistoryAsyncWithHttpInfo($product_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
+    public function postSalesFunnelProductsHistoryAsyncWithHttpInfo($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
     {
-        $returnType = '\Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]';
-        $request = $this->postSalesFunnelProductsHistoryRequest($product_history_request, $hostIndex, $variables, $contentType);
+        $returnType = '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]';
+        $request = $this->postSalesFunnelProductsHistoryRequest($item_history_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4830,7 +4830,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ProductHistoryRequest $product_history_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
@@ -4838,13 +4838,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postSalesFunnelProductsHistoryRequest($product_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
+    public function postSalesFunnelProductsHistoryRequest($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
     {
 
-        // verify the required parameter 'product_history_request' is set
-        if ($product_history_request === null || (is_array($product_history_request) && count($product_history_request) === 0)) {
+        // verify the required parameter 'item_history_request' is set
+        if ($item_history_request === null || (is_array($item_history_request) && count($item_history_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product_history_request when calling postSalesFunnelProductsHistory'
+                'Missing the required parameter $item_history_request when calling postSalesFunnelProductsHistory'
             );
         }
 
@@ -4867,12 +4867,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($product_history_request)) {
+        if (isset($item_history_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($product_history_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_history_request));
             } else {
-                $httpBody = $product_history_request;
+                $httpBody = $item_history_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

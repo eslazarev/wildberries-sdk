@@ -57,7 +57,7 @@ class PostSalesFunnelGroupedHistory200Response implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]'
+        'data' => '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class PostSalesFunnelGroupedHistory200Response implements ModelInterface, ArrayA
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[]
+     * @return \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class PostSalesFunnelGroupedHistory200Response implements ModelInterface, ArrayA
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Analytics\Model\ProductHistoryResponseInner[] $data Статистика
+     * @param \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[] $data Статистика
      *
      * @return self
      */

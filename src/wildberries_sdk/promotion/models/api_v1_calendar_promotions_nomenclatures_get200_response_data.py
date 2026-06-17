@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.promotion.models.promotions_goods_list import PromotionsGoodsList
+from wildberries_sdk.promotion.models.promotions_items_list import PromotionsItemsList
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class ApiV1CalendarPromotionsNomenclaturesGet200ResponseData(BaseModel):
     """
     Данные ответа
     """ # noqa: E501
-    nomenclatures: Optional[List[PromotionsGoodsList]] = Field(default=None, description="Список товаров")
+    nomenclatures: Optional[List[PromotionsItemsList]] = Field(default=None, description="Список товаров")
     __properties: ClassVar[List[str]] = ["nomenclatures"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class ApiV1CalendarPromotionsNomenclaturesGet200ResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "nomenclatures": [PromotionsGoodsList.from_dict(_item) for _item in obj["nomenclatures"]] if obj.get("nomenclatures") is not None else None
+            "nomenclatures": [PromotionsItemsList.from_dict(_item) for _item in obj["nomenclatures"]] if obj.get("nomenclatures") is not None else None
         })
         return _obj
 

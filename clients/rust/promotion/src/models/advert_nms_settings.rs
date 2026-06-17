@@ -16,14 +16,14 @@ pub struct AdvertNmsSettings {
     #[serde(rename = "bids_kopecks")]
     pub bids_kopecks: Box<models::AdvertBidsKopecks>,
     #[serde(rename = "subject")]
-    pub subject: Box<models::AdvertSubject>,
+    pub subject: Box<models::AdvertSubcategory>,
     /// Артикул WB
     #[serde(rename = "nm_id")]
     pub nm_id: i64,
 }
 
 impl AdvertNmsSettings {
-    pub fn new(bids_kopecks: models::AdvertBidsKopecks, subject: models::AdvertSubject, nm_id: i64) -> AdvertNmsSettings {
+    pub fn new(bids_kopecks: models::AdvertBidsKopecks, subject: models::AdvertSubcategory, nm_id: i64) -> AdvertNmsSettings {
         AdvertNmsSettings {
             bids_kopecks: Box::new(bids_kopecks),
             subject: Box::new(subject),

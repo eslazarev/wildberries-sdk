@@ -35,7 +35,7 @@ use \Wildberries\Sdk\Communications\ObjectSerializer;
  * ApiV1FeedbackGet200ResponseDataProductDetails Class Doc Comment
  *
  * @category Class
- * @description Product information
+ * @description Item information
  * @package  Wildberries\Sdk\Communications
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

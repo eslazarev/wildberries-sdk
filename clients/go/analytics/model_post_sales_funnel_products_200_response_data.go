@@ -22,7 +22,7 @@ var _ MappedNullable = &PostSalesFunnelProducts200ResponseData{}
 // PostSalesFunnelProducts200ResponseData struct for PostSalesFunnelProducts200ResponseData
 type PostSalesFunnelProducts200ResponseData struct {
 	// Список карточек товаров
-	Products []ProductsResponseProductsInner `json:"products"`
+	Products []ItemsResponseProductsInner `json:"products"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
 }
@@ -33,7 +33,7 @@ type _PostSalesFunnelProducts200ResponseData PostSalesFunnelProducts200ResponseD
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostSalesFunnelProducts200ResponseData(products []ProductsResponseProductsInner, currency string) *PostSalesFunnelProducts200ResponseData {
+func NewPostSalesFunnelProducts200ResponseData(products []ItemsResponseProductsInner, currency string) *PostSalesFunnelProducts200ResponseData {
 	this := PostSalesFunnelProducts200ResponseData{}
 	this.Products = products
 	this.Currency = currency
@@ -49,9 +49,9 @@ func NewPostSalesFunnelProducts200ResponseDataWithDefaults() *PostSalesFunnelPro
 }
 
 // GetProducts returns the Products field value
-func (o *PostSalesFunnelProducts200ResponseData) GetProducts() []ProductsResponseProductsInner {
+func (o *PostSalesFunnelProducts200ResponseData) GetProducts() []ItemsResponseProductsInner {
 	if o == nil {
-		var ret []ProductsResponseProductsInner
+		var ret []ItemsResponseProductsInner
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *PostSalesFunnelProducts200ResponseData) GetProducts() []ProductsRespons
 
 // GetProductsOk returns a tuple with the Products field value
 // and a boolean to check if the value has been set.
-func (o *PostSalesFunnelProducts200ResponseData) GetProductsOk() ([]ProductsResponseProductsInner, bool) {
+func (o *PostSalesFunnelProducts200ResponseData) GetProductsOk() ([]ItemsResponseProductsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *PostSalesFunnelProducts200ResponseData) GetProductsOk() ([]ProductsResp
 }
 
 // SetProducts sets field value
-func (o *PostSalesFunnelProducts200ResponseData) SetProducts(v []ProductsResponseProductsInner) {
+func (o *PostSalesFunnelProducts200ResponseData) SetProducts(v []ItemsResponseProductsInner) {
 	o.Products = v
 }
 

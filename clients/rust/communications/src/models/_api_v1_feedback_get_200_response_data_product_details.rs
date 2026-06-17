@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// ApiV1FeedbackGet200ResponseDataProductDetails : Product information
+/// ApiV1FeedbackGet200ResponseDataProductDetails : Item information
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiV1FeedbackGet200ResponseDataProductDetails {
     /// Артикул WB
@@ -38,7 +38,7 @@ pub struct ApiV1FeedbackGet200ResponseDataProductDetails {
 }
 
 impl ApiV1FeedbackGet200ResponseDataProductDetails {
-    /// Product information
+    /// Item information
     pub fn new() -> ApiV1FeedbackGet200ResponseDataProductDetails {
         ApiV1FeedbackGet200ResponseDataProductDetails {
             nm_id: None,

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.table_product_item import TableProductItem
+from wildberries_sdk.analytics.models.table_item_item import TableItemItem
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class TableDetailsResponse(BaseModel):
     """
     TableDetailsResponse
     """ # noqa: E501
-    products: List[TableProductItem] = Field(description="Список товаров в группе по фильтру ")
+    products: List[TableItemItem] = Field(description="Список товаров в группе по фильтру ")
     currency: StrictStr = Field(description="Валюта отчёта", json_schema_extra={"examples": ["RUB"]})
     __properties: ClassVar[List[str]] = ["products", "currency"]
 
@@ -90,7 +90,7 @@ class TableDetailsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "products": [TableProductItem.from_dict(_item) for _item in obj["products"]] if obj.get("products") is not None else None,
+            "products": [TableItemItem.from_dict(_item) for _item in obj["products"]] if obj.get("products") is not None else None,
             "currency": obj.get("currency")
         })
         return _obj

@@ -33,7 +33,12 @@ from wildberries_sdk.analytics.models.common_shipping_office_filters import Comm
 from wildberries_sdk.analytics.models.common_size_filters import CommonSizeFilters
 from wildberries_sdk.analytics.models.grouped_history_request import GroupedHistoryRequest
 from wildberries_sdk.analytics.models.inventory_request import InventoryRequest
+from wildberries_sdk.analytics.models.item_history_request import ItemHistoryRequest
+from wildberries_sdk.analytics.models.item_history_response_inner import ItemHistoryResponseInner
+from wildberries_sdk.analytics.models.item_orders_request import ItemOrdersRequest
 from wildberries_sdk.analytics.models.item_rating_request import ItemRatingRequest
+from wildberries_sdk.analytics.models.item_search_texts_request import ItemSearchTextsRequest
+from wildberries_sdk.analytics.models.items_request import ItemsRequest
 from wildberries_sdk.analytics.models.main_request import MainRequest
 from wildberries_sdk.analytics.models.nm_report_create_report_response import NmReportCreateReportResponse
 from wildberries_sdk.analytics.models.nm_report_get_reports_response import NmReportGetReportsResponse
@@ -43,15 +48,10 @@ from wildberries_sdk.analytics.models.post_sales_funnel_grouped_history200_respo
 from wildberries_sdk.analytics.models.post_sales_funnel_products200_response import PostSalesFunnelProducts200Response
 from wildberries_sdk.analytics.models.post_v1_item_rating200_response import PostV1ItemRating200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response
-from wildberries_sdk.analytics.models.product_history_request import ProductHistoryRequest
-from wildberries_sdk.analytics.models.product_history_response_inner import ProductHistoryResponseInner
-from wildberries_sdk.analytics.models.product_orders_request import ProductOrdersRequest
-from wildberries_sdk.analytics.models.product_search_texts_request import ProductSearchTextsRequest
-from wildberries_sdk.analytics.models.products_request import ProductsRequest
 from wildberries_sdk.analytics.models.table_details_request import TableDetailsRequest
 from wildberries_sdk.analytics.models.table_group_request import TableGroupRequest
 from wildberries_sdk.analytics.models.table_group_request_st import TableGroupRequestSt
-from wildberries_sdk.analytics.models.table_product_request import TableProductRequest
+from wildberries_sdk.analytics.models.table_item_request import TableItemRequest
 
 from wildberries_sdk.analytics.api_client import ApiClient, RequestSerialized
 from wildberries_sdk.analytics.api_response import ApiResponse
@@ -1218,7 +1218,7 @@ class DefaultApi:
     @validate_call
     def api_v2_search_report_product_orders_post(
         self,
-        product_orders_request: ProductOrdersRequest,
+        item_orders_request: ItemOrdersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1236,8 +1236,8 @@ class DefaultApi:
 
         Метод формирует данные для таблицы:   - о заказах по каждому поисковому запросу для конкретного товара   - о позициях товара в результатах поиска по каждому запросу  Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_important\">   Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param product_orders_request: (required)
-        :type product_orders_request: ProductOrdersRequest
+        :param item_orders_request: (required)
+        :type item_orders_request: ItemOrdersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1261,7 +1261,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_search_report_product_orders_post_serialize(
-            product_orders_request=product_orders_request,
+            item_orders_request=item_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1290,7 +1290,7 @@ class DefaultApi:
     @validate_call
     def api_v2_search_report_product_orders_post_with_http_info(
         self,
-        product_orders_request: ProductOrdersRequest,
+        item_orders_request: ItemOrdersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1308,8 +1308,8 @@ class DefaultApi:
 
         Метод формирует данные для таблицы:   - о заказах по каждому поисковому запросу для конкретного товара   - о позициях товара в результатах поиска по каждому запросу  Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_important\">   Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param product_orders_request: (required)
-        :type product_orders_request: ProductOrdersRequest
+        :param item_orders_request: (required)
+        :type item_orders_request: ItemOrdersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1333,7 +1333,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_search_report_product_orders_post_serialize(
-            product_orders_request=product_orders_request,
+            item_orders_request=item_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1362,7 +1362,7 @@ class DefaultApi:
     @validate_call
     def api_v2_search_report_product_orders_post_without_preload_content(
         self,
-        product_orders_request: ProductOrdersRequest,
+        item_orders_request: ItemOrdersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1380,8 +1380,8 @@ class DefaultApi:
 
         Метод формирует данные для таблицы:   - о заказах по каждому поисковому запросу для конкретного товара   - о позициях товара в результатах поиска по каждому запросу  Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_important\">   Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param product_orders_request: (required)
-        :type product_orders_request: ProductOrdersRequest
+        :param item_orders_request: (required)
+        :type item_orders_request: ItemOrdersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1405,7 +1405,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_search_report_product_orders_post_serialize(
-            product_orders_request=product_orders_request,
+            item_orders_request=item_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1429,7 +1429,7 @@ class DefaultApi:
 
     def _api_v2_search_report_product_orders_post_serialize(
         self,
-        product_orders_request,
+        item_orders_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1458,8 +1458,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if product_orders_request is not None:
-            _body_params = product_orders_request
+        if item_orders_request is not None:
+            _body_params = item_orders_request
 
 
         # set the HTTP header `Accept`
@@ -1511,7 +1511,7 @@ class DefaultApi:
     @validate_call
     def api_v2_search_report_product_search_texts_post(
         self,
-        product_search_texts_request: ProductSearchTextsRequest,
+        item_search_texts_request: ItemSearchTextsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1529,8 +1529,8 @@ class DefaultApi:
 
         Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100.  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param product_search_texts_request: (required)
-        :type product_search_texts_request: ProductSearchTextsRequest
+        :param item_search_texts_request: (required)
+        :type item_search_texts_request: ItemSearchTextsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1554,7 +1554,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_search_report_product_search_texts_post_serialize(
-            product_search_texts_request=product_search_texts_request,
+            item_search_texts_request=item_search_texts_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1583,7 +1583,7 @@ class DefaultApi:
     @validate_call
     def api_v2_search_report_product_search_texts_post_with_http_info(
         self,
-        product_search_texts_request: ProductSearchTextsRequest,
+        item_search_texts_request: ItemSearchTextsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1601,8 +1601,8 @@ class DefaultApi:
 
         Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100.  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param product_search_texts_request: (required)
-        :type product_search_texts_request: ProductSearchTextsRequest
+        :param item_search_texts_request: (required)
+        :type item_search_texts_request: ItemSearchTextsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1626,7 +1626,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_search_report_product_search_texts_post_serialize(
-            product_search_texts_request=product_search_texts_request,
+            item_search_texts_request=item_search_texts_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1655,7 +1655,7 @@ class DefaultApi:
     @validate_call
     def api_v2_search_report_product_search_texts_post_without_preload_content(
         self,
-        product_search_texts_request: ProductSearchTextsRequest,
+        item_search_texts_request: ItemSearchTextsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1673,8 +1673,8 @@ class DefaultApi:
 
         Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100.  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
 
-        :param product_search_texts_request: (required)
-        :type product_search_texts_request: ProductSearchTextsRequest
+        :param item_search_texts_request: (required)
+        :type item_search_texts_request: ItemSearchTextsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1698,7 +1698,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_search_report_product_search_texts_post_serialize(
-            product_search_texts_request=product_search_texts_request,
+            item_search_texts_request=item_search_texts_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1722,7 +1722,7 @@ class DefaultApi:
 
     def _api_v2_search_report_product_search_texts_post_serialize(
         self,
-        product_search_texts_request,
+        item_search_texts_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1751,8 +1751,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if product_search_texts_request is not None:
-            _body_params = product_search_texts_request
+        if item_search_texts_request is not None:
+            _body_params = item_search_texts_request
 
 
         # set the HTTP header `Accept`
@@ -3269,7 +3269,7 @@ class DefaultApi:
     @validate_call
     def api_v2_stocks_report_products_products_post(
         self,
-        table_product_request: TableProductRequest,
+        table_item_request: TableItemRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3287,8 +3287,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param table_product_request: (required)
-        :type table_product_request: TableProductRequest
+        :param table_item_request: (required)
+        :type table_item_request: TableItemRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3312,7 +3312,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_stocks_report_products_products_post_serialize(
-            table_product_request=table_product_request,
+            table_item_request=table_item_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3341,7 +3341,7 @@ class DefaultApi:
     @validate_call
     def api_v2_stocks_report_products_products_post_with_http_info(
         self,
-        table_product_request: TableProductRequest,
+        table_item_request: TableItemRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3359,8 +3359,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param table_product_request: (required)
-        :type table_product_request: TableProductRequest
+        :param table_item_request: (required)
+        :type table_item_request: TableItemRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3384,7 +3384,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_stocks_report_products_products_post_serialize(
-            table_product_request=table_product_request,
+            table_item_request=table_item_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3413,7 +3413,7 @@ class DefaultApi:
     @validate_call
     def api_v2_stocks_report_products_products_post_without_preload_content(
         self,
-        table_product_request: TableProductRequest,
+        table_item_request: TableItemRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3431,8 +3431,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param table_product_request: (required)
-        :type table_product_request: TableProductRequest
+        :param table_item_request: (required)
+        :type table_item_request: TableItemRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3456,7 +3456,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v2_stocks_report_products_products_post_serialize(
-            table_product_request=table_product_request,
+            table_item_request=table_item_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3480,7 +3480,7 @@ class DefaultApi:
 
     def _api_v2_stocks_report_products_products_post_serialize(
         self,
-        table_product_request,
+        table_item_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3509,8 +3509,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if table_product_request is not None:
-            _body_params = table_product_request
+        if table_item_request is not None:
+            _body_params = table_item_request
 
 
         # set the HTTP header `Accept`
@@ -4148,7 +4148,7 @@ class DefaultApi:
     @validate_call
     def post_sales_funnel_products(
         self,
-        products_request: ProductsRequest,
+        items_request: ItemsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4166,8 +4166,8 @@ class DefaultApi:
 
         Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br><br>  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.<br><br>  Можно получить отчёт максимум за последние 365 дней.<br><br>  В данных предыдущего периода:   * Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`   * Если дата начала  `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`  Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param products_request: (required)
-        :type products_request: ProductsRequest
+        :param items_request: (required)
+        :type items_request: ItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4191,7 +4191,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_sales_funnel_products_serialize(
-            products_request=products_request,
+            items_request=items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4220,7 +4220,7 @@ class DefaultApi:
     @validate_call
     def post_sales_funnel_products_with_http_info(
         self,
-        products_request: ProductsRequest,
+        items_request: ItemsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4238,8 +4238,8 @@ class DefaultApi:
 
         Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br><br>  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.<br><br>  Можно получить отчёт максимум за последние 365 дней.<br><br>  В данных предыдущего периода:   * Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`   * Если дата начала  `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`  Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param products_request: (required)
-        :type products_request: ProductsRequest
+        :param items_request: (required)
+        :type items_request: ItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4263,7 +4263,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_sales_funnel_products_serialize(
-            products_request=products_request,
+            items_request=items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4292,7 +4292,7 @@ class DefaultApi:
     @validate_call
     def post_sales_funnel_products_without_preload_content(
         self,
-        products_request: ProductsRequest,
+        items_request: ItemsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4310,8 +4310,8 @@ class DefaultApi:
 
         Метод формирует отчёт о товарах, сравнивая ключевые показатели за текущий период с аналогичным прошлым.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br><br>  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>  Если вы указали несколько параметров, в ответе будут карточки, в которых есть одновременно все эти параметры. Если карточки не подходят по параметрам запроса, вернётся пустой ответ `[]`.<br><br>  Можно получить отчёт максимум за последние 365 дней.<br><br>  В данных предыдущего периода:   * Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`   * Если дата начала  `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`  Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param products_request: (required)
-        :type products_request: ProductsRequest
+        :param items_request: (required)
+        :type items_request: ItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4335,7 +4335,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_sales_funnel_products_serialize(
-            products_request=products_request,
+            items_request=items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4359,7 +4359,7 @@ class DefaultApi:
 
     def _post_sales_funnel_products_serialize(
         self,
-        products_request,
+        items_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4388,8 +4388,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if products_request is not None:
-            _body_params = products_request
+        if items_request is not None:
+            _body_params = items_request
 
 
         # set the HTTP header `Accept`
@@ -4441,7 +4441,7 @@ class DefaultApi:
     @validate_call
     def post_sales_funnel_products_history(
         self,
-        product_history_request: ProductHistoryRequest,
+        item_history_request: ItemHistoryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4454,13 +4454,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> List[ProductHistoryResponseInner]:
+    ) -> List[ItemHistoryResponseInner]:
         """Статистика карточек товаров по дням
 
         Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param product_history_request: (required)
-        :type product_history_request: ProductHistoryRequest
+        :param item_history_request: (required)
+        :type item_history_request: ItemHistoryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4484,7 +4484,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_sales_funnel_products_history_serialize(
-            product_history_request=product_history_request,
+            item_history_request=item_history_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4492,7 +4492,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ProductHistoryResponseInner]",
+            '200': "List[ItemHistoryResponseInner]",
             '400': "ErrorObject",
             '401': "PostSalesFunnelProducts401Response",
             '402': "PostSalesFunnelProducts402Response",
@@ -4513,7 +4513,7 @@ class DefaultApi:
     @validate_call
     def post_sales_funnel_products_history_with_http_info(
         self,
-        product_history_request: ProductHistoryRequest,
+        item_history_request: ItemHistoryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4526,13 +4526,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[List[ProductHistoryResponseInner]]:
+    ) -> ApiResponse[List[ItemHistoryResponseInner]]:
         """Статистика карточек товаров по дням
 
         Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param product_history_request: (required)
-        :type product_history_request: ProductHistoryRequest
+        :param item_history_request: (required)
+        :type item_history_request: ItemHistoryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4556,7 +4556,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_sales_funnel_products_history_serialize(
-            product_history_request=product_history_request,
+            item_history_request=item_history_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4564,7 +4564,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ProductHistoryResponseInner]",
+            '200': "List[ItemHistoryResponseInner]",
             '400': "ErrorObject",
             '401': "PostSalesFunnelProducts401Response",
             '402': "PostSalesFunnelProducts402Response",
@@ -4585,7 +4585,7 @@ class DefaultApi:
     @validate_call
     def post_sales_funnel_products_history_without_preload_content(
         self,
-        product_history_request: ProductHistoryRequest,
+        item_history_request: ItemHistoryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4603,8 +4603,8 @@ class DefaultApi:
 
         Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param product_history_request: (required)
-        :type product_history_request: ProductHistoryRequest
+        :param item_history_request: (required)
+        :type item_history_request: ItemHistoryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4628,7 +4628,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_sales_funnel_products_history_serialize(
-            product_history_request=product_history_request,
+            item_history_request=item_history_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4636,7 +4636,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ProductHistoryResponseInner]",
+            '200': "List[ItemHistoryResponseInner]",
             '400': "ErrorObject",
             '401': "PostSalesFunnelProducts401Response",
             '402': "PostSalesFunnelProducts402Response",
@@ -4652,7 +4652,7 @@ class DefaultApi:
 
     def _post_sales_funnel_products_history_serialize(
         self,
-        product_history_request,
+        item_history_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4681,8 +4681,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if product_history_request is not None:
-            _body_params = product_history_request
+        if item_history_request is not None:
+            _body_params = item_history_request
 
 
         # set the HTTP header `Accept`

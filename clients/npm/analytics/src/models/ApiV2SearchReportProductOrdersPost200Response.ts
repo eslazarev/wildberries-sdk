@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ProductOrdersResponse } from './ProductOrdersResponse';
+import type { ItemOrdersResponse } from './ItemOrdersResponse';
 import {
-    ProductOrdersResponseFromJSON,
-    ProductOrdersResponseFromJSONTyped,
-    ProductOrdersResponseToJSON,
-    ProductOrdersResponseToJSONTyped,
-} from './ProductOrdersResponse';
+    ItemOrdersResponseFromJSON,
+    ItemOrdersResponseFromJSONTyped,
+    ItemOrdersResponseToJSON,
+    ItemOrdersResponseToJSONTyped,
+} from './ItemOrdersResponse';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface ApiV2SearchReportProductOrdersPost200Response {
     /**
      * 
-     * @type {ProductOrdersResponse}
+     * @type {ItemOrdersResponse}
      * @memberof ApiV2SearchReportProductOrdersPost200Response
      */
-    data: ProductOrdersResponse;
+    data: ItemOrdersResponse;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ApiV2SearchReportProductOrdersPost200ResponseFromJSONTyped(json:
     }
     return {
         
-        'data': ProductOrdersResponseFromJSON(json['data']),
+        'data': ItemOrdersResponseFromJSON(json['data']),
     };
 }
 
@@ -68,7 +68,7 @@ export function ApiV2SearchReportProductOrdersPost200ResponseToJSONTyped(value?:
 
     return {
         
-        'data': ProductOrdersResponseToJSON(value['data']),
+        'data': ItemOrdersResponseToJSON(value['data']),
     };
 }
 

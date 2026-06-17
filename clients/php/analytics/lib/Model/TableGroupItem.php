@@ -64,7 +64,7 @@ class TableGroupItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'tag_name' => 'string',
         'tag_id' => 'int',
         'metrics' => '\Wildberries\Sdk\Analytics\Model\TableGroupItemMetrics',
-        'items' => '\Wildberries\Sdk\Analytics\Model\TableProductItem[]'
+        'items' => '\Wildberries\Sdk\Analytics\Model\TableItemItem[]'
     ];
 
     /**
@@ -503,7 +503,7 @@ class TableGroupItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets items
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableProductItem[]
+     * @return \Wildberries\Sdk\Analytics\Model\TableItemItem[]
      */
     public function getItems()
     {
@@ -513,7 +513,7 @@ class TableGroupItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets items
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableProductItem[] $items Массив товаров группы
+     * @param \Wildberries\Sdk\Analytics\Model\TableItemItem[] $items Массив товаров группы
      *
      * @return self
      */
