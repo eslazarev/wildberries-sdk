@@ -53,7 +53,7 @@ Why this matters: see the spec change history in [CHANGELOG.md](../../CHANGELOG.
 ## All currently published Wildberries specs are covered
 
 - General — [`specs/01-general.yaml`](../../specs/01-general.yaml)
-- Products — [`specs/02-products.yaml`](../../specs/02-products.yaml)
+- Products — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS orders — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW orders — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
 - DBS orders — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)

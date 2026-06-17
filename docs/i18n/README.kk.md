@@ -53,7 +53,7 @@
 ## Жарияланған Wildberries спецификацияларының барлығы қамтылған
 
 - Жалпы — [`specs/01-general.yaml`](../../specs/01-general.yaml)
-- Тауарлармен жұмыс — [`specs/02-products.yaml`](../../specs/02-products.yaml)
+- Тауарлармен жұмыс — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS тапсырыстары — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW тапсырыстары — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
 - DBS тапсырыстары — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)

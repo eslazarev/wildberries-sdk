@@ -53,7 +53,7 @@ Bu nima uchun muhim — spetsifikatsiya oʻzgarishlari tarixini koʻring: [CHANG
 ## Eʼlon qilingan barcha Wildberries spetsifikatsiyalari qamrab olingan
 
 - Umumiy — [`specs/01-general.yaml`](../../specs/01-general.yaml)
-- Tovarlar bilan ishlash — [`specs/02-products.yaml`](../../specs/02-products.yaml)
+- Tovarlar bilan ishlash — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS buyurtmalari — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW buyurtmalari — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
 - DBS buyurtmalari — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)
