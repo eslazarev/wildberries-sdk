@@ -85,7 +85,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductsRequest'
+              $ref: '#/components/schemas/ItemsRequest'
       responses:
         '200':
           description: Успешно
@@ -100,7 +100,7 @@ paths:
                     allOf:
                       - type: object
                         description: Статистика
-                      - $ref: '#/components/schemas/ProductsResponse'
+                      - $ref: '#/components/schemas/ItemsResponse'
         '400':
           $ref: '#/components/responses/BadRequestErrorResponse'
         '401':
@@ -157,14 +157,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductHistoryRequest'
+              $ref: '#/components/schemas/ItemHistoryRequest'
       responses:
         '200':
           description: Успешно
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductHistoryResponse'
+                $ref: '#/components/schemas/ItemHistoryResponse'
         '400':
           $ref: '#/components/responses/BadRequestErrorResponse'
         '401':
@@ -302,30 +302,30 @@ paths:
           application/json:
             schema:
               oneOf:
-                - $ref: '#/components/schemas/SalesFunnelProductReq'
+                - $ref: '#/components/schemas/SalesFunnelItemReq'
                 - $ref: '#/components/schemas/SalesFunnelGroupReq'
                 - $ref: '#/components/schemas/SearchReportGroupReq'
-                - $ref: '#/components/schemas/SearchReportProductReq'
+                - $ref: '#/components/schemas/SearchReportItemReq'
                 - $ref: '#/components/schemas/SearchReportTextReq'
                 - $ref: '#/components/schemas/InventoryMetricsReportReq'
                 - $ref: '#/components/schemas/InventoryHistoryReportReq'
               discriminator:
                 propertyName: reportType
                 mapping:
-                  DETAIL_HISTORY_REPORT: '#/components/schemas/SalesFunnelProductReq'
+                  DETAIL_HISTORY_REPORT: '#/components/schemas/SalesFunnelItemReq'
                   GROUPED_HISTORY_REPORT: '#/components/schemas/SalesFunnelGroupReq'
                   SEARCH_QUERIES_PREMIUM_REPORT_GROUP: '#/components/schemas/SearchReportGroupReq'
-                  SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT: '#/components/schemas/SearchReportProductReq'
+                  SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT: '#/components/schemas/SearchReportItemReq'
                   SEARCH_QUERIES_PREMIUM_REPORT_TEXT: '#/components/schemas/SearchReportTextReq'
                   STOCK_HISTORY_REPORT_CSV: '#/components/schemas/InventoryMetricsReportReq'
                   STOCK_HISTORY_DAILY_CSV: '#/components/schemas/InventoryHistoryReportReq'
             examples:
-              SalesFunnelProductReq:
+              SalesFunnelItemReq:
                 description: Воронка продаж. По артикулам WB
                 value:
                   id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: DETAIL_HISTORY_REPORT
-                  userReportName: Card report
+                  userReportName: Listing report
                   params:
                     nmIDs:
                       - 1234567
@@ -345,7 +345,7 @@ paths:
                 value:
                   id: 06eea887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: GROUPED_HISTORY_REPORT
-                  userReportName: Subject report
+                  userReportName: Subcategory report
                   params:
                     subjectIds:
                       - 1234567
@@ -363,7 +363,7 @@ paths:
                 value:
                   id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: SEARCH_QUERIES_PREMIUM_REPORT_GROUP
-                  userReportName: Subject report
+                  userReportName: Subcategory report
                   params:
                     currentPeriod:
                       start: '2024-02-10'
@@ -389,12 +389,12 @@ paths:
                     positionCluster: all
                     includeSubstitutedSKUs: true
                     includeSearchTexts: false
-              SearchReportProductReq:
+              SearchReportItemReq:
                 description: Отчёт по параметрам поиска. По артикулам WB
                 value:
                   id: 06eea887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT
-                  userReportName: Card report
+                  userReportName: Listing report
                   params:
                     currentPeriod:
                       start: '2024-02-10'
@@ -419,7 +419,7 @@ paths:
                 value:
                   id: 06eae887-9d9f-491f-b16a-bb1766fcb8d2
                   reportType: SEARCH_QUERIES_PREMIUM_REPORT_TEXT
-                  userReportName: Subject report
+                  userReportName: Subcategory report
                   params:
                     currentPeriod:
                       start: '2024-02-10'
@@ -821,14 +821,14 @@ paths:
                 format: binary
                 description: "Описание полей в файле CSV:\n<br>\n<br>\n**Воронка продаж**\n\n| Имя | Тип | Формат | Описание |\n|-----------------| --- | --- | --- |\n| nmID (только для `DETAIL_HISTORY_REPORT`) | integer | int32 | Артикул WB |\n| dt | string | date | Дата |\n| openCardCount | integer | int32 | Переходы в карточку товара |\n| addToCartCount | integer | int32 | Положили в корзину, шт. |\n| ordersCount | integer | int32 | Заказали товаров, шт. |\n| ordersSumRub | integer | int32 | Заказали на сумму |\n| buyoutsCount | integer | int32 | Выкупили товаров, шт. |\n| buyoutsSumRub | integer | int32 | Выкупили на сумму |\n| cancelCount | integer | int32 | Отменили и вернули товаров, шт. |\n| cancelSumRub | integer | int32 | Отменили и вернули на сумму |\n| addToCartConversion | number | int32 | Конверсия в корзину, % (Какой процент посетителей, открывших карточку товара, добавили товар в корзину) |\n| cartToOrderConversion | integer | int32 | Конверсия в заказ, % (Какой процент посетителей, добавивших товар в корзину, сделали заказ) |\n| buyoutPercent | integer | int32 | Процент выкупа, % (Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю) |\n| addToWishlist | integer | int32 | Добавили в **Отложенные**|\n| currency | string | string | Валюта отчёта |\n\n\n**Отчёт по параметрам поиска. По предметам, брендам и ярлыкам**\n\n| Имя | Поле | Формат | Описание |\n|-----------------| --- | --- | --- |\n| SubjectName |\tstring | string | Название предмета |\n| SubjectID | integer | int32 | ID предмета |\n| BrandName | string | string  | Бренд |\n| TagID | integer | int64 | ID ярлыка |\n| AveragePosition | integer | uint64 | Средняя позиция в поиске в текущий период |\n| OpenCard | integer | uint64 | Количество переходов в карточку товара из поиска в текущий период |\n| AddToCart | integer | uint64 | Количество добавлений товара в корзину из поиска в текущий период |\n| OpenToCart | integer | uint64 |\tКонверсия в корзину из поиска в текущий период |\n| Orders | integer | uint64 | Заказали товар из поиска в текущий период |\n| CartToOrder | integer | uint64 | Конверсия в заказ из поиска в текущий период |\n| Visibility | integer | uint64 | Видимость товара в поиске в текущий период. Процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции |\n| AveragePositionPast | integer | uint64 | Средняя позиция в поиске в предыдущий период (заполняется, если указан прошлый период) |\n| OpenCardPast | integer | uint64 | Количество переходов в карточку товара из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| AddToCartPast | integer | uint64 | Количество добавлений товара в корзину из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| OpenToCartPast | integer | uint64 | Конверсия в корзину из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| OrdersPast | integer | uint64 | Заказали товар из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| CartToOrderPast | integer | uint64 | Конверсия в заказ из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| VisibilityPast | integer | uint64 | Видимость товара в поиске в предыдущий период. Процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции (заполняется, если указан прошлый период), % |\n\n\n**Отчёт по параметрам поиска. По артикулам WB**\n\n| Имя | Поле | Формат | Описание |\n|-----------------| --- | --- | --- |\n| NmID | integer | int64 | Артикул WB |\n| VendorCode | string | string | Артикул продавца |\n| Name | string\t| string | Название товара |\n| SubjectName | string\t| string | Название предмета |\n| BrandName | string | string  | Бренд |\n| IsAdvertised | boolean | bool\t| Рекламируется ли товар |\n| IsRated | boolean | bool | Есть ли возможность оценить качество карточки товара |\n| Rating | float | float64 | Рейтинг карточки товара |\n| FeedbackRating | float | float64 | Рейтинг по отзывам |\n| MinPrice | integer | uint64 | Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба |\n| MaxPrice | integer | uint64 | Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба) |\n| AveragePosition | integer | uint64 | Средняя позиция товара в поиске в текущий период |\n| OpenCard | integer | uint64 | Количество переходов в карточку товара из поиска в текущий период |\n| AddToCart | integer | uint64 | Количество добавлений товара в корзину из поиска в текущий период |\n| OpenToCart | integer | uint64 | Конверсия в корзину из поиска в текущий период |\n| Orders | integer | uint64 | Заказали товар из поиска в текущий период |\n| CartToOrder | integer | uint64 | Конверсия в заказ из поиска в текущий период |\n| Visibility | integer | uint64 | Видимость товара в поиске в текущий период. Процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции |\n| AveragePositionPast | integer | uint64 | Средняя позиция товара в поиске в предыдущий период (заполняется, если указан прошлый период) |\n| OpenCardPast | integer | uint64 | Количество переходов в карточку товара из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| AddToCartPast | integer | uint64 | Количество добавлений товара в корзину из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| OpenToCartPast | integer | uint64 | Конверсия в корзину из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| OrdersPast | integer | uint64 | Заказали товар из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| CartToOrderPast | integer | uint64 | Конверсия в заказ из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| VisibilityPast | integer | uint64 | Видимость товара в поиске в предыдущий период. Процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции (заполняется, если указан прошлый период), % |\n| IsSubstitutedSKU | boolean | bool | Искали ли товар по подменному артикулу. Будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts` |\n| Currency | string | string | Валюта отчёта |\n\n\n**Отчёт по текстам поисковых запросов по вашим товарам**\n\n| Имя | Поле | Формат | Описание |\n|-----------------| --- | --- | --- |\n| Text | string\t| string | Текст поискового запроса |\n| NmID | integer | int64 | Артикул WB |\n| SubjectName | string\t| string | Название предмета |\n| BrandName | string | string  | Бренд |\n| VendorCode | string | string | Артикул продавца |\n| Name | string\t| string | Название товара |\n| Rating | float | float64 | Рейтинг карточки товара. Если рейтинг отсутствует, то значение будет `no rating` |\n| FeedbackRating | float | float64 | Рейтинг по отзывам |\n| MinPrice | integer | uint64 | Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба) |\n| MaxPrice | integer | uint64 | Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба) |\n| Frequency | integer | uint64 | Количество обращений с поисковым запросом в текущий период |\n| MedianPosition | float | float64 | Медианная позиция товара в поиске в текущий период. Учитываются только те позиции, из которых пользователи добавляли товар в корзину или переходили в его карточку. Серединное значение позиции в поисковой выдаче, которое исключает сильные отклонения данных от среднего значения |\n| AveragePosition | integer | uint64 | Средняя позиция товара в поиске в текущий период. Учитываются только те позиции, из которых пользователи добавляли товар в корзину или переходили в его карточку |\n| OpenCard | integer | uint64 | Количество открытий карточки товара из поисковой выдачи в текущий период |\n| OpenCardPercentile | float | float64 | Процент, на который показатель количества открытий карточки товара выше, чем у карточек других продавцов по поисковому запросу |\n| AddToCart | integer | uint64 | Количество добавлений товара в корзину из поисковой выдачи в текущий период |\n| AddToCartPercentile | float | float64 | Процент, на который показатель добавлений в корзину выше, чем у карточек других продавцов по поисковому запросу |\n| OpenToCart | integer | uint64 | Конверсия в корзину из поиска в текущий период, % |\n| OpenToCartPercentile\t| float\t| float64\t| Процент, на который показатель конверсии в корзину выше, чем у карточек других продавцов по поисковому запросу |\n| Orders | integer | uint64 | Заказали товар из поиска в текущий период |\n| OrdersPercentile | float | float64 | Процент, на который показатель заказов выше, чем у карточек других продавцов по поисковому запросу |\n| CartToOrder | integer | uint64 | Конверсия в заказ из поиска в текущий период, % |\n| CartToOrderPercentile | float | float64 | Процент, на который показатель конверсии в заказ выше, чем у карточек других продавцов по поисковому запросу |\n| Visibility | integer | uint64 | Видимость товара в поиске в текущий период. Процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции |\n| FrequencyPast | integer | uint64 | Количество обращений с поисковым запросом за предыдущий период (заполняется, если указан прошлый период) |\n| MedianPositionPast | float | float64 | Медианная позиция товара в поиске за предыдущий период (заполняется, если указан прошлый период) |\n| AveragePositionPast | integer | uint64 | Средняя позиция товара в поиске в предыдущий период (заполняется, если указан прошлый период) |\n| OpenCardPast | integer | uint64 | Количество открытий карточки товара из поисковой выдачи в предыдущий период (заполняется, если указан прошлый период) |\n| AddToCartPast | integer | uint64 | Количество добавлений товара в корзину в предыдущий период (заполняется, если указан прошлый период) |\n| OpenToCartPast | integer | uint64 | Конверсия в корзину из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| OrdersPast | integer | uint64 | Заказали товар из поиска в предыдущий период (заполняется, если указан прошлый период) |\n| CartToOrderPast | integer | uint64 | Конверсия в заказ из поиска в предыдущий период (заполняется, если указан прошлый период), % |\n| VisibilityPast | integer | uint64 | Видимость товара в поиске в предыдущий период. Процент вероятности, что пользователь увидит карточку товара. Зависит от средней позиции (заполняется, если указан прошлый период), % |\n| Currency | string | string | Валюта отчёта |\n\n\n**Отчёт по статистике остатков**\n\n| Имя | Поле | Формат | Описание |\n|-----------------| --- | --- | --- |\n| VendorCode | string | string | Артикул продавца |\n| Name | string\t| string | Название товара |\n| NmID | integer | int64 | Артикул WB |\n| SubjectName | string\t| string | Название предмета |\n| BrandName | string | string  | Бренд |\n| SizeName | string\t| string | Название размера |\n| ChrtID | integer | int64 | ID размера |\n| RegionName | string\t| string | Регион отгрузки. Для складов продавца значение в строках будет `Маркетплейс`, так как данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам |\n| OfficeName | string\t| string | Название склада. Для складов продавца значение в строках будет `Маркетплейс`, так как данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам |\n| Availability | string\t| enum | Доступность товара |\n| OrdersCount | integer\t| uint64 | Заказы, шт. |\n| OrdersSum | integer\t| uint64 | Заказы, сумма |\n| BuyoutCount | integer\t| uint64 | Выкупы, шт. |\n| BuyoutSum | integer\t| uint64 | Выкупы, сумма |\n| BuyoutPercent | integer\t| uint32 | Процент выкупа |\n| AvgOrders | number\t| float64 | Среднее количество заказов в день |\n| StockCount | integer\t| uint64 | Остатки на текущий день, шт. |\n| StockSum | integer\t| uint64 | Стоимость остатков на текущий день |\n| SaleRate | integer\t| int32 | Оборачиваемость текущих остатков в часах |\n| AvgStockTurnover | integer\t| int32 | Оборачиваемость средних остатков в часах |\n| ToClientCount | integer\t| uint64 | В пути к клиенту, шт. |\n| FromClientCount | integer\t| uint64 | В пути от клиента, шт. |\n| Price | integer\t| uint64 | Текущая цена продавца со скидкой продавца (без учёта скидки WB Клуба) |\n| OfficeMissingTime | integer\t| int32 | Время отсутствия товара на складе в часах |\n| LostOrdersCount | number\t| float64 | Упущенные заказы, шт. |\n| LostOrdersSum | number\t| float64 | Упущенные заказы, сумма |\n| LostBuyoutsCount | number\t| float64 | Упущенные выкупы, шт. |\n| LostBuyoutsSum | number\t| float64 | Упущенные выкупы, сумма |\n| AvgOrdersByMonth_MM.YYYY | number\t| float64 | Среднее количество заказов по месяцам. Столбцы формируются динамически в зависимости от переданного текущего периода. Каждому месяцу текущего периода соответствует один столбец. В случае, если товар не существовал на момент конкретного месяца, то значение будет пропущено |\n| Currency | string | string | Валюта отчёта |\n\n\n**Отчёт по истории остатков**\n\n| Имя | Поле | Формат | Описание |\n|-----------------| --- | --- | --- |\n| VendorCode | string | string | Артикул продавца |\n| Name | string\t| string | Название товара |\n| NmID | integer | int64 | Артикул WB |\n| SubjectName | string\t| string | Название предмета |\n| BrandName | string | string  | Бренд |\n| SizeName | string\t| string | Название размера |\n| ChrtID | integer | int64 | ID размера |\n| OfficeName | string\t| string | Название склада. Для складов продавца значение в строках будет `Маркетплейс`, так как данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам |\n| DD.MM.YYYY | integer| uint64 | Остаток по состоянию на 23:59 дня в заголовке. Столбцы формируются динамически в зависимости от переданного в запросе периода. Каждому дню периода соответствует один столбец. Если товара не было в конкретный день, значение будет пропущено |\n"
               examples:
-                SalesFunnelProductRes:
-                  $ref: '#/components/examples/SalesFunnelProductRes'
+                SalesFunnelItemRes:
+                  $ref: '#/components/examples/SalesFunnelItemRes'
                 SalesFunnelGroupRes:
                   $ref: '#/components/examples/SalesFunnelGroupRes'
                 SearchReportGroupRes:
                   $ref: '#/components/examples/SearchReportGroupRes'
-                SearchReportProductRes:
-                  $ref: '#/components/examples/SearchReportProductRes'
+                SearchReportItemRes:
+                  $ref: '#/components/examples/SearchReportItemRes'
                 SearchReportTextRes:
                   $ref: '#/components/examples/SearchReportTextRes'
                 InventoryMetricsReportRes:
@@ -1150,7 +1150,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductSearchTextsRequest'
+              $ref: '#/components/schemas/ItemSearchTextsRequest'
       responses:
         '200':
           description: Успешно
@@ -1164,7 +1164,7 @@ paths:
                       - data
                     properties:
                       data:
-                        $ref: '#/components/schemas/ProductSearchTextsResponse'
+                        $ref: '#/components/schemas/ItemSearchTextsResponse'
         '400':
           description: Неправильный запрос
           content:
@@ -1221,7 +1221,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductOrdersRequest'
+              $ref: '#/components/schemas/ItemOrdersRequest'
       responses:
         '200':
           description: Успешно
@@ -1235,7 +1235,7 @@ paths:
                       - data
                     properties:
                       data:
-                        $ref: '#/components/schemas/ProductOrdersResponse'
+                        $ref: '#/components/schemas/ItemOrdersResponse'
         '400':
           description: Неправильный запрос
           content:
@@ -1415,7 +1415,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TableProductRequest'
+              $ref: '#/components/schemas/TableItemRequest'
       responses:
         '200':
           description: Успешно
@@ -1426,7 +1426,7 @@ paths:
                 nullable: true
                 properties:
                   data:
-                    $ref: '#/components/schemas/TableProductResponse'
+                    $ref: '#/components/schemas/TableItemResponse'
                 required:
                   - data
         '400':
@@ -2152,11 +2152,11 @@ components:
           type: array
           description: Массив товаров группы
           items:
-            $ref: '#/components/schemas/TableProductItem'
+            $ref: '#/components/schemas/TableItemItem'
       required:
         - metrics
         - items
-    TableProductItem:
+    TableItemItem:
       type: object
       allOf:
         - type: object
@@ -2516,13 +2516,13 @@ components:
             Список товаров в группе по фильтру
           type: array
           items:
-            $ref: '#/components/schemas/TableProductItem'
+            $ref: '#/components/schemas/TableItemItem'
         currency:
           $ref: '#/components/schemas/Currency'
       required:
         - products
         - currency
-    ProductSearchTextsRequest:
+    ItemSearchTextsRequest:
       description: |
         Параметры для запроса по рейтингу поисковых запросов:
           - `currentPeriod` — текущий период
@@ -2579,7 +2579,7 @@ components:
         - limit
         - topOrderBy
         - orderBy
-    ProductSearchTextsResponse:
+    ItemSearchTextsResponse:
       type: object
       properties:
         items:
@@ -2835,7 +2835,7 @@ components:
             - orders
             - cartToOrder
             - visibility
-    ProductOrdersRequest:
+    ItemOrdersRequest:
       type: object
       properties:
         period:
@@ -2860,23 +2860,23 @@ components:
         - period
         - nmId
         - searchTexts
-    ProductOrdersResponse:
+    ItemOrdersResponse:
       type: object
       properties:
         total:
           description: Итог по товарам
           type: array
           items:
-            $ref: '#/components/schemas/ProductOrdersMetrics'
+            $ref: '#/components/schemas/ItemOrdersMetrics'
         items:
           description: Элементы таблицы
           type: array
           items:
-            $ref: '#/components/schemas/ProductOrdersTextItem'
+            $ref: '#/components/schemas/ItemOrdersTextItem'
       required:
         - total
         - items
-    ProductOrdersTextItem:
+    ItemOrdersTextItem:
       type: object
       properties:
         text:
@@ -2890,12 +2890,12 @@ components:
           description: Статистика по датам
           type: array
           items:
-            $ref: '#/components/schemas/ProductOrdersMetrics'
+            $ref: '#/components/schemas/ItemOrdersMetrics'
       required:
         - text
         - frequency
         - dateItems
-    ProductOrdersMetrics:
+    ItemOrdersMetrics:
       type: object
       properties:
         dt:
@@ -3137,7 +3137,7 @@ components:
         - detail
         - requestId
         - origin
-    SalesFunnelProductReq:
+    SalesFunnelItemReq:
       type: object
       required:
         - id
@@ -3375,7 +3375,7 @@ components:
               default: true
               example: false
               description: Показать данные по поисковым запросам без учёта подменного артикула
-    SearchReportProductReq:
+    SearchReportItemReq:
       type: object
       required:
         - id
@@ -4009,7 +4009,7 @@ components:
           type: array
           description: Товары группы
           items:
-            $ref: '#/components/schemas/TableProductItemSt'
+            $ref: '#/components/schemas/TableItemItemSt'
       required:
         - subjectID
         - subjectName
@@ -4215,7 +4215,7 @@ components:
         - start
         - end
         - value
-    TableProductItemSt:
+    TableItemItemSt:
       type: object
       description: Данные по товару
       properties:
@@ -4306,10 +4306,10 @@ components:
         - mainPhoto
         - hasSizes
         - metrics
-    TableProductRequest:
+    TableItemRequest:
       description: Параметры запроса об остатках по товарам
       allOf:
-        - $ref: '#/components/schemas/CommonProductFilters'
+        - $ref: '#/components/schemas/CommonItemFilters'
         - type: object
           properties:
             limit:
@@ -4326,7 +4326,7 @@ components:
               format: uint32
           required:
             - offset
-    CommonProductFilters:
+    CommonItemFilters:
       type: object
       description: Общие фильтры по товару
       properties:
@@ -4371,14 +4371,14 @@ components:
         - skipDeletedNm
         - orderBy
         - availabilityFilters
-    TableProductResponse:
+    TableItemResponse:
       type: object
       properties:
         items:
           type: array
           description: Множество данных по товарам
           items:
-            $ref: '#/components/schemas/TableProductItemSt'
+            $ref: '#/components/schemas/TableItemItemSt'
         currency:
           $ref: '#/components/schemas/Currency'
       required:
@@ -4658,7 +4658,7 @@ components:
         - saleRate
         - toClientCount
         - fromClientCount
-    ProductsRequest:
+    ItemsRequest:
       type: object
       properties:
         selectedPeriod:
@@ -4729,7 +4729,7 @@ components:
           description: Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
       required:
         - selectedPeriod
-    ProductHistoryRequest:
+    ItemHistoryRequest:
       type: object
       properties:
         selectedPeriod:
@@ -4796,7 +4796,7 @@ components:
           $ref: '#/components/schemas/Level'
       required:
         - selectedPeriod
-    ProductsResponse:
+    ItemsResponse:
       properties:
         products:
           description: Список карточек товаров
@@ -4808,7 +4808,7 @@ components:
                 allOf:
                   - type: object
                     description: Карточка товара
-                  - $ref: '#/components/schemas/Product'
+                  - $ref: '#/components/schemas/Item'
               statistic:
                 allOf:
                   - type: object
@@ -4822,7 +4822,7 @@ components:
       required:
         - products
         - currency
-    ProductHistoryResponse:
+    ItemHistoryResponse:
       type: array
       items:
         type: object
@@ -4835,7 +4835,7 @@ components:
             allOf:
               - description: Карточка товара
                 type: object
-              - $ref: '#/components/schemas/HistoryProduct'
+              - $ref: '#/components/schemas/HistoryItem'
           history:
             type: array
             description: Статистика за период
@@ -4853,7 +4853,7 @@ components:
             allOf:
               - description: Карточка товара
                 type: object
-              - $ref: '#/components/schemas/HistoryProduct'
+              - $ref: '#/components/schemas/HistoryItem'
           history:
             type: array
             description: Статистика за период
@@ -4865,7 +4865,7 @@ components:
           - history
           - product
           - currency
-    Product:
+    Item:
       properties:
         nmId:
           example: 268913787
@@ -4943,7 +4943,7 @@ components:
         - productRating
         - feedbackRating
         - stocks
-    HistoryProduct:
+    HistoryItem:
       properties:
         nmId:
           example: 268913787
@@ -6119,7 +6119,7 @@ components:
       example: RUB
       description: Валюта отчёта
   examples:
-    SalesFunnelProductRes:
+    SalesFunnelItemRes:
       description: ''
       value: |
         nmID, dt, openCardCount, addToCartCount, ordersCount, ordersSumRub, buyoutsCount, buyoutsSumRub, cancelCount, cancelSumRub, addToCartConversion, cartToOrderConversion, buyoutPercent, addToWishlist, currency
@@ -6141,7 +6141,7 @@ components:
         SubjectName,SubjectID,BrandName,TagID,AveragePosition,OpenCard,AddToCart,OpenToCart,Orders,CartToOrder,Visibility,AveragePositionPast,OpenCardPast,AddToCartPast,OpenToCartPast,OrdersPast,CartToOrderPast,VisibilityPast
         Смартфоны,0,Abble,0,1,4,0,0,0,0,100,1,8,0,0,0,0,100
         Смартфоны,0,abble,0,1,63,0,0,0,0,100,1,91,0,0,0,0,100
-    SearchReportProductRes:
+    SearchReportItemRes:
       description: ''
       value: |
         NmID,VendorCode,Name,Subject,Brand,IsAdvertised,IsRated,Rating,FeedbackRating,MinPrice,MaxPrice,AveragePosition,OpenCard,AddToCart,OpenToCart,Orders,CartToOrder,Visibility,AveragePositionPast,OpenCardPast,AddToCartPast,OpenToCartPast,OrdersPast,CartToOrderPast,VisibilityPast,IsSubstitutedSKU,Currency

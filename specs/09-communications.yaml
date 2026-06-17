@@ -758,7 +758,7 @@ paths:
                             description: Дата и время создания ответа
                       productDetails:
                         type: object
-                        description: Product information
+                        description: Item information
                         properties:
                           nmId:
                             type: integer
@@ -1539,7 +1539,7 @@ paths:
                             - `none` - не обработан (новый)
                             - `wbRu` - обработан
                       productDetails:
-                        description: Product information
+                        description: Item information
                         type: object
                         properties:
                           nmId:
@@ -3295,7 +3295,7 @@ components:
           description: Имя покупателя
           example: Иван
         goodCard:
-          $ref: '#/components/schemas/GoodCard'
+          $ref: '#/components/schemas/Listing'
         lastMessage:
           description: Последнее сообщение в чате
           allOf:
@@ -3370,7 +3370,7 @@ components:
       description: Вложения
       properties:
         goodCard:
-          $ref: '#/components/schemas/GoodCard'
+          $ref: '#/components/schemas/Listing'
         files:
           type: array
           description: Файлы
@@ -3410,7 +3410,7 @@ components:
         size:
           type: integer
           description: Размер файла в байтах
-    GoodCard:
+    Listing:
       type: object
       description: Информация о заказе
       properties:
@@ -3443,7 +3443,7 @@ components:
               - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailed)
         size:
           type: string
-          description: Размер товара, соответствует `wbSize` в [карточке товара](./work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1get~1cards~1list/post)
+          description: Размер товара, соответствует `wbSize` в [карточке товара](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post)
     LastMessage:
       type: object
       example:

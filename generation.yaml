@@ -2,7 +2,7 @@ version: 0.1
 
 specs:
   - https://dev.wildberries.ru/api/swagger/yaml/ru/01-general.yaml?region=ru
-  - https://dev.wildberries.ru/api/swagger/yaml/ru/02-products.yaml?region=ru
+  - https://dev.wildberries.ru/api/swagger/yaml/ru/02-items.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/03-orders-fbs.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/04-orders-dbw.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/05-orders-dbs.yaml?region=ru
