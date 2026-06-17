@@ -53,7 +53,7 @@
 ## 目前覆盖的全部 Wildberries 规范
 
 - 通用 — [`specs/01-general.yaml`](../../specs/01-general.yaml)
-- 商品管理 — [`specs/02-products.yaml`](../../specs/02-products.yaml)
+- 商品管理 — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS 订单 — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW 订单 — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
 - DBS 订单 — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)

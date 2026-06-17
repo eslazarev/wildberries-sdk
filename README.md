@@ -63,7 +63,7 @@ SDK выпускается с security-first процессом:
 ## В данный момент представлены **все доступные** спецификации:
 
 - Общее: [`specs/01-general.yaml`](#общее-01-generalyaml)
-- Работа с товарами: [`specs/02-products.yaml`](#работа-с-товарами-02-productsyaml)
+- Работа с товарами: [`specs/02-items.yaml`](#работа-с-товарами-02-itemsyaml)
 - Заказы FBS: [`specs/03-orders-fbs.yaml`](#заказы-fbs-03-orders-fbsyaml)
 - Заказы DBW: [`specs/04-orders-dbw.yaml`](#заказы-dbw-04-orders-dbwyaml)
 - Заказы DBS: [`specs/05-orders-dbs.yaml`](#заказы-dbs-05-orders-dbsyaml)

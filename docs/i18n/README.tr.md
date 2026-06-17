@@ -53,7 +53,7 @@ Bu neden önemli — spesifikasyon değişiklik geçmişine bakın: [CHANGELOG.m
 ## Yayınlanan tüm Wildberries spesifikasyonları kapsanır
 
 - Genel — [`specs/01-general.yaml`](../../specs/01-general.yaml)
-- Ürünler — [`specs/02-products.yaml`](../../specs/02-products.yaml)
+- Ürünler — [`specs/02-items.yaml`](../../specs/02-items.yaml)
 - FBS siparişleri — [`specs/03-orders-fbs.yaml`](../../specs/03-orders-fbs.yaml)
 - DBW siparişleri — [`specs/04-orders-dbw.yaml`](../../specs/04-orders-dbw.yaml)
 - DBS siparişleri — [`specs/05-orders-dbs.yaml`](../../specs/05-orders-dbs.yaml)
