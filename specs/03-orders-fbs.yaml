@@ -3409,7 +3409,7 @@ components:
           properties:
             orders:
               type: array
-              description: Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили валидацию
+              description: Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку
               items:
                 type: object
                 properties:
@@ -3431,7 +3431,7 @@ components:
                         decision:
                           type: string
                           description: |
-                            Статус проверки:
+                            [Статус проверки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs):
                             - `imei`
                               - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки
                               - `required` — Маркировка обязательна и не закреплена за сборочным заданием
@@ -3683,6 +3683,14 @@ components:
               - `true` — B2B-продажа
               - `false` — не B2B-продажа
               - `null` — признак отсутствует, сборочные задания не добавлены к поставке
+        isPickupPointShipmentAllowed:
+          type: boolean
+          nullable: false
+          example: true
+          description: |
+            Можно ли отгрузить заказ на ПВЗ:
+              - `false` — нет
+              - `true` — да
         done:
           type: boolean
           nullable: false
@@ -3799,7 +3807,7 @@ components:
           example: 504600
         requiredMeta:
           description: |
-            Список идентификаторов маркировки, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
+            Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
           type: array
           nullable: true
           items:
@@ -3808,7 +3816,7 @@ components:
             - uin
         optionalMeta:
           description: |
-            Список идентификаторов маркировки, которые можно добавить в сборочное задание.<br>
+            Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br>
             Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
           items:
             type: string
@@ -3974,6 +3982,14 @@ components:
               - `false` — заказ сделан на товар с ненулевым остатком
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
+        isPickupPointShipmentAllowed:
+          type: boolean
+          nullable: false
+          example: true
+          description: |
+            Можно ли отгрузить заказ на ПВЗ:
+              - `false` — нет
+              - `true` — да
         options:
           type: object
           description: Опции заказа
@@ -4024,7 +4040,7 @@ components:
             type: string
             example: uinMaySell
             description: |
-              Статусы проверки идентификаторов маркировки. <br><br>
+              [Статусы проверки идентификаторов маркировки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs). <br><br>
               Статусы проверки`imei`, с которыми поставку можно перевести в доставку:
                 - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
                 - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна

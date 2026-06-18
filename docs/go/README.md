@@ -29,14 +29,14 @@ SDK выпускается с security-first процессом:
 
 ```bash
 go get github.com/eslazarev/wildberries-sdk/clients/go/finances
-go get github.com/eslazarev/wildberries-sdk/clients/go/products
+go get github.com/eslazarev/wildberries-sdk/clients/go/items
 go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 # ... и т.д.
 ```
 
 Доступные модули:
 - `github.com/eslazarev/wildberries-sdk/clients/go/general`
-- `github.com/eslazarev/wildberries-sdk/clients/go/products`
+- `github.com/eslazarev/wildberries-sdk/clients/go/items`
 - `github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs`
 - `github.com/eslazarev/wildberries-sdk/clients/go/orders_dbw`
 - `github.com/eslazarev/wildberries-sdk/clients/go/orders_dbs`
