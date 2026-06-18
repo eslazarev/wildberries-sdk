@@ -59,6 +59,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'is_b2b' => 'bool',
+        'is_pickup_point_shipment_allowed' => 'bool',
         'done' => 'bool',
         'created_at' => '\DateTime',
         'closed_at' => '\DateTime',
@@ -80,6 +81,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => null,
         'is_b2b' => null,
+        'is_pickup_point_shipment_allowed' => null,
         'done' => null,
         'created_at' => 'date-time',
         'closed_at' => 'date-time',
@@ -99,6 +101,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
         'is_b2b' => true,
+        'is_pickup_point_shipment_allowed' => false,
         'done' => false,
         'created_at' => false,
         'closed_at' => true,
@@ -198,6 +201,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'is_b2b' => 'isB2b',
+        'is_pickup_point_shipment_allowed' => 'isPickupPointShipmentAllowed',
         'done' => 'done',
         'created_at' => 'createdAt',
         'closed_at' => 'closedAt',
@@ -217,6 +221,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'is_b2b' => 'setIsB2b',
+        'is_pickup_point_shipment_allowed' => 'setIsPickupPointShipmentAllowed',
         'done' => 'setDone',
         'created_at' => 'setCreatedAt',
         'closed_at' => 'setClosedAt',
@@ -236,6 +241,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'is_b2b' => 'getIsB2b',
+        'is_pickup_point_shipment_allowed' => 'getIsPickupPointShipmentAllowed',
         'done' => 'getDone',
         'created_at' => 'getCreatedAt',
         'closed_at' => 'getClosedAt',
@@ -340,6 +346,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('is_b2b', $data ?? [], null);
+        $this->setIfExists('is_pickup_point_shipment_allowed', $data ?? [], null);
         $this->setIfExists('done', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('closed_at', $data ?? [], null);
@@ -468,6 +475,33 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['is_b2b'] = $is_b2b;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_pickup_point_shipment_allowed
+     *
+     * @return bool|null
+     */
+    public function getIsPickupPointShipmentAllowed()
+    {
+        return $this->container['is_pickup_point_shipment_allowed'];
+    }
+
+    /**
+     * Sets is_pickup_point_shipment_allowed
+     *
+     * @param bool|null $is_pickup_point_shipment_allowed Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да
+     *
+     * @return self
+     */
+    public function setIsPickupPointShipmentAllowed($is_pickup_point_shipment_allowed)
+    {
+        if (is_null($is_pickup_point_shipment_allowed)) {
+            throw new \InvalidArgumentException('non-nullable is_pickup_point_shipment_allowed cannot be null');
+        }
+        $this->container['is_pickup_point_shipment_allowed'] = $is_pickup_point_shipment_allowed;
 
         return $this;
     }

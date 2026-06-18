@@ -64,14 +64,14 @@ export interface OrderNew {
      */
     salePrice?: number | null;
     /**
-     * Список идентификаторов маркировки, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
+     * Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
      * 
      * @type {Array<string>}
      * @memberof OrderNew
      */
     requiredMeta?: Array<string> | null;
     /**
-     * Список идентификаторов маркировки, которые можно добавить в сборочное задание.<br>
+     * Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br>
      * Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
      * 
      * @type {Array<string>}
@@ -246,6 +246,15 @@ export interface OrderNew {
      */
     isZeroOrder?: boolean;
     /**
+     * Можно ли отгрузить заказ на ПВЗ:
+     *   - `false` — нет
+     *   - `true` — да
+     * 
+     * @type {boolean}
+     * @memberof OrderNew
+     */
+    isPickupPointShipmentAllowed?: boolean;
+    /**
      * 
      * @type {V3ArchiveOrderOptions}
      * @memberof OrderNew
@@ -329,6 +338,7 @@ export function OrderNewFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'crossBorderType': json['crossBorderType'] == null ? undefined : json['crossBorderType'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
+        'isPickupPointShipmentAllowed': json['isPickupPointShipmentAllowed'] == null ? undefined : json['isPickupPointShipmentAllowed'],
         'options': json['options'] == null ? undefined : V3ArchiveOrderOptionsFromJSON(json['options']),
     };
 }
@@ -374,6 +384,7 @@ export function OrderNewToJSONTyped(value?: OrderNew | null, ignoreDiscriminator
         'cargoType': value['cargoType'],
         'crossBorderType': value['crossBorderType'],
         'isZeroOrder': value['isZeroOrder'],
+        'isPickupPointShipmentAllowed': value['isPickupPointShipmentAllowed'],
         'options': V3ArchiveOrderOptionsToJSON(value['options']),
     };
 }

@@ -21,6 +21,9 @@ pub struct Supply {
     /// Признак B2B-продажи:   - `true` — B2B-продажа   - `false` — не B2B-продажа   - `null` — признак отсутствует, сборочные задания не добавлены к поставке 
     #[serde(rename = "isB2b", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub is_b2b: Option<Option<bool>>,
+    /// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
+    #[serde(rename = "isPickupPointShipmentAllowed", skip_serializing_if = "Option::is_none")]
+    pub is_pickup_point_shipment_allowed: Option<bool>,
     /// Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта 
     #[serde(rename = "done", skip_serializing_if = "Option::is_none")]
     pub done: Option<bool>,
@@ -55,6 +58,7 @@ impl Supply {
         Supply {
             id: None,
             is_b2b: None,
+            is_pickup_point_shipment_allowed: None,
             done: None,
             created_at: None,
             closed_at: None,

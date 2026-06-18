@@ -4907,6 +4907,7 @@ components:
       example:
         id: WB-GI-1234567
         isB2b: true
+        isPickupPointShipmentAllowed: true
         done: true
         createdAt: 2022-05-04T07:56:29Z
         closedAt: 2022-05-04T07:56:29Z
@@ -4929,6 +4930,14 @@ components:
               - `false` — не B2B-продажа
               - `null` — признак отсутствует, сборочные задания не добавлены к поставке
           nullable: true
+          type: boolean
+        isPickupPointShipmentAllowed:
+          description: |
+            Можно ли отгрузить заказ на ПВЗ:
+              - `false` — нет
+              - `true` — да
+          example: true
+          nullable: false
           type: boolean
         done:
           description: |
@@ -5044,6 +5053,7 @@ components:
         cargoType: 6
         crossBorderType: 1
         isZeroOrder: false
+        isPickupPointShipmentAllowed: true
         options:
           isB2B: false
       properties:
@@ -5071,7 +5081,7 @@ components:
           type: integer
         requiredMeta:
           description: |
-            Список идентификаторов маркировки, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
+            Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
           example:
           - uin
           items:
@@ -5080,7 +5090,7 @@ components:
           type: array
         optionalMeta:
           description: |
-            Список идентификаторов маркировки, которые можно добавить в сборочное задание.<br>
+            Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br>
             Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
           example:
           - sgtin
@@ -5254,6 +5264,14 @@ components:
               - `false` — заказ сделан на товар с ненулевым остатком
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           example: false
+          type: boolean
+        isPickupPointShipmentAllowed:
+          description: |
+            Можно ли отгрузить заказ на ПВЗ:
+              - `false` — нет
+              - `true` — да
+          example: true
+          nullable: false
           type: boolean
         options:
           $ref: "#/components/schemas/v3_ArchiveOrder_options"
@@ -5685,6 +5703,7 @@ components:
           cargoType: 6
           crossBorderType: 1
           isZeroOrder: false
+          isPickupPointShipmentAllowed: true
           options:
             isB2B: false
         - address:
@@ -5727,6 +5746,7 @@ components:
           cargoType: 6
           crossBorderType: 1
           isZeroOrder: false
+          isPickupPointShipmentAllowed: true
           options:
             isB2B: false
       nullable: false
@@ -6275,6 +6295,7 @@ components:
         supplies:
         - id: WB-GI-1234567
           isB2b: true
+          isPickupPointShipmentAllowed: true
           done: true
           createdAt: 2022-05-04T07:56:29Z
           closedAt: 2022-05-04T07:56:29Z
@@ -6286,6 +6307,7 @@ components:
           recommendedWhId: 123569
         - id: WB-GI-1234567
           isB2b: true
+          isPickupPointShipmentAllowed: true
           done: true
           createdAt: 2022-05-04T07:56:29Z
           closedAt: 2022-05-04T07:56:29Z
@@ -6549,7 +6571,7 @@ components:
           type: string
         decision:
           description: |
-            Статус проверки:
+            [Статус проверки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs):
             - `imei`
               - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки
               - `required` — Маркировка обязательна и не закреплена за сборочным заданием
@@ -6637,7 +6659,7 @@ components:
       properties:
         orders:
           description: "Сборочные задания, идентификаторы маркировки которых не пр\
-            ошли или ещё не завершили валидацию"
+            ошли или ещё не завершили проверку"
           items:
             $ref: "#/components/schemas/_409SupplyDeliverError_data_orders_inner"
           type: array
@@ -6687,7 +6709,7 @@ components:
           example: null
         decision:
           description: |
-            Статусы проверки идентификаторов маркировки. <br><br>
+            [Статусы проверки идентификаторов маркировки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs). <br><br>
             Статусы проверки`imei`, с которыми поставку можно перевести в доставку:
               - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
               - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна

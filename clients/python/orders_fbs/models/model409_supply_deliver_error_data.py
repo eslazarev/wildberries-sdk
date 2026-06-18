@@ -28,7 +28,7 @@ class Model409SupplyDeliverErrorData(BaseModel):
     """
     Дополнительные данные ошибки
     """ # noqa: E501
-    orders: Optional[List[Model409SupplyDeliverErrorDataOrdersInner]] = Field(default=None, description="Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили валидацию")
+    orders: Optional[List[Model409SupplyDeliverErrorDataOrdersInner]] = Field(default=None, description="Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку")
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

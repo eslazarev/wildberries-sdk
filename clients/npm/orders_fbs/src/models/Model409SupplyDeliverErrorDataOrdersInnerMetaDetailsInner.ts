@@ -32,7 +32,7 @@ export interface Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner {
      */
     value?: string;
     /**
-     * Статус проверки:
+     * [Статус проверки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs):
      * - `imei`
      *   - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки
      *   - `required` — Маркировка обязательна и не закреплена за сборочным заданием

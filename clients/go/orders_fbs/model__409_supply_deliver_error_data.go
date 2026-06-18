@@ -19,7 +19,7 @@ var _ MappedNullable = &409SupplyDeliverErrorData{}
 
 // 409SupplyDeliverErrorData Дополнительные данные ошибки
 type 409SupplyDeliverErrorData struct {
-	// Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили валидацию
+	// Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку
 	Orders []Model409SupplyDeliverErrorDataOrdersInner `json:"orders,omitempty"`
 }
 

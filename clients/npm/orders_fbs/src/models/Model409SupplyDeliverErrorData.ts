@@ -28,7 +28,7 @@ import {
  */
 export interface Model409SupplyDeliverErrorData {
     /**
-     * Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили валидацию
+     * Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку
      * @type {Array<Model409SupplyDeliverErrorDataOrdersInner>}
      * @memberof Model409SupplyDeliverErrorData
      */

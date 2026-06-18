@@ -24,6 +24,8 @@ type Supply struct {
 	Id *string `json:"id,omitempty"`
 	// Признак B2B-продажи:   - `true` — B2B-продажа   - `false` — не B2B-продажа   - `null` — признак отсутствует, сборочные задания не добавлены к поставке 
 	IsB2b NullableBool `json:"isB2b,omitempty"`
+	// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
+	IsPickupPointShipmentAllowed *bool `json:"isPickupPointShipmentAllowed,omitempty"`
 	// Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта 
 	Done *bool `json:"done,omitempty"`
 	// Дата создания поставки (RFC3339)
@@ -133,6 +135,38 @@ func (o *Supply) SetIsB2bNil() {
 // UnsetIsB2b ensures that no value is present for IsB2b, not even an explicit nil
 func (o *Supply) UnsetIsB2b() {
 	o.IsB2b.Unset()
+}
+
+// GetIsPickupPointShipmentAllowed returns the IsPickupPointShipmentAllowed field value if set, zero value otherwise.
+func (o *Supply) GetIsPickupPointShipmentAllowed() bool {
+	if o == nil || IsNil(o.IsPickupPointShipmentAllowed) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPickupPointShipmentAllowed
+}
+
+// GetIsPickupPointShipmentAllowedOk returns a tuple with the IsPickupPointShipmentAllowed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Supply) GetIsPickupPointShipmentAllowedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPickupPointShipmentAllowed) {
+		return nil, false
+	}
+	return o.IsPickupPointShipmentAllowed, true
+}
+
+// HasIsPickupPointShipmentAllowed returns a boolean if a field has been set.
+func (o *Supply) HasIsPickupPointShipmentAllowed() bool {
+	if o != nil && !IsNil(o.IsPickupPointShipmentAllowed) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPickupPointShipmentAllowed gets a reference to the given bool and assigns it to the IsPickupPointShipmentAllowed field.
+func (o *Supply) SetIsPickupPointShipmentAllowed(v bool) {
+	o.IsPickupPointShipmentAllowed = &v
 }
 
 // GetDone returns the Done field value if set, zero value otherwise.
@@ -478,6 +512,9 @@ func (o Supply) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IsB2b.IsSet() {
 		toSerialize["isB2b"] = o.IsB2b.Get()
+	}
+	if !IsNil(o.IsPickupPointShipmentAllowed) {
+		toSerialize["isPickupPointShipmentAllowed"] = o.IsPickupPointShipmentAllowed
 	}
 	if !IsNil(o.Done) {
 		toSerialize["done"] = o.Done

@@ -32,7 +32,7 @@ export interface MetaDetailsInner {
      */
     value?: string | null;
     /**
-     * Статусы проверки идентификаторов маркировки. <br><br>
+     * [Статусы проверки идентификаторов маркировки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs). <br><br>
      * Статусы проверки`imei`, с которыми поставку можно перевести в доставку:
      *   - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
      *   - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна

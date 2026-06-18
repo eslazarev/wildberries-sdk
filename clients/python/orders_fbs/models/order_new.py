@@ -35,8 +35,8 @@ class OrderNew(BaseModel):
     ddate: Optional[StrictStr] = Field(default=None, description="Планируемая дата доставки заказа покупателю.<br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` ", json_schema_extra={"examples": ["17.05.2024"]})
     seller_date: Optional[StrictStr] = Field(default=None, description="Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br> Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2` ", alias="sellerDate", json_schema_extra={"examples": ["02.06.2025"]})
     sale_price: Optional[StrictInt] = Field(default=None, description="Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях ", alias="salePrice", json_schema_extra={"examples": [504600]})
-    required_meta: Optional[List[StrictStr]] = Field(default=None, description="Список идентификаторов маркировки, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку ", alias="requiredMeta", json_schema_extra={"examples": [["uin"]]})
-    optional_meta: Optional[List[StrictStr]] = Field(default=None, description="Список идентификаторов маркировки, которые можно добавить в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем ", alias="optionalMeta", json_schema_extra={"examples": [["sgtin"]]})
+    required_meta: Optional[List[StrictStr]] = Field(default=None, description="Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку ", alias="requiredMeta", json_schema_extra={"examples": [["uin"]]})
+    optional_meta: Optional[List[StrictStr]] = Field(default=None, description="Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем ", alias="optionalMeta", json_schema_extra={"examples": [["sgtin"]]})
     delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) ", alias="deliveryType")
     comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(default=None, description="Комментарий покупателя", json_schema_extra={"examples": ["Упакуйте в плёнку, пожалуйста"]})
     scan_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Цена приёмки в копейках. Отображается после фактической приёмки заказа. Для данного метода всегда будет возвращаться `null`. Предоставляется в информационных целях", alias="scanPrice")
@@ -61,8 +61,9 @@ class OrderNew(BaseModel):
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка ", alias="crossBorderType", json_schema_extra={"examples": [1]})
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder", json_schema_extra={"examples": [False]})
+    is_pickup_point_shipment_allowed: Optional[StrictBool] = Field(default=None, description="Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да ", alias="isPickupPointShipmentAllowed", json_schema_extra={"examples": [True]})
     options: Optional[V3ArchiveOrderOptions] = None
-    __properties: ClassVar[List[str]] = ["address", "ddate", "sellerDate", "salePrice", "requiredMeta", "optionalMeta", "deliveryType", "comment", "scanPrice", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "isZeroOrder", "options"]
+    __properties: ClassVar[List[str]] = ["address", "ddate", "sellerDate", "salePrice", "requiredMeta", "optionalMeta", "deliveryType", "comment", "scanPrice", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "isZeroOrder", "isPickupPointShipmentAllowed", "options"]
 
     @field_validator('delivery_type')
     def delivery_type_validate_enum(cls, value):
@@ -216,6 +217,7 @@ class OrderNew(BaseModel):
             "cargoType": obj.get("cargoType"),
             "crossBorderType": obj.get("crossBorderType"),
             "isZeroOrder": obj.get("isZeroOrder"),
+            "isPickupPointShipmentAllowed": obj.get("isPickupPointShipmentAllowed"),
             "options": V3ArchiveOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj

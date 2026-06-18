@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 /// Model409SupplyDeliverErrorData : Дополнительные данные ошибки
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Model409SupplyDeliverErrorData {
-    /// Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили валидацию
+    /// Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку
     #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
     pub orders: Option<Vec<models::Model409SupplyDeliverErrorDataOrdersInner>>,
 }

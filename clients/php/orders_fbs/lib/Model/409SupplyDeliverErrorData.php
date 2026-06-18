@@ -303,7 +303,7 @@ class 409SupplyDeliverErrorData implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\OrdersFbs\Model\Model409SupplyDeliverErrorDataOrdersInner[]|null $orders Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили валидацию
+     * @param \Wildberries\Sdk\OrdersFbs\Model\Model409SupplyDeliverErrorDataOrdersInner[]|null $orders Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку
      *
      * @return self
      */

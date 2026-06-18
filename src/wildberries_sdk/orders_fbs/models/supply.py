@@ -30,6 +30,7 @@ class Supply(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="ID поставки", json_schema_extra={"examples": ["WB-GI-1234567"]})
     is_b2b: Optional[StrictBool] = Field(default=None, description="Признак B2B-продажи:   - `true` — B2B-продажа   - `false` — не B2B-продажа   - `null` — признак отсутствует, сборочные задания не добавлены к поставке ", alias="isB2b")
+    is_pickup_point_shipment_allowed: Optional[StrictBool] = Field(default=None, description="Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да ", alias="isPickupPointShipmentAllowed", json_schema_extra={"examples": [True]})
     done: Optional[StrictBool] = Field(default=None, description="Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта ")
     created_at: Optional[datetime] = Field(default=None, description="Дата создания поставки (RFC3339)", alias="createdAt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
     closed_at: Optional[datetime] = Field(default=None, description="Дата закрытия поставки (RFC3339)", alias="closedAt", json_schema_extra={"examples": ["2022-05-04T07:56:29Z"]})
@@ -39,7 +40,7 @@ class Supply(BaseModel):
     cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует ", alias="crossBorderType", json_schema_extra={"examples": [1]})
     destination_office_id: Optional[StrictInt] = Field(default=None, description="ID склада назначения поставки. Если `null`, склад назначения не указан", alias="destinationOfficeId", json_schema_extra={"examples": [123]})
     recommended_wh_id: Optional[StrictInt] = Field(default=None, description="ID рекомендуемого склада для приёмки поставки для Москвы и МО. <br> Рекомендуется ближайший к покупателям склад, который определяется автоматически при передаче поставки в доставку с учётом параметров всех сборочных заданий в поставке.<br> Если `0`, рекомендуемый склад не определён ", alias="recommendedWhId", json_schema_extra={"examples": [123569]})
-    __properties: ClassVar[List[str]] = ["id", "isB2b", "done", "createdAt", "closedAt", "scanDt", "name", "cargoType", "crossBorderType", "destinationOfficeId", "recommendedWhId"]
+    __properties: ClassVar[List[str]] = ["id", "isB2b", "isPickupPointShipmentAllowed", "done", "createdAt", "closedAt", "scanDt", "name", "cargoType", "crossBorderType", "destinationOfficeId", "recommendedWhId"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -139,6 +140,7 @@ class Supply(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "isB2b": obj.get("isB2b"),
+            "isPickupPointShipmentAllowed": obj.get("isPickupPointShipmentAllowed"),
             "done": obj.get("done"),
             "createdAt": obj.get("createdAt"),
             "closedAt": obj.get("closedAt"),

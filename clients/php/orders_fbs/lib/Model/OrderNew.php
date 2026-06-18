@@ -87,6 +87,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'int',
         'cross_border_type' => 'int',
         'is_zero_order' => 'bool',
+        'is_pickup_point_shipment_allowed' => 'bool',
         'options' => '\Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrderOptions'
     ];
 
@@ -128,6 +129,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => null,
         'cross_border_type' => 'int32',
         'is_zero_order' => null,
+        'is_pickup_point_shipment_allowed' => null,
         'options' => null
     ];
 
@@ -167,6 +169,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => false,
         'cross_border_type' => false,
         'is_zero_order' => false,
+        'is_pickup_point_shipment_allowed' => false,
         'options' => false
     ];
 
@@ -286,6 +289,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'cargoType',
         'cross_border_type' => 'crossBorderType',
         'is_zero_order' => 'isZeroOrder',
+        'is_pickup_point_shipment_allowed' => 'isPickupPointShipmentAllowed',
         'options' => 'options'
     ];
 
@@ -325,6 +329,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'setCargoType',
         'cross_border_type' => 'setCrossBorderType',
         'is_zero_order' => 'setIsZeroOrder',
+        'is_pickup_point_shipment_allowed' => 'setIsPickupPointShipmentAllowed',
         'options' => 'setOptions'
     ];
 
@@ -364,6 +369,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'getCargoType',
         'cross_border_type' => 'getCrossBorderType',
         'is_zero_order' => 'getIsZeroOrder',
+        'is_pickup_point_shipment_allowed' => 'getIsPickupPointShipmentAllowed',
         'options' => 'getOptions'
     ];
 
@@ -499,6 +505,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('cargo_type', $data ?? [], null);
         $this->setIfExists('cross_border_type', $data ?? [], null);
         $this->setIfExists('is_zero_order', $data ?? [], null);
+        $this->setIfExists('is_pickup_point_shipment_allowed', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
     }
 
@@ -717,7 +724,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets required_meta
      *
-     * @param string[]|null $required_meta Список идентификаторов маркировки, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
+     * @param string[]|null $required_meta Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
      *
      * @return self
      */
@@ -751,7 +758,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets optional_meta
      *
-     * @param string[]|null $optional_meta Список идентификаторов маркировки, которые можно добавить в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
+     * @param string[]|null $optional_meta Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
      *
      * @return self
      */
@@ -1464,6 +1471,33 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_zero_order cannot be null');
         }
         $this->container['is_zero_order'] = $is_zero_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_pickup_point_shipment_allowed
+     *
+     * @return bool|null
+     */
+    public function getIsPickupPointShipmentAllowed()
+    {
+        return $this->container['is_pickup_point_shipment_allowed'];
+    }
+
+    /**
+     * Sets is_pickup_point_shipment_allowed
+     *
+     * @param bool|null $is_pickup_point_shipment_allowed Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да
+     *
+     * @return self
+     */
+    public function setIsPickupPointShipmentAllowed($is_pickup_point_shipment_allowed)
+    {
+        if (is_null($is_pickup_point_shipment_allowed)) {
+            throw new \InvalidArgumentException('non-nullable is_pickup_point_shipment_allowed cannot be null');
+        }
+        $this->container['is_pickup_point_shipment_allowed'] = $is_pickup_point_shipment_allowed;
 
         return $this;
     }

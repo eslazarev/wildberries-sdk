@@ -36,6 +36,15 @@ export interface Supply {
      */
     isB2b?: boolean | null;
     /**
+     * Можно ли отгрузить заказ на ПВЗ:
+     *   - `false` — нет
+     *   - `true` — да
+     * 
+     * @type {boolean}
+     * @memberof Supply
+     */
+    isPickupPointShipmentAllowed?: boolean;
+    /**
      * Флаг закрытия поставки:
      *   - `true` — закрыта
      *   - `false` — открыта
@@ -146,6 +155,7 @@ export function SupplyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
         
         'id': json['id'] == null ? undefined : json['id'],
         'isB2b': json['isB2b'] == null ? undefined : json['isB2b'],
+        'isPickupPointShipmentAllowed': json['isPickupPointShipmentAllowed'] == null ? undefined : json['isPickupPointShipmentAllowed'],
         'done': json['done'] == null ? undefined : json['done'],
         'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
         'closedAt': json['closedAt'] == null ? undefined : (new Date(json['closedAt'])),
@@ -171,6 +181,7 @@ export function SupplyToJSONTyped(value?: Supply | null, ignoreDiscriminator: bo
         
         'id': value['id'],
         'isB2b': value['isB2b'],
+        'isPickupPointShipmentAllowed': value['isPickupPointShipmentAllowed'],
         'done': value['done'],
         'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
         'closedAt': value['closedAt'] == null ? value['closedAt'] : value['closedAt'].toISOString(),

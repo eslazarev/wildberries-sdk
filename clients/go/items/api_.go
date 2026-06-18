@@ -7388,10 +7388,6 @@ func (r ApiContentV2GetCardsListPostRequest) Execute() (*ContentV2GetCardsListPo
 /*
 ContentV2GetCardsListPost Список карточек товаров
 
-<div class="description_auth">
-  Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токену</a> с категорией <strong>Контент</strong> или <strong>Продвижение</strong>
-</div>
-
 Метод возвращает список созданных карточек товаров.
 
 <div class="description_important">
@@ -7631,10 +7627,6 @@ func (r ApiContentV2GetCardsTrashPostRequest) Execute() (*ContentV2GetCardsTrash
 
 /*
 ContentV2GetCardsTrashPost Список карточек товаров в корзине
-
-<div class="description_auth">
-  Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токену</a> с категорией <strong>Контент</strong> или <strong>Продвижение</strong>
-</div>
 
 Метод возвращает список карточек товаров в корзине.<br><br>
 

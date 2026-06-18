@@ -27,9 +27,9 @@ type OrderNew struct {
 	SellerDate NullableString `json:"sellerDate,omitempty"`
 	// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
-	// Список идентификаторов маркировки, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку 
+	// Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку 
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
-	// Список идентификаторов маркировки, которые можно добавить в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем 
+	// Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем 
 	OptionalMeta []string `json:"optionalMeta,omitempty"`
 	// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) 
 	DeliveryType *string `json:"deliveryType,omitempty"`
@@ -79,6 +79,8 @@ type OrderNew struct {
 	CrossBorderType *int32 `json:"crossBorderType,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
+	// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
+	IsPickupPointShipmentAllowed *bool `json:"isPickupPointShipmentAllowed,omitempty"`
 	Options *V3ArchiveOrderOptions `json:"options,omitempty"`
 }
 
@@ -1102,6 +1104,38 @@ func (o *OrderNew) SetIsZeroOrder(v bool) {
 	o.IsZeroOrder = &v
 }
 
+// GetIsPickupPointShipmentAllowed returns the IsPickupPointShipmentAllowed field value if set, zero value otherwise.
+func (o *OrderNew) GetIsPickupPointShipmentAllowed() bool {
+	if o == nil || IsNil(o.IsPickupPointShipmentAllowed) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPickupPointShipmentAllowed
+}
+
+// GetIsPickupPointShipmentAllowedOk returns a tuple with the IsPickupPointShipmentAllowed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderNew) GetIsPickupPointShipmentAllowedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPickupPointShipmentAllowed) {
+		return nil, false
+	}
+	return o.IsPickupPointShipmentAllowed, true
+}
+
+// HasIsPickupPointShipmentAllowed returns a boolean if a field has been set.
+func (o *OrderNew) HasIsPickupPointShipmentAllowed() bool {
+	if o != nil && !IsNil(o.IsPickupPointShipmentAllowed) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPickupPointShipmentAllowed gets a reference to the given bool and assigns it to the IsPickupPointShipmentAllowed field.
+func (o *OrderNew) SetIsPickupPointShipmentAllowed(v bool) {
+	o.IsPickupPointShipmentAllowed = &v
+}
+
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *OrderNew) GetOptions() V3ArchiveOrderOptions {
 	if o == nil || IsNil(o.Options) {
@@ -1233,6 +1267,9 @@ func (o OrderNew) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsZeroOrder) {
 		toSerialize["isZeroOrder"] = o.IsZeroOrder
+	}
+	if !IsNil(o.IsPickupPointShipmentAllowed) {
+		toSerialize["isPickupPointShipmentAllowed"] = o.IsPickupPointShipmentAllowed
 	}
 	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options

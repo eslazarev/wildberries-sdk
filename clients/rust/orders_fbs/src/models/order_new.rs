@@ -26,10 +26,10 @@ pub struct OrderNew {
     /// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
     #[serde(rename = "salePrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub sale_price: Option<Option<i32>>,
-    /// Список идентификаторов маркировки, которые необходимо добавить в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку 
+    /// Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку 
     #[serde(rename = "requiredMeta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub required_meta: Option<Option<Vec<String>>>,
-    /// Список идентификаторов маркировки, которые можно добавить в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем 
+    /// Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br> Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем 
     #[serde(rename = "optionalMeta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub optional_meta: Option<Option<Vec<String>>>,
     /// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) 
@@ -104,6 +104,9 @@ pub struct OrderNew {
     /// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
     #[serde(rename = "isZeroOrder", skip_serializing_if = "Option::is_none")]
     pub is_zero_order: Option<bool>,
+    /// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
+    #[serde(rename = "isPickupPointShipmentAllowed", skip_serializing_if = "Option::is_none")]
+    pub is_pickup_point_shipment_allowed: Option<bool>,
     #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
     pub options: Option<Box<models::V3ArchiveOrderOptions>>,
 }
@@ -141,6 +144,7 @@ impl OrderNew {
             cargo_type: None,
             cross_border_type: None,
             is_zero_order: None,
+            is_pickup_point_shipment_allowed: None,
             options: None,
         }
     }
