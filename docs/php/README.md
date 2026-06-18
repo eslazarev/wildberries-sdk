@@ -53,7 +53,7 @@ var_dump($response);
 ## Доступные клиенты
 
 - `Wildberries\Sdk\General`
-- `Wildberries\Sdk\Products`
+- `Wildberries\Sdk\Items`
 - `Wildberries\Sdk\OrdersFbs`
 - `Wildberries\Sdk\OrdersDbw`
 - `Wildberries\Sdk\OrdersDbs`
