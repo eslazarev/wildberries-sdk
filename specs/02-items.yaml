@@ -1484,10 +1484,6 @@ paths:
         - Карточки товаров
       summary: Список карточек товаров
       description: |
-        <div class="description_auth">
-          Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токену</a> с категорией <strong>Контент</strong> или <strong>Продвижение</strong>
-        </div>
-
         Метод возвращает список созданных карточек товаров.
 
         <div class="description_important">
@@ -2612,10 +2608,6 @@ paths:
         - HeaderApiKey: []
       summary: Список карточек товаров в корзине
       description: |
-        <div class="description_auth">
-          Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токену</a> с категорией <strong>Контент</strong> или <strong>Продвижение</strong>
-        </div>
-
         Метод возвращает список карточек товаров в корзине.<br><br>
 
         Чтобы получить **больше 100** карточек товаров, используйте пагинацию.
