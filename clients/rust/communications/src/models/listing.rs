@@ -14,9 +14,6 @@ use serde::{Deserialize, Serialize};
 /// Listing : Информация о заказе
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Listing {
-    /// [Будет отключено 16 июня](https://dev.wildberries.ru/release-notes?id=534) 
-    #[serde(rename = "date", skip_serializing_if = "Option::is_none")]
-    pub date: Option<String>,
     /// Артикул WB
     #[serde(rename = "nmID", skip_serializing_if = "Option::is_none")]
     pub nm_id: Option<i32>,
@@ -38,7 +35,6 @@ impl Listing {
     /// Информация о заказе
     pub fn new() -> Listing {
         Listing {
-            date: None,
             nm_id: None,
             price: None,
             price_currency: None,

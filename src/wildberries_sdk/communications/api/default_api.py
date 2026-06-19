@@ -2389,7 +2389,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1FeedbackGet200Response:
         """Получить отзыв по ID
 
@@ -2460,7 +2460,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1FeedbackGet200Response]:
         """Получить отзыв по ID
 
@@ -2531,7 +2531,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получить отзыв по ID
 
@@ -2593,7 +2593,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -2668,7 +2669,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Отредактировать ответ на отзыв
 
@@ -2738,7 +2739,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Отредактировать ответ на отзыв
 
@@ -2808,7 +2809,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Отредактировать ответ на отзыв
 
@@ -2869,7 +2870,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -2954,7 +2956,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Ответить на отзыв
 
@@ -3025,7 +3027,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Ответить на отзыв
 
@@ -3096,7 +3098,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Ответить на отзыв
 
@@ -3158,7 +3160,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3247,7 +3250,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1FeedbacksArchiveGet200Response:
         """Список архивных отзывов
 
@@ -3332,7 +3335,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1FeedbacksArchiveGet200Response]:
         """Список архивных отзывов
 
@@ -3417,7 +3420,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Список архивных отзывов
 
@@ -3493,7 +3496,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3582,7 +3586,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionsCountGet200Response:
         """Количество отзывов
 
@@ -3662,7 +3666,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionsCountGet200Response]:
         """Количество отзывов
 
@@ -3742,7 +3746,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Количество отзывов
 
@@ -3813,7 +3817,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3895,7 +3900,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionsCountUnansweredGet200Response:
         """Необработанные отзывы
 
@@ -3962,7 +3967,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionsCountUnansweredGet200Response]:
         """Необработанные отзывы
 
@@ -4029,7 +4034,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Необработанные отзывы
 
@@ -4087,7 +4092,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -4164,7 +4170,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1FeedbacksGet200Response:
         """Список отзывов
 
@@ -4260,7 +4266,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1FeedbacksGet200Response]:
         """Список отзывов
 
@@ -4356,7 +4362,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Список отзывов
 
@@ -4443,7 +4449,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -4542,7 +4549,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionsPatch200Response:
         """Возврат товара по ID отзыва
 
@@ -4614,7 +4621,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionsPatch200Response]:
         """Возврат товара по ID отзыва
 
@@ -4686,7 +4693,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Возврат товара по ID отзыва
 
@@ -4749,7 +4756,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -4834,7 +4842,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1NewFeedbacksQuestionsGet200Response:
         """Непросмотренные отзывы и вопросы
 
@@ -4901,7 +4909,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1NewFeedbacksQuestionsGet200Response]:
         """Непросмотренные отзывы и вопросы
 
@@ -4968,7 +4976,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Непросмотренные отзывы и вопросы
 
@@ -5026,7 +5034,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5097,7 +5106,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionGet200Response:
         """Получить вопрос по ID
 
@@ -5169,7 +5178,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionGet200Response]:
         """Получить вопрос по ID
 
@@ -5241,7 +5250,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получить вопрос по ID
 
@@ -5304,7 +5313,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5381,7 +5391,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionsCountGet200Response:
         """Количество вопросов
 
@@ -5461,7 +5471,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionsCountGet200Response]:
         """Количество вопросов
 
@@ -5541,7 +5551,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Количество вопросов
 
@@ -5612,7 +5622,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5694,7 +5705,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionsCountUnansweredGet200Response:
         """Неотвеченные вопросы
 
@@ -5761,7 +5772,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionsCountUnansweredGet200Response]:
         """Неотвеченные вопросы
 
@@ -5828,7 +5839,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Неотвеченные вопросы
 
@@ -5886,7 +5897,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5963,7 +5975,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionsGet200Response:
         """Список вопросов
 
@@ -6059,7 +6071,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionsGet200Response]:
         """Список вопросов
 
@@ -6155,7 +6167,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Список вопросов
 
@@ -6242,7 +6254,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -6341,7 +6354,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV1QuestionsPatch200Response:
         """Работа с вопросами
 
@@ -6415,7 +6428,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV1QuestionsPatch200Response]:
         """Работа с вопросами
 
@@ -6489,7 +6502,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Работа с вопросами
 
@@ -6554,7 +6567,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru'
+            'https://feedbacks-api.wildberries.ru',
+            'https://feedbacks-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 

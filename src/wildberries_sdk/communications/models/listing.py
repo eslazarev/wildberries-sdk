@@ -27,13 +27,12 @@ class Listing(BaseModel):
     """
     Информация о заказе
     """ # noqa: E501
-    var_date: Optional[StrictStr] = Field(default=None, description="[Будет отключено 16 июня](https://dev.wildberries.ru/release-notes?id=534) ", alias="date")
     nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
     price: Optional[StrictInt] = Field(default=None, description="Фактическая цена с учетом всех скидок. Взимается с покупателя")
     price_currency: Optional[StrictStr] = Field(default=None, description="Валюта", alias="priceCurrency")
     rid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа. <br> Примечание: `rid` — это `srid` в ответах методов:  - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)   - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)   - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)   - [Отчёт о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)   - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailedReportId)   - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailed)   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailedReportId)   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailed) ")
     size: Optional[StrictStr] = Field(default=None, description="Размер товара, соответствует `wbSize` в [карточке товара](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post)")
-    __properties: ClassVar[List[str]] = ["date", "nmID", "price", "priceCurrency", "rid", "size"]
+    __properties: ClassVar[List[str]] = ["nmID", "price", "priceCurrency", "rid", "size"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,7 +85,6 @@ class Listing(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "date": obj.get("date"),
             "nmID": obj.get("nmID"),
             "price": obj.get("price"),
             "priceCurrency": obj.get("priceCurrency"),

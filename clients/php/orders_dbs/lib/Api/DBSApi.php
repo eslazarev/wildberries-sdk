@@ -592,6 +592,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -615,6 +616,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -726,6 +728,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -753,6 +756,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -796,6 +800,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest|null $api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -908,7 +913,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -921,6 +930,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request api_orders_meta_delete_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -945,6 +955,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1120,6 +1131,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1147,6 +1159,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1203,6 +1216,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1315,7 +1329,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -1721,6 +1739,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request api_orders_gtin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1745,6 +1764,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1920,6 +1940,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1947,6 +1968,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2003,6 +2025,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2115,7 +2138,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2128,6 +2155,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request api_orders_imei_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2152,6 +2180,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2327,6 +2356,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2354,6 +2384,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2410,6 +2441,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2522,7 +2554,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2535,6 +2571,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2560,6 +2597,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2722,6 +2760,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2750,6 +2789,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2807,6 +2847,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2920,7 +2961,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2933,6 +2978,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request api_orders_sgtins_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2957,6 +3003,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3118,6 +3165,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3145,6 +3193,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3201,6 +3250,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3313,7 +3363,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3326,6 +3380,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request api_orders_uin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3350,6 +3405,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3525,6 +3581,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3552,6 +3609,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3608,6 +3666,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3720,7 +3779,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3733,6 +3796,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3757,6 +3821,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3918,6 +3983,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3945,6 +4011,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4001,6 +4068,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4113,7 +4181,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4126,6 +4198,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4150,6 +4223,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4311,6 +4385,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4338,6 +4413,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4394,6 +4470,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4506,7 +4583,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4519,6 +4600,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4543,6 +4625,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4704,6 +4787,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4731,6 +4815,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4787,6 +4872,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4899,7 +4985,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4912,6 +5002,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4936,6 +5027,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5111,6 +5203,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5138,6 +5231,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5194,6 +5288,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5306,7 +5401,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -5319,6 +5418,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5343,6 +5443,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5504,6 +5605,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5531,6 +5633,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5587,6 +5690,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5699,7 +5803,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -5712,6 +5820,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5736,6 +5845,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5897,6 +6007,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5924,6 +6035,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5980,6 +6092,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersCodeRequest|null $api_orders_code_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6092,7 +6205,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6561,6 +6678,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrderGroupsRequest $api_order_groups_request api_order_groups_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6585,6 +6703,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrderGroupsRequest $api_order_groups_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6746,6 +6865,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrderGroupsRequest $api_order_groups_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6773,6 +6893,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrderGroupsRequest $api_order_groups_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6829,6 +6950,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrderGroupsRequest $api_order_groups_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6947,7 +7069,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6960,6 +7086,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\OrdersRequestAPI $orders_request_api orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6984,6 +7111,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7159,6 +7287,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7186,6 +7315,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7242,6 +7372,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7360,7 +7491,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7373,6 +7508,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\DeliveryDatesRequest $delivery_dates_request delivery_dates_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7397,6 +7533,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\DeliveryDatesRequest $delivery_dates_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7558,6 +7695,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\DeliveryDatesRequest $delivery_dates_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7585,6 +7723,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\DeliveryDatesRequest $delivery_dates_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7641,6 +7780,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersDbs\Model\DeliveryDatesRequest $delivery_dates_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7759,7 +7899,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7772,6 +7916,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе. (required)
@@ -7799,6 +7944,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе. (required)
@@ -7963,6 +8109,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе. (required)
@@ -7993,6 +8140,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе. (required)
@@ -8052,6 +8200,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе. (required)
@@ -8229,7 +8378,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -8242,6 +8395,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8265,6 +8419,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8411,6 +8566,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8437,6 +8593,7 @@ class DBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8492,6 +8649,7 @@ class DBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8595,7 +8753,11 @@ class DBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }

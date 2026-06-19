@@ -674,7 +674,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Удаление кампании
 
@@ -744,7 +744,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Удаление кампании
 
@@ -814,7 +814,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Удаление кампании
 
@@ -875,7 +875,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -2977,7 +2978,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Пауза кампании
 
@@ -3048,7 +3049,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Пауза кампании
 
@@ -3119,7 +3120,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Пауза кампании
 
@@ -3181,7 +3182,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3257,7 +3259,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Переименование кампании
 
@@ -3328,7 +3330,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Переименование кампании
 
@@ -3399,7 +3401,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Переименование кампании
 
@@ -3461,7 +3463,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3547,7 +3550,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Запуск кампании
 
@@ -3618,7 +3621,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Запуск кампании
 
@@ -3689,7 +3692,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Запуск кампании
 
@@ -3751,7 +3754,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3827,7 +3831,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Завершение кампании
 
@@ -3898,7 +3902,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Завершение кампании
 
@@ -3969,7 +3973,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Завершение кампании
 
@@ -4031,7 +4035,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -4747,7 +4752,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> AdvV1BalanceGet200Response:
         """Баланс
 
@@ -4813,7 +4818,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[AdvV1BalanceGet200Response]:
         """Баланс
 
@@ -4879,7 +4884,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Баланс
 
@@ -4936,7 +4941,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5008,7 +5014,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ResponseWithReturn:
         """Пополнение бюджета кампании
 
@@ -5082,7 +5088,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ResponseWithReturn]:
         """Пополнение бюджета кампании
 
@@ -5156,7 +5162,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Пополнение бюджета кампании
 
@@ -5221,7 +5227,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5311,7 +5318,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> AdvV1BudgetGet200Response:
         """Бюджет кампании
 
@@ -5381,7 +5388,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[AdvV1BudgetGet200Response]:
         """Бюджет кампании
 
@@ -5451,7 +5458,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Бюджет кампании
 
@@ -5512,7 +5519,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -6132,7 +6140,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> List[AdvV1PaymentsGet200ResponseInner]:
         """Получение истории пополнений счёта
 
@@ -6207,7 +6215,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[List[AdvV1PaymentsGet200ResponseInner]]:
         """Получение истории пополнений счёта
 
@@ -6282,7 +6290,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получение истории пополнений счёта
 
@@ -6348,7 +6356,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -6444,7 +6453,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> AdvV1PromotionCountGet200Response:
         """Списки кампаний
 
@@ -6509,7 +6518,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[AdvV1PromotionCountGet200Response]:
         """Списки кампаний
 
@@ -6574,7 +6583,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Списки кампаний
 
@@ -6630,7 +6639,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -6989,7 +6999,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> List[AdvV1SupplierSubjectsGet200ResponseInner]:
         """Предметы для кампаний
 
@@ -7059,7 +7069,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[List[AdvV1SupplierSubjectsGet200ResponseInner]]:
         """Предметы для кампаний
 
@@ -7129,7 +7139,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Предметы для кампаний
 
@@ -7190,7 +7200,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -7266,7 +7277,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> List[AdvV1UpdGet200ResponseInner]:
         """Получение истории затрат
 
@@ -7340,7 +7351,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[List[AdvV1UpdGet200ResponseInner]]:
         """Получение истории затрат
 
@@ -7414,7 +7425,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получение истории затрат
 
@@ -7479,7 +7490,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -7577,7 +7589,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> int:
         """Создать кампанию
 
@@ -7647,7 +7659,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[int]:
         """Создать кампанию
 
@@ -7717,7 +7729,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Создать кампанию
 
@@ -7778,7 +7790,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -7864,7 +7877,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> List[AdvV2SupplierNmsPost200ResponseInner]:
         """Карточки товаров для кампаний
 
@@ -7934,7 +7947,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[List[AdvV2SupplierNmsPost200ResponseInner]]:
         """Карточки товаров для кампаний
 
@@ -8004,7 +8017,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Карточки товаров для кампаний
 
@@ -8065,7 +8078,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru'
+            'https://advert-api.wildberries.ru',
+            'https://advert-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 

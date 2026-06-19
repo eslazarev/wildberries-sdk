@@ -20,14 +20,6 @@ import { mapValues } from '../runtime';
  */
 export interface Listing {
     /**
-     * [Будет отключено 16 июня](https://dev.wildberries.ru/release-notes?id=534)
-     * 
-     * @type {string}
-     * @memberof Listing
-     * @deprecated
-     */
-    date?: string;
-    /**
      * Артикул WB
      * @type {number}
      * @memberof Listing
@@ -86,7 +78,6 @@ export function ListingFromJSONTyped(json: any, ignoreDiscriminator: boolean): L
     }
     return {
         
-        'date': json['date'] == null ? undefined : json['date'],
         'nmID': json['nmID'] == null ? undefined : json['nmID'],
         'price': json['price'] == null ? undefined : json['price'],
         'priceCurrency': json['priceCurrency'] == null ? undefined : json['priceCurrency'],
@@ -106,7 +97,6 @@ export function ListingToJSONTyped(value?: Listing | null, ignoreDiscriminator: 
 
     return {
         
-        'date': value['date'],
         'nmID': value['nmID'],
         'price': value['price'],
         'priceCurrency': value['priceCurrency'],

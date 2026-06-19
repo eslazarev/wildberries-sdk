@@ -121,7 +121,12 @@ paths:
       x-readonly-method: true
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /api/advert/v2/adverts:
     get:
       description: |
@@ -479,7 +484,12 @@ paths:
       x-readonly-method: false
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v1/supplier/subjects:
     get:
       description: |
@@ -569,7 +579,12 @@ paths:
       x-readonly-method: true
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v2/supplier/nms:
     post:
       description: |
@@ -656,7 +671,12 @@ paths:
       x-readonly-method: true
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v0/delete:
     get:
       description: |
@@ -735,7 +755,12 @@ paths:
       x-readonly-method: false
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v0/rename:
     post:
       description: |
@@ -826,7 +851,12 @@ paths:
       x-readonly-method: false
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v0/start:
     get:
       description: |
@@ -918,7 +948,12 @@ paths:
       x-readonly-method: false
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v0/pause:
     get:
       description: |
@@ -1007,7 +1042,12 @@ paths:
       x-readonly-method: false
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v0/stop:
     get:
       description: |
@@ -1099,7 +1139,12 @@ paths:
       x-readonly-method: false
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v0/auction/placements:
     put:
       description: |
@@ -1383,7 +1428,12 @@ paths:
       x-readonly-method: true
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v1/budget:
     get:
       description: |
@@ -1469,7 +1519,12 @@ paths:
       x-readonly-method: true
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v1/budget/deposit:
     post:
       description: |
@@ -1571,7 +1626,12 @@ paths:
       x-readonly-method: false
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v1/upd:
     get:
       description: |
@@ -1685,7 +1745,12 @@ paths:
       x-readonly-method: true
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v1/payments:
     get:
       description: |
@@ -1797,7 +1862,12 @@ paths:
       x-readonly-method: true
       x-category: advert
     servers:
-    - url: https://advert-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://advert-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://advert-api-sandbox.wildberries.ru
   /adv/v0/auction/nms:
     patch:
       description: |

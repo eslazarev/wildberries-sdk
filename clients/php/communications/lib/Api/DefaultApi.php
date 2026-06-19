@@ -3089,6 +3089,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID отзыва (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3113,6 +3114,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID отзыва (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3260,6 +3262,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID отзыва (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3287,6 +3290,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID отзыва (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3343,6 +3347,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID отзыва (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3463,7 +3468,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3476,6 +3485,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3499,6 +3509,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3578,6 +3589,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3605,6 +3617,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3648,6 +3661,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3760,7 +3774,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3773,6 +3791,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3796,6 +3815,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3883,6 +3903,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3910,6 +3931,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3953,6 +3975,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4065,7 +4088,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4078,6 +4105,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int $take Количество отзывов (max. 5 000) (required)
      * @param  int $skip Количество отзывов для пропуска (required)
@@ -4105,6 +4133,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int $take Количество отзывов (max. 5 000) (required)
      * @param  int $skip Количество отзывов для пропуска (required)
@@ -4283,6 +4312,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int $take Количество отзывов (max. 5 000) (required)
      * @param  int $skip Количество отзывов для пропуска (required)
@@ -4313,6 +4343,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int $take Количество отзывов (max. 5 000) (required)
      * @param  int $skip Количество отзывов для пропуска (required)
@@ -4372,6 +4403,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int $take Количество отзывов (max. 5 000) (required)
      * @param  int $skip Количество отзывов для пропуска (required)
@@ -4531,7 +4563,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4544,6 +4580,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -4570,6 +4607,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -4733,6 +4771,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -4762,6 +4801,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -4820,6 +4860,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -4956,7 +4997,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4969,6 +5014,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -4992,6 +5038,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -5138,6 +5185,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -5164,6 +5212,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -5219,6 +5268,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -5322,7 +5372,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -5335,6 +5389,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Обработан ли отзыв:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество отзывов (max. 5 000) (required)
@@ -5365,6 +5420,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Обработан ли отзыв:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество отзывов (max. 5 000) (required)
@@ -5532,6 +5588,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Обработан ли отзыв:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество отзывов (max. 5 000) (required)
@@ -5565,6 +5622,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Обработан ли отзыв:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество отзывов (max. 5 000) (required)
@@ -5627,6 +5685,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Обработан ли отзыв:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество отзывов (max. 5 000) (required)
@@ -5825,7 +5884,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -5838,6 +5901,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksOrderReturnPostRequest $api_v1_feedbacks_order_return_post_request api_v1_feedbacks_order_return_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5862,6 +5926,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksOrderReturnPostRequest $api_v1_feedbacks_order_return_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6023,6 +6088,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksOrderReturnPostRequest $api_v1_feedbacks_order_return_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6050,6 +6116,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksOrderReturnPostRequest $api_v1_feedbacks_order_return_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6106,6 +6173,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksOrderReturnPostRequest $api_v1_feedbacks_order_return_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6224,7 +6292,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6237,6 +6309,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6260,6 +6333,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6406,6 +6480,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6432,6 +6507,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6487,6 +6563,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6590,7 +6667,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6603,6 +6684,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID вопроса (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6627,6 +6709,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID вопроса (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6788,6 +6871,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID вопроса (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6815,6 +6899,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID вопроса (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6871,6 +6956,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  string $id ID вопроса (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6991,7 +7077,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7004,6 +7094,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -7030,6 +7121,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -7193,6 +7285,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -7222,6 +7315,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -7280,6 +7374,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  int|null $date_from Дата начала периода в формате Unix timestamp (optional)
      * @param  int|null $date_to Дата конца периода в формате Unix timestamp (optional)
@@ -7416,7 +7511,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7429,6 +7528,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7452,6 +7552,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7598,6 +7699,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7624,6 +7726,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7679,6 +7782,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7782,7 +7886,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7795,6 +7903,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) (required)
@@ -7825,6 +7934,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) (required)
@@ -7992,6 +8102,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) (required)
@@ -8025,6 +8136,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) (required)
@@ -8087,6 +8199,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  bool $is_answered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
      * @param  int $take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) (required)
@@ -8285,7 +8398,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -8298,6 +8415,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1QuestionsPatchRequest|null $api_v1_questions_patch_request api_v1_questions_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8322,6 +8440,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1QuestionsPatchRequest|null $api_v1_questions_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8511,6 +8630,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1QuestionsPatchRequest|null $api_v1_questions_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8538,6 +8658,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1QuestionsPatchRequest|null $api_v1_questions_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8594,6 +8715,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://feedbacks-api.wildberries.ru
+     * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Communications\Model\ApiV1QuestionsPatchRequest|null $api_v1_questions_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8706,7 +8828,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://feedbacks-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://feedbacks-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }

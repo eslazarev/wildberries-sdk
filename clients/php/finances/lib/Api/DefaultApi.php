@@ -2176,6 +2176,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $date_from Начальная дата отчёта.&lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  \DateTime $date_to Конечная дата отчёта (required)
@@ -2205,6 +2206,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $date_from Начальная дата отчёта.&lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  \DateTime $date_to Конечная дата отчёта (required)
@@ -2357,6 +2359,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $date_from Начальная дата отчёта.&lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  \DateTime $date_to Конечная дата отчёта (required)
@@ -2389,6 +2392,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $date_from Начальная дата отчёта.&lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  \DateTime $date_to Конечная дата отчёта (required)
@@ -2450,6 +2454,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://statistics-api.wildberries.ru
+     * URL: https://statistics-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $date_from Начальная дата отчёта.&lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  \DateTime $date_to Конечная дата отчёта (required)
@@ -2624,7 +2629,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://statistics-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://statistics-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }

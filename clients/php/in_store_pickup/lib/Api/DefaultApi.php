@@ -178,16 +178,23 @@ class DefaultApi
      *
      * Удалить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request api_orders_meta_delete_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrdersResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePost($api_orders_meta_delete_request = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePost($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostWithHttpInfo($api_orders_meta_delete_request, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostWithHttpInfo($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -196,16 +203,23 @@ class DefaultApi
      *
      * Удалить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiOrdersResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostWithHttpInfo($api_orders_meta_delete_request = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostWithHttpInfo($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest($api_orders_meta_delete_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -351,15 +365,22 @@ class DefaultApi
      *
      * Удалить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostAsync($api_orders_meta_delete_request = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostAsync($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostAsyncWithHttpInfo($api_orders_meta_delete_request, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostAsyncWithHttpInfo($api_orders_meta_delete_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -372,16 +393,23 @@ class DefaultApi
      *
      * Удалить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostAsyncWithHttpInfo($api_orders_meta_delete_request = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostAsyncWithHttpInfo($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiOrdersResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest($api_orders_meta_delete_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -422,13 +450,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersMetaDeletePost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest($api_orders_meta_delete_request = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaDeletePost'][0])
     {
 
 
@@ -499,7 +534,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaDeletePost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -507,6 +554,25 @@ class DefaultApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersMetaDeletePost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaDeletePost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
     }
 
     /**
@@ -836,16 +902,23 @@ class DefaultApi
      *
      * Закрепить GTIN за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request api_orders_gtin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPost($api_orders_gtin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPost($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostWithHttpInfo($api_orders_gtin_set_request, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostWithHttpInfo($api_orders_gtin_set_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -854,16 +927,23 @@ class DefaultApi
      *
      * Закрепить GTIN за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostWithHttpInfo($api_orders_gtin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostWithHttpInfo($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest($api_orders_gtin_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest($api_orders_gtin_set_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1009,15 +1089,22 @@ class DefaultApi
      *
      * Закрепить GTIN за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostAsync($api_orders_gtin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostAsync($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostAsyncWithHttpInfo($api_orders_gtin_set_request, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostAsyncWithHttpInfo($api_orders_gtin_set_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1030,16 +1117,23 @@ class DefaultApi
      *
      * Закрепить GTIN за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostAsyncWithHttpInfo($api_orders_gtin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostAsyncWithHttpInfo($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest($api_orders_gtin_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest($api_orders_gtin_set_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1080,13 +1174,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersMetaGtinPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest($api_orders_gtin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaGtinPost'][0])
     {
 
         // verify the required parameter 'api_orders_gtin_set_request' is set
@@ -1163,7 +1264,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaGtinPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -1174,20 +1287,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersMetaGtinPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaGtinPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersMetaImeiPost
      *
      * Закрепить IMEI за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request api_orders_imei_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPost($api_orders_imei_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPost($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostWithHttpInfo($api_orders_imei_set_request, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostWithHttpInfo($api_orders_imei_set_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -1196,16 +1335,23 @@ class DefaultApi
      *
      * Закрепить IMEI за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostWithHttpInfo($api_orders_imei_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostWithHttpInfo($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest($api_orders_imei_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest($api_orders_imei_set_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1351,15 +1497,22 @@ class DefaultApi
      *
      * Закрепить IMEI за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostAsync($api_orders_imei_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostAsync($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostAsyncWithHttpInfo($api_orders_imei_set_request, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostAsyncWithHttpInfo($api_orders_imei_set_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1372,16 +1525,23 @@ class DefaultApi
      *
      * Закрепить IMEI за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostAsyncWithHttpInfo($api_orders_imei_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostAsyncWithHttpInfo($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest($api_orders_imei_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest($api_orders_imei_set_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1422,13 +1582,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersMetaImeiPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest($api_orders_imei_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaImeiPost'][0])
     {
 
         // verify the required parameter 'api_orders_imei_set_request' is set
@@ -1505,7 +1672,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaImeiPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -1516,11 +1695,37 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersMetaImeiPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaImeiPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersMetaInfoPost
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1528,9 +1733,9 @@ class DefaultApi
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      * @deprecated
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPost($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPost($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostWithHttpInfo($api_orders_request_v2, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -1539,7 +1744,14 @@ class DefaultApi
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1547,9 +1759,9 @@ class DefaultApi
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1695,16 +1907,23 @@ class DefaultApi
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostAsync($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostAsyncWithHttpInfo($api_orders_request_v2, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1717,17 +1936,24 @@ class DefaultApi
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostAsyncWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaResponse';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1768,14 +1994,21 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersMetaInfoPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaInfoPost'][0])
     {
 
 
@@ -1846,7 +2079,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaInfoPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -1857,20 +2102,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersMetaInfoPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaInfoPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersMetaSgtinPost
      *
      * Закрепить коды маркировки Честного знака за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request api_orders_sgtins_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPost($api_orders_sgtins_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPost($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostWithHttpInfo($api_orders_sgtins_set_request, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostWithHttpInfo($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -1879,16 +2150,23 @@ class DefaultApi
      *
      * Закрепить коды маркировки Честного знака за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostWithHttpInfo($api_orders_sgtins_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostWithHttpInfo($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest($api_orders_sgtins_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2034,15 +2312,22 @@ class DefaultApi
      *
      * Закрепить коды маркировки Честного знака за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostAsync($api_orders_sgtins_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostAsync($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostAsyncWithHttpInfo($api_orders_sgtins_set_request, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostAsyncWithHttpInfo($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2055,16 +2340,23 @@ class DefaultApi
      *
      * Закрепить коды маркировки Честного знака за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostAsyncWithHttpInfo($api_orders_sgtins_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostAsyncWithHttpInfo($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest($api_orders_sgtins_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2105,13 +2397,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest($api_orders_sgtins_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaSgtinPost'][0])
     {
 
         // verify the required parameter 'api_orders_sgtins_set_request' is set
@@ -2188,7 +2487,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaSgtinPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -2199,20 +2510,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersMetaSgtinPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaSgtinPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersMetaUinPost
      *
      * Закрепить УИН за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request api_orders_uin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaUinPost($api_orders_uin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaUinPost($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostWithHttpInfo($api_orders_uin_set_request, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostWithHttpInfo($api_orders_uin_set_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -2221,16 +2558,23 @@ class DefaultApi
      *
      * Закрепить УИН за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostWithHttpInfo($api_orders_uin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostWithHttpInfo($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostRequest($api_orders_uin_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostRequest($api_orders_uin_set_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2376,15 +2720,22 @@ class DefaultApi
      *
      * Закрепить УИН за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostAsync($api_orders_uin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostAsync($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostAsyncWithHttpInfo($api_orders_uin_set_request, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostAsyncWithHttpInfo($api_orders_uin_set_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2397,16 +2748,23 @@ class DefaultApi
      *
      * Закрепить УИН за сборочными заданиями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostAsyncWithHttpInfo($api_orders_uin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostAsyncWithHttpInfo($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiMetaSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostRequest($api_orders_uin_set_request, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersMetaUinPostRequest($api_orders_uin_set_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2447,13 +2805,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersMetaUinPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostRequest($api_orders_uin_set_request, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersMetaUinPostRequest($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersMetaUinPost'][0])
     {
 
         // verify the required parameter 'api_orders_uin_set_request' is set
@@ -2530,7 +2895,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaUinPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -2541,20 +2918,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersMetaUinPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersMetaUinPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersStatusCancelPost
      *
      * Отменить сборочные задания
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPost($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPost($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostWithHttpInfo($api_orders_request_v2, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -2563,16 +2966,23 @@ class DefaultApi
      *
      * Отменить сборочные задания
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2718,15 +3128,22 @@ class DefaultApi
      *
      * Отменить сборочные задания
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostAsync($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostAsyncWithHttpInfo($api_orders_request_v2, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2739,16 +3156,23 @@ class DefaultApi
      *
      * Отменить сборочные задания
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostAsyncWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2789,13 +3213,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersStatusCancelPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusCancelPost'][0])
     {
 
 
@@ -2866,7 +3297,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusCancelPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -2877,20 +3320,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersStatusCancelPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusCancelPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersStatusConfirmPost
      *
      * Перевести сборочные задания на сборку
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPost($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPost($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostWithHttpInfo($api_orders_request_v2, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -2899,16 +3368,23 @@ class DefaultApi
      *
      * Перевести сборочные задания на сборку
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3054,15 +3530,22 @@ class DefaultApi
      *
      * Перевести сборочные задания на сборку
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostAsync($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostAsyncWithHttpInfo($api_orders_request_v2, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3075,16 +3558,23 @@ class DefaultApi
      *
      * Перевести сборочные задания на сборку
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostAsyncWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3125,13 +3615,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusConfirmPost'][0])
     {
 
 
@@ -3202,7 +3699,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusConfirmPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -3213,20 +3722,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersStatusConfirmPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusConfirmPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersStatusInfoPost
      *
      * Получить статусы сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 api_orders_request_v2 (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrderStatusesV2|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPost($api_orders_request_v2, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPost($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostWithHttpInfo($api_orders_request_v2, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -3235,16 +3770,23 @@ class DefaultApi
      *
      * Получить статусы сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiOrderStatusesV2|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostWithHttpInfo($api_orders_request_v2, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3390,15 +3932,22 @@ class DefaultApi
      *
      * Получить статусы сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostAsync($api_orders_request_v2, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostAsync($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostAsyncWithHttpInfo($api_orders_request_v2, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3411,16 +3960,23 @@ class DefaultApi
      *
      * Получить статусы сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostAsyncWithHttpInfo($api_orders_request_v2, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostAsyncWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiOrderStatusesV2';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3461,13 +4017,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersStatusInfoPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest($api_orders_request_v2, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusInfoPost'][0])
     {
 
         // verify the required parameter 'api_orders_request_v2' is set
@@ -3544,7 +4107,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusInfoPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -3555,20 +4130,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersStatusInfoPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusInfoPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersStatusPreparePost
      *
      * Сообщить, что сборочные задания готовы к выдаче
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiMetaDetailsResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePost($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePost($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostWithHttpInfo($api_orders_request_v2, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -3577,16 +4178,23 @@ class DefaultApi
      *
      * Сообщить, что сборочные задания готовы к выдаче
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiMetaDetailsResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3732,15 +4340,22 @@ class DefaultApi
      *
      * Сообщить, что сборочные задания готовы к выдаче
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostAsync($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostAsyncWithHttpInfo($api_orders_request_v2, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3753,16 +4368,23 @@ class DefaultApi
      *
      * Сообщить, что сборочные задания готовы к выдаче
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostAsyncWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiMetaDetailsResponse';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3803,13 +4425,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersStatusPreparePost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusPreparePost'][0])
     {
 
 
@@ -3880,7 +4509,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusPreparePost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -3891,20 +4532,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersStatusPreparePost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusPreparePost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersStatusReceivePost
      *
      * Сообщить, что заказы приняты покупателями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePost($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePost($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostWithHttpInfo($api_orders_request_v2, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -3913,16 +4580,23 @@ class DefaultApi
      *
      * Сообщить, что заказы приняты покупателями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4068,15 +4742,22 @@ class DefaultApi
      *
      * Сообщить, что заказы приняты покупателями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostAsync($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostAsyncWithHttpInfo($api_orders_request_v2, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4089,16 +4770,23 @@ class DefaultApi
      *
      * Сообщить, что заказы приняты покупателями
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostAsyncWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4139,13 +4827,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersStatusReceivePost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusReceivePost'][0])
     {
 
 
@@ -4216,7 +4911,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusReceivePost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -4227,20 +4934,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersStatusReceivePost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusReceivePost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiMarketplaceV3ClickCollectOrdersStatusRejectPost
      *
      * Сообщить об отказе от заказов
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPost($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPost($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
     {
-        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostWithHttpInfo($api_orders_request_v2, $contentType);
+        list($response) = $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -4249,16 +4982,23 @@ class DefaultApi
      *
      * Сообщить об отказе от заказов
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
     {
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4404,15 +5144,22 @@ class DefaultApi
      *
      * Сообщить об отказе от заказов
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostAsync($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
     {
-        return $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostAsyncWithHttpInfo($api_orders_request_v2, $contentType)
+        return $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4425,16 +5172,23 @@ class DefaultApi
      *
      * Сообщить об отказе от заказов
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostAsyncWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiStatusSetResponses';
-        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest($api_orders_request_v2, $contentType);
+        $request = $this->apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4475,13 +5229,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiMarketplaceV3ClickCollectOrdersStatusRejectPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest($api_orders_request_v2 = null, string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
+    public function apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3ClickCollectOrdersStatusRejectPost'][0])
     {
 
 
@@ -4552,7 +5313,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusRejectPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -4563,20 +5336,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiMarketplaceV3ClickCollectOrdersStatusRejectPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiMarketplaceV3ClickCollectOrdersStatusRejectPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiV3ClickCollectOrdersClientIdentityPost
      *
      * Проверить, что заказ принадлежит покупателю
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiCheckIdentityRequest $api_check_identity_request api_check_identity_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiCheckedIdentity|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiError|\Wildberries\Sdk\InStorePickup\Model\ApiError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiV3ClickCollectOrdersClientIdentityPost($api_check_identity_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
+    public function apiV3ClickCollectOrdersClientIdentityPost($api_check_identity_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
     {
-        list($response) = $this->apiV3ClickCollectOrdersClientIdentityPostWithHttpInfo($api_check_identity_request, $contentType);
+        list($response) = $this->apiV3ClickCollectOrdersClientIdentityPostWithHttpInfo($api_check_identity_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -4585,16 +5384,23 @@ class DefaultApi
      *
      * Проверить, что заказ принадлежит покупателю
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiCheckIdentityRequest $api_check_identity_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiCheckedIdentity|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiError|\Wildberries\Sdk\InStorePickup\Model\ApiError|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3ClickCollectOrdersClientIdentityPostWithHttpInfo($api_check_identity_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
+    public function apiV3ClickCollectOrdersClientIdentityPostWithHttpInfo($api_check_identity_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
     {
-        $request = $this->apiV3ClickCollectOrdersClientIdentityPostRequest($api_check_identity_request, $contentType);
+        $request = $this->apiV3ClickCollectOrdersClientIdentityPostRequest($api_check_identity_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4768,15 +5574,22 @@ class DefaultApi
      *
      * Проверить, что заказ принадлежит покупателю
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiCheckIdentityRequest $api_check_identity_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersClientIdentityPostAsync($api_check_identity_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
+    public function apiV3ClickCollectOrdersClientIdentityPostAsync($api_check_identity_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
     {
-        return $this->apiV3ClickCollectOrdersClientIdentityPostAsyncWithHttpInfo($api_check_identity_request, $contentType)
+        return $this->apiV3ClickCollectOrdersClientIdentityPostAsyncWithHttpInfo($api_check_identity_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4789,16 +5602,23 @@ class DefaultApi
      *
      * Проверить, что заказ принадлежит покупателю
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiCheckIdentityRequest $api_check_identity_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersClientIdentityPostAsyncWithHttpInfo($api_check_identity_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
+    public function apiV3ClickCollectOrdersClientIdentityPostAsyncWithHttpInfo($api_check_identity_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiCheckedIdentity';
-        $request = $this->apiV3ClickCollectOrdersClientIdentityPostRequest($api_check_identity_request, $contentType);
+        $request = $this->apiV3ClickCollectOrdersClientIdentityPostRequest($api_check_identity_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4839,13 +5659,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiV3ClickCollectOrdersClientIdentityPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiCheckIdentityRequest $api_check_identity_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3ClickCollectOrdersClientIdentityPostRequest($api_check_identity_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
+    public function apiV3ClickCollectOrdersClientIdentityPostRequest($api_check_identity_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientIdentityPost'][0])
     {
 
         // verify the required parameter 'api_check_identity_request' is set
@@ -4922,7 +5749,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiV3ClickCollectOrdersClientIdentityPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -4933,20 +5772,46 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiV3ClickCollectOrdersClientIdentityPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiV3ClickCollectOrdersClientIdentityPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiV3ClickCollectOrdersClientPost
      *
      * Информация о покупателе
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequest $api_orders_request api_orders_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrderClientInfoResp|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiV3ClickCollectOrdersClientPost($api_orders_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
+    public function apiV3ClickCollectOrdersClientPost($api_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
     {
-        list($response) = $this->apiV3ClickCollectOrdersClientPostWithHttpInfo($api_orders_request, $contentType);
+        list($response) = $this->apiV3ClickCollectOrdersClientPostWithHttpInfo($api_orders_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -4955,16 +5820,23 @@ class DefaultApi
      *
      * Информация о покупателе
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequest $api_orders_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientPost'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiOrderClientInfoResp|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3ClickCollectOrdersClientPostWithHttpInfo($api_orders_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
+    public function apiV3ClickCollectOrdersClientPostWithHttpInfo($api_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
     {
-        $request = $this->apiV3ClickCollectOrdersClientPostRequest($api_orders_request, $contentType);
+        $request = $this->apiV3ClickCollectOrdersClientPostRequest($api_orders_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5110,15 +5982,22 @@ class DefaultApi
      *
      * Информация о покупателе
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequest $api_orders_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersClientPostAsync($api_orders_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
+    public function apiV3ClickCollectOrdersClientPostAsync($api_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
     {
-        return $this->apiV3ClickCollectOrdersClientPostAsyncWithHttpInfo($api_orders_request, $contentType)
+        return $this->apiV3ClickCollectOrdersClientPostAsyncWithHttpInfo($api_orders_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5131,16 +6010,23 @@ class DefaultApi
      *
      * Информация о покупателе
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequest $api_orders_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersClientPostAsyncWithHttpInfo($api_orders_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
+    public function apiV3ClickCollectOrdersClientPostAsyncWithHttpInfo($api_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiOrderClientInfoResp';
-        $request = $this->apiV3ClickCollectOrdersClientPostRequest($api_orders_request, $contentType);
+        $request = $this->apiV3ClickCollectOrdersClientPostRequest($api_orders_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5181,13 +6067,20 @@ class DefaultApi
     /**
      * Create request for operation 'apiV3ClickCollectOrdersClientPost'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequest $api_orders_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersClientPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3ClickCollectOrdersClientPostRequest($api_orders_request, string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
+    public function apiV3ClickCollectOrdersClientPostRequest($api_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersClientPost'][0])
     {
 
         // verify the required parameter 'api_orders_request' is set
@@ -5264,7 +6157,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiV3ClickCollectOrdersClientPost();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
@@ -5275,23 +6180,49 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiV3ClickCollectOrdersClientPost
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiV3ClickCollectOrdersClientPost(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiV3ClickCollectOrdersGet
      *
      * Получить информацию о завершённых сборочных заданиях
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого необходимо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе (required)
      * @param  int $date_from Дата начала периода в формате Unix timestamp (required)
      * @param  int $date_to Дата конца периода в формате Unix timestamp (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersGet'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrders|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiV3ClickCollectOrdersGet($limit, $next, $date_from, $date_to, string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
+    public function apiV3ClickCollectOrdersGet($limit, $next, $date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
     {
-        list($response) = $this->apiV3ClickCollectOrdersGetWithHttpInfo($limit, $next, $date_from, $date_to, $contentType);
+        list($response) = $this->apiV3ClickCollectOrdersGetWithHttpInfo($limit, $next, $date_from, $date_to, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -5300,19 +6231,26 @@ class DefaultApi
      *
      * Получить информацию о завершённых сборочных заданиях
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого необходимо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе (required)
      * @param  int $date_from Дата начала периода в формате Unix timestamp (required)
      * @param  int $date_to Дата конца периода в формате Unix timestamp (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersGet'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiOrders|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3ClickCollectOrdersGetWithHttpInfo($limit, $next, $date_from, $date_to, string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
+    public function apiV3ClickCollectOrdersGetWithHttpInfo($limit, $next, $date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
     {
-        $request = $this->apiV3ClickCollectOrdersGetRequest($limit, $next, $date_from, $date_to, $contentType);
+        $request = $this->apiV3ClickCollectOrdersGetRequest($limit, $next, $date_from, $date_to, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5458,18 +6396,25 @@ class DefaultApi
      *
      * Получить информацию о завершённых сборочных заданиях
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого необходимо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе (required)
      * @param  int $date_from Дата начала периода в формате Unix timestamp (required)
      * @param  int $date_to Дата конца периода в формате Unix timestamp (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersGetAsync($limit, $next, $date_from, $date_to, string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
+    public function apiV3ClickCollectOrdersGetAsync($limit, $next, $date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
     {
-        return $this->apiV3ClickCollectOrdersGetAsyncWithHttpInfo($limit, $next, $date_from, $date_to, $contentType)
+        return $this->apiV3ClickCollectOrdersGetAsyncWithHttpInfo($limit, $next, $date_from, $date_to, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5482,19 +6427,26 @@ class DefaultApi
      *
      * Получить информацию о завершённых сборочных заданиях
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого необходимо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе (required)
      * @param  int $date_from Дата начала периода в формате Unix timestamp (required)
      * @param  int $date_to Дата конца периода в формате Unix timestamp (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersGetAsyncWithHttpInfo($limit, $next, $date_from, $date_to, string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
+    public function apiV3ClickCollectOrdersGetAsyncWithHttpInfo($limit, $next, $date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiOrders';
-        $request = $this->apiV3ClickCollectOrdersGetRequest($limit, $next, $date_from, $date_to, $contentType);
+        $request = $this->apiV3ClickCollectOrdersGetRequest($limit, $next, $date_from, $date_to, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5535,16 +6487,23 @@ class DefaultApi
     /**
      * Create request for operation 'apiV3ClickCollectOrdersGet'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого необходимо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе (required)
      * @param  int $date_from Дата начала периода в формате Unix timestamp (required)
      * @param  int $date_to Дата конца периода в формате Unix timestamp (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3ClickCollectOrdersGetRequest($limit, $next, $date_from, $date_to, string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
+    public function apiV3ClickCollectOrdersGetRequest($limit, $next, $date_from, $date_to, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersGet'][0])
     {
 
         // verify the required parameter 'limit' is set
@@ -5677,7 +6636,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiV3ClickCollectOrdersGet();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
@@ -5688,19 +6659,45 @@ class DefaultApi
     }
 
     /**
+     * Returns an array of host settings for Operation apiV3ClickCollectOrdersGet
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiV3ClickCollectOrdersGet(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
+    }
+
+    /**
      * Operation apiV3ClickCollectOrdersNewGet
      *
      * Получить список новых сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersNewGet'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiNewOrders|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response
      */
-    public function apiV3ClickCollectOrdersNewGet(string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
+    public function apiV3ClickCollectOrdersNewGet(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
     {
-        list($response) = $this->apiV3ClickCollectOrdersNewGetWithHttpInfo($contentType);
+        list($response) = $this->apiV3ClickCollectOrdersNewGetWithHttpInfo($hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -5709,15 +6706,22 @@ class DefaultApi
      *
      * Получить список новых сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersNewGet'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiNewOrders|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\ApiV3ClickCollectOrdersNewGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3ClickCollectOrdersNewGetWithHttpInfo(string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
+    public function apiV3ClickCollectOrdersNewGetWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
     {
-        $request = $this->apiV3ClickCollectOrdersNewGetRequest($contentType);
+        $request = $this->apiV3ClickCollectOrdersNewGetRequest($hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5849,14 +6853,21 @@ class DefaultApi
      *
      * Получить список новых сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersNewGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersNewGetAsync(string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
+    public function apiV3ClickCollectOrdersNewGetAsync(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
     {
-        return $this->apiV3ClickCollectOrdersNewGetAsyncWithHttpInfo($contentType)
+        return $this->apiV3ClickCollectOrdersNewGetAsyncWithHttpInfo($hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5869,15 +6880,22 @@ class DefaultApi
      *
      * Получить список новых сборочных заданий
      *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersNewGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3ClickCollectOrdersNewGetAsyncWithHttpInfo(string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
+    public function apiV3ClickCollectOrdersNewGetAsyncWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiNewOrders';
-        $request = $this->apiV3ClickCollectOrdersNewGetRequest($contentType);
+        $request = $this->apiV3ClickCollectOrdersNewGetRequest($hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5918,12 +6936,19 @@ class DefaultApi
     /**
      * Create request for operation 'apiV3ClickCollectOrdersNewGet'
      *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3ClickCollectOrdersNewGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3ClickCollectOrdersNewGetRequest(string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
+    public function apiV3ClickCollectOrdersNewGetRequest(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3ClickCollectOrdersNewGet'][0])
     {
 
 
@@ -5986,7 +7011,19 @@ class DefaultApi
             $headers
         );
 
-        $operationHost = $this->config->getHost();
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForapiV3ClickCollectOrdersNewGet();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
@@ -5994,6 +7031,25 @@ class DefaultApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Returns an array of host settings for Operation apiV3ClickCollectOrdersNewGet
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForapiV3ClickCollectOrdersNewGet(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
+            ]
+        ];
     }
 
     /**

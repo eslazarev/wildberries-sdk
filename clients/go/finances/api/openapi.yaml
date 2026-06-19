@@ -524,7 +524,12 @@ paths:
       x-readonly-method: true
       x-category: statistics
     servers:
-    - url: https://statistics-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://statistics-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://statistics-api-sandbox.wildberries.ru
   /api/finance/v1/acquiring/list:
     post:
       description: "<div class=\"description_token\">Метод доступен по <a href=\"\

@@ -151,6 +151,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsGood[] $models_good models_good (required)
      * @param  int|null $warehouse_id ID склада. &lt;br&gt; Если параметр не указан, возвращаются данные по всем складам.&lt;br&gt; **Максимум одно значение** (optional)
@@ -176,6 +177,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsGood[] $models_good (required)
      * @param  int|null $warehouse_id ID склада. &lt;br&gt; Если параметр не указан, возвращаются данные по всем складам.&lt;br&gt; **Максимум одно значение** (optional)
@@ -324,6 +326,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsGood[] $models_good (required)
      * @param  int|null $warehouse_id ID склада. &lt;br&gt; Если параметр не указан, возвращаются данные по всем складам.&lt;br&gt; **Максимум одно значение** (optional)
@@ -352,6 +355,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsGood[] $models_good (required)
      * @param  int|null $warehouse_id ID склада. &lt;br&gt; Если параметр не указан, возвращаются данные по всем складам.&lt;br&gt; **Максимум одно значение** (optional)
@@ -409,6 +413,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbw\Model\ModelsGood[] $models_good (required)
      * @param  int|null $warehouse_id ID склада. &lt;br&gt; Если параметр не указан, возвращаются данные по всем складам.&lt;br&gt; **Максимум одно значение** (optional)
@@ -541,7 +546,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://supplies-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://supplies-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2551,6 +2560,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -2574,6 +2584,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -2692,6 +2703,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -2718,6 +2730,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -2773,6 +2786,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://supplies-api.wildberries.ru
+     * URL: https://supplies-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -2876,7 +2890,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://supplies-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://supplies-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }

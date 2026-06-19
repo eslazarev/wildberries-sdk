@@ -123,7 +123,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/passes:
     get:
       description: |
@@ -308,7 +313,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/passes/{passId}:
     delete:
       description: |
@@ -516,7 +526,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/new:
     get:
       description: |
@@ -603,7 +618,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders:
     get:
       description: |
@@ -738,7 +758,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/status:
     post:
       description: |
@@ -864,7 +889,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/supplies/orders/reshipment:
     get:
       description: |
@@ -959,7 +989,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/{orderId}/cancel:
     patch:
       description: |
@@ -1080,7 +1115,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/stickers:
     post:
       description: |
@@ -1228,7 +1268,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/orders/meta:
     post:
       description: |
@@ -1346,7 +1391,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/{orderId}/meta:
     delete:
       description: |
@@ -1477,7 +1527,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/{orderId}/meta/sgtin:
     put:
       description: |
@@ -1604,7 +1659,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/{orderId}/meta/uin:
     put:
       description: |
@@ -1722,7 +1782,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/{orderId}/meta/imei:
     put:
       description: |
@@ -1840,7 +1905,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/{orderId}/meta/gtin:
     put:
       description: |
@@ -1958,7 +2028,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/{orderId}/meta/expiration:
     put:
       description: |
@@ -2090,7 +2165,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/orders/{orderId}/meta/customs-declaration:
     put:
       description: |
@@ -2216,7 +2296,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/orders/stickers/cross-border:
     post:
       description: |
@@ -2542,7 +2627,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/supplies:
     get:
       description: |
@@ -2753,7 +2843,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/supplies/{supplyId}/orders:
     patch:
       description: |
@@ -2891,7 +2986,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/supplies/{supplyId}:
     delete:
       description: |
@@ -3109,7 +3209,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/supplies/{supplyId}/order-ids:
     get:
       description: |
@@ -3214,7 +3319,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/supplies/{supplyId}/deliver:
     patch:
       description: |
@@ -3338,7 +3448,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/supplies/{supplyId}/barcode:
     get:
       description: |
@@ -3476,7 +3591,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/supplies/{supplyId}/trbx:
     delete:
       description: |
@@ -3807,7 +3927,12 @@ paths:
       x-readonly-method: false
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/supplies/{supplyId}/trbx/stickers:
     post:
       description: |
@@ -3939,7 +4064,12 @@ paths:
       x-readonly-method: true
       x-category: marketplace
     servers:
-    - url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/fbs/orders/archive:
     get:
       description: |
@@ -4959,7 +5089,7 @@ components:
           nullable: true
           type: string
         scanDt:
-          description: Дата скана поставки (RFC3339)
+          description: Дата сканирования поставки или первого заказа (RFC3339)
           example: 2022-05-04T07:56:29Z
           format: date-time
           nullable: true

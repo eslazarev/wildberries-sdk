@@ -99,6 +99,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/status/confirm:
     post:
       description: |
@@ -193,6 +200,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/status/prepare:
     post:
       description: |
@@ -287,6 +301,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/click-collect/orders/client:
     post:
       description: |
@@ -382,6 +403,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/click-collect/orders/client/identity:
     post:
       description: |
@@ -493,6 +521,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/status/receive:
     post:
       description: |
@@ -587,6 +622,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/status/reject:
     post:
       description: |
@@ -681,6 +723,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/status/info:
     post:
       description: "Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz)\
@@ -793,6 +842,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/v3/click-collect/orders:
     get:
       description: |
@@ -921,6 +977,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: true
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/status/cancel:
     post:
       description: |
@@ -1015,6 +1078,13 @@ paths:
       - Сборочные задания Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/meta/details:
     post:
       description: |
@@ -1196,6 +1266,13 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: true
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/meta/delete:
     post:
       description: |
@@ -1290,6 +1367,13 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/meta/sgtin:
     post:
       description: |
@@ -1386,6 +1470,13 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/meta/uin:
     post:
       description: |
@@ -1481,6 +1572,13 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/meta/imei:
     post:
       description: |
@@ -1576,6 +1674,13 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/click-collect/orders/meta/gtin:
     post:
       description: |
@@ -1672,6 +1777,13 @@ paths:
       - Идентификаторы маркировки Самовывоз
       x-readonly-method: false
       x-category: marketplace
+    servers:
+    - description: |
+        **Prod**
+      url: https://marketplace-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://marketplace-api-sandbox.wildberries.ru
 components:
   examples:
     NewOrderClick:

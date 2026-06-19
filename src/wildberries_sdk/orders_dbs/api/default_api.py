@@ -370,7 +370,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> None:
         """Закрепить за сборочными заданиями номер ДТ
 
@@ -444,7 +444,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[None]:
         """Закрепить за сборочными заданиями номер ДТ
 
@@ -518,7 +518,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Закрепить за сборочными заданиями номер ДТ
 
@@ -583,7 +583,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -669,7 +670,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Удалить идентификаторы маркировки сборочных заданий
 
@@ -742,7 +743,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Удалить идентификаторы маркировки сборочных заданий
 
@@ -815,7 +816,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Удалить идентификаторы маркировки сборочных заданий
 
@@ -879,7 +880,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -1258,7 +1260,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Закрепить GTIN за сборочными заданиями
 
@@ -1331,7 +1333,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Закрепить GTIN за сборочными заданиями
 
@@ -1404,7 +1406,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Закрепить GTIN за сборочными заданиями
 
@@ -1468,7 +1470,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -1554,7 +1557,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Закрепить IMEI за сборочными заданиями
 
@@ -1627,7 +1630,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Закрепить IMEI за сборочными заданиями
 
@@ -1700,7 +1703,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Закрепить IMEI за сборочными заданиями
 
@@ -1764,7 +1767,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -1850,7 +1854,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiOrdersMetaResponse:
         """(Deprecated) Получить идентификаторы маркировки сборочных заданий
 
@@ -1923,7 +1927,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiOrdersMetaResponse]:
         """(Deprecated) Получить идентификаторы маркировки сборочных заданий
 
@@ -1996,7 +2000,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """(Deprecated) Получить идентификаторы маркировки сборочных заданий
 
@@ -2060,7 +2064,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -2146,7 +2151,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Закрепить коды маркировки Честного знака за сборочными заданиями
 
@@ -2218,7 +2223,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Закрепить коды маркировки Честного знака за сборочными заданиями
 
@@ -2290,7 +2295,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Закрепить коды маркировки Честного знака за сборочными заданиями
 
@@ -2353,7 +2358,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -2439,7 +2445,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Закрепить УИН за сборочными заданиями
 
@@ -2512,7 +2518,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Закрепить УИН за сборочными заданиями
 
@@ -2585,7 +2591,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Закрепить УИН за сборочными заданиями
 
@@ -2649,7 +2655,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -2735,7 +2742,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Отменить сборочные задания
 
@@ -2807,7 +2814,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Отменить сборочные задания
 
@@ -2879,7 +2886,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Отменить сборочные задания
 
@@ -2942,7 +2949,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3028,7 +3036,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Перевести сборочные задания на сборку
 
@@ -3100,7 +3108,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Перевести сборочные задания на сборку
 
@@ -3172,7 +3180,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Перевести сборочные задания на сборку
 
@@ -3235,7 +3243,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3321,7 +3330,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetDeliverResponses:
         """Перевести сборочные задания в доставку
 
@@ -3393,7 +3402,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetDeliverResponses]:
         """Перевести сборочные задания в доставку
 
@@ -3465,7 +3474,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Перевести сборочные задания в доставку
 
@@ -3528,7 +3537,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3614,7 +3624,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiOrderStatusesV2:
         """Получить статусы сборочных заданий
 
@@ -3687,7 +3697,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiOrderStatusesV2]:
         """Получить статусы сборочных заданий
 
@@ -3760,7 +3770,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получить статусы сборочных заданий
 
@@ -3824,7 +3834,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -3910,7 +3921,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiMarketplaceV3DbsOrdersStatusReceivePost200Response:
         """Сообщить о получении заказов
 
@@ -3982,7 +3993,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiMarketplaceV3DbsOrdersStatusReceivePost200Response]:
         """Сообщить о получении заказов
 
@@ -4054,7 +4065,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Сообщить о получении заказов
 
@@ -4117,7 +4128,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -4203,7 +4215,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiStatusSetResponses:
         """Сообщить об отказе от заказов
 
@@ -4275,7 +4287,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Сообщить об отказе от заказов
 
@@ -4347,7 +4359,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Сообщить об отказе от заказов
 
@@ -4410,7 +4422,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -4840,7 +4853,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> List[ApiOrderGroupInner]:
         """Получить информацию о платной доставке
 
@@ -4912,7 +4925,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[List[ApiOrderGroupInner]]:
         """Получить информацию о платной доставке
 
@@ -4984,7 +4997,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получить информацию о платной доставке
 
@@ -5047,7 +5060,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5133,7 +5147,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> DbsOnlyClientInfoResp:
         """Информация о покупателе
 
@@ -5206,7 +5220,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[DbsOnlyClientInfoResp]:
         """Информация о покупателе
 
@@ -5279,7 +5293,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Информация о покупателе
 
@@ -5343,7 +5357,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5429,7 +5444,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> DeliveryDatesInfoResp:
         """Получить дату и время доставки
 
@@ -5501,7 +5516,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[DeliveryDatesInfoResp]:
         """Получить дату и время доставки
 
@@ -5573,7 +5588,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получить дату и время доставки
 
@@ -5636,7 +5651,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -5725,7 +5741,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV3DbsOrdersGet200Response:
         """Получить информацию о завершенных сборочных заданиях
 
@@ -5809,7 +5825,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV3DbsOrdersGet200Response]:
         """Получить информацию о завершенных сборочных заданиях
 
@@ -5893,7 +5909,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получить информацию о завершенных сборочных заданиях
 
@@ -5968,7 +5984,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -6054,7 +6071,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiV3DbsOrdersNewGet200Response:
         """Получить список новых сборочных заданий
 
@@ -6121,7 +6138,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ApiV3DbsOrdersNewGet200Response]:
         """Получить список новых сборочных заданий
 
@@ -6188,7 +6205,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Получить список новых сборочных заданий
 
@@ -6246,7 +6263,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru'
+            'https://marketplace-api.wildberries.ru',
+            'https://marketplace-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 

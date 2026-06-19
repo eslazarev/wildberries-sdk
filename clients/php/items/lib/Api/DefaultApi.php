@@ -682,6 +682,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -708,6 +709,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -857,6 +859,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -886,6 +889,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -944,6 +948,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -1098,7 +1103,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -1111,6 +1120,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1135,6 +1145,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1282,6 +1293,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1309,6 +1321,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1365,6 +1378,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1485,7 +1499,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -1498,6 +1516,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -1524,6 +1543,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -1673,6 +1693,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -1702,6 +1723,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -1760,6 +1782,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $upload_id ID загрузки (required)
@@ -1914,7 +1937,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -1927,6 +1954,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1951,6 +1979,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2098,6 +2127,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2125,6 +2155,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2181,6 +2212,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $upload_id ID загрузки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2301,7 +2333,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2314,6 +2350,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -2340,6 +2377,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -2503,6 +2541,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -2532,6 +2571,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -2590,6 +2630,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -2738,7 +2779,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2751,6 +2796,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2ListGoodsFilterPostRequest $api_v2_list_goods_filter_post_request api_v2_list_goods_filter_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2775,6 +2821,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2ListGoodsFilterPostRequest $api_v2_list_goods_filter_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2936,6 +2983,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2ListGoodsFilterPostRequest $api_v2_list_goods_filter_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2963,6 +3011,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2ListGoodsFilterPostRequest $api_v2_list_goods_filter_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3019,6 +3068,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2ListGoodsFilterPostRequest $api_v2_list_goods_filter_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3137,7 +3187,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3150,6 +3204,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $nm_id Артикул WB (required)
@@ -3176,6 +3231,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $nm_id Артикул WB (required)
@@ -3339,6 +3395,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $nm_id Артикул WB (required)
@@ -3368,6 +3425,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $nm_id Артикул WB (required)
@@ -3426,6 +3484,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int $nm_id Артикул WB (required)
@@ -3580,7 +3639,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3593,6 +3656,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -3618,6 +3682,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -3794,6 +3859,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -3822,6 +3888,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -3879,6 +3946,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  int $limit Сколько элементов вывести на одной странице (пагинация) (required)
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнется с 11 элемента (optional)
@@ -4016,7 +4084,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4029,6 +4101,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskClubDiscountPostRequest $api_v2_upload_task_club_discount_post_request api_v2_upload_task_club_discount_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4053,6 +4126,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskClubDiscountPostRequest $api_v2_upload_task_club_discount_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4256,6 +4330,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskClubDiscountPostRequest $api_v2_upload_task_club_discount_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4283,6 +4358,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskClubDiscountPostRequest $api_v2_upload_task_club_discount_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4339,6 +4415,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskClubDiscountPostRequest $api_v2_upload_task_club_discount_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4457,7 +4534,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4470,6 +4551,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskPostRequest $api_v2_upload_task_post_request api_v2_upload_task_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4494,6 +4576,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskPostRequest $api_v2_upload_task_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4697,6 +4780,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskPostRequest $api_v2_upload_task_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4724,6 +4808,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskPostRequest $api_v2_upload_task_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4780,6 +4865,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskPostRequest $api_v2_upload_task_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4898,7 +4984,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4911,6 +5001,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskSizePostRequest $api_v2_upload_task_size_post_request api_v2_upload_task_size_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -4935,6 +5026,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskSizePostRequest $api_v2_upload_task_size_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5138,6 +5230,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskSizePostRequest $api_v2_upload_task_size_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5165,6 +5258,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskSizePostRequest $api_v2_upload_task_size_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5221,6 +5315,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://discounts-prices-api.wildberries.ru
+     * URL: https://discounts-prices-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV2UploadTaskSizePostRequest $api_v2_upload_task_size_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -5339,7 +5434,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://discounts-prices-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://discounts-prices-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6091,6 +6190,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6114,6 +6214,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6246,6 +6347,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6272,6 +6374,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6327,6 +6430,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6430,7 +6534,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6443,6 +6551,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdDeleteRequest $api_v3_stocks_warehouse_id_delete_request api_v3_stocks_warehouse_id_delete_request (required)
@@ -6467,6 +6576,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdDeleteRequest $api_v3_stocks_warehouse_id_delete_request (required)
@@ -6579,6 +6689,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdDeleteRequest $api_v3_stocks_warehouse_id_delete_request (required)
@@ -6607,6 +6718,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdDeleteRequest $api_v3_stocks_warehouse_id_delete_request (required)
@@ -6651,6 +6763,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdDeleteRequest $api_v3_stocks_warehouse_id_delete_request (required)
@@ -6785,7 +6898,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6798,6 +6915,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPostRequest $api_v3_stocks_warehouse_id_post_request api_v3_stocks_warehouse_id_post_request (required)
@@ -6823,6 +6941,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPostRequest $api_v3_stocks_warehouse_id_post_request (required)
@@ -6999,6 +7118,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPostRequest $api_v3_stocks_warehouse_id_post_request (required)
@@ -7027,6 +7147,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPostRequest $api_v3_stocks_warehouse_id_post_request (required)
@@ -7084,6 +7205,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPostRequest $api_v3_stocks_warehouse_id_post_request (required)
@@ -7218,7 +7340,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7231,6 +7357,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPutRequest|null $api_v3_stocks_warehouse_id_put_request api_v3_stocks_warehouse_id_put_request (optional)
@@ -7255,6 +7382,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPutRequest|null $api_v3_stocks_warehouse_id_put_request (optional)
@@ -7375,6 +7503,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPutRequest|null $api_v3_stocks_warehouse_id_put_request (optional)
@@ -7403,6 +7532,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPutRequest|null $api_v3_stocks_warehouse_id_put_request (optional)
@@ -7447,6 +7577,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPutRequest|null $api_v3_stocks_warehouse_id_put_request (optional)
@@ -7575,7 +7706,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7588,6 +7723,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7611,6 +7747,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7743,6 +7880,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7769,6 +7907,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7824,6 +7963,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7927,7 +8067,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7940,6 +8084,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request api_v3_warehouses_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -7964,6 +8109,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8153,6 +8299,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8180,6 +8327,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8236,6 +8384,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8354,7 +8503,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -8367,6 +8520,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8390,6 +8544,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8485,6 +8640,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8512,6 +8668,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8555,6 +8712,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8674,7 +8832,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -8687,6 +8849,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request api_v3_warehouses_post_request (required)
@@ -8711,6 +8874,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
@@ -8823,6 +8987,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
@@ -8851,6 +9016,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
@@ -8895,6 +9061,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
      * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
@@ -9029,7 +9196,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -9042,6 +9213,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2BarcodesPostRequest $content_v2_barcodes_post_request content_v2_barcodes_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9066,6 +9238,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2BarcodesPostRequest $content_v2_barcodes_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9213,6 +9386,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2BarcodesPostRequest $content_v2_barcodes_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9240,6 +9414,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2BarcodesPostRequest $content_v2_barcodes_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9296,6 +9471,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2BarcodesPostRequest $content_v2_barcodes_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9414,7 +9590,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -9427,6 +9607,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9451,6 +9632,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9612,6 +9794,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9639,6 +9822,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9695,6 +9879,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9813,7 +9998,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -9826,6 +10015,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\RequestPublicViewerPublicErrorsTableListV2 $request_public_viewer_public_errors_table_list_v2 request_public_viewer_public_errors_table_list_v2 (required)
      * @param  string|null $locale Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский (optional)
@@ -9851,6 +10041,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\RequestPublicViewerPublicErrorsTableListV2 $request_public_viewer_public_errors_table_list_v2 (required)
      * @param  string|null $locale Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский (optional)
@@ -9999,6 +10190,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\RequestPublicViewerPublicErrorsTableListV2 $request_public_viewer_public_errors_table_list_v2 (required)
      * @param  string|null $locale Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский (optional)
@@ -10027,6 +10219,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\RequestPublicViewerPublicErrorsTableListV2 $request_public_viewer_public_errors_table_list_v2 (required)
      * @param  string|null $locale Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский (optional)
@@ -10084,6 +10277,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\RequestPublicViewerPublicErrorsTableListV2 $request_public_viewer_public_errors_table_list_v2 (required)
      * @param  string|null $locale Язык названий предметов:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский (optional)
@@ -10213,7 +10407,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -10226,6 +10424,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -10249,6 +10448,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -10381,6 +10581,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -10407,6 +10608,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -10462,6 +10664,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -10565,7 +10768,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -10578,6 +10785,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsMoveNmPostRequest|null $content_v2_cards_move_nm_post_request content_v2_cards_move_nm_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10602,6 +10810,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsMoveNmPostRequest|null $content_v2_cards_move_nm_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10777,6 +10986,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsMoveNmPostRequest|null $content_v2_cards_move_nm_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10804,6 +11014,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsMoveNmPostRequest|null $content_v2_cards_move_nm_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10860,6 +11071,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsMoveNmPostRequest|null $content_v2_cards_move_nm_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10972,7 +11184,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -10985,6 +11201,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11009,6 +11226,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11170,6 +11388,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11197,6 +11416,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11253,6 +11473,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsDeleteTrashPostRequest $content_v2_cards_delete_trash_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11371,7 +11592,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -11384,6 +11609,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInner[]|null $content_v2_cards_update_post_request_inner content_v2_cards_update_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11408,6 +11634,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInner[]|null $content_v2_cards_update_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11583,6 +11810,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInner[]|null $content_v2_cards_update_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11610,6 +11838,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInner[]|null $content_v2_cards_update_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11666,6 +11895,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUpdatePostRequestInner[]|null $content_v2_cards_update_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11778,7 +12008,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -11791,6 +12025,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadAddPostRequest|null $content_v2_cards_upload_add_post_request content_v2_cards_upload_add_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11815,6 +12050,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadAddPostRequest|null $content_v2_cards_upload_add_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11976,6 +12212,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadAddPostRequest|null $content_v2_cards_upload_add_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12003,6 +12240,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadAddPostRequest|null $content_v2_cards_upload_add_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12059,6 +12297,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadAddPostRequest|null $content_v2_cards_upload_add_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12171,7 +12410,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -12184,6 +12427,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInner[]|null $content_v2_cards_upload_post_request_inner content_v2_cards_upload_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12208,6 +12452,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInner[]|null $content_v2_cards_upload_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12369,6 +12614,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInner[]|null $content_v2_cards_upload_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12396,6 +12642,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInner[]|null $content_v2_cards_upload_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12452,6 +12699,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2CardsUploadPostRequestInner[]|null $content_v2_cards_upload_post_request_inner (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12564,7 +12812,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -12577,6 +12829,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12601,6 +12854,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12748,6 +13002,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12775,6 +13030,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12831,6 +13087,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12945,7 +13202,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -12958,6 +13219,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12982,6 +13244,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13129,6 +13392,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13156,6 +13420,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13212,6 +13477,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13326,7 +13592,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -13339,6 +13609,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13363,6 +13634,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13510,6 +13782,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13537,6 +13810,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13593,6 +13867,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13707,7 +13982,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -13720,6 +13999,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13744,6 +14024,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13891,6 +14172,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13918,6 +14200,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13974,6 +14257,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -14088,7 +14372,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -14101,6 +14389,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  int|null $search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
@@ -14127,6 +14416,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  int|null $search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
@@ -14276,6 +14566,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  int|null $search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
@@ -14305,6 +14596,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  int|null $search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
@@ -14363,6 +14655,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  int|null $search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
@@ -14505,7 +14798,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -14518,6 +14815,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -14542,6 +14840,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -14689,6 +14988,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -14716,6 +15016,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -14772,6 +15073,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -14886,7 +15188,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -14899,6 +15205,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPostRequest $content_v2_get_cards_list_post_request content_v2_get_cards_list_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -14924,6 +15231,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPostRequest $content_v2_get_cards_list_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15086,6 +15394,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPostRequest $content_v2_get_cards_list_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15114,6 +15423,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPostRequest $content_v2_get_cards_list_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15171,6 +15481,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsListPostRequest $content_v2_get_cards_list_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15300,7 +15611,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -15313,6 +15628,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsTrashPostRequest $content_v2_get_cards_trash_post_request content_v2_get_cards_trash_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15338,6 +15654,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsTrashPostRequest $content_v2_get_cards_trash_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15500,6 +15817,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsTrashPostRequest $content_v2_get_cards_trash_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15528,6 +15846,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsTrashPostRequest $content_v2_get_cards_trash_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15585,6 +15904,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2GetCardsTrashPostRequest $content_v2_get_cards_trash_post_request (required)
      * @param  string|null $locale Язык полей ответа &#x60;name&#x60;, &#x60;value&#x60; и &#x60;object&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -15714,7 +16034,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -15727,6 +16051,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  string|null $name Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков (optional)
@@ -15755,6 +16080,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  string|null $name Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков (optional)
@@ -15878,6 +16204,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  string|null $name Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков (optional)
@@ -15909,6 +16236,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  string|null $name Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков (optional)
@@ -15969,6 +16297,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  string|null $name Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков (optional)
@@ -16127,7 +16456,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -16140,6 +16473,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -16165,6 +16499,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -16313,6 +16648,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -16341,6 +16677,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -16398,6 +16735,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $subject_id ID предмета (required)
      * @param  string|null $locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
@@ -16528,7 +16866,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -16541,6 +16883,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -16565,6 +16908,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -16712,6 +17056,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -16739,6 +17084,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -16795,6 +17141,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string|null $locale Язык поля ответа &#x60;name&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -16909,7 +17256,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -16922,6 +17273,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -16946,6 +17298,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -17107,6 +17460,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -17134,6 +17488,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -17190,6 +17545,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -17309,7 +17665,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -17322,6 +17682,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request content_v2_tag_post_request (required)
@@ -17347,6 +17708,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
@@ -17509,6 +17871,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
@@ -17537,6 +17900,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
@@ -17594,6 +17958,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
@@ -17728,7 +18093,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -17741,6 +18110,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagNomenclatureLinkPostRequest $content_v2_tag_nomenclature_link_post_request content_v2_tag_nomenclature_link_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -17765,6 +18135,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagNomenclatureLinkPostRequest $content_v2_tag_nomenclature_link_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -17926,6 +18297,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagNomenclatureLinkPostRequest $content_v2_tag_nomenclature_link_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -17953,6 +18325,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagNomenclatureLinkPostRequest $content_v2_tag_nomenclature_link_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -18009,6 +18382,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagNomenclatureLinkPostRequest $content_v2_tag_nomenclature_link_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -18127,7 +18501,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -18140,6 +18518,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request content_v2_tag_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -18164,6 +18543,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -18325,6 +18705,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -18352,6 +18733,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -18408,6 +18790,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -18526,7 +18909,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -18539,6 +18926,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -18562,6 +18950,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -18708,6 +19097,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -18734,6 +19124,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -18789,6 +19180,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -18892,7 +19284,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -18905,6 +19301,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string $x_nm_id Артикул WB (required)
      * @param  int $x_photo_number Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. (required)
@@ -18931,6 +19328,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string $x_nm_id Артикул WB (required)
      * @param  int $x_photo_number Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. (required)
@@ -19094,6 +19492,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string $x_nm_id Артикул WB (required)
      * @param  int $x_photo_number Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. (required)
@@ -19123,6 +19522,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string $x_nm_id Артикул WB (required)
      * @param  int $x_photo_number Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. (required)
@@ -19181,6 +19581,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  string $x_nm_id Артикул WB (required)
      * @param  int $x_photo_number Номер медиафайла на загрузку, начинается с &#x60;1&#x60;. При загрузке видео всегда указывайте &#x60;1&#x60;.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. (required)
@@ -19320,7 +19721,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -19333,6 +19738,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV3MediaSavePostRequest $content_v3_media_save_post_request content_v3_media_save_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -19357,6 +19763,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV3MediaSavePostRequest $content_v3_media_save_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -19546,6 +19953,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV3MediaSavePostRequest $content_v3_media_save_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -19573,6 +19981,7 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV3MediaSavePostRequest $content_v3_media_save_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -19629,6 +20038,7 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://content-api.wildberries.ru
+     * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Items\Model\ContentV3MediaSavePostRequest $content_v3_media_save_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -19747,7 +20157,11 @@ class DefaultApi
         return [
             [
                 "url" => "https://content-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://content-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }

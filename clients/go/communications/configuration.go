@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.110/go",
+		UserAgent:        "OpenAPI-Generator/0.1.111/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -143,85 +143,141 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.ApiV1FeedbackGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1FeedbacksAnswerPatch": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1FeedbacksAnswerPost": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1FeedbacksArchiveGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1FeedbacksCountGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1FeedbacksCountUnansweredGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1FeedbacksGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1FeedbacksOrderReturnPost": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1NewFeedbacksQuestionsGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1QuestionGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1QuestionsCountGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1QuestionsCountUnansweredGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1QuestionsGet": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1QuestionsPatch": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1SellerChatsGet": {

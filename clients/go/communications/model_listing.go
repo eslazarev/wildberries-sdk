@@ -19,9 +19,6 @@ var _ MappedNullable = &Listing{}
 
 // Listing Информация о заказе
 type Listing struct {
-	// [Будет отключено 16 июня](https://dev.wildberries.ru/release-notes?id=534) 
-	// Deprecated
-	Date *string `json:"date,omitempty"`
 	// Артикул WB
 	NmID *int32 `json:"nmID,omitempty"`
 	// Фактическая цена с учетом всех скидок. Взимается с покупателя
@@ -49,41 +46,6 @@ func NewListing() *Listing {
 func NewListingWithDefaults() *Listing {
 	this := Listing{}
 	return &this
-}
-
-// GetDate returns the Date field value if set, zero value otherwise.
-// Deprecated
-func (o *Listing) GetDate() string {
-	if o == nil || IsNil(o.Date) {
-		var ret string
-		return ret
-	}
-	return *o.Date
-}
-
-// GetDateOk returns a tuple with the Date field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// Deprecated
-func (o *Listing) GetDateOk() (*string, bool) {
-	if o == nil || IsNil(o.Date) {
-		return nil, false
-	}
-	return o.Date, true
-}
-
-// HasDate returns a boolean if a field has been set.
-func (o *Listing) HasDate() bool {
-	if o != nil && !IsNil(o.Date) {
-		return true
-	}
-
-	return false
-}
-
-// SetDate gets a reference to the given string and assigns it to the Date field.
-// Deprecated
-func (o *Listing) SetDate(v string) {
-	o.Date = &v
 }
 
 // GetNmID returns the NmID field value if set, zero value otherwise.
@@ -256,9 +218,6 @@ func (o Listing) MarshalJSON() ([]byte, error) {
 
 func (o Listing) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Date) {
-		toSerialize["date"] = o.Date
-	}
 	if !IsNil(o.NmID) {
 		toSerialize["nmID"] = o.NmID
 	}

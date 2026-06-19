@@ -711,6 +711,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request v3_get_meta_multi_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -735,6 +736,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -910,6 +912,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -937,6 +940,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -993,6 +997,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1105,7 +1110,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -1118,6 +1127,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
@@ -1142,6 +1152,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
@@ -1254,6 +1265,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
@@ -1282,6 +1294,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
@@ -1326,6 +1339,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
@@ -1454,7 +1468,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -1467,6 +1485,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1491,6 +1510,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1666,6 +1686,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1693,6 +1714,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1749,6 +1771,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -1868,7 +1891,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -1881,6 +1908,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusHistoryPostRequest $api_v3_orders_status_history_post_request api_v3_orders_status_history_post_request (required)
@@ -1905,6 +1933,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusHistoryPostRequest $api_v3_orders_status_history_post_request (required)
@@ -2017,6 +2046,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusHistoryPostRequest $api_v3_orders_status_history_post_request (required)
@@ -2045,6 +2075,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusHistoryPostRequest $api_v3_orders_status_history_post_request (required)
@@ -2089,6 +2120,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusHistoryPostRequest $api_v3_orders_status_history_post_request (required)
@@ -2223,7 +2255,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2236,6 +2272,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\OrdersRequestAPI $orders_request_api orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2260,6 +2297,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2435,6 +2473,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2462,6 +2501,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2518,6 +2558,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\OrdersRequestAPI $orders_request_api (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -2636,7 +2677,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -2649,6 +2694,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -2676,6 +2722,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -2840,6 +2887,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -2870,6 +2918,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -2929,6 +2978,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -3094,7 +3144,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3107,6 +3161,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -3130,6 +3185,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -3276,6 +3332,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -3302,6 +3359,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -3357,6 +3415,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -3460,7 +3519,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3473,6 +3536,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3496,6 +3560,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3607,6 +3672,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3634,6 +3700,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3677,6 +3744,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -3796,7 +3864,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -3809,6 +3881,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
@@ -3833,6 +3906,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
@@ -3937,6 +4011,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
@@ -3965,6 +4040,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
@@ -4009,6 +4085,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
@@ -4139,7 +4216,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4152,6 +4233,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request api_v3_orders_order_id_meta_expiration_put_request (optional)
@@ -4176,6 +4258,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
@@ -4288,6 +4371,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
@@ -4316,6 +4400,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
@@ -4360,6 +4445,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
@@ -4488,7 +4574,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4501,6 +4591,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request api_v3_orders_order_id_meta_gtin_put_request (optional)
@@ -4525,6 +4616,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
@@ -4629,6 +4721,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
@@ -4657,6 +4750,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
@@ -4701,6 +4795,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
@@ -4829,7 +4924,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -4842,6 +4941,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request api_v3_orders_order_id_meta_imei_put_request (optional)
@@ -4866,6 +4966,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
@@ -4970,6 +5071,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
@@ -4998,6 +5100,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
@@ -5042,6 +5145,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
@@ -5170,7 +5274,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -5183,6 +5291,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request api_v3_orders_order_id_meta_sgtin_put_request (optional)
@@ -5207,6 +5316,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
@@ -5319,6 +5429,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
@@ -5347,6 +5458,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
@@ -5391,6 +5503,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
@@ -5519,7 +5632,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -5532,6 +5649,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request api_v3_orders_order_id_meta_uin_put_request (optional)
@@ -5556,6 +5674,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
@@ -5660,6 +5779,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
@@ -5688,6 +5808,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
@@ -5732,6 +5853,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
@@ -5860,7 +5982,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -6266,6 +6392,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusPostRequest|null $api_v3_orders_status_post_request api_v3_orders_status_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6290,6 +6417,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusPostRequest|null $api_v3_orders_status_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6451,6 +6579,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusPostRequest|null $api_v3_orders_status_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6478,6 +6607,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusPostRequest|null $api_v3_orders_status_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6534,6 +6664,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersStatusPostRequest|null $api_v3_orders_status_post_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -6646,7 +6777,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7052,6 +7187,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $type Тип стикера (required)
      * @param  int $width Ширина стикера (required)
@@ -7079,6 +7215,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $type Тип стикера (required)
      * @param  int $width Ширина стикера (required)
@@ -7243,6 +7380,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $type Тип стикера (required)
      * @param  int $width Ширина стикера (required)
@@ -7273,6 +7411,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $type Тип стикера (required)
      * @param  int $width Ширина стикера (required)
@@ -7332,6 +7471,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $type Тип стикера (required)
      * @param  int $width Ширина стикера (required)
@@ -7495,7 +7635,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7508,6 +7652,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7531,6 +7676,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7677,6 +7823,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7703,6 +7850,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7758,6 +7906,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7861,7 +8010,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -7874,6 +8027,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -7897,6 +8051,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8043,6 +8198,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8069,6 +8225,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8124,6 +8281,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8227,7 +8385,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -8240,6 +8402,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8263,6 +8426,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8358,6 +8522,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8385,6 +8550,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8428,6 +8594,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8547,7 +8714,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -8560,6 +8731,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPassIdPutRequest $api_v3_passes_pass_id_put_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
@@ -8584,6 +8756,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPassIdPutRequest $api_v3_passes_pass_id_put_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
@@ -8688,6 +8861,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPassIdPutRequest $api_v3_passes_pass_id_put_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
@@ -8716,6 +8890,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPassIdPutRequest $api_v3_passes_pass_id_put_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
@@ -8760,6 +8935,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $pass_id ID пропуска (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPassIdPutRequest $api_v3_passes_pass_id_put_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
@@ -8894,7 +9070,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -8907,6 +9087,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -8931,6 +9112,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9106,6 +9288,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9133,6 +9316,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9189,6 +9373,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -9307,7 +9492,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -9320,6 +9509,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -9345,6 +9535,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -9507,6 +9698,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -9535,6 +9727,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -9592,6 +9785,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $limit Параметр пагинации. Устанавливает предельное количество возвращаемых данных. (required)
      * @param  int $next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
@@ -9735,7 +9929,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -9748,6 +9946,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -9771,6 +9970,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -9931,6 +10131,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -9957,6 +10158,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -10012,6 +10214,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -10115,7 +10318,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -10128,6 +10335,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesPostRequest $api_v3_supplies_post_request api_v3_supplies_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10152,6 +10360,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesPostRequest $api_v3_supplies_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10313,6 +10522,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesPostRequest $api_v3_supplies_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10340,6 +10550,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesPostRequest $api_v3_supplies_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10396,6 +10607,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesPostRequest $api_v3_supplies_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10514,7 +10726,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -10527,6 +10743,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -10552,6 +10769,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -10742,6 +10960,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -10770,6 +10989,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -10827,6 +11047,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -10963,7 +11184,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -10976,6 +11201,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -10999,6 +11225,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11110,6 +11337,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11137,6 +11365,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11180,6 +11409,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11299,7 +11529,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -11312,6 +11546,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11335,6 +11570,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11446,6 +11682,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11473,6 +11710,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11516,6 +11754,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11635,7 +11874,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -11648,6 +11891,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11672,6 +11916,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11847,6 +12092,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11874,6 +12120,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -11930,6 +12177,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12049,7 +12297,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -12062,6 +12314,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxDeleteRequest|null $api_v3_supplies_supply_id_trbx_delete_request api_v3_supplies_supply_id_trbx_delete_request (optional)
@@ -12086,6 +12339,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxDeleteRequest|null $api_v3_supplies_supply_id_trbx_delete_request (optional)
@@ -12190,6 +12444,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxDeleteRequest|null $api_v3_supplies_supply_id_trbx_delete_request (optional)
@@ -12218,6 +12473,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxDeleteRequest|null $api_v3_supplies_supply_id_trbx_delete_request (optional)
@@ -12262,6 +12518,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxDeleteRequest|null $api_v3_supplies_supply_id_trbx_delete_request (optional)
@@ -12390,7 +12647,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -12403,6 +12664,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12427,6 +12689,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12602,6 +12865,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12629,6 +12893,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12685,6 +12950,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12804,7 +13070,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -12817,6 +13087,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxPostRequest|null $api_v3_supplies_supply_id_trbx_post_request api_v3_supplies_supply_id_trbx_post_request (optional)
@@ -12842,6 +13113,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxPostRequest|null $api_v3_supplies_supply_id_trbx_post_request (optional)
@@ -13018,6 +13290,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxPostRequest|null $api_v3_supplies_supply_id_trbx_post_request (optional)
@@ -13046,6 +13319,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxPostRequest|null $api_v3_supplies_supply_id_trbx_post_request (optional)
@@ -13103,6 +13377,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3SuppliesSupplyIdTrbxPostRequest|null $api_v3_supplies_supply_id_trbx_post_request (optional)
@@ -13231,7 +13506,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }
@@ -13244,6 +13523,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -13270,6 +13550,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -13447,6 +13728,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -13476,6 +13758,7 @@ class FBSApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -13534,6 +13817,7 @@ class FBSApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
+     * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  string $supply_id ID поставки (required)
      * @param  string $type Тип стикера (required)
@@ -13679,7 +13963,11 @@ class FBSApi
         return [
             [
                 "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "No description provided",
+                "description" => "**Prod**",
+            ],
+            [
+                "url" => "https://marketplace-api-sandbox.wildberries.ru",
+                "description" => "**Sandbox**",
             ]
         ];
     }

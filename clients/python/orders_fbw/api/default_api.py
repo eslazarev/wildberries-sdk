@@ -62,7 +62,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ModelsOptionsResultModel:
         """Опции приёмки
 
@@ -139,7 +139,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[ModelsOptionsResultModel]:
         """Опции приёмки
 
@@ -216,7 +216,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Опции приёмки
 
@@ -284,7 +284,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://supplies-api.wildberries.ru'
+            'https://supplies-api.wildberries.ru',
+            'https://supplies-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -1857,7 +1858,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> List[ModelsWarehousesResultItems]:
         """Список складов
 
@@ -1924,7 +1925,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[List[ModelsWarehousesResultItems]]:
         """Список складов
 
@@ -1991,7 +1992,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """Список складов
 
@@ -2049,7 +2050,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://supplies-api.wildberries.ru'
+            'https://supplies-api.wildberries.ru',
+            'https://supplies-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 

@@ -174,7 +174,12 @@ paths:
       x-readonly-method: true
       x-category: statistics
     servers:
-    - url: https://statistics-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://statistics-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://statistics-api-sandbox.wildberries.ru
   /api/v1/supplier/orders:
     get:
       description: |
@@ -338,7 +343,12 @@ paths:
       x-readonly-method: true
       x-category: statistics
     servers:
-    - url: https://statistics-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://statistics-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://statistics-api-sandbox.wildberries.ru
   /api/v1/supplier/sales:
     get:
       description: |
@@ -507,7 +517,12 @@ paths:
       x-readonly-method: true
       x-category: statistics
     servers:
-    - url: https://statistics-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://statistics-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://statistics-api-sandbox.wildberries.ru
   /api/v1/analytics/excise-report:
     post:
       description: |

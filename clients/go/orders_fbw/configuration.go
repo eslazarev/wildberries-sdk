@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.110/go",
+		UserAgent:        "OpenAPI-Generator/0.1.111/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -101,7 +101,11 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.ApiV1AcceptanceOptionsPost": {
 				{
 					URL: "https://supplies-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://supplies-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV1SuppliesIDGet": {
@@ -137,7 +141,11 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.ApiV1WarehousesGet": {
 				{
 					URL: "https://supplies-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://supplies-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 		},

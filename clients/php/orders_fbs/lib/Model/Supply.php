@@ -607,7 +607,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets scan_dt
      *
-     * @param \DateTime|null $scan_dt Дата скана поставки (RFC3339)
+     * @param \DateTime|null $scan_dt Дата сканирования поставки или первого заказа (RFC3339)
      *
      * @return self
      */

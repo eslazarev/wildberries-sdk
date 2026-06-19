@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.110/go",
+		UserAgent:        "OpenAPI-Generator/0.1.111/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -107,67 +107,111 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.ApiV2BufferGoodsTaskGet": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2BufferTasksGet": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2HistoryGoodsTaskGet": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2HistoryTasksGet": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2ListGoodsFilterGet": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2ListGoodsFilterPost": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2ListGoodsSizeNmGet": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2QuarantineGoodsGet": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2UploadTaskClubDiscountPost": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2UploadTaskPost": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV2UploadTaskSizePost": {
 				{
 					URL: "https://discounts-prices-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://discounts-prices-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3DbwWarehousesWarehouseIdContactsGet": {
@@ -185,211 +229,351 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.ApiV3OfficesGet": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3StocksWarehouseIdDelete": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3StocksWarehouseIdPost": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3StocksWarehouseIdPut": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3WarehousesGet": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3WarehousesPost": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3WarehousesWarehouseIdDelete": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ApiV3WarehousesWarehouseIdPut": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2BarcodesPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsDeleteTrashPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsErrorListPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsLimitsGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsMoveNmPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsRecoverPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsUpdatePost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsUploadAddPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2CardsUploadPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2DirectoryColorsGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2DirectoryCountriesGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2DirectoryKindsGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2DirectorySeasonsGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2DirectoryTnvedGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2DirectoryVatGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2GetCardsListPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2GetCardsTrashPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2ObjectAllGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2ObjectCharcsSubjectIdGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2ObjectParentAllGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2TagIdDelete": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2TagIdPatch": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2TagNomenclatureLinkPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2TagPost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV2TagsGet": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV3MediaFilePost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.ContentV3MediaSavePost": {
 				{
 					URL: "https://content-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://content-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.PostV1UploadTaskB2bWholesale": {

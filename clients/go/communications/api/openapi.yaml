@@ -118,7 +118,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/questions/count-unanswered:
     get:
       description: |
@@ -200,7 +205,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/questions/count:
     get:
       description: |
@@ -327,7 +337,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/questions:
     get:
       description: |
@@ -657,7 +672,12 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/question:
     get:
       description: |
@@ -780,7 +800,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/feedbacks/count-unanswered:
     get:
       description: |
@@ -863,7 +888,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/feedbacks/count:
     get:
       description: |
@@ -990,7 +1020,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/feedbacks:
     get:
       description: |
@@ -1210,7 +1245,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/feedbacks/answer:
     patch:
       description: |
@@ -1380,7 +1420,12 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/feedbacks/order/return:
     post:
       description: |
@@ -1487,7 +1532,12 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/feedback:
     get:
       description: |
@@ -1633,7 +1683,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/v1/feedbacks/archive:
     get:
       description: |
@@ -1832,7 +1887,12 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
     servers:
-    - url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://feedbacks-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://feedbacks-api-sandbox.wildberries.ru
   /api/feedbacks/v1/pins:
     delete:
       description: |
@@ -2587,7 +2647,6 @@ paths:
                     message:
                       attachments:
                         goodCard:
-                          date: 2023-10-18T11:46:01.528526Z
                           nmID: 12345678
                           price: 500
                           priceCurrency: RUB
@@ -3520,7 +3579,6 @@ components:
         replySign: 1:4019cd7d-cca8-4e90-8b11-f78afbea42e3:54828159:bc3a4c04079f5956cff170b25e73523aa1208b5c0bd7aea1e520a64ae3e212b1ebae6712661f3afd27520fa785fa3042254e8a3100ce00644322054ae7cfcd0e
         clientName: Иван
         goodCard:
-          date: date
           nmID: 0
           price: 6
           priceCurrency: priceCurrency
@@ -3555,7 +3613,6 @@ components:
           replySign: 1:4019cd7d-cca8-4e90-8b11-f78afbea42e3:54828159:bc3a4c04079f5956cff170b25e73523aa1208b5c0bd7aea1e520a64ae3e212b1ebae6712661f3afd27520fa785fa3042254e8a3100ce00644322054ae7cfcd0e
           clientName: Иван
           goodCard:
-            date: date
             nmID: 0
             price: 6
             priceCurrency: priceCurrency
@@ -3566,7 +3623,6 @@ components:
           replySign: 1:4019cd7d-cca8-4e90-8b11-f78afbea42e3:54828159:bc3a4c04079f5956cff170b25e73523aa1208b5c0bd7aea1e520a64ae3e212b1ebae6712661f3afd27520fa785fa3042254e8a3100ce00644322054ae7cfcd0e
           clientName: Иван
           goodCard:
-            date: date
             nmID: 0
             price: 6
             priceCurrency: priceCurrency
@@ -3598,7 +3654,6 @@ components:
         message:
           attachments:
             goodCard:
-              date: date
               nmID: 0
               price: 6
               priceCurrency: priceCurrency
@@ -3678,7 +3733,6 @@ components:
       description: Вложения
       example:
         goodCard:
-          date: date
           nmID: 0
           price: 6
           priceCurrency: priceCurrency
@@ -3757,18 +3811,12 @@ components:
     Listing:
       description: Информация о заказе
       example:
-        date: date
         nmID: 0
         price: 6
         priceCurrency: priceCurrency
         rid: rid
         size: size
       properties:
-        date:
-          deprecated: true
-          description: |
-            [Будет отключено 16 июня](https://dev.wildberries.ru/release-notes?id=534)
-          type: string
         nmID:
           description: Артикул WB
           type: integer
@@ -3868,7 +3916,6 @@ components:
             message:
               attachments:
                 goodCard:
-                  date: date
                   nmID: 0
                   price: 6
                   priceCurrency: priceCurrency
@@ -3908,7 +3955,6 @@ components:
             message:
               attachments:
                 goodCard:
-                  date: date
                   nmID: 0
                   price: 6
                   priceCurrency: priceCurrency
@@ -3968,7 +4014,6 @@ components:
           message:
             attachments:
               goodCard:
-                date: date
                 nmID: 0
                 price: 6
                 priceCurrency: priceCurrency
@@ -4008,7 +4053,6 @@ components:
           message:
             attachments:
               goodCard:
-                date: date
                 nmID: 0
                 price: 6
                 priceCurrency: priceCurrency
@@ -6221,7 +6265,6 @@ components:
       example:
         attachments:
           goodCard:
-            date: date
             nmID: 0
             price: 6
             priceCurrency: priceCurrency

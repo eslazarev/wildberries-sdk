@@ -58,7 +58,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'date' => 'string',
         'nm_id' => 'int',
         'price' => 'int',
         'price_currency' => 'string',
@@ -74,7 +73,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'date' => null,
         'nm_id' => null,
         'price' => null,
         'price_currency' => null,
@@ -88,7 +86,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'date' => false,
         'nm_id' => false,
         'price' => false,
         'price_currency' => false,
@@ -182,7 +179,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'date' => 'date',
         'nm_id' => 'nmID',
         'price' => 'price',
         'price_currency' => 'priceCurrency',
@@ -196,7 +192,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'date' => 'setDate',
         'nm_id' => 'setNmId',
         'price' => 'setPrice',
         'price_currency' => 'setPriceCurrency',
@@ -210,7 +205,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'date' => 'getDate',
         'nm_id' => 'getNmId',
         'price' => 'getPrice',
         'price_currency' => 'getPriceCurrency',
@@ -275,7 +269,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('date', $data ?? [], null);
         $this->setIfExists('nm_id', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('price_currency', $data ?? [], null);
@@ -324,35 +317,6 @@ class Listing implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets date
-     *
-     * @return string|null
-     * @deprecated
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param string|null $date [Будет отключено 16 июня](https://dev.wildberries.ru/release-notes?id=534)
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setDate($date)
-    {
-        if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
 
     /**
      * Gets nm_id

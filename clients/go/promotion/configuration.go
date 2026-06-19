@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.110/go",
+		UserAgent:        "OpenAPI-Generator/0.1.111/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -113,7 +113,11 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.AdvV0DeleteGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV0NormqueryBidsDelete": {
@@ -161,25 +165,41 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.AdvV0PauseGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV0RenamePost": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV0StartGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV0StopGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV1AdvertGet": {
@@ -197,19 +217,31 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.AdvV1BalanceGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV1BudgetDepositPost": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV1BudgetGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV1CountGet": {
@@ -227,13 +259,21 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.AdvV1PaymentsGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV1PromotionCountGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV1StatsPost": {
@@ -245,25 +285,41 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.AdvV1SupplierSubjectsGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV1UpdGet": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV2SeacatSaveAdPost": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV2SupplierNmsPost": {
 				{
 					URL: "https://advert-api.wildberries.ru",
-					Description: "No description provided",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://advert-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.AdvV3FullstatsGet": {

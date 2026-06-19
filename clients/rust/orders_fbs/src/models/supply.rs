@@ -33,7 +33,7 @@ pub struct Supply {
     /// Дата закрытия поставки (RFC3339)
     #[serde(rename = "closedAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub closed_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
-    /// Дата скана поставки (RFC3339)
+    /// Дата сканирования поставки или первого заказа (RFC3339)
     #[serde(rename = "scanDt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub scan_dt: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     /// Наименование поставки

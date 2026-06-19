@@ -1627,7 +1627,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> List[DetailReportItem]:
         """(Deprecated) Отчёт о продажах по реализации
 
@@ -1716,7 +1716,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> ApiResponse[List[DetailReportItem]]:
         """(Deprecated) Отчёт о продажах по реализации
 
@@ -1805,7 +1805,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
     ) -> RESTResponseType:
         """(Deprecated) Отчёт о продажах по реализации
 
@@ -1885,7 +1885,8 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://statistics-api.wildberries.ru'
+            'https://statistics-api.wildberries.ru',
+            'https://statistics-api-sandbox.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 

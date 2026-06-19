@@ -66,7 +66,7 @@ export interface Supply {
      */
     closedAt?: Date | null;
     /**
-     * Дата скана поставки (RFC3339)
+     * Дата сканирования поставки или первого заказа (RFC3339)
      * @type {Date}
      * @memberof Supply
      */
