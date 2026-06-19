@@ -47,6 +47,11 @@ paths:
   /content/v2/object/parent/all:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -141,6 +146,11 @@ paths:
   /content/v2/object/all:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -261,6 +271,11 @@ paths:
   /content/v2/object/charcs/{subjectId}:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -425,6 +440,11 @@ paths:
   /content/v2/directory/colors:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -515,6 +535,11 @@ paths:
   /content/v2/directory/kinds:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -599,6 +624,11 @@ paths:
   /content/v2/directory/countries:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -693,6 +723,11 @@ paths:
   /content/v2/directory/seasons:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -777,6 +812,11 @@ paths:
   /content/v2/directory/vat:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -866,6 +906,11 @@ paths:
   /content/v2/directory/tnved:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -1046,6 +1091,11 @@ paths:
   /content/v2/tags:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -1132,6 +1182,11 @@ paths:
   /content/v2/tag:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -1225,6 +1280,11 @@ paths:
   /content/v2/tag/{id}:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     patch:
       x-readonly-method: false
       x-category: content
@@ -1389,6 +1449,11 @@ paths:
   /content/v2/tag/nomenclature/link:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -1475,6 +1540,11 @@ paths:
   /content/v2/get/cards/list:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: true
       x-category: content
@@ -1907,6 +1977,11 @@ paths:
   /content/v2/cards/error/list:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: true
       x-category: content
@@ -2057,6 +2132,11 @@ paths:
   /content/v2/cards/update:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -2305,6 +2385,11 @@ paths:
   /content/v2/cards/moveNm:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -2418,6 +2503,11 @@ paths:
   /content/v2/cards/delete/trash:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -2510,6 +2600,11 @@ paths:
   /content/v2/cards/recover:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -2601,6 +2696,11 @@ paths:
   /content/v2/get/cards/trash:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: true
       x-category: content
@@ -2926,6 +3026,11 @@ paths:
   /content/v2/cards/limits:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: content
@@ -3010,6 +3115,11 @@ paths:
   /content/v2/barcodes:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -3094,6 +3204,11 @@ paths:
   /content/v2/cards/upload:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -3317,6 +3432,11 @@ paths:
   /content/v2/cards/upload/add:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -3589,6 +3709,11 @@ paths:
   /content/v3/media/file:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -3671,6 +3796,11 @@ paths:
   /content/v3/media/save:
     servers:
       - url: https://content-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://content-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: content
@@ -3758,6 +3888,11 @@ paths:
   /api/v2/upload/task:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: discountsandprices
@@ -3858,6 +3993,11 @@ paths:
   /api/v2/upload/task/size:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: discountsandprices
@@ -3962,6 +4102,11 @@ paths:
   /api/v2/upload/task/club-discount:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: discountsandprices
@@ -4111,6 +4256,11 @@ paths:
   /api/v2/history/tasks:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -4167,6 +4317,11 @@ paths:
   /api/v2/history/goods/task:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -4225,6 +4380,11 @@ paths:
   /api/v2/buffer/tasks:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -4281,6 +4441,11 @@ paths:
   /api/v2/buffer/goods/task:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -4339,6 +4504,11 @@ paths:
   /api/v2/list/goods/filter:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -4461,6 +4631,11 @@ paths:
   /api/v2/list/goods/size/nm:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -4521,6 +4696,11 @@ paths:
   /api/v2/quarantine/goods:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://discounts-prices-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -4572,6 +4752,11 @@ paths:
   /api/v3/stocks/{warehouseId}:
     servers:
       - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://marketplace-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     put:
       x-readonly-method: false
       x-category: marketplace
@@ -4860,6 +5045,11 @@ paths:
   /api/v3/offices:
     servers:
       - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://marketplace-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: marketplace
@@ -4900,6 +5090,11 @@ paths:
   /api/v3/warehouses:
     servers:
       - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://marketplace-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: marketplace
@@ -5027,6 +5222,11 @@ paths:
   /api/v3/warehouses/{warehouseId}:
     servers:
       - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://marketplace-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     put:
       x-readonly-method: false
       x-category: marketplace

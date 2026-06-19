@@ -38,6 +38,11 @@ paths:
   /api/v1/new-feedbacks-questions:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -118,6 +123,11 @@ paths:
   /api/v1/questions/count-unanswered:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -192,6 +202,11 @@ paths:
   /api/v1/questions/count:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -295,6 +310,11 @@ paths:
   /api/v1/questions:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -683,6 +703,11 @@ paths:
   /api/v1/question:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -850,6 +875,11 @@ paths:
   /api/v1/feedbacks/count-unanswered:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -925,6 +955,11 @@ paths:
   /api/v1/feedbacks/count:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -1028,6 +1063,11 @@ paths:
   /api/v1/feedbacks:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -1219,6 +1259,11 @@ paths:
   /api/v1/feedbacks/answer:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: questionsandfeedback
@@ -1347,6 +1392,11 @@ paths:
   /api/v1/feedbacks/order/return:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: false
       x-category: questionsandfeedback
@@ -1439,6 +1489,11 @@ paths:
   /api/v1/feedback:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback
@@ -1749,6 +1804,11 @@ paths:
   /api/v1/feedbacks/archive:
     servers:
       - url: https://feedbacks-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://feedbacks-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: questionsandfeedback

@@ -251,6 +251,11 @@ paths:
   /api/v5/supplier/reportDetailByPeriod:
     servers:
       - url: https://statistics-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://statistics-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       deprecated: true
       x-readonly-method: true
