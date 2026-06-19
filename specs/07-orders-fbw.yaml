@@ -26,6 +26,11 @@ paths:
   /api/v1/acceptance/options:
     servers:
       - url: https://supplies-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://supplies-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     post:
       x-readonly-method: true
       x-category: supplies
@@ -99,6 +104,11 @@ paths:
   /api/v1/warehouses:
     servers:
       - url: https://supplies-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://supplies-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: supplies

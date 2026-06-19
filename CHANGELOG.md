@@ -1,6 +1,20 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.06.19)
+- Товары (Content API): для всех методов раздела добавлен Sandbox-сервер `https://content-api-sandbox.wildberries.ru` (помимо Prod `https://content-api.wildberries.ru`) в `servers` у эндпоинтов `/content/v2/*` и `/content/v3/media/*`.
+- Цены и скидки (Discounts & Prices API): для всех методов раздела добавлен Sandbox-сервер `https://discounts-prices-api-sandbox.wildberries.ru` (помимо Prod `https://discounts-prices-api.wildberries.ru`) в `servers` у эндпоинтов `/api/v2/*`.
+- Marketplace (остатки/склады/офисы): добавлен Sandbox-сервер `https://marketplace-api-sandbox.wildberries.ru` (помимо Prod) в `servers` для `/api/v3/stocks/{warehouseId}`, `/api/v3/offices`, `/api/v3/warehouses`, `/api/v3/warehouses/{warehouseId}`.
+- Заказы FBS (Marketplace): добавлен Sandbox-сервер `https://marketplace-api-sandbox.wildberries.ru` (помимо Prod) в `servers` для всех эндпоинтов раздела (`/api/v3/passes*`, `/api/v3/orders*`, `/api/v3/supplies*`, `/api/marketplace/v3/*`).
+- Заказы FBS (Marketplace): уточнено описание поля `scanDate` в схеме поставки — теперь «Дата сканирования поставки или первого заказа (RFC3339)» (ранее только «Дата скана поставки»).
+- Заказы DBS (Marketplace): добавлен Sandbox-сервер `https://marketplace-api-sandbox.wildberries.ru` (помимо Prod) в `servers` для всех эндпоинтов `/api/v3/dbs/*` и `/api/marketplace/v3/dbs/*`.
+- Самовывоз из магазина (Click&Collect, Marketplace): добавлен блок `servers` с Prod/Sandbox (`https://marketplace-api.wildberries.ru`, `https://marketplace-api-sandbox.wildberries.ru`) для всех эндпоинтов раздела `/api/v3/click-collect/*` и `/api/marketplace/v3/click-collect/*`.
+- Заказы FBW (Supplies API): добавлен Sandbox-сервер `https://supplies-api-sandbox.wildberries.ru` (помимо Prod `https://supplies-api.wildberries.ru`) в `servers` для `/api/v1/acceptance/options` и `/api/v1/warehouses`.
+- Продвижение (Advert API): добавлен Sandbox-сервер `https://advert-api-sandbox.wildberries.ru` (помимо Prod `https://advert-api.wildberries.ru`) в `servers` для всех эндпоинтов раздела `/adv/*`.
+- Коммуникации (вопросы/отзывы, Feedbacks API): добавлен Sandbox-сервер `https://feedbacks-api-sandbox.wildberries.ru` (помимо Prod `https://feedbacks-api.wildberries.ru`) в `servers` для всех эндпоинтов `/api/v1/*` раздела.
+- Отчёты (Statistics API): добавлен Sandbox-сервер `https://statistics-api-sandbox.wildberries.ru` (помимо Prod `https://statistics-api.wildberries.ru`) в `servers` для `/api/v1/supplier/stocks`, `/api/v1/supplier/orders`, `/api/v1/supplier/sales`.
+- Финансы (Statistics API): для deprecated-эндпоинта `/api/v5/supplier/reportDetailByPeriod` добавлен Sandbox-сервер `https://statistics-api-sandbox.wildberries.ru` (помимо Prod) в `servers` (статус `deprecated: true` без изменений).
+
 ### Changed (2026.06.18)
 - Карточки товаров: из описаний методов получения списка карточек товаров и списка карточек товаров в корзине удалено примечание о доступности только по токену с категорией «Контент» или «Продвижение» (изменение документации по авторизации, без изменения эндпоинтов).
 - Orders FBS: добавлено новое поле `isPickupPointShipmentAllowed` (boolean, non-null) в моделях/ответах заказов — признак, можно ли отгрузить заказ на ПВЗ (`true`/`false`).

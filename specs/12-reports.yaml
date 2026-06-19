@@ -49,6 +49,11 @@ paths:
   /api/v1/supplier/stocks:
     servers:
       - url: https://statistics-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://statistics-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: statistics
@@ -141,6 +146,11 @@ paths:
   /api/v1/supplier/orders:
     servers:
       - url: https://statistics-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://statistics-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: statistics
@@ -253,6 +263,11 @@ paths:
   /api/v1/supplier/sales:
     servers:
       - url: https://statistics-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://statistics-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
     get:
       x-readonly-method: true
       x-category: statistics
