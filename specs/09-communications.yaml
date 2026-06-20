@@ -2516,7 +2516,6 @@ paths:
                       message:
                         attachments:
                           goodCard:
-                            date: '2023-10-18T11:46:01.528526Z'
                             nmID: 12345678
                             price: 500
                             priceCurrency: RUB
@@ -3474,11 +3473,6 @@ components:
       type: object
       description: Информация о заказе
       properties:
-        date:
-          type: string
-          description: |
-            [Будет отключено 16 июня](https://dev.wildberries.ru/release-notes?id=534)
-          deprecated: true
         nmID:
           type: integer
           description: Артикул WB
