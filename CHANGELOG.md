@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.06.20)
+- Communications: удалено поле `date` из объекта `attachments.goodCard` (в т.ч. из схемы «Информация о заказе»); поле было помечено как `deprecated` и планировалось к отключению 16 июня.
+
 ### Changed (2026.06.19)
 - Товары (Content API): для всех методов раздела добавлен Sandbox-сервер `https://content-api-sandbox.wildberries.ru` (помимо Prod `https://content-api.wildberries.ru`) в `servers` у эндпоинтов `/content/v2/*` и `/content/v3/media/*`.
 - Цены и скидки (Discounts & Prices API): для всех методов раздела добавлен Sandbox-сервер `https://discounts-prices-api-sandbox.wildberries.ru` (помимо Prod `https://discounts-prices-api.wildberries.ru`) в `servers` у эндпоинтов `/api/v2/*`.
