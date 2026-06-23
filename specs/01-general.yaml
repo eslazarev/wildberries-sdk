@@ -556,8 +556,6 @@ paths:
                             disabled: false
                           - code: questions
                             disabled: false
-                          - code: wbPoint
-                            disabled: false
                           - code: brands
                             disabled: true
                           - code: pointsForReviews
@@ -566,8 +564,6 @@ paths:
                             disabled: false
                           - code: finance
                             disabled: true
-                          - code: feedbacksQuestions
-                            disabled: false
                           - code: balance
                             disabled: false
                           - code: oldAnalyticsReports
@@ -614,8 +610,6 @@ paths:
                             disabled: false
                           - code: questions
                             disabled: false
-                          - code: wbPoint
-                            disabled: false
                           - code: brands
                             disabled: true
                           - code: pointsForReviews
@@ -624,8 +618,6 @@ paths:
                             disabled: false
                           - code: finance
                             disabled: true
-                          - code: feedbacksQuestions
-                            disabled: false
                           - code: balance
                             disabled: false
                           - code: oldAnalyticsReports
@@ -674,8 +666,6 @@ paths:
                             disabled: false
                           - code: questions
                             disabled: false
-                          - code: wbPoint
-                            disabled: false
                           - code: brands
                             disabled: true
                           - code: pointsForReviews
@@ -684,8 +674,6 @@ paths:
                             disabled: false
                           - code: finance
                             disabled: true
-                          - code: feedbacksQuestions
-                            disabled: false
                           - code: balance
                             disabled: false
                           - code: oldAnalyticsReports
@@ -732,8 +720,6 @@ paths:
                             disabled: false
                           - code: questions
                             disabled: false
-                          - code: wbPoint
-                            disabled: false
                           - code: brands
                             disabled: true
                           - code: pointsForReviews
@@ -742,8 +728,6 @@ paths:
                             disabled: false
                           - code: finance
                             disabled: true
-                          - code: feedbacksQuestions
-                            disabled: false
                           - code: balance
                             disabled: false
                           - code: oldAnalyticsReports
@@ -892,12 +876,10 @@ components:
               * `showcase` — Управление витриной магазина
               * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой
               * `supply` — Создание и управление поставками FBW
-              * `feedbacksQuestions` — Просмотр и ответы на вопросы и отзывы покупателей, жалобы на отзывы
               * `questions` — Просмотр и ответы на вопросы покупателей
               * `pinFeedbacks` — Возможность закреплять и откреплять отзывы
               * `pointsForReviews` — Баллы за отзывы
               * `feedbacks` — Просмотр и ответы на отзывы покупателей
-              * `wbPoint` — WB Point
               * `oldAnalyticsReports` — Отчёты
               * `marketplace` — Свой склад
               * `brandsFlow` — Мои бренды
@@ -913,12 +895,10 @@ components:
               - showcase
               - suppliersDocuments
               - supply
-              - feedbacksQuestions
               - questions
               - pinFeedbacks
               - pointsForReviews
               - feedbacks
-              - wbPoint
               - oldAnalyticsReports
               - marketplace
               - brandsFlow
