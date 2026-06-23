@@ -242,12 +242,10 @@ class AccessInner implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CODE_SHOWCASE = 'showcase';
     public const CODE_SUPPLIERS_DOCUMENTS = 'suppliersDocuments';
     public const CODE_SUPPLY = 'supply';
-    public const CODE_FEEDBACKS_QUESTIONS = 'feedbacksQuestions';
     public const CODE_QUESTIONS = 'questions';
     public const CODE_PIN_FEEDBACKS = 'pinFeedbacks';
     public const CODE_POINTS_FOR_REVIEWS = 'pointsForReviews';
     public const CODE_FEEDBACKS = 'feedbacks';
-    public const CODE_WB_POINT = 'wbPoint';
     public const CODE_OLD_ANALYTICS_REPORTS = 'oldAnalyticsReports';
     public const CODE_MARKETPLACE = 'marketplace';
     public const CODE_BRANDS_FLOW = 'brandsFlow';
@@ -271,12 +269,10 @@ class AccessInner implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CODE_SHOWCASE,
             self::CODE_SUPPLIERS_DOCUMENTS,
             self::CODE_SUPPLY,
-            self::CODE_FEEDBACKS_QUESTIONS,
             self::CODE_QUESTIONS,
             self::CODE_PIN_FEEDBACKS,
             self::CODE_POINTS_FOR_REVIEWS,
             self::CODE_FEEDBACKS,
-            self::CODE_WB_POINT,
             self::CODE_OLD_ANALYTICS_REPORTS,
             self::CODE_MARKETPLACE,
             self::CODE_BRANDS_FLOW,
@@ -375,7 +371,7 @@ class AccessInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets code
      *
-     * @param string $code Код раздела профиля продавца, к которому пользователь получит доступ: * `balance` — Просмотр баланса и вывод средств * `brands` — Управление брендами * `changeJam` — Доступ к подключению подписки **Джем**: **А/Б тесты**, отметки на фото, автозапуски видео, сравнение карточек * `discountPrice` — Изменение цен на товары, управление скидками и акциями * `finance` — Финансовая аналитика. Статистика по балансу, финансовые отчёты, история платежей * `showcase` — Управление витриной магазина * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой * `supply` — Создание и управление поставками FBW * `feedbacksQuestions` — Просмотр и ответы на вопросы и отзывы покупателей, жалобы на отзывы * `questions` — Просмотр и ответы на вопросы покупателей * `pinFeedbacks` — Возможность закреплять и откреплять отзывы * `pointsForReviews` — Баллы за отзывы * `feedbacks` — Просмотр и ответы на отзывы покупателей * `wbPoint` — WB Point * `oldAnalyticsReports` — Отчёты * `marketplace` — Свой склад * `brandsFlow` — Мои бренды * `copyrightComplaints` — Обращения правообладателей * `pretrialClaims` — Досудебные претензии * `sellersChat` — Чат с покупателями
+     * @param string $code Код раздела профиля продавца, к которому пользователь получит доступ: * `balance` — Просмотр баланса и вывод средств * `brands` — Управление брендами * `changeJam` — Доступ к подключению подписки **Джем**: **А/Б тесты**, отметки на фото, автозапуски видео, сравнение карточек * `discountPrice` — Изменение цен на товары, управление скидками и акциями * `finance` — Финансовая аналитика. Статистика по балансу, финансовые отчёты, история платежей * `showcase` — Управление витриной магазина * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой * `supply` — Создание и управление поставками FBW * `questions` — Просмотр и ответы на вопросы покупателей * `pinFeedbacks` — Возможность закреплять и откреплять отзывы * `pointsForReviews` — Баллы за отзывы * `feedbacks` — Просмотр и ответы на отзывы покупателей * `oldAnalyticsReports` — Отчёты * `marketplace` — Свой склад * `brandsFlow` — Мои бренды * `copyrightComplaints` — Обращения правообладателей * `pretrialClaims` — Досудебные претензии * `sellersChat` — Чат с покупателями
      *
      * @return self
      */

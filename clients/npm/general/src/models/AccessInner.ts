@@ -29,12 +29,10 @@ export interface AccessInner {
      * * `showcase` — Управление витриной магазина
      * * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой
      * * `supply` — Создание и управление поставками FBW
-     * * `feedbacksQuestions` — Просмотр и ответы на вопросы и отзывы покупателей, жалобы на отзывы
      * * `questions` — Просмотр и ответы на вопросы покупателей
      * * `pinFeedbacks` — Возможность закреплять и откреплять отзывы
      * * `pointsForReviews` — Баллы за отзывы
      * * `feedbacks` — Просмотр и ответы на отзывы покупателей
-     * * `wbPoint` — WB Point
      * * `oldAnalyticsReports` — Отчёты
      * * `marketplace` — Свой склад
      * * `brandsFlow` — Мои бренды
@@ -69,12 +67,10 @@ export const AccessInnerCodeEnum = {
     Showcase: 'showcase',
     SuppliersDocuments: 'suppliersDocuments',
     Supply: 'supply',
-    FeedbacksQuestions: 'feedbacksQuestions',
     Questions: 'questions',
     PinFeedbacks: 'pinFeedbacks',
     PointsForReviews: 'pointsForReviews',
     Feedbacks: 'feedbacks',
-    WbPoint: 'wbPoint',
     OldAnalyticsReports: 'oldAnalyticsReports',
     Marketplace: 'marketplace',
     BrandsFlow: 'brandsFlow',
