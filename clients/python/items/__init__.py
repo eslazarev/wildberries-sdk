@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.113"
+__version__ = "0.1.114"
 
 # Define package exports
 __all__ = [
@@ -50,7 +50,6 @@ __all__ = [
     "ApiV3StocksWarehouseIdPost200Response",
     "ApiV3StocksWarehouseIdPost200ResponseStocksInner",
     "ApiV3StocksWarehouseIdPostRequest",
-    "ApiV3StocksWarehouseIdPut406Response",
     "ApiV3StocksWarehouseIdPutRequest",
     "ApiV3StocksWarehouseIdPutRequestStocksInner",
     "ApiV3WarehousesPost201Response",
@@ -164,6 +163,7 @@ __all__ = [
     "SwaggerPublicErrorsCursorInput",
     "SwaggerPublicErrorsOrderV2",
     "TaskCreated",
+    "UpdateBlocked",
     "ViewerContractPublicErrorsCursorOutput",
     "Warehouse",
     "WholesaleDiscountThresholdReq",
@@ -207,7 +207,6 @@ from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_delete_request impo
 from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_post200_response import ApiV3StocksWarehouseIdPost200Response as ApiV3StocksWarehouseIdPost200Response
 from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_post200_response_stocks_inner import ApiV3StocksWarehouseIdPost200ResponseStocksInner as ApiV3StocksWarehouseIdPost200ResponseStocksInner
 from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_post_request import ApiV3StocksWarehouseIdPostRequest as ApiV3StocksWarehouseIdPostRequest
-from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_put406_response import ApiV3StocksWarehouseIdPut406Response as ApiV3StocksWarehouseIdPut406Response
 from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_put_request import ApiV3StocksWarehouseIdPutRequest as ApiV3StocksWarehouseIdPutRequest
 from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_put_request_stocks_inner import ApiV3StocksWarehouseIdPutRequestStocksInner as ApiV3StocksWarehouseIdPutRequestStocksInner
 from wildberries_sdk.items.models.api_v3_warehouses_post201_response import ApiV3WarehousesPost201Response as ApiV3WarehousesPost201Response
@@ -321,6 +320,7 @@ from wildberries_sdk.items.models.store_contact_request_body import StoreContact
 from wildberries_sdk.items.models.swagger_public_errors_cursor_input import SwaggerPublicErrorsCursorInput as SwaggerPublicErrorsCursorInput
 from wildberries_sdk.items.models.swagger_public_errors_order_v2 import SwaggerPublicErrorsOrderV2 as SwaggerPublicErrorsOrderV2
 from wildberries_sdk.items.models.task_created import TaskCreated as TaskCreated
+from wildberries_sdk.items.models.update_blocked import UpdateBlocked as UpdateBlocked
 from wildberries_sdk.items.models.viewer_contract_public_errors_cursor_output import ViewerContractPublicErrorsCursorOutput as ViewerContractPublicErrorsCursorOutput
 from wildberries_sdk.items.models.warehouse import Warehouse as Warehouse
 from wildberries_sdk.items.models.wholesale_discount_threshold_req import WholesaleDiscountThresholdReq as WholesaleDiscountThresholdReq

@@ -7467,7 +7467,7 @@ class DefaultApi
                 case 406:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Items\Model\ApiV3StocksWarehouseIdPut406Response',
+                        '\Wildberries\Sdk\Items\Model\UpdateBlocked',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

@@ -89,11 +89,6 @@ import {
     ApiV3StocksWarehouseIdPostRequestToJSON,
 } from '../models/ApiV3StocksWarehouseIdPostRequest';
 import {
-    type ApiV3StocksWarehouseIdPut406Response,
-    ApiV3StocksWarehouseIdPut406ResponseFromJSON,
-    ApiV3StocksWarehouseIdPut406ResponseToJSON,
-} from '../models/ApiV3StocksWarehouseIdPut406Response';
-import {
     type ApiV3StocksWarehouseIdPutRequest,
     ApiV3StocksWarehouseIdPutRequestFromJSON,
     ApiV3StocksWarehouseIdPutRequestToJSON,
@@ -343,6 +338,11 @@ import {
     TaskCreatedFromJSON,
     TaskCreatedToJSON,
 } from '../models/TaskCreated';
+import {
+    type UpdateBlocked,
+    UpdateBlockedFromJSON,
+    UpdateBlockedToJSON,
+} from '../models/UpdateBlocked';
 import {
     type Warehouse,
     WarehouseFromJSON,

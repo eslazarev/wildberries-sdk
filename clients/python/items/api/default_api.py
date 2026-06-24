@@ -5253,7 +5253,7 @@ class DefaultApi:
             '402': "ContentV2TagsGet402Response",
             '403': "Error",
             '404': "Error",
-            '406': "ApiV3StocksWarehouseIdPut406Response",
+            '406': "UpdateBlocked",
             '409': "List[StocksWarehouseErrorInner]",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -5332,7 +5332,7 @@ class DefaultApi:
             '402': "ContentV2TagsGet402Response",
             '403': "Error",
             '404': "Error",
-            '406': "ApiV3StocksWarehouseIdPut406Response",
+            '406': "UpdateBlocked",
             '409': "List[StocksWarehouseErrorInner]",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
@@ -5411,7 +5411,7 @@ class DefaultApi:
             '402': "ContentV2TagsGet402Response",
             '403': "Error",
             '404': "Error",
-            '406': "ApiV3StocksWarehouseIdPut406Response",
+            '406': "UpdateBlocked",
             '409': "List[StocksWarehouseErrorInner]",
             '429': "ContentV2ObjectParentAllGet401Response",
         }

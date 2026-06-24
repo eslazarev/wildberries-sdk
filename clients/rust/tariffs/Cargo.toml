@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_tariffs"
-version = "0.1.113"
+version = "0.1.114"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries OpenAPI client (generated)."
 repository = "https://github.com/eslazarev/wildberries-sdk"

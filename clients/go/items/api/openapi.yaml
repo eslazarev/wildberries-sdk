@@ -5549,8 +5549,13 @@ paths:
         "406":
           content:
             application/json:
+              examples:
+                StatusNotAcceptable:
+                  $ref: "#/components/examples/StatusNotAcceptable"
+                WarehouseStocksUpdateBlock:
+                  $ref: "#/components/examples/WarehouseStocksUpdateBlock"
               schema:
-                $ref: "#/components/schemas/_api_v3_stocks__warehouseId__put_406_response"
+                $ref: "#/components/schemas/UpdateBlocked"
           description: Обновление остатков заблокировано
         "409":
           content:
@@ -6334,6 +6339,16 @@ components:
       value:
         code: IncorrectRequest
         message: Переданы некорректные данные
+    StatusNotAcceptable:
+      value:
+        code: StatusNotAcceptable
+        message: Обновление остатков заблокировано в связи с баном поставщика
+    WarehouseStocksUpdateBlock:
+      description: "Работы на складе, обновить остатки сейчас невозможно. Повторит\
+        е попытку позже"
+      value:
+        code: WarehouseStocksUpdateBlock
+        message: The warehouse is processing
     DeliveryTypeRestriction:
       description: Категория товара недоступна для продажи с использованием этого
         типа доставки
@@ -7350,12 +7365,6 @@ components:
           schema:
             $ref: "#/components/schemas/postV1UploadTaskB2bWholesale_208_response"
       description: Такая загрузка уже есть
-    StatusNotAcceptable:
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/_api_v3_stocks__warehouseId__put_406_response"
-      description: Обновление остатков заблокировано
   schemas:
     BrandsResponse:
       example:
@@ -7655,6 +7664,25 @@ components:
         errorText:
           description: Текст ошибки
           type: string
+      type: object
+    UpdateBlocked:
+      example:
+        code: code
+        message: message
+        data: "{}"
+      properties:
+        code:
+          description: Код ошибки
+          nullable: false
+          type: string
+        message:
+          description: Описание ошибки
+          nullable: false
+          type: string
+        data:
+          description: Дополнительные данные ошибки
+          nullable: true
+          type: object
       type: object
     StocksWarehouseError:
       items:
@@ -11077,26 +11105,6 @@ components:
       required:
       - stocks
       type: object
-    _api_v3_stocks__warehouseId__put_406_response:
-      example:
-        code: StatusNotAcceptable
-        message: Обновление остатков заблокировано в связи с баном поставщика
-        data: "{}"
-      properties:
-        code:
-          description: Код ошибки
-          example: StatusNotAcceptable
-          nullable: false
-          type: string
-        message:
-          description: Описание ошибки
-          example: Обновление остатков заблокировано в связи с баном поставщика
-          nullable: false
-          type: string
-        data:
-          description: Дополнительные данные ошибки
-          nullable: true
-          type: object
     _api_v3_stocks__warehouseId__post_request:
       nullable: false
       properties:

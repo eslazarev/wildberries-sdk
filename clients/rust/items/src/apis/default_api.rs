@@ -233,7 +233,7 @@ pub enum ApiV3StocksWarehouseIdPutError {
     Status402(models::ContentV2TagsGet402Response),
     Status403(models::Error),
     Status404(models::Error),
-    Status406(models::ApiV3StocksWarehouseIdPut406Response),
+    Status406(models::UpdateBlocked),
     Status409(Vec<models::StocksWarehouseErrorInner>),
     Status429(models::ContentV2ObjectParentAllGet401Response),
     UnknownValue(serde_json::Value),

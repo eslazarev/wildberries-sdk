@@ -23,12 +23,12 @@ from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class ApiV3StocksWarehouseIdPut406Response(BaseModel):
+class UpdateBlocked(BaseModel):
     """
-    ApiV3StocksWarehouseIdPut406Response
+    UpdateBlocked
     """ # noqa: E501
-    code: Optional[StrictStr] = Field(default=None, description="Код ошибки", json_schema_extra={"examples": ["StatusNotAcceptable"]})
-    message: Optional[StrictStr] = Field(default=None, description="Описание ошибки", json_schema_extra={"examples": ["Обновление остатков заблокировано в связи с баном поставщика"]})
+    code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
+    message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
     data: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные данные ошибки")
     __properties: ClassVar[List[str]] = ["code", "message", "data"]
 
@@ -50,7 +50,7 @@ class ApiV3StocksWarehouseIdPut406Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiV3StocksWarehouseIdPut406Response from a JSON string"""
+        """Create an instance of UpdateBlocked from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,7 +80,7 @@ class ApiV3StocksWarehouseIdPut406Response(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiV3StocksWarehouseIdPut406Response from a dict"""
+        """Create an instance of UpdateBlocked from a dict"""
         if obj is None:
             return None
 

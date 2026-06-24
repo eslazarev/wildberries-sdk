@@ -3644,7 +3644,7 @@ func (a *DefaultApiService) ApiV3StocksWarehouseIdPutExecute(r ApiApiV3StocksWar
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
-			var v ApiV3StocksWarehouseIdPut406Response
+			var v UpdateBlocked
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
