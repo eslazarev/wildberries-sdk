@@ -4835,7 +4835,16 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
         '406':
-          $ref: '#/components/responses/StatusNotAcceptable'
+          description: Обновление остатков заблокировано
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateBlocked'
+              examples:
+                StatusNotAcceptable:
+                  $ref: '#/components/examples/StatusNotAcceptable'
+                WarehouseStocksUpdateBlock:
+                  $ref: '#/components/examples/WarehouseStocksUpdateBlock'
         '409':
           description: Ошибка обновления остатков
           content:
@@ -5797,6 +5806,21 @@ components:
         errorText:
           description: Текст ошибки
           type: string
+    UpdateBlocked:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Код ошибки
+          nullable: false
+        message:
+          type: string
+          description: Описание ошибки
+          nullable: false
+        data:
+          type: object
+          description: Дополнительные данные ошибки
+          nullable: true
     StocksWarehouseError:
       type: array
       items:
@@ -7166,26 +7190,6 @@ components:
           examples:
             Result208:
               $ref: '#/components/examples/Result208V3'
-    StatusNotAcceptable:
-      description: Обновление остатков заблокировано
-      content:
-        application/json:
-          schema:
-            properties:
-              code:
-                type: string
-                description: Код ошибки
-                nullable: false
-                example: StatusNotAcceptable
-              message:
-                type: string
-                description: Описание ошибки
-                nullable: false
-                example: Обновление остатков заблокировано в связи с баном поставщика
-              data:
-                type: object
-                description: Дополнительные данные ошибки
-                nullable: true
   examples:
     WarehouseNameInvalid:
       value:
@@ -7214,6 +7218,15 @@ components:
       value:
         code: IncorrectRequest
         message: Переданы некорректные данные
+    StatusNotAcceptable:
+      value:
+        code: StatusNotAcceptable
+        message: Обновление остатков заблокировано в связи с баном поставщика
+    WarehouseStocksUpdateBlock:
+      description: Работы на складе, обновить остатки сейчас невозможно. Повторите попытку позже
+      value:
+        code: WarehouseStocksUpdateBlock
+        message: The warehouse is processing
     DeliveryTypeRestriction:
       description: Категория товара недоступна для продажи с использованием этого типа доставки
       value:

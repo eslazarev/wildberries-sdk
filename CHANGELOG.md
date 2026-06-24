@@ -1,6 +1,12 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.06.24)
+- Товары/Остатки: для ответа `406 Not Acceptable` при обновлении остатков заменён `$ref` на `#/components/responses/StatusNotAcceptable` на инлайн-описание с `schema: #/components/schemas/UpdateBlocked` и примерами `StatusNotAcceptable` + новый `WarehouseStocksUpdateBlock`.
+- Товары/Остатки: добавлена схема ошибки `UpdateBlocked` (поля `code`, `message`, `data`) для случаев блокировки обновления остатков.
+- Товары/Остатки: удалён компонент `components.responses.StatusNotAcceptable` (его структура перенесена в `components.schemas.UpdateBlocked` + `components.examples`).
+- Товары/Остатки: добавлен пример ошибки `WarehouseStocksUpdateBlock` (работы на складе; обновление остатков временно невозможно, повторить позже); пример `StatusNotAcceptable` перенесён/оформлен как `components.examples.StatusNotAcceptable`.
+
 ### Changed (2026.06.23)
 - Общие/Права доступа: удалены коды прав `wbPoint` (WB Point) и `feedbacksQuestions` (вопросы+отзывы/жалобы на отзывы) из перечня доступных разрешений и обязательных значений (enum) в компонентах спецификации.
 
