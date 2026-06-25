@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.06.25)
+- Информация о продавце: добавлен GET `/api/common/v1/tariff-constructor/options` (common-api.wildberries.ru) для получения подключённых опций и пакетов Конструктора тарифов; доступ по сервисному токену, query-параметр `locale` (`ru|en`, default `ru`)
+- Информация о продавце: введён лимит для GET `/api/common/v1/tariff-constructor/options` — 1 запрос/мин на аккаунт (интервал 1 мин, всплеск до 10)
+- Информация о продавце: добавлены схемы ответа/ошибок для нового метода — `PlanBuilderOptionsInfo` (поля `activeOptionCount`, `activePackageCount`, `totalCommissionRate`, массивы `packages`/`options`), `PlanBuilderPackage`, `PlanBuilderOption`, `PlanBuilderOptionShort`, `PlanBuilderPromotion`, `PlanBuilderErrors`; добавлены примеры ответов 200/400/404 (в т.ч. коды `INVALID_LOCALE`, `OPTIONS_NOT_AVAILABLE`)
+
 ### Changed (2026.06.24)
 - Товары/Остатки: для ответа `406 Not Acceptable` при обновлении остатков заменён `$ref` на `#/components/responses/StatusNotAcceptable` на инлайн-описание с `schema: #/components/schemas/UpdateBlocked` и примерами `StatusNotAcceptable` + новый `WarehouseStocksUpdateBlock`.
 - Товары/Остатки: добавлена схема ошибки `UpdateBlocked` (поля `code`, `message`, `data`) для случаев блокировки обновления остатков.

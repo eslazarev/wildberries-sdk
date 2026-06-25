@@ -389,6 +389,86 @@ paths:
           $ref: '#/components/responses/402'
         '429':
           $ref: '#/components/responses/429'
+  /api/common/v1/tariff-constructor/options:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      operationId: getCommonV1TariffConstructorOptions
+      x-token-types:
+        - service
+      tags:
+        - Информация о продавце
+      security:
+        - HeaderApiKey: []
+      summary: Получить информацию об опциях Конструктора тарифов
+      description: |
+        <div class="description_auth">
+          Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
+        </div>
+
+        <div class="description_token">
+        Метод доступен по<strong> Сервисному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+        </div>
+
+        Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>
+
+        Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 1 запрос | 1 мин | 10 запросов |
+        </div>
+      parameters:
+        - name: locale
+          in: query
+          schema:
+            type: string
+            default: ru
+            example: ru
+            enum:
+              - ru
+              - en
+          description: |
+            Язык полей ответа:
+              - `ru` — русский
+              - `en` — английский
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlanBuilderOptionsInfo'
+              examples:
+                PlanBuilderSuccess:
+                  $ref: '#/components/examples/PlanBuilderSuccess'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/PlanBuilderErrors'
+              examples:
+                PlanBuilder400:
+                  $ref: '#/components/examples/PlanBuilder400'
+        '401':
+          $ref: '#/components/responses/401'
+        '404':
+          description: Не найдено
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/PlanBuilderErrors'
+              examples:
+                PlanBuilder404:
+                  $ref: '#/components/examples/PlanBuilder404'
+        '429':
+          $ref: '#/components/responses/429'
   /api/v1/invite:
     servers:
       - url: https://user-management-api.wildberries.ru
@@ -1215,6 +1295,254 @@ components:
           format: date-time
           example: '2026-04-25T14:44:28.393587Z'
           description: Дата и время окончания подписки
+    PlanBuilderOptionsInfo:
+      type: object
+      required:
+        - activeOptionCount
+        - activePackageCount
+        - totalCommissionRate
+        - packages
+        - options
+      properties:
+        activeOptionCount:
+          type: number
+          format: int
+          example: 5
+          description: Количество активных опций, не включённых в пакеты
+        activePackageCount:
+          type: number
+          format: int
+          example: 2
+          description: Количество активных пакетов опций
+        totalCommissionRate:
+          type: number
+          format: float
+          example: 4.6
+          description: Итоговая комиссия за подключённые опции и пакеты, % от оборота
+        packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlanBuilderPackage'
+          description: Подключённые пакеты опций
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlanBuilderOption'
+          description: Подключённые опции
+    PlanBuilderPackage:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 79861ed4-ccfd-4998-96a9-c90f8bf98bb9
+          description: ID пакета
+        slug:
+          type: string
+          example: superSeller
+          description: Код пакета
+        name:
+          type: string
+          example: Суперпродавец
+          description: Название пакета на языке из параметра `locale`
+        status:
+          type: string
+          example: active
+          enum:
+            - active
+            - pendingActivation
+            - pendingDeactivation
+          description: |
+            Статус пакета:
+              - `active` — активен
+              - `pendingActivation` — подключён, начнёт работать с 00:00 следующего дня
+              - `pendingDeactivation` — отключён, перестанет работать с 00:00 следующего дня
+        activatedAt:
+          example: '2006-01-02T15:04:05.999+03:00'
+          description: Дата активации пакета
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+          example: '2006-01-02T15:04:05.999+03:00'
+          description: Дата окончания минимального срока действия пакета. До этого дня пакет опций нельзя отключить
+        commissionRate:
+          type: number
+          format: float
+          example: 2.5
+          description: Комиссия за пакет, % от оборота
+        periodDuration:
+          type: number
+          format: int
+          example: 90
+          description: Минимальный срок действия пакета в днях
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlanBuilderOptionShort'
+          description: Опции, которые входят в пакет
+    PlanBuilderOption:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 4f134ae7-f768-481e-bac1-bf75d2fdc6f7
+          description: ID опции
+        slug:
+          type: string
+          example: pinReview
+          description: Код опции
+        name:
+          type: string
+          example: Закрепление отзывов и видео из Wibes
+          description: Название опции на языке из параметра `locale`
+        status:
+          type: string
+          example: active
+          enum:
+            - active
+            - pendingActivation
+            - pendingDeactivation
+          description: |
+            Статус опции:
+              - `active` — активна
+              - `pendingActivation` — подключена, начнёт работать с 00:00 следующего дня
+              - `pendingDeactivation` — отключена, перестанет работать с 00:00 следующего дня
+        activatedAt:
+          example: '2006-01-02T15:04:05.999+03:00'
+          description: Дата активации опции
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+          example: '2006-01-02T15:04:05.999+03:00'
+          description: Дата окончания минимального срока действия опции. До этого дня опцию нельзя отключить
+        commissionRate:
+          example: 2.1
+          description: Стоимость подключения опции, % от оборота. Возвращается, если в ответе нет объекта `promotion`
+          type: number
+          format: float
+        periodDuration:
+          type: number
+          format: int
+          example: 90
+          description: Минимальный срок действия опции в днях
+        promotion:
+          description: Акция, по которой подключена опция. Не возвращается, если опция подключена без акции или срок действия акции истёк
+          $ref: '#/components/schemas/PlanBuilderPromotion'
+          type: object
+    PlanBuilderOptionShort:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 4f134ae7-f768-481e-bac1-bf75d2fdc6f7
+          description: ID опции
+        slug:
+          type: string
+          example: pinReview
+          description: Код опции
+        name:
+          type: string
+          example: Закрепление отзывов и видео
+          description: Название опции на языке из параметра `locale`
+    PlanBuilderPromotion:
+      type: object
+      properties:
+        commissionRate:
+          type: number
+          format: float
+          example: 0.3
+          description: Стоимость подключения опции по акции, % от оборота
+        expiresAt:
+          type: string
+          format: date-time
+          example: '2006-01-02T15:04:05.999+03:00'
+          description: Дата окончания действия цены по акции
+    PlanBuilderErrors:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Заголовок ошибки
+        detail:
+          type: string
+          description: Детали ошибки
+        code:
+          type: string
+          description: Внутренний код ошибки
+        requestId:
+          type: string
+          description: Уникальный ID запроса
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+        status:
+          type: number
+          description: HTTP статус-код
+        errors:
+          type: array
+          description: Ошибки запроса с указанием параметров и деталей ошибок
+  examples:
+    PlanBuilderSuccess:
+      value:
+        activeOptionCount: 2
+        activePackageCount: 1
+        totalCommissionRate: 2.3
+        packages:
+          - slug: super-seller
+            name: Суперпродавец
+            status: active
+            periodDuration: 90
+            commissionRate: 0.8
+            activatedAt: '2026-03-15T00:00:00+03:00'
+            expiresAt: '2026-06-15T00:00:00+03:00'
+            options:
+              - id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                slug: review-pin
+                name: Закрепление отзыва
+              - id: b2c3d4e5-f6a7-8901-bcde-f12345678901
+                slug: premium-seller-status
+                name: Статус Премиум-продавца
+        options:
+          - id: c3d4e5f6-a7b8-9012-cdef-123456789012
+            slug: daily-withdrawal
+            name: Запрос вывода денег в любой день
+            status: active
+            periodDuration: 90
+            commissionRate: 1
+            activatedAt: '2026-03-15T00:00:00+03:00'
+            expiresAt: '2026-05-20T00:00:00+03:00'
+          - id: d4e5f6a7-b8c9-0123-defa-234567890123
+            slug: priority-support
+            name: Приоритетная поддержка
+            status: pendingDeactivation
+            periodDuration: 30
+            activatedAt: '2026-03-15T00:00:00+03:00'
+            expiresAt: '2026-04-10T00:00:00+03:00'
+            promotion:
+              commissionRate: 0.3
+              expiresAt: '2026-04-30T00:00:00+03:00'
+    PlanBuilder400:
+      value:
+        title: Validation failed
+        detail: 'Invalid locale value ''fr''. Allowed values: ru, en'
+        status: 400
+        origin: options-service
+        code: INVALID_LOCALE
+        requestId: abc123-def456
+        errors:
+          - field: locale
+            message: 'Must be one of: ru, en'
+    PlanBuilder404:
+      value:
+        title: Options not available
+        detail: Options are not available for this supplier
+        status: 404
+        origin: options-service
+        code: OPTIONS_NOT_AVAILABLE
   responses:
     '401':
       description: Не авторизован
