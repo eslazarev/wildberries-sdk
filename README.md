@@ -81,6 +81,7 @@ SDK выпускается с security-first процессом:
 ### Общее (`01-general.yaml`)
 - `GET /api/common/v1/rating` — Получить рейтинг продавца (getCommonV1Rating)
 - `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем (getCommonV1Subscriptions)
+- `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов (getCommonV1TariffConstructorOptions)
 - `GET /api/communications/v2/news` — Получение новостей портала продавцов
 - `POST /api/v1/invite` — Создать приглашение для нового пользователя
 - `GET /api/v1/seller-info` — Получить информацию о продавце

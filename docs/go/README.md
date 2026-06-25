@@ -65,6 +65,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `general.DefaultApiService.ApiV1UsersGet` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
 - `general.DefaultApiService.GetCommonV1Rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
 - `general.DefaultApiService.GetCommonV1Subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
+- `general.DefaultApiService.GetCommonV1TariffConstructorOptions` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
 - `general.APIAPIService.ApiCommunicationsV2NewsGet` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
 - `general.WBAPIAPIService.PingGet` — `GET /ping` — Проверка подключения
 

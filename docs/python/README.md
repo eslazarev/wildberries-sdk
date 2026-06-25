@@ -78,6 +78,7 @@ print(feedbacks)
 - `general.DefaultApi.api_v1_users_get` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
 - `general.DefaultApi.get_common_v1_rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
 - `general.DefaultApi.get_common_v1_subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
+- `general.DefaultApi.get_common_v1_tariff_constructor_options` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
 - `general.DefaultApi.ping_get` — `GET /ping` — Проверка подключения
 
 ### items (`items`)

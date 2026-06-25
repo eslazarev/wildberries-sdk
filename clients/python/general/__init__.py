@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.114"
+__version__ = "0.1.115"
 
 # Define package exports
 __all__ = [
@@ -43,6 +43,12 @@ __all__ = [
     "GetUsersResponseUsersInnerInviteeInfo",
     "PingGet200Response",
     "PingGet401Response",
+    "PlanBuilderErrors",
+    "PlanBuilderOption",
+    "PlanBuilderOptionShort",
+    "PlanBuilderOptionsInfo",
+    "PlanBuilderPackage",
+    "PlanBuilderPromotion",
     "SubscriptionsJamInfo",
     "SupplierRatingModel",
     "UpdateUserAccessRequest",
@@ -79,6 +85,12 @@ from wildberries_sdk.general.models.get_users_response_users_inner import GetUse
 from wildberries_sdk.general.models.get_users_response_users_inner_invitee_info import GetUsersResponseUsersInnerInviteeInfo as GetUsersResponseUsersInnerInviteeInfo
 from wildberries_sdk.general.models.ping_get200_response import PingGet200Response as PingGet200Response
 from wildberries_sdk.general.models.ping_get401_response import PingGet401Response as PingGet401Response
+from wildberries_sdk.general.models.plan_builder_errors import PlanBuilderErrors as PlanBuilderErrors
+from wildberries_sdk.general.models.plan_builder_option import PlanBuilderOption as PlanBuilderOption
+from wildberries_sdk.general.models.plan_builder_option_short import PlanBuilderOptionShort as PlanBuilderOptionShort
+from wildberries_sdk.general.models.plan_builder_options_info import PlanBuilderOptionsInfo as PlanBuilderOptionsInfo
+from wildberries_sdk.general.models.plan_builder_package import PlanBuilderPackage as PlanBuilderPackage
+from wildberries_sdk.general.models.plan_builder_promotion import PlanBuilderPromotion as PlanBuilderPromotion
 from wildberries_sdk.general.models.subscriptions_jam_info import SubscriptionsJamInfo as SubscriptionsJamInfo
 from wildberries_sdk.general.models.supplier_rating_model import SupplierRatingModel as SupplierRatingModel
 from wildberries_sdk.general.models.update_user_access_request import UpdateUserAccessRequest as UpdateUserAccessRequest

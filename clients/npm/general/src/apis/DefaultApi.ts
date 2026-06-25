@@ -49,6 +49,16 @@ import {
     PingGet401ResponseToJSON,
 } from '../models/PingGet401Response';
 import {
+    type PlanBuilderErrors,
+    PlanBuilderErrorsFromJSON,
+    PlanBuilderErrorsToJSON,
+} from '../models/PlanBuilderErrors';
+import {
+    type PlanBuilderOptionsInfo,
+    PlanBuilderOptionsInfoFromJSON,
+    PlanBuilderOptionsInfoToJSON,
+} from '../models/PlanBuilderOptionsInfo';
+import {
     type SubscriptionsJamInfo,
     SubscriptionsJamInfoFromJSON,
     SubscriptionsJamInfoToJSON,
@@ -80,6 +90,10 @@ export interface ApiV1UsersGetRequest {
     limit?: number;
     offset?: number;
     isInviteOnly?: boolean;
+}
+
+export interface GetCommonV1TariffConstructorOptionsRequest {
+    locale?: GetCommonV1TariffConstructorOptionsLocaleEnum;
 }
 
 /**
@@ -429,4 +443,60 @@ export class DefaultApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+    /**
+     * Creates request options for getCommonV1TariffConstructorOptions without sending the request
+     */
+    async getCommonV1TariffConstructorOptionsRequestOpts(requestParameters: GetCommonV1TariffConstructorOptionsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/common/v1/tariff-constructor/options`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>  <div class=\"description_token\"> Метод доступен по<strong> Сервисному</strong> <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токену</a> </div>  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Получить информацию об опциях Конструктора тарифов
+     */
+    async getCommonV1TariffConstructorOptionsRaw(requestParameters: GetCommonV1TariffConstructorOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PlanBuilderOptionsInfo>> {
+        const requestOptions = await this.getCommonV1TariffConstructorOptionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PlanBuilderOptionsInfoFromJSON(jsonValue));
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>  <div class=\"description_token\"> Метод доступен по<strong> Сервисному</strong> <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токену</a> </div>  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Получить информацию об опциях Конструктора тарифов
+     */
+    async getCommonV1TariffConstructorOptions(requestParameters: GetCommonV1TariffConstructorOptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PlanBuilderOptionsInfo> {
+        const response = await this.getCommonV1TariffConstructorOptionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
+
+/**
+ * @export
+ */
+export const GetCommonV1TariffConstructorOptionsLocaleEnum = {
+    Ru: 'ru',
+    En: 'en'
+} as const;
+export type GetCommonV1TariffConstructorOptionsLocaleEnum = typeof GetCommonV1TariffConstructorOptionsLocaleEnum[keyof typeof GetCommonV1TariffConstructorOptionsLocaleEnum];

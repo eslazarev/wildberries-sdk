@@ -95,6 +95,9 @@ class DefaultApi
         'getCommonV1Subscriptions' => [
             'application/json',
         ],
+        'getCommonV1TariffConstructorOptions' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -2569,6 +2572,387 @@ class DefaultApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForgetCommonV1Subscriptions(): array
+    {
+        return [
+            [
+                "url" => "https://common-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation getCommonV1TariffConstructorOptions
+     *
+     * Получить информацию об опциях Конструктора тарифов
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://common-api.wildberries.ru
+     *
+     * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский (optional, default to 'ru')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommonV1TariffConstructorOptions'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\PingGet401Response|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\PingGet401Response
+     */
+    public function getCommonV1TariffConstructorOptions($locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getCommonV1TariffConstructorOptions'][0])
+    {
+        list($response) = $this->getCommonV1TariffConstructorOptionsWithHttpInfo($locale, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getCommonV1TariffConstructorOptionsWithHttpInfo
+     *
+     * Получить информацию об опциях Конструктора тарифов
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://common-api.wildberries.ru
+     *
+     * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский (optional, default to 'ru')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommonV1TariffConstructorOptions'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\General\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\PingGet401Response|\Wildberries\Sdk\General\Model\PlanBuilderErrors|\Wildberries\Sdk\General\Model\PingGet401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCommonV1TariffConstructorOptionsWithHttpInfo($locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getCommonV1TariffConstructorOptions'][0])
+    {
+        $request = $this->getCommonV1TariffConstructorOptionsRequest($locale, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\General\Model\PlanBuilderErrors',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\General\Model\PingGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\General\Model\PlanBuilderErrors',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\General\Model\PingGet401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\General\Model\PlanBuilderErrors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\General\Model\PingGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\General\Model\PlanBuilderErrors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\General\Model\PingGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCommonV1TariffConstructorOptionsAsync
+     *
+     * Получить информацию об опциях Конструктора тарифов
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://common-api.wildberries.ru
+     *
+     * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский (optional, default to 'ru')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommonV1TariffConstructorOptions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCommonV1TariffConstructorOptionsAsync($locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getCommonV1TariffConstructorOptions'][0])
+    {
+        return $this->getCommonV1TariffConstructorOptionsAsyncWithHttpInfo($locale, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCommonV1TariffConstructorOptionsAsyncWithHttpInfo
+     *
+     * Получить информацию об опциях Конструктора тарифов
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://common-api.wildberries.ru
+     *
+     * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский (optional, default to 'ru')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommonV1TariffConstructorOptions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCommonV1TariffConstructorOptionsAsyncWithHttpInfo($locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getCommonV1TariffConstructorOptions'][0])
+    {
+        $returnType = '\Wildberries\Sdk\General\Model\PlanBuilderOptionsInfo';
+        $request = $this->getCommonV1TariffConstructorOptionsRequest($locale, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCommonV1TariffConstructorOptions'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://common-api.wildberries.ru
+     *
+     * @param  string|null $locale Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский (optional, default to 'ru')
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCommonV1TariffConstructorOptions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCommonV1TariffConstructorOptionsRequest($locale = 'ru', ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getCommonV1TariffConstructorOptions'][0])
+    {
+
+
+
+        $resourcePath = '/api/common/v1/tariff-constructor/options';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $locale,
+            'locale', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetCommonV1TariffConstructorOptions();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getCommonV1TariffConstructorOptions
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetCommonV1TariffConstructorOptions(): array
     {
         return [
             [

@@ -66,6 +66,7 @@ main().catch(console.error);
 - `general.DefaultApi.apiV1UsersGet` — Получить список активных или приглашённых пользователей продавца
 - `general.DefaultApi.getCommonV1Rating` — Получить рейтинг продавца
 - `general.DefaultApi.getCommonV1Subscriptions` — Получить информацию о подписке Джем
+- `general.DefaultApi.getCommonV1TariffConstructorOptions` — Получить информацию об опциях Конструктора тарифов
 - `general.WBAPIApi.pingGet` — Проверка подключения
 
 ### items (`items`)

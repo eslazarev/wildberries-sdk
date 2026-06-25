@@ -79,6 +79,7 @@ var_dump($response);
 - `general.DefaultApi.apiV1UsersGet` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
 - `general.DefaultApi.getCommonV1Rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
 - `general.DefaultApi.getCommonV1Subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
+- `general.DefaultApi.getCommonV1TariffConstructorOptions` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
 - `general.WBAPIApi.pingGet` — `GET /ping` — Проверка подключения
 
 ### items (`items`)
