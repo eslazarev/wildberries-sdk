@@ -1263,13 +1263,19 @@ paths:
       x-token-types:
         - personal
         - service
+        - base-with-secret
       tags:
         - История остатков
       summary: Остатки на складах WB
       operationId: postV1StocksReportWbWarehouses
       description: |
-        <div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-            </div>
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену, 
+                <strong>Базовому</strong> токену <strong>с секретом</strong>
+        </div>
 
         Метод возвращает текущие остатки товаров на складах WB.
         <br><br>
@@ -1593,8 +1599,12 @@ paths:
       summary: Получить отчёт
       operationId: postV1ItemRating
       description: |
-        <div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-            </div>
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
+        </div>
 
         Метод формирует набор данных об оценках товаров.
         <br><br>
