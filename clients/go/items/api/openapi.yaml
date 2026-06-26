@@ -8,6 +8,7 @@ info:
       - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)
       - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров
       - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров
+      - работать с [рекомендациями](/openapi/work-with-products#tag/recommendations) для товаров
       - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)
       - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца
 
@@ -39,6 +40,9 @@ tags:
 - description: ""
   name: Ярлыки
   x-displayName: Ярлыки
+- description: ""
+  name: Рекомендации
+  x-displayName: Рекомендации
 - description: ""
   name: Цены и скидки
 - description: ""
@@ -3678,6 +3682,152 @@ paths:
     - description: |
         **Sandbox**
       url: https://content-api-sandbox.wildberries.ru
+  /api/content/v1/recommendations/list:
+    post:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список [р\
+        екомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках\
+        \ товаров.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс\
+        \ | 5 запросов |\n</div>\n"
+      operationId: postV1RecommendationsList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetRecomReq"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetRecomRes"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response400GetRecom"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: s2s-api-auth-catalog
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_content_v2_object_parent_all_get_401_response"
+          description: Не авторизован
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: s2s-api-auth-catalog
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_content_v2_object_parent_all_get_401_response"
+          description: Слишком много запросов
+      summary: Список рекомендаций в карточках товаров
+      tags:
+      - Рекомендации
+      x-readonly-method: true
+      x-category: content
+      x-token-types:
+      - personal
+      - service
+    servers:
+    - url: https://content-api.wildberries.ru
+  /api/content/v1/recommendations/set:
+    post:
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод обновляет, добавляе\
+        т или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3)\
+        \ для товаров.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс\
+        \ | 5 запросов |\n</div>\n"
+      operationId: postV1RecommendationsSet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SetRecomReq"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SetRecomRes"
+          description: Успешно
+        "208":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response208SetRecom"
+          description: Уже отправлено
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response400SetRecom"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: s2s-api-auth-catalog
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_content_v2_object_parent_all_get_401_response"
+          description: Не авторизован
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: s2s-api-auth-catalog
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_content_v2_object_parent_all_get_401_response"
+          description: Слишком много запросов
+      summary: Установить рекомендации для товаров
+      tags:
+      - Рекомендации
+      x-category: content
+      x-token-types:
+      - personal
+      - service
+    servers:
+    - url: https://content-api.wildberries.ru
   /api/v2/upload/task:
     post:
       description: |
@@ -4139,10 +4289,10 @@ paths:
       url: https://discounts-prices-api-sandbox.wildberries.ru
   /api/discounts-prices/v1/upload/task/b2b/wholesale:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)\n\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод устанавливает [опто\
+        вые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)\n\
         \n<div class=\"description_important\">\n  Получить информацию о процессе\
         \ установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\"\
         >состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\"\
@@ -8731,6 +8881,303 @@ components:
             - `true` — сортировка по возрастанию
           type: boolean
       type: object
+    GetRecomReq:
+      description: Запрос для получения рекомендаций
+      example:
+        brandNames:
+        - Comma
+        limit: 400
+        next: 123
+        search: "410"
+        subjectIds:
+        - 123
+        - 5231
+      properties:
+        brandNames:
+          description: Бренды
+          example:
+          - Comma
+          items:
+            type: string
+          maxItems: 30
+          type: array
+        limit:
+          default: 20
+          description: Количество товаров в ответе
+          maximum: 5000
+          minimum: 0
+          type: integer
+        next:
+          default: 0
+          description: Курсор. Последний `nmId` в ответе
+          example: 123
+          type: integer
+        search:
+          description: |
+            Поиск:
+              - по артикулу WB `nmId` — полное совпадение
+              - по артикулу продавца `vendorCode` — частичное совпадение
+          example: "410"
+          maxLength: 72
+          type: string
+        subjectIds:
+          description: ID предметов
+          example:
+          - 123
+          - 5231
+          items:
+            type: integer
+          maxItems: 30
+          type: array
+      type: object
+    GetRecomRes:
+      description: Товары с рекомендациями
+      example:
+        data:
+        - nmId: 5870243
+          imtId: 619043112
+          vendorCode: 41058/transparent
+          brandName: Comma
+          updatedAt: 2025-11-13T12:56:15.778591Z
+          picsCount: 4
+          title: Transparent phone case
+          subjectName: Phone cases
+          pic: https://basket-01.wbbasket.ru/vol58/part5870/5870243/images/c516x688/1.webp
+          recomCount: 2
+          recomPics:
+          - https://basket-02.wbbasket.ru/vol174/part17405/17405826/images/tm/1.webp
+          - https://basket-02.wbbasket.ru/vol174/part17420/17420062/images/tm/1.webp
+          recomNms:
+          - 17405826
+          - 17420062
+        - nmId: 5870243
+          imtId: 619043112
+          vendorCode: 41058/transparent
+          brandName: Comma
+          updatedAt: 2025-11-13T12:56:15.778591Z
+          picsCount: 4
+          title: Transparent phone case
+          subjectName: Phone cases
+          pic: https://basket-01.wbbasket.ru/vol58/part5870/5870243/images/c516x688/1.webp
+          recomCount: 2
+          recomPics:
+          - https://basket-02.wbbasket.ru/vol174/part17405/17405826/images/tm/1.webp
+          - https://basket-02.wbbasket.ru/vol174/part17420/17420062/images/tm/1.webp
+          recomNms:
+          - 17405826
+          - 17420062
+        next: 143
+      properties:
+        data:
+          description: Данные о товарах и их рекомендациях
+          items:
+            $ref: "#/components/schemas/GetRecomRes_data_inner"
+          type: array
+        next:
+          description: Курсор. Последний `nmId` в ответе
+          example: 143
+          type: integer
+      required:
+      - data
+      - next
+      type: object
+    response400GetRecom:
+      example:
+        requestId: a03341a9-7b2c-41fd-9902-12a2705f0d24
+        origin: recoms
+        title: Bad Request
+        detail: "Search string length limit exceeded, maximum 72 required"
+      properties:
+        requestId:
+          description: ID запроса
+          example: a03341a9-7b2c-41fd-9902-12a2705f0d24
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: recoms
+          type: string
+        title:
+          description: Заголовок ошибки
+          example: Bad Request
+          type: string
+        detail:
+          description: Детали ошибки
+          example: "Search string length limit exceeded, maximum 72 required"
+          type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - title
+      type: object
+    SetRecomReq:
+      description: Запрос на добавление или замену рекомендаций
+      example:
+        recList:
+        - nmId: 5870243
+          recommendations:
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+        - nmId: 5870243
+          recommendations:
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+        - nmId: 5870243
+          recommendations:
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+        - nmId: 5870243
+          recommendations:
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+        - nmId: 5870243
+          recommendations:
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+          - recomNm: 5870244
+            sort: 1
+        replace: true
+      properties:
+        recList:
+          description: Список рекомендаций для товаров
+          items:
+            $ref: "#/components/schemas/SetRecomReq_recList_inner"
+          maxItems: 5000
+          minItems: 1
+          type: array
+        replace:
+          default: false
+          description: |
+            Действие в запросе:
+              - `false` — добавить новые рекомендации к существующим
+              - `true` — заменить существующие рекомендации новыми
+          example: true
+          type: boolean
+      required:
+      - recList
+      type: object
+    SetRecomRes:
+      example:
+        isError: true
+        errors:
+        - mainNm: "5870243"
+          recomNm: "5870244"
+          message: The item has no photo
+        - mainNm: "5870243"
+          recomNm: "5870244"
+          message: The item has no photo
+      properties:
+        isError:
+          description: |
+            Есть ли ошибки:
+              - `false` — ошибок нет. Запрос полностью успешен
+              - `true` — ошибки есть
+          example: true
+          type: boolean
+        errors:
+          description: Ошибки. При `"isError":true`
+          items:
+            $ref: "#/components/schemas/SetRecomRes_errors_inner"
+          type: array
+      required:
+      - isError
+      type: object
+    response208SetRecom:
+      example:
+        requestId: a03341a9-7b2c-41fd-9902-12a2705f0d24
+        origin: recoms
+        title: Already Reported
+        detail: Recommendations already set
+      properties:
+        requestId:
+          description: ID запроса
+          example: a03341a9-7b2c-41fd-9902-12a2705f0d24
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: recoms
+          type: string
+        title:
+          description: Заголовок ответа
+          example: Already Reported
+          type: string
+        detail:
+          description: Детали ответа
+          example: Recommendations already set
+          type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - title
+      type: object
+    response400SetRecom:
+      example:
+        requestId: a03341a9-7b2c-41fd-9902-12a2705f0d24
+        origin: recoms
+        title: Bad Request
+        detail: incorrect request body format
+      properties:
+        requestId:
+          description: ID запроса
+          example: a03341a9-7b2c-41fd-9902-12a2705f0d24
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: recoms
+          type: string
+        title:
+          description: Заголовок ошибки
+          example: Bad Request
+          type: string
+        detail:
+          description: Детали ошибки
+          example: incorrect request body format
+          type: string
+      required:
+      - detail
+      - origin
+      - requestId
+      - title
+      type: object
     _content_v2_object_parent_all_get_200_response_data_inner:
       example:
         name: Электроника
@@ -11384,6 +11831,167 @@ components:
       - price
       - sizeID
       - techSizeName
+      type: object
+    GetRecomRes_data_inner:
+      example:
+        nmId: 5870243
+        imtId: 619043112
+        vendorCode: 41058/transparent
+        brandName: Comma
+        updatedAt: 2025-11-13T12:56:15.778591Z
+        picsCount: 4
+        title: Transparent phone case
+        subjectName: Phone cases
+        pic: https://basket-01.wbbasket.ru/vol58/part5870/5870243/images/c516x688/1.webp
+        recomCount: 2
+        recomPics:
+        - https://basket-02.wbbasket.ru/vol174/part17405/17405826/images/tm/1.webp
+        - https://basket-02.wbbasket.ru/vol174/part17420/17420062/images/tm/1.webp
+        recomNms:
+        - 17405826
+        - 17420062
+      properties:
+        nmId:
+          description: Артикул WB
+          example: 5870243
+          type: integer
+        imtId:
+          description: "ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)\
+            \ карточек товаров"
+          example: 619043112
+          type: integer
+        vendorCode:
+          description: Артикул продавца
+          example: 41058/transparent
+          type: string
+        brandName:
+          description: Бренд
+          example: Comma
+          type: string
+        updatedAt:
+          description: Дата и время последнего обновления рекомендаций
+          example: 2025-11-13T12:56:15.778591Z
+          format: date-time
+          nullable: true
+          type: string
+        picsCount:
+          description: Количество изображений в карточке товара
+          example: 4
+          type: integer
+        title:
+          description: Название товара
+          example: Transparent phone case
+          type: string
+        subjectName:
+          description: Предмет
+          example: Phone cases
+          type: string
+        pic:
+          description: URL основного изображения в карточке товара
+          example: https://basket-01.wbbasket.ru/vol58/part5870/5870243/images/c516x688/1.webp
+          type: string
+        recomCount:
+          description: Количество рекомендуемых товаров
+          example: 2
+          type: integer
+        recomPics:
+          description: Список URL основных изображений рекомендуемых товаров
+          example:
+          - https://basket-02.wbbasket.ru/vol174/part17405/17405826/images/tm/1.webp
+          - https://basket-02.wbbasket.ru/vol174/part17420/17420062/images/tm/1.webp
+          items:
+            type: string
+          type: array
+        recomNms:
+          description: Список `nmId` рекомендуемых товаров
+          example:
+          - 17405826
+          - 17420062
+          items:
+            type: integer
+          type: array
+      required:
+      - brandName
+      - imtId
+      - nmId
+      - pic
+      - picsCount
+      - recomCount
+      - recomNms
+      - recomPics
+      - subjectName
+      - title
+      - vendorCode
+      type: object
+    SetRecomReq_recList_inner_recommendations_inner:
+      example:
+        recomNm: 5870244
+        sort: 1
+      properties:
+        recomNm:
+          default: 0
+          description: Артикул WB рекомендуемого товара
+          example: 5870244
+          type: integer
+        sort:
+          default: 20
+          description: На каком месте находится товар в списке рекомендаций
+          example: 1
+          maximum: 20
+          minimum: 0
+          type: integer
+      type: object
+    SetRecomReq_recList_inner:
+      example:
+        nmId: 5870243
+        recommendations:
+        - recomNm: 5870244
+          sort: 1
+        - recomNm: 5870244
+          sort: 1
+        - recomNm: 5870244
+          sort: 1
+        - recomNm: 5870244
+          sort: 1
+        - recomNm: 5870244
+          sort: 1
+      properties:
+        nmId:
+          default: 0
+          description: Артикул WB
+          example: 5870243
+          type: integer
+        recommendations:
+          description: Рекомендуемые товары
+          items:
+            $ref: "#/components/schemas/SetRecomReq_recList_inner_recommendations_inner"
+          maxItems: 20
+          minItems: 0
+          type: array
+      type: object
+    SetRecomRes_errors_inner:
+      description: Ошибки установки рекомендаций
+      example:
+        mainNm: "5870243"
+        recomNm: "5870244"
+        message: The item has no photo
+      properties:
+        mainNm:
+          description: Значение параметра `nmId`
+          example: "5870243"
+          type: string
+        recomNm:
+          description: Значение параметра `recomNm`
+          example: "5870244"
+          type: string
+        message:
+          description: Сообщение об ошибке
+          example: The item has no photo
+          type: string
+      required:
+      - mainNm
+      - message
+      - recomNm
       type: object
   securitySchemes:
     HeaderApiKey:

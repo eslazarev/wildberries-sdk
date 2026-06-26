@@ -39,7 +39,6 @@ from wildberries_sdk.reports.models.measurement_penalties import MeasurementPena
 from wildberries_sdk.reports.models.orders_item import OrdersItem
 from wildberries_sdk.reports.models.response_paid_storage_inner import ResponsePaidStorageInner
 from wildberries_sdk.reports.models.sales_item import SalesItem
-from wildberries_sdk.reports.models.stocks_item import StocksItem
 from wildberries_sdk.reports.models.whm import WHM
 
 from wildberries_sdk.reports.api_client import ApiClient, RequestSerialized
@@ -120,9 +119,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -195,9 +194,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -270,9 +269,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -413,10 +412,10 @@ class DefaultApi:
             '200': "List[ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -486,10 +485,10 @@ class DefaultApi:
             '200': "List[ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -559,10 +558,10 @@ class DefaultApi:
             '200': "List[ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -695,9 +694,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -766,9 +765,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -837,9 +836,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -972,9 +971,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsAntifraudDetailsGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1043,9 +1042,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsAntifraudDetailsGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1114,9 +1113,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsAntifraudDetailsGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1255,9 +1254,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBannedProductsBlockedGet200Response",
             '400': "ApiV1AnalyticsBannedProductsBlockedGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1330,9 +1329,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBannedProductsBlockedGet200Response",
             '400': "ApiV1AnalyticsBannedProductsBlockedGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1405,9 +1404,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBannedProductsBlockedGet200Response",
             '400': "ApiV1AnalyticsBannedProductsBlockedGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1551,9 +1550,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBannedProductsShadowedGet200Response",
             '400': "ApiV1AnalyticsBannedProductsBlockedGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1626,9 +1625,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBannedProductsShadowedGet200Response",
             '400': "ApiV1AnalyticsBannedProductsBlockedGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1701,9 +1700,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBannedProductsShadowedGet200Response",
             '400': "ApiV1AnalyticsBannedProductsBlockedGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1838,9 +1837,9 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareBrandsGet200Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1904,9 +1903,9 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareBrandsGet200Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1970,9 +1969,9 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareBrandsGet200Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2114,9 +2113,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2197,9 +2196,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2280,9 +2279,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2444,9 +2443,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareParentSubjectsGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2527,9 +2526,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareParentSubjectsGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2610,9 +2609,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsBrandShareParentSubjectsGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2770,9 +2769,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ExciseReportResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2849,9 +2848,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ExciseReportResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2928,9 +2927,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ExciseReportResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3090,9 +3089,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsGoodsLabelingGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3165,9 +3164,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsGoodsLabelingGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3240,9 +3239,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsGoodsLabelingGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3404,9 +3403,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsGoodsReturnGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3479,9 +3478,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsGoodsReturnGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3554,9 +3553,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsGoodsReturnGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3718,9 +3717,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsRegionSaleGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3793,9 +3792,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsRegionSaleGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3868,9 +3867,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ApiV1AnalyticsRegionSaleGet200Response",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4014,9 +4013,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4089,9 +4088,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4164,9 +4163,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4307,10 +4306,10 @@ class DefaultApi:
             '200': "List[ResponsePaidStorageInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4380,10 +4379,10 @@ class DefaultApi:
             '200': "List[ResponsePaidStorageInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4453,10 +4452,10 @@ class DefaultApi:
             '200': "List[ResponsePaidStorageInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4589,9 +4588,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4660,9 +4659,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4731,9 +4730,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4869,10 +4868,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[OrdersItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '400': "ApiV1SupplierOrdersGet400Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4944,10 +4943,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[OrdersItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '400': "ApiV1SupplierOrdersGet400Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5019,10 +5018,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[OrdersItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '400': "ApiV1SupplierOrdersGet400Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5175,10 +5174,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[SalesItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '400': "ApiV1SupplierOrdersGet400Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5250,10 +5249,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[SalesItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '400': "ApiV1SupplierOrdersGet400Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5325,10 +5324,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[SalesItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '400': "ApiV1SupplierOrdersGet400Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5407,298 +5406,6 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v1/supplier/sales',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def api_v1_supplier_stocks_get(
-        self,
-        date_from: Annotated[datetime, Field(description="Дата и время последнего изменения по товару. <br> Для получения полного остатка следует указывать максимально раннее значение. <br> Например, `2019-06-20` <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> List[StocksItem]:
-        """(Deprecated) Склады
-
-        Данный метод устарел. Он будет удалён [23 июня](https://dev.wildberries.ru/release-notes?id=494)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-
-        :param date_from: Дата и время последнего изменения по товару. <br> Для получения полного остатка следует указывать максимально раннее значение. <br> Например, `2019-06-20` <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
-        :type date_from: datetime
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v1/supplier/stocks is deprecated.", DeprecationWarning)
-
-        _param = self._api_v1_supplier_stocks_get_serialize(
-            date_from=date_from,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[StocksItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def api_v1_supplier_stocks_get_with_http_info(
-        self,
-        date_from: Annotated[datetime, Field(description="Дата и время последнего изменения по товару. <br> Для получения полного остатка следует указывать максимально раннее значение. <br> Например, `2019-06-20` <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiResponse[List[StocksItem]]:
-        """(Deprecated) Склады
-
-        Данный метод устарел. Он будет удалён [23 июня](https://dev.wildberries.ru/release-notes?id=494)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-
-        :param date_from: Дата и время последнего изменения по товару. <br> Для получения полного остатка следует указывать максимально раннее значение. <br> Например, `2019-06-20` <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
-        :type date_from: datetime
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v1/supplier/stocks is deprecated.", DeprecationWarning)
-
-        _param = self._api_v1_supplier_stocks_get_serialize(
-            date_from=date_from,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[StocksItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def api_v1_supplier_stocks_get_without_preload_content(
-        self,
-        date_from: Annotated[datetime, Field(description="Дата и время последнего изменения по товару. <br> Для получения полного остатка следует указывать максимально раннее значение. <br> Например, `2019-06-20` <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00` ")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> RESTResponseType:
-        """(Deprecated) Склады
-
-        Данный метод устарел. Он будет удалён [23 июня](https://dev.wildberries.ru/release-notes?id=494)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-
-        :param date_from: Дата и время последнего изменения по товару. <br> Для получения полного остатка следует указывать максимально раннее значение. <br> Например, `2019-06-20` <br> Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. <br> Время передаётся в часовом поясе Москва (UTC+3). <br>Примеры:   - `2019-06-20`   - `2019-06-20T23:59:59`   - `2019-06-20T00:00:00.12345`   - `2017-03-25T00:00:00`  (required)
-        :type date_from: datetime
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v1/supplier/stocks is deprecated.", DeprecationWarning)
-
-        _param = self._api_v1_supplier_stocks_get_serialize(
-            date_from=date_from,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[StocksItem]",
-            '400': "ApiV1SupplierStocksGet400Response",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _api_v1_supplier_stocks_get_serialize(
-        self,
-        date_from,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _hosts = [
-            'https://statistics-api.wildberries.ru',
-            'https://statistics-api-sandbox.wildberries.ru'
-        ]
-        _host = _hosts[_host_index]
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if date_from is not None:
-            if isinstance(date_from, datetime):
-                _query_params.append(
-                    (
-                        'dateFrom',
-                        date_from.strftime(
-                            self.api_client.configuration.datetime_format
-                        )
-                    )
-                )
-            else:
-                _query_params.append(('dateFrom', date_from))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'HeaderApiKey'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/supplier/stocks',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5802,9 +5509,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5905,9 +5612,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6008,9 +5715,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTaskResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6186,10 +5893,10 @@ class DefaultApi:
             '200': "List[ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6259,10 +5966,10 @@ class DefaultApi:
             '200': "List[ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6332,10 +6039,10 @@ class DefaultApi:
             '200': "List[ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner]",
             '204': None,
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6468,9 +6175,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6539,9 +6246,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6610,9 +6317,9 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetTasksResponse",
             '400': "Model4xxResponse",
-            '401': "ApiV1SupplierStocksGet401Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
             '404': "Model4xxResponse",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6765,10 +6472,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDeductions200Response",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6857,10 +6564,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDeductions200Response",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6949,10 +6656,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetDeductions200Response",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7142,10 +6849,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MeasurementPenalties",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7226,10 +6933,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MeasurementPenalties",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7310,10 +7017,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MeasurementPenalties",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7493,10 +7200,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WHM",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7577,10 +7284,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WHM",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7661,10 +7368,10 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WHM",
             '400': "Response400Retentions",
-            '401': "ApiV1SupplierStocksGet401Response",
-            '402': "ApiV1SupplierStocksGet402Response",
+            '401': "ApiV1SupplierOrdersGet401Response",
+            '402': "ApiV1SupplierOrdersGet402Response",
             '403': "Response403Retentions",
-            '429': "ApiV1SupplierStocksGet401Response",
+            '429': "ApiV1SupplierOrdersGet401Response",
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -20,9 +20,9 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum ApiV1AcceptanceReportGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -31,10 +31,10 @@ pub enum ApiV1AcceptanceReportGetError {
 #[serde(untagged)]
 pub enum ApiV1AcceptanceReportTasksTaskIdDownloadGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -43,9 +43,9 @@ pub enum ApiV1AcceptanceReportTasksTaskIdDownloadGetError {
 #[serde(untagged)]
 pub enum ApiV1AcceptanceReportTasksTaskIdStatusGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -54,9 +54,9 @@ pub enum ApiV1AcceptanceReportTasksTaskIdStatusGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsAntifraudDetailsGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,9 +65,9 @@ pub enum ApiV1AnalyticsAntifraudDetailsGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBannedProductsBlockedGetError {
     Status400(models::ApiV1AnalyticsBannedProductsBlockedGet400Response),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -76,9 +76,9 @@ pub enum ApiV1AnalyticsBannedProductsBlockedGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBannedProductsShadowedGetError {
     Status400(models::ApiV1AnalyticsBannedProductsBlockedGet400Response),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,9 +86,9 @@ pub enum ApiV1AnalyticsBannedProductsShadowedGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBrandShareBrandsGetError {
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,9 +97,9 @@ pub enum ApiV1AnalyticsBrandShareBrandsGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBrandShareGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,9 +108,9 @@ pub enum ApiV1AnalyticsBrandShareGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsBrandShareParentSubjectsGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -119,9 +119,9 @@ pub enum ApiV1AnalyticsBrandShareParentSubjectsGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsGoodsLabelingGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,9 +130,9 @@ pub enum ApiV1AnalyticsGoodsLabelingGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsGoodsReturnGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -141,9 +141,9 @@ pub enum ApiV1AnalyticsGoodsReturnGetError {
 #[serde(untagged)]
 pub enum ApiV1AnalyticsRegionSaleGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -152,9 +152,9 @@ pub enum ApiV1AnalyticsRegionSaleGetError {
 #[serde(untagged)]
 pub enum ApiV1PaidStorageGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -163,10 +163,10 @@ pub enum ApiV1PaidStorageGetError {
 #[serde(untagged)]
 pub enum ApiV1PaidStorageTasksTaskIdDownloadGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -175,9 +175,9 @@ pub enum ApiV1PaidStorageTasksTaskIdDownloadGetError {
 #[serde(untagged)]
 pub enum ApiV1PaidStorageTasksTaskIdStatusGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -185,10 +185,10 @@ pub enum ApiV1PaidStorageTasksTaskIdStatusGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1SupplierOrdersGetError {
-    Status400(models::ApiV1SupplierStocksGet400Response),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status400(models::ApiV1SupplierOrdersGet400Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -196,21 +196,10 @@ pub enum ApiV1SupplierOrdersGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1SupplierSalesGetError {
-    Status400(models::ApiV1SupplierStocksGet400Response),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v1_supplier_stocks_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV1SupplierStocksGetError {
-    Status400(models::ApiV1SupplierStocksGet400Response),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status400(models::ApiV1SupplierOrdersGet400Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -219,9 +208,9 @@ pub enum ApiV1SupplierStocksGetError {
 #[serde(untagged)]
 pub enum ApiV1WarehouseRemainsGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -230,10 +219,10 @@ pub enum ApiV1WarehouseRemainsGetError {
 #[serde(untagged)]
 pub enum ApiV1WarehouseRemainsTasksTaskIdDownloadGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -242,9 +231,9 @@ pub enum ApiV1WarehouseRemainsTasksTaskIdDownloadGetError {
 #[serde(untagged)]
 pub enum ApiV1WarehouseRemainsTasksTaskIdStatusGetError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
     Status404(models::Model4xxResponse),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -253,10 +242,10 @@ pub enum ApiV1WarehouseRemainsTasksTaskIdStatusGetError {
 #[serde(untagged)]
 pub enum GetDeductionsError {
     Status400(models::Response400Retentions),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
     Status403(models::Response403Retentions),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -265,10 +254,10 @@ pub enum GetDeductionsError {
 #[serde(untagged)]
 pub enum GetMeasurementPenaltiesError {
     Status400(models::Response400Retentions),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
     Status403(models::Response403Retentions),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -277,10 +266,10 @@ pub enum GetMeasurementPenaltiesError {
 #[serde(untagged)]
 pub enum GetWarehouseMeasurementsError {
     Status400(models::Response400Retentions),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
     Status403(models::Response403Retentions),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -1094,53 +1083,6 @@ pub async fn api_v1_supplier_sales_get(configuration: &configuration::Configurat
     } else {
         let content = resp.text().await?;
         let entity: Option<ApiV1SupplierSalesGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Данный метод устарел. Он будет удалён [23 июня](https://dev.wildberries.ru/release-notes?id=494)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-#[deprecated]
-pub async fn api_v1_supplier_stocks_get(configuration: &configuration::Configuration, date_from: chrono::DateTime<chrono::FixedOffset>) -> Result<Vec<models::StocksItem>, Error<ApiV1SupplierStocksGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_date_from = date_from;
-
-    let uri_str = format!("{}/api/v1/supplier/stocks", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("dateFrom", &p_query_date_from.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::StocksItem&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::StocksItem&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV1SupplierStocksGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

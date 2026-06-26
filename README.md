@@ -92,6 +92,8 @@ SDK выпускается с security-first процессом:
 
 ### Работа с товарами (`02-items.yaml`)
 - `GET /api/content/v1/brands` — Бренды
+- `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров (postV1RecommendationsList)
+- `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров (postV1RecommendationsSet)
 - `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж (postV1UploadTaskB2bWholesale)
 - `GET /api/v2/buffer/goods/task` — Детализация необработанной загрузки
 - `GET /api/v2/buffer/tasks` — Состояние необработанной загрузки
@@ -283,8 +285,6 @@ SDK выпускается с security-first процессом:
 - `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
 - `GET /api/advert/v2/adverts` — Информация о кампаниях
-- `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров (postV1RecommendationsList)
-- `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров (postV1RecommendationsSet)
 - `GET /api/v1/calendar/promotions` — Список акций
 - `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
 - `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
@@ -366,7 +366,6 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
 - `GET /api/v1/supplier/orders` — Заказы
 - `GET /api/v1/supplier/sales` — Продажи
-- `GET /api/v1/supplier/stocks` — Склады
 - `GET /api/v1/warehouse_remains` — Создать отчёт
 - `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
 - `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус

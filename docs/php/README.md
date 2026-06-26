@@ -132,6 +132,8 @@ var_dump($response);
 - `items.DefaultApi.contentV2TagsGet` — `GET /content/v2/tags` — Список ярлыков
 - `items.DefaultApi.contentV3MediaFilePost` — `POST /content/v3/media/file` — Загрузить медиафайл
 - `items.DefaultApi.contentV3MediaSavePost` — `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
+- `items.DefaultApi.postV1RecommendationsList` — `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров
+- `items.DefaultApi.postV1RecommendationsSet` — `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров
 - `items.DefaultApi.postV1UploadTaskB2bWholesale` — `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
@@ -279,8 +281,6 @@ var_dump($response);
 - `promotion.DefaultApi.apiV1CalendarPromotionsGet` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApi.apiV1CalendarPromotionsNomenclaturesGet` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
 - `promotion.DefaultApi.apiV1CalendarPromotionsUploadPost` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
-- `promotion.DefaultApi.postV1RecommendationsList` — `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров
-- `promotion.DefaultApi.postV1RecommendationsSet` — `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров
 
 ### communications (`communications`)
 - `communications.DefaultApi.apiFeedbacksV1PinsCountGet` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
@@ -355,7 +355,6 @@ var_dump($response);
 - `reports.DefaultApi.apiV1PaidStorageTasksTaskIdStatusGet` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApi.apiV1SupplierOrdersGet` — `GET /api/v1/supplier/orders` — Заказы
 - `reports.DefaultApi.apiV1SupplierSalesGet` — `GET /api/v1/supplier/sales` — Продажи
-- `reports.DefaultApi.apiV1SupplierStocksGet` — `GET /api/v1/supplier/stocks` — Склады
 - `reports.DefaultApi.apiV1WarehouseRemainsGet` — `GET /api/v1/warehouse_remains` — Создать отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdDownloadGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdStatusGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус

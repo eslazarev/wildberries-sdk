@@ -1,7 +1,7 @@
 /*
  * Работа с товарами
  *
- * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div> 
+ * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/work-with-products#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div> 
  *
  * The version of the OpenAPI document: items
  * 
@@ -597,6 +597,26 @@ pub enum ContentV3MediaSavePostError {
     Status403(models::MediaErrors),
     Status409(models::MediaErrors),
     Status422(models::MediaErrors),
+    Status429(models::ContentV2ObjectParentAllGet401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v1_recommendations_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1RecommendationsListError {
+    Status400(models::Response400GetRecom),
+    Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status429(models::ContentV2ObjectParentAllGet401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v1_recommendations_set`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1RecommendationsSetError {
+    Status400(models::Response400SetRecom),
+    Status401(models::ContentV2ObjectParentAllGet401Response),
     Status429(models::ContentV2ObjectParentAllGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -2902,7 +2922,99 @@ pub async fn content_v3_media_save_post(configuration: &configuration::Configura
     }
 }
 
-/// <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | </div> 
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+pub async fn post_v1_recommendations_list(configuration: &configuration::Configuration, get_recom_req: Option<models::GetRecomReq>) -> Result<models::GetRecomRes, Error<PostV1RecommendationsListError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_get_recom_req = get_recom_req;
+
+    let uri_str = format!("{}/api/content/v1/recommendations/list", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_get_recom_req);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetRecomRes`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetRecomRes`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1RecommendationsListError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+pub async fn post_v1_recommendations_set(configuration: &configuration::Configuration, set_recom_req: models::SetRecomReq) -> Result<models::SetRecomRes, Error<PostV1RecommendationsSetError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_set_recom_req = set_recom_req;
+
+    let uri_str = format!("{}/api/content/v1/recommendations/set", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_set_recom_req);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SetRecomRes`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SetRecomRes`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1RecommendationsSetError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | </div> 
 pub async fn post_v1_upload_task_b2b_wholesale(configuration: &configuration::Configuration, post_v1_upload_task_b2b_wholesale_request: models::PostV1UploadTaskB2bWholesaleRequest) -> Result<models::PostV1UploadTaskB2bWholesale200Response, Error<PostV1UploadTaskB2bWholesaleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_post_v1_upload_task_b2b_wholesale_request = post_v1_upload_task_b2b_wholesale_request;

@@ -910,7 +910,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
      * Получить отчёт
      */
     async postV1ItemRatingRaw(requestParameters: PostV1ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1ItemRating200Response>> {
@@ -921,7 +921,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
      * Получить отчёт
      */
     async postV1ItemRating(requestParameters: PostV1ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1ItemRating200Response> {
@@ -963,7 +963,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает текущие остатки товаров на складах WB. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену,          <strong>Базовому</strong> токену <strong>с секретом</strong> </div>  Метод возвращает текущие остатки товаров на складах WB. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
      * Остатки на складах WB
      */
     async postV1StocksReportWbWarehousesRaw(requestParameters: PostV1StocksReportWbWarehousesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1StocksReportWbWarehouses200Response>> {
@@ -974,7 +974,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает текущие остатки товаров на складах WB. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену,          <strong>Базовому</strong> токену <strong>с секретом</strong> </div>  Метод возвращает текущие остатки товаров на складах WB. <br><br> Данные обновляются 1 раз в 30 минут. <br><br> 1 строка ответа — данные об 1 размере товара на 1 складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос | </div> 
      * Остатки на складах WB
      */
     async postV1StocksReportWbWarehouses(requestParameters: PostV1StocksReportWbWarehousesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1StocksReportWbWarehouses200Response> {

@@ -119,6 +119,8 @@ main().catch(console.error);
 - `items.DefaultApi.contentV2TagsGet` — Список ярлыков
 - `items.DefaultApi.contentV3MediaFilePost` — Загрузить медиафайл
 - `items.DefaultApi.contentV3MediaSavePost` — Загрузить медиафайлы по ссылкам
+- `items.DefaultApi.postV1RecommendationsList` — Список рекомендаций в карточках товаров
+- `items.DefaultApi.postV1RecommendationsSet` — Установить рекомендации для товаров
 - `items.DefaultApi.postV1UploadTaskB2bWholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
@@ -266,8 +268,6 @@ main().catch(console.error);
 - `promotion.DefaultApi.apiV1CalendarPromotionsGet` — Список акций
 - `promotion.DefaultApi.apiV1CalendarPromotionsNomenclaturesGet` — Список товаров для участия в акции
 - `promotion.DefaultApi.apiV1CalendarPromotionsUploadPost` — Добавить товар в акцию
-- `promotion.DefaultApi.postV1RecommendationsList` — Список рекомендаций в карточках товаров
-- `promotion.DefaultApi.postV1RecommendationsSet` — Установить рекомендации для товаров
 
 ### communications (`communications`)
 - `communications.DefaultApi.apiFeedbacksV1PinsCountGet` — Количество закреплённых и откреплённых отзывов
@@ -342,7 +342,6 @@ main().catch(console.error);
 - `reports.DefaultApi.apiV1PaidStorageTasksTaskIdStatusGet` — Проверить статус
 - `reports.DefaultApi.apiV1SupplierOrdersGet` — Заказы
 - `reports.DefaultApi.apiV1SupplierSalesGet` — Продажи
-- `reports.DefaultApi.apiV1SupplierStocksGet` — Склады
 - `reports.DefaultApi.apiV1WarehouseRemainsGet` — Создать отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdDownloadGet` — Получить отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdStatusGet` — Проверить статус

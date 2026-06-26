@@ -41,7 +41,8 @@ func (r ApiApiV1InvitePostRequest) Execute() (*CreateInviteResponse, *http.Respo
 ApiV1InvitePost Создать приглашение для нового пользователя
 
 <div class="description_token">
-Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
 </div>
 
 Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.<br>
@@ -381,7 +382,8 @@ func (r ApiApiV1UserDeleteRequest) Execute() (*http.Response, error) {
 ApiV1UserDelete Удалить пользователя
 
 <div class="description_token">
-Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
 </div>
 
 Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca/paths/~1api~1v1~1users/get). Этому пользователю будет закрыт доступ в профиль продавца.
@@ -538,7 +540,8 @@ func (r ApiApiV1UsersAccessPutRequest) Execute() (*http.Response, error) {
 ApiV1UsersAccessPut Изменить права доступа пользователей
 
 <div class="description_token">
-Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
 </div>
 
 Метод меняет права доступа одному или нескольким пользователям.<br>
@@ -713,7 +716,8 @@ func (r ApiApiV1UsersGetRequest) Execute() (*GetUsersResponse, *http.Response, e
 ApiV1UsersGet Получить список активных или приглашённых пользователей продавца
 
 <div class="description_token">
-Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
 </div>
 
 Метод возвращает список активных или приглашённых пользователей профиля продавца.<br><br>
@@ -905,8 +909,10 @@ GetCommonV1Rating Получить рейтинг продавца
   Для доступа к методу используйте <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
 </div>
 
+
 <div class="description_token">
-Метод доступен по<strong> Сервисному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Сервисному</strong> токену
 </div>
 
 Метод возвращает пользовательский рейтинг продавца и количество отзывов.
@@ -1067,8 +1073,10 @@ GetCommonV1Subscriptions Получить информацию о подписк
   Информацию о подписке Джем можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
 </div>
 
+
 <div class="description_token">
-Метод доступен по<strong> Сервисному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Сервисному</strong> токену
 </div>
 
 Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
@@ -1246,8 +1254,10 @@ GetCommonV1TariffConstructorOptions Получить информацию об �
   Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
 </div>
 
+
 <div class="description_token">
-Метод доступен по<strong> Сервисному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Сервисному</strong> токену
 </div>
 
 Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>

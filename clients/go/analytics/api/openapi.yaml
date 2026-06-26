@@ -1751,16 +1751,16 @@ paths:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/stocks-report/wb-warehouses:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод возвращает текущие остатки товаров на складах WB.\n<br><br>\n\
-        Данные обновляются 1 раз в 30 минут.\n<br><br>\n1 строка ответа — данные о\
-        б 1 размере товара на 1 складе WB.\n\n<div class=\"description_limit\">\n\
-        <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит за\
-        просов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Вспл\
-        еск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек | 1 запрос\
-        \ |\n</div>\n"
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену, \n        <strong>Базовому</strong>\
+        \ токену <strong>с секретом</strong>\n</div>\n\nМетод возвращает текущие о\
+        статки товаров на складах WB.\n<br><br>\nДанные обновляются 1 раз в 30 мин\
+        ут.\n<br><br>\n1 строка ответа — данные об 1 размере товара на 1 складе WB.\n\
+        \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
+        \ 1 запрос |\n</div>\n"
       operationId: postV1StocksReportWbWarehouses
       requestBody:
         content:
@@ -1836,6 +1836,7 @@ paths:
       x-token-types:
       - personal
       - service
+      - base-with-secret
     servers:
     - url: https://seller-analytics-api.wildberries.ru
   /api/v2/stocks-report/products/groups:
@@ -2218,15 +2219,14 @@ paths:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/item-rating:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод формирует набор данных об оценках товаров.\n<br><br>\n\
-        Данные отчёта обновляются 1 раз в час.\n\n<div class=\"description_limit\"\
-        >\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит\
-        \ запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал |\
-        \ Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек | 3 з\
-        апроса |\n</div>\n"
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод формирует набор дан\
+        ных об оценках товаров.\n<br><br>\nДанные отчёта обновляются 1 раз в час.\n\
+        \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
+        >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
+        ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
+        \ 3 запроса |\n</div>\n"
       operationId: postV1ItemRating
       requestBody:
         content:

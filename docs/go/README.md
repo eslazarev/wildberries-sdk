@@ -119,6 +119,8 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `items.DefaultApiService.ContentV2TagsGet` — `GET /content/v2/tags` — Список ярлыков
 - `items.DefaultApiService.ContentV3MediaFilePost` — `POST /content/v3/media/file` — Загрузить медиафайл
 - `items.DefaultApiService.ContentV3MediaSavePost` — `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
+- `items.DefaultApiService.PostV1RecommendationsList` — `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров
+- `items.DefaultApiService.PostV1RecommendationsSet` — `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров
 - `items.DefaultApiService.PostV1UploadTaskB2bWholesale` — `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
@@ -266,8 +268,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.ApiV1CalendarPromotionsGet` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApiService.ApiV1CalendarPromotionsNomenclaturesGet` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
 - `promotion.DefaultApiService.ApiV1CalendarPromotionsUploadPost` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
-- `promotion.DefaultApiService.PostV1RecommendationsList` — `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров
-- `promotion.DefaultApiService.PostV1RecommendationsSet` — `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров
 
 ### communications (`communications`)
 - `communications.DefaultApiService.ApiFeedbacksV1PinsCountGet` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
@@ -341,7 +341,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `reports.DefaultApiService.ApiV1PaidStorageTasksTaskIdStatusGet` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApiService.ApiV1SupplierOrdersGet` — `GET /api/v1/supplier/orders` — Заказы
 - `reports.DefaultApiService.ApiV1SupplierSalesGet` — `GET /api/v1/supplier/sales` — Продажи
-- `reports.DefaultApiService.ApiV1SupplierStocksGet` — `GET /api/v1/supplier/stocks` — Склады
 - `reports.DefaultApiService.ApiV1WarehouseRemainsGet` — `GET /api/v1/warehouse_remains` — Создать отчёт
 - `reports.DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdDownloadGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdStatusGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус

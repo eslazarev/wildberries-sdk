@@ -143,7 +143,7 @@ class CApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet402Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response
+     * @return \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response
      */
     public function apiV1AnalyticsExciseReportPost($date_from, $date_to, $excise_report_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1AnalyticsExciseReportPost'][0])
     {
@@ -169,7 +169,7 @@ class CApi
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet402Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\ExciseReportResponse|\Wildberries\Sdk\Reports\Model\Model4xxResponse|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV1AnalyticsExciseReportPostWithHttpInfo($date_from, $date_to, $excise_report_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1AnalyticsExciseReportPost'][0])
     {
@@ -213,19 +213,19 @@ class CApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response',
+                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet402Response',
+                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response',
                         $request,
                         $response,
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response',
+                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response',
                         $request,
                         $response,
                     );
@@ -272,7 +272,7 @@ class CApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response',
+                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -280,7 +280,7 @@ class CApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet402Response',
+                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -288,7 +288,7 @@ class CApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierStocksGet401Response',
+                        '\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

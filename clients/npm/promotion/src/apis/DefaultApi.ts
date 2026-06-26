@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Маркетинг и продвижение
- * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)   6. Устанавливать [рекомендации](/openapi/promotion#tag/recommendations) для товаров  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.  </div> 
+ * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.  </div> 
  *
  * The version of the OpenAPI document: promotion
  * 
@@ -184,40 +184,15 @@ import {
     GetAdvertsToJSON,
 } from '../models/GetAdverts';
 import {
-    type GetRecomReq,
-    GetRecomReqFromJSON,
-    GetRecomReqToJSON,
-} from '../models/GetRecomReq';
-import {
-    type GetRecomRes,
-    GetRecomResFromJSON,
-    GetRecomResToJSON,
-} from '../models/GetRecomRes';
-import {
     type Model400Response,
     Model400ResponseFromJSON,
     Model400ResponseToJSON,
 } from '../models/Model400Response';
 import {
-    type Response208SetRecom,
-    Response208SetRecomFromJSON,
-    Response208SetRecomToJSON,
-} from '../models/Response208SetRecom';
-import {
     type Response400,
     Response400FromJSON,
     Response400ToJSON,
 } from '../models/Response400';
-import {
-    type Response400GetRecom,
-    Response400GetRecomFromJSON,
-    Response400GetRecomToJSON,
-} from '../models/Response400GetRecom';
-import {
-    type Response400SetRecom,
-    Response400SetRecomFromJSON,
-    Response400SetRecomToJSON,
-} from '../models/Response400SetRecom';
 import {
     type ResponseAdvError1,
     ResponseAdvError1FromJSON,
@@ -228,16 +203,6 @@ import {
     ResponseWithReturnFromJSON,
     ResponseWithReturnToJSON,
 } from '../models/ResponseWithReturn';
-import {
-    type SetRecomReq,
-    SetRecomReqFromJSON,
-    SetRecomReqToJSON,
-} from '../models/SetRecomReq';
-import {
-    type SetRecomRes,
-    SetRecomResFromJSON,
-    SetRecomResToJSON,
-} from '../models/SetRecomRes';
 import {
     type StandardizedBatchError,
     StandardizedBatchErrorFromJSON,
@@ -463,14 +428,6 @@ export interface ApiV1CalendarPromotionsNomenclaturesGetRequest {
 
 export interface ApiV1CalendarPromotionsUploadPostOperationRequest {
     apiV1CalendarPromotionsUploadPostRequest: ApiV1CalendarPromotionsUploadPostRequest;
-}
-
-export interface PostV1RecommendationsListRequest {
-    getRecomReq?: GetRecomReq;
-}
-
-export interface PostV1RecommendationsSetRequest {
-    setRecomReq: SetRecomReq;
 }
 
 /**
@@ -2525,105 +2482,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async apiV1CalendarPromotionsUploadPost(requestParameters: ApiV1CalendarPromotionsUploadPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1CalendarPromotionsUploadPost200Response> {
         const response = await this.apiV1CalendarPromotionsUploadPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for postV1RecommendationsList without sending the request
-     */
-    async postV1RecommendationsListRequestOpts(requestParameters: PostV1RecommendationsListRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/content/v1/recommendations/list`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: GetRecomReqToJSON(requestParameters['getRecomReq']),
-        };
-    }
-
-    /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
-     * Список рекомендаций в карточках товаров
-     */
-    async postV1RecommendationsListRaw(requestParameters: PostV1RecommendationsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetRecomRes>> {
-        const requestOptions = await this.postV1RecommendationsListRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetRecomResFromJSON(jsonValue));
-    }
-
-    /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
-     * Список рекомендаций в карточках товаров
-     */
-    async postV1RecommendationsList(requestParameters: PostV1RecommendationsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetRecomRes> {
-        const response = await this.postV1RecommendationsListRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for postV1RecommendationsSet without sending the request
-     */
-    async postV1RecommendationsSetRequestOpts(requestParameters: PostV1RecommendationsSetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['setRecomReq'] == null) {
-            throw new runtime.RequiredError(
-                'setRecomReq',
-                'Required parameter "setRecomReq" was null or undefined when calling postV1RecommendationsSet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/content/v1/recommendations/set`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SetRecomReqToJSON(requestParameters['setRecomReq']),
-        };
-    }
-
-    /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
-     * Установить рекомендации для товаров
-     */
-    async postV1RecommendationsSetRaw(requestParameters: PostV1RecommendationsSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetRecomRes>> {
-        const requestOptions = await this.postV1RecommendationsSetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SetRecomResFromJSON(jsonValue));
-    }
-
-    /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
-     * Установить рекомендации для товаров
-     */
-    async postV1RecommendationsSet(requestParameters: PostV1RecommendationsSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetRecomRes> {
-        const response = await this.postV1RecommendationsSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

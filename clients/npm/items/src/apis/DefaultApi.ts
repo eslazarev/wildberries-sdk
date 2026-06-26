@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Работа с товарами
- * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div> 
+ * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/work-with-products#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div> 
  *
  * The version of the OpenAPI document: items
  * 
@@ -254,6 +254,16 @@ import {
     ContentV3MediaSavePostRequestToJSON,
 } from '../models/ContentV3MediaSavePostRequest';
 import {
+    type GetRecomReq,
+    GetRecomReqFromJSON,
+    GetRecomReqToJSON,
+} from '../models/GetRecomReq';
+import {
+    type GetRecomRes,
+    GetRecomResFromJSON,
+    GetRecomResToJSON,
+} from '../models/GetRecomRes';
+import {
     type MediaErrors,
     MediaErrorsFromJSON,
     MediaErrorsToJSON,
@@ -289,6 +299,21 @@ import {
     RequestPublicViewerPublicErrorsTableListV2ToJSON,
 } from '../models/RequestPublicViewerPublicErrorsTableListV2';
 import {
+    type Response208SetRecom,
+    Response208SetRecomFromJSON,
+    Response208SetRecomToJSON,
+} from '../models/Response208SetRecom';
+import {
+    type Response400GetRecom,
+    Response400GetRecomFromJSON,
+    Response400GetRecomToJSON,
+} from '../models/Response400GetRecom';
+import {
+    type Response400SetRecom,
+    Response400SetRecomFromJSON,
+    Response400SetRecomToJSON,
+} from '../models/Response400SetRecom';
+import {
     type ResponseBodyContentError400,
     ResponseBodyContentError400FromJSON,
     ResponseBodyContentError400ToJSON,
@@ -323,6 +348,16 @@ import {
     ResponsePublicViewerPublicErrorsTableListV2FromJSON,
     ResponsePublicViewerPublicErrorsTableListV2ToJSON,
 } from '../models/ResponsePublicViewerPublicErrorsTableListV2';
+import {
+    type SetRecomReq,
+    SetRecomReqFromJSON,
+    SetRecomReqToJSON,
+} from '../models/SetRecomReq';
+import {
+    type SetRecomRes,
+    SetRecomResFromJSON,
+    SetRecomResToJSON,
+} from '../models/SetRecomRes';
 import {
     type StocksWarehouseErrorInner,
     StocksWarehouseErrorInnerFromJSON,
@@ -555,6 +590,14 @@ export interface ContentV3MediaFilePostRequest {
 
 export interface ContentV3MediaSavePostOperationRequest {
     contentV3MediaSavePostRequest: ContentV3MediaSavePostRequest;
+}
+
+export interface PostV1RecommendationsListRequest {
+    getRecomReq?: GetRecomReq;
+}
+
+export interface PostV1RecommendationsSetRequest {
+    setRecomReq: SetRecomReq;
 }
 
 export interface PostV1UploadTaskB2bWholesaleOperationRequest {
@@ -3225,6 +3268,105 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates request options for postV1RecommendationsList without sending the request
+     */
+    async postV1RecommendationsListRequestOpts(requestParameters: PostV1RecommendationsListRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/content/v1/recommendations/list`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GetRecomReqToJSON(requestParameters['getRecomReq']),
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+     * Список рекомендаций в карточках товаров
+     */
+    async postV1RecommendationsListRaw(requestParameters: PostV1RecommendationsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetRecomRes>> {
+        const requestOptions = await this.postV1RecommendationsListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetRecomResFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+     * Список рекомендаций в карточках товаров
+     */
+    async postV1RecommendationsList(requestParameters: PostV1RecommendationsListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetRecomRes> {
+        const response = await this.postV1RecommendationsListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV1RecommendationsSet without sending the request
+     */
+    async postV1RecommendationsSetRequestOpts(requestParameters: PostV1RecommendationsSetRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['setRecomReq'] == null) {
+            throw new runtime.RequiredError(
+                'setRecomReq',
+                'Required parameter "setRecomReq" was null or undefined when calling postV1RecommendationsSet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/content/v1/recommendations/set`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SetRecomReqToJSON(requestParameters['setRecomReq']),
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+     * Установить рекомендации для товаров
+     */
+    async postV1RecommendationsSetRaw(requestParameters: PostV1RecommendationsSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetRecomRes>> {
+        const requestOptions = await this.postV1RecommendationsSetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SetRecomResFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | </div> 
+     * Установить рекомендации для товаров
+     */
+    async postV1RecommendationsSet(requestParameters: PostV1RecommendationsSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetRecomRes> {
+        const response = await this.postV1RecommendationsSetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Creates request options for postV1UploadTaskB2bWholesale without sending the request
      */
     async postV1UploadTaskB2bWholesaleRequestOpts(requestParameters: PostV1UploadTaskB2bWholesaleOperationRequest): Promise<runtime.RequestOpts> {
@@ -3258,7 +3400,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | </div> 
      * Установить оптовые скидки для B2B-продаж
      */
     async postV1UploadTaskB2bWholesaleRaw(requestParameters: PostV1UploadTaskB2bWholesaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1UploadTaskB2bWholesale200Response>> {
@@ -3269,7 +3411,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">Метод доступен по <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong>      </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)  <div class=\"description_important\">   Получить информацию о процессе установки цен и скидок можно с помощью методов <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get\">состояния</a> и <a href=\"/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1goods~1task/get\">детализации</a> обработанной загрузки. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | </div> 
      * Установить оптовые скидки для B2B-продаж
      */
     async postV1UploadTaskB2bWholesale(requestParameters: PostV1UploadTaskB2bWholesaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1UploadTaskB2bWholesale200Response> {

@@ -2986,8 +2986,13 @@ func (r ApiApiMarketplaceV3DbsOrdersStickersPostRequest) Execute() (*ApiMarketpl
 /*
 ApiMarketplaceV3DbsOrdersStickersPost Получить стикеры для сборочных заданий с доставкой в ПВЗ
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену, 
+        <strong>Базовому</strong> токену <strong>с секретом</strong>
+</div>
 
 Метод возвращает стикеры для сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):
   - `confirm` — на сборке

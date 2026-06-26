@@ -1256,8 +1256,12 @@ func (r ApiPostV1AcquiringDetailedRequest) Execute() ([]AcquiringReportsDetailed
 /*
 PostV1AcquiringDetailed Детализации к отчётам об издержках на приём платежей за период
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
 
 Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.
 
@@ -1436,8 +1440,12 @@ func (r ApiPostV1AcquiringDetailedReportIdRequest) Execute() ([]AcquiringReports
 /*
 PostV1AcquiringDetailedReportId Детализации к отчётам об издержках на приём платежей по ID отчётов
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
 
 Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.
 
@@ -1618,8 +1626,12 @@ func (r ApiPostV1AcquiringListRequest) Execute() ([]AcquiringReportListRes, *htt
 /*
 PostV1AcquiringList Список отчётов об издержках на приём платежей
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
 
 Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).
 
@@ -1973,8 +1985,12 @@ func (r ApiPostV1SalesReportsDetailedReportIdRequest) Execute() ([]SalesReportsD
 /*
 PostV1SalesReportsDetailedReportId Детализации к отчётам реализации по ID отчётов
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
 
 Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
 <br><br>
@@ -2157,8 +2173,12 @@ func (r ApiPostV1SalesReportsListRequest) Execute() ([]SalesReportListRes, *http
 /*
 PostV1SalesReportsList Список отчётов реализации
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
 
 Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
 <br><br>

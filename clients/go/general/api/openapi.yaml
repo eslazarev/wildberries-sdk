@@ -336,8 +336,10 @@ paths:
           Для доступа к методу используйте <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
         </div>
 
+
         <div class="description_token">
-        Метод доступен по<strong> Сервисному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Сервисному</strong> токену
         </div>
 
         Метод возвращает пользовательский рейтинг продавца и количество отзывов.
@@ -416,8 +418,10 @@ paths:
           Информацию о подписке Джем можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
         </div>
 
+
         <div class="description_token">
-        Метод доступен по<strong> Сервисному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Сервисному</strong> токену
         </div>
 
         Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
@@ -506,8 +510,10 @@ paths:
           Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
         </div>
 
+
         <div class="description_token">
-        Метод доступен по<strong> Сервисному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Сервисному</strong> токену
         </div>
 
         Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>
@@ -613,7 +619,8 @@ paths:
     post:
       description: |
         <div class="description_token">
-        Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
         </div>
 
         Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.<br>
@@ -698,7 +705,8 @@ paths:
     get:
       description: |
         <div class="description_token">
-        Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
         </div>
 
         Метод возвращает список активных или приглашённых пользователей профиля продавца.<br><br>
@@ -820,6 +828,10 @@ paths:
                         disabled: false
                       - code: sellersChat
                         disabled: false
+                      - code: brandzone
+                        disabled: false
+                      - code: brandzoneSubscribe
+                        disabled: false
                     - id: 0
                       role: ""
                       position: ""
@@ -873,6 +885,10 @@ paths:
                       - code: pretrialClaims
                         disabled: false
                       - code: sellersChat
+                        disabled: false
+                      - code: brandzone
+                        disabled: false
+                      - code: brandzoneSubscribe
                         disabled: false
                 usersOnly:
                   description: Список активных пользователей
@@ -930,6 +946,10 @@ paths:
                         disabled: false
                       - code: sellersChat
                         disabled: false
+                      - code: brandzone
+                        disabled: false
+                      - code: brandzoneSubscribe
+                        disabled: false
                     - id: 1002
                       role: user
                       position: Менеджер
@@ -983,6 +1003,10 @@ paths:
                       - code: pretrialClaims
                         disabled: false
                       - code: sellersChat
+                        disabled: false
+                      - code: brandzone
+                        disabled: false
+                      - code: brandzoneSubscribe
                         disabled: false
               schema:
                 $ref: "#/components/schemas/getUsersResponse"
@@ -1039,7 +1063,8 @@ paths:
     put:
       description: |
         <div class="description_token">
-        Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
         </div>
 
         Метод меняет права доступа одному или нескольким пользователям.<br>
@@ -1114,7 +1139,8 @@ paths:
     delete:
       description: |
         <div class="description_token">
-        Метод доступен по<strong> Персональному</strong> <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токену</a>
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
         </div>
 
         Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca/paths/~1api~1v1~1users/get). Этому пользователю будет закрыт доступ в профиль продавца.
@@ -2063,6 +2089,8 @@ components:
             * `copyrightComplaints` — Обращения правообладателей
             * `pretrialClaims` — Досудебные претензии
             * `sellersChat` — Чат с покупателями
+            * `brandzone` — Бренд-зона. Публикация изменений
+            * `brandzoneSubscribe` — Управление подпиской бренд-зоны
           enum:
           - balance
           - brands
@@ -2082,6 +2110,8 @@ components:
           - copyrightComplaints
           - pretrialClaims
           - sellersChat
+          - brandzone
+          - brandzoneSubscribe
           type: string
         disabled:
           description: |

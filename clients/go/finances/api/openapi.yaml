@@ -101,11 +101,10 @@ paths:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/sales-reports/list:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод возвращает список отчётов релизации по формату [табли\
-        цы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).\n\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список о\
+        тчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).\n\
         <br><br>\nДанные доступны с 1 января 2025 года.\n\n<div class=\"description_limit\"\
         >\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит\
         \ запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал |\
@@ -180,10 +179,10 @@ paths:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/sales-reports/detailed/{reportId}:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements)\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает детализа\
+        ции к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements)\
         \ по ID отчётов.\n<br><br>\nДанные доступны с 1 января 2025 года.\n\n<div\
         \ class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
@@ -532,11 +531,10 @@ paths:
       url: https://statistics-api-sandbox.wildberries.ru
   /api/finance/v1/acquiring/list:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод возвращает список отчётов об издержках на приём плате\
-        жей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).\n\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает список о\
+        тчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 1\
@@ -610,11 +608,10 @@ paths:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/acquiring/detailed/{reportId}:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод возвращает детализации к [отчётам об издержках на при\
-        ём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports)\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает детализа\
+        ции к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports)\
         \ по ID отчётов.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 1\
@@ -708,11 +705,10 @@ paths:
     - url: https://finance-api.wildberries.ru
   /api/finance/v1/acquiring/detailed:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод возвращает детализации к [отчётам об издержках на при\
-        ём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports)\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод возвращает детализа\
+        ции к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports)\
         \ за указанный период.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 1 запрос | 1 мин | 1\

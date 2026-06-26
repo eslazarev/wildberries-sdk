@@ -177,7 +177,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierStocksGet401Response
+			var v ApiV1SupplierOrdersGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -188,7 +188,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierStocksGet402Response
+			var v ApiV1SupplierOrdersGet402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -199,7 +199,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierStocksGet401Response
+			var v ApiV1SupplierOrdersGet401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

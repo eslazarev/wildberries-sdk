@@ -2468,8 +2468,12 @@ func (r ApiPostV1ItemRatingRequest) Execute() (*PostV1ItemRating200Response, *ht
 /*
 PostV1ItemRating Получить отчёт
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
 
 Метод формирует набор данных об оценках товаров.
 <br><br>
@@ -2660,8 +2664,13 @@ func (r ApiPostV1StocksReportWbWarehousesRequest) Execute() (*PostV1StocksReport
 /*
 PostV1StocksReportWbWarehouses Остатки на складах WB
 
-<div class="description_token">Метод доступен по <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> 
-    </div>
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену, 
+        <strong>Базовому</strong> токену <strong>с секретом</strong>
+</div>
 
 Метод возвращает текущие остатки товаров на складах WB.
 <br><br>

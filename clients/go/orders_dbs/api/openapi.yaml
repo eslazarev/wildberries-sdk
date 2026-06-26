@@ -1002,11 +1002,11 @@ paths:
       url: https://marketplace-api-sandbox.wildberries.ru
   /api/marketplace/v3/dbs/orders/stickers:
     post:
-      description: "<div class=\"description_token\">Метод доступен по <a href=\"\
-        /openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >токенам</a>:<strong> Персональный</strong>,<strong> Сервисный</strong> \n\
-        \    </div>\n\nМетод возвращает стикеры для сборочных заданий с доставкой\
-        \ в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):\n\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену, \n        <strong>Базовому</strong>\
+        \ токену <strong>с секретом</strong>\n</div>\n\nМетод возвращает стикеры д\
+        ля сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):\n\
         \  - `confirm` — на сборке\n  - `deliver` — в доставке\n\nПолучить стикеры\
         \ можно только в размере 580x400 px в формате PDF.\n\n<div class=\"description_limit\"\
         >\n<a href='https://dev.wildberries.ru/docs/openapi/api-information#tag/Vvedenie/Limity-zaprosov'>Л\
@@ -1128,6 +1128,7 @@ paths:
       x-token-types:
       - personal
       - service
+      - base-with-secret
     servers:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbs/orders/status/deliver:

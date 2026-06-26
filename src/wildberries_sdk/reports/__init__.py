@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.115"
+__version__ = "0.1.116"
 
 # Define package exports
 __all__ = [
@@ -47,9 +47,9 @@ __all__ = [
     "ApiV1AnalyticsGoodsReturnGet200ResponseReportInner",
     "ApiV1AnalyticsRegionSaleGet200Response",
     "ApiV1AnalyticsRegionSaleGet200ResponseReportInner",
-    "ApiV1SupplierStocksGet400Response",
-    "ApiV1SupplierStocksGet401Response",
-    "ApiV1SupplierStocksGet402Response",
+    "ApiV1SupplierOrdersGet400Response",
+    "ApiV1SupplierOrdersGet401Response",
+    "ApiV1SupplierOrdersGet402Response",
     "ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner",
     "ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner",
     "CreateTaskResponse",
@@ -74,7 +74,6 @@ __all__ = [
     "ResponseErrorStatistics2",
     "ResponsePaidStorageInner",
     "SalesItem",
-    "StocksItem",
     "WHM",
     "WHMData",
     "WHMDataReportsInner",
@@ -114,9 +113,9 @@ from wildberries_sdk.reports.models.api_v1_analytics_goods_return_get200_respons
 from wildberries_sdk.reports.models.api_v1_analytics_goods_return_get200_response_report_inner import ApiV1AnalyticsGoodsReturnGet200ResponseReportInner as ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
 from wildberries_sdk.reports.models.api_v1_analytics_region_sale_get200_response import ApiV1AnalyticsRegionSaleGet200Response as ApiV1AnalyticsRegionSaleGet200Response
 from wildberries_sdk.reports.models.api_v1_analytics_region_sale_get200_response_report_inner import ApiV1AnalyticsRegionSaleGet200ResponseReportInner as ApiV1AnalyticsRegionSaleGet200ResponseReportInner
-from wildberries_sdk.reports.models.api_v1_supplier_stocks_get400_response import ApiV1SupplierStocksGet400Response as ApiV1SupplierStocksGet400Response
-from wildberries_sdk.reports.models.api_v1_supplier_stocks_get401_response import ApiV1SupplierStocksGet401Response as ApiV1SupplierStocksGet401Response
-from wildberries_sdk.reports.models.api_v1_supplier_stocks_get402_response import ApiV1SupplierStocksGet402Response as ApiV1SupplierStocksGet402Response
+from wildberries_sdk.reports.models.api_v1_supplier_orders_get400_response import ApiV1SupplierOrdersGet400Response as ApiV1SupplierOrdersGet400Response
+from wildberries_sdk.reports.models.api_v1_supplier_orders_get401_response import ApiV1SupplierOrdersGet401Response as ApiV1SupplierOrdersGet401Response
+from wildberries_sdk.reports.models.api_v1_supplier_orders_get402_response import ApiV1SupplierOrdersGet402Response as ApiV1SupplierOrdersGet402Response
 from wildberries_sdk.reports.models.api_v1_warehouse_remains_tasks_task_id_download_get200_response_inner import ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner as ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
 from wildberries_sdk.reports.models.api_v1_warehouse_remains_tasks_task_id_download_get200_response_inner_warehouses_inner import ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner as ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner
 from wildberries_sdk.reports.models.create_task_response import CreateTaskResponse as CreateTaskResponse
@@ -141,7 +140,6 @@ from wildberries_sdk.reports.models.response_error_statistics import ResponseErr
 from wildberries_sdk.reports.models.response_error_statistics2 import ResponseErrorStatistics2 as ResponseErrorStatistics2
 from wildberries_sdk.reports.models.response_paid_storage_inner import ResponsePaidStorageInner as ResponsePaidStorageInner
 from wildberries_sdk.reports.models.sales_item import SalesItem as SalesItem
-from wildberries_sdk.reports.models.stocks_item import StocksItem as StocksItem
 from wildberries_sdk.reports.models.whm import WHM as WHM
 from wildberries_sdk.reports.models.whm_data import WHMData as WHMData
 from wildberries_sdk.reports.models.whm_data_reports_inner import WHMDataReportsInner as WHMDataReportsInner

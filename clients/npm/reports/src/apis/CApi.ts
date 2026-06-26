@@ -14,15 +14,15 @@
 
 import * as runtime from '../runtime';
 import {
-    type ApiV1SupplierStocksGet401Response,
-    ApiV1SupplierStocksGet401ResponseFromJSON,
-    ApiV1SupplierStocksGet401ResponseToJSON,
-} from '../models/ApiV1SupplierStocksGet401Response';
+    type ApiV1SupplierOrdersGet401Response,
+    ApiV1SupplierOrdersGet401ResponseFromJSON,
+    ApiV1SupplierOrdersGet401ResponseToJSON,
+} from '../models/ApiV1SupplierOrdersGet401Response';
 import {
-    type ApiV1SupplierStocksGet402Response,
-    ApiV1SupplierStocksGet402ResponseFromJSON,
-    ApiV1SupplierStocksGet402ResponseToJSON,
-} from '../models/ApiV1SupplierStocksGet402Response';
+    type ApiV1SupplierOrdersGet402Response,
+    ApiV1SupplierOrdersGet402ResponseFromJSON,
+    ApiV1SupplierOrdersGet402ResponseToJSON,
+} from '../models/ApiV1SupplierOrdersGet402Response';
 import {
     type ExciseReportRequest,
     ExciseReportRequestFromJSON,

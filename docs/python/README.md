@@ -131,6 +131,8 @@ print(feedbacks)
 - `items.DefaultApi.content_v2_tags_get` — `GET /content/v2/tags` — Список ярлыков
 - `items.DefaultApi.content_v3_media_file_post` — `POST /content/v3/media/file` — Загрузить медиафайл
 - `items.DefaultApi.content_v3_media_save_post` — `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
+- `items.DefaultApi.post_v1_recommendations_list` — `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров
+- `items.DefaultApi.post_v1_recommendations_set` — `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров
 - `items.DefaultApi.post_v1_upload_task_b2b_wholesale` — `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
@@ -278,8 +280,6 @@ print(feedbacks)
 - `promotion.DefaultApi.api_v1_calendar_promotions_get` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApi.api_v1_calendar_promotions_nomenclatures_get` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
 - `promotion.DefaultApi.api_v1_calendar_promotions_upload_post` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
-- `promotion.DefaultApi.post_v1_recommendations_list` — `POST /api/content/v1/recommendations/list` — Список рекомендаций в карточках товаров
-- `promotion.DefaultApi.post_v1_recommendations_set` — `POST /api/content/v1/recommendations/set` — Установить рекомендации для товаров
 
 ### communications (`communications`)
 - `communications.DefaultApi.api_feedbacks_v1_pins_count_get` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
@@ -354,7 +354,6 @@ print(feedbacks)
 - `reports.DefaultApi.api_v1_paid_storage_tasks_task_id_status_get` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApi.api_v1_supplier_orders_get` — `GET /api/v1/supplier/orders` — Заказы
 - `reports.DefaultApi.api_v1_supplier_sales_get` — `GET /api/v1/supplier/sales` — Продажи
-- `reports.DefaultApi.api_v1_supplier_stocks_get` — `GET /api/v1/supplier/stocks` — (Deprecated) Склады
 - `reports.DefaultApi.api_v1_warehouse_remains_get` — `GET /api/v1/warehouse_remains` — Создать отчёт
 - `reports.DefaultApi.api_v1_warehouse_remains_tasks_task_id_download_get` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.api_v1_warehouse_remains_tasks_task_id_status_get` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус

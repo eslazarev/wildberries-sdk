@@ -20,9 +20,9 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum ApiV1AnalyticsExciseReportPostError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierStocksGet401Response),
-    Status402(models::ApiV1SupplierStocksGet402Response),
-    Status429(models::ApiV1SupplierStocksGet401Response),
+    Status401(models::ApiV1SupplierOrdersGet401Response),
+    Status402(models::ApiV1SupplierOrdersGet402Response),
+    Status429(models::ApiV1SupplierOrdersGet401Response),
     UnknownValue(serde_json::Value),
 }
 

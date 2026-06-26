@@ -69,20 +69,20 @@ import {
     ApiV1AnalyticsRegionSaleGet200ResponseToJSON,
 } from '../models/ApiV1AnalyticsRegionSaleGet200Response';
 import {
-    type ApiV1SupplierStocksGet400Response,
-    ApiV1SupplierStocksGet400ResponseFromJSON,
-    ApiV1SupplierStocksGet400ResponseToJSON,
-} from '../models/ApiV1SupplierStocksGet400Response';
+    type ApiV1SupplierOrdersGet400Response,
+    ApiV1SupplierOrdersGet400ResponseFromJSON,
+    ApiV1SupplierOrdersGet400ResponseToJSON,
+} from '../models/ApiV1SupplierOrdersGet400Response';
 import {
-    type ApiV1SupplierStocksGet401Response,
-    ApiV1SupplierStocksGet401ResponseFromJSON,
-    ApiV1SupplierStocksGet401ResponseToJSON,
-} from '../models/ApiV1SupplierStocksGet401Response';
+    type ApiV1SupplierOrdersGet401Response,
+    ApiV1SupplierOrdersGet401ResponseFromJSON,
+    ApiV1SupplierOrdersGet401ResponseToJSON,
+} from '../models/ApiV1SupplierOrdersGet401Response';
 import {
-    type ApiV1SupplierStocksGet402Response,
-    ApiV1SupplierStocksGet402ResponseFromJSON,
-    ApiV1SupplierStocksGet402ResponseToJSON,
-} from '../models/ApiV1SupplierStocksGet402Response';
+    type ApiV1SupplierOrdersGet402Response,
+    ApiV1SupplierOrdersGet402ResponseFromJSON,
+    ApiV1SupplierOrdersGet402ResponseToJSON,
+} from '../models/ApiV1SupplierOrdersGet402Response';
 import {
     type ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner,
     ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerFromJSON,
@@ -138,11 +138,6 @@ import {
     SalesItemFromJSON,
     SalesItemToJSON,
 } from '../models/SalesItem';
-import {
-    type StocksItem,
-    StocksItemFromJSON,
-    StocksItemToJSON,
-} from '../models/StocksItem';
 import {
     type WHM,
     WHMFromJSON,
@@ -226,10 +221,6 @@ export interface ApiV1SupplierOrdersGetRequest {
 export interface ApiV1SupplierSalesGetRequest {
     dateFrom: Date;
     flag?: number;
-}
-
-export interface ApiV1SupplierStocksGetRequest {
-    dateFrom: Date;
 }
 
 export interface ApiV1WarehouseRemainsGetRequest {
@@ -1323,63 +1314,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async apiV1SupplierSalesGet(requestParameters: ApiV1SupplierSalesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesItem>> {
         const response = await this.apiV1SupplierSalesGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1SupplierStocksGet without sending the request
-     * @deprecated
-     */
-    async apiV1SupplierStocksGetRequestOpts(requestParameters: ApiV1SupplierStocksGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1SupplierStocksGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/supplier/stocks`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [23 июня](https://dev.wildberries.ru/release-notes?id=494)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-     * Склады
-     * @deprecated
-     */
-    async apiV1SupplierStocksGetRaw(requestParameters: ApiV1SupplierStocksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<StocksItem>>> {
-        const requestOptions = await this.apiV1SupplierStocksGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(StocksItemFromJSON));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [23 июня](https://dev.wildberries.ru/release-notes?id=494)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-     * Склады
-     * @deprecated
-     */
-    async apiV1SupplierStocksGet(requestParameters: ApiV1SupplierStocksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<StocksItem>> {
-        const response = await this.apiV1SupplierStocksGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

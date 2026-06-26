@@ -39,6 +39,8 @@ export interface AccessInner {
      * * `copyrightComplaints` — Обращения правообладателей
      * * `pretrialClaims` — Досудебные претензии
      * * `sellersChat` — Чат с покупателями
+     * * `brandzone` — Бренд-зона. Публикация изменений
+     * * `brandzoneSubscribe` — Управление подпиской бренд-зоны
      * 
      * @type {AccessInnerCodeEnum}
      * @memberof AccessInner
@@ -76,7 +78,9 @@ export const AccessInnerCodeEnum = {
     BrandsFlow: 'brandsFlow',
     CopyrightComplaints: 'copyrightComplaints',
     PretrialClaims: 'pretrialClaims',
-    SellersChat: 'sellersChat'
+    SellersChat: 'sellersChat',
+    Brandzone: 'brandzone',
+    BrandzoneSubscribe: 'brandzoneSubscribe'
 } as const;
 export type AccessInnerCodeEnum = typeof AccessInnerCodeEnum[keyof typeof AccessInnerCodeEnum];
 
