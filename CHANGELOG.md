@@ -1,6 +1,15 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.06.26)
+- Управление пользователями продавца: в перечень кодов прав доступа (enum `code`) добавлены `brandzone` (Бренд‑зона. Публикация изменений) и `brandzoneSubscribe` (управление подпиской бренд‑зоны); обновлены примеры ответов со включением новых прав
+- Товары (Контент) / Рекомендации: добавлен новый раздел «Рекомендации» и новые методы `POST /api/content/v1/recommendations/list` (получение списка рекомендаций в карточках) и `POST /api/content/v1/recommendations/set` (установка/обновление/удаление рекомендаций); токены: personal/service; лимит: 100 запросов/мин (интервал 600 мс, всплеск 5); добавлены схемы `GetRecomReq/GetRecomRes/SetRecomReq/SetRecomRes` и ответы ошибок `400`, `208`
+- Продвижение: удалён раздел «Рекомендации» и эндпоинты `POST /api/content/v1/recommendations/list` и `POST /api/content/v1/recommendations/set` (перенесены в спецификацию «Товары/Контент»); удалены связанные схемы (`GetRecom*`, `SetRecom*`, `response400*`, `response208*`)
+- Заказы DBS: для метода получения стикеров для сборочных заданий с доставкой в ПВЗ добавлен тип токена `base-with-secret` (базовый с секретом) в `x-token-types`
+- Аналитика / История остатков: для `POST /api/v1/stocks/report/wbWarehouses` добавлен тип токена `base-with-secret` (базовый с секретом) в `x-token-types`
+- Отчёты (Statistics): удалён устаревший метод `GET /api/v1/supplier/stocks` (ранее deprecated) и схема ответа `StocksItem` из components
+- Финансы: изменений в контракте/лимитах нет (только переразметка описаний по типам токенов)
+
 ### Changed (2026.06.25)
 - Информация о продавце: добавлен GET `/api/common/v1/tariff-constructor/options` (common-api.wildberries.ru) для получения подключённых опций и пакетов Конструктора тарифов; доступ по сервисному токену, query-параметр `locale` (`ru|en`, default `ru`)
 - Информация о продавце: введён лимит для GET `/api/common/v1/tariff-constructor/options` — 1 запрос/мин на аккаунт (интервал 1 мин, всплеск до 10)
