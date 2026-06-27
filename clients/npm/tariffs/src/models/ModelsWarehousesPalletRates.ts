@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Тарифы
- * <div class=\"description_important\">   Узнать больше о комиссиях и тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/category/a04560b5-256d-48cb-8f09-60e283b5d493\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)   2. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   3. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+ * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
  *
  * The version of the OpenAPI document: tariffs
  * 
@@ -27,6 +27,12 @@ import {
  * @interface ModelsWarehousesPalletRates
  */
 export interface ModelsWarehousesPalletRates {
+    /**
+     * Валюта тарифов
+     * @type {string}
+     * @memberof ModelsWarehousesPalletRates
+     */
+    currency?: string;
     /**
      * Дата начала следующего тарифа
      * @type {string}
@@ -64,6 +70,7 @@ export function ModelsWarehousesPalletRatesFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
+        'currency': json['currency'] == null ? undefined : json['currency'],
         'dtNextPallet': json['dtNextPallet'] == null ? undefined : json['dtNextPallet'],
         'dtTillMax': json['dtTillMax'] == null ? undefined : json['dtTillMax'],
         'warehouseList': json['warehouseList'] == null ? undefined : ((json['warehouseList'] as Array<any>).map(ModelsWarehousePalletRatesFromJSON)),
@@ -81,6 +88,7 @@ export function ModelsWarehousesPalletRatesToJSONTyped(value?: ModelsWarehousesP
 
     return {
         
+        'currency': value['currency'],
         'dtNextPallet': value['dtNextPallet'],
         'dtTillMax': value['dtTillMax'],
         'warehouseList': value['warehouseList'] == null ? undefined : ((value['warehouseList'] as Array<any>).map(ModelsWarehousePalletRatesToJSON)),

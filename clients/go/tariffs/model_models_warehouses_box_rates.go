@@ -1,7 +1,7 @@
 /*
 Тарифы
 
-<div class=\"description_important\">   Узнать больше о комиссиях и тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/category/a04560b5-256d-48cb-8f09-60e283b5d493\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)   2. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   3. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+<div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
 
 API version: tariffs
 */
@@ -19,6 +19,8 @@ var _ MappedNullable = &ModelsWarehousesBoxRates{}
 
 // ModelsWarehousesBoxRates struct for ModelsWarehousesBoxRates
 type ModelsWarehousesBoxRates struct {
+	// Валюта тарифов
+	Currency *string `json:"currency,omitempty"`
 	// Дата начала следующего тарифа
 	DtNextBox *string `json:"dtNextBox,omitempty"`
 	// Дата окончания последнего установленного тарифа
@@ -42,6 +44,38 @@ func NewModelsWarehousesBoxRates() *ModelsWarehousesBoxRates {
 func NewModelsWarehousesBoxRatesWithDefaults() *ModelsWarehousesBoxRates {
 	this := ModelsWarehousesBoxRates{}
 	return &this
+}
+
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *ModelsWarehousesBoxRates) GetCurrency() string {
+	if o == nil || IsNil(o.Currency) {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ModelsWarehousesBoxRates) GetCurrencyOk() (*string, bool) {
+	if o == nil || IsNil(o.Currency) {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *ModelsWarehousesBoxRates) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *ModelsWarehousesBoxRates) SetCurrency(v string) {
+	o.Currency = &v
 }
 
 // GetDtNextBox returns the DtNextBox field value if set, zero value otherwise.
@@ -151,6 +185,9 @@ func (o ModelsWarehousesBoxRates) MarshalJSON() ([]byte, error) {
 
 func (o ModelsWarehousesBoxRates) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	if !IsNil(o.DtNextBox) {
 		toSerialize["dtNextBox"] = o.DtNextBox
 	}

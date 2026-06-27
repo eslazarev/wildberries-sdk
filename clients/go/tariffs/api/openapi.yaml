@@ -2,15 +2,16 @@ openapi: 3.0.0
 info:
   description: |
     <div class="description_important">
-      Узнать больше о комиссиях и тарифах можно в <a href="https://seller.wildberries.ru/instructions/category/a04560b5-256d-48cb-8f09-60e283b5d493">справочном центре</a>
+      Узнать больше о тарифах можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section">справочном центре</a>
     </div>
 
     <div class="api-block">
 
     В разделе описаны методы получения:
       1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)
-      2. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)
-      3. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)
+      2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)
+      3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)
+      4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)
 
     </div>
   title: Тарифы
@@ -24,9 +25,9 @@ tags:
 - description: ""
   name: Комиссии
 - description: ""
-  name: Тарифы на остаток
-- description: ""
   name: Тарифы на поставку
+- description: ""
+  name: Тарифы на остаток
 - description: ""
   name: Стоимость возврата продавцу
 paths:
@@ -134,6 +135,111 @@ paths:
       summary: Комиссия по категориям товаров
       tags:
       - Комиссии
+      x-readonly-method: true
+      x-category: commonapi
+    servers:
+    - url: https://common-api.wildberries.ru
+  /api/tariffs/v1/acceptance/coefficients:
+    get:
+      description: |
+        Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.
+
+        <div class="description_important">
+          Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code>
+        </div>
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+        | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+        | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
+        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        </div>
+      parameters:
+      - description: ID складов.<br>По умолчанию возвращаются данные по всем складам
+        example: "507,117501"
+        explode: true
+        in: query
+        name: warehouseIDs
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ResponseCoefficients:
+                  $ref: "#/components/examples/ResponseCoefficients"
+              schema:
+                items:
+                  $ref: "#/components/schemas/models.AcceptanceCoefficient"
+                type: array
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              examples:
+                BadWarehouseIDsParamNew:
+                  $ref: "#/components/examples/Response400CoefficientsNew"
+              schema:
+                $ref: "#/components/schemas/models.ErrorModel"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: s2s-api-auth-catalog
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+          description: Не авторизован
+        "402":
+          content:
+            application/problem+json:
+              example:
+                title: payment required
+                detail: wb solution for business has insufficient funds on its balance.
+                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
+              schema:
+                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
+          description: Требуется платёж
+        "403":
+          description: Доступ запрещён
+        "404":
+          description: Не найдено
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: s2s-api-auth-catalog
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Тарифы на поставку
+      tags:
+      - Тарифы на поставку
       x-readonly-method: true
       x-category: commonapi
     servers:
@@ -331,111 +437,6 @@ paths:
       summary: Тарифы для монопаллет
       tags:
       - Тарифы на остаток
-      x-readonly-method: true
-      x-category: commonapi
-    servers:
-    - url: https://common-api.wildberries.ru
-  /api/tariffs/v1/acceptance/coefficients:
-    get:
-      description: |
-        Метод возвращает тарифы на поставку для конкретных складов на ближайшие 14 дней.
-
-        <div class="description_important">
-          Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code>
-        </div>
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-        | Тип | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- | --- |
-        | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-        | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-        | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
-        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-        </div>
-      parameters:
-      - description: ID складов.<br>По умолчанию возвращаются данные по всем складам
-        example: "507,117501"
-        explode: true
-        in: query
-        name: warehouseIDs
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                ResponseCoefficients:
-                  $ref: "#/components/examples/ResponseCoefficients"
-              schema:
-                items:
-                  $ref: "#/components/schemas/models.AcceptanceCoefficient"
-                type: array
-          description: Успешно
-        "400":
-          content:
-            application/json:
-              examples:
-                BadWarehouseIDsParamNew:
-                  $ref: "#/components/examples/Response400CoefficientsNew"
-              schema:
-                $ref: "#/components/schemas/models.ErrorModel"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/problem+json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
-          description: Требуется платёж
-        "403":
-          description: Доступ запрещён
-        "404":
-          description: Не найдено
-        "429":
-          content:
-            application/problem+json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
-          description: Слишком много запросов
-      security:
-      - HeaderApiKey: []
-      summary: Тарифы на поставку
-      tags:
-      - Тарифы на поставку
       x-readonly-method: true
       x-category: commonapi
     servers:
@@ -686,6 +687,7 @@ components:
     models.TariffsBoxResponse:
       example:
         data:
+          currency: RUB
           dtNextBox: 2024-02-01
           dtTillMax: 2024-03-31
           warehouseList:
@@ -717,6 +719,7 @@ components:
       type: object
     models.WarehousesBoxRates:
       example:
+        currency: RUB
         dtNextBox: 2024-02-01
         dtTillMax: 2024-03-31
         warehouseList:
@@ -743,6 +746,10 @@ components:
           geoName: Центральный федеральный округ
           warehouseName: Коледино
       properties:
+        currency:
+          description: Валюта тарифов
+          example: RUB
+          type: string
         dtNextBox:
           description: Дата начала следующего тарифа
           example: 2024-02-01
@@ -823,6 +830,7 @@ components:
     models.TariffsPalletResponse:
       example:
         data:
+          currency: RUB
           dtNextPallet: 2024-02-01
           dtTillMax: 2024-03-31
           warehouseList:
@@ -844,6 +852,7 @@ components:
       type: object
     models.WarehousesPalletRates:
       example:
+        currency: RUB
         dtNextPallet: 2024-02-01
         dtTillMax: 2024-03-31
         warehouseList:
@@ -860,6 +869,10 @@ components:
           palletStorageValueExpr: "35.65"
           warehouseName: Коледино
       properties:
+        currency:
+          description: Валюта тарифов
+          example: RUB
+          type: string
         dtNextPallet:
           description: Дата начала следующего тарифа
           example: 2024-02-01
@@ -914,6 +927,7 @@ components:
     models.ReturnTariffsResponse:
       example:
         data:
+          currency: RUB
           dtNextDeliveryDumpKgt: 2024-02-01
           dtNextDeliveryDumpSrg: 2024-02-01
           dtNextDeliveryDumpSup: 2024-02-01
@@ -946,6 +960,7 @@ components:
       type: object
     models.WarehousesReturnRates:
       example:
+        currency: RUB
         dtNextDeliveryDumpKgt: 2024-02-01
         dtNextDeliveryDumpSrg: 2024-02-01
         dtNextDeliveryDumpSup: 2024-02-01
@@ -973,6 +988,10 @@ components:
           deliveryDumpSupReturnExpr: "250"
           warehouseName: Электросталь
       properties:
+        currency:
+          description: Валюта тарифов
+          example: RUB
+          type: string
         dtNextDeliveryDumpKgt:
           description: Дата начала следующего тарифа при грузовой доставке
           example: 2024-02-01
@@ -1207,6 +1226,7 @@ components:
       example:
         response:
           data:
+            currency: RUB
             dtNextBox: 2024-02-01
             dtTillMax: 2024-03-31
             warehouseList:
@@ -1240,6 +1260,7 @@ components:
       example:
         response:
           data:
+            currency: RUB
             dtNextPallet: 2024-02-01
             dtTillMax: 2024-03-31
             warehouseList:
@@ -1263,6 +1284,7 @@ components:
       example:
         response:
           data:
+            currency: RUB
             dtNextDeliveryDumpKgt: 2024-02-01
             dtNextDeliveryDumpSrg: 2024-02-01
             dtNextDeliveryDumpSup: 2024-02-01

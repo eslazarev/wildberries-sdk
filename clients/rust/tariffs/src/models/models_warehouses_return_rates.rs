@@ -1,7 +1,7 @@
 /*
  * Тарифы
  *
- * <div class=\"description_important\">   Узнать больше о комиссиях и тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/category/a04560b5-256d-48cb-8f09-60e283b5d493\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)   2. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   3. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+ * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
  *
  * The version of the OpenAPI document: tariffs
  * 
@@ -13,6 +13,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ModelsWarehousesReturnRates {
+    /// Валюта тарифов
+    #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
+    pub currency: Option<String>,
     /// Дата начала следующего тарифа при грузовой доставке
     #[serde(rename = "dtNextDeliveryDumpKgt", skip_serializing_if = "Option::is_none")]
     pub dt_next_delivery_dump_kgt: Option<String>,
@@ -30,6 +33,7 @@ pub struct ModelsWarehousesReturnRates {
 impl ModelsWarehousesReturnRates {
     pub fn new() -> ModelsWarehousesReturnRates {
         ModelsWarehousesReturnRates {
+            currency: None,
             dt_next_delivery_dump_kgt: None,
             dt_next_delivery_dump_srg: None,
             dt_next_delivery_dump_sup: None,
