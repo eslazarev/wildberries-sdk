@@ -4,15 +4,16 @@ info:
   version: tariffs
   description: |
     <div class="description_important">
-      Узнать больше о комиссиях и тарифах можно в <a href="https://seller.wildberries.ru/instructions/category/a04560b5-256d-48cb-8f09-60e283b5d493">справочном центре</a>
+      Узнать больше о тарифах можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section">справочном центре</a>
     </div>
 
     <div class="api-block">
 
     В разделе описаны методы получения:
       1. [Комиссий](/openapi/wb-tariffs#tag/Komissii)
-      2. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)
-      3. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)
+      2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)
+      3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)
+      4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)
 
     </div>
   x-file-name: tariffs
@@ -21,9 +22,9 @@ security:
 tags:
   - name: Комиссии
     description: ''
-  - name: Тарифы на остаток
-    description: ''
   - name: Тарифы на поставку
+    description: ''
+  - name: Тарифы на остаток
     description: ''
   - name: Стоимость возврата продавцу
     description: ''
@@ -91,6 +92,73 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/tariffs/v1/acceptance/coefficients:
+    servers:
+      - url: https://common-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: commonapi
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Тарифы на поставку
+      summary: Тарифы на поставку
+      description: |
+        Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.
+
+        <div class="description_important">
+          Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code>
+        </div>
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+        | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+        | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
+        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        </div>
+      parameters:
+        - name: warehouseIDs
+          in: query
+          description: ID складов.<br>По умолчанию возвращаются данные по всем складам
+          schema:
+            type: string
+          example: 507,117501
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/models.AcceptanceCoefficient'
+              examples:
+                ResponseCoefficients:
+                  $ref: '#/components/examples/ResponseCoefficients'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/models.ErrorModel'
+              examples:
+                BadWarehouseIDsParamNew:
+                  $ref: '#/components/examples/Response400CoefficientsNew'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          description: Доступ запрещён
+        '404':
+          description: Не найдено
         '429':
           $ref: '#/components/responses/429'
   /api/v1/tariffs/box:
@@ -163,73 +231,6 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
-        '429':
-          $ref: '#/components/responses/429'
-  /api/tariffs/v1/acceptance/coefficients:
-    servers:
-      - url: https://common-api.wildberries.ru
-    get:
-      x-readonly-method: true
-      x-category: commonapi
-      security:
-        - HeaderApiKey: []
-      tags:
-        - Тарифы на поставку
-      summary: Тарифы на поставку
-      description: |
-        Метод возвращает тарифы на поставку для конкретных складов на ближайшие 14 дней.
-
-        <div class="description_important">
-          Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code>
-        </div>
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-        | Тип | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- | --- |
-        | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-        | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-        | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
-        | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-        </div>
-      parameters:
-        - name: warehouseIDs
-          in: query
-          description: ID складов.<br>По умолчанию возвращаются данные по всем складам
-          schema:
-            type: string
-          example: 507,117501
-      responses:
-        '200':
-          description: Успешно
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/models.AcceptanceCoefficient'
-              examples:
-                ResponseCoefficients:
-                  $ref: '#/components/examples/ResponseCoefficients'
-        '400':
-          description: Неправильный запрос
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/models.ErrorModel'
-              examples:
-                BadWarehouseIDsParamNew:
-                  $ref: '#/components/examples/Response400CoefficientsNew'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          description: Доступ запрещён
-        '404':
-          description: Не найдено
         '429':
           $ref: '#/components/responses/429'
   /api/v1/tariffs/return:
@@ -383,6 +384,10 @@ components:
     models.WarehousesBoxRates:
       type: object
       properties:
+        currency:
+          type: string
+          description: Валюта тарифов
+          example: RUB
         dtNextBox:
           type: string
           description: Дата начала следующего тарифа
@@ -452,6 +457,10 @@ components:
     models.WarehousesPalletRates:
       type: object
       properties:
+        currency:
+          type: string
+          description: Валюта тарифов
+          example: RUB
         dtNextPallet:
           type: string
           description: Дата начала следующего тарифа
@@ -501,6 +510,10 @@ components:
     models.WarehousesReturnRates:
       type: object
       properties:
+        currency:
+          type: string
+          description: Валюта тарифов
+          example: RUB
         dtNextDeliveryDumpKgt:
           type: string
           description: Дата начала следующего тарифа при грузовой доставке

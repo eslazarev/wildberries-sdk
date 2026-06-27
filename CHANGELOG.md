@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.06.27)
+- Тарифы на поставку: добавлен GET `/api/tariffs/v1/acceptance/coefficients` (common-api) — получение коэффициентов/тарифов приёмки по складам на ближайшие 14 дней; новый query-параметр `warehouseIDs` (CSV), добавлены ответы `403`/`404`, изменён формат ошибки `400` на `application/json` с моделью `models.ErrorModel`; лимиты снижены до 6 запросов/мин (интервал 10 сек, всплеск 6) для персонального/сервисного/базового с секретом; для метода явно задана `HeaderApiKey` security
+- Тарифы на остаток: эндпоинты `/api/v1/tariffs/box` и `/api/v1/tariffs/pallet` сохранены, но обновлены описания/примеры ошибок `400` (для `/box` теперь `detail: Invalid date param`)
+- Тарифы на остаток / Стоимость возврата продавцу: в моделях `models.WarehousesBoxRates`, `models.WarehousesPalletRates`, `models.WarehousesReturnRates` добавлено поле `currency` (string, валюта тарифов, пример `RUB`)
+
 ### Changed (2026.06.26)
 - Управление пользователями продавца: в перечень кодов прав доступа (enum `code`) добавлены `brandzone` (Бренд‑зона. Публикация изменений) и `brandzoneSubscribe` (управление подпиской бренд‑зоны); обновлены примеры ответов со включением новых прав
 - Товары (Контент) / Рекомендации: добавлен новый раздел «Рекомендации» и новые методы `POST /api/content/v1/recommendations/list` (получение списка рекомендаций в карточках) и `POST /api/content/v1/recommendations/set` (установка/обновление/удаление рекомендаций); токены: personal/service; лимит: 100 запросов/мин (интервал 600 мс, всплеск 5); добавлены схемы `GetRecomReq/GetRecomRes/SetRecomReq/SetRecomRes` и ответы ошибок `400`, `208`
