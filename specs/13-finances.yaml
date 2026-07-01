@@ -1271,6 +1271,7 @@ components:
         - articleSubstitution
         - salePriceAffiliatedDiscountPrc
         - salePriceWholesaleDiscountPrc
+        - b2bCustomerTin
         - orderUid
         - srid
       properties:
@@ -1638,6 +1639,10 @@ components:
           type: number
           description: Оптовая скидка для бизнеса, %
           example: 0
+        b2bCustomerTin:
+          type: string
+          description: ИНН B2B-покупателя
+          example: '010101010101'
         orderUid:
           type: string
           description: |
@@ -2264,6 +2269,10 @@ components:
           type: number
           description: Оптовая скидка для бизнеса, %
           example: 0
+        b2b_customer_tin:
+          type: string
+          description: ИНН B2B-покупателя
+          example: '010101010101'
   responses:
     '401':
       description: Не авторизован

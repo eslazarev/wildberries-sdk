@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.07.01)
+- Finances: в модели ответа добавлено новое обязательное поле `b2bCustomerTin` (string) — ИНН B2B‑покупателя (пример: `010101010101`)
+- Finances: в схеме (snake_case) добавлено поле `b2b_customer_tin` (string) — ИНН B2B‑покупателя (пример: `010101010101`)
+
 ### Changed (2026.06.27)
 - Тарифы на поставку: добавлен GET `/api/tariffs/v1/acceptance/coefficients` (common-api) — получение коэффициентов/тарифов приёмки по складам на ближайшие 14 дней; новый query-параметр `warehouseIDs` (CSV), добавлены ответы `403`/`404`, изменён формат ошибки `400` на `application/json` с моделью `models.ErrorModel`; лимиты снижены до 6 запросов/мин (интервал 10 сек, всплеск 6) для персонального/сервисного/базового с секретом; для метода явно задана `HeaderApiKey` security
 - Тарифы на остаток: эндпоинты `/api/v1/tariffs/box` и `/api/v1/tariffs/pallet` сохранены, но обновлены описания/примеры ошибок `400` (для `/box` теперь `detail: Invalid date param`)
