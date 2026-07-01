@@ -43,9 +43,9 @@ export interface V0SetMinusNormQueryRequest {
  * Check if a given object implements the V0SetMinusNormQueryRequest interface.
  */
 export function instanceOfV0SetMinusNormQueryRequest(value: object): value is V0SetMinusNormQueryRequest {
-    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
-    if ((!('nmId' in value) && !('nm_id' in value)) || (value['nmId'] === undefined && value['nm_id'] === undefined)) return false;
-    if ((!('normQueries' in value) && !('norm_queries' in value)) || (value['normQueries'] === undefined && value['norm_queries'] === undefined)) return false;
+    if ((!('advertId' in (value as Record<string, any>)) && !('advert_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['advertId'] === undefined && (value as Record<string, any>)['advert_id'] === undefined)) return false;
+    if ((!('nmId' in (value as Record<string, any>)) && !('nm_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmId'] === undefined && (value as Record<string, any>)['nm_id'] === undefined)) return false;
+    if ((!('normQueries' in (value as Record<string, any>)) && !('norm_queries' in (value as Record<string, any>))) || ((value as Record<string, any>)['normQueries'] === undefined && (value as Record<string, any>)['norm_queries'] === undefined)) return false;
     return true;
 }
 

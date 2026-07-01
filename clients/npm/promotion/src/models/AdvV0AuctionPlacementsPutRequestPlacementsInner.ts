@@ -45,7 +45,7 @@ export interface AdvV0AuctionPlacementsPutRequestPlacementsInner {
  * Check if a given object implements the AdvV0AuctionPlacementsPutRequestPlacementsInner interface.
  */
 export function instanceOfAdvV0AuctionPlacementsPutRequestPlacementsInner(value: object): value is AdvV0AuctionPlacementsPutRequestPlacementsInner {
-    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
+    if ((!('advertId' in (value as Record<string, any>)) && !('advert_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['advertId'] === undefined && (value as Record<string, any>)['advert_id'] === undefined)) return false;
     if (!('placements' in value) || value['placements'] === undefined) return false;
     return true;
 }

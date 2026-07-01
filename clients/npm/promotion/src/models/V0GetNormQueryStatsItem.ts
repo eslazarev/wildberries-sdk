@@ -51,8 +51,8 @@ export interface V0GetNormQueryStatsItem {
  * Check if a given object implements the V0GetNormQueryStatsItem interface.
  */
 export function instanceOfV0GetNormQueryStatsItem(value: object): value is V0GetNormQueryStatsItem {
-    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
-    if ((!('nmId' in value) && !('nm_id' in value)) || (value['nmId'] === undefined && value['nm_id'] === undefined)) return false;
+    if ((!('advertId' in (value as Record<string, any>)) && !('advert_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['advertId'] === undefined && (value as Record<string, any>)['advert_id'] === undefined)) return false;
+    if ((!('nmId' in (value as Record<string, any>)) && !('nm_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmId'] === undefined && (value as Record<string, any>)['nm_id'] === undefined)) return false;
     return true;
 }
 

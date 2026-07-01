@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_orders_fbs"
-version = "0.1.117"
+version = "0.1.118"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries OpenAPI client (generated)."
 repository = "https://github.com/eslazarev/wildberries-sdk"

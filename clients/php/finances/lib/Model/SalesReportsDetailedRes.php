@@ -146,6 +146,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_affiliated_discount_prc' => 'float',
         'agency_vat' => 'float',
         'sale_price_wholesale_discount_prc' => 'float',
+        'b2b_customer_tin' => 'string',
         'order_uid' => 'string',
         'srid' => 'string'
     ];
@@ -246,6 +247,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_affiliated_discount_prc' => null,
         'agency_vat' => null,
         'sale_price_wholesale_discount_prc' => null,
+        'b2b_customer_tin' => null,
         'order_uid' => null,
         'srid' => null
     ];
@@ -344,6 +346,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_affiliated_discount_prc' => false,
         'agency_vat' => false,
         'sale_price_wholesale_discount_prc' => false,
+        'b2b_customer_tin' => false,
         'order_uid' => false,
         'srid' => false
     ];
@@ -522,6 +525,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_affiliated_discount_prc' => 'salePriceAffiliatedDiscountPrc',
         'agency_vat' => 'agencyVat',
         'sale_price_wholesale_discount_prc' => 'salePriceWholesaleDiscountPrc',
+        'b2b_customer_tin' => 'b2bCustomerTin',
         'order_uid' => 'orderUid',
         'srid' => 'srid'
     ];
@@ -620,6 +624,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_affiliated_discount_prc' => 'setSalePriceAffiliatedDiscountPrc',
         'agency_vat' => 'setAgencyVat',
         'sale_price_wholesale_discount_prc' => 'setSalePriceWholesaleDiscountPrc',
+        'b2b_customer_tin' => 'setB2bCustomerTin',
         'order_uid' => 'setOrderUid',
         'srid' => 'setSrid'
     ];
@@ -718,6 +723,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_affiliated_discount_prc' => 'getSalePriceAffiliatedDiscountPrc',
         'agency_vat' => 'getAgencyVat',
         'sale_price_wholesale_discount_prc' => 'getSalePriceWholesaleDiscountPrc',
+        'b2b_customer_tin' => 'getB2bCustomerTin',
         'order_uid' => 'getOrderUid',
         'srid' => 'getSrid'
     ];
@@ -884,6 +890,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('sale_price_affiliated_discount_prc', $data ?? [], null);
         $this->setIfExists('agency_vat', $data ?? [], null);
         $this->setIfExists('sale_price_wholesale_discount_prc', $data ?? [], null);
+        $this->setIfExists('b2b_customer_tin', $data ?? [], null);
         $this->setIfExists('order_uid', $data ?? [], null);
         $this->setIfExists('srid', $data ?? [], null);
     }
@@ -1175,6 +1182,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ($this->container['sale_price_wholesale_discount_prc'] === null) {
             $invalidProperties[] = "'sale_price_wholesale_discount_prc' can't be null";
+        }
+        if ($this->container['b2b_customer_tin'] === null) {
+            $invalidProperties[] = "'b2b_customer_tin' can't be null";
         }
         if ($this->container['order_uid'] === null) {
             $invalidProperties[] = "'order_uid' can't be null";
@@ -3579,6 +3589,33 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable sale_price_wholesale_discount_prc cannot be null');
         }
         $this->container['sale_price_wholesale_discount_prc'] = $sale_price_wholesale_discount_prc;
+
+        return $this;
+    }
+
+    /**
+     * Gets b2b_customer_tin
+     *
+     * @return string
+     */
+    public function getB2bCustomerTin()
+    {
+        return $this->container['b2b_customer_tin'];
+    }
+
+    /**
+     * Sets b2b_customer_tin
+     *
+     * @param string $b2b_customer_tin ИНН B2B-покупателя
+     *
+     * @return self
+     */
+    public function setB2bCustomerTin($b2b_customer_tin)
+    {
+        if (is_null($b2b_customer_tin)) {
+            throw new \InvalidArgumentException('non-nullable b2b_customer_tin cannot be null');
+        }
+        $this->container['b2b_customer_tin'] = $b2b_customer_tin;
 
         return $this;
     }

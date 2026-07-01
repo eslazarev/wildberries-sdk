@@ -43,7 +43,7 @@ export interface BoosterStatsV3Inner {
  * Check if a given object implements the BoosterStatsV3Inner interface.
  */
 export function instanceOfBoosterStatsV3Inner(value: object): value is BoosterStatsV3Inner {
-    if ((!('avgPosition' in value) && !('avg_position' in value)) || (value['avgPosition'] === undefined && value['avg_position'] === undefined)) return false;
+    if ((!('avgPosition' in (value as Record<string, any>)) && !('avg_position' in (value as Record<string, any>))) || ((value as Record<string, any>)['avgPosition'] === undefined && (value as Record<string, any>)['avg_position'] === undefined)) return false;
     if (!('date' in value) || value['date'] === undefined) return false;
     if (!('nm' in value) || value['nm'] === undefined) return false;
     return true;

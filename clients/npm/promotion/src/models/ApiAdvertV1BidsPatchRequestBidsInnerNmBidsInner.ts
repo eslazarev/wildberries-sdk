@@ -59,8 +59,8 @@ export type ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInnerPlacementEnum = typeo
  * Check if a given object implements the ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner interface.
  */
 export function instanceOfApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner(value: object): value is ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner {
-    if ((!('nmId' in value) && !('nm_id' in value)) || (value['nmId'] === undefined && value['nm_id'] === undefined)) return false;
-    if ((!('bidKopecks' in value) && !('bid_kopecks' in value)) || (value['bidKopecks'] === undefined && value['bid_kopecks'] === undefined)) return false;
+    if ((!('nmId' in (value as Record<string, any>)) && !('nm_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmId'] === undefined && (value as Record<string, any>)['nm_id'] === undefined)) return false;
+    if ((!('bidKopecks' in (value as Record<string, any>)) && !('bid_kopecks' in (value as Record<string, any>))) || ((value as Record<string, any>)['bidKopecks'] === undefined && (value as Record<string, any>)['bid_kopecks'] === undefined)) return false;
     if (!('placement' in value) || value['placement'] === undefined) return false;
     return true;
 }

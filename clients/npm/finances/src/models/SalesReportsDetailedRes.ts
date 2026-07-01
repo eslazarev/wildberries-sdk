@@ -553,6 +553,12 @@ export interface SalesReportsDetailedRes {
      */
     salePriceWholesaleDiscountPrc: number;
     /**
+     * ИНН B2B-покупателя
+     * @type {string}
+     * @memberof SalesReportsDetailedRes
+     */
+    b2bCustomerTin: string;
+    /**
      * ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
      * 
      * @type {string}
@@ -668,6 +674,7 @@ export function instanceOfSalesReportsDetailedRes(value: object): value is Sales
     if (!('articleSubstitution' in value) || value['articleSubstitution'] === undefined) return false;
     if (!('salePriceAffiliatedDiscountPrc' in value) || value['salePriceAffiliatedDiscountPrc'] === undefined) return false;
     if (!('salePriceWholesaleDiscountPrc' in value) || value['salePriceWholesaleDiscountPrc'] === undefined) return false;
+    if (!('b2bCustomerTin' in value) || value['b2bCustomerTin'] === undefined) return false;
     if (!('orderUid' in value) || value['orderUid'] === undefined) return false;
     if (!('srid' in value) || value['srid'] === undefined) return false;
     return true;
@@ -771,6 +778,7 @@ export function SalesReportsDetailedResFromJSONTyped(json: any, ignoreDiscrimina
         'salePriceAffiliatedDiscountPrc': json['salePriceAffiliatedDiscountPrc'],
         'agencyVat': json['agencyVat'] == null ? undefined : json['agencyVat'],
         'salePriceWholesaleDiscountPrc': json['salePriceWholesaleDiscountPrc'],
+        'b2bCustomerTin': json['b2bCustomerTin'],
         'orderUid': json['orderUid'],
         'srid': json['srid'],
     };
@@ -875,6 +883,7 @@ export function SalesReportsDetailedResToJSONTyped(value?: SalesReportsDetailedR
         'salePriceAffiliatedDiscountPrc': value['salePriceAffiliatedDiscountPrc'],
         'agencyVat': value['agencyVat'],
         'salePriceWholesaleDiscountPrc': value['salePriceWholesaleDiscountPrc'],
+        'b2bCustomerTin': value['b2bCustomerTin'],
         'orderUid': value['orderUid'],
         'srid': value['srid'],
     };

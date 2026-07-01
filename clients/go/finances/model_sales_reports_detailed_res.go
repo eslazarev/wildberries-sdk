@@ -198,6 +198,8 @@ type SalesReportsDetailedRes struct {
 	AgencyVat *float32 `json:"agencyVat,omitempty"`
 	// Оптовая скидка для бизнеса, %
 	SalePriceWholesaleDiscountPrc float32 `json:"salePriceWholesaleDiscountPrc"`
+	// ИНН B2B-покупателя
+	B2bCustomerTin string `json:"b2bCustomerTin"`
 	// ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid` 
 	OrderUid string `json:"orderUid"`
 	// ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/Sborochnye-zadaniya-DBW), [DBS](./orders-dbs#tag/Sborochnye-zadaniya-DBS) и [Самовывоз](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) `srid` равен `rid` 
@@ -210,7 +212,7 @@ type _SalesReportsDetailedRes SalesReportsDetailedRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSalesReportsDetailedRes(reportId int64, dateFrom string, dateTo string, createDate string, currency string, reportType int32, rrdId int32, giId int32, dlvPrc float32, fixTariffDateFrom string, fixTariffDateTo string, subjectName string, nmId int32, brandName string, vendorCode string, title string, techSize string, sku string, docTypeName string, quantity int32, retailPrice string, retailAmount string, salePercent int32, commissionPercent float32, officeName string, sellerOperName string, orderDt time.Time, saleDt time.Time, rrDate string, shkId int32, retailPriceWithDisc string, deliveryAmount int32, returnAmount int32, deliveryService string, giBoxTypeName string, productDiscountForReport float32, sellerPromo string, spp float32, kvwBase float32, kvw float32, supRatingUp float32, isKgvpV2 float32, ppvzSalesCommission string, forPay string, ppvzReward string, acquiringFee string, acquiringPercent float32, paymentProcessing string, acquiringBank string, vw string, vwNds string, ppvzOfficeName string, ppvzOfficeId int32, ppvzSupplierName string, ppvzSupplierInn string, declarationNumber string, stickerId string, country string, srvDbs bool, penalty string, additionalPayment string, rebillLogisticCost string, paidStorage string, deduction string, paidAcceptance string, orderId int32, isB2b bool, trbxId string, installmentCofinancingAmount string, wibesDiscountPercent float32, cashbackAmount string, cashbackDiscount string, cashbackCommissionChange string, paymentSchedule string, deliveryMethod string, sellerPromoId int32, sellerPromoDiscount float32, loyaltyId int32, loyaltyDiscount float32, uuidPromocode string, salePricePromocodeDiscountPrc float32, articleSubstitution string, salePriceAffiliatedDiscountPrc float32, salePriceWholesaleDiscountPrc float32, orderUid string, srid string) *SalesReportsDetailedRes {
+func NewSalesReportsDetailedRes(reportId int64, dateFrom string, dateTo string, createDate string, currency string, reportType int32, rrdId int32, giId int32, dlvPrc float32, fixTariffDateFrom string, fixTariffDateTo string, subjectName string, nmId int32, brandName string, vendorCode string, title string, techSize string, sku string, docTypeName string, quantity int32, retailPrice string, retailAmount string, salePercent int32, commissionPercent float32, officeName string, sellerOperName string, orderDt time.Time, saleDt time.Time, rrDate string, shkId int32, retailPriceWithDisc string, deliveryAmount int32, returnAmount int32, deliveryService string, giBoxTypeName string, productDiscountForReport float32, sellerPromo string, spp float32, kvwBase float32, kvw float32, supRatingUp float32, isKgvpV2 float32, ppvzSalesCommission string, forPay string, ppvzReward string, acquiringFee string, acquiringPercent float32, paymentProcessing string, acquiringBank string, vw string, vwNds string, ppvzOfficeName string, ppvzOfficeId int32, ppvzSupplierName string, ppvzSupplierInn string, declarationNumber string, stickerId string, country string, srvDbs bool, penalty string, additionalPayment string, rebillLogisticCost string, paidStorage string, deduction string, paidAcceptance string, orderId int32, isB2b bool, trbxId string, installmentCofinancingAmount string, wibesDiscountPercent float32, cashbackAmount string, cashbackDiscount string, cashbackCommissionChange string, paymentSchedule string, deliveryMethod string, sellerPromoId int32, sellerPromoDiscount float32, loyaltyId int32, loyaltyDiscount float32, uuidPromocode string, salePricePromocodeDiscountPrc float32, articleSubstitution string, salePriceAffiliatedDiscountPrc float32, salePriceWholesaleDiscountPrc float32, b2bCustomerTin string, orderUid string, srid string) *SalesReportsDetailedRes {
 	this := SalesReportsDetailedRes{}
 	this.ReportId = reportId
 	this.DateFrom = dateFrom
@@ -296,6 +298,7 @@ func NewSalesReportsDetailedRes(reportId int64, dateFrom string, dateTo string, 
 	this.ArticleSubstitution = articleSubstitution
 	this.SalePriceAffiliatedDiscountPrc = salePriceAffiliatedDiscountPrc
 	this.SalePriceWholesaleDiscountPrc = salePriceWholesaleDiscountPrc
+	this.B2bCustomerTin = b2bCustomerTin
 	this.OrderUid = orderUid
 	this.Srid = srid
 	return &this
@@ -2453,6 +2456,30 @@ func (o *SalesReportsDetailedRes) SetSalePriceWholesaleDiscountPrc(v float32) {
 	o.SalePriceWholesaleDiscountPrc = v
 }
 
+// GetB2bCustomerTin returns the B2bCustomerTin field value
+func (o *SalesReportsDetailedRes) GetB2bCustomerTin() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.B2bCustomerTin
+}
+
+// GetB2bCustomerTinOk returns a tuple with the B2bCustomerTin field value
+// and a boolean to check if the value has been set.
+func (o *SalesReportsDetailedRes) GetB2bCustomerTinOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.B2bCustomerTin, true
+}
+
+// SetB2bCustomerTin sets field value
+func (o *SalesReportsDetailedRes) SetB2bCustomerTin(v string) {
+	o.B2bCustomerTin = v
+}
+
 // GetOrderUid returns the OrderUid field value
 func (o *SalesReportsDetailedRes) GetOrderUid() string {
 	if o == nil {
@@ -2607,6 +2634,7 @@ func (o SalesReportsDetailedRes) ToMap() (map[string]interface{}, error) {
 		toSerialize["agencyVat"] = o.AgencyVat
 	}
 	toSerialize["salePriceWholesaleDiscountPrc"] = o.SalePriceWholesaleDiscountPrc
+	toSerialize["b2bCustomerTin"] = o.B2bCustomerTin
 	toSerialize["orderUid"] = o.OrderUid
 	toSerialize["srid"] = o.Srid
 	return toSerialize, nil
@@ -2701,6 +2729,7 @@ func (o *SalesReportsDetailedRes) UnmarshalJSON(data []byte) (err error) {
 		"articleSubstitution",
 		"salePriceAffiliatedDiscountPrc",
 		"salePriceWholesaleDiscountPrc",
+		"b2bCustomerTin",
 		"orderUid",
 		"srid",
 	}

@@ -138,7 +138,7 @@ export function instanceOfDaysV3InnerAppsInner(value: object): value is DaysV3In
     if (!('orders' in value) || value['orders'] === undefined) return false;
     if (!('shks' in value) || value['shks'] === undefined) return false;
     if (!('sum' in value) || value['sum'] === undefined) return false;
-    if ((!('sumPrice' in value) && !('sum_price' in value)) || (value['sumPrice'] === undefined && value['sum_price'] === undefined)) return false;
+    if ((!('sumPrice' in (value as Record<string, any>)) && !('sum_price' in (value as Record<string, any>))) || ((value as Record<string, any>)['sumPrice'] === undefined && (value as Record<string, any>)['sum_price'] === undefined)) return false;
     if (!('views' in value) || value['views'] === undefined) return false;
     return true;
 }

@@ -147,7 +147,8 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'article_substitution' => 'string',
         'sale_price_affiliated_discount_prc' => 'float',
         'agency_vat' => 'float',
-        'sale_price_wholesale_discount_prc' => 'float'
+        'sale_price_wholesale_discount_prc' => 'float',
+        'b2b_customer_tin' => 'string'
     ];
 
     /**
@@ -248,7 +249,8 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'article_substitution' => null,
         'sale_price_affiliated_discount_prc' => null,
         'agency_vat' => null,
-        'sale_price_wholesale_discount_prc' => null
+        'sale_price_wholesale_discount_prc' => null,
+        'b2b_customer_tin' => null
     ];
 
     /**
@@ -347,7 +349,8 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'article_substitution' => false,
         'sale_price_affiliated_discount_prc' => false,
         'agency_vat' => false,
-        'sale_price_wholesale_discount_prc' => false
+        'sale_price_wholesale_discount_prc' => false,
+        'b2b_customer_tin' => false
     ];
 
     /**
@@ -526,7 +529,8 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'article_substitution' => 'article_substitution',
         'sale_price_affiliated_discount_prc' => 'sale_price_affiliated_discount_prc',
         'agency_vat' => 'agency_vat',
-        'sale_price_wholesale_discount_prc' => 'sale_price_wholesale_discount_prc'
+        'sale_price_wholesale_discount_prc' => 'sale_price_wholesale_discount_prc',
+        'b2b_customer_tin' => 'b2b_customer_tin'
     ];
 
     /**
@@ -625,7 +629,8 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'article_substitution' => 'setArticleSubstitution',
         'sale_price_affiliated_discount_prc' => 'setSalePriceAffiliatedDiscountPrc',
         'agency_vat' => 'setAgencyVat',
-        'sale_price_wholesale_discount_prc' => 'setSalePriceWholesaleDiscountPrc'
+        'sale_price_wholesale_discount_prc' => 'setSalePriceWholesaleDiscountPrc',
+        'b2b_customer_tin' => 'setB2bCustomerTin'
     ];
 
     /**
@@ -724,7 +729,8 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'article_substitution' => 'getArticleSubstitution',
         'sale_price_affiliated_discount_prc' => 'getSalePriceAffiliatedDiscountPrc',
         'agency_vat' => 'getAgencyVat',
-        'sale_price_wholesale_discount_prc' => 'getSalePriceWholesaleDiscountPrc'
+        'sale_price_wholesale_discount_prc' => 'getSalePriceWholesaleDiscountPrc',
+        'b2b_customer_tin' => 'getB2bCustomerTin'
     ];
 
     /**
@@ -892,6 +898,7 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('sale_price_affiliated_discount_prc', $data ?? [], null);
         $this->setIfExists('agency_vat', $data ?? [], null);
         $this->setIfExists('sale_price_wholesale_discount_prc', $data ?? [], null);
+        $this->setIfExists('b2b_customer_tin', $data ?? [], null);
     }
 
     /**
@@ -3415,6 +3422,33 @@ class DetailReportItem implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable sale_price_wholesale_discount_prc cannot be null');
         }
         $this->container['sale_price_wholesale_discount_prc'] = $sale_price_wholesale_discount_prc;
+
+        return $this;
+    }
+
+    /**
+     * Gets b2b_customer_tin
+     *
+     * @return string|null
+     */
+    public function getB2bCustomerTin()
+    {
+        return $this->container['b2b_customer_tin'];
+    }
+
+    /**
+     * Sets b2b_customer_tin
+     *
+     * @param string|null $b2b_customer_tin ИНН B2B-покупателя
+     *
+     * @return self
+     */
+    public function setB2bCustomerTin($b2b_customer_tin)
+    {
+        if (is_null($b2b_customer_tin)) {
+            throw new \InvalidArgumentException('non-nullable b2b_customer_tin cannot be null');
+        }
+        $this->container['b2b_customer_tin'] = $b2b_customer_tin;
 
         return $this;
     }

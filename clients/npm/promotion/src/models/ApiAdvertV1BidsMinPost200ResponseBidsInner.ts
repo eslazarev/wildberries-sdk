@@ -46,7 +46,7 @@ export interface ApiAdvertV1BidsMinPost200ResponseBidsInner {
  */
 export function instanceOfApiAdvertV1BidsMinPost200ResponseBidsInner(value: object): value is ApiAdvertV1BidsMinPost200ResponseBidsInner {
     if (!('bids' in value) || value['bids'] === undefined) return false;
-    if ((!('nmId' in value) && !('nm_id' in value)) || (value['nmId'] === undefined && value['nm_id'] === undefined)) return false;
+    if ((!('nmId' in (value as Record<string, any>)) && !('nm_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmId'] === undefined && (value as Record<string, any>)['nm_id'] === undefined)) return false;
     return true;
 }
 

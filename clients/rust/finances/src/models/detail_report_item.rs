@@ -288,6 +288,9 @@ pub struct DetailReportItem {
     /// Оптовая скидка для бизнеса, %
     #[serde(rename = "sale_price_wholesale_discount_prc", skip_serializing_if = "Option::is_none")]
     pub sale_price_wholesale_discount_prc: Option<f64>,
+    /// ИНН B2B-покупателя
+    #[serde(rename = "b2b_customer_tin", skip_serializing_if = "Option::is_none")]
+    pub b2b_customer_tin: Option<String>,
 }
 
 impl DetailReportItem {
@@ -384,6 +387,7 @@ impl DetailReportItem {
             sale_price_affiliated_discount_prc: None,
             agency_vat: None,
             sale_price_wholesale_discount_prc: None,
+            b2b_customer_tin: None,
         }
     }
 }

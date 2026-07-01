@@ -45,7 +45,7 @@ export interface AdvV0AuctionNmsPatchRequestNmsInner {
  * Check if a given object implements the AdvV0AuctionNmsPatchRequestNmsInner interface.
  */
 export function instanceOfAdvV0AuctionNmsPatchRequestNmsInner(value: object): value is AdvV0AuctionNmsPatchRequestNmsInner {
-    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
+    if ((!('advertId' in (value as Record<string, any>)) && !('advert_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['advertId'] === undefined && (value as Record<string, any>)['advert_id'] === undefined)) return false;
     if (!('nms' in value) || value['nms'] === undefined) return false;
     return true;
 }

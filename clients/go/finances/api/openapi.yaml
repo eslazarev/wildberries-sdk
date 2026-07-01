@@ -1899,6 +1899,7 @@ components:
         salePriceAffiliatedDiscountPrc: 0
         agencyVat: 0
         salePriceWholesaleDiscountPrc: 0
+        b2bCustomerTin: "010101010101"
         orderUid: id375f16c4bec295d9995393af803ff7b
         srid: 0f1c3999172603062979867564654dac5b702849
       properties:
@@ -2276,6 +2277,10 @@ components:
           description: "Оптовая скидка для бизнеса, %"
           example: 0
           type: number
+        b2bCustomerTin:
+          description: ИНН B2B-покупателя
+          example: "010101010101"
+          type: string
         orderUid:
           description: |
             ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
@@ -2292,6 +2297,7 @@ components:
       - acquiringPercent
       - additionalPayment
       - articleSubstitution
+      - b2bCustomerTin
       - brandName
       - cashbackAmount
       - cashbackCommissionChange
@@ -2738,6 +2744,7 @@ components:
         sale_price_affiliated_discount_prc: 0
         agency_vat: 0
         sale_price_wholesale_discount_prc: 0
+        b2b_customer_tin: "010101010101"
       properties:
         realizationreport_id:
           description: Номер отчёта
@@ -3139,6 +3146,10 @@ components:
           description: "Оптовая скидка для бизнеса, %"
           example: 0
           type: number
+        b2b_customer_tin:
+          description: ИНН B2B-покупателя
+          example: "010101010101"
+          type: string
       type: object
     _api_v1_account_balance_get_200_response:
       example:

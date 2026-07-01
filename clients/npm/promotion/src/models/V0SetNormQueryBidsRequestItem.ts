@@ -49,9 +49,9 @@ export interface V0SetNormQueryBidsRequestItem {
  * Check if a given object implements the V0SetNormQueryBidsRequestItem interface.
  */
 export function instanceOfV0SetNormQueryBidsRequestItem(value: object): value is V0SetNormQueryBidsRequestItem {
-    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
-    if ((!('nmId' in value) && !('nm_id' in value)) || (value['nmId'] === undefined && value['nm_id'] === undefined)) return false;
-    if ((!('normQuery' in value) && !('norm_query' in value)) || (value['normQuery'] === undefined && value['norm_query'] === undefined)) return false;
+    if ((!('advertId' in (value as Record<string, any>)) && !('advert_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['advertId'] === undefined && (value as Record<string, any>)['advert_id'] === undefined)) return false;
+    if ((!('nmId' in (value as Record<string, any>)) && !('nm_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmId'] === undefined && (value as Record<string, any>)['nm_id'] === undefined)) return false;
+    if ((!('normQuery' in (value as Record<string, any>)) && !('norm_query' in (value as Record<string, any>))) || ((value as Record<string, any>)['normQuery'] === undefined && (value as Record<string, any>)['norm_query'] === undefined)) return false;
     if (!('bid' in value) || value['bid'] === undefined) return false;
     return true;
 }

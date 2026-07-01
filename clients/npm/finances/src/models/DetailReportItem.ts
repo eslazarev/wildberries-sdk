@@ -580,6 +580,12 @@ export interface DetailReportItem {
      * @memberof DetailReportItem
      */
     salePriceWholesaleDiscountPrc?: number;
+    /**
+     * ИНН B2B-покупателя
+     * @type {string}
+     * @memberof DetailReportItem
+     */
+    b2bCustomerTin?: string;
 }
 
 
@@ -702,6 +708,7 @@ export function DetailReportItemFromJSONTyped(json: any, ignoreDiscriminator: bo
         'salePriceAffiliatedDiscountPrc': json['sale_price_affiliated_discount_prc'] == null ? undefined : json['sale_price_affiliated_discount_prc'],
         'agencyVat': json['agency_vat'] == null ? undefined : json['agency_vat'],
         'salePriceWholesaleDiscountPrc': json['sale_price_wholesale_discount_prc'] == null ? undefined : json['sale_price_wholesale_discount_prc'],
+        'b2bCustomerTin': json['b2b_customer_tin'] == null ? undefined : json['b2b_customer_tin'],
     };
 }
 
@@ -807,6 +814,7 @@ export function DetailReportItemToJSONTyped(value?: DetailReportItem | null, ign
         'sale_price_affiliated_discount_prc': value['salePriceAffiliatedDiscountPrc'],
         'agency_vat': value['agencyVat'],
         'sale_price_wholesale_discount_prc': value['salePriceWholesaleDiscountPrc'],
+        'b2b_customer_tin': value['b2bCustomerTin'],
     };
 }
 

@@ -77,10 +77,10 @@ export type ApiAdvertV1BidsMinPostRequestPlacementTypesEnum = typeof ApiAdvertV1
  * Check if a given object implements the ApiAdvertV1BidsMinPostRequest interface.
  */
 export function instanceOfApiAdvertV1BidsMinPostRequest(value: object): value is ApiAdvertV1BidsMinPostRequest {
-    if ((!('advertId' in value) && !('advert_id' in value)) || (value['advertId'] === undefined && value['advert_id'] === undefined)) return false;
-    if ((!('nmIds' in value) && !('nm_ids' in value)) || (value['nmIds'] === undefined && value['nm_ids'] === undefined)) return false;
-    if ((!('paymentType' in value) && !('payment_type' in value)) || (value['paymentType'] === undefined && value['payment_type'] === undefined)) return false;
-    if ((!('placementTypes' in value) && !('placement_types' in value)) || (value['placementTypes'] === undefined && value['placement_types'] === undefined)) return false;
+    if ((!('advertId' in (value as Record<string, any>)) && !('advert_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['advertId'] === undefined && (value as Record<string, any>)['advert_id'] === undefined)) return false;
+    if ((!('nmIds' in (value as Record<string, any>)) && !('nm_ids' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmIds'] === undefined && (value as Record<string, any>)['nm_ids'] === undefined)) return false;
+    if ((!('paymentType' in (value as Record<string, any>)) && !('payment_type' in (value as Record<string, any>))) || ((value as Record<string, any>)['paymentType'] === undefined && (value as Record<string, any>)['payment_type'] === undefined)) return false;
+    if ((!('placementTypes' in (value as Record<string, any>)) && !('placement_types' in (value as Record<string, any>))) || ((value as Record<string, any>)['placementTypes'] === undefined && (value as Record<string, any>)['placement_types'] === undefined)) return false;
     return true;
 }
 

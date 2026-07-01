@@ -202,6 +202,8 @@ type DetailReportItem struct {
 	AgencyVat *float32 `json:"agency_vat,omitempty"`
 	// Оптовая скидка для бизнеса, %
 	SalePriceWholesaleDiscountPrc *float32 `json:"sale_price_wholesale_discount_prc,omitempty"`
+	// ИНН B2B-покупателя
+	B2bCustomerTin *string `json:"b2b_customer_tin,omitempty"`
 }
 
 // NewDetailReportItem instantiates a new DetailReportItem object
@@ -3134,6 +3136,38 @@ func (o *DetailReportItem) SetSalePriceWholesaleDiscountPrc(v float32) {
 	o.SalePriceWholesaleDiscountPrc = &v
 }
 
+// GetB2bCustomerTin returns the B2bCustomerTin field value if set, zero value otherwise.
+func (o *DetailReportItem) GetB2bCustomerTin() string {
+	if o == nil || IsNil(o.B2bCustomerTin) {
+		var ret string
+		return ret
+	}
+	return *o.B2bCustomerTin
+}
+
+// GetB2bCustomerTinOk returns a tuple with the B2bCustomerTin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DetailReportItem) GetB2bCustomerTinOk() (*string, bool) {
+	if o == nil || IsNil(o.B2bCustomerTin) {
+		return nil, false
+	}
+	return o.B2bCustomerTin, true
+}
+
+// HasB2bCustomerTin returns a boolean if a field has been set.
+func (o *DetailReportItem) HasB2bCustomerTin() bool {
+	if o != nil && !IsNil(o.B2bCustomerTin) {
+		return true
+	}
+
+	return false
+}
+
+// SetB2bCustomerTin gets a reference to the given string and assigns it to the B2bCustomerTin field.
+func (o *DetailReportItem) SetB2bCustomerTin(v string) {
+	o.B2bCustomerTin = &v
+}
+
 func (o DetailReportItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -3416,6 +3450,9 @@ func (o DetailReportItem) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SalePriceWholesaleDiscountPrc) {
 		toSerialize["sale_price_wholesale_discount_prc"] = o.SalePriceWholesaleDiscountPrc
+	}
+	if !IsNil(o.B2bCustomerTin) {
+		toSerialize["b2b_customer_tin"] = o.B2bCustomerTin
 	}
 	return toSerialize, nil
 }

@@ -57,7 +57,7 @@ export interface Response400 {
 export function instanceOfResponse400(value: object): value is Response400 {
     if (!('detail' in value) || value['detail'] === undefined) return false;
     if (!('origin' in value) || value['origin'] === undefined) return false;
-    if ((!('requestId' in value) && !('request_id' in value)) || (value['requestId'] === undefined && value['request_id'] === undefined)) return false;
+    if ((!('requestId' in (value as Record<string, any>)) && !('request_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['requestId'] === undefined && (value as Record<string, any>)['request_id'] === undefined)) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     return true;

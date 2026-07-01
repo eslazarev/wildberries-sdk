@@ -58,9 +58,9 @@ export interface AdvertNMsSettings {
  * Check if a given object implements the AdvertNMsSettings interface.
  */
 export function instanceOfAdvertNMsSettings(value: object): value is AdvertNMsSettings {
-    if ((!('bidsKopecks' in value) && !('bids_kopecks' in value)) || (value['bidsKopecks'] === undefined && value['bids_kopecks'] === undefined)) return false;
+    if ((!('bidsKopecks' in (value as Record<string, any>)) && !('bids_kopecks' in (value as Record<string, any>))) || ((value as Record<string, any>)['bidsKopecks'] === undefined && (value as Record<string, any>)['bids_kopecks'] === undefined)) return false;
     if (!('subject' in value) || value['subject'] === undefined) return false;
-    if ((!('nmId' in value) && !('nm_id' in value)) || (value['nmId'] === undefined && value['nm_id'] === undefined)) return false;
+    if ((!('nmId' in (value as Record<string, any>)) && !('nm_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmId'] === undefined && (value as Record<string, any>)['nm_id'] === undefined)) return false;
     return true;
 }
 
