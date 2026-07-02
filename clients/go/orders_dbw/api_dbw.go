@@ -235,13 +235,13 @@ func (r ApiApiMarketplaceV3DbwOrdersMetaDeletePostRequest) Execute() (*ApiMetaDe
 /*
 ApiMarketplaceV3DbwOrdersMetaDeletePost Удалить идентификаторы маркировки сборочных заданий
 
-Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) для переданного ключа.
+Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) для переданного ключа.
 <br><br>
 В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-  - `imei` — [IMEI](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
-  - `uin` — [УИН](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)
-  - `gtin` — [GTIN](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
-  - `sgtin` — [код маркировки](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)
+  - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
+  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)
+  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
+  - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)
 
 Можно передать только один ключ.
 
@@ -636,10 +636,10 @@ func (r ApiApiMarketplaceV3DbwOrdersMetaSgtinPostRequest) Execute() (*ApiStatusS
 /*
 ApiMarketplaceV3DbwOrdersMetaSgtinPost Закрепить коды маркировки Честного знака за сборочными заданиями
 
-Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
-Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.
+Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
+Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.
 <br><br>
-Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).
+Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
@@ -833,7 +833,7 @@ func (r ApiApiMarketplaceV3DbwOrdersStatusDeliverPostRequest) Execute() (*ApiSta
 /*
 ApiMarketplaceV3DbwOrdersStatusDeliverPost Перевести сборочные задания в доставку
 
-Метод переводит [сборочные задания](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) из [статуса](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` в статус `complete` — в доставке.
+Метод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` в статус `complete` — в доставке.
 
 <div class="description_important">
 Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `"isError":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors`
@@ -3284,7 +3284,7 @@ func (r ApiApiV3DbwOrdersStickersPostRequest) Execute() (*ApiV3DbwOrdersStickers
 /*
 ApiV3DbwOrdersStickersPost Получить стикеры сборочных заданий
 
-Метод возвращает список стикеров для [сборочных заданий](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):
+Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):
   - `confirm` — на сборке
   - `complete` — в доставке
 

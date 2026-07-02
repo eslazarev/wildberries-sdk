@@ -14,7 +14,9 @@ info:
       4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний
       5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)
 
-    Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.
+    Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>
+
+    Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом
 
     </div>
   title: Маркетинг и продвижение
@@ -3201,6 +3203,8 @@ paths:
         Максимальный период в запросе — 31 день.
         <br><br>
         Для кампаний в статусах `7`, `9` и `11`.
+        <br><br>
+        В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3873,7 +3877,12 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
     servers:
-    - url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://dp-calendar-api-sandbox.wildberries.ru
   /api/v1/calendar/promotions/details:
     get:
       description: |
@@ -3970,7 +3979,12 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
     servers:
-    - url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://dp-calendar-api-sandbox.wildberries.ru
   /api/v1/calendar/promotions/nomenclatures:
     get:
       description: |
@@ -4108,7 +4122,12 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
     servers:
-    - url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://dp-calendar-api-sandbox.wildberries.ru
   /api/v1/calendar/promotions/upload:
     post:
       description: |
@@ -4200,7 +4219,12 @@ paths:
       x-readonly-method: false
       x-category: discountsandprices
     servers:
-    - url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Prod**
+      url: https://dp-calendar-api.wildberries.ru
+    - description: |
+        **Sandbox**
+      url: https://dp-calendar-api-sandbox.wildberries.ru
   /adv/v0/normquery/list:
     post:
       description: |

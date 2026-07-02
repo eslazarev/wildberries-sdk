@@ -647,8 +647,8 @@ paths:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/stickers:
     post:
-      description: "Метод возвращает список стикеров для [сборочных заданий](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get)\
-        \ в [статусах](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):\n\
+      description: "Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get)\
+        \ в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):\n\
         \  - `confirm` — на сборке\n  - `complete` — в доставке\n\nЗа один запрос\
         \ можно получить максимум 100 стикеров.<br>\n\nДоступные форматы стикеров\
         :\n  - SVG\n  - ZPLV (вертикальный)\n  - ZPLH (горизонтальный)\n  - PNG\n\n\
@@ -783,8 +783,8 @@ paths:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbw/orders/status/deliver:
     post:
-      description: "Метод переводит [сборочные задания](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get)\
-        \ из [статуса](/openapi/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post)\
+      description: "Метод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get)\
+        \ из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post)\
         \ `confirm` в статус `complete` — в доставке.\n\n<div class=\"description_important\"\
         >\nПроверяйте ответ метода. Сборочные задания, переведённые в доставку, ве\
         рнутся с признаком `\"isError\":false`. Для остальных сборочных заданий см\
@@ -1208,13 +1208,13 @@ paths:
   /api/marketplace/v3/dbw/orders/meta/delete:
     post:
       description: "Метод удаляет значение указанных [идентификаторов маркировки с\
-        борочного задания](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
+        борочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
         \ для переданного ключа.\n<br><br>\nВ одном запросе можно удалить идентифи\
         каторы маркировки только одного типа. Укажите тип идентификаторов маркиров\
-        ки в запросе:\n  - `imei` — [IMEI](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n\
-        \  - `uin` — [УИН](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)\n\
-        \  - `gtin` — [GTIN](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n\
-        \  - `sgtin` — [код маркировки](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)\n\
+        ки в запросе:\n  - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n\
+        \  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)\n\
+        \  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n\
+        \  - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)\n\
         \nМожно передать только один ключ.\n\n  <div class=\"description_limit\">\n\
         <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит за\
         просов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n   \
@@ -1415,12 +1415,12 @@ paths:
   /api/marketplace/v3/dbw/orders/meta/sgtin:
     post:
       description: "Метод обновляет код маркировки [Честного знака](https://честны\
-        йзнак.рф/) в [идентификаторах маркировки](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
+        йзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
         \ нескольких сборочных заданий.<br>\nЗакрепить код маркировки можно, тольк\
-        о если в [идентификаторах маркировки сборочного задания](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
+        о если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
         \ есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post)\
         \ `confirm` — на сборке.\n<br><br>\nПолучить загруженные маркировки можно\
-        \ в [идентификаторах маркировки сборочного задания](/openapi/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).\n\
+        \ в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\

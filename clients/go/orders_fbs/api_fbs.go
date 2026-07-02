@@ -1,7 +1,7 @@
 /*
 Заказы FBS
 
-<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>  <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>  <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
 
 API version: order
 */
@@ -487,7 +487,7 @@ func (r ApiApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) Execut
 /*
 ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut Закрепить за сборочным заданием номер ДТ
 
-Метод обновляет номер декларации на товары (ДТ) в [идентификаторах маркировки сборочного задания](/openapi/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
+Метод обновляет номер декларации на товары (ДТ) в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
 <br>
 У одного сборочного задания может быть только один номер ДТ. Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.
 Добавлять номер ДТ можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete`
@@ -884,11 +884,11 @@ func (r ApiApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest) Execute() (*http.
 /*
 ApiMarketplaceV3SuppliesSupplyIdOrdersPatch Добавить сборочные задания к поставке
 
-Метод добавляет до 100 [сборочных заданий](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) к поставке и переводит их в [статус](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке.
+Метод добавляет до 100 [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) к поставке и переводит их в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке.
 
 Может перемещать сборочные задания:
   - между активными поставками
-  - из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1supplies~1orders~1reshipment/get)
+  - из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1supplies~1orders~1reshipment/get)
 
 <div class="description_important">
   В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания <a href ="./orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get">из поля</a> <code>cargoType</code>.
@@ -1330,7 +1330,7 @@ func (r ApiApiV3OrdersGetRequest) Execute() (*ApiV3OrdersGet200Response, *http.R
 /*
 ApiV3OrdersGet Получить информацию о сборочных заданиях
 
-Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post).
+Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post).
 
 Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом.
 В ответе метода будут сборочные задания, созданные в указанный период.<br><br>
@@ -1533,7 +1533,7 @@ func (r ApiApiV3OrdersNewGetRequest) Execute() (*ApiV3OrdersNewGet200Response, *
 /*
 ApiV3OrdersNewGet Получить список новых сборочных заданий
 
-Метод возвращает список всех новых [сборочных заданий](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get), которые есть у продавца на момент запроса.
+Метод возвращает список всех новых [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get), которые есть у продавца на момент запроса.
 
 <div class="description_important">
 Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях <code>requiredMeta</code> и <code>optionalMeta</code>, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной <a href ="https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs">маркировке</a> средствами
@@ -1708,7 +1708,7 @@ func (r ApiApiV3OrdersOrderIdCancelPatchRequest) Execute() (*http.Response, erro
 /*
 ApiV3OrdersOrderIdCancelPatch Отменить сборочное задание
 
-Метод отменяет [сборочное задание](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и переводит в [статус](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `cancel` — отменено продавцом.
+Метод отменяет [сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и переводит в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `cancel` — отменено продавцом.
 
 <div class="description_important">
 Сборочное задание можно отменить до его передачи Wildberries.
@@ -1913,13 +1913,13 @@ func (r ApiApiV3OrdersOrderIdMetaDeleteRequest) Execute() (*http.Response, error
 /*
 ApiV3OrdersOrderIdMetaDelete Удалить идентификаторы маркировки сборочного задания
 
-Метод удаляет значение [идентификаторов маркировки сборочного задания](/openapi/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) для переданного ключа.
+Метод удаляет значение [идентификаторов маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) для переданного ключа.
 <br><br>
 Возможные идентификаторы маркировки:
-  - `imei` — [IMEI](/openapi/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)
-  - `uin` — [УИН](/openapi/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)
-  - `gtin` — [GTIN](/openapi/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)
-  - `sgtin` — [код маркировки Честного знака](/openapi/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)
+  - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)
+  - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)
+  - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)
+  - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)
   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)
 
 Можно передать только один ключ.
@@ -2711,7 +2711,7 @@ ApiV3OrdersOrderIdMetaSgtinPut Закрепить за сборочным зад
 
 Метод позволяет закрепить за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) код маркировки [Честного знака](https://честныйзнак.рф).
 <br><br>
-Закрепить код маркировки Честного знака можно только если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+Закрепить код маркировки Честного знака можно только если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
 <br><br>
 Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
 
@@ -3107,7 +3107,9 @@ func (r ApiApiV3OrdersStatusHistoryPostRequest) Execute() (*ApiV3OrdersStatusHis
 /*
 ApiV3OrdersStatusHistoryPost История статусов для сборочных заданий трансграничных поставок
 
-Метод возвращает историю [статусов](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) для [сборочных заданий](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок.
+Метод возвращает историю [статусов](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок.
+
+В песочнице этот метод всегда возвращает ответ <code>200</code>.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -3293,7 +3295,7 @@ func (r ApiApiV3OrdersStatusPostRequest) Execute() (*ApiV3OrdersStatusPost200Res
 /*
 ApiV3OrdersStatusPost Получить статусы сборочных заданий
 
-Метод возвращает статусы [сборочных заданий](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по их ID.
+Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по их ID.
 <br><br>
 `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
 
@@ -3302,9 +3304,9 @@ ApiV3OrdersStatusPost Получить статусы сборочных зад�
 | Статус   | Описание            | Как перевести сборочное задание в данный статус |
 |-------|----------------------|--------------------------------------|
 | `new`      | **Новое сборочное задание** |  |
-| `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch)
-| `complete` | **В доставке** | [Передать поставку в доставку](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch) |
-| `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1%7BorderId%7D~1cancel/patch)|
+| `confirm`  | **На сборке** |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch)
+| `complete` | **В доставке** | [Передать поставку в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch) |
+| `cancel`   | **Отменено продавцом**   | [Отменить сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1%7BorderId%7D~1cancel/patch)|
 | `cancel_carrier`   | **Отменено перевозчиком** <br>Только для трансграничных поставок   | Переводится перевозчиком |
 
 <br><br>
@@ -3507,7 +3509,7 @@ func (r ApiApiV3OrdersStickersCrossBorderPostRequest) Execute() (*ApiV3OrdersSti
 /*
 ApiV3OrdersStickersCrossBorderPost Получить стикеры сборочных заданий трансграничных поставок
 
-Метод возвращает список стикеров [сборочных заданий](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок в формате PDF.<br><br>
+Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок в формате PDF.<br><br>
 
 Для каждого сборочного задания в ответе указывается статус генерации стикера:
   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.
@@ -3519,7 +3521,9 @@ ApiV3OrdersStickersCrossBorderPost Получить стикеры сбороч�
 
 Ограничения:
   - За один запрос можно получить максимум 100 стикеров.
-  - Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`, `complete`.
+  - Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`, `complete`.
+
+В песочнице этот метод всегда возвращает ответ <code>200</code>.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -3932,7 +3936,7 @@ func (r ApiApiV3PassesGetRequest) Execute() ([]Pass, *http.Response, error) {
 /*
 ApiV3PassesGet Получить список пропусков
 
-Метод возвращает список всех [созданных](/openapi/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/post) пропусков продавца.
+Метод возвращает список всех [созданных](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/post) пропусков продавца.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -4099,7 +4103,7 @@ func (r ApiApiV3PassesOfficesGetRequest) Execute() ([]PassOffice, *http.Response
 /*
 ApiV3PassesOfficesGet Получить список складов, для которых требуется пропуск
 
-Метод возвращает список складов для привязки к [пропуску продавца](/openapi/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get).
+Метод возвращает список складов для привязки к [пропуску продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get).
 
 <div class="description_important">
   Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список
@@ -4271,7 +4275,7 @@ func (r ApiApiV3PassesPassIdDeleteRequest) Execute() (*http.Response, error) {
 /*
 ApiV3PassesPassIdDelete Удалить пропуск
 
-Метод удаляет пропуск продавца [из списка](/openapi/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get).
+Метод удаляет пропуск продавца [из списка](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -4449,7 +4453,7 @@ func (r ApiApiV3PassesPassIdPutRequest) Execute() (*http.Response, error) {
 /*
 ApiV3PassesPassIdPut Обновить пропуск
 
-Метод обновляет данные [пропуска продавца](/openapi/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get). В том числе, можно обновить данные привязанного склада WB.
+Метод обновляет данные [пропуска продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get). В том числе, можно обновить данные привязанного склада WB.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -4642,7 +4646,7 @@ func (r ApiApiV3PassesPostRequest) Execute() (*ApiV3PassesPost201Response, *http
 /*
 ApiV3PassesPost Создать пропуск
 
-Метод создаёт [пропуск продавца](/openapi/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get) с привязкой к складу WB.
+Метод создаёт [пропуск продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get) с привязкой к складу WB.
 
 Пропуск действует 48 часов со времени создания.
 
@@ -4848,7 +4852,7 @@ func (r ApiApiV3SuppliesGetRequest) Execute() (*ApiV3SuppliesGet200Response, *ht
 /*
 ApiV3SuppliesGet Получить список поставок
 
-Метод возвращает список [поставок](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).
+Метод возвращает список [поставок](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -5040,9 +5044,9 @@ func (r ApiApiV3SuppliesOrdersReshipmentGetRequest) Execute() (*ApiV3SuppliesOrd
 /*
 ApiV3SuppliesOrdersReshipmentGet Получить все сборочные задания для повторной отгрузки
 
-Метод возвращает все [сборочные задания](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get), требующие повторной отгрузки.
+Метод возвращает все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get), требующие повторной отгрузки.
 <br><br>
-Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch).
+Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -5226,11 +5230,11 @@ func (r ApiApiV3SuppliesPostRequest) Execute() (*ApiV3SuppliesPost201Response, *
 /*
 ApiV3SuppliesPost Создать новую поставку
 
-Метод создаёт новую [поставку](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).
+Метод создаёт новую [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).
 
 Ограничения:
-- Только для [сборочных заданий](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по модели FBS.
-- При добавлении в поставку все передаваемые сборочные задания в [статусе](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `new` будут автоматически переведены в статус `confirm` — на сборке.
+- Только для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по модели FBS.
+- При добавлении в поставку все передаваемые сборочные задания в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `new` будут автоматически переведены в статус `confirm` — на сборке.
 - Если вы переведёте сборочное задание в статус `cancel` — отмена продавцом, прикрепленное сборочное задание автоматически удалится из поставки.
 - Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.
 
@@ -5423,13 +5427,13 @@ func (r ApiApiV3SuppliesSupplyIdBarcodeGetRequest) Execute() (*ApiV3SuppliesSupp
 /*
 ApiV3SuppliesSupplyIdBarcodeGet Получить QR-код поставки
 
-Метод возвращает QR-код [поставки](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) в форматах:
+Метод возвращает QR-код [поставки](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) в форматах:
   - SVG
   - ZPLV (вертикальный)
   - ZPLH (горизонтальный)
   - PNG
 
-QR-код поставки можно получить только если поставка [передана в доставку](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch).
+QR-код поставки можно получить только если поставка [передана в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch).
 <br><br>
 Размер — 580x400 px.
 
@@ -5639,7 +5643,7 @@ func (r ApiApiV3SuppliesSupplyIdDeleteRequest) Execute() (*http.Response, error)
 /*
 ApiV3SuppliesSupplyIdDelete Удалить поставку
 
-Метод удаляет [поставку](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get), если она активна и за ней не закреплено ни одно [сборочное задание](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get).
+Метод удаляет [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get), если она активна и за ней не закреплено ни одно [сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
@@ -5832,7 +5836,7 @@ func (r ApiApiV3SuppliesSupplyIdDeliverPatchRequest) Execute() (*http.Response, 
 /*
 ApiV3SuppliesSupplyIdDeliverPatch Передать поставку в доставку
 
-Метод закрывает [поставку](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
+Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
 <br><br>
 Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется.
 <br><br>
@@ -6618,7 +6622,7 @@ func (r ApiApiV3SuppliesSupplyIdTrbxPostRequest) Execute() (*ApiV3SuppliesSupply
 /*
 ApiV3SuppliesSupplyIdTrbxPost Добавить грузоместа к поставке
 
-Метод добавляет требуемое количество [грузомест](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).
+Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).
 <br>
 <br>
 Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ.
