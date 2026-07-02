@@ -14,6 +14,8 @@ info:
       - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)
       - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца
 
+    Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров
+
     </div>
 
     <div class="description_ref">
@@ -75,14 +77,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -90,7 +92,13 @@ paths:
       parameters:
         - name: locale
           in: query
-          description: "Язык поля ответа `name`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык поля ответа `name`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: en
@@ -174,14 +182,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -192,7 +200,13 @@ paths:
           schema:
             type: string
             example: en
-          description: "Язык полей ответа:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         - name: name
           in: query
           schema:
@@ -303,14 +317,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -325,7 +339,13 @@ paths:
             example: 105
         - name: locale
           in: query
-          description: "Язык полей ответа `subjectName` и `name`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `subjectName` и `name`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: en
@@ -468,14 +488,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -483,7 +503,13 @@ paths:
       parameters:
         - name: locale
           in: query
-          description: "Язык полей ответа `subjectName` и `name`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `subjectName` и `name`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: en
@@ -563,14 +589,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -578,7 +604,13 @@ paths:
       parameters:
         - name: locale
           in: query
-          description: "Язык полей ответа `subjectName` и `name`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `subjectName` и `name`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: en
@@ -652,14 +684,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -667,7 +699,13 @@ paths:
       parameters:
         - name: locale
           in: query
-          description: "Язык полей ответа `subjectName` и `name`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `subjectName` и `name`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: en
@@ -751,14 +789,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -766,7 +804,13 @@ paths:
       parameters:
         - name: locale
           in: query
-          description: "Язык полей ответа `subjectName` и `name`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `subjectName` и `name`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: en
@@ -840,14 +884,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -855,7 +899,13 @@ paths:
       parameters:
         - name: locale
           in: query
-          description: "Язык полей ответа `subjectName` и `name`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `subjectName` и `name`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: ru
@@ -934,14 +984,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -962,7 +1012,13 @@ paths:
             example: 6106903000
         - name: locale
           in: query
-          description: "Язык полей ответа:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
           schema:
             type: string
             example: en
@@ -1119,14 +1175,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -1211,14 +1267,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -1309,14 +1365,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -1397,14 +1453,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -1478,14 +1534,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -1600,14 +1656,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       parameters:
@@ -1616,7 +1672,13 @@ paths:
           schema:
             type: string
             example: ru
-          description: "Язык полей ответа `name`, `value` и `object`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `name`, `value` и `object`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
       requestBody:
         required: true
         content:
@@ -2038,6 +2100,8 @@ paths:
               - `ru` — русский
               - `en` — английский
               - `zh` — китайский
+
+            Не используется в песочнице
       requestBody:
         required: true
         content:
@@ -2425,14 +2489,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       requestBody:
@@ -2747,14 +2811,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -2768,7 +2832,13 @@ paths:
               - ru
               - en
               - zh
-          description: "Язык полей ответа `name`, `value` и `object`:\n  - `ru` — русский\n  - `en` — английский\n  - `zh` — китайский\n\nНе\_используется в\_песочнице\n"
+          description: |
+            Язык полей ответа `name`, `value` и `object`:
+              - `ru` — русский
+              - `en` — английский
+              - `zh` — китайский
+
+            Не используется в песочнице. Данные песочницы возвращаются только на русском языке
       requestBody:
         required: true
         content:
@@ -3060,14 +3130,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -3143,14 +3213,14 @@ paths:
         Исключение — методы:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
         </div>
       tags:
@@ -3219,7 +3289,7 @@ paths:
       tags:
         - Создание карточек товаров
       summary: Создание карточек товаров
-      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек\_товаров по\_30 карточек в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 10 запросов | 6 сек | 5 запросов |\n</div>\n"
+      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек\_товаров по\_30 карточек в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>\n\nВ песочнице карточка товара создаётся сразу, без ожидания.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 10 запросов | 6 сек | 5 запросов |\n</div>\n"
       requestBody:
         content:
           application/json:
@@ -3453,7 +3523,9 @@ paths:
         Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
         <br><br>
         Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br>
-        Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
+        Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.<br><br>
+
+        В песочнице карточка товара создаётся сразу, без ожидания.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3724,7 +3796,7 @@ paths:
       security:
         - HeaderApiKey: []
       summary: Загрузить медиафайл
-      description: "Метод загружает и добавляет один медиафайл к карточке товара.\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700x900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс | 5 запросов |\n\nИсключение — методы:\n\n<ul>\n    <li><a href=\"/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>\n    <li><a href=\"/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>\n    <li><a href=\"/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li>\n</ul>\n</div>\n"
+      description: "Метод загружает и добавляет один медиафайл к карточке товара.\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700x900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс | 5 запросов |\n\nИсключение — методы:\n\n<ul>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li>\n</ul>\n</div>\n"
       tags:
         - Медиафайлы
       parameters:
@@ -3811,7 +3883,7 @@ paths:
       security:
         - HeaderApiKey: []
       summary: Загрузить медиафайлы по ссылкам
-      description: "Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.\n\n<div class=\"description_important\">\n  Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.\n</div>\n\nТребования к ссылкам:\n  * ссылка должна вести прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации, например. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной\n  * для доступа к файлу по ссылке не нужна авторизация\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700×900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\nЕсли видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс | 5 запросов |\n\nИсключение — методы:\n\n<ul>\n    <li><a href=\"/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Sozdanie-kartochek-tovarov/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/Kartochki-tovarov/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>\n    <li><a href=\"/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>\n    <li><a href=\"/openapi/promotion#tag/Rekomendacii/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li>\n</ul>\n</div>\n"
+      description: "Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.\n\n<div class=\"description_important\">\n  Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.\n</div>\n\nТребования к ссылкам:\n  * ссылка должна вести прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации, например. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной\n  * для доступа к файлу по ссылке не нужна авторизация\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700×900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\nЕсли видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс | 5 запросов |\n\nИсключение — методы:\n\n<ul>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li>\n</ul>\n</div>\n"
       tags:
         - Медиафайлы
       requestBody:
@@ -5480,7 +5552,7 @@ paths:
         - Склады продавца
       summary: Список контактов
       description: |
-        Метод возвращает список контактов, привязанных к [складу продавца](/openapi/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
+        Метод возвращает список контактов, привязанных к [складу продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
         <br>
         Только для складов с типом доставки `3` — доставка курьером WB (DBW).
 
@@ -5554,7 +5626,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Warehouse'
       description: |
-        Метод обновляет список контактов [склада продавца](/openapi/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
+        Метод обновляет список контактов [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
 
         <div class="description_important">
           Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать <strong>все</strong> параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.

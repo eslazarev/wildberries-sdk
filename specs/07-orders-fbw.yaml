@@ -13,6 +13,8 @@ info:
       - [информации для формирования поставок](/openapi/orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok)
       - [информации о поставках](/openapi/orders-fbw#tag/Informaciya-o-postavkah)
 
+    Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок
+
     </div>
   x-file-name: orders-fbw
 security:
