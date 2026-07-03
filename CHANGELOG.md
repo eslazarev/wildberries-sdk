@@ -1,6 +1,18 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.07.03)
+- Заказы DBS / Идентификаторы маркировки DBS: добавлен новый тип идентификатора `originCountryCode` (числовой код страны происхождения по ОКСМ) в `meta` и в перечисление ключей
+- Заказы DBS / Идентификаторы маркировки DBS: исправлена ссылка для `customsDeclaration` (путь без `/orders/`: `/api/marketplace/v3/dbs/meta/customs-declaration`)
+- Заказы DBS / Идентификаторы маркировки DBS: метод закрепления ДТ расширен — теперь обновляет **номер ДТ + originCountryCode**, разрешён для статусов сборочного задания `confirm` и `deliver` (ранее только `deliver`)
+- Заказы DBS / Идентификаторы маркировки DBS: в запросе закрепления ДТ добавлено обязательное поле `originCountryCode` (maxLength: 3), требуется только для B2B-заказов (`"isB2b": true`); добавлены ошибки `OrderNotB2B`, `InvalidOriginCountryCode`, в схеме ошибок добавлен код `400`
+- Заказы DBS / Идентификаторы маркировки DBS: изменён ответ метода закрепления ДТ — вместо `204` теперь `200` с телом `api.StatusSetResponses`; удалён пример ошибки `IncorrectParameter`
+- Самовывоз (Click&Collect) / Идентификаторы маркировки: добавлен новый endpoint `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` для закрепления **номера ДТ + originCountryCode** (batch до 1000), ответ `200` с `api.CustomsDeclarationSetResponse`
+- Самовывоз (Click&Collect) / Идентификаторы маркировки: для нового метода закрепления ДТ введены ограничения — только B2B (`options.isB2b=true`) и статусы `confirm` или `prepare`; у одного задания только один ДТ
+- Самовывоз (Click&Collect) / Идентификаторы маркировки: расширены правила удаления — добавлен тип `customsDeclaration`; при удалении `customsDeclaration` также удаляется `originCountryCode`
+- Самовывоз (Click&Collect): в схемы заказов добавлено поле `options.isB2b` (признак B2B-продажи)
+- Самовывоз (Click&Collect) / Идентификаторы маркировки: добавлены схемы/ошибки для batch-ответов по ДТ (`api.StatusSetCustomsDeclarationResponse`, `api.BatchCustomsDeclarationErrorResponse`) с деталями `OrderNotB2B`, `InvalidOriginCountryCode` и кодами `400/404/409/422`
+
 ### Changed (2026.07.02)
 - Товары (Контент): добавлена информация о возможности тестирования методов в песочнице (/sandbox) и о наличии специальных sandbox-методов для управления карточками товаров
 - Товары (Контент): уточнено поведение параметра `locale` — в песочнице не используется, данные песочницы возвращаются только на русском языке (обновлено в нескольких методах)
