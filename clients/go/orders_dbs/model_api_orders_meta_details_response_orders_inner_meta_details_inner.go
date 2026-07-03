@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner{
 
 // ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct for ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
 type ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct {
-	// Идентификатор маркировки
+	// Идентификатор маркировки:   - `imei` — [IMEI](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)   - `uin` — [УИН](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)   - `gtin` — [GTIN](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post)   - `originCountryCode ` — [числовой код страны происхождения](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post) 
 	Key *string `json:"key,omitempty"`
 	// Значение идентификатора маркировки
 	Value NullableString `json:"value,omitempty"`

@@ -1092,7 +1092,16 @@ paths:
       description: |
         Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) сборочных заданий и статусы их проверки.
 
-        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.
+        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.<br>
+        Возможные идентификаторы маркировки:
+          - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)
+          - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)
+          - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)
+          - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)
+          - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
+          - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+
+        Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:
@@ -1280,7 +1289,12 @@ paths:
       description: |
         Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) для нескольких сборочных заданий.
         <br><br>
-        Одним запросом можно удалить идентификаторы маркировки только одного типа: `imei`, `uin`, `gtin` или `sgtin`.
+        В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
+          - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)
+          - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)
+          - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)
+          - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)
+          - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:
@@ -1786,6 +1800,102 @@ paths:
     - description: |
         **Sandbox**
       url: https://marketplace-api-sandbox.wildberries.ru
+  /api/marketplace/v3/click-collect/orders/meta/customs-declaration:
+    post:
+      description: |
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).
+
+        Добавлять номера ДТ можно только для сборочных заданий, которые:
+          - имеют признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get)
+          - находятся в [статусах](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` или `prepare`
+
+        У одного сборочного задания может быть только один номер ДТ.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 20 запросов | 3 сек | 500 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      operationId: postV3ClickCollectOrdersMetaCustomsDeclaration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/postV3ClickCollectOrdersMetaCustomsDeclaration_request"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                CustomsDeclarationResponse:
+                  $ref: "#/components/examples/CustomsDeclarationResponse"
+              schema:
+                $ref: "#/components/schemas/api.CustomsDeclarationSetResponse"
+          description: Успешно
+        "400":
+          content:
+            application/json:
+              example:
+                detail: {}
+                origin: market-public-api
+                requestId: f1787bd2d1fdс35d6f537316514у4a05
+                title: IncorrectRequest
+              schema:
+                $ref: "#/components/schemas/api.BatchError"
+          description: Неправильный запрос
+        "401":
+          content:
+            application/problem+json:
+              example:
+                title: unauthorized
+                detail: "token problem; token is malformed: could not base64 decode\
+                  \ signature: illegal base64 data at input byte 84"
+                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
+                requestId: 7b80742415072fe8b6b7f7761f1d1211
+                origin: s2s-api-auth-catalog
+                status: 401
+                statusText: Unauthorized
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_api_v3_click_collect_orders_new_get_401_response"
+          description: Не авторизован
+        "403":
+          content:
+            application/json:
+              example:
+                code: AccessDenied
+                message: Доступ запрещён
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Доступ запрещён
+        "429":
+          content:
+            application/problem+json:
+              example:
+                title: too many requests
+                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
+                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
+                requestId: 9d3c02cc698f8b041c661a7c28bed293
+                origin: s2s-api-auth-catalog
+                status: 429
+                statusText: Too Many Requests
+                timestamp: 2024-09-30T06:52:38Z
+              schema:
+                $ref: "#/components/schemas/_api_v3_click_collect_orders_new_get_401_response"
+          description: Слишком много запросов
+      security:
+      - HeaderApiKey: []
+      summary: Закрепить за сборочными заданиями номера ДТ
+      tags:
+      - Идентификаторы маркировки Самовывоз
+      x-readonly-method: false
+      x-category: marketplace
+    servers:
+    - url: https://marketplace-api.wildberries.ru
 components:
   examples:
     NewOrderClick:
@@ -1815,6 +1925,29 @@ components:
           convertedCurrencyCode: 643
           cargoType: 1
           isZeroOrder: false
+          options:
+            isB2b: true
+    CustomsDeclarationResponse:
+      value:
+        requestId: 7849e1c4-d30e-4937-abe3-0e54e85874bd
+        results:
+        - orderId: 567891234
+          isError: false
+        - errors:
+          - detail: InvalidOriginCountryCode
+            code: 400
+          orderId: 987654321
+          isError: true
+        - errors:
+          - detail: OrderNotB2B
+            code: 422
+          orderId: 123456789
+          isError: true
+        - errors:
+          - detail: StatusMismatch
+            code: 409
+          orderId: 543216789
+          isError: true
     IncorrectRequestBody:
       value:
         code: IncorrectRequestBody
@@ -1989,6 +2122,8 @@ components:
         convertedCurrencyCode: 643
         cargoType: 2
         isZeroOrder: true
+        options:
+          isB2b: true
       properties:
         ddate:
           description: Планируемая дата доставки
@@ -2113,6 +2248,8 @@ components:
               - `false` — заказ сделан на товар с ненулевым остатком
               - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
           type: boolean
+        options:
+          $ref: "#/components/schemas/api_NewOrder_options"
       type: object
     api.NewOrders:
       example:
@@ -2143,6 +2280,8 @@ components:
           convertedCurrencyCode: 643
           cargoType: 2
           isZeroOrder: true
+          options:
+            isB2b: true
         - ddate: ddate
           salePrice: 504600
           requiredMeta:
@@ -2169,6 +2308,8 @@ components:
           convertedCurrencyCode: 643
           cargoType: 2
           isZeroOrder: true
+          options:
+            isB2b: true
       properties:
         orders:
           description: Список сборочных заданий
@@ -2198,6 +2339,8 @@ components:
         - "2043227963145"
         warehouseAddress: "Москва, район Якиманка, Софийская набережная, 4 с1"
         warehouseId: 1162157
+        options:
+          isB2b: true
       properties:
         article:
           description: Артикул продавца
@@ -2317,6 +2460,8 @@ components:
           description: "ID склада продавца, на который поступило сборочное задание"
           example: 1162157
           type: integer
+        options:
+          $ref: "#/components/schemas/api_NewOrder_options"
       type: object
     api.OrderClientInfo:
       example:
@@ -2386,6 +2531,8 @@ components:
           - "2043227963145"
           warehouseAddress: "Москва, район Якиманка, Софийская набережная, 4 с1"
           warehouseId: 1162157
+          options:
+            isB2b: true
         - article: wb6scpbwvp
           cargoType: 1
           chrtId: 12345676
@@ -2406,6 +2553,8 @@ components:
           - "2043227963145"
           warehouseAddress: "Москва, район Якиманка, Софийская набережная, 4 с1"
           warehouseId: 1162157
+          options:
+            isB2b: true
       properties:
         next:
           description: |
@@ -2571,13 +2720,39 @@ components:
     api.BatchErrorResponse:
       properties:
         code:
-          description: Код ошибки
+          description: |
+            Код ошибки:
+              - `404`
+              - `409`
+              - `400`
           example: 404
           type: integer
         detail:
           description: |
             - `NotFound` — сборочное задание не найдено
             - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
+          example: NotFound
+          type: string
+      required:
+      - code
+      - detail
+      type: object
+    api.BatchCustomsDeclarationErrorResponse:
+      properties:
+        code:
+          description: |
+            Код ошибки:
+              - `404`
+              - `409`
+              - `400`
+          example: 404
+          type: integer
+        detail:
+          description: |
+            - `NotFound` — сборочное задание не найдено
+            - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
+            - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `"isB2b":true`
+            - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
           example: NotFound
           type: string
       required:
@@ -2652,6 +2827,29 @@ components:
       - requestId
       - results
       type: object
+    api.CustomsDeclarationSetResponse:
+      example:
+        requestId: 03615778-eb9e-4f55-b4O4-fd3ac0fad2сc
+        results:
+        - orderId: 123456
+          isError: true
+          errors:
+          - code: 404
+            detail: NotFound
+        - orderId: 234567
+          isError: false
+      properties:
+        requestId:
+          description: Уникальный ID запроса
+          example: f1787bd2d1fdс35d6f537316514у4a05
+        results:
+          items:
+            $ref: "#/components/schemas/api.StatusSetCustomsDeclarationResponse"
+          type: array
+      required:
+      - requestId
+      - results
+      type: object
     api.StatusSetResponse:
       properties:
         orderId:
@@ -2666,6 +2864,25 @@ components:
           description: Детали ошибки
           items:
             $ref: "#/components/schemas/api.BatchErrorResponse"
+          type: array
+      required:
+      - isError
+      - orderId
+      type: object
+    api.StatusSetCustomsDeclarationResponse:
+      properties:
+        orderId:
+          description: ID сборочного задания
+          example: 123456
+          type: integer
+        isError:
+          description: Есть ли ошибки
+          example: true
+          type: boolean
+        errors:
+          description: Детали ошибки
+          items:
+            $ref: "#/components/schemas/api.BatchCustomsDeclarationErrorResponse"
           type: array
       required:
       - isError
@@ -2880,6 +3097,7 @@ components:
           - "123456789012345"
           - "123456789012345"
           uin: "123456789012345"
+          customsDeclaration: 10502030/050626/0001234
         - error: ""
           gtin: "123456789012345"
           imei: "123456789012345"
@@ -2888,6 +3106,7 @@ components:
           - "123456789012345"
           - "123456789012345"
           uin: "123456789012345"
+          customsDeclaration: 10502030/050626/0001234
       properties:
         meta:
           description: Идентификаторы маркировки сборочных заданий
@@ -2907,6 +3126,7 @@ components:
         - "123456789012345"
         - "123456789012345"
         uin: "123456789012345"
+        customsDeclaration: 10502030/050626/0001234
       properties:
         error:
           description: |
@@ -2941,6 +3161,11 @@ components:
           example: "123456789012345"
           nullable: true
           type: string
+        customsDeclaration:
+          description: Номер ДТ
+          example: 10502030/050626/0001234
+          nullable: true
+          type: string
       required:
       - error
       - orderId
@@ -2955,6 +3180,7 @@ components:
           - uin
           - gtin
           - sgtin
+          - customsDeclaration
           example: imei
           type: string
         ordersIds:
@@ -3007,6 +3233,48 @@ components:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
             алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
           type: string
+      type: object
+    postV3ClickCollectOrdersMetaCustomsDeclaration_request_orders_inner:
+      properties:
+        customsDeclaration:
+          description: Номер ДТ
+          example: 10704010/010624/0000302
+          maxLength: 29
+          minLength: 17
+          type: string
+        orderId:
+          description: ID сборочного задания
+          type: integer
+        originCountryCode:
+          description: "Числовой код страны происхождения товара из [Общероссийско\
+            го классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)"
+          example: "643"
+          maxLength: 3
+          type: string
+      required:
+      - customsDeclaration
+      - orderId
+      - originCountryCode
+      type: object
+    postV3ClickCollectOrdersMetaCustomsDeclaration_request:
+      properties:
+        orders:
+          items:
+            $ref: "#/components/schemas/postV3ClickCollectOrdersMetaCustomsDeclaration_request_orders_inner"
+          maxItems: 1000
+          type: array
+      type: object
+    api_NewOrder_options:
+      description: Опции заказа
+      example:
+        isB2b: true
+      properties:
+        isB2b:
+          description: |
+            Признак B2B-продажи:
+              - `false` — не B2B-продажа
+              - `true` — B2B-продажа
+          type: boolean
       type: object
     api_MetaDetailsResponse_results_inner_errors_inner:
       properties:
@@ -3109,7 +3377,14 @@ components:
         decision: imeiInvalidFormat
       properties:
         key:
-          description: Идентификатор маркировки
+          description: |
+            Идентификатор маркировки:
+              - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)
+              - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)
+              - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)
+              - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)
+              - `customsDeclaration` — [номер ДТ](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
+              - `originCountryCode` — [числовой код страны происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
           example: imei
           type: string
         value:

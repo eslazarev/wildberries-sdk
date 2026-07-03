@@ -30,7 +30,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner(Base
     """ # noqa: E501
     customs_declaration: Annotated[str, Field(min_length=17, strict=True, max_length=29)] = Field(description="Номер ДТ", alias="customsDeclaration", json_schema_extra={"examples": ["10704010/010624/0000302"]})
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    __properties: ClassVar[List[str]] = ["customsDeclaration", "orderId"]
+    origin_country_code: Annotated[str, Field(strict=True, max_length=3)] = Field(description="Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` ", alias="originCountryCode", json_schema_extra={"examples": ["643"]})
+    __properties: ClassVar[List[str]] = ["customsDeclaration", "orderId", "originCountryCode"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -84,7 +85,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner(Base
 
         _obj = cls.model_validate({
             "customsDeclaration": obj.get("customsDeclaration"),
-            "orderId": obj.get("orderId")
+            "orderId": obj.get("orderId"),
+            "originCountryCode": obj.get("originCountryCode")
         })
         return _obj
 

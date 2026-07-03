@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from wildberries_sdk.in_store_pickup.models.api_new_order_options import ApiNewOrderOptions
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -50,7 +51,8 @@ class ApiNewOrder(BaseModel):
     converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode", json_schema_extra={"examples": [643]})
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder")
-    __properties: ClassVar[List[str]] = ["ddate", "salePrice", "requiredMeta", "article", "rid", "createdAt", "warehouseAddress", "orderCode", "payMode", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "isZeroOrder"]
+    options: Optional[ApiNewOrderOptions] = None
+    __properties: ClassVar[List[str]] = ["ddate", "salePrice", "requiredMeta", "article", "rid", "createdAt", "warehouseAddress", "orderCode", "payMode", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "isZeroOrder", "options"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -101,6 +103,9 @@ class ApiNewOrder(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of options
+        if self.options:
+            _dict['options'] = self.options.to_dict()
         # set to None if sale_price (nullable) is None
         # and model_fields_set contains the field
         if self.sale_price is None and "sale_price" in self.model_fields_set:
@@ -144,7 +149,8 @@ class ApiNewOrder(BaseModel):
             "currencyCode": obj.get("currencyCode"),
             "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
             "cargoType": obj.get("cargoType"),
-            "isZeroOrder": obj.get("isZeroOrder")
+            "isZeroOrder": obj.get("isZeroOrder"),
+            "options": ApiNewOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj
 

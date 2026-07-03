@@ -31,6 +31,13 @@ export interface ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrder
      * @memberof ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner
      */
     orderId: number;
+    /**
+     * Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `"isB2b":true`
+     * 
+     * @type {string}
+     * @memberof ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner
+     */
+    originCountryCode: string;
 }
 
 /**
@@ -39,6 +46,7 @@ export interface ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrder
 export function instanceOfApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner(value: object): value is ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
     if (!('customsDeclaration' in value) || value['customsDeclaration'] === undefined) return false;
     if (!('orderId' in value) || value['orderId'] === undefined) return false;
+    if (!('originCountryCode' in value) || value['originCountryCode'] === undefined) return false;
     return true;
 }
 
@@ -54,6 +62,7 @@ export function ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrders
         
         'customsDeclaration': json['customsDeclaration'],
         'orderId': json['orderId'],
+        'originCountryCode': json['originCountryCode'],
     };
 }
 
@@ -70,6 +79,7 @@ export function ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrders
         
         'customsDeclaration': value['customsDeclaration'],
         'orderId': value['orderId'],
+        'originCountryCode': value['originCountryCode'],
     };
 }
 

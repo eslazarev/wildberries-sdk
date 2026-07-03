@@ -58,7 +58,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
      */
     protected static $openAPITypes = [
         'customs_declaration' => 'string',
-        'order_id' => 'int'
+        'order_id' => 'int',
+        'origin_country_code' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
      */
     protected static $openAPIFormats = [
         'customs_declaration' => null,
-        'order_id' => null
+        'order_id' => null,
+        'origin_country_code' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
      */
     protected static array $openAPINullables = [
         'customs_declaration' => false,
-        'order_id' => false
+        'order_id' => false,
+        'origin_country_code' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
      */
     protected static $attributeMap = [
         'customs_declaration' => 'customsDeclaration',
-        'order_id' => 'orderId'
+        'order_id' => 'orderId',
+        'origin_country_code' => 'originCountryCode'
     ];
 
     /**
@@ -180,7 +184,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
      */
     protected static $setters = [
         'customs_declaration' => 'setCustomsDeclaration',
-        'order_id' => 'setOrderId'
+        'order_id' => 'setOrderId',
+        'origin_country_code' => 'setOriginCountryCode'
     ];
 
     /**
@@ -190,7 +195,8 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
      */
     protected static $getters = [
         'customs_declaration' => 'getCustomsDeclaration',
-        'order_id' => 'getOrderId'
+        'order_id' => 'getOrderId',
+        'origin_country_code' => 'getOriginCountryCode'
     ];
 
     /**
@@ -252,6 +258,7 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
     {
         $this->setIfExists('customs_declaration', $data ?? [], null);
         $this->setIfExists('order_id', $data ?? [], null);
+        $this->setIfExists('origin_country_code', $data ?? [], null);
     }
 
     /**
@@ -295,6 +302,13 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
         if ($this->container['order_id'] === null) {
             $invalidProperties[] = "'order_id' can't be null";
         }
+        if ($this->container['origin_country_code'] === null) {
+            $invalidProperties[] = "'origin_country_code' can't be null";
+        }
+        if ((mb_strlen($this->container['origin_country_code']) > 3)) {
+            $invalidProperties[] = "invalid value for 'origin_country_code', the character length must be smaller than or equal to 3.";
+        }
+
         return $invalidProperties;
     }
 
@@ -367,6 +381,37 @@ class ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner impl
             throw new \InvalidArgumentException('non-nullable order_id cannot be null');
         }
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets origin_country_code
+     *
+     * @return string
+     */
+    public function getOriginCountryCode()
+    {
+        return $this->container['origin_country_code'];
+    }
+
+    /**
+     * Sets origin_country_code
+     *
+     * @param string $origin_country_code Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true`
+     *
+     * @return self
+     */
+    public function setOriginCountryCode($origin_country_code)
+    {
+        if (is_null($origin_country_code)) {
+            throw new \InvalidArgumentException('non-nullable origin_country_code cannot be null');
+        }
+        if ((mb_strlen($origin_country_code) > 3)) {
+            throw new \InvalidArgumentException('invalid length for $origin_country_code when calling ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner., must be smaller than or equal to 3.');
+        }
+
+        $this->container['origin_country_code'] = $origin_country_code;
 
         return $this;
     }

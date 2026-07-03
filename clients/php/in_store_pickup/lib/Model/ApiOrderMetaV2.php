@@ -62,7 +62,8 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imei' => 'string',
         'order_id' => 'int',
         'sgtin' => 'string[]',
-        'uin' => 'string'
+        'uin' => 'string',
+        'customs_declaration' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imei' => null,
         'order_id' => null,
         'sgtin' => null,
-        'uin' => null
+        'uin' => null,
+        'customs_declaration' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imei' => true,
         'order_id' => false,
         'sgtin' => true,
-        'uin' => true
+        'uin' => true,
+        'customs_declaration' => true
     ];
 
     /**
@@ -186,7 +189,8 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imei' => 'imei',
         'order_id' => 'orderId',
         'sgtin' => 'sgtin',
-        'uin' => 'uin'
+        'uin' => 'uin',
+        'customs_declaration' => 'customsDeclaration'
     ];
 
     /**
@@ -200,7 +204,8 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imei' => 'setImei',
         'order_id' => 'setOrderId',
         'sgtin' => 'setSgtin',
-        'uin' => 'setUin'
+        'uin' => 'setUin',
+        'customs_declaration' => 'setCustomsDeclaration'
     ];
 
     /**
@@ -214,7 +219,8 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'imei' => 'getImei',
         'order_id' => 'getOrderId',
         'sgtin' => 'getSgtin',
-        'uin' => 'getUin'
+        'uin' => 'getUin',
+        'customs_declaration' => 'getCustomsDeclaration'
     ];
 
     /**
@@ -280,6 +286,7 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('order_id', $data ?? [], null);
         $this->setIfExists('sgtin', $data ?? [], null);
         $this->setIfExists('uin', $data ?? [], null);
+        $this->setIfExists('customs_declaration', $data ?? [], null);
     }
 
     /**
@@ -516,6 +523,40 @@ class ApiOrderMetaV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['uin'] = $uin;
+
+        return $this;
+    }
+
+    /**
+     * Gets customs_declaration
+     *
+     * @return string|null
+     */
+    public function getCustomsDeclaration()
+    {
+        return $this->container['customs_declaration'];
+    }
+
+    /**
+     * Sets customs_declaration
+     *
+     * @param string|null $customs_declaration Номер ДТ
+     *
+     * @return self
+     */
+    public function setCustomsDeclaration($customs_declaration)
+    {
+        if (is_null($customs_declaration)) {
+            array_push($this->openAPINullablesSetToNull, 'customs_declaration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customs_declaration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customs_declaration'] = $customs_declaration;
 
         return $this;
     }

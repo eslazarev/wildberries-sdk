@@ -315,7 +315,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets code
      *
-     * @param int $code Код ошибки
+     * @param int $code Код ошибки:   - `404`   - `409`   - `400`
      *
      * @return self
      */

@@ -35,8 +35,8 @@ class ApiOrdersMetaDeleteRequest(BaseModel):
     @field_validator('key')
     def key_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['imei', 'uin', 'gtin', 'sgtin']):
-            raise ValueError("must be one of enum values ('imei', 'uin', 'gtin', 'sgtin')")
+        if value not in set(['imei', 'uin', 'gtin', 'sgtin', 'customsDeclaration']):
+            raise ValueError("must be one of enum values ('imei', 'uin', 'gtin', 'sgtin', 'customsDeclaration')")
         return value
 
     model_config = ConfigDict(

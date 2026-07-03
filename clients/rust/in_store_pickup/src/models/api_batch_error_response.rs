@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiBatchErrorResponse {
-    /// Код ошибки
+    /// Код ошибки:   - `404`   - `409`   - `400` 
     #[serde(rename = "code")]
     pub code: i32,
     /// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания 

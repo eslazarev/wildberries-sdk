@@ -193,7 +193,7 @@ print(feedbacks)
 
 ### orders_dbs (`orders_dbs`)
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_b2b_info_post` — `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B
-- `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_customs_declaration_post` — `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номер ДТ
+- `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_customs_declaration_post` — `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_delete_post` — `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_details_post` — `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DefaultApi.api_marketplace_v3_dbs_orders_meta_gtin_post` — `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
@@ -232,6 +232,7 @@ print(feedbacks)
 - `in_store_pickup.DefaultApi.api_v3_click_collect_orders_client_post` — `POST /api/v3/click-collect/orders/client` — Информация о покупателе
 - `in_store_pickup.DefaultApi.api_v3_click_collect_orders_get` — `GET /api/v3/click-collect/orders` — Получить информацию о завершённых сборочных заданиях
 - `in_store_pickup.DefaultApi.api_v3_click_collect_orders_new_get` — `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
+- `in_store_pickup.DefaultApi.post_v3_click_collect_orders_meta_customs_declaration` — `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
 
 ### orders_fbw (`orders_fbw`)
 - `orders_fbw.DefaultApi.api_v1_acceptance_options_post` — `POST /api/v1/acceptance/options` — Опции приёмки

@@ -20,7 +20,11 @@ import { mapValues } from '../runtime';
  */
 export interface ApiBatchErrorResponse {
     /**
-     * Код ошибки
+     * Код ошибки:
+     *   - `404`
+     *   - `409`
+     *   - `400`
+     * 
      * @type {number}
      * @memberof ApiBatchErrorResponse
      */

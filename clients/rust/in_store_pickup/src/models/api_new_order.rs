@@ -81,6 +81,8 @@ pub struct ApiNewOrder {
     /// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
     #[serde(rename = "isZeroOrder", skip_serializing_if = "Option::is_none")]
     pub is_zero_order: Option<bool>,
+    #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
+    pub options: Option<Box<models::ApiNewOrderOptions>>,
 }
 
 impl ApiNewOrder {
@@ -108,6 +110,7 @@ impl ApiNewOrder {
             converted_currency_code: None,
             cargo_type: None,
             is_zero_order: None,
+            options: None,
         }
     }
 }

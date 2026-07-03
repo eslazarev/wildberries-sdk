@@ -40,6 +40,8 @@ pub enum Key {
     Gtin,
     #[serde(rename = "sgtin")]
     Sgtin,
+    #[serde(rename = "customsDeclaration")]
+    CustomsDeclaration,
 }
 
 impl Default for Key {

@@ -19,13 +19,17 @@ pub struct ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner
     /// ID сборочного задания
     #[serde(rename = "orderId")]
     pub order_id: i32,
+    /// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` 
+    #[serde(rename = "originCountryCode")]
+    pub origin_country_code: String,
 }
 
 impl ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
-    pub fn new(customs_declaration: String, order_id: i32) -> ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
+    pub fn new(customs_declaration: String, order_id: i32, origin_country_code: String) -> ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
         ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
             customs_declaration,
             order_id,
+            origin_country_code,
         }
     }
 }

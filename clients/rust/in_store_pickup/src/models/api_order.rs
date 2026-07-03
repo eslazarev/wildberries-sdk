@@ -72,6 +72,8 @@ pub struct ApiOrder {
     /// ID склада продавца, на который поступило сборочное задание
     #[serde(rename = "warehouseId", skip_serializing_if = "Option::is_none")]
     pub warehouse_id: Option<i32>,
+    #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
+    pub options: Option<Box<models::ApiNewOrderOptions>>,
 }
 
 impl ApiOrder {
@@ -96,6 +98,7 @@ impl ApiOrder {
             skus: None,
             warehouse_address: None,
             warehouse_id: None,
+            options: None,
         }
     }
 }

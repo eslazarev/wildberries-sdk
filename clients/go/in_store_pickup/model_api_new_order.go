@@ -64,6 +64,7 @@ type ApiNewOrder struct {
 	CargoType *int32 `json:"cargoType,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
+	Options *ApiNewOrderOptions `json:"options,omitempty"`
 }
 
 // NewApiNewOrder instantiates a new ApiNewOrder object
@@ -798,6 +799,38 @@ func (o *ApiNewOrder) SetIsZeroOrder(v bool) {
 	o.IsZeroOrder = &v
 }
 
+// GetOptions returns the Options field value if set, zero value otherwise.
+func (o *ApiNewOrder) GetOptions() ApiNewOrderOptions {
+	if o == nil || IsNil(o.Options) {
+		var ret ApiNewOrderOptions
+		return ret
+	}
+	return *o.Options
+}
+
+// GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiNewOrder) GetOptionsOk() (*ApiNewOrderOptions, bool) {
+	if o == nil || IsNil(o.Options) {
+		return nil, false
+	}
+	return o.Options, true
+}
+
+// HasOptions returns a boolean if a field has been set.
+func (o *ApiNewOrder) HasOptions() bool {
+	if o != nil && !IsNil(o.Options) {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given ApiNewOrderOptions and assigns it to the Options field.
+func (o *ApiNewOrder) SetOptions(v ApiNewOrderOptions) {
+	o.Options = &v
+}
+
 func (o ApiNewOrder) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -873,6 +906,9 @@ func (o ApiNewOrder) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsZeroOrder) {
 		toSerialize["isZeroOrder"] = o.IsZeroOrder
+	}
+	if !IsNil(o.Options) {
+		toSerialize["options"] = o.Options
 	}
 	return toSerialize, nil
 }

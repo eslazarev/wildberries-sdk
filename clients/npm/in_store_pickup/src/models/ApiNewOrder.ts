@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ApiNewOrderOptions } from './ApiNewOrderOptions';
+import {
+    ApiNewOrderOptionsFromJSON,
+    ApiNewOrderOptionsFromJSONTyped,
+    ApiNewOrderOptionsToJSON,
+    ApiNewOrderOptionsToJSONTyped,
+} from './ApiNewOrderOptions';
+
 /**
  * 
  * @export
@@ -181,6 +189,12 @@ export interface ApiNewOrder {
      * @memberof ApiNewOrder
      */
     isZeroOrder?: boolean;
+    /**
+     * 
+     * @type {ApiNewOrderOptions}
+     * @memberof ApiNewOrder
+     */
+    options?: ApiNewOrderOptions;
 }
 
 
@@ -234,6 +248,7 @@ export function ApiNewOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'convertedCurrencyCode': json['convertedCurrencyCode'] == null ? undefined : json['convertedCurrencyCode'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
+        'options': json['options'] == null ? undefined : ApiNewOrderOptionsFromJSON(json['options']),
     };
 }
 
@@ -270,6 +285,7 @@ export function ApiNewOrderToJSONTyped(value?: ApiNewOrder | null, ignoreDiscrim
         'convertedCurrencyCode': value['convertedCurrencyCode'],
         'cargoType': value['cargoType'],
         'isZeroOrder': value['isZeroOrder'],
+        'options': ApiNewOrderOptionsToJSON(value['options']),
     };
 }
 

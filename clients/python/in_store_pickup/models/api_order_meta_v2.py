@@ -33,7 +33,8 @@ class ApiOrderMetaV2(BaseModel):
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [654321]})
     sgtin: Optional[List[StrictStr]] = Field(default=None, description="Код маркировки [Честного знака](https://честныйзнак.рф/)")
     uin: Optional[StrictStr] = Field(default=None, description="УИН", json_schema_extra={"examples": ["123456789012345"]})
-    __properties: ClassVar[List[str]] = ["error", "gtin", "imei", "orderId", "sgtin", "uin"]
+    customs_declaration: Optional[StrictStr] = Field(default=None, description="Номер ДТ", alias="customsDeclaration", json_schema_extra={"examples": ["10502030/050626/0001234"]})
+    __properties: ClassVar[List[str]] = ["error", "gtin", "imei", "orderId", "sgtin", "uin", "customsDeclaration"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -94,6 +95,11 @@ class ApiOrderMetaV2(BaseModel):
         if self.uin is None and "uin" in self.model_fields_set:
             _dict['uin'] = None
 
+        # set to None if customs_declaration (nullable) is None
+        # and model_fields_set contains the field
+        if self.customs_declaration is None and "customs_declaration" in self.model_fields_set:
+            _dict['customsDeclaration'] = None
+
         return _dict
 
     @classmethod
@@ -111,7 +117,8 @@ class ApiOrderMetaV2(BaseModel):
             "imei": obj.get("imei"),
             "orderId": obj.get("orderId"),
             "sgtin": obj.get("sgtin"),
-            "uin": obj.get("uin")
+            "uin": obj.get("uin"),
+            "customsDeclaration": obj.get("customsDeclaration")
         })
         return _obj
 

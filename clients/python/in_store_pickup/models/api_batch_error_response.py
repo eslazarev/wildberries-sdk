@@ -27,7 +27,7 @@ class ApiBatchErrorResponse(BaseModel):
     """
     ApiBatchErrorResponse
     """ # noqa: E501
-    code: StrictInt = Field(description="Код ошибки", json_schema_extra={"examples": [404]})
+    code: StrictInt = Field(description="Код ошибки:   - `404`   - `409`   - `400` ", json_schema_extra={"examples": [404]})
     detail: StrictStr = Field(description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания ", json_schema_extra={"examples": ["NotFound"]})
     __properties: ClassVar[List[str]] = ["code", "detail"]
 

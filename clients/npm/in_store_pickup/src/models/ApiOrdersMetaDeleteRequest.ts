@@ -41,7 +41,8 @@ export const ApiOrdersMetaDeleteRequestKeyEnum = {
     Imei: 'imei',
     Uin: 'uin',
     Gtin: 'gtin',
-    Sgtin: 'sgtin'
+    Sgtin: 'sgtin',
+    CustomsDeclaration: 'customsDeclaration'
 } as const;
 export type ApiOrdersMetaDeleteRequestKeyEnum = typeof ApiOrdersMetaDeleteRequestKeyEnum[keyof typeof ApiOrdersMetaDeleteRequestKeyEnum];
 

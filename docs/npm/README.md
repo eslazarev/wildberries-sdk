@@ -181,7 +181,7 @@ main().catch(console.error);
 
 ### orders_dbs (`orders_dbs`)
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersB2bInfoPost` — Информация о покупателе B2B
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost` — Закрепить за сборочными заданиями номер ДТ
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost` — Закрепить за сборочными заданиями номера ДТ
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDeletePost` — Удалить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDetailsPost` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaGtinPost` — Закрепить GTIN за сборочными заданиями
@@ -220,6 +220,7 @@ main().catch(console.error);
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientPost` — Информация о покупателе
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersGet` — Получить информацию о завершённых сборочных заданиях
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersNewGet` — Получить список новых сборочных заданий
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration` — Закрепить за сборочными заданиями номера ДТ
 
 ### orders_fbw (`orders_fbw`)
 - `orders_fbw.DefaultApi.apiV1AcceptanceOptionsPost` — Опции приёмки

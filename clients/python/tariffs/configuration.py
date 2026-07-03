@@ -570,7 +570,7 @@ conf = wildberries_sdk.tariffs.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: tariffs\n"\
-               "SDK Package Version: 0.1.119".\
+               "SDK Package Version: 0.1.120".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:

@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner{
 
 // ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct for ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
 type ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct {
-	// Идентификатор маркировки
+	// Идентификатор маркировки:   - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)   - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)   - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) 
 	Key string `json:"key"`
 	// Значение идентификатора маркировки
 	Value NullableString `json:"value,omitempty"`

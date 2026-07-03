@@ -19,9 +19,9 @@ var _ MappedNullable = &ApiBatchErrorResponse{}
 
 // ApiBatchErrorResponse struct for ApiBatchErrorResponse
 type ApiBatchErrorResponse struct {
-	// Код ошибки:   - `404`   - `409` 
+	// Код ошибки:   - `404`   - `409`   - `400` 
 	Code *int32 `json:"code,omitempty"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI 
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара 
 	Detail *string `json:"detail,omitempty"`
 }
 

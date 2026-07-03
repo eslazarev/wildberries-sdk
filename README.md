@@ -202,7 +202,7 @@ SDK выпускается с security-first процессом:
 
 ### Заказы DBS (`05-orders-dbs.yaml`)
 - `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B
-- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номер ДТ
+- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
 - `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
 - `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
 - `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
@@ -224,6 +224,7 @@ SDK выпускается с security-first процессом:
 - `GET /api/v3/dbs/orders/new` — Получить список новых сборочных заданий
 
 ### Заказы Самовывоз (`06-in-store-pickup.yaml`)
+- `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ (postV3ClickCollectOrdersMetaCustomsDeclaration)
 - `POST /api/marketplace/v3/click-collect/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
 - `POST /api/marketplace/v3/click-collect/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
 - `POST /api/marketplace/v3/click-collect/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями

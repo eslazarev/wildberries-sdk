@@ -238,6 +238,7 @@ class ApiOrdersMetaDeleteRequest implements ModelInterface, ArrayAccess, \JsonSe
     public const KEY_UIN = 'uin';
     public const KEY_GTIN = 'gtin';
     public const KEY_SGTIN = 'sgtin';
+    public const KEY_CUSTOMS_DECLARATION = 'customsDeclaration';
 
     /**
      * Gets allowable values of the enum
@@ -251,6 +252,7 @@ class ApiOrdersMetaDeleteRequest implements ModelInterface, ArrayAccess, \JsonSe
             self::KEY_UIN,
             self::KEY_GTIN,
             self::KEY_SGTIN,
+            self::KEY_CUSTOMS_DECLARATION,
         ];
     }
 

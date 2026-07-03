@@ -1452,7 +1452,8 @@ paths:
           - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
           - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
           - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
-          - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post)
+          - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post)
+          - `originCountryCode ` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
         Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.<br>
         <div class="description_limit">
@@ -1663,6 +1664,7 @@ paths:
           - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
           - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
           - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post)
+          - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode `
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
@@ -2214,11 +2216,12 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/customs-declaration:
     post:
       description: |
-        Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
         <br><br>
-        У одного сборочного задания может быть только один ДТ.
 
-        Добавлять номер ДТ можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `deliver`.
+        Добавлять номера ДТ можно только для сборочных заданий в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `confirm` или `deliver`.
+
+        У одного сборочного задания может быть только один ДТ.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
@@ -2235,8 +2238,12 @@ paths:
             schema:
               $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request"
       responses:
-        "204":
-          description: Обновлено
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api.StatusSetResponses"
+          description: Успешно
         "400":
           content:
             application/json:
@@ -2245,8 +2252,6 @@ paths:
                   $ref: "#/components/examples/IncorrectRequestBody"
                 IncorrectRequest:
                   $ref: "#/components/examples/IncorrectRequest"
-                IncorrectParameter:
-                  $ref: "#/components/examples/IncorrectParameter"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Неправильный запрос
@@ -2320,7 +2325,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочными заданиями номер ДТ
+      summary: Закрепить за сборочными заданиями номера ДТ
       tags:
       - Идентификаторы маркировки DBS
       x-readonly-method: false
@@ -3485,6 +3490,7 @@ components:
             Код ошибки:
               - `404`
               - `409`
+              - `400`
           example: 404
           type: integer
         detail:
@@ -3492,6 +3498,8 @@ components:
             - `NotFound` — сборочное задание не найдено
             - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
             - `ImeiIsNotFilled` — не заполнен IMEI
+            - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `"isB2b":true`
+            - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
           example: NotFound
           type: string
       type: object
@@ -3918,9 +3926,16 @@ components:
         orderId:
           description: ID сборочного задания
           type: integer
+        originCountryCode:
+          description: |
+            Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `"isB2b":true`
+          example: "643"
+          maxLength: 3
+          type: string
       required:
       - customsDeclaration
       - orderId
+      - originCountryCode
       type: object
     _api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request:
       properties:
@@ -4097,7 +4112,14 @@ components:
         decision: sgtinIntroduced
       properties:
         key:
-          description: Идентификатор маркировки
+          description: |
+            Идентификатор маркировки:
+              - `imei` — [IMEI](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
+              - `uin` — [УИН](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
+              - `gtin` — [GTIN](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
+              - `sgtin` — [код маркировки](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
+              - `customsDeclaration` — [номер ДТ](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post)
+              - `originCountryCode ` — [числовой код страны происхождения](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1meta~1customs-declaration/post) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post)
           example: sgtin
           type: string
         value:

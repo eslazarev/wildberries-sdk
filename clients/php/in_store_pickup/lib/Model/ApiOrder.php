@@ -75,7 +75,8 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'rid' => 'string',
         'skus' => 'string[]',
         'warehouse_address' => 'string',
-        'warehouse_id' => 'int'
+        'warehouse_id' => 'int',
+        'options' => '\Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions'
     ];
 
     /**
@@ -104,7 +105,8 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'rid' => null,
         'skus' => null,
         'warehouse_address' => null,
-        'warehouse_id' => null
+        'warehouse_id' => null,
+        'options' => null
     ];
 
     /**
@@ -131,7 +133,8 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'rid' => false,
         'skus' => false,
         'warehouse_address' => false,
-        'warehouse_id' => false
+        'warehouse_id' => false,
+        'options' => false
     ];
 
     /**
@@ -238,7 +241,8 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'rid' => 'rid',
         'skus' => 'skus',
         'warehouse_address' => 'warehouseAddress',
-        'warehouse_id' => 'warehouseId'
+        'warehouse_id' => 'warehouseId',
+        'options' => 'options'
     ];
 
     /**
@@ -265,7 +269,8 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'rid' => 'setRid',
         'skus' => 'setSkus',
         'warehouse_address' => 'setWarehouseAddress',
-        'warehouse_id' => 'setWarehouseId'
+        'warehouse_id' => 'setWarehouseId',
+        'options' => 'setOptions'
     ];
 
     /**
@@ -292,7 +297,8 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'rid' => 'getRid',
         'skus' => 'getSkus',
         'warehouse_address' => 'getWarehouseAddress',
-        'warehouse_id' => 'getWarehouseId'
+        'warehouse_id' => 'getWarehouseId',
+        'options' => 'getOptions'
     ];
 
     /**
@@ -388,6 +394,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('skus', $data ?? [], null);
         $this->setIfExists('warehouse_address', $data ?? [], null);
         $this->setIfExists('warehouse_id', $data ?? [], null);
+        $this->setIfExists('options', $data ?? [], null);
     }
 
     /**
@@ -960,6 +967,33 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable warehouse_id cannot be null');
         }
         $this->container['warehouse_id'] = $warehouse_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets options
+     *
+     * @return \Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions|null
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     *
+     * @param \Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions|null $options options
+     *
+     * @return self
+     */
+    public function setOptions($options)
+    {
+        if (is_null($options)) {
+            throw new \InvalidArgumentException('non-nullable options cannot be null');
+        }
+        $this->container['options'] = $options;
 
         return $this;
     }

@@ -31,6 +31,9 @@ pub struct ApiOrderMetaV2 {
     /// УИН
     #[serde(rename = "uin", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub uin: Option<Option<String>>,
+    /// Номер ДТ
+    #[serde(rename = "customsDeclaration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub customs_declaration: Option<Option<String>>,
 }
 
 impl ApiOrderMetaV2 {
@@ -42,6 +45,7 @@ impl ApiOrderMetaV2 {
             order_id,
             sgtin: None,
             uin: None,
+            customs_declaration: None,
         }
     }
 }

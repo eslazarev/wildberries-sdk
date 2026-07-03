@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.119/go",
+		UserAgent:        "OpenAPI-Generator/0.1.120/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -256,6 +256,12 @@ func NewConfiguration() *Configuration {
 				{
 					URL: "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersMetaCustomsDeclaration": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
 				},
 			},
 		},

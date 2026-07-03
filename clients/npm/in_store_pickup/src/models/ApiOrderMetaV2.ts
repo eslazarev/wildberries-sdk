@@ -58,6 +58,12 @@ export interface ApiOrderMetaV2 {
      * @memberof ApiOrderMetaV2
      */
     uin?: string | null;
+    /**
+     * Номер ДТ
+     * @type {string}
+     * @memberof ApiOrderMetaV2
+     */
+    customsDeclaration?: string | null;
 }
 
 /**
@@ -85,6 +91,7 @@ export function ApiOrderMetaV2FromJSONTyped(json: any, ignoreDiscriminator: bool
         'orderId': json['orderId'],
         'sgtin': json['sgtin'] == null ? undefined : json['sgtin'],
         'uin': json['uin'] == null ? undefined : json['uin'],
+        'customsDeclaration': json['customsDeclaration'] == null ? undefined : json['customsDeclaration'],
     };
 }
 
@@ -105,6 +112,7 @@ export function ApiOrderMetaV2ToJSONTyped(value?: ApiOrderMetaV2 | null, ignoreD
         'orderId': value['orderId'],
         'sgtin': value['sgtin'],
         'uin': value['uin'],
+        'customsDeclaration': value['customsDeclaration'],
     };
 }
 

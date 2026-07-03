@@ -33,6 +33,8 @@ type ApiOrderMetaV2 struct {
 	Sgtin []string `json:"sgtin,omitempty"`
 	// УИН
 	Uin NullableString `json:"uin,omitempty"`
+	// Номер ДТ
+	CustomsDeclaration NullableString `json:"customsDeclaration,omitempty"`
 }
 
 type _ApiOrderMetaV2 ApiOrderMetaV2
@@ -263,6 +265,48 @@ func (o *ApiOrderMetaV2) UnsetUin() {
 	o.Uin.Unset()
 }
 
+// GetCustomsDeclaration returns the CustomsDeclaration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiOrderMetaV2) GetCustomsDeclaration() string {
+	if o == nil || IsNil(o.CustomsDeclaration.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CustomsDeclaration.Get()
+}
+
+// GetCustomsDeclarationOk returns a tuple with the CustomsDeclaration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiOrderMetaV2) GetCustomsDeclarationOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomsDeclaration.Get(), o.CustomsDeclaration.IsSet()
+}
+
+// HasCustomsDeclaration returns a boolean if a field has been set.
+func (o *ApiOrderMetaV2) HasCustomsDeclaration() bool {
+	if o != nil && o.CustomsDeclaration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomsDeclaration gets a reference to the given NullableString and assigns it to the CustomsDeclaration field.
+func (o *ApiOrderMetaV2) SetCustomsDeclaration(v string) {
+	o.CustomsDeclaration.Set(&v)
+}
+// SetCustomsDeclarationNil sets the value for CustomsDeclaration to be an explicit nil
+func (o *ApiOrderMetaV2) SetCustomsDeclarationNil() {
+	o.CustomsDeclaration.Set(nil)
+}
+
+// UnsetCustomsDeclaration ensures that no value is present for CustomsDeclaration, not even an explicit nil
+func (o *ApiOrderMetaV2) UnsetCustomsDeclaration() {
+	o.CustomsDeclaration.Unset()
+}
+
 func (o ApiOrderMetaV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -286,6 +330,9 @@ func (o ApiOrderMetaV2) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Uin.IsSet() {
 		toSerialize["uin"] = o.Uin.Get()
+	}
+	if o.CustomsDeclaration.IsSet() {
+		toSerialize["customsDeclaration"] = o.CustomsDeclaration.Get()
 	}
 	return toSerialize, nil
 }

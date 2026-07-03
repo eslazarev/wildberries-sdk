@@ -78,7 +78,8 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'int',
         'converted_currency_code' => 'int',
         'cargo_type' => 'int',
-        'is_zero_order' => 'bool'
+        'is_zero_order' => 'bool',
+        'options' => '\Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions'
     ];
 
     /**
@@ -110,7 +111,8 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'ISO 4217',
         'converted_currency_code' => 'ISO 4217',
         'cargo_type' => null,
-        'is_zero_order' => null
+        'is_zero_order' => null,
+        'options' => null
     ];
 
     /**
@@ -140,7 +142,8 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => false,
         'converted_currency_code' => false,
         'cargo_type' => false,
-        'is_zero_order' => false
+        'is_zero_order' => false,
+        'options' => false
     ];
 
     /**
@@ -250,7 +253,8 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'currencyCode',
         'converted_currency_code' => 'convertedCurrencyCode',
         'cargo_type' => 'cargoType',
-        'is_zero_order' => 'isZeroOrder'
+        'is_zero_order' => 'isZeroOrder',
+        'options' => 'options'
     ];
 
     /**
@@ -280,7 +284,8 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'setCurrencyCode',
         'converted_currency_code' => 'setConvertedCurrencyCode',
         'cargo_type' => 'setCargoType',
-        'is_zero_order' => 'setIsZeroOrder'
+        'is_zero_order' => 'setIsZeroOrder',
+        'options' => 'setOptions'
     ];
 
     /**
@@ -310,7 +315,8 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'currency_code' => 'getCurrencyCode',
         'converted_currency_code' => 'getConvertedCurrencyCode',
         'cargo_type' => 'getCargoType',
-        'is_zero_order' => 'getIsZeroOrder'
+        'is_zero_order' => 'getIsZeroOrder',
+        'options' => 'getOptions'
     ];
 
     /**
@@ -409,6 +415,7 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('converted_currency_code', $data ?? [], null);
         $this->setIfExists('cargo_type', $data ?? [], null);
         $this->setIfExists('is_zero_order', $data ?? [], null);
+        $this->setIfExists('options', $data ?? [], null);
     }
 
     /**
@@ -1076,6 +1083,33 @@ class ApiNewOrder implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_zero_order cannot be null');
         }
         $this->container['is_zero_order'] = $is_zero_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets options
+     *
+     * @return \Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions|null
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     *
+     * @param \Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions|null $options options
+     *
+     * @return self
+     */
+    public function setOptions($options)
+    {
+        if (is_null($options)) {
+            throw new \InvalidArgumentException('non-nullable options cannot be null');
+        }
+        $this->container['options'] = $options;
 
         return $this;
     }

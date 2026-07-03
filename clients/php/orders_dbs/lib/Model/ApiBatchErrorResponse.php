@@ -309,7 +309,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets code
      *
-     * @param int|null $code Код ошибки:   - `404`   - `409`
+     * @param int|null $code Код ошибки:   - `404`   - `409`   - `400`
      *
      * @return self
      */
@@ -336,7 +336,7 @@ class ApiBatchErrorResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets detail
      *
-     * @param string|null $detail - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI
+     * @param string|null $detail - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
      *
      * @return self
      */

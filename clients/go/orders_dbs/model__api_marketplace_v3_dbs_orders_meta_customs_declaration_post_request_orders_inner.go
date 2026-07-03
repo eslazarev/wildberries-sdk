@@ -25,6 +25,8 @@ type ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner struc
 	CustomsDeclaration string `json:"customsDeclaration"`
 	// ID сборочного задания
 	OrderId int32 `json:"orderId"`
+	// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` 
+	OriginCountryCode string `json:"originCountryCode"`
 }
 
 type _ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner
@@ -33,10 +35,11 @@ type _ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner ApiM
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner(customsDeclaration string, orderId int32) *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
+func NewApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner(customsDeclaration string, orderId int32, originCountryCode string) *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner {
 	this := ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner{}
 	this.CustomsDeclaration = customsDeclaration
 	this.OrderId = orderId
+	this.OriginCountryCode = originCountryCode
 	return &this
 }
 
@@ -96,6 +99,30 @@ func (o *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner) 
 	o.OrderId = v
 }
 
+// GetOriginCountryCode returns the OriginCountryCode field value
+func (o *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner) GetOriginCountryCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OriginCountryCode
+}
+
+// GetOriginCountryCodeOk returns a tuple with the OriginCountryCode field value
+// and a boolean to check if the value has been set.
+func (o *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner) GetOriginCountryCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OriginCountryCode, true
+}
+
+// SetOriginCountryCode sets field value
+func (o *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner) SetOriginCountryCode(v string) {
+	o.OriginCountryCode = v
+}
+
 func (o ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +135,7 @@ func (o ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner) T
 	toSerialize := map[string]interface{}{}
 	toSerialize["customsDeclaration"] = o.CustomsDeclaration
 	toSerialize["orderId"] = o.OrderId
+	toSerialize["originCountryCode"] = o.OriginCountryCode
 	return toSerialize, nil
 }
 
@@ -118,6 +146,7 @@ func (o *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequestOrdersInner) 
 	requiredProperties := []string{
 		"customsDeclaration",
 		"orderId",
+		"originCountryCode",
 	}
 
 	allProperties := make(map[string]interface{})

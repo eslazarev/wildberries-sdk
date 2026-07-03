@@ -194,7 +194,7 @@ var_dump($response);
 
 ### orders_dbs (`orders_dbs`)
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersB2bInfoPost` — `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost` — `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номер ДТ
+- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost` — `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDeletePost` — `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDetailsPost` — `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaGtinPost` — `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
@@ -233,6 +233,7 @@ var_dump($response);
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientPost` — `POST /api/v3/click-collect/orders/client` — Информация о покупателе
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersGet` — `GET /api/v3/click-collect/orders` — Получить информацию о завершённых сборочных заданиях
 - `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersNewGet` — `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration` — `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
 
 ### orders_fbw (`orders_fbw`)
 - `orders_fbw.DefaultApi.apiV1AcceptanceOptionsPost` — `POST /api/v1/acceptance/options` — Опции приёмки

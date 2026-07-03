@@ -27,8 +27,8 @@ class ApiBatchErrorResponse(BaseModel):
     """
     ApiBatchErrorResponse
     """ # noqa: E501
-    code: Optional[StrictInt] = Field(default=None, description="Код ошибки:   - `404`   - `409` ", json_schema_extra={"examples": [404]})
-    detail: Optional[StrictStr] = Field(default=None, description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI ", json_schema_extra={"examples": ["NotFound"]})
+    code: Optional[StrictInt] = Field(default=None, description="Код ошибки:   - `404`   - `409`   - `400` ", json_schema_extra={"examples": [404]})
+    detail: Optional[StrictStr] = Field(default=None, description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара ", json_schema_extra={"examples": ["NotFound"]})
     __properties: ClassVar[List[str]] = ["code", "detail"]
 
     model_config = ConfigDict(

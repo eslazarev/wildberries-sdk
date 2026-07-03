@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiBatchErrorResponse{}
 
 // ApiBatchErrorResponse struct for ApiBatchErrorResponse
 type ApiBatchErrorResponse struct {
-	// Код ошибки
+	// Код ошибки:   - `404`   - `409`   - `400` 
 	Code int32 `json:"code"`
 	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания 
 	Detail string `json:"detail"`

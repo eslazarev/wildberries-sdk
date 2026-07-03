@@ -1,9 +1,11 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './ApiBatchCustomsDeclarationErrorResponse';
 export * from './ApiBatchError';
 export * from './ApiBatchErrorResponse';
 export * from './ApiCheckIdentityRequest';
 export * from './ApiCheckedIdentity';
+export * from './ApiCustomsDeclarationSetResponse';
 export * from './ApiError';
 export * from './ApiGTIN';
 export * from './ApiIMEI';
@@ -14,6 +16,7 @@ export * from './ApiMetaErrorResponse';
 export * from './ApiMetaSetResponse';
 export * from './ApiMetaSetResponses';
 export * from './ApiNewOrder';
+export * from './ApiNewOrderOptions';
 export * from './ApiNewOrders';
 export * from './ApiOrder';
 export * from './ApiOrderClientInfo';
@@ -38,6 +41,7 @@ export * from './ApiOrdersResponses';
 export * from './ApiOrdersSGTINsSetRequest';
 export * from './ApiOrdersUINSetRequest';
 export * from './ApiSGTINs';
+export * from './ApiStatusSetCustomsDeclarationResponse';
 export * from './ApiStatusSetResponse';
 export * from './ApiStatusSetResponses';
 export * from './ApiUIN';
@@ -45,3 +49,5 @@ export * from './ApiV3ClickCollectOrdersNewGet401Response';
 export * from './ApiV3ClickCollectOrdersNewGet402Response';
 export * from './MetaDetailsErrorsInner';
 export * from './ModelError';
+export * from './PostV3ClickCollectOrdersMetaCustomsDeclarationRequest';
+export * from './PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner';
