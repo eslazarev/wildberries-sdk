@@ -198,6 +198,7 @@ paths:
               example:
                 adverts:
                   - bid_type: manual
+                    currency: RUB
                     id: 567456457
                     nm_settings:
                       - bids_kopecks:
@@ -227,6 +228,7 @@ paths:
                       started: '2024-02-05T12:38:10.212086+03:00'
                       updated: '2024-02-05T14:29:32.633968+03:00'
                   - bid_type: manual
+                    currency: RUB
                     id: 28150154
                     nm_settings:
                       - bids_kopecks:
@@ -274,7 +276,7 @@ paths:
         - Создание кампаний
       summary: Минимальные ставки для карточек товаров
       description: |
-        Метод возвращает минимальные ставки для карточек товаров в копейках по типу оплаты и местам размещения.
+        Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -370,12 +372,18 @@ paths:
                             required:
                               - type
                               - value
+                              - currency
                             properties:
+                              currency:
+                                type: string
+                                description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+                                format: ISO 4217
                               type:
                                 $ref: '#/components/schemas/PlacementType'
                               value:
                                 type: integer
-                                description: Минимальная ставка, копейки
+                                description: |
+                                  Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                         nm_id:
                           type: integer
                           format: int64
@@ -383,19 +391,25 @@ paths:
               example:
                 bids:
                   - bids:
-                      - type: combined
+                      - currency: RUB
+                        type: combined
                         value: 155
-                      - type: search
+                      - currency: RUB
+                        type: search
                         value: 250
-                      - type: recommendation
+                      - currency: RUB
+                        type: recommendation
                         value: 250
                     nm_id: 12345678
                   - bids:
-                      - type: combined
+                      - currency: RUB
+                        type: combined
                         value: 155
-                      - type: search
+                      - currency: RUB
+                        type: search
                         value: 250
-                      - type: recommendation
+                      - currency: RUB
+                        type: recommendation
                         value: 250
                     nm_id: 87654321
         '400':
@@ -1172,7 +1186,7 @@ paths:
                         type: integer
                         format: int64
                       nm_bids:
-                        description: Ставки, копейки
+                        description: Ставки
                         type: array
                         maxItems: 50
                         items:
@@ -1189,7 +1203,7 @@ paths:
                             bid_kopecks:
                               type: integer
                               format: int64
-                              description: Ставка, копейки
+                              description: Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                             placement:
                               type: string
                               enum:
@@ -1217,6 +1231,7 @@ paths:
                 type: object
                 required:
                   - bids
+                  - currency
                 properties:
                   bids:
                     description: Результат отработки запроса
@@ -1248,13 +1263,17 @@ paths:
                               bid_kopecks:
                                 type: integer
                                 format: int64
-                                description: Ставка
+                                description: Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                               placement:
                                 type: string
                                 description: |
                                   Место размещения:
                                     - `search` — в поиске
                                     - `recommendations`— в рекомендациях
+                  currency:
+                    type: string
+                    description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+                    format: ISO 4217
               example:
                 bids:
                   - advert_id: 12345
@@ -1262,6 +1281,7 @@ paths:
                       - nm_id: 13335157
                         bid_kopecks: 250
                         placement: recommendations
+                currency: RUB
         '400':
           description: Неправильный запрос
           content:
@@ -1322,13 +1342,17 @@ paths:
                 type: object
                 properties:
                   balance:
-                    description: Счёт, ₽
+                    description: Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                     type: integer
                   net:
-                    description: Баланс, ₽
+                    description: Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                     type: integer
+                  currency:
+                    type: string
+                    description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+                    format: ISO 4217
                   bonus:
-                    description: Бонусы, ₽
+                    description: Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                     type: integer
                   cashbacks:
                     description: Промо-бонусы
@@ -1338,7 +1362,7 @@ paths:
                       properties:
                         sum:
                           type: integer
-                          description: Промо-бонусы, ₽
+                          description: Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                         percent:
                           type: integer
                           description: Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз
@@ -1349,6 +1373,7 @@ paths:
               example:
                 balance: 11083
                 net: 0
+                currency: RUB
                 bonus: 15187
                 cashbacks:
                   - sum: 10672
@@ -1420,12 +1445,17 @@ paths:
                     description: Поле не используется. Значение всегда 0.
                     type: integer
                   total:
-                    description: Бюджет кампании, ₽
+                    description: Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                     type: integer
+                  currency:
+                    type: string
+                    description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+                    format: ISO 4217
               example:
                 cash: 0
                 netting: 0
                 total: 500
+                currency: RUB
         '400':
           description: Неправильный запрос
           content:
@@ -1486,7 +1516,7 @@ paths:
               type: object
               properties:
                 sum:
-                  description: Общая сумма пополнения бюджета
+                  description: Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                   type: integer
                   example: 5000
                 cashback_sum:
@@ -1504,7 +1534,6 @@ paths:
                       - `0` — счёт
                       - `1` — баланс
                   type: integer
-                  nullable: true
                   example: 1000
                 cashback_percent:
                   description: |
@@ -1513,7 +1542,6 @@ paths:
                     Если вы указали `cashback_sum`, параметр `cashback_percent` становится обязательным
                   example: 50
                   type: integer
-                  nullable: true
                 type:
                   description: |
                     Тип источника пополнения:
@@ -1546,18 +1574,12 @@ paths:
                   error:
                     type: string
               examples:
-                DepositAmountMultiple50:
-                  description: Сумма пополнения должна быть кратна 50 руб
+                MinimumDepositAmountError:
+                  description: |
+                    Сумма пополнения меньше допустимой.
+                    Пополните счёт на сумму не менее указанной в сообщении об ошибке. Сумма указана в базовых единицах валюты аккаунта продавца
                   value:
-                    error: Сумма пополнения должна быть кратна 50 руб
-                MinimumDepositAmountIs500:
-                  description: Минимальная сумма пополнения 1000 рублей
-                  value:
-                    error: Минимальная сумма пополнения 1000 рублей
-                IncorrectType:
-                  description: Неверный тип источника списания для пополнения промо-бонусами
-                  value:
-                    error: 'Invalid Params: cashback can not be used with such type'
+                    error: 'Invalid Params: minimum deposit amount is 1000'
         '401':
           $ref: '#/components/responses/401'
         '429':
@@ -1630,7 +1652,7 @@ paths:
                       type: string
                       format: time-date
                     updSum:
-                      description: Выставленная сумма
+                      description: Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                       type: integer
                     advertId:
                       description: ID кампании
@@ -1777,18 +1799,24 @@ paths:
                         - `pending` — в ожидании ответа
                         - `unknown` — неизвестно
                       type: string
+                    currency:
+                      type: string
+                      description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+                      format: ISO 4217
               example:
                 - id: 1036666
                   date: '2022-02-04T09:06:47.985843Z'
                   sum: 600
                   type: 0
                   statusId: 1
+                  currency: RUB
                   cardStatus: ''
                 - id: 55261296
                   date: '2023-04-13T10:07:42'
                   sum: 1500
                   type: 3
                   statusId: 1
+                  currency: RUB
                   cardStatus: succeeded
         '204':
           description: История пополнений счета не найдена
@@ -2085,6 +2113,7 @@ paths:
                         norm_query: Фраза 1
                         orders: 19
                         views: 1949
+                        currency: RUB
                       - atbs: 68
                         avg_pos: 3.6
                         clicks: 2090
@@ -2094,6 +2123,7 @@ paths:
                         norm_query: Фраза 2
                         orders: 19
                         views: 1949
+                        currency: RUB
                       - atbs: 68
                         avg_pos: 3.6
                         clicks: 2090
@@ -2103,6 +2133,7 @@ paths:
                         norm_query: Фраза 3
                         orders: 19
                         views: 1949
+                        currency: RUB
                       - atbs: 36
                         avg_pos: 3.9
                         clicks: 1847
@@ -2112,6 +2143,7 @@ paths:
                         norm_query: Фраза 4
                         orders: 28
                         views: 1916
+                        currency: RUB
                       - atbs: 36
                         avg_pos: 3.9
                         clicks: 1847
@@ -2121,6 +2153,7 @@ paths:
                         norm_query: Фраза 5
                         orders: 28
                         views: 1916
+                        currency: RUB
                       - atbs: 79
                         avg_pos: 2.2
                         clicks: 2468
@@ -2130,6 +2163,7 @@ paths:
                         norm_query: Фраза 6
                         orders: 14
                         views: 1702
+                        currency: RUB
                       - atbs: 79
                         avg_pos: 2.2
                         clicks: 2468
@@ -2139,6 +2173,7 @@ paths:
                         norm_query: Фраза 7
                         orders: 14
                         views: 1702
+                        currency: RUB
                       - atbs: 67
                         avg_pos: 9.9
                         clicks: 1166
@@ -2148,6 +2183,7 @@ paths:
                         norm_query: Фраза 8
                         orders: 26
                         views: 1658
+                        currency: RUB
                       - atbs: 67
                         avg_pos: 9.9
                         clicks: 1166
@@ -2157,6 +2193,7 @@ paths:
                         norm_query: Фраза 9
                         orders: 26
                         views: 1658
+                        currency: RUB
                       - atbs: 46
                         avg_pos: 2
                         clicks: 2927
@@ -2166,6 +2203,7 @@ paths:
                         norm_query: Фраза 10
                         orders: 23
                         views: 1570
+                        currency: RUB
                       - atbs: 46
                         avg_pos: 2
                         clicks: 2927
@@ -2175,6 +2213,7 @@ paths:
                         norm_query: Фраза 11
                         orders: 23
                         views: 1570
+                        currency: RUB
                       - atbs: 79
                         avg_pos: 7.1
                         clicks: 2447
@@ -2184,6 +2223,7 @@ paths:
                         norm_query: Фраза 12
                         orders: 13
                         views: 1493
+                        currency: RUB
                       - atbs: 79
                         avg_pos: 7.1
                         clicks: 2447
@@ -2193,6 +2233,7 @@ paths:
                         norm_query: Фраза 13
                         orders: 13
                         views: 1493
+                        currency: RUB
                       - atbs: 61
                         avg_pos: 6
                         clicks: 1391
@@ -2202,6 +2243,7 @@ paths:
                         norm_query: Фраза 14
                         orders: 27
                         views: 1401
+                        currency: RUB
                       - atbs: 61
                         avg_pos: 6
                         clicks: 1391
@@ -2211,6 +2253,7 @@ paths:
                         norm_query: Фраза 15
                         orders: 27
                         views: 1401
+                        currency: RUB
                       - atbs: 26
                         avg_pos: 6.9
                         clicks: 1029
@@ -2229,6 +2272,7 @@ paths:
                         norm_query: Фраза 17
                         orders: 3
                         views: 1329
+                        currency: RUB
                       - atbs: 67
                         avg_pos: 3.8
                         clicks: 1371
@@ -2238,6 +2282,7 @@ paths:
                         norm_query: Фраза 18
                         orders: 3
                         views: 1316
+                        currency: RUB
                       - atbs: 67
                         avg_pos: 3.8
                         clicks: 1371
@@ -2247,6 +2292,7 @@ paths:
                         norm_query: Фраза 19
                         orders: 3
                         views: 1316
+                        currency: RUB
                       - atbs: 18
                         avg_pos: 10
                         clicks: 2944
@@ -2256,6 +2302,7 @@ paths:
                         norm_query: Фраза 20
                         orders: 4
                         views: 1150
+                        currency: RUB
                       - atbs: 18
                         avg_pos: 10
                         clicks: 2944
@@ -2265,6 +2312,7 @@ paths:
                         norm_query: Фраза 21
                         orders: 4
                         views: 1150
+                        currency: RUB
         '400':
           description: Неправильный запрос
           content:
@@ -2329,14 +2377,20 @@ paths:
                 bids:
                   - advert_id: 1825035
                     bid: 700
+                    bid_kopecks: 70000
+                    currency: RUB
                     nm_id: 983512347
                     norm_query: Фраза 1
                   - advert_id: 1825035
                     bid: 9000
+                    bid_kopecks: 25000
+                    currency: RUB
                     nm_id: 983512347
                     norm_query: Фраза 2
                   - advert_id: 1825035
                     bid: 9999
+                    bid_kopecks: 25000
+                    currency: RUB
                     nm_id: 983512347
                     norm_query: Фраза 3
         '400':
@@ -2357,6 +2411,114 @@ paths:
           $ref: '#/components/responses/AccessDenied'
         '429':
           $ref: '#/components/responses/429'
+  /api/advert/v1/config:
+    servers:
+      - url: https://advert-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: advert
+      x-token-types:
+        - personal
+        - service
+      operationId: getV1Config
+      tags:
+        - Управление кампаниями
+      summary: Конфигурационные значения продвижения
+      description: |
+        Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)
+
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
+        </div>
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 1 запрос | 1 мин | 10 запросов |
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V2GetConfigResponse'
+              example:
+                cpcStep: 500
+                cpmStep: 100000
+                currency: UZS
+                currencyCode: 860
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/advert/v1/normquery/bids:
+    servers:
+      - url: https://advert-api.wildberries.ru
+    post:
+      x-readonly-method: false
+      x-category: advert
+      x-token-types:
+        - personal
+        - service
+      operationId: postV1NormqueryBids
+      tags:
+        - Поисковые кластеры
+      summary: Установить ставки для поисковых кластеров в валюте аккаунта продавца
+      description: |
+        Метод устанавливает ставки на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+        Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
+        | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
+        </div>
+
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
+        </div>
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/V1SetNormQueryBidsRequest'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V1SetNormQueryBidsResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response400'
+              example:
+                detail: invalid payment_type value
+                origin: camp-api-public-cache
+                request_id: 7e5cb1f106cc6e85b5b29eb2e8815da2
+                status: 400
+                title: invalid payload
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
   /adv/v0/normquery/bids:
     post:
       x-readonly-method: false
@@ -2367,7 +2529,7 @@ paths:
         - Поисковые кластеры
       summary: Установить ставки для поисковых кластеров
       description: |
-        Метод устанавливает ставки на поисковые кластеры.<br>
+        Метод устанавливает ставки в рублях на поисковые кластеры.<br>
         Можно использовать только для кампаний с:
           - ручной ставкой
           - моделью оплаты `cpm` — за показы
@@ -3386,6 +3548,7 @@ paths:
                   sum: 661.25
                   sum_price: 0
                   views: 1373
+                  currency: RUB
                 - advertId: 28449281
                   atbs: 1
                   canceled: 0
@@ -3516,6 +3679,7 @@ paths:
                   sum: 323.47
                   sum_price: 500
                   views: 510
+                  currency: RUB
         '400':
           description: Неправильный запрос
           content:
@@ -3984,6 +4148,116 @@ paths:
           $ref: '#/components/responses/429'
 components:
   schemas:
+    V1SetNormQueryBidsRequestItem:
+      type: object
+      required:
+        - advertId
+        - nmId
+        - normQuery
+        - bidMinorUnits
+      properties:
+        advertId:
+          type: integer
+          description: ID кампании
+        nmId:
+          type: integer
+          description: Артикул WB
+        normQuery:
+          type: string
+          description: Поисковый кластер
+        bidMinorUnits:
+          type: integer
+          description: |
+            Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config)
+    V1SetNormQueryBidsRequest:
+      type: object
+      required:
+        - bids
+      properties:
+        bids:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/V1SetNormQueryBidsRequestItem'
+    V1SetNormQueryBidsSuccessResponseItem:
+      type: object
+      required:
+        - advertId
+        - nmId
+        - normQuery
+        - currency
+      properties:
+        advertId:
+          type: integer
+          description: ID кампании
+        nmId:
+          type: integer
+          description: Артикул WB
+        normQuery:
+          type: string
+          description: Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
+        currency:
+          type: string
+          description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
+    NormQueryBidFailResponseItem:
+      type: object
+      required:
+        - advertId
+        - nmId
+        - normQuery
+        - reason
+      properties:
+        advertId:
+          type: integer
+          description: ID кампании
+        nmId:
+          type: integer
+          description: Артикул WB
+        normQuery:
+          type: string
+          description: Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
+        reason:
+          type: string
+          description: Описание причины ошибки
+    V1SetNormQueryBidsResponse:
+      type: object
+      required:
+        - success
+        - failed
+      properties:
+        success:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1SetNormQueryBidsSuccessResponseItem'
+        failed:
+          type: array
+          items:
+            $ref: '#/components/schemas/NormQueryBidFailResponseItem'
+    V2GetConfigResponse:
+      type: object
+      required:
+        - currency
+        - currencyCode
+        - cpmStep
+        - cpcStep
+      properties:
+        currency:
+          type: string
+          description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
+        currencyCode:
+          type: integer
+          description: Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        cpmStep:
+          type: integer
+          format: int64
+          description: Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
+        cpcStep:
+          type: integer
+          format: int64
+          description: Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
     V0BidsRecommendationsResponse:
       type: object
       properties:
@@ -4019,7 +4293,7 @@ components:
       properties:
         bidKopecks:
           type: integer
-          description: Рекомендуемая ставка, копеек. Если `0`, для данного предмета топ-ставка не используется
+          description: Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
     V0BidRecommendationBaseBidCompetitiveBid:
       description: |
         Конкурентная ставка — расчётная средняя ставка других продавцов, продающих аналогичные товары по похожей цене.
@@ -4028,7 +4302,7 @@ components:
       properties:
         bidKopecks:
           type: integer
-          description: Рекомендуемая ставка, копеек
+          description: Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     V0BidRecommendationBaseBidLeadersBid:
       description: |
         Лидерская ставка — средняя ставка с которой товары занимают лидирующие позиции в вашей категории товаров
@@ -4036,7 +4310,7 @@ components:
       properties:
         bidKopecks:
           type: integer
-          description: Рекомендуемая ставка, копеек
+          description: Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     V0BidRecommendationNormQuery:
       type: object
       properties:
@@ -4056,10 +4330,10 @@ components:
       properties:
         bidKopecks:
           type: integer
-          description: Рекомендуемая ставка в копейках
+          description: Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
         bidKopecksMin:
           type: integer
-          description: Минимальная ставка в копейках
+          description: Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
     V0BidRecommendationReachMedium:
       description: |
         Средний охват: 61-75%
@@ -4067,10 +4341,10 @@ components:
       properties:
         bidKopecks:
           type: integer
-          description: Рекомендуемая ставка в копейках
+          description: Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         bidKopecksMin:
           type: integer
-          description: Минимальная ставка в копейках
+          description: Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     V0BidRecommendationReachMin:
       description: |
         Минимальный охват: 50-60%
@@ -4078,10 +4352,10 @@ components:
       properties:
         bidKopecks:
           type: integer
-          description: Рекомендуемая ставка в копейках
+          description: Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         bidKopecksMin:
           type: integer
-          description: Минимальная ставка в копейках
+          description: Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     V0GetNormQueryListRequest:
       type: object
       required:
@@ -4251,13 +4525,13 @@ components:
         cpc:
           type: number
           format: float
-          description: Средняя стоимость клика, ₽
+          description: Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         cpm:
           type: number
           nullable: true
           format: float
           description: |
-            Средняя стоимость за тысячу показов, ₽.
+            Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
 
             Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
         avgPos:
@@ -4370,13 +4644,13 @@ components:
         cpc:
           type: number
           format: double
-          description: Стоимость одного клика, ₽
+          description: Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         cpm:
           type: number
           nullable: true
           format: double
           description: |
-            Средняя стоимость за тысячу показов, ₽.
+            Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
 
             Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
         avg_pos:
@@ -4391,6 +4665,10 @@ components:
           format: double
           description: |
             Затраты на продвижение товаров в конкретном поисковом кластере кампании
+        currency:
+          type: string
+          description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
     V0GetNormQueryStatsResponse:
       type: object
       description: Статистика по поисковым кластерам
@@ -4420,7 +4698,7 @@ components:
           description: Поисковый кластер
         bid:
           type: integer
-          description: Ставка за тысячу показов, ₽
+          description: Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     V0SetNormQueryBidsRequest:
       type: object
       required:
@@ -4479,6 +4757,8 @@ components:
         - nm_id
         - bid
         - norm_query
+        - bid_kopecks
+        - currency
       properties:
         advert_id:
           type: integer
@@ -4491,7 +4771,14 @@ components:
           description: Поисковый кластер
         bid:
           type: integer
-          description: Текущая ставка за тысячу показов, ₽
+          description: Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+        bid_kopecks:
+          type: integer
+          description: Текущая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+        currency:
+          type: string
+          description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
     V0GetNormQueryBidsResponse:
       type: object
       required:
@@ -4579,6 +4866,10 @@ components:
         total:
           type: integer
           description: Размер обновлённого бюджета
+        currency:
+          type: string
+          description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
     responseAdvError1:
       type: object
       properties:
@@ -4644,6 +4935,10 @@ components:
                   Тип ставки:
                     - `unified` — единая ставка
                     - `manual` — ручная ставка
+              currency:
+                type: string
+                description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+                format: ISO 4217
               id:
                 type: integer
                 format: int64
@@ -4705,7 +5000,8 @@ components:
           type: string
           description: Название предмета
     AdvertBidsKopecks:
-      description: Ставки, копейки
+      description: |
+        Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
       required:
         - recommendations
         - search
@@ -5171,6 +5467,7 @@ components:
         - sum
         - sum_price
         - views
+        - currency
       description: Статистика по одной кампании за период, указанный в запросе. По всем артикулам WB и платформам
       properties:
         advertId:
@@ -5192,7 +5489,7 @@ components:
         cpc:
           type: number
           format: double
-          description: Средняя стоимость клика, ₽
+          description: Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         cr:
           type: number
           format: double
@@ -5214,14 +5511,18 @@ components:
         sum:
           type: number
           format: double
-          description: Затраты, ₽
+          description: Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         sum_price:
           type: number
           format: double
-          description: Сумма заказов, ₽
+          description: Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
         views:
           type: integer
           description: Количество просмотров
+        currency:
+          type: string
+          description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
     DaysV3:
       description: Статистка по дням
       items:
@@ -5283,7 +5584,7 @@ components:
                   description: Количество кликов
                 cpc:
                   type: number
-                  description: Средняя стоимость клика, ₽
+                  description: Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                 cr:
                   type: number
                   description: CR (conversion rate) — отношение количества заказов к общему количеству кликов
@@ -5321,7 +5622,7 @@ components:
                         description: Количество кликов
                       cpc:
                         type: number
-                        description: Средняя стоимость клика, ₽
+                        description: Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                       cr:
                         type: number
                         description: CR (conversion rate) — отношение количества заказов к общему количеству кликов
@@ -5342,10 +5643,10 @@ components:
                         description: Количество заказанных товаров, шт.
                       sum:
                         type: number
-                        description: Затраты, ₽
+                        description: Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                       sum_price:
                         type: number
-                        description: Заказов на сумму, ₽
+                        description: Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                       views:
                         type: integer
                         description: Количество просмотров
@@ -5357,10 +5658,10 @@ components:
                   description: Количество заказанных товаров, шт.
                 sum:
                   type: number
-                  description: Затраты, ₽
+                  description: Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                 sum_price:
                   type: number
-                  description: Заказов на сумму, ₽
+                  description: Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
                 views:
                   type: integer
                   description: Количество просмотров
@@ -5379,7 +5680,7 @@ components:
             description: Количество кликов
           cpc:
             type: number
-            description: Средняя стоимость клика, ₽
+            description: Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           cr:
             type: number
             description: CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
@@ -5394,10 +5695,10 @@ components:
             description: Количество заказанных товаров, шт.
           sum:
             type: number
-            description: Затраты, ₽
+            description: Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           sum_price:
             type: number
-            description: Заказов на сумму, ₽
+            description: Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           views:
             type: integer
             description: Количество просмотров
@@ -5952,9 +6253,11 @@ components:
       value:
         error: 'Invalid Advert: invalid advert'
     ResponseWithReturn:
-      description: Ответ при return=true
+      description: |
+        Ответ при `"return": true`
       value:
         total: 7289
+        currency: RUB
     ResponseInvalidCampaignID:
       description: Некорректный ID кампании
       value:
