@@ -26,7 +26,7 @@ type ApiOrdersMetaDetailsResponseOrdersInner struct {
 	// Есть ли ошибки
 	IsError bool `json:"isError"`
 	// Информация об ошибке
-	Errors []ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner `json:"errors,omitempty"`
+	Errors []ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner `json:"errors,omitempty"`
 	// Идентификаторы маркировки и статусы их валидации
 	MetaDetails []ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner `json:"metaDetails,omitempty"`
 }
@@ -108,9 +108,9 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetIsError(v bool) {
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
-func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetErrors() []ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner {
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetErrors() []ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner {
 	if o == nil || IsNil(o.Errors) {
-		var ret []ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner
+		var ret []ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
 		return ret
 	}
 	return o.Errors
@@ -118,7 +118,7 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetErrors() []ApiMarketplaceV3
 
 // GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetErrorsOk() ([]ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner, bool) {
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) GetErrorsOk() ([]ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner, bool) {
 	if o == nil || IsNil(o.Errors) {
 		return nil, false
 	}
@@ -134,8 +134,8 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInner) HasErrors() bool {
 	return false
 }
 
-// SetErrors gets a reference to the given []ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner and assigns it to the Errors field.
-func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetErrors(v []ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner) {
+// SetErrors gets a reference to the given []ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner and assigns it to the Errors field.
+func (o *ApiOrdersMetaDetailsResponseOrdersInner) SetErrors(v []ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner) {
 	o.Errors = v
 }
 

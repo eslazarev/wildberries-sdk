@@ -22,7 +22,7 @@ pub struct V0SetNormQueryBidsRequestItem {
     /// Поисковый кластер
     #[serde(rename = "norm_query")]
     pub norm_query: String,
-    /// Ставка за тысячу показов, ₽
+    /// Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "bid")]
     pub bid: i32,
 }

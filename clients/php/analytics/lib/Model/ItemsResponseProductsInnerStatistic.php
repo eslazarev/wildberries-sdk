@@ -58,7 +58,7 @@ class ItemsResponseProductsInnerStatistic implements ModelInterface, ArrayAccess
      */
     protected static $openAPITypes = [
         'selected' => '\Wildberries\Sdk\Analytics\Model\StatisticsSelected',
-        'past' => '\Wildberries\Sdk\Analytics\Model\StatisticsSelected',
+        'past' => '\Wildberries\Sdk\Analytics\Model\StatisticsPast',
         'comparison' => '\Wildberries\Sdk\Analytics\Model\StatisticsComparison'
     ];
 
@@ -336,7 +336,7 @@ class ItemsResponseProductsInnerStatistic implements ModelInterface, ArrayAccess
     /**
      * Gets past
      *
-     * @return \Wildberries\Sdk\Analytics\Model\StatisticsSelected|null
+     * @return \Wildberries\Sdk\Analytics\Model\StatisticsPast|null
      */
     public function getPast()
     {
@@ -346,7 +346,7 @@ class ItemsResponseProductsInnerStatistic implements ModelInterface, ArrayAccess
     /**
      * Sets past
      *
-     * @param \Wildberries\Sdk\Analytics\Model\StatisticsSelected|null $past past
+     * @param \Wildberries\Sdk\Analytics\Model\StatisticsPast|null $past past
      *
      * @return self
      */

@@ -57,7 +57,7 @@ class GetDocs implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\Wildberries\Sdk\Finances\Model\GetDocData'
+        'data' => '\Wildberries\Sdk\Finances\Model\GetDocsData'
     ];
 
     /**
@@ -292,7 +292,7 @@ class GetDocs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Finances\Model\GetDocData|null
+     * @return \Wildberries\Sdk\Finances\Model\GetDocsData|null
      */
     public function getData()
     {
@@ -302,7 +302,7 @@ class GetDocs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Finances\Model\GetDocData|null $data data
+     * @param \Wildberries\Sdk\Finances\Model\GetDocsData|null $data data
      *
      * @return self
      */

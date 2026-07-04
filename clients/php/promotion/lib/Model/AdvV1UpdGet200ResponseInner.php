@@ -412,7 +412,7 @@ class AdvV1UpdGet200ResponseInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets upd_sum
      *
-     * @param int|null $upd_sum Выставленная сумма
+     * @param int|null $upd_sum Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

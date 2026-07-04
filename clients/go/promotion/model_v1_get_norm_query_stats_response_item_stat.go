@@ -31,9 +31,9 @@ type V1GetNormQueryStatsResponseItemStat struct {
 	Orders *int32 `json:"orders,omitempty"`
 	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
 	Ctr NullableFloat32 `json:"ctr,omitempty"`
-	// Средняя стоимость клика, ₽
+	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float32 `json:"cpc,omitempty"`
-	// Средняя стоимость за тысячу показов, ₽.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+	// Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
 	Cpm NullableFloat32 `json:"cpm,omitempty"`
 	// Средняя позиция товара на страницах поисковой выдачи
 	AvgPos *float32 `json:"avgPos,omitempty"`

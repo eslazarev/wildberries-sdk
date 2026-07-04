@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { StatisticsPast } from './StatisticsPast';
+import {
+    StatisticsPastFromJSON,
+    StatisticsPastFromJSONTyped,
+    StatisticsPastToJSON,
+    StatisticsPastToJSONTyped,
+} from './StatisticsPast';
 import type { StatisticsSelected } from './StatisticsSelected';
 import {
     StatisticsSelectedFromJSON,
@@ -42,10 +49,10 @@ export interface ItemsResponseProductsInnerStatistic {
     selected: StatisticsSelected;
     /**
      * 
-     * @type {StatisticsSelected}
+     * @type {StatisticsPast}
      * @memberof ItemsResponseProductsInnerStatistic
      */
-    past?: StatisticsSelected;
+    past?: StatisticsPast;
     /**
      * 
      * @type {StatisticsComparison}
@@ -73,7 +80,7 @@ export function ItemsResponseProductsInnerStatisticFromJSONTyped(json: any, igno
     return {
         
         'selected': StatisticsSelectedFromJSON(json['selected']),
-        'past': json['past'] == null ? undefined : StatisticsSelectedFromJSON(json['past']),
+        'past': json['past'] == null ? undefined : StatisticsPastFromJSON(json['past']),
         'comparison': json['comparison'] == null ? undefined : StatisticsComparisonFromJSON(json['comparison']),
     };
 }
@@ -90,7 +97,7 @@ export function ItemsResponseProductsInnerStatisticToJSONTyped(value?: ItemsResp
     return {
         
         'selected': StatisticsSelectedToJSON(value['selected']),
-        'past': StatisticsSelectedToJSON(value['past']),
+        'past': StatisticsPastToJSON(value['past']),
         'comparison': StatisticsComparisonToJSON(value['comparison']),
     };
 }

@@ -19,7 +19,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts
+from wildberries_sdk.analytics.models.search_report_position_clusters_below import SearchReportPositionClustersBelow
+from wildberries_sdk.analytics.models.search_report_position_clusters_first_hundred import SearchReportPositionClustersFirstHundred
+from wildberries_sdk.analytics.models.search_report_position_clusters_second_hundred import SearchReportPositionClustersSecondHundred
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,9 +30,9 @@ class SearchReportPositionClusters(BaseModel):
     """
     Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
     """ # noqa: E501
-    first_hundred: CommonInfoAdvertisedProducts = Field(alias="firstHundred")
-    second_hundred: CommonInfoAdvertisedProducts = Field(alias="secondHundred")
-    below: CommonInfoAdvertisedProducts
+    first_hundred: SearchReportPositionClustersFirstHundred = Field(alias="firstHundred")
+    second_hundred: SearchReportPositionClustersSecondHundred = Field(alias="secondHundred")
+    below: SearchReportPositionClustersBelow
     __properties: ClassVar[List[str]] = ["firstHundred", "secondHundred", "below"]
 
     model_config = ConfigDict(
@@ -93,9 +95,9 @@ class SearchReportPositionClusters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "firstHundred": CommonInfoAdvertisedProducts.from_dict(obj["firstHundred"]) if obj.get("firstHundred") is not None else None,
-            "secondHundred": CommonInfoAdvertisedProducts.from_dict(obj["secondHundred"]) if obj.get("secondHundred") is not None else None,
-            "below": CommonInfoAdvertisedProducts.from_dict(obj["below"]) if obj.get("below") is not None else None
+            "firstHundred": SearchReportPositionClustersFirstHundred.from_dict(obj["firstHundred"]) if obj.get("firstHundred") is not None else None,
+            "secondHundred": SearchReportPositionClustersSecondHundred.from_dict(obj["secondHundred"]) if obj.get("secondHundred") is not None else None,
+            "below": SearchReportPositionClustersBelow.from_dict(obj["below"]) if obj.get("below") is not None else None
         })
         return _obj
 

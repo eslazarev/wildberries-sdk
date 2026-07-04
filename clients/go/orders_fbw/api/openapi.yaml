@@ -1568,9 +1568,6 @@ components:
           type: string
       type: object
     _api_v1_acceptance_options_post_402_response:
-      example:
-        title: title
-        detail: detail
       properties:
         title:
           description: Заголовок ошибки
@@ -1578,6 +1575,19 @@ components:
         detail:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
             алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
+          type: string
+      type: object
+    models_OptionsResultModel_result_inner_error:
+      description: Данные ошибки. При наличии
+      example:
+        title: title
+        detail: detail
+      properties:
+        title:
+          description: ID ошибки
+          type: string
+        detail:
+          description: Описание ошибки
           type: string
       type: object
     models_OptionsResultModel_result_inner_warehouses_inner:
@@ -1639,7 +1649,7 @@ components:
           description: Баркод из карточки товара
           type: string
         error:
-          $ref: "#/components/schemas/_api_v1_acceptance_options_post_402_response"
+          $ref: "#/components/schemas/models_OptionsResultModel_result_inner_error"
         isError:
           description: |
             Наличие ошибки:

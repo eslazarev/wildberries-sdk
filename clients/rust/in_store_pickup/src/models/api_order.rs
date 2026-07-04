@@ -73,7 +73,7 @@ pub struct ApiOrder {
     #[serde(rename = "warehouseId", skip_serializing_if = "Option::is_none")]
     pub warehouse_id: Option<i32>,
     #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
-    pub options: Option<Box<models::ApiNewOrderOptions>>,
+    pub options: Option<Box<models::ApiOrderOptions>>,
 }
 
 impl ApiOrder {

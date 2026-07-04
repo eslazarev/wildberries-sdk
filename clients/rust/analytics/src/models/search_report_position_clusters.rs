@@ -15,16 +15,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchReportPositionClusters {
     #[serde(rename = "firstHundred")]
-    pub first_hundred: Box<models::CommonInfoAdvertisedProducts>,
+    pub first_hundred: Box<models::SearchReportPositionClustersFirstHundred>,
     #[serde(rename = "secondHundred")]
-    pub second_hundred: Box<models::CommonInfoAdvertisedProducts>,
+    pub second_hundred: Box<models::SearchReportPositionClustersSecondHundred>,
     #[serde(rename = "below")]
-    pub below: Box<models::CommonInfoAdvertisedProducts>,
+    pub below: Box<models::SearchReportPositionClustersBelow>,
 }
 
 impl SearchReportPositionClusters {
     /// Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
-    pub fn new(first_hundred: models::CommonInfoAdvertisedProducts, second_hundred: models::CommonInfoAdvertisedProducts, below: models::CommonInfoAdvertisedProducts) -> SearchReportPositionClusters {
+    pub fn new(first_hundred: models::SearchReportPositionClustersFirstHundred, second_hundred: models::SearchReportPositionClustersSecondHundred, below: models::SearchReportPositionClustersBelow) -> SearchReportPositionClusters {
         SearchReportPositionClusters {
             first_hundred: Box::new(first_hundred),
             second_hundred: Box::new(second_hundred),

@@ -19,7 +19,7 @@ var _ MappedNullable = &V0BidRecommendationBaseBidCompetitiveBid{}
 
 // V0BidRecommendationBaseBidCompetitiveBid Конкурентная ставка — расчётная средняя ставка других продавцов, продающих аналогичные товары по похожей цене. У половины продавцов из расчёта ставка выше конкурентной, а другой половины — ниже 
 type V0BidRecommendationBaseBidCompetitiveBid struct {
-	// Рекомендуемая ставка, копеек
+	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
 }
 

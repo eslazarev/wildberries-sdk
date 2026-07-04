@@ -9228,7 +9228,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ContentV2TagsGet402Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response
+     * @return \Wildberries\Sdk\Items\Model\ContentV2BarcodesPost200Response|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ContentV2TagsGet402Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response
      */
     public function contentV2BarcodesPost($content_v2_barcodes_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2BarcodesPost'][0])
     {
@@ -9253,7 +9253,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ContentV2TagsGet402Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Items\Model\ContentV2BarcodesPost200Response|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ContentV2TagsGet402Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function contentV2BarcodesPostWithHttpInfo($content_v2_barcodes_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2BarcodesPost'][0])
     {
@@ -9285,7 +9285,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                        '\Wildberries\Sdk\Items\Model\ContentV2BarcodesPost200Response',
                         $request,
                         $response,
                     );
@@ -9331,7 +9331,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                '\Wildberries\Sdk\Items\Model\ContentV2BarcodesPost200Response',
                 $request,
                 $response,
             );
@@ -9340,7 +9340,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                        '\Wildberries\Sdk\Items\Model\ContentV2BarcodesPost200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9432,7 +9432,7 @@ class DefaultApi
      */
     public function contentV2BarcodesPostAsyncWithHttpInfo($content_v2_barcodes_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2BarcodesPost'][0])
     {
-        $returnType = '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response';
+        $returnType = '\Wildberries\Sdk\Items\Model\ContentV2BarcodesPost200Response';
         $request = $this->contentV2BarcodesPostRequest($content_v2_barcodes_post_request, $hostIndex, $variables, $contentType);
 
         return $this->client
@@ -14014,7 +14014,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response
+     * @return \Wildberries\Sdk\Items\Model\ContentV2DirectorySeasonsGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response
      */
     public function contentV2DirectorySeasonsGet($locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2DirectorySeasonsGet'][0])
     {
@@ -14039,7 +14039,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Items\Model\ContentV2DirectorySeasonsGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function contentV2DirectorySeasonsGetWithHttpInfo($locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2DirectorySeasonsGet'][0])
     {
@@ -14071,7 +14071,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                        '\Wildberries\Sdk\Items\Model\ContentV2DirectorySeasonsGet200Response',
                         $request,
                         $response,
                     );
@@ -14117,7 +14117,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                '\Wildberries\Sdk\Items\Model\ContentV2DirectorySeasonsGet200Response',
                 $request,
                 $response,
             );
@@ -14126,7 +14126,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                        '\Wildberries\Sdk\Items\Model\ContentV2DirectorySeasonsGet200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14218,7 +14218,7 @@ class DefaultApi
      */
     public function contentV2DirectorySeasonsGetAsyncWithHttpInfo($locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2DirectorySeasonsGet'][0])
     {
-        $returnType = '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response';
+        $returnType = '\Wildberries\Sdk\Items\Model\ContentV2DirectorySeasonsGet200Response';
         $request = $this->contentV2DirectorySeasonsGetRequest($locale, $hostIndex, $variables, $contentType);
 
         return $this->client
@@ -14830,7 +14830,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response
+     * @return \Wildberries\Sdk\Items\Model\ContentV2DirectoryVatGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response
      */
     public function contentV2DirectoryVatGet($locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2DirectoryVatGet'][0])
     {
@@ -14855,7 +14855,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Items\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Items\Model\ContentV2DirectoryVatGet200Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function contentV2DirectoryVatGetWithHttpInfo($locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2DirectoryVatGet'][0])
     {
@@ -14887,7 +14887,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryVatGet200Response',
                         $request,
                         $response,
                     );
@@ -14933,7 +14933,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                '\Wildberries\Sdk\Items\Model\ContentV2DirectoryVatGet200Response',
                 $request,
                 $response,
             );
@@ -14942,7 +14942,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response',
+                        '\Wildberries\Sdk\Items\Model\ContentV2DirectoryVatGet200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15034,7 +15034,7 @@ class DefaultApi
      */
     public function contentV2DirectoryVatGetAsyncWithHttpInfo($locale = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2DirectoryVatGet'][0])
     {
-        $returnType = '\Wildberries\Sdk\Items\Model\ContentV2DirectoryKindsGet200Response';
+        $returnType = '\Wildberries\Sdk\Items\Model\ContentV2DirectoryVatGet200Response';
         $request = $this->contentV2DirectoryVatGetRequest($locale, $hostIndex, $variables, $contentType);
 
         return $this->client
@@ -17691,7 +17691,7 @@ class DefaultApi
      * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
-     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request content_v2_tag_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagIdPatchRequest $content_v2_tag_id_patch_request content_v2_tag_id_patch_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contentV2TagIdPatch'] to see the possible values for this operation
@@ -17700,9 +17700,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Items\Model\ResponseContentError|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ContentV2TagsGet402Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response
      */
-    public function contentV2TagIdPatch($id, $content_v2_tag_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
+    public function contentV2TagIdPatch($id, $content_v2_tag_id_patch_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
     {
-        list($response) = $this->contentV2TagIdPatchWithHttpInfo($id, $content_v2_tag_post_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->contentV2TagIdPatchWithHttpInfo($id, $content_v2_tag_id_patch_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -17717,7 +17717,7 @@ class DefaultApi
      * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
-     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagIdPatchRequest $content_v2_tag_id_patch_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contentV2TagIdPatch'] to see the possible values for this operation
@@ -17726,9 +17726,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Items\Model\ResponseContentError|\Wildberries\Sdk\Items\Model\ResponseBodyContentError400|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response|\Wildberries\Sdk\Items\Model\ContentV2TagsGet402Response|\Wildberries\Sdk\Items\Model\ResponseBodyContentError403|\Wildberries\Sdk\Items\Model\ContentV2ObjectParentAllGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function contentV2TagIdPatchWithHttpInfo($id, $content_v2_tag_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
+    public function contentV2TagIdPatchWithHttpInfo($id, $content_v2_tag_id_patch_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
     {
-        $request = $this->contentV2TagIdPatchRequest($id, $content_v2_tag_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->contentV2TagIdPatchRequest($id, $content_v2_tag_id_patch_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17880,7 +17880,7 @@ class DefaultApi
      * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
-     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagIdPatchRequest $content_v2_tag_id_patch_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contentV2TagIdPatch'] to see the possible values for this operation
@@ -17888,9 +17888,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contentV2TagIdPatchAsync($id, $content_v2_tag_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
+    public function contentV2TagIdPatchAsync($id, $content_v2_tag_id_patch_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
     {
-        return $this->contentV2TagIdPatchAsyncWithHttpInfo($id, $content_v2_tag_post_request, $hostIndex, $variables, $contentType)
+        return $this->contentV2TagIdPatchAsyncWithHttpInfo($id, $content_v2_tag_id_patch_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17909,7 +17909,7 @@ class DefaultApi
      * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
-     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagIdPatchRequest $content_v2_tag_id_patch_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contentV2TagIdPatch'] to see the possible values for this operation
@@ -17917,10 +17917,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contentV2TagIdPatchAsyncWithHttpInfo($id, $content_v2_tag_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
+    public function contentV2TagIdPatchAsyncWithHttpInfo($id, $content_v2_tag_id_patch_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
     {
         $returnType = '\Wildberries\Sdk\Items\Model\ResponseContentError';
-        $request = $this->contentV2TagIdPatchRequest($id, $content_v2_tag_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->contentV2TagIdPatchRequest($id, $content_v2_tag_id_patch_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17967,7 +17967,7 @@ class DefaultApi
      * URL: https://content-api-sandbox.wildberries.ru
      *
      * @param  int $id Числовой ID ярлыка (required)
-     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagPostRequest $content_v2_tag_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ContentV2TagIdPatchRequest $content_v2_tag_id_patch_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contentV2TagIdPatch'] to see the possible values for this operation
@@ -17975,7 +17975,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function contentV2TagIdPatchRequest($id, $content_v2_tag_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
+    public function contentV2TagIdPatchRequest($id, $content_v2_tag_id_patch_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['contentV2TagIdPatch'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -17985,10 +17985,10 @@ class DefaultApi
             );
         }
 
-        // verify the required parameter 'content_v2_tag_post_request' is set
-        if ($content_v2_tag_post_request === null || (is_array($content_v2_tag_post_request) && count($content_v2_tag_post_request) === 0)) {
+        // verify the required parameter 'content_v2_tag_id_patch_request' is set
+        if ($content_v2_tag_id_patch_request === null || (is_array($content_v2_tag_id_patch_request) && count($content_v2_tag_id_patch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_v2_tag_post_request when calling contentV2TagIdPatch'
+                'Missing the required parameter $content_v2_tag_id_patch_request when calling contentV2TagIdPatch'
             );
         }
 
@@ -18019,12 +18019,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($content_v2_tag_post_request)) {
+        if (isset($content_v2_tag_id_patch_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($content_v2_tag_post_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($content_v2_tag_id_patch_request));
             } else {
-                $httpBody = $content_v2_tag_post_request;
+                $httpBody = $content_v2_tag_id_patch_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -51,6 +51,12 @@ export interface GetAdvertsAdvertsInner {
      */
     bidType: string;
     /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof GetAdvertsAdvertsInner
+     */
+    currency?: string;
+    /**
      * ID кампании
      * @type {number}
      * @memberof GetAdvertsAdvertsInner
@@ -128,6 +134,7 @@ export function GetAdvertsAdvertsInnerFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'bidType': json['bid_type'],
+        'currency': json['currency'] == null ? undefined : json['currency'],
         'id': json['id'],
         'nmSettings': (json['nm_settings'] == null ? null : (json['nm_settings'] as Array<any>).map(AdvertNMsSettingsFromJSON)),
         'settings': AdvertSettingsFromJSON(json['settings']),
@@ -148,6 +155,7 @@ export function GetAdvertsAdvertsInnerToJSONTyped(value?: GetAdvertsAdvertsInner
     return {
         
         'bid_type': value['bidType'],
+        'currency': value['currency'],
         'id': value['id'],
         'nm_settings': (value['nmSettings'] == null ? null : (value['nmSettings'] as Array<any>).map(AdvertNMsSettingsToJSON)),
         'settings': AdvertSettingsToJSON(value['settings']),

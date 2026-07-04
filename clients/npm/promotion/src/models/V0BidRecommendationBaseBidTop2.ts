@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
  */
 export interface V0BidRecommendationBaseBidTop2 {
     /**
-     * Рекомендуемая ставка, копеек. Если `0`, для данного предмета топ-ставка не используется
+     * Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
      * @type {number}
      * @memberof V0BidRecommendationBaseBidTop2
      */

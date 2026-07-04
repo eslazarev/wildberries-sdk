@@ -65,7 +65,7 @@ export interface FullStatsItem {
      */
     clicks: number;
     /**
-     * Средняя стоимость клика, ₽
+     * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof FullStatsItem
      */
@@ -101,13 +101,13 @@ export interface FullStatsItem {
      */
     shks: number;
     /**
-     * Затраты, ₽
+     * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof FullStatsItem
      */
     sum: number;
     /**
-     * Сумма заказов, ₽
+     * Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof FullStatsItem
      */
@@ -118,6 +118,12 @@ export interface FullStatsItem {
      * @memberof FullStatsItem
      */
     views: number;
+    /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof FullStatsItem
+     */
+    currency: string;
 }
 
 /**
@@ -137,6 +143,7 @@ export function instanceOfFullStatsItem(value: object): value is FullStatsItem {
     if (!('sum' in value) || value['sum'] === undefined) return false;
     if ((!('sumPrice' in (value as Record<string, any>)) && !('sum_price' in (value as Record<string, any>))) || ((value as Record<string, any>)['sumPrice'] === undefined && (value as Record<string, any>)['sum_price'] === undefined)) return false;
     if (!('views' in value) || value['views'] === undefined) return false;
+    if (!('currency' in value) || value['currency'] === undefined) return false;
     return true;
 }
 
@@ -164,6 +171,7 @@ export function FullStatsItemFromJSONTyped(json: any, ignoreDiscriminator: boole
         'sum': json['sum'],
         'sumPrice': json['sum_price'],
         'views': json['views'],
+        'currency': json['currency'],
     };
 }
 
@@ -192,6 +200,7 @@ export function FullStatsItemToJSONTyped(value?: FullStatsItem | null, ignoreDis
         'sum': value['sum'],
         'sum_price': value['sumPrice'],
         'views': value['views'],
+        'currency': value['currency'],
     };
 }
 

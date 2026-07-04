@@ -87,7 +87,7 @@ pub struct Order {
     #[serde(rename = "isZeroOrder", skip_serializing_if = "Option::is_none")]
     pub is_zero_order: Option<bool>,
     #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
-    pub options: Option<Box<models::V3ArchiveOrderOptions>>,
+    pub options: Option<Box<models::OrderOptions>>,
 }
 
 impl Order {

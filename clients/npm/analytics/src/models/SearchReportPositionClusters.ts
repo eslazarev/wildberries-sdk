@@ -13,13 +13,27 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CommonInfoAdvertisedProducts } from './CommonInfoAdvertisedProducts';
+import type { SearchReportPositionClustersFirstHundred } from './SearchReportPositionClustersFirstHundred';
 import {
-    CommonInfoAdvertisedProductsFromJSON,
-    CommonInfoAdvertisedProductsFromJSONTyped,
-    CommonInfoAdvertisedProductsToJSON,
-    CommonInfoAdvertisedProductsToJSONTyped,
-} from './CommonInfoAdvertisedProducts';
+    SearchReportPositionClustersFirstHundredFromJSON,
+    SearchReportPositionClustersFirstHundredFromJSONTyped,
+    SearchReportPositionClustersFirstHundredToJSON,
+    SearchReportPositionClustersFirstHundredToJSONTyped,
+} from './SearchReportPositionClustersFirstHundred';
+import type { SearchReportPositionClustersSecondHundred } from './SearchReportPositionClustersSecondHundred';
+import {
+    SearchReportPositionClustersSecondHundredFromJSON,
+    SearchReportPositionClustersSecondHundredFromJSONTyped,
+    SearchReportPositionClustersSecondHundredToJSON,
+    SearchReportPositionClustersSecondHundredToJSONTyped,
+} from './SearchReportPositionClustersSecondHundred';
+import type { SearchReportPositionClustersBelow } from './SearchReportPositionClustersBelow';
+import {
+    SearchReportPositionClustersBelowFromJSON,
+    SearchReportPositionClustersBelowFromJSONTyped,
+    SearchReportPositionClustersBelowToJSON,
+    SearchReportPositionClustersBelowToJSONTyped,
+} from './SearchReportPositionClustersBelow';
 
 /**
  * Количество товаров со средней позицией в поиске:
@@ -33,22 +47,22 @@ import {
 export interface SearchReportPositionClusters {
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {SearchReportPositionClustersFirstHundred}
      * @memberof SearchReportPositionClusters
      */
-    firstHundred: CommonInfoAdvertisedProducts;
+    firstHundred: SearchReportPositionClustersFirstHundred;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {SearchReportPositionClustersSecondHundred}
      * @memberof SearchReportPositionClusters
      */
-    secondHundred: CommonInfoAdvertisedProducts;
+    secondHundred: SearchReportPositionClustersSecondHundred;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {SearchReportPositionClustersBelow}
      * @memberof SearchReportPositionClusters
      */
-    below: CommonInfoAdvertisedProducts;
+    below: SearchReportPositionClustersBelow;
 }
 
 /**
@@ -71,9 +85,9 @@ export function SearchReportPositionClustersFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'firstHundred': CommonInfoAdvertisedProductsFromJSON(json['firstHundred']),
-        'secondHundred': CommonInfoAdvertisedProductsFromJSON(json['secondHundred']),
-        'below': CommonInfoAdvertisedProductsFromJSON(json['below']),
+        'firstHundred': SearchReportPositionClustersFirstHundredFromJSON(json['firstHundred']),
+        'secondHundred': SearchReportPositionClustersSecondHundredFromJSON(json['secondHundred']),
+        'below': SearchReportPositionClustersBelowFromJSON(json['below']),
     };
 }
 
@@ -88,9 +102,9 @@ export function SearchReportPositionClustersToJSONTyped(value?: SearchReportPosi
 
     return {
         
-        'firstHundred': CommonInfoAdvertisedProductsToJSON(value['firstHundred']),
-        'secondHundred': CommonInfoAdvertisedProductsToJSON(value['secondHundred']),
-        'below': CommonInfoAdvertisedProductsToJSON(value['below']),
+        'firstHundred': SearchReportPositionClustersFirstHundredToJSON(value['firstHundred']),
+        'secondHundred': SearchReportPositionClustersSecondHundredToJSON(value['secondHundred']),
+        'below': SearchReportPositionClustersBelowToJSON(value['below']),
     };
 }
 

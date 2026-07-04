@@ -13,13 +13,48 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TableItemItemAllOfAvgPosition } from './TableItemItemAllOfAvgPosition';
+import type { TableGroupItemMetricsVisibility } from './TableGroupItemMetricsVisibility';
 import {
-    TableItemItemAllOfAvgPositionFromJSON,
-    TableItemItemAllOfAvgPositionFromJSONTyped,
-    TableItemItemAllOfAvgPositionToJSON,
-    TableItemItemAllOfAvgPositionToJSONTyped,
-} from './TableItemItemAllOfAvgPosition';
+    TableGroupItemMetricsVisibilityFromJSON,
+    TableGroupItemMetricsVisibilityFromJSONTyped,
+    TableGroupItemMetricsVisibilityToJSON,
+    TableGroupItemMetricsVisibilityToJSONTyped,
+} from './TableGroupItemMetricsVisibility';
+import type { TableGroupItemMetricsAddToCart } from './TableGroupItemMetricsAddToCart';
+import {
+    TableGroupItemMetricsAddToCartFromJSON,
+    TableGroupItemMetricsAddToCartFromJSONTyped,
+    TableGroupItemMetricsAddToCartToJSON,
+    TableGroupItemMetricsAddToCartToJSONTyped,
+} from './TableGroupItemMetricsAddToCart';
+import type { TableGroupItemMetricsAvgPosition } from './TableGroupItemMetricsAvgPosition';
+import {
+    TableGroupItemMetricsAvgPositionFromJSON,
+    TableGroupItemMetricsAvgPositionFromJSONTyped,
+    TableGroupItemMetricsAvgPositionToJSON,
+    TableGroupItemMetricsAvgPositionToJSONTyped,
+} from './TableGroupItemMetricsAvgPosition';
+import type { TableGroupItemMetricsOpenToCart } from './TableGroupItemMetricsOpenToCart';
+import {
+    TableGroupItemMetricsOpenToCartFromJSON,
+    TableGroupItemMetricsOpenToCartFromJSONTyped,
+    TableGroupItemMetricsOpenToCartToJSON,
+    TableGroupItemMetricsOpenToCartToJSONTyped,
+} from './TableGroupItemMetricsOpenToCart';
+import type { VisibilityInfoOpenCard } from './VisibilityInfoOpenCard';
+import {
+    VisibilityInfoOpenCardFromJSON,
+    VisibilityInfoOpenCardFromJSONTyped,
+    VisibilityInfoOpenCardToJSON,
+    VisibilityInfoOpenCardToJSONTyped,
+} from './VisibilityInfoOpenCard';
+import type { TableGroupItemMetricsOrders } from './TableGroupItemMetricsOrders';
+import {
+    TableGroupItemMetricsOrdersFromJSON,
+    TableGroupItemMetricsOrdersFromJSONTyped,
+    TableGroupItemMetricsOrdersToJSON,
+    TableGroupItemMetricsOrdersToJSONTyped,
+} from './TableGroupItemMetricsOrders';
 import type { TableItemItemAllOfPrice } from './TableItemItemAllOfPrice';
 import {
     TableItemItemAllOfPriceFromJSON,
@@ -27,6 +62,13 @@ import {
     TableItemItemAllOfPriceToJSON,
     TableItemItemAllOfPriceToJSONTyped,
 } from './TableItemItemAllOfPrice';
+import type { TableGroupItemMetricsCartToOrder } from './TableGroupItemMetricsCartToOrder';
+import {
+    TableGroupItemMetricsCartToOrderFromJSON,
+    TableGroupItemMetricsCartToOrderFromJSONTyped,
+    TableGroupItemMetricsCartToOrderToJSON,
+    TableGroupItemMetricsCartToOrderToJSONTyped,
+} from './TableGroupItemMetricsCartToOrder';
 
 /**
  * 
@@ -110,46 +152,46 @@ export interface TableItemItem {
     price: TableItemItemAllOfPrice;
     /**
      * 
-     * @type {TableItemItemAllOfAvgPosition}
+     * @type {TableGroupItemMetricsAvgPosition}
      * @memberof TableItemItem
      */
-    avgPosition: TableItemItemAllOfAvgPosition;
+    avgPosition: TableGroupItemMetricsAvgPosition;
     /**
      * 
-     * @type {TableItemItemAllOfAvgPosition}
+     * @type {VisibilityInfoOpenCard}
      * @memberof TableItemItem
      */
-    openCard: TableItemItemAllOfAvgPosition;
+    openCard: VisibilityInfoOpenCard;
     /**
      * 
-     * @type {TableItemItemAllOfAvgPosition}
+     * @type {TableGroupItemMetricsAddToCart}
      * @memberof TableItemItem
      */
-    addToCart: TableItemItemAllOfAvgPosition;
+    addToCart: TableGroupItemMetricsAddToCart;
     /**
      * 
-     * @type {TableItemItemAllOfAvgPosition}
+     * @type {TableGroupItemMetricsOpenToCart}
      * @memberof TableItemItem
      */
-    openToCart: TableItemItemAllOfAvgPosition;
+    openToCart: TableGroupItemMetricsOpenToCart;
     /**
      * 
-     * @type {TableItemItemAllOfAvgPosition}
+     * @type {TableGroupItemMetricsOrders}
      * @memberof TableItemItem
      */
-    orders: TableItemItemAllOfAvgPosition;
+    orders: TableGroupItemMetricsOrders;
     /**
      * 
-     * @type {TableItemItemAllOfAvgPosition}
+     * @type {TableGroupItemMetricsCartToOrder}
      * @memberof TableItemItem
      */
-    cartToOrder: TableItemItemAllOfAvgPosition;
+    cartToOrder: TableGroupItemMetricsCartToOrder;
     /**
      * 
-     * @type {TableItemItemAllOfAvgPosition}
+     * @type {TableGroupItemMetricsVisibility}
      * @memberof TableItemItem
      */
-    visibility: TableItemItemAllOfAvgPosition;
+    visibility: TableGroupItemMetricsVisibility;
 }
 
 /**
@@ -195,13 +237,13 @@ export function TableItemItemFromJSONTyped(json: any, ignoreDiscriminator: boole
         'rating': json['rating'],
         'feedbackRating': json['feedbackRating'],
         'price': TableItemItemAllOfPriceFromJSON(json['price']),
-        'avgPosition': TableItemItemAllOfAvgPositionFromJSON(json['avgPosition']),
-        'openCard': TableItemItemAllOfAvgPositionFromJSON(json['openCard']),
-        'addToCart': TableItemItemAllOfAvgPositionFromJSON(json['addToCart']),
-        'openToCart': TableItemItemAllOfAvgPositionFromJSON(json['openToCart']),
-        'orders': TableItemItemAllOfAvgPositionFromJSON(json['orders']),
-        'cartToOrder': TableItemItemAllOfAvgPositionFromJSON(json['cartToOrder']),
-        'visibility': TableItemItemAllOfAvgPositionFromJSON(json['visibility']),
+        'avgPosition': TableGroupItemMetricsAvgPositionFromJSON(json['avgPosition']),
+        'openCard': VisibilityInfoOpenCardFromJSON(json['openCard']),
+        'addToCart': TableGroupItemMetricsAddToCartFromJSON(json['addToCart']),
+        'openToCart': TableGroupItemMetricsOpenToCartFromJSON(json['openToCart']),
+        'orders': TableGroupItemMetricsOrdersFromJSON(json['orders']),
+        'cartToOrder': TableGroupItemMetricsCartToOrderFromJSON(json['cartToOrder']),
+        'visibility': TableGroupItemMetricsVisibilityFromJSON(json['visibility']),
     };
 }
 
@@ -228,13 +270,13 @@ export function TableItemItemToJSONTyped(value?: TableItemItem | null, ignoreDis
         'rating': value['rating'],
         'feedbackRating': value['feedbackRating'],
         'price': TableItemItemAllOfPriceToJSON(value['price']),
-        'avgPosition': TableItemItemAllOfAvgPositionToJSON(value['avgPosition']),
-        'openCard': TableItemItemAllOfAvgPositionToJSON(value['openCard']),
-        'addToCart': TableItemItemAllOfAvgPositionToJSON(value['addToCart']),
-        'openToCart': TableItemItemAllOfAvgPositionToJSON(value['openToCart']),
-        'orders': TableItemItemAllOfAvgPositionToJSON(value['orders']),
-        'cartToOrder': TableItemItemAllOfAvgPositionToJSON(value['cartToOrder']),
-        'visibility': TableItemItemAllOfAvgPositionToJSON(value['visibility']),
+        'avgPosition': TableGroupItemMetricsAvgPositionToJSON(value['avgPosition']),
+        'openCard': VisibilityInfoOpenCardToJSON(value['openCard']),
+        'addToCart': TableGroupItemMetricsAddToCartToJSON(value['addToCart']),
+        'openToCart': TableGroupItemMetricsOpenToCartToJSON(value['openToCart']),
+        'orders': TableGroupItemMetricsOrdersToJSON(value['orders']),
+        'cartToOrder': TableGroupItemMetricsCartToOrderToJSON(value['cartToOrder']),
+        'visibility': TableGroupItemMetricsVisibilityToJSON(value['visibility']),
     };
 }
 

@@ -13,13 +13,48 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CommonInfoAdvertisedProducts } from './CommonInfoAdvertisedProducts';
+import type { DistributionTableIndicatorsFourStar } from './DistributionTableIndicatorsFourStar';
 import {
-    CommonInfoAdvertisedProductsFromJSON,
-    CommonInfoAdvertisedProductsFromJSONTyped,
-    CommonInfoAdvertisedProductsToJSON,
-    CommonInfoAdvertisedProductsToJSONTyped,
-} from './CommonInfoAdvertisedProducts';
+    DistributionTableIndicatorsFourStarFromJSON,
+    DistributionTableIndicatorsFourStarFromJSONTyped,
+    DistributionTableIndicatorsFourStarToJSON,
+    DistributionTableIndicatorsFourStarToJSONTyped,
+} from './DistributionTableIndicatorsFourStar';
+import type { DistributionTableIndicatorsThreeStar } from './DistributionTableIndicatorsThreeStar';
+import {
+    DistributionTableIndicatorsThreeStarFromJSON,
+    DistributionTableIndicatorsThreeStarFromJSONTyped,
+    DistributionTableIndicatorsThreeStarToJSON,
+    DistributionTableIndicatorsThreeStarToJSONTyped,
+} from './DistributionTableIndicatorsThreeStar';
+import type { DistributionTableIndicatorsFeedbackCount } from './DistributionTableIndicatorsFeedbackCount';
+import {
+    DistributionTableIndicatorsFeedbackCountFromJSON,
+    DistributionTableIndicatorsFeedbackCountFromJSONTyped,
+    DistributionTableIndicatorsFeedbackCountToJSON,
+    DistributionTableIndicatorsFeedbackCountToJSONTyped,
+} from './DistributionTableIndicatorsFeedbackCount';
+import type { DistributionTableIndicatorsTwoStar } from './DistributionTableIndicatorsTwoStar';
+import {
+    DistributionTableIndicatorsTwoStarFromJSON,
+    DistributionTableIndicatorsTwoStarFromJSONTyped,
+    DistributionTableIndicatorsTwoStarToJSON,
+    DistributionTableIndicatorsTwoStarToJSONTyped,
+} from './DistributionTableIndicatorsTwoStar';
+import type { DistributionTableIndicatorsFiveStar } from './DistributionTableIndicatorsFiveStar';
+import {
+    DistributionTableIndicatorsFiveStarFromJSON,
+    DistributionTableIndicatorsFiveStarFromJSONTyped,
+    DistributionTableIndicatorsFiveStarToJSON,
+    DistributionTableIndicatorsFiveStarToJSONTyped,
+} from './DistributionTableIndicatorsFiveStar';
+import type { DistributionTableIndicatorsOneStar } from './DistributionTableIndicatorsOneStar';
+import {
+    DistributionTableIndicatorsOneStarFromJSON,
+    DistributionTableIndicatorsOneStarFromJSONTyped,
+    DistributionTableIndicatorsOneStarToJSON,
+    DistributionTableIndicatorsOneStarToJSONTyped,
+} from './DistributionTableIndicatorsOneStar';
 
 /**
  * 
@@ -29,40 +64,40 @@ import {
 export interface DistributionTableIndicators {
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {DistributionTableIndicatorsFeedbackCount}
      * @memberof DistributionTableIndicators
      */
-    feedbackCount?: CommonInfoAdvertisedProducts;
+    feedbackCount?: DistributionTableIndicatorsFeedbackCount;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {DistributionTableIndicatorsFiveStar}
      * @memberof DistributionTableIndicators
      */
-    fiveStar?: CommonInfoAdvertisedProducts;
+    fiveStar?: DistributionTableIndicatorsFiveStar;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {DistributionTableIndicatorsFourStar}
      * @memberof DistributionTableIndicators
      */
-    fourStar?: CommonInfoAdvertisedProducts;
+    fourStar?: DistributionTableIndicatorsFourStar;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {DistributionTableIndicatorsThreeStar}
      * @memberof DistributionTableIndicators
      */
-    threeStar?: CommonInfoAdvertisedProducts;
+    threeStar?: DistributionTableIndicatorsThreeStar;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {DistributionTableIndicatorsTwoStar}
      * @memberof DistributionTableIndicators
      */
-    twoStar?: CommonInfoAdvertisedProducts;
+    twoStar?: DistributionTableIndicatorsTwoStar;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
+     * @type {DistributionTableIndicatorsOneStar}
      * @memberof DistributionTableIndicators
      */
-    oneStar?: CommonInfoAdvertisedProducts;
+    oneStar?: DistributionTableIndicatorsOneStar;
     /**
      * Отзывы, исключённые из рейтинга
      * @type {number}
@@ -88,12 +123,12 @@ export function DistributionTableIndicatorsFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'feedbackCount': json['feedbackCount'] == null ? undefined : CommonInfoAdvertisedProductsFromJSON(json['feedbackCount']),
-        'fiveStar': json['fiveStar'] == null ? undefined : CommonInfoAdvertisedProductsFromJSON(json['fiveStar']),
-        'fourStar': json['fourStar'] == null ? undefined : CommonInfoAdvertisedProductsFromJSON(json['fourStar']),
-        'threeStar': json['threeStar'] == null ? undefined : CommonInfoAdvertisedProductsFromJSON(json['threeStar']),
-        'twoStar': json['twoStar'] == null ? undefined : CommonInfoAdvertisedProductsFromJSON(json['twoStar']),
-        'oneStar': json['oneStar'] == null ? undefined : CommonInfoAdvertisedProductsFromJSON(json['oneStar']),
+        'feedbackCount': json['feedbackCount'] == null ? undefined : DistributionTableIndicatorsFeedbackCountFromJSON(json['feedbackCount']),
+        'fiveStar': json['fiveStar'] == null ? undefined : DistributionTableIndicatorsFiveStarFromJSON(json['fiveStar']),
+        'fourStar': json['fourStar'] == null ? undefined : DistributionTableIndicatorsFourStarFromJSON(json['fourStar']),
+        'threeStar': json['threeStar'] == null ? undefined : DistributionTableIndicatorsThreeStarFromJSON(json['threeStar']),
+        'twoStar': json['twoStar'] == null ? undefined : DistributionTableIndicatorsTwoStarFromJSON(json['twoStar']),
+        'oneStar': json['oneStar'] == null ? undefined : DistributionTableIndicatorsOneStarFromJSON(json['oneStar']),
         'disqualified': json['disqualified'] == null ? undefined : json['disqualified'],
     };
 }
@@ -109,12 +144,12 @@ export function DistributionTableIndicatorsToJSONTyped(value?: DistributionTable
 
     return {
         
-        'feedbackCount': CommonInfoAdvertisedProductsToJSON(value['feedbackCount']),
-        'fiveStar': CommonInfoAdvertisedProductsToJSON(value['fiveStar']),
-        'fourStar': CommonInfoAdvertisedProductsToJSON(value['fourStar']),
-        'threeStar': CommonInfoAdvertisedProductsToJSON(value['threeStar']),
-        'twoStar': CommonInfoAdvertisedProductsToJSON(value['twoStar']),
-        'oneStar': CommonInfoAdvertisedProductsToJSON(value['oneStar']),
+        'feedbackCount': DistributionTableIndicatorsFeedbackCountToJSON(value['feedbackCount']),
+        'fiveStar': DistributionTableIndicatorsFiveStarToJSON(value['fiveStar']),
+        'fourStar': DistributionTableIndicatorsFourStarToJSON(value['fourStar']),
+        'threeStar': DistributionTableIndicatorsThreeStarToJSON(value['threeStar']),
+        'twoStar': DistributionTableIndicatorsTwoStarToJSON(value['twoStar']),
+        'oneStar': DistributionTableIndicatorsOneStarToJSON(value['oneStar']),
         'disqualified': value['disqualified'],
     };
 }

@@ -32,9 +32,9 @@ type ContentV2CardsUploadAddPostRequestCardsToAddInner struct {
 	Title *string `json:"title,omitempty"`
 	// Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов 
 	Description *string `json:"description,omitempty"`
-	Dimensions *ContentV2CardsUpdatePostRequestInnerDimensions `json:"dimensions,omitempty"`
+	Dimensions *ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions `json:"dimensions,omitempty"`
 	// Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом 
-	Sizes []ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner `json:"sizes,omitempty"`
+	Sizes []ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner `json:"sizes,omitempty"`
 	// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) 
 	Characteristics []ContentV2CardsUpdatePostRequestInnerCharacteristicsInner `json:"characteristics,omitempty"`
 }
@@ -248,9 +248,9 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetDescription(v str
 }
 
 // GetDimensions returns the Dimensions field value if set, zero value otherwise.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetDimensions() ContentV2CardsUpdatePostRequestInnerDimensions {
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetDimensions() ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions {
 	if o == nil || IsNil(o.Dimensions) {
-		var ret ContentV2CardsUpdatePostRequestInnerDimensions
+		var ret ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions
 		return ret
 	}
 	return *o.Dimensions
@@ -258,7 +258,7 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetDimensions() Cont
 
 // GetDimensionsOk returns a tuple with the Dimensions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetDimensionsOk() (*ContentV2CardsUpdatePostRequestInnerDimensions, bool) {
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetDimensionsOk() (*ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions, bool) {
 	if o == nil || IsNil(o.Dimensions) {
 		return nil, false
 	}
@@ -274,15 +274,15 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) HasDimensions() bool
 	return false
 }
 
-// SetDimensions gets a reference to the given ContentV2CardsUpdatePostRequestInnerDimensions and assigns it to the Dimensions field.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetDimensions(v ContentV2CardsUpdatePostRequestInnerDimensions) {
+// SetDimensions gets a reference to the given ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions and assigns it to the Dimensions field.
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetDimensions(v ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions) {
 	o.Dimensions = &v
 }
 
 // GetSizes returns the Sizes field value if set, zero value otherwise.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetSizes() []ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner {
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetSizes() []ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner {
 	if o == nil || IsNil(o.Sizes) {
-		var ret []ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner
+		var ret []ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
 		return ret
 	}
 	return o.Sizes
@@ -290,7 +290,7 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetSizes() []Content
 
 // GetSizesOk returns a tuple with the Sizes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetSizesOk() ([]ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner, bool) {
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) GetSizesOk() ([]ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner, bool) {
 	if o == nil || IsNil(o.Sizes) {
 		return nil, false
 	}
@@ -306,8 +306,8 @@ func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) HasSizes() bool {
 	return false
 }
 
-// SetSizes gets a reference to the given []ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner and assigns it to the Sizes field.
-func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetSizes(v []ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner) {
+// SetSizes gets a reference to the given []ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner and assigns it to the Sizes field.
+func (o *ContentV2CardsUploadAddPostRequestCardsToAddInner) SetSizes(v []ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner) {
 	o.Sizes = v
 }
 

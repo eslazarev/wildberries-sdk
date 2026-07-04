@@ -17,7 +17,7 @@ pub struct ApiB2bClientInfoResponse {
     pub data: Option<Box<models::ApiB2bClientInfo>>,
     /// Детали ошибки
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner>>,
+    pub errors: Option<Vec<models::ApiB2bClientInfoResponseErrorsInner>>,
     /// Есть ли ошибки
     #[serde(rename = "isError")]
     pub is_error: bool,

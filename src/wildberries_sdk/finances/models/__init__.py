@@ -29,6 +29,7 @@ from wildberries_sdk.finances.models.get_categories_data_categories_inner import
 from wildberries_sdk.finances.models.get_doc import GetDoc
 from wildberries_sdk.finances.models.get_doc_data import GetDocData
 from wildberries_sdk.finances.models.get_docs import GetDocs
+from wildberries_sdk.finances.models.get_docs_data import GetDocsData
 from wildberries_sdk.finances.models.get_list import GetList
 from wildberries_sdk.finances.models.get_list_data import GetListData
 from wildberries_sdk.finances.models.get_list_data_documents_inner import GetListDataDocumentsInner

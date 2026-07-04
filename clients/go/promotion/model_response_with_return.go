@@ -21,6 +21,8 @@ var _ MappedNullable = &ResponseWithReturn{}
 type ResponseWithReturn struct {
 	// Размер обновлённого бюджета
 	Total *int32 `json:"total,omitempty"`
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency *string `json:"currency,omitempty"`
 }
 
 // NewResponseWithReturn instantiates a new ResponseWithReturn object
@@ -72,6 +74,38 @@ func (o *ResponseWithReturn) SetTotal(v int32) {
 	o.Total = &v
 }
 
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *ResponseWithReturn) GetCurrency() string {
+	if o == nil || IsNil(o.Currency) {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResponseWithReturn) GetCurrencyOk() (*string, bool) {
+	if o == nil || IsNil(o.Currency) {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *ResponseWithReturn) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *ResponseWithReturn) SetCurrency(v string) {
+	o.Currency = &v
+}
+
 func (o ResponseWithReturn) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -84,6 +118,9 @@ func (o ResponseWithReturn) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
 	}
 	return toSerialize, nil
 }

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.finances.models.get_doc_data import GetDocData
+from wildberries_sdk.finances.models.get_docs_data import GetDocsData
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class GetDocs(BaseModel):
     """
     GetDocs
     """ # noqa: E501
-    data: Optional[GetDocData] = None
+    data: Optional[GetDocsData] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class GetDocs(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetDocData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": GetDocsData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

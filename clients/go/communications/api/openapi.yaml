@@ -830,7 +830,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_questions_count_unanswered_get_200_response"
+                $ref: "#/components/schemas/_api_v1_feedbacks_count_unanswered_get_200_response"
           description: Успешно
         "401":
           content:
@@ -949,7 +949,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_questions_count_get_200_response"
+                $ref: "#/components/schemas/_api_v1_feedbacks_count_get_200_response"
           description: Успешно
         "400":
           content:
@@ -1279,7 +1279,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v1_feedbacks_answer_post_request"
+              $ref: "#/components/schemas/_api_v1_feedbacks_answer_patch_request"
       responses:
         "204":
           description: Успешно
@@ -3188,7 +3188,7 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: "#/components/schemas/_api_v1_claims_get_400_response"
+                $ref: "#/components/schemas/_api_v1_claim_patch_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -3518,7 +3518,7 @@ components:
       content:
         application/json; charset=utf-8:
           schema:
-            $ref: "#/components/schemas/_api_v1_claims_get_400_response"
+            $ref: "#/components/schemas/_api_v1_claim_patch_400_response"
       description: Неправильный запрос
   schemas:
     standardizedFQError:
@@ -4831,6 +4831,106 @@ components:
           nullable: true
           type: array
       type: object
+    _api_v1_question_get_200_response_data_answer:
+      description: Ответ
+      example:
+        text: text
+        editable: true
+        createDate: 2000-01-23T04:56:07.000+00:00
+      nullable: true
+      properties:
+        text:
+          description: Текст ответа
+          type: string
+        editable:
+          description: "Можно ли отредактировать ответ (`false` - нельзя, `true` -\
+            \ можно)"
+          type: boolean
+        createDate:
+          description: Дата и время создания ответа
+          format: date-time
+          type: string
+      type: object
+    _api_v1_question_get_200_response_data_productDetails:
+      description: Item information
+      example:
+        nmId: 0
+        imtId: 6
+        productName: productName
+        supplierArticle: supplierArticle
+        supplierName: supplierName
+        brandName: brandName
+      properties:
+        nmId:
+          description: Артикул WB
+          type: integer
+        imtId:
+          description: "ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)\
+            \ карточек товаров"
+          type: integer
+        productName:
+          description: Название товара
+          type: string
+        supplierArticle:
+          description: Артикул продавца
+          type: string
+        supplierName:
+          description: Имя продавца
+          type: string
+        brandName:
+          description: Название бренда
+          type: string
+      type: object
+    _api_v1_question_get_200_response_data:
+      example:
+        id: id
+        text: text
+        createdDate: 2000-01-23T04:56:07.000+00:00
+        state: state
+        answer:
+          text: text
+          editable: true
+          createDate: 2000-01-23T04:56:07.000+00:00
+        productDetails:
+          nmId: 0
+          imtId: 6
+          productName: productName
+          supplierArticle: supplierArticle
+          supplierName: supplierName
+          brandName: brandName
+        wasViewed: true
+        isWarned: true
+      properties:
+        id:
+          description: ID вопроса
+          type: string
+        text:
+          description: Текст вопроса
+          type: string
+        createdDate:
+          description: Дата и время создания вопроса
+          format: date-time
+          type: string
+        state:
+          description: |
+            Статус вопроса:
+              - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)
+              - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей
+              - `suppliersPortalSynch` - новый вопрос
+          type: string
+        answer:
+          $ref: "#/components/schemas/_api_v1_question_get_200_response_data_answer"
+        productDetails:
+          $ref: "#/components/schemas/_api_v1_question_get_200_response_data_productDetails"
+        wasViewed:
+          description: Просмотрен ли вопрос
+          type: boolean
+        isWarned:
+          description: |
+            Признак подозрительного вопроса.<br>
+            Если `true`, то вопрос опубликован, но на портале продавцов вы увидите баннер **Сообщение подозрительное**
+          type: boolean
+      type: object
     _api_v1_question_get_200_response:
       example:
         data:
@@ -4843,8 +4943,8 @@ components:
             editable: true
             createDate: 2000-01-23T04:56:07.000+00:00
           productDetails:
-            nmId: 1
-            imtId: 5
+            nmId: 0
+            imtId: 6
             productName: productName
             supplierArticle: supplierArticle
             supplierName: supplierName
@@ -4858,7 +4958,79 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_questions_get_200_response_data_questions_inner"
+          $ref: "#/components/schemas/_api_v1_question_get_200_response_data"
+        error:
+          description: Есть ли ошибка
+          example: false
+          type: boolean
+        errorText:
+          description: Описание ошибки
+          example: ""
+          type: string
+        additionalErrors:
+          description: Дополнительные ошибки
+          items:
+            type: string
+          nullable: true
+          type: array
+          example: null
+      type: object
+    _api_v1_feedbacks_count_unanswered_get_200_response_data:
+      example:
+        countUnanswered: 1
+        countUnansweredToday: 0
+      properties:
+        countUnanswered:
+          description: Количество необработанных отзывов
+          example: 1
+          type: integer
+        countUnansweredToday:
+          description: Количество необработанных отзывов за сегодня
+          example: 0
+          type: integer
+      type: object
+    _api_v1_feedbacks_count_unanswered_get_200_response:
+      example:
+        data:
+          countUnanswered: 1
+          countUnansweredToday: 0
+        error: false
+        errorText: ""
+        additionalErrors:
+        - additionalErrors
+        - additionalErrors
+      properties:
+        data:
+          $ref: "#/components/schemas/_api_v1_feedbacks_count_unanswered_get_200_response_data"
+        error:
+          description: Есть ли ошибка
+          example: false
+          type: boolean
+        errorText:
+          description: Описание ошибки
+          example: ""
+          type: string
+        additionalErrors:
+          description: Дополнительные ошибки
+          items:
+            type: string
+          nullable: true
+          type: array
+          example: null
+      type: object
+    _api_v1_feedbacks_count_get_200_response:
+      example:
+        data: 724583
+        error: false
+        errorText: ""
+        additionalErrors:
+        - additionalErrors
+        - additionalErrors
+      properties:
+        data:
+          description: Количество отзывов
+          example: 724583
+          type: integer
         error:
           description: Есть ли ошибка
           example: false
@@ -5128,6 +5300,22 @@ components:
       - id
       - text
       type: object
+    _api_v1_feedbacks_answer_patch_request:
+      properties:
+        id:
+          description: ID отзыва
+          example: J2FMRjUj6hwvwCElqssz
+          type: string
+        text:
+          description: Текст ответа
+          example: "Спасибо за Ваш отзыв, он очень важен для нас!"
+          maximum: 5000
+          minimum: 2
+          type: string
+      required:
+      - id
+      - text
+      type: object
     _api_v1_feedbacks_order_return_post_request:
       properties:
         feedbackId:
@@ -5163,8 +5351,8 @@ components:
     _api_v1_feedback_get_200_response_data_productDetails:
       description: Item information
       example:
-        nmId: 5
-        imtId: 5
+        nmId: 6
+        imtId: 1
         productName: productName
         supplierArticle: supplierArticle
         supplierName: supplierName
@@ -5214,7 +5402,7 @@ components:
       example:
         previewImage: previewImage
         link: link
-        durationSec: 2
+        durationSec: 5
       nullable: true
       properties:
         previewImage:
@@ -5242,8 +5430,8 @@ components:
           editable: true
         state: state
         productDetails:
-          nmId: 5
-          imtId: 5
+          nmId: 6
+          imtId: 1
           productName: productName
           supplierArticle: supplierArticle
           supplierName: supplierName
@@ -5259,21 +5447,21 @@ components:
         video:
           previewImage: previewImage
           link: link
-          durationSec: 2
+          durationSec: 5
         wasViewed: true
         isAbleSupplierFeedbackValuation: true
-        supplierFeedbackValuation: 6
+        supplierFeedbackValuation: 5
         isAbleSupplierProductValuation: true
-        supplierProductValuation: 1
+        supplierProductValuation: 2
         isAbleReturnProductOrders: true
         returnProductOrdersDate: returnProductOrdersDate
         bables:
         - bables
         - bables
-        lastOrderShkId: 5
+        lastOrderShkId: 7
         lastOrderCreatedAt: lastOrderCreatedAt
         color: color
-        subjectId: 5
+        subjectId: 9
         subjectName: subjectName
         parentFeedbackId: parentFeedbackId
         childFeedbackId: childFeedbackId
@@ -5418,8 +5606,8 @@ components:
             editable: true
           state: state
           productDetails:
-            nmId: 5
-            imtId: 5
+            nmId: 6
+            imtId: 1
             productName: productName
             supplierArticle: supplierArticle
             supplierName: supplierName
@@ -5435,21 +5623,21 @@ components:
           video:
             previewImage: previewImage
             link: link
-            durationSec: 2
+            durationSec: 5
           wasViewed: true
           isAbleSupplierFeedbackValuation: true
-          supplierFeedbackValuation: 6
+          supplierFeedbackValuation: 5
           isAbleSupplierProductValuation: true
-          supplierProductValuation: 1
+          supplierProductValuation: 2
           isAbleReturnProductOrders: true
           returnProductOrdersDate: returnProductOrdersDate
           bables:
           - bables
           - bables
-          lastOrderShkId: 5
+          lastOrderShkId: 7
           lastOrderCreatedAt: lastOrderCreatedAt
           color: color
-          subjectId: 5
+          subjectId: 9
           subjectName: subjectName
           parentFeedbackId: parentFeedbackId
           childFeedbackId: childFeedbackId
@@ -6046,10 +6234,6 @@ components:
           type: integer
       type: object
     _api_v1_claims_get_400_response:
-      example:
-        title: Invalid query params
-        detail: "Failed to deserialize query string: missing field `is_archive`"
-        requestId: e0aedc10-9789-49c1-9a83-d8422b4703dc
       properties:
         title:
           description: ID ошибки
@@ -6086,6 +6270,106 @@ components:
       required:
       - action
       - id
+      type: object
+    _api_v1_claim_patch_400_response:
+      example:
+        title: Validation error
+        detail: "Input model is not valid; Details: The Action field is required."
+        requestId: 0HN3PI6JUGFSL:00000004
+      properties:
+        title:
+          description: ID ошибки
+          example: Validation error
+          type: string
+        detail:
+          description: Описание ошибки
+          example: "Input model is not valid; Details: The Action field is required."
+          type: string
+        requestId:
+          description: ID запроса
+          example: 0HN3PI6JUGFSL:00000004
+          type: string
+      type: object
+    responseFeedback_inner_answer:
+      description: Структура ответа
+      example:
+        text: text
+        state: state
+        editable: true
+      nullable: true
+      properties:
+        text:
+          description: Текст ответа
+          type: string
+        state:
+          description: |
+            Статус:
+              - `none` — новый
+              - `wbRu` — отображается на сайте
+              - `reviewRequired` — ответ проходит проверку
+              - `rejected` — ответ отклонён
+          type: string
+        editable:
+          description: |
+            Можно ли отредактировать ответ:
+              - `false` — нет
+              - `true` — да
+          type: boolean
+      type: object
+    responseFeedback_inner_productDetails:
+      description: Информация о товаре
+      example:
+        nmId: 5
+        imtId: 5
+        productName: productName
+        supplierArticle: supplierArticle
+        supplierName: supplierName
+        brandName: brandName
+        size: size
+      properties:
+        nmId:
+          description: Артикул WB
+          type: integer
+        imtId:
+          description: "ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)\
+            \ карточек товаров"
+          type: integer
+        productName:
+          description: Название товара
+          type: string
+        supplierArticle:
+          description: Артикул продавца
+          nullable: true
+          type: string
+        supplierName:
+          description: Имя продавца
+          nullable: true
+          type: string
+        brandName:
+          description: Бренд товара
+          nullable: true
+          type: string
+        size:
+          description: Размер товара (`techSize` в КТ)
+          type: string
+      type: object
+    responseFeedback_inner_video:
+      description: Структура видео
+      example:
+        previewImage: previewImage
+        link: link
+        durationSec: 2
+      nullable: true
+      properties:
+        previewImage:
+          description: Ссылка на обложку видео
+          type: string
+        link:
+          description: Ссылка на файл плейлиста видео (доступно по протоколу HLS)
+          type: string
+        durationSec:
+          description: Общая продолжительность видео
+          type: integer
       type: object
     responseFeedback_inner:
       example:
@@ -6161,7 +6445,7 @@ components:
           format: date-time
           type: string
         answer:
-          $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_answer"
+          $ref: "#/components/schemas/responseFeedback_inner_answer"
         state:
           description: |
             Статус отзыва:
@@ -6169,7 +6453,7 @@ components:
               - `wbRu` - обработан
           type: string
         productDetails:
-          $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_productDetails"
+          $ref: "#/components/schemas/responseFeedback_inner_productDetails"
         photoLinks:
           description: Массив структур фотографий
           items:
@@ -6177,7 +6461,7 @@ components:
           nullable: true
           type: array
         video:
-          $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_video"
+          $ref: "#/components/schemas/responseFeedback_inner_video"
         wasViewed:
           description: Просмотрен ли отзыв
           type: boolean

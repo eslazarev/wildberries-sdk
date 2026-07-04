@@ -21,8 +21,8 @@ var _ MappedNullable = &VisibilityInfo{}
 
 // VisibilityInfo Видимость карточек и переходы в карточки. По дням, неделям, месяцам
 type VisibilityInfo struct {
-	Visibility CommonInfoAdvertisedProducts `json:"visibility"`
-	OpenCard CommonInfoAdvertisedProducts `json:"openCard"`
+	Visibility VisibilityInfoVisibility `json:"visibility"`
+	OpenCard VisibilityInfoOpenCard `json:"openCard"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
 	ByDay []VisibilityInfoByDayInner `json:"byDay,omitempty"`
 	// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
@@ -37,7 +37,7 @@ type _VisibilityInfo VisibilityInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVisibilityInfo(visibility CommonInfoAdvertisedProducts, openCard CommonInfoAdvertisedProducts) *VisibilityInfo {
+func NewVisibilityInfo(visibility VisibilityInfoVisibility, openCard VisibilityInfoOpenCard) *VisibilityInfo {
 	this := VisibilityInfo{}
 	this.Visibility = visibility
 	this.OpenCard = openCard
@@ -53,9 +53,9 @@ func NewVisibilityInfoWithDefaults() *VisibilityInfo {
 }
 
 // GetVisibility returns the Visibility field value
-func (o *VisibilityInfo) GetVisibility() CommonInfoAdvertisedProducts {
+func (o *VisibilityInfo) GetVisibility() VisibilityInfoVisibility {
 	if o == nil {
-		var ret CommonInfoAdvertisedProducts
+		var ret VisibilityInfoVisibility
 		return ret
 	}
 
@@ -64,7 +64,7 @@ func (o *VisibilityInfo) GetVisibility() CommonInfoAdvertisedProducts {
 
 // GetVisibilityOk returns a tuple with the Visibility field value
 // and a boolean to check if the value has been set.
-func (o *VisibilityInfo) GetVisibilityOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *VisibilityInfo) GetVisibilityOk() (*VisibilityInfoVisibility, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,14 +72,14 @@ func (o *VisibilityInfo) GetVisibilityOk() (*CommonInfoAdvertisedProducts, bool)
 }
 
 // SetVisibility sets field value
-func (o *VisibilityInfo) SetVisibility(v CommonInfoAdvertisedProducts) {
+func (o *VisibilityInfo) SetVisibility(v VisibilityInfoVisibility) {
 	o.Visibility = v
 }
 
 // GetOpenCard returns the OpenCard field value
-func (o *VisibilityInfo) GetOpenCard() CommonInfoAdvertisedProducts {
+func (o *VisibilityInfo) GetOpenCard() VisibilityInfoOpenCard {
 	if o == nil {
-		var ret CommonInfoAdvertisedProducts
+		var ret VisibilityInfoOpenCard
 		return ret
 	}
 
@@ -88,7 +88,7 @@ func (o *VisibilityInfo) GetOpenCard() CommonInfoAdvertisedProducts {
 
 // GetOpenCardOk returns a tuple with the OpenCard field value
 // and a boolean to check if the value has been set.
-func (o *VisibilityInfo) GetOpenCardOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *VisibilityInfo) GetOpenCardOk() (*VisibilityInfoOpenCard, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,7 +96,7 @@ func (o *VisibilityInfo) GetOpenCardOk() (*CommonInfoAdvertisedProducts, bool) {
 }
 
 // SetOpenCard sets field value
-func (o *VisibilityInfo) SetOpenCard(v CommonInfoAdvertisedProducts) {
+func (o *VisibilityInfo) SetOpenCard(v VisibilityInfoOpenCard) {
 	o.OpenCard = v
 }
 

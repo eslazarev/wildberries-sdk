@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.promotion.models.stat_interval_interval import StatIntervalInterval
+from wildberries_sdk.promotion.models.request_with_interval_interval import RequestWithIntervalInterval
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +29,7 @@ class RequestWithInterval(BaseModel):
     RequestWithInterval
     """ # noqa: E501
     id: StrictInt = Field(description="ID кампании")
-    interval: StatIntervalInterval
+    interval: RequestWithIntervalInterval
     __properties: ClassVar[List[str]] = ["id", "interval"]
 
     model_config = ConfigDict(
@@ -87,7 +87,7 @@ class RequestWithInterval(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "interval": StatIntervalInterval.from_dict(obj["interval"]) if obj.get("interval") is not None else None
+            "interval": RequestWithIntervalInterval.from_dict(obj["interval"]) if obj.get("interval") is not None else None
         })
         return _obj
 

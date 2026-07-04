@@ -45,7 +45,7 @@ type StatisticsComparison struct {
 	ShareOrderPercentDynamic int32 `json:"shareOrderPercentDynamic"`
 	// Динамика добавлений товара в избранное
 	AddToWishlistDynamic int32 `json:"addToWishlistDynamic"`
-	TimeToReadyDynamic StatisticTimeToReady `json:"timeToReadyDynamic"`
+	TimeToReadyDynamic ComparisonTimeToReadyDynamic `json:"timeToReadyDynamic"`
 	// Динамика локальных заказов в рамках одного региона
 	LocalizationPercentDynamic int32 `json:"localizationPercentDynamic"`
 	WbClubDynamic ComparisonWbClubDynamic `json:"wbClubDynamic"`
@@ -58,7 +58,7 @@ type _StatisticsComparison StatisticsComparison
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatisticsComparison(openCountDynamic int32, cartCountDynamic int32, orderCountDynamic int32, orderSumDynamic int32, buyoutCountDynamic int32, buyoutSumDynamic int32, cancelCountDynamic int32, cancelSumDynamic int32, avgOrdersCountPerDayDynamic int32, avgPriceDynamic int32, shareOrderPercentDynamic int32, addToWishlistDynamic int32, timeToReadyDynamic StatisticTimeToReady, localizationPercentDynamic int32, wbClubDynamic ComparisonWbClubDynamic, conversions StatisticConversions) *StatisticsComparison {
+func NewStatisticsComparison(openCountDynamic int32, cartCountDynamic int32, orderCountDynamic int32, orderSumDynamic int32, buyoutCountDynamic int32, buyoutSumDynamic int32, cancelCountDynamic int32, cancelSumDynamic int32, avgOrdersCountPerDayDynamic int32, avgPriceDynamic int32, shareOrderPercentDynamic int32, addToWishlistDynamic int32, timeToReadyDynamic ComparisonTimeToReadyDynamic, localizationPercentDynamic int32, wbClubDynamic ComparisonWbClubDynamic, conversions StatisticConversions) *StatisticsComparison {
 	this := StatisticsComparison{}
 	this.OpenCountDynamic = openCountDynamic
 	this.CartCountDynamic = cartCountDynamic
@@ -376,9 +376,9 @@ func (o *StatisticsComparison) SetAddToWishlistDynamic(v int32) {
 }
 
 // GetTimeToReadyDynamic returns the TimeToReadyDynamic field value
-func (o *StatisticsComparison) GetTimeToReadyDynamic() StatisticTimeToReady {
+func (o *StatisticsComparison) GetTimeToReadyDynamic() ComparisonTimeToReadyDynamic {
 	if o == nil {
-		var ret StatisticTimeToReady
+		var ret ComparisonTimeToReadyDynamic
 		return ret
 	}
 
@@ -387,7 +387,7 @@ func (o *StatisticsComparison) GetTimeToReadyDynamic() StatisticTimeToReady {
 
 // GetTimeToReadyDynamicOk returns a tuple with the TimeToReadyDynamic field value
 // and a boolean to check if the value has been set.
-func (o *StatisticsComparison) GetTimeToReadyDynamicOk() (*StatisticTimeToReady, bool) {
+func (o *StatisticsComparison) GetTimeToReadyDynamicOk() (*ComparisonTimeToReadyDynamic, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -395,7 +395,7 @@ func (o *StatisticsComparison) GetTimeToReadyDynamicOk() (*StatisticTimeToReady,
 }
 
 // SetTimeToReadyDynamic sets field value
-func (o *StatisticsComparison) SetTimeToReadyDynamic(v StatisticTimeToReady) {
+func (o *StatisticsComparison) SetTimeToReadyDynamic(v ComparisonTimeToReadyDynamic) {
 	o.TimeToReadyDynamic = v
 }
 

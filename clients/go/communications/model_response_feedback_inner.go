@@ -32,13 +32,13 @@ type ResponseFeedbackInner struct {
 	ProductValuation *int32 `json:"productValuation,omitempty"`
 	// Дата и время создания отзыва
 	CreatedDate *time.Time `json:"createdDate,omitempty"`
-	Answer NullableApiV1FeedbackGet200ResponseDataAnswer `json:"answer,omitempty"`
+	Answer NullableResponseFeedbackInnerAnswer `json:"answer,omitempty"`
 	// Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан 
 	State *string `json:"state,omitempty"`
-	ProductDetails *ApiV1FeedbackGet200ResponseDataProductDetails `json:"productDetails,omitempty"`
+	ProductDetails *ResponseFeedbackInnerProductDetails `json:"productDetails,omitempty"`
 	// Массив структур фотографий
 	PhotoLinks []ApiV1FeedbackGet200ResponseDataPhotoLinksInner `json:"photoLinks,omitempty"`
-	Video NullableApiV1FeedbackGet200ResponseDataVideo `json:"video,omitempty"`
+	Video NullableResponseFeedbackInnerVideo `json:"video,omitempty"`
 	// Просмотрен ли отзыв
 	WasViewed *bool `json:"wasViewed,omitempty"`
 	// Имя автора отзыва
@@ -287,9 +287,9 @@ func (o *ResponseFeedbackInner) SetCreatedDate(v time.Time) {
 }
 
 // GetAnswer returns the Answer field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ResponseFeedbackInner) GetAnswer() ApiV1FeedbackGet200ResponseDataAnswer {
+func (o *ResponseFeedbackInner) GetAnswer() ResponseFeedbackInnerAnswer {
 	if o == nil || IsNil(o.Answer.Get()) {
-		var ret ApiV1FeedbackGet200ResponseDataAnswer
+		var ret ResponseFeedbackInnerAnswer
 		return ret
 	}
 	return *o.Answer.Get()
@@ -298,7 +298,7 @@ func (o *ResponseFeedbackInner) GetAnswer() ApiV1FeedbackGet200ResponseDataAnswe
 // GetAnswerOk returns a tuple with the Answer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ResponseFeedbackInner) GetAnswerOk() (*ApiV1FeedbackGet200ResponseDataAnswer, bool) {
+func (o *ResponseFeedbackInner) GetAnswerOk() (*ResponseFeedbackInnerAnswer, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -314,8 +314,8 @@ func (o *ResponseFeedbackInner) HasAnswer() bool {
 	return false
 }
 
-// SetAnswer gets a reference to the given NullableApiV1FeedbackGet200ResponseDataAnswer and assigns it to the Answer field.
-func (o *ResponseFeedbackInner) SetAnswer(v ApiV1FeedbackGet200ResponseDataAnswer) {
+// SetAnswer gets a reference to the given NullableResponseFeedbackInnerAnswer and assigns it to the Answer field.
+func (o *ResponseFeedbackInner) SetAnswer(v ResponseFeedbackInnerAnswer) {
 	o.Answer.Set(&v)
 }
 // SetAnswerNil sets the value for Answer to be an explicit nil
@@ -361,9 +361,9 @@ func (o *ResponseFeedbackInner) SetState(v string) {
 }
 
 // GetProductDetails returns the ProductDetails field value if set, zero value otherwise.
-func (o *ResponseFeedbackInner) GetProductDetails() ApiV1FeedbackGet200ResponseDataProductDetails {
+func (o *ResponseFeedbackInner) GetProductDetails() ResponseFeedbackInnerProductDetails {
 	if o == nil || IsNil(o.ProductDetails) {
-		var ret ApiV1FeedbackGet200ResponseDataProductDetails
+		var ret ResponseFeedbackInnerProductDetails
 		return ret
 	}
 	return *o.ProductDetails
@@ -371,7 +371,7 @@ func (o *ResponseFeedbackInner) GetProductDetails() ApiV1FeedbackGet200ResponseD
 
 // GetProductDetailsOk returns a tuple with the ProductDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ResponseFeedbackInner) GetProductDetailsOk() (*ApiV1FeedbackGet200ResponseDataProductDetails, bool) {
+func (o *ResponseFeedbackInner) GetProductDetailsOk() (*ResponseFeedbackInnerProductDetails, bool) {
 	if o == nil || IsNil(o.ProductDetails) {
 		return nil, false
 	}
@@ -387,8 +387,8 @@ func (o *ResponseFeedbackInner) HasProductDetails() bool {
 	return false
 }
 
-// SetProductDetails gets a reference to the given ApiV1FeedbackGet200ResponseDataProductDetails and assigns it to the ProductDetails field.
-func (o *ResponseFeedbackInner) SetProductDetails(v ApiV1FeedbackGet200ResponseDataProductDetails) {
+// SetProductDetails gets a reference to the given ResponseFeedbackInnerProductDetails and assigns it to the ProductDetails field.
+func (o *ResponseFeedbackInner) SetProductDetails(v ResponseFeedbackInnerProductDetails) {
 	o.ProductDetails = &v
 }
 
@@ -426,9 +426,9 @@ func (o *ResponseFeedbackInner) SetPhotoLinks(v []ApiV1FeedbackGet200ResponseDat
 }
 
 // GetVideo returns the Video field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ResponseFeedbackInner) GetVideo() ApiV1FeedbackGet200ResponseDataVideo {
+func (o *ResponseFeedbackInner) GetVideo() ResponseFeedbackInnerVideo {
 	if o == nil || IsNil(o.Video.Get()) {
-		var ret ApiV1FeedbackGet200ResponseDataVideo
+		var ret ResponseFeedbackInnerVideo
 		return ret
 	}
 	return *o.Video.Get()
@@ -437,7 +437,7 @@ func (o *ResponseFeedbackInner) GetVideo() ApiV1FeedbackGet200ResponseDataVideo 
 // GetVideoOk returns a tuple with the Video field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ResponseFeedbackInner) GetVideoOk() (*ApiV1FeedbackGet200ResponseDataVideo, bool) {
+func (o *ResponseFeedbackInner) GetVideoOk() (*ResponseFeedbackInnerVideo, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -453,8 +453,8 @@ func (o *ResponseFeedbackInner) HasVideo() bool {
 	return false
 }
 
-// SetVideo gets a reference to the given NullableApiV1FeedbackGet200ResponseDataVideo and assigns it to the Video field.
-func (o *ResponseFeedbackInner) SetVideo(v ApiV1FeedbackGet200ResponseDataVideo) {
+// SetVideo gets a reference to the given NullableResponseFeedbackInnerVideo and assigns it to the Video field.
+func (o *ResponseFeedbackInner) SetVideo(v ResponseFeedbackInnerVideo) {
 	o.Video.Set(&v)
 }
 // SetVideoNil sets the value for Video to be an explicit nil

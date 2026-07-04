@@ -378,10 +378,10 @@ pub enum ApiV1CalendarPromotionsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1CalendarPromotionsNomenclaturesGetError {
-    Status400(models::ApiV1CalendarPromotionsGet400Response),
+    Status400(models::ApiV1CalendarPromotionsNomenclaturesGet400Response),
     Status401(models::AdvV1PromotionCountGet401Response),
     Status402(models::ApiV1CalendarPromotionsGet402Response),
-    Status422(models::ApiV1CalendarPromotionsGet400Response),
+    Status422(models::ApiV1CalendarPromotionsNomenclaturesGet422Response),
     Status429(models::AdvV1PromotionCountGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -390,10 +390,29 @@ pub enum ApiV1CalendarPromotionsNomenclaturesGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1CalendarPromotionsUploadPostError {
-    Status400(models::ApiV1CalendarPromotionsGet400Response),
+    Status400(models::ApiV1CalendarPromotionsNomenclaturesGet400Response),
     Status401(models::AdvV1PromotionCountGet401Response),
     Status402(models::ApiV1CalendarPromotionsGet402Response),
-    Status422(models::ApiV1CalendarPromotionsGet400Response),
+    Status422(models::ApiV1CalendarPromotionsUploadPost422Response),
+    Status429(models::AdvV1PromotionCountGet401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v1_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV1ConfigError {
+    Status401(models::AdvV1PromotionCountGet401Response),
+    Status429(models::AdvV1PromotionCountGet401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v1_normquery_bids`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1NormqueryBidsError {
+    Status400(models::Response400),
+    Status401(models::AdvV1PromotionCountGet401Response),
     Status429(models::AdvV1PromotionCountGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -550,7 +569,7 @@ pub async fn adv_v0_normquery_bids_delete(configuration: &configuration::Configu
     }
 }
 
-/// Метод устанавливает ставки на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn adv_v0_normquery_bids_post(configuration: &configuration::Configuration, v0_set_norm_query_bids_request: models::V0SetNormQueryBidsRequest) -> Result<(), Error<AdvV0NormqueryBidsPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_v0_set_norm_query_bids_request = v0_set_norm_query_bids_request;
@@ -1711,7 +1730,7 @@ pub async fn api_advert_v0_bids_recommendations_get(configuration: &configuratio
     }
 }
 
-/// Метод возвращает минимальные ставки для карточек товаров в копейках по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn api_advert_v1_bids_min_post(configuration: &configuration::Configuration, api_advert_v1_bids_min_post_request: models::ApiAdvertV1BidsMinPostRequest) -> Result<models::ApiAdvertV1BidsMinPost200Response, Error<ApiAdvertV1BidsMinPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_advert_v1_bids_min_post_request = api_advert_v1_bids_min_post_request;
@@ -2064,6 +2083,95 @@ pub async fn api_v1_calendar_promotions_upload_post(configuration: &configuratio
     } else {
         let content = resp.text().await?;
         let entity: Option<ApiV1CalendarPromotionsUploadPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+pub async fn get_v1_config(configuration: &configuration::Configuration, ) -> Result<models::V2GetConfigResponse, Error<GetV1ConfigError>> {
+
+    let uri_str = format!("{}/api/advert/v1/config", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V2GetConfigResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V2GetConfigResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1ConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод устанавливает ставки на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div> 
+pub async fn post_v1_normquery_bids(configuration: &configuration::Configuration, v1_set_norm_query_bids_request: models::V1SetNormQueryBidsRequest) -> Result<models::V1SetNormQueryBidsResponse, Error<PostV1NormqueryBidsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_v1_set_norm_query_bids_request = v1_set_norm_query_bids_request;
+
+    let uri_str = format!("{}/api/advert/v1/normquery/bids", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_v1_set_norm_query_bids_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V1SetNormQueryBidsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V1SetNormQueryBidsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1NormqueryBidsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -114,6 +114,11 @@ import {
     BrandsResponseErrorToJSON,
 } from '../models/BrandsResponseError';
 import {
+    type ContentV2BarcodesPost200Response,
+    ContentV2BarcodesPost200ResponseFromJSON,
+    ContentV2BarcodesPost200ResponseToJSON,
+} from '../models/ContentV2BarcodesPost200Response';
+import {
     type ContentV2BarcodesPostRequest,
     ContentV2BarcodesPostRequestFromJSON,
     ContentV2BarcodesPostRequestToJSON,
@@ -179,10 +184,20 @@ import {
     ContentV2DirectoryKindsGet200ResponseToJSON,
 } from '../models/ContentV2DirectoryKindsGet200Response';
 import {
+    type ContentV2DirectorySeasonsGet200Response,
+    ContentV2DirectorySeasonsGet200ResponseFromJSON,
+    ContentV2DirectorySeasonsGet200ResponseToJSON,
+} from '../models/ContentV2DirectorySeasonsGet200Response';
+import {
     type ContentV2DirectoryTnvedGet200Response,
     ContentV2DirectoryTnvedGet200ResponseFromJSON,
     ContentV2DirectoryTnvedGet200ResponseToJSON,
 } from '../models/ContentV2DirectoryTnvedGet200Response';
+import {
+    type ContentV2DirectoryVatGet200Response,
+    ContentV2DirectoryVatGet200ResponseFromJSON,
+    ContentV2DirectoryVatGet200ResponseToJSON,
+} from '../models/ContentV2DirectoryVatGet200Response';
 import {
     type ContentV2GetCardsListPost200Response,
     ContentV2GetCardsListPost200ResponseFromJSON,
@@ -223,6 +238,11 @@ import {
     ContentV2ObjectParentAllGet401ResponseFromJSON,
     ContentV2ObjectParentAllGet401ResponseToJSON,
 } from '../models/ContentV2ObjectParentAllGet401Response';
+import {
+    type ContentV2TagIdPatchRequest,
+    ContentV2TagIdPatchRequestFromJSON,
+    ContentV2TagIdPatchRequestToJSON,
+} from '../models/ContentV2TagIdPatchRequest';
 import {
     type ContentV2TagNomenclatureLinkPostRequest,
     ContentV2TagNomenclatureLinkPostRequestFromJSON,
@@ -569,9 +589,9 @@ export interface ContentV2TagIdDeleteRequest {
     id: number;
 }
 
-export interface ContentV2TagIdPatchRequest {
+export interface ContentV2TagIdPatchOperationRequest {
     id: number;
-    contentV2TagPostRequest: ContentV2TagPostRequest;
+    contentV2TagIdPatchRequest: ContentV2TagIdPatchRequest;
 }
 
 export interface ContentV2TagNomenclatureLinkPostOperationRequest {
@@ -1885,18 +1905,18 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Генерация баркодов
      */
-    async contentV2BarcodesPostRaw(requestParameters: ContentV2BarcodesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryKindsGet200Response>> {
+    async contentV2BarcodesPostRaw(requestParameters: ContentV2BarcodesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2BarcodesPost200Response>> {
         const requestOptions = await this.contentV2BarcodesPostRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryKindsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2BarcodesPost200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Генерация баркодов
      */
-    async contentV2BarcodesPost(requestParameters: ContentV2BarcodesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryKindsGet200Response> {
+    async contentV2BarcodesPost(requestParameters: ContentV2BarcodesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2BarcodesPost200Response> {
         const response = await this.contentV2BarcodesPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2463,18 +2483,18 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Сезон
      */
-    async contentV2DirectorySeasonsGetRaw(requestParameters: ContentV2DirectorySeasonsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryKindsGet200Response>> {
+    async contentV2DirectorySeasonsGetRaw(requestParameters: ContentV2DirectorySeasonsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectorySeasonsGet200Response>> {
         const requestOptions = await this.contentV2DirectorySeasonsGetRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryKindsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectorySeasonsGet200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Сезон
      */
-    async contentV2DirectorySeasonsGet(requestParameters: ContentV2DirectorySeasonsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryKindsGet200Response> {
+    async contentV2DirectorySeasonsGet(requestParameters: ContentV2DirectorySeasonsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectorySeasonsGet200Response> {
         const response = await this.contentV2DirectorySeasonsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2572,18 +2592,18 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Ставка НДС
      */
-    async contentV2DirectoryVatGetRaw(requestParameters: ContentV2DirectoryVatGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryKindsGet200Response>> {
+    async contentV2DirectoryVatGetRaw(requestParameters: ContentV2DirectoryVatGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContentV2DirectoryVatGet200Response>> {
         const requestOptions = await this.contentV2DirectoryVatGetRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryKindsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ContentV2DirectoryVatGet200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Ставка НДС
      */
-    async contentV2DirectoryVatGet(requestParameters: ContentV2DirectoryVatGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryKindsGet200Response> {
+    async contentV2DirectoryVatGet(requestParameters: ContentV2DirectoryVatGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContentV2DirectoryVatGet200Response> {
         const response = await this.contentV2DirectoryVatGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2921,7 +2941,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Creates request options for contentV2TagIdPatch without sending the request
      */
-    async contentV2TagIdPatchRequestOpts(requestParameters: ContentV2TagIdPatchRequest): Promise<runtime.RequestOpts> {
+    async contentV2TagIdPatchRequestOpts(requestParameters: ContentV2TagIdPatchOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -2929,10 +2949,10 @@ export class DefaultApi extends runtime.BaseAPI {
             );
         }
 
-        if (requestParameters['contentV2TagPostRequest'] == null) {
+        if (requestParameters['contentV2TagIdPatchRequest'] == null) {
             throw new runtime.RequiredError(
-                'contentV2TagPostRequest',
-                'Required parameter "contentV2TagPostRequest" was null or undefined when calling contentV2TagIdPatch().'
+                'contentV2TagIdPatchRequest',
+                'Required parameter "contentV2TagIdPatchRequest" was null or undefined when calling contentV2TagIdPatch().'
             );
         }
 
@@ -2955,7 +2975,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: ContentV2TagPostRequestToJSON(requestParameters['contentV2TagPostRequest']),
+            body: ContentV2TagIdPatchRequestToJSON(requestParameters['contentV2TagIdPatchRequest']),
         };
     }
 
@@ -2963,7 +2983,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Изменение ярлыка
      */
-    async contentV2TagIdPatchRaw(requestParameters: ContentV2TagIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
+    async contentV2TagIdPatchRaw(requestParameters: ContentV2TagIdPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseContentError>> {
         const requestOptions = await this.contentV2TagIdPatchRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
@@ -2974,7 +2994,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
      * Изменение ярлыка
      */
-    async contentV2TagIdPatch(requestParameters: ContentV2TagIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
+    async contentV2TagIdPatch(requestParameters: ContentV2TagIdPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseContentError> {
         const response = await this.contentV2TagIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }

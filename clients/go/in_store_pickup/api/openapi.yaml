@@ -2340,7 +2340,7 @@ components:
         warehouseAddress: "Москва, район Якиманка, Софийская набережная, 4 с1"
         warehouseId: 1162157
         options:
-          isB2b: true
+          isB2b: false
       properties:
         article:
           description: Артикул продавца
@@ -2461,7 +2461,7 @@ components:
           example: 1162157
           type: integer
         options:
-          $ref: "#/components/schemas/api_NewOrder_options"
+          $ref: "#/components/schemas/api_Order_options"
       type: object
     api.OrderClientInfo:
       example:
@@ -2532,7 +2532,7 @@ components:
           warehouseAddress: "Москва, район Якиманка, Софийская набережная, 4 с1"
           warehouseId: 1162157
           options:
-            isB2b: true
+            isB2b: false
         - article: wb6scpbwvp
           cargoType: 1
           chrtId: 12345676
@@ -2554,7 +2554,7 @@ components:
           warehouseAddress: "Москва, район Якиманка, Софийская набережная, 4 с1"
           warehouseId: 1162157
           options:
-            isB2b: true
+            isB2b: false
       properties:
         next:
           description: |
@@ -3274,6 +3274,19 @@ components:
             Признак B2B-продажи:
               - `false` — не B2B-продажа
               - `true` — B2B-продажа
+          type: boolean
+      type: object
+    api_Order_options:
+      description: Опции заказа
+      example:
+        isB2b: false
+      properties:
+        isB2b:
+          description: |
+            Признак B2B-продажи:
+              - `false` — не B2B-продажа
+              - `true` — B2B-продажа
+          example: false
           type: boolean
       type: object
     api_MetaDetailsResponse_results_inner_errors_inner:

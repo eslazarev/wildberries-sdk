@@ -58,7 +58,7 @@ class RequestWithInterval implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $openAPITypes = [
         'id' => 'int',
-        'interval' => '\Wildberries\Sdk\Promotion\Model\StatIntervalInterval'
+        'interval' => '\Wildberries\Sdk\Promotion\Model\RequestWithIntervalInterval'
     ];
 
     /**
@@ -332,7 +332,7 @@ class RequestWithInterval implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets interval
      *
-     * @return \Wildberries\Sdk\Promotion\Model\StatIntervalInterval
+     * @return \Wildberries\Sdk\Promotion\Model\RequestWithIntervalInterval
      */
     public function getInterval()
     {
@@ -342,7 +342,7 @@ class RequestWithInterval implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets interval
      *
-     * @param \Wildberries\Sdk\Promotion\Model\StatIntervalInterval $interval interval
+     * @param \Wildberries\Sdk\Promotion\Model\RequestWithIntervalInterval $interval interval
      *
      * @return self
      */

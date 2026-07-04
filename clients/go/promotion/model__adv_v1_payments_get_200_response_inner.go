@@ -31,6 +31,8 @@ type AdvV1PaymentsGet200ResponseInner struct {
 	StatusId *int32 `json:"statusId,omitempty"`
 	// Статус операции(при оплате картой): - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно 
 	CardStatus *string `json:"cardStatus,omitempty"`
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency *string `json:"currency,omitempty"`
 }
 
 // NewAdvV1PaymentsGet200ResponseInner instantiates a new AdvV1PaymentsGet200ResponseInner object
@@ -242,6 +244,38 @@ func (o *AdvV1PaymentsGet200ResponseInner) SetCardStatus(v string) {
 	o.CardStatus = &v
 }
 
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *AdvV1PaymentsGet200ResponseInner) GetCurrency() string {
+	if o == nil || IsNil(o.Currency) {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdvV1PaymentsGet200ResponseInner) GetCurrencyOk() (*string, bool) {
+	if o == nil || IsNil(o.Currency) {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *AdvV1PaymentsGet200ResponseInner) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *AdvV1PaymentsGet200ResponseInner) SetCurrency(v string) {
+	o.Currency = &v
+}
+
 func (o AdvV1PaymentsGet200ResponseInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -269,6 +303,9 @@ func (o AdvV1PaymentsGet200ResponseInner) ToMap() (map[string]interface{}, error
 	}
 	if !IsNil(o.CardStatus) {
 		toSerialize["cardStatus"] = o.CardStatus
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
 	}
 	return toSerialize, nil
 }

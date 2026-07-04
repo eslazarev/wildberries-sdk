@@ -40,12 +40,12 @@ type TableItemItemStMetrics struct {
 	// Стоимость остатков на текущий день
 	StockSum int32 `json:"stockSum"`
 	SaleRate TableCommonMetricsSaleRate `json:"saleRate"`
-	AvgStockTurnover TableCommonMetricsSaleRate `json:"avgStockTurnover"`
+	AvgStockTurnover TableCommonMetricsAvgStockTurnover `json:"avgStockTurnover"`
 	// В пути к клиенту, шт.
 	ToClientCount int32 `json:"toClientCount"`
 	// В пути от клиента, шт.
 	FromClientCount int32 `json:"fromClientCount"`
-	OfficeMissingTime TableCommonMetricsSaleRate `json:"officeMissingTime"`
+	OfficeMissingTime TableCommonMetricsOfficeMissingTime `json:"officeMissingTime"`
 	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
 	LostOrdersCount float32 `json:"lostOrdersCount"`
 	// Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
@@ -65,7 +65,7 @@ type _TableItemItemStMetrics TableItemItemStMetrics
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableItemItemStMetrics(ordersCount int32, ordersSum int32, avgOrders float32, avgOrdersByMonth []FloatGraphByPeriodItem, buyoutCount int32, buyoutSum int32, buyoutPercent int32, stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, avgStockTurnover TableCommonMetricsSaleRate, toClientCount int32, fromClientCount int32, officeMissingTime TableCommonMetricsSaleRate, lostOrdersCount float32, lostOrdersSum float32, lostBuyoutsCount float32, lostBuyoutsSum float32, currentPrice TableItemItemStMetricsAllOfCurrentPrice, availability string) *TableItemItemStMetrics {
+func NewTableItemItemStMetrics(ordersCount int32, ordersSum int32, avgOrders float32, avgOrdersByMonth []FloatGraphByPeriodItem, buyoutCount int32, buyoutSum int32, buyoutPercent int32, stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, avgStockTurnover TableCommonMetricsAvgStockTurnover, toClientCount int32, fromClientCount int32, officeMissingTime TableCommonMetricsOfficeMissingTime, lostOrdersCount float32, lostOrdersSum float32, lostBuyoutsCount float32, lostBuyoutsSum float32, currentPrice TableItemItemStMetricsAllOfCurrentPrice, availability string) *TableItemItemStMetrics {
 	this := TableItemItemStMetrics{}
 	this.OrdersCount = ordersCount
 	this.OrdersSum = ordersSum
@@ -339,9 +339,9 @@ func (o *TableItemItemStMetrics) SetSaleRate(v TableCommonMetricsSaleRate) {
 }
 
 // GetAvgStockTurnover returns the AvgStockTurnover field value
-func (o *TableItemItemStMetrics) GetAvgStockTurnover() TableCommonMetricsSaleRate {
+func (o *TableItemItemStMetrics) GetAvgStockTurnover() TableCommonMetricsAvgStockTurnover {
 	if o == nil {
-		var ret TableCommonMetricsSaleRate
+		var ret TableCommonMetricsAvgStockTurnover
 		return ret
 	}
 
@@ -350,7 +350,7 @@ func (o *TableItemItemStMetrics) GetAvgStockTurnover() TableCommonMetricsSaleRat
 
 // GetAvgStockTurnoverOk returns a tuple with the AvgStockTurnover field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItemStMetrics) GetAvgStockTurnoverOk() (*TableCommonMetricsSaleRate, bool) {
+func (o *TableItemItemStMetrics) GetAvgStockTurnoverOk() (*TableCommonMetricsAvgStockTurnover, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -358,7 +358,7 @@ func (o *TableItemItemStMetrics) GetAvgStockTurnoverOk() (*TableCommonMetricsSal
 }
 
 // SetAvgStockTurnover sets field value
-func (o *TableItemItemStMetrics) SetAvgStockTurnover(v TableCommonMetricsSaleRate) {
+func (o *TableItemItemStMetrics) SetAvgStockTurnover(v TableCommonMetricsAvgStockTurnover) {
 	o.AvgStockTurnover = v
 }
 
@@ -411,9 +411,9 @@ func (o *TableItemItemStMetrics) SetFromClientCount(v int32) {
 }
 
 // GetOfficeMissingTime returns the OfficeMissingTime field value
-func (o *TableItemItemStMetrics) GetOfficeMissingTime() TableCommonMetricsSaleRate {
+func (o *TableItemItemStMetrics) GetOfficeMissingTime() TableCommonMetricsOfficeMissingTime {
 	if o == nil {
-		var ret TableCommonMetricsSaleRate
+		var ret TableCommonMetricsOfficeMissingTime
 		return ret
 	}
 
@@ -422,7 +422,7 @@ func (o *TableItemItemStMetrics) GetOfficeMissingTime() TableCommonMetricsSaleRa
 
 // GetOfficeMissingTimeOk returns a tuple with the OfficeMissingTime field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItemStMetrics) GetOfficeMissingTimeOk() (*TableCommonMetricsSaleRate, bool) {
+func (o *TableItemItemStMetrics) GetOfficeMissingTimeOk() (*TableCommonMetricsOfficeMissingTime, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -430,7 +430,7 @@ func (o *TableItemItemStMetrics) GetOfficeMissingTimeOk() (*TableCommonMetricsSa
 }
 
 // SetOfficeMissingTime sets field value
-func (o *TableItemItemStMetrics) SetOfficeMissingTime(v TableCommonMetricsSaleRate) {
+func (o *TableItemItemStMetrics) SetOfficeMissingTime(v TableCommonMetricsOfficeMissingTime) {
 	o.OfficeMissingTime = v
 }
 

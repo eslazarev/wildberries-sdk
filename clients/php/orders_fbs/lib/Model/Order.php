@@ -81,7 +81,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => 'int',
         'comment' => 'string',
         'is_zero_order' => 'bool',
-        'options' => '\Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrderOptions'
+        'options' => '\Wildberries\Sdk\OrdersFbs\Model\OrderOptions'
     ];
 
     /**
@@ -1239,7 +1239,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets options
      *
-     * @return \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrderOptions|null
+     * @return \Wildberries\Sdk\OrdersFbs\Model\OrderOptions|null
      */
     public function getOptions()
     {
@@ -1249,7 +1249,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets options
      *
-     * @param \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrderOptions|null $options options
+     * @param \Wildberries\Sdk\OrdersFbs\Model\OrderOptions|null $options options
      *
      * @return self
      */

@@ -17,11 +17,11 @@ pub struct RequestWithInterval {
     #[serde(rename = "id")]
     pub id: i32,
     #[serde(rename = "interval")]
-    pub interval: Box<models::StatIntervalInterval>,
+    pub interval: Box<models::RequestWithIntervalInterval>,
 }
 
 impl RequestWithInterval {
-    pub fn new(id: i32, interval: models::StatIntervalInterval) -> RequestWithInterval {
+    pub fn new(id: i32, interval: models::RequestWithIntervalInterval) -> RequestWithInterval {
         RequestWithInterval {
             id,
             interval: Box::new(interval),

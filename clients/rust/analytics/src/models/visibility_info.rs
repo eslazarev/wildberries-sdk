@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct VisibilityInfo {
     #[serde(rename = "visibility")]
-    pub visibility: Box<models::CommonInfoAdvertisedProducts>,
+    pub visibility: Box<models::VisibilityInfoVisibility>,
     #[serde(rename = "openCard")]
-    pub open_card: Box<models::CommonInfoAdvertisedProducts>,
+    pub open_card: Box<models::VisibilityInfoOpenCard>,
     /// Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
     #[serde(rename = "byDay", skip_serializing_if = "Option::is_none")]
     pub by_day: Option<Vec<models::VisibilityInfoByDayInner>>,
@@ -31,7 +31,7 @@ pub struct VisibilityInfo {
 
 impl VisibilityInfo {
     /// Видимость карточек и переходы в карточки. По дням, неделям, месяцам
-    pub fn new(visibility: models::CommonInfoAdvertisedProducts, open_card: models::CommonInfoAdvertisedProducts) -> VisibilityInfo {
+    pub fn new(visibility: models::VisibilityInfoVisibility, open_card: models::VisibilityInfoOpenCard) -> VisibilityInfo {
         VisibilityInfo {
             visibility: Box::new(visibility),
             open_card: Box::new(open_card),

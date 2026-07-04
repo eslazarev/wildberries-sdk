@@ -30,6 +30,8 @@ pub mod get_doc_data;
 pub use self::get_doc_data::GetDocData;
 pub mod get_docs;
 pub use self::get_docs::GetDocs;
+pub mod get_docs_data;
+pub use self::get_docs_data::GetDocsData;
 pub mod get_list;
 pub use self::get_list::GetList;
 pub mod get_list_data;

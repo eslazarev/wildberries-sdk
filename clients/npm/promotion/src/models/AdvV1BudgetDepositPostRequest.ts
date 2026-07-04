@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface AdvV1BudgetDepositPostRequest {
     /**
-     * Общая сумма пополнения бюджета
+     * Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof AdvV1BudgetDepositPostRequest
      */
@@ -42,7 +42,7 @@ export interface AdvV1BudgetDepositPostRequest {
      * @type {number}
      * @memberof AdvV1BudgetDepositPostRequest
      */
-    cashbackSum?: number | null;
+    cashbackSum?: number;
     /**
      * Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get)
      * <br>
@@ -51,7 +51,7 @@ export interface AdvV1BudgetDepositPostRequest {
      * @type {number}
      * @memberof AdvV1BudgetDepositPostRequest
      */
-    cashbackPercent?: number | null;
+    cashbackPercent?: number;
     /**
      * Тип источника пополнения:
      * - `0` — Счёт

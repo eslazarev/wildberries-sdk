@@ -27,7 +27,7 @@ class V0BidRecommendationBaseBidLeadersBid(BaseModel):
     """
     Лидерская ставка — средняя ставка с которой товары занимают лидирующие позиции в вашей категории товаров 
     """ # noqa: E501
-    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка, копеек", alias="bidKopecks")
+    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="bidKopecks")
     __properties: ClassVar[List[str]] = ["bidKopecks"]
 
     model_config = ConfigDict(

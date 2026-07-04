@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -39,6 +39,7 @@ __all__ = [
     "ModelsHandySupplyStatus",
     "ModelsOptionsResultModel",
     "ModelsOptionsResultModelResultInner",
+    "ModelsOptionsResultModelResultInnerError",
     "ModelsOptionsResultModelResultInnerWarehousesInner",
     "ModelsSuppliesFiltersRequest",
     "ModelsSupply",
@@ -74,6 +75,7 @@ from wildberries_sdk.orders_fbw.models.models_good_in_supply import ModelsGoodIn
 from wildberries_sdk.orders_fbw.models.models_handy_supply_status import ModelsHandySupplyStatus as ModelsHandySupplyStatus
 from wildberries_sdk.orders_fbw.models.models_options_result_model import ModelsOptionsResultModel as ModelsOptionsResultModel
 from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner import ModelsOptionsResultModelResultInner as ModelsOptionsResultModelResultInner
+from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner_error import ModelsOptionsResultModelResultInnerError as ModelsOptionsResultModelResultInnerError
 from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner_warehouses_inner import ModelsOptionsResultModelResultInnerWarehousesInner as ModelsOptionsResultModelResultInnerWarehousesInner
 from wildberries_sdk.orders_fbw.models.models_supplies_filters_request import ModelsSuppliesFiltersRequest as ModelsSuppliesFiltersRequest
 from wildberries_sdk.orders_fbw.models.models_supply import ModelsSupply as ModelsSupply

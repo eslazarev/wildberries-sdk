@@ -20,7 +20,7 @@ import { mapValues } from '../runtime';
  */
 export interface AdvV1BalanceGet200ResponseCashbacksInner {
     /**
-     * Промо-бонусы, ₽
+     * Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof AdvV1BalanceGet200ResponseCashbacksInner
      */

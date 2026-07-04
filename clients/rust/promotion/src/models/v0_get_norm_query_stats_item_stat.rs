@@ -31,10 +31,10 @@ pub struct V0GetNormQueryStatsItemStat {
     /// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
     #[serde(rename = "ctr", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ctr: Option<Option<f64>>,
-    /// Стоимость одного клика, ₽
+    /// Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "cpc", skip_serializing_if = "Option::is_none")]
     pub cpc: Option<f64>,
-    /// Средняя стоимость за тысячу показов, ₽.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+    /// Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
     #[serde(rename = "cpm", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cpm: Option<Option<f64>>,
     /// Средняя позиция товара на страницах поисковой выдачи
@@ -46,6 +46,9 @@ pub struct V0GetNormQueryStatsItemStat {
     /// Затраты на продвижение товаров в конкретном поисковом кластере кампании 
     #[serde(rename = "spend", skip_serializing_if = "Option::is_none")]
     pub spend: Option<f64>,
+    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
+    pub currency: Option<String>,
 }
 
 impl V0GetNormQueryStatsItemStat {
@@ -62,6 +65,7 @@ impl V0GetNormQueryStatsItemStat {
             avg_pos: None,
             shks: None,
             spend: None,
+            currency: None,
         }
     }
 }

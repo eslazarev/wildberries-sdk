@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -60,6 +60,7 @@ __all__ = [
     "BrandsResponseError",
     "BrandsResponseErrorErrorsInner",
     "ClubDiscReq",
+    "ContentV2BarcodesPost200Response",
     "ContentV2BarcodesPostRequest",
     "ContentV2CardsDeleteTrashPost200Response",
     "ContentV2CardsDeleteTrashPostRequest",
@@ -74,16 +75,21 @@ __all__ = [
     "ContentV2CardsUpdatePostRequestInnerSizesInner",
     "ContentV2CardsUploadAddPostRequest",
     "ContentV2CardsUploadAddPostRequestCardsToAddInner",
+    "ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions",
+    "ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner",
     "ContentV2CardsUploadPostRequestInner",
     "ContentV2CardsUploadPostRequestInnerVariantsInner",
+    "ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions",
     "ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner",
     "ContentV2DirectoryColorsGet200Response",
     "ContentV2DirectoryColorsGet200ResponseDataInner",
     "ContentV2DirectoryCountriesGet200Response",
     "ContentV2DirectoryCountriesGet200ResponseDataInner",
     "ContentV2DirectoryKindsGet200Response",
+    "ContentV2DirectorySeasonsGet200Response",
     "ContentV2DirectoryTnvedGet200Response",
     "ContentV2DirectoryTnvedGet200ResponseDataInner",
+    "ContentV2DirectoryVatGet200Response",
     "ContentV2GetCardsListPost200Response",
     "ContentV2GetCardsListPost200ResponseCardsInner",
     "ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner",
@@ -100,11 +106,13 @@ __all__ = [
     "ContentV2GetCardsListPostRequestSettingsSort",
     "ContentV2GetCardsTrashPost200Response",
     "ContentV2GetCardsTrashPost200ResponseCardsInner",
+    "ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner",
     "ContentV2GetCardsTrashPost200ResponseCursor",
     "ContentV2GetCardsTrashPostRequest",
     "ContentV2GetCardsTrashPostRequestSettings",
     "ContentV2GetCardsTrashPostRequestSettingsCursor",
     "ContentV2GetCardsTrashPostRequestSettingsFilter",
+    "ContentV2GetCardsTrashPostRequestSettingsSort",
     "ContentV2ObjectAllGet200Response",
     "ContentV2ObjectAllGet200ResponseDataInner",
     "ContentV2ObjectCharcsSubjectIdGet200Response",
@@ -112,6 +120,7 @@ __all__ = [
     "ContentV2ObjectParentAllGet200Response",
     "ContentV2ObjectParentAllGet200ResponseDataInner",
     "ContentV2ObjectParentAllGet401Response",
+    "ContentV2TagIdPatchRequest",
     "ContentV2TagNomenclatureLinkPostRequest",
     "ContentV2TagPostRequest",
     "ContentV2TagsGet200Response",
@@ -171,9 +180,11 @@ __all__ = [
     "StocksWarehouseErrorInner",
     "StocksWarehouseErrorInnerDataInner",
     "StoreContactRequestBody",
+    "StoreContactRequestBodyContactsInner",
     "SwaggerPublicErrorsCursorInput",
     "SwaggerPublicErrorsOrderV2",
     "TaskCreated",
+    "TaskCreatedData",
     "UpdateBlocked",
     "ViewerContractPublicErrorsCursorOutput",
     "Warehouse",
@@ -228,6 +239,7 @@ from wildberries_sdk.items.models.brands_response_brands_inner import BrandsResp
 from wildberries_sdk.items.models.brands_response_error import BrandsResponseError as BrandsResponseError
 from wildberries_sdk.items.models.brands_response_error_errors_inner import BrandsResponseErrorErrorsInner as BrandsResponseErrorErrorsInner
 from wildberries_sdk.items.models.club_disc_req import ClubDiscReq as ClubDiscReq
+from wildberries_sdk.items.models.content_v2_barcodes_post200_response import ContentV2BarcodesPost200Response as ContentV2BarcodesPost200Response
 from wildberries_sdk.items.models.content_v2_barcodes_post_request import ContentV2BarcodesPostRequest as ContentV2BarcodesPostRequest
 from wildberries_sdk.items.models.content_v2_cards_delete_trash_post200_response import ContentV2CardsDeleteTrashPost200Response as ContentV2CardsDeleteTrashPost200Response
 from wildberries_sdk.items.models.content_v2_cards_delete_trash_post_request import ContentV2CardsDeleteTrashPostRequest as ContentV2CardsDeleteTrashPostRequest
@@ -242,16 +254,21 @@ from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_dim
 from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_sizes_inner import ContentV2CardsUpdatePostRequestInnerSizesInner as ContentV2CardsUpdatePostRequestInnerSizesInner
 from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request import ContentV2CardsUploadAddPostRequest as ContentV2CardsUploadAddPostRequest
 from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner import ContentV2CardsUploadAddPostRequestCardsToAddInner as ContentV2CardsUploadAddPostRequestCardsToAddInner
+from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_dimensions import ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions as ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions
+from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_sizes_inner import ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner as ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner import ContentV2CardsUploadPostRequestInner as ContentV2CardsUploadPostRequestInner
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner import ContentV2CardsUploadPostRequestInnerVariantsInner as ContentV2CardsUploadPostRequestInnerVariantsInner
+from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_dimensions import ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions as ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_sizes_inner import ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner as ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner
 from wildberries_sdk.items.models.content_v2_directory_colors_get200_response import ContentV2DirectoryColorsGet200Response as ContentV2DirectoryColorsGet200Response
 from wildberries_sdk.items.models.content_v2_directory_colors_get200_response_data_inner import ContentV2DirectoryColorsGet200ResponseDataInner as ContentV2DirectoryColorsGet200ResponseDataInner
 from wildberries_sdk.items.models.content_v2_directory_countries_get200_response import ContentV2DirectoryCountriesGet200Response as ContentV2DirectoryCountriesGet200Response
 from wildberries_sdk.items.models.content_v2_directory_countries_get200_response_data_inner import ContentV2DirectoryCountriesGet200ResponseDataInner as ContentV2DirectoryCountriesGet200ResponseDataInner
 from wildberries_sdk.items.models.content_v2_directory_kinds_get200_response import ContentV2DirectoryKindsGet200Response as ContentV2DirectoryKindsGet200Response
+from wildberries_sdk.items.models.content_v2_directory_seasons_get200_response import ContentV2DirectorySeasonsGet200Response as ContentV2DirectorySeasonsGet200Response
 from wildberries_sdk.items.models.content_v2_directory_tnved_get200_response import ContentV2DirectoryTnvedGet200Response as ContentV2DirectoryTnvedGet200Response
 from wildberries_sdk.items.models.content_v2_directory_tnved_get200_response_data_inner import ContentV2DirectoryTnvedGet200ResponseDataInner as ContentV2DirectoryTnvedGet200ResponseDataInner
+from wildberries_sdk.items.models.content_v2_directory_vat_get200_response import ContentV2DirectoryVatGet200Response as ContentV2DirectoryVatGet200Response
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response import ContentV2GetCardsListPost200Response as ContentV2GetCardsListPost200Response
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner import ContentV2GetCardsListPost200ResponseCardsInner as ContentV2GetCardsListPost200ResponseCardsInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_characteristics_inner import ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner as ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner
@@ -268,11 +285,13 @@ from wildberries_sdk.items.models.content_v2_get_cards_list_post_request_setting
 from wildberries_sdk.items.models.content_v2_get_cards_list_post_request_settings_sort import ContentV2GetCardsListPostRequestSettingsSort as ContentV2GetCardsListPostRequestSettingsSort
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post200_response import ContentV2GetCardsTrashPost200Response as ContentV2GetCardsTrashPost200Response
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post200_response_cards_inner import ContentV2GetCardsTrashPost200ResponseCardsInner as ContentV2GetCardsTrashPost200ResponseCardsInner
+from wildberries_sdk.items.models.content_v2_get_cards_trash_post200_response_cards_inner_sizes_inner import ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner as ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post200_response_cursor import ContentV2GetCardsTrashPost200ResponseCursor as ContentV2GetCardsTrashPost200ResponseCursor
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request import ContentV2GetCardsTrashPostRequest as ContentV2GetCardsTrashPostRequest
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings import ContentV2GetCardsTrashPostRequestSettings as ContentV2GetCardsTrashPostRequestSettings
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings_cursor import ContentV2GetCardsTrashPostRequestSettingsCursor as ContentV2GetCardsTrashPostRequestSettingsCursor
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings_filter import ContentV2GetCardsTrashPostRequestSettingsFilter as ContentV2GetCardsTrashPostRequestSettingsFilter
+from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings_sort import ContentV2GetCardsTrashPostRequestSettingsSort as ContentV2GetCardsTrashPostRequestSettingsSort
 from wildberries_sdk.items.models.content_v2_object_all_get200_response import ContentV2ObjectAllGet200Response as ContentV2ObjectAllGet200Response
 from wildberries_sdk.items.models.content_v2_object_all_get200_response_data_inner import ContentV2ObjectAllGet200ResponseDataInner as ContentV2ObjectAllGet200ResponseDataInner
 from wildberries_sdk.items.models.content_v2_object_charcs_subject_id_get200_response import ContentV2ObjectCharcsSubjectIdGet200Response as ContentV2ObjectCharcsSubjectIdGet200Response
@@ -280,6 +299,7 @@ from wildberries_sdk.items.models.content_v2_object_charcs_subject_id_get200_res
 from wildberries_sdk.items.models.content_v2_object_parent_all_get200_response import ContentV2ObjectParentAllGet200Response as ContentV2ObjectParentAllGet200Response
 from wildberries_sdk.items.models.content_v2_object_parent_all_get200_response_data_inner import ContentV2ObjectParentAllGet200ResponseDataInner as ContentV2ObjectParentAllGet200ResponseDataInner
 from wildberries_sdk.items.models.content_v2_object_parent_all_get401_response import ContentV2ObjectParentAllGet401Response as ContentV2ObjectParentAllGet401Response
+from wildberries_sdk.items.models.content_v2_tag_id_patch_request import ContentV2TagIdPatchRequest as ContentV2TagIdPatchRequest
 from wildberries_sdk.items.models.content_v2_tag_nomenclature_link_post_request import ContentV2TagNomenclatureLinkPostRequest as ContentV2TagNomenclatureLinkPostRequest
 from wildberries_sdk.items.models.content_v2_tag_post_request import ContentV2TagPostRequest as ContentV2TagPostRequest
 from wildberries_sdk.items.models.content_v2_tags_get200_response import ContentV2TagsGet200Response as ContentV2TagsGet200Response
@@ -339,9 +359,11 @@ from wildberries_sdk.items.models.size_good_req import SizeGoodReq as SizeGoodRe
 from wildberries_sdk.items.models.stocks_warehouse_error_inner import StocksWarehouseErrorInner as StocksWarehouseErrorInner
 from wildberries_sdk.items.models.stocks_warehouse_error_inner_data_inner import StocksWarehouseErrorInnerDataInner as StocksWarehouseErrorInnerDataInner
 from wildberries_sdk.items.models.store_contact_request_body import StoreContactRequestBody as StoreContactRequestBody
+from wildberries_sdk.items.models.store_contact_request_body_contacts_inner import StoreContactRequestBodyContactsInner as StoreContactRequestBodyContactsInner
 from wildberries_sdk.items.models.swagger_public_errors_cursor_input import SwaggerPublicErrorsCursorInput as SwaggerPublicErrorsCursorInput
 from wildberries_sdk.items.models.swagger_public_errors_order_v2 import SwaggerPublicErrorsOrderV2 as SwaggerPublicErrorsOrderV2
 from wildberries_sdk.items.models.task_created import TaskCreated as TaskCreated
+from wildberries_sdk.items.models.task_created_data import TaskCreatedData as TaskCreatedData
 from wildberries_sdk.items.models.update_blocked import UpdateBlocked as UpdateBlocked
 from wildberries_sdk.items.models.viewer_contract_public_errors_cursor_output import ViewerContractPublicErrorsCursorOutput as ViewerContractPublicErrorsCursorOutput
 from wildberries_sdk.items.models.warehouse import Warehouse as Warehouse

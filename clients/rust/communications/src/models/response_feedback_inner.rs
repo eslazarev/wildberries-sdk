@@ -32,17 +32,17 @@ pub struct ResponseFeedbackInner {
     #[serde(rename = "createdDate", skip_serializing_if = "Option::is_none")]
     pub created_date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "answer", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub answer: Option<Option<Box<models::ApiV1FeedbackGet200ResponseDataAnswer>>>,
+    pub answer: Option<Option<Box<models::ResponseFeedbackInnerAnswer>>>,
     /// Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан 
     #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     #[serde(rename = "productDetails", skip_serializing_if = "Option::is_none")]
-    pub product_details: Option<Box<models::ApiV1FeedbackGet200ResponseDataProductDetails>>,
+    pub product_details: Option<Box<models::ResponseFeedbackInnerProductDetails>>,
     /// Массив структур фотографий
     #[serde(rename = "photoLinks", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub photo_links: Option<Option<Vec<models::ApiV1FeedbackGet200ResponseDataPhotoLinksInner>>>,
     #[serde(rename = "video", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub video: Option<Option<Box<models::ApiV1FeedbackGet200ResponseDataVideo>>>,
+    pub video: Option<Option<Box<models::ResponseFeedbackInnerVideo>>>,
     /// Просмотрен ли отзыв
     #[serde(rename = "wasViewed", skip_serializing_if = "Option::is_none")]
     pub was_viewed: Option<bool>,

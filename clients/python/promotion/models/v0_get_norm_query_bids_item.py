@@ -30,8 +30,10 @@ class V0GetNormQueryBidsItem(BaseModel):
     advert_id: StrictInt = Field(description="ID кампании")
     nm_id: StrictInt = Field(description="Артикул WB")
     norm_query: StrictStr = Field(description="Поисковый кластер")
-    bid: StrictInt = Field(description="Текущая ставка за тысячу показов, ₽")
-    __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "norm_query", "bid"]
+    bid: StrictInt = Field(description="Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов")
+    bid_kopecks: StrictInt = Field(description="Текущая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов")
+    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "norm_query", "bid", "bid_kopecks", "currency"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +89,9 @@ class V0GetNormQueryBidsItem(BaseModel):
             "advert_id": obj.get("advert_id"),
             "nm_id": obj.get("nm_id"),
             "norm_query": obj.get("norm_query"),
-            "bid": obj.get("bid")
+            "bid": obj.get("bid"),
+            "bid_kopecks": obj.get("bid_kopecks"),
+            "currency": obj.get("currency")
         })
         return _obj
 

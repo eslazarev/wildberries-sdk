@@ -38,11 +38,23 @@ export interface V0GetNormQueryBidsItem {
      */
     normQuery: string;
     /**
-     * Текущая ставка за тысячу показов, ₽
+     * Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
      * @type {number}
      * @memberof V0GetNormQueryBidsItem
      */
     bid: number;
+    /**
+     * Текущая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+     * @type {number}
+     * @memberof V0GetNormQueryBidsItem
+     */
+    bidKopecks: number;
+    /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof V0GetNormQueryBidsItem
+     */
+    currency: string;
 }
 
 /**
@@ -53,6 +65,8 @@ export function instanceOfV0GetNormQueryBidsItem(value: object): value is V0GetN
     if ((!('nmId' in (value as Record<string, any>)) && !('nm_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmId'] === undefined && (value as Record<string, any>)['nm_id'] === undefined)) return false;
     if ((!('normQuery' in (value as Record<string, any>)) && !('norm_query' in (value as Record<string, any>))) || ((value as Record<string, any>)['normQuery'] === undefined && (value as Record<string, any>)['norm_query'] === undefined)) return false;
     if (!('bid' in value) || value['bid'] === undefined) return false;
+    if ((!('bidKopecks' in (value as Record<string, any>)) && !('bid_kopecks' in (value as Record<string, any>))) || ((value as Record<string, any>)['bidKopecks'] === undefined && (value as Record<string, any>)['bid_kopecks'] === undefined)) return false;
+    if (!('currency' in value) || value['currency'] === undefined) return false;
     return true;
 }
 
@@ -70,6 +84,8 @@ export function V0GetNormQueryBidsItemFromJSONTyped(json: any, ignoreDiscriminat
         'nmId': json['nm_id'],
         'normQuery': json['norm_query'],
         'bid': json['bid'],
+        'bidKopecks': json['bid_kopecks'],
+        'currency': json['currency'],
     };
 }
 
@@ -88,6 +104,8 @@ export function V0GetNormQueryBidsItemToJSONTyped(value?: V0GetNormQueryBidsItem
         'nm_id': value['nmId'],
         'norm_query': value['normQuery'],
         'bid': value['bid'],
+        'bid_kopecks': value['bidKopecks'],
+        'currency': value['currency'],
     };
 }
 

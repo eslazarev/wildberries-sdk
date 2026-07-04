@@ -38,7 +38,7 @@ export interface V0SetNormQueryBidsRequestItem {
      */
     normQuery: string;
     /**
-     * Ставка за тысячу показов, ₽
+     * Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof V0SetNormQueryBidsRequestItem
      */

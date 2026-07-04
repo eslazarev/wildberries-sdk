@@ -58,8 +58,8 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'visibility' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'open_card' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
+        'visibility' => '\Wildberries\Sdk\Analytics\Model\VisibilityInfoVisibility',
+        'open_card' => '\Wildberries\Sdk\Analytics\Model\VisibilityInfoOpenCard',
         'by_day' => '\Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]',
         'by_week' => '\Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]',
         'by_month' => '\Wildberries\Sdk\Analytics\Model\VisibilityInfoByDayInner[]'
@@ -327,7 +327,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets visibility
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts
+     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoVisibility
      */
     public function getVisibility()
     {
@@ -337,7 +337,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets visibility
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts $visibility visibility
+     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoVisibility $visibility visibility
      *
      * @return self
      */
@@ -354,7 +354,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets open_card
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts
+     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoOpenCard
      */
     public function getOpenCard()
     {
@@ -364,7 +364,7 @@ class VisibilityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets open_card
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts $open_card open_card
+     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoOpenCard $open_card open_card
      *
      * @return self
      */

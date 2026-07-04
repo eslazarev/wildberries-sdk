@@ -27,8 +27,12 @@ type V0GetNormQueryBidsItem struct {
 	NmId int32 `json:"nm_id"`
 	// Поисковый кластер
 	NormQuery string `json:"norm_query"`
-	// Текущая ставка за тысячу показов, ₽
+	// Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
 	Bid int32 `json:"bid"`
+	// Текущая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+	BidKopecks int32 `json:"bid_kopecks"`
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency string `json:"currency"`
 }
 
 type _V0GetNormQueryBidsItem V0GetNormQueryBidsItem
@@ -37,12 +41,14 @@ type _V0GetNormQueryBidsItem V0GetNormQueryBidsItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV0GetNormQueryBidsItem(advertId int32, nmId int32, normQuery string, bid int32) *V0GetNormQueryBidsItem {
+func NewV0GetNormQueryBidsItem(advertId int32, nmId int32, normQuery string, bid int32, bidKopecks int32, currency string) *V0GetNormQueryBidsItem {
 	this := V0GetNormQueryBidsItem{}
 	this.AdvertId = advertId
 	this.NmId = nmId
 	this.NormQuery = normQuery
 	this.Bid = bid
+	this.BidKopecks = bidKopecks
+	this.Currency = currency
 	return &this
 }
 
@@ -150,6 +156,54 @@ func (o *V0GetNormQueryBidsItem) SetBid(v int32) {
 	o.Bid = v
 }
 
+// GetBidKopecks returns the BidKopecks field value
+func (o *V0GetNormQueryBidsItem) GetBidKopecks() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.BidKopecks
+}
+
+// GetBidKopecksOk returns a tuple with the BidKopecks field value
+// and a boolean to check if the value has been set.
+func (o *V0GetNormQueryBidsItem) GetBidKopecksOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BidKopecks, true
+}
+
+// SetBidKopecks sets field value
+func (o *V0GetNormQueryBidsItem) SetBidKopecks(v int32) {
+	o.BidKopecks = v
+}
+
+// GetCurrency returns the Currency field value
+func (o *V0GetNormQueryBidsItem) GetCurrency() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value
+// and a boolean to check if the value has been set.
+func (o *V0GetNormQueryBidsItem) GetCurrencyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Currency, true
+}
+
+// SetCurrency sets field value
+func (o *V0GetNormQueryBidsItem) SetCurrency(v string) {
+	o.Currency = v
+}
+
 func (o V0GetNormQueryBidsItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -164,6 +218,8 @@ func (o V0GetNormQueryBidsItem) ToMap() (map[string]interface{}, error) {
 	toSerialize["nm_id"] = o.NmId
 	toSerialize["norm_query"] = o.NormQuery
 	toSerialize["bid"] = o.Bid
+	toSerialize["bid_kopecks"] = o.BidKopecks
+	toSerialize["currency"] = o.Currency
 	return toSerialize, nil
 }
 
@@ -176,6 +232,8 @@ func (o *V0GetNormQueryBidsItem) UnmarshalJSON(data []byte) (err error) {
 		"nm_id",
 		"norm_query",
 		"bid",
+		"bid_kopecks",
+		"currency",
 	}
 
 	allProperties := make(map[string]interface{})

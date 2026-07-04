@@ -58,8 +58,8 @@ class PositionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'average' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'median' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
+        'average' => '\Wildberries\Sdk\Analytics\Model\PositionInfoAverage',
+        'median' => '\Wildberries\Sdk\Analytics\Model\PositionInfoMedian',
         'chart_items' => '\Wildberries\Sdk\Analytics\Model\SearchReportPositionChartItem[]',
         'clusters' => '\Wildberries\Sdk\Analytics\Model\SearchReportPositionClusters'
     ];
@@ -326,7 +326,7 @@ class PositionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets average
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts
+     * @return \Wildberries\Sdk\Analytics\Model\PositionInfoAverage
      */
     public function getAverage()
     {
@@ -336,7 +336,7 @@ class PositionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets average
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts $average average
+     * @param \Wildberries\Sdk\Analytics\Model\PositionInfoAverage $average average
      *
      * @return self
      */
@@ -353,7 +353,7 @@ class PositionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets median
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts
+     * @return \Wildberries\Sdk\Analytics\Model\PositionInfoMedian
      */
     public function getMedian()
     {
@@ -363,7 +363,7 @@ class PositionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets median
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts $median median
+     * @param \Wildberries\Sdk\Analytics\Model\PositionInfoMedian $median median
      *
      * @return self
      */

@@ -13,15 +13,15 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AdvV1BudgetDepositPostRequest {
-    /// Общая сумма пополнения бюджета
+    /// Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "sum", skip_serializing_if = "Option::is_none")]
     pub sum: Option<i32>,
     /// Сумма пополнения бюджета промо-бонусами. <br> Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. <br> Списать промо-бонусы можно только для источников пополнения:   - `0` — счёт   - `1` — баланс 
-    #[serde(rename = "cashback_sum", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cashback_sum: Option<Option<i32>>,
+    #[serde(rename = "cashback_sum", skip_serializing_if = "Option::is_none")]
+    pub cashback_sum: Option<i32>,
     /// Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get) <br> Если вы указали `cashback_sum`, параметр `cashback_percent` становится обязательным 
-    #[serde(rename = "cashback_percent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cashback_percent: Option<Option<i32>>,
+    #[serde(rename = "cashback_percent", skip_serializing_if = "Option::is_none")]
+    pub cashback_percent: Option<i32>,
     /// Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы 
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<i32>,

@@ -68,12 +68,12 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'pinned_feedback' => 'bool',
         'rating' => 'float',
         'feedback_rating' => '\Wildberries\Sdk\Analytics\Model\TableItemBaseCommonFeedbackRating',
-        'feedback_count' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'five_star' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'four_star' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'three_star' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'two_star' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'one_star' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
+        'feedback_count' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFeedbackCount',
+        'five_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFiveStar',
+        'four_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFourStar',
+        'three_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsThreeStar',
+        'two_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsTwoStar',
+        'one_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsOneStar',
         'disqualified' => 'int'
     ];
 
@@ -708,7 +708,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets feedback_count
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFeedbackCount|null
      */
     public function getFeedbackCount()
     {
@@ -718,7 +718,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets feedback_count
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null $feedback_count feedback_count
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFeedbackCount|null $feedback_count feedback_count
      *
      * @return self
      */
@@ -735,7 +735,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets five_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFiveStar|null
      */
     public function getFiveStar()
     {
@@ -745,7 +745,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets five_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null $five_star five_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFiveStar|null $five_star five_star
      *
      * @return self
      */
@@ -762,7 +762,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets four_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFourStar|null
      */
     public function getFourStar()
     {
@@ -772,7 +772,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets four_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null $four_star four_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFourStar|null $four_star four_star
      *
      * @return self
      */
@@ -789,7 +789,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets three_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsThreeStar|null
      */
     public function getThreeStar()
     {
@@ -799,7 +799,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets three_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null $three_star three_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsThreeStar|null $three_star three_star
      *
      * @return self
      */
@@ -816,7 +816,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets two_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsTwoStar|null
      */
     public function getTwoStar()
     {
@@ -826,7 +826,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets two_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null $two_star two_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsTwoStar|null $two_star two_star
      *
      * @return self
      */
@@ -843,7 +843,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets one_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsOneStar|null
      */
     public function getOneStar()
     {
@@ -853,7 +853,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets one_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts|null $one_star one_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsOneStar|null $one_star one_star
      *
      * @return self
      */

@@ -35,7 +35,7 @@ use \Wildberries\Sdk\Promotion\ObjectSerializer;
  * AdvertBidsKopecks Class Doc Comment
  *
  * @category Class
- * @description Ставки, копейки
+ * @description Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
  * @package  Wildberries\Sdk\Promotion
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

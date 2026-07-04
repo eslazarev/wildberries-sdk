@@ -22,8 +22,8 @@ from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_characteristics_inner import ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_dimensions import ContentV2GetCardsListPost200ResponseCardsInnerDimensions
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_photos_inner import ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner
-from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_sizes_inner import ContentV2GetCardsListPost200ResponseCardsInnerSizesInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_wholesale import ContentV2GetCardsListPost200ResponseCardsInnerWholesale
+from wildberries_sdk.items.models.content_v2_get_cards_trash_post200_response_cards_inner_sizes_inner import ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -40,7 +40,7 @@ class ContentV2GetCardsTrashPost200ResponseCardsInner(BaseModel):
     photos: Optional[List[ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner]] = Field(default=None, description="Массив фото")
     video: Optional[StrictStr] = Field(default=None, description="URL видео")
     wholesale: Optional[ContentV2GetCardsListPost200ResponseCardsInnerWholesale] = None
-    sizes: Optional[List[ContentV2GetCardsListPost200ResponseCardsInnerSizesInner]] = Field(default=None, description="Массив размеров")
+    sizes: Optional[List[ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner]] = Field(default=None, description="Массив размеров")
     dimensions: Optional[ContentV2GetCardsListPost200ResponseCardsInnerDimensions] = None
     characteristics: Optional[List[ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner]] = Field(default=None, description="Характеристики")
     created_at: Optional[StrictStr] = Field(default=None, description="Date and time the item was listed", alias="createdAt")
@@ -138,7 +138,7 @@ class ContentV2GetCardsTrashPost200ResponseCardsInner(BaseModel):
             "photos": [ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
             "video": obj.get("video"),
             "wholesale": ContentV2GetCardsListPost200ResponseCardsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
-            "sizes": [ContentV2GetCardsListPost200ResponseCardsInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
+            "sizes": [ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
             "dimensions": ContentV2GetCardsListPost200ResponseCardsInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
             "characteristics": [ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None,
             "createdAt": obj.get("createdAt"),

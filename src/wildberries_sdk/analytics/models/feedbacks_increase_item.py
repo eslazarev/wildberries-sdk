@@ -20,6 +20,10 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.analytics.models.feedbacks_increase_item_five_star import FeedbacksIncreaseItemFiveStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_four_star import FeedbacksIncreaseItemFourStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_one_star import FeedbacksIncreaseItemOneStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_three_star import FeedbacksIncreaseItemThreeStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_two_star import FeedbacksIncreaseItemTwoStar
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,10 +36,10 @@ class FeedbacksIncreaseItem(BaseModel):
     total: StrictInt = Field(description="Всего оценок", json_schema_extra={"examples": [116]})
     dynamics: StrictInt = Field(description="Динамика по сравнению с предыдущим периодом, %", json_schema_extra={"examples": [23]})
     five_star: FeedbacksIncreaseItemFiveStar = Field(alias="fiveStar")
-    four_star: FeedbacksIncreaseItemFiveStar = Field(alias="fourStar")
-    three_star: FeedbacksIncreaseItemFiveStar = Field(alias="threeStar")
-    two_star: FeedbacksIncreaseItemFiveStar = Field(alias="twoStar")
-    one_star: FeedbacksIncreaseItemFiveStar = Field(alias="oneStar")
+    four_star: FeedbacksIncreaseItemFourStar = Field(alias="fourStar")
+    three_star: FeedbacksIncreaseItemThreeStar = Field(alias="threeStar")
+    two_star: FeedbacksIncreaseItemTwoStar = Field(alias="twoStar")
+    one_star: FeedbacksIncreaseItemOneStar = Field(alias="oneStar")
     __properties: ClassVar[List[str]] = ["current", "total", "dynamics", "fiveStar", "fourStar", "threeStar", "twoStar", "oneStar"]
 
     model_config = ConfigDict(
@@ -108,10 +112,10 @@ class FeedbacksIncreaseItem(BaseModel):
             "total": obj.get("total"),
             "dynamics": obj.get("dynamics"),
             "fiveStar": FeedbacksIncreaseItemFiveStar.from_dict(obj["fiveStar"]) if obj.get("fiveStar") is not None else None,
-            "fourStar": FeedbacksIncreaseItemFiveStar.from_dict(obj["fourStar"]) if obj.get("fourStar") is not None else None,
-            "threeStar": FeedbacksIncreaseItemFiveStar.from_dict(obj["threeStar"]) if obj.get("threeStar") is not None else None,
-            "twoStar": FeedbacksIncreaseItemFiveStar.from_dict(obj["twoStar"]) if obj.get("twoStar") is not None else None,
-            "oneStar": FeedbacksIncreaseItemFiveStar.from_dict(obj["oneStar"]) if obj.get("oneStar") is not None else None
+            "fourStar": FeedbacksIncreaseItemFourStar.from_dict(obj["fourStar"]) if obj.get("fourStar") is not None else None,
+            "threeStar": FeedbacksIncreaseItemThreeStar.from_dict(obj["threeStar"]) if obj.get("threeStar") is not None else None,
+            "twoStar": FeedbacksIncreaseItemTwoStar.from_dict(obj["twoStar"]) if obj.get("twoStar") is not None else None,
+            "oneStar": FeedbacksIncreaseItemOneStar.from_dict(obj["oneStar"]) if obj.get("oneStar") is not None else None
         })
         return _obj
 

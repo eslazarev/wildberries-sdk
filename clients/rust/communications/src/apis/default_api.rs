@@ -76,7 +76,7 @@ pub enum ApiFeedbacksV1PinsPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApiV1ClaimPatchError {
-    Status400(models::ApiV1ClaimsGet400Response),
+    Status400(models::ApiV1ClaimPatch400Response),
     Status401(models::ApiV1NewFeedbacksQuestionsGet401Response),
     Status402(models::ApiV1NewFeedbacksQuestionsGet402Response),
     Status429(models::ApiV1NewFeedbacksQuestionsGet401Response),
@@ -734,9 +734,9 @@ pub async fn api_v1_feedback_get(configuration: &configuration::Configuration, i
 }
 
 /// Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks~1answer/post) покупателя. <br><br> Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  <div class=\"description_important\">   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn api_v1_feedbacks_answer_patch(configuration: &configuration::Configuration, api_v1_feedbacks_answer_post_request: Option<models::ApiV1FeedbacksAnswerPostRequest>) -> Result<(), Error<ApiV1FeedbacksAnswerPatchError>> {
+pub async fn api_v1_feedbacks_answer_patch(configuration: &configuration::Configuration, api_v1_feedbacks_answer_patch_request: Option<models::ApiV1FeedbacksAnswerPatchRequest>) -> Result<(), Error<ApiV1FeedbacksAnswerPatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v1_feedbacks_answer_post_request = api_v1_feedbacks_answer_post_request;
+    let p_body_api_v1_feedbacks_answer_patch_request = api_v1_feedbacks_answer_patch_request;
 
     let uri_str = format!("{}/api/v1/feedbacks/answer", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -752,7 +752,7 @@ pub async fn api_v1_feedbacks_answer_patch(configuration: &configuration::Config
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v1_feedbacks_answer_post_request);
+    req_builder = req_builder.json(&p_body_api_v1_feedbacks_answer_patch_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -860,7 +860,7 @@ pub async fn api_v1_feedbacks_archive_get(configuration: &configuration::Configu
 }
 
 /// Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn api_v1_feedbacks_count_get(configuration: &configuration::Configuration, date_from: Option<i32>, date_to: Option<i32>, is_answered: Option<bool>) -> Result<models::ApiV1QuestionsCountGet200Response, Error<ApiV1FeedbacksCountGetError>> {
+pub async fn api_v1_feedbacks_count_get(configuration: &configuration::Configuration, date_from: Option<i32>, date_to: Option<i32>, is_answered: Option<bool>) -> Result<models::ApiV1FeedbacksCountGet200Response, Error<ApiV1FeedbacksCountGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date_from = date_from;
     let p_query_date_to = date_to;
@@ -905,8 +905,8 @@ pub async fn api_v1_feedbacks_count_get(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV1QuestionsCountGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV1QuestionsCountGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV1FeedbacksCountGet200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV1FeedbacksCountGet200Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -916,7 +916,7 @@ pub async fn api_v1_feedbacks_count_get(configuration: &configuration::Configura
 }
 
 /// Метод возвращает:   - количество необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за сегодня и за всё время  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn api_v1_feedbacks_count_unanswered_get(configuration: &configuration::Configuration, ) -> Result<models::ApiV1QuestionsCountUnansweredGet200Response, Error<ApiV1FeedbacksCountUnansweredGetError>> {
+pub async fn api_v1_feedbacks_count_unanswered_get(configuration: &configuration::Configuration, ) -> Result<models::ApiV1FeedbacksCountUnansweredGet200Response, Error<ApiV1FeedbacksCountUnansweredGetError>> {
 
     let uri_str = format!("{}/api/v1/feedbacks/count-unanswered", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -948,8 +948,8 @@ pub async fn api_v1_feedbacks_count_unanswered_get(configuration: &configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV1QuestionsCountUnansweredGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV1QuestionsCountUnansweredGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV1FeedbacksCountUnansweredGet200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV1FeedbacksCountUnansweredGet200Response`")))),
         }
     } else {
         let content = resp.text().await?;

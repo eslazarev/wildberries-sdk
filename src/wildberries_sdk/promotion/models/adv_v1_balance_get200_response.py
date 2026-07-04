@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.promotion.models.adv_v1_balance_get200_response_cashbacks_inner import AdvV1BalanceGet200ResponseCashbacksInner
 from typing import Optional, Set
@@ -28,11 +28,12 @@ class AdvV1BalanceGet200Response(BaseModel):
     """
     AdvV1BalanceGet200Response
     """ # noqa: E501
-    balance: Optional[StrictInt] = Field(default=None, description="Счёт, ₽")
-    net: Optional[StrictInt] = Field(default=None, description="Баланс, ₽")
-    bonus: Optional[StrictInt] = Field(default=None, description="Бонусы, ₽")
+    balance: Optional[StrictInt] = Field(default=None, description="Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    net: Optional[StrictInt] = Field(default=None, description="Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    bonus: Optional[StrictInt] = Field(default=None, description="Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     cashbacks: Optional[List[AdvV1BalanceGet200ResponseCashbacksInner]] = Field(default=None, description="Промо-бонусы")
-    __properties: ClassVar[List[str]] = ["balance", "net", "bonus", "cashbacks"]
+    __properties: ClassVar[List[str]] = ["balance", "net", "currency", "bonus", "cashbacks"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -94,6 +95,7 @@ class AdvV1BalanceGet200Response(BaseModel):
         _obj = cls.model_validate({
             "balance": obj.get("balance"),
             "net": obj.get("net"),
+            "currency": obj.get("currency"),
             "bonus": obj.get("bonus"),
             "cashbacks": [AdvV1BalanceGet200ResponseCashbacksInner.from_dict(_item) for _item in obj["cashbacks"]] if obj.get("cashbacks") is not None else None
         })

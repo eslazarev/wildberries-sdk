@@ -53,8 +53,10 @@ from wildberries_sdk.orders_dbw.models.delivery_dates_info_resp_orders_inner imp
 from wildberries_sdk.orders_dbw.models.delivery_dates_request import DeliveryDatesRequest
 from wildberries_sdk.orders_dbw.models.error import Error
 from wildberries_sdk.orders_dbw.models.meta import Meta
+from wildberries_sdk.orders_dbw.models.meta_gtin import MetaGtin
 from wildberries_sdk.orders_dbw.models.meta_imei import MetaImei
 from wildberries_sdk.orders_dbw.models.meta_sgtin import MetaSgtin
+from wildberries_sdk.orders_dbw.models.meta_uin import MetaUin
 from wildberries_sdk.orders_dbw.models.order import Order
 from wildberries_sdk.orders_dbw.models.order_courier_info import OrderCourierInfo
 from wildberries_sdk.orders_dbw.models.order_courier_info_resp import OrderCourierInfoResp

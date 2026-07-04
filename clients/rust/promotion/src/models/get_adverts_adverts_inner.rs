@@ -18,6 +18,9 @@ pub struct GetAdvertsAdvertsInner {
     /// Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка 
     #[serde(rename = "bid_type")]
     pub bid_type: String,
+    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
+    pub currency: Option<String>,
     /// ID кампании
     #[serde(rename = "id")]
     pub id: i64,
@@ -37,6 +40,7 @@ impl GetAdvertsAdvertsInner {
     pub fn new(bid_type: String, id: i64, nm_settings: Option<Vec<models::AdvertNmsSettings>>, settings: models::AdvertSettings, status: Status, timestamps: models::Timestamps) -> GetAdvertsAdvertsInner {
         GetAdvertsAdvertsInner {
             bid_type,
+            currency: None,
             id,
             nm_settings,
             settings: Box::new(settings),

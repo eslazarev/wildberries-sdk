@@ -58,7 +58,7 @@ type ApiOrder struct {
 	WarehouseAddress *string `json:"warehouseAddress,omitempty"`
 	// ID склада продавца, на который поступило сборочное задание
 	WarehouseId *int32 `json:"warehouseId,omitempty"`
-	Options *ApiNewOrderOptions `json:"options,omitempty"`
+	Options *ApiOrderOptions `json:"options,omitempty"`
 }
 
 // NewApiOrder instantiates a new ApiOrder object
@@ -687,9 +687,9 @@ func (o *ApiOrder) SetWarehouseId(v int32) {
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise.
-func (o *ApiOrder) GetOptions() ApiNewOrderOptions {
+func (o *ApiOrder) GetOptions() ApiOrderOptions {
 	if o == nil || IsNil(o.Options) {
-		var ret ApiNewOrderOptions
+		var ret ApiOrderOptions
 		return ret
 	}
 	return *o.Options
@@ -697,7 +697,7 @@ func (o *ApiOrder) GetOptions() ApiNewOrderOptions {
 
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetOptionsOk() (*ApiNewOrderOptions, bool) {
+func (o *ApiOrder) GetOptionsOk() (*ApiOrderOptions, bool) {
 	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
@@ -713,8 +713,8 @@ func (o *ApiOrder) HasOptions() bool {
 	return false
 }
 
-// SetOptions gets a reference to the given ApiNewOrderOptions and assigns it to the Options field.
-func (o *ApiOrder) SetOptions(v ApiNewOrderOptions) {
+// SetOptions gets a reference to the given ApiOrderOptions and assigns it to the Options field.
+func (o *ApiOrder) SetOptions(v ApiOrderOptions) {
 	o.Options = &v
 }
 

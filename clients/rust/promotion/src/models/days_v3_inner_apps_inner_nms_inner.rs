@@ -22,7 +22,7 @@ pub struct DaysV3InnerAppsInnerNmsInner {
     /// Количество кликов
     #[serde(rename = "clicks")]
     pub clicks: i32,
-    /// Средняя стоимость клика, ₽
+    /// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "cpc")]
     pub cpc: f64,
     /// CR (conversion rate) — отношение количества заказов к общему количеству кликов
@@ -43,10 +43,10 @@ pub struct DaysV3InnerAppsInnerNmsInner {
     /// Количество заказанных товаров, шт.
     #[serde(rename = "shks")]
     pub shks: i32,
-    /// Затраты, ₽
+    /// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "sum")]
     pub sum: f64,
-    /// Заказов на сумму, ₽
+    /// Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "sum_price")]
     pub sum_price: f64,
     /// Количество просмотров

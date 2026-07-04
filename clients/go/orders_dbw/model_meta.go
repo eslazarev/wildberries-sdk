@@ -20,8 +20,8 @@ var _ MappedNullable = &Meta{}
 // Meta Идентификаторы маркировки сборочного задания
 type Meta struct {
 	Imei *MetaImei `json:"imei,omitempty"`
-	Uin *MetaImei `json:"uin,omitempty"`
-	Gtin *MetaImei `json:"gtin,omitempty"`
+	Uin *MetaUin `json:"uin,omitempty"`
+	Gtin *MetaGtin `json:"gtin,omitempty"`
 	Sgtin *MetaSgtin `json:"sgtin,omitempty"`
 }
 
@@ -75,9 +75,9 @@ func (o *Meta) SetImei(v MetaImei) {
 }
 
 // GetUin returns the Uin field value if set, zero value otherwise.
-func (o *Meta) GetUin() MetaImei {
+func (o *Meta) GetUin() MetaUin {
 	if o == nil || IsNil(o.Uin) {
-		var ret MetaImei
+		var ret MetaUin
 		return ret
 	}
 	return *o.Uin
@@ -85,7 +85,7 @@ func (o *Meta) GetUin() MetaImei {
 
 // GetUinOk returns a tuple with the Uin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Meta) GetUinOk() (*MetaImei, bool) {
+func (o *Meta) GetUinOk() (*MetaUin, bool) {
 	if o == nil || IsNil(o.Uin) {
 		return nil, false
 	}
@@ -101,15 +101,15 @@ func (o *Meta) HasUin() bool {
 	return false
 }
 
-// SetUin gets a reference to the given MetaImei and assigns it to the Uin field.
-func (o *Meta) SetUin(v MetaImei) {
+// SetUin gets a reference to the given MetaUin and assigns it to the Uin field.
+func (o *Meta) SetUin(v MetaUin) {
 	o.Uin = &v
 }
 
 // GetGtin returns the Gtin field value if set, zero value otherwise.
-func (o *Meta) GetGtin() MetaImei {
+func (o *Meta) GetGtin() MetaGtin {
 	if o == nil || IsNil(o.Gtin) {
-		var ret MetaImei
+		var ret MetaGtin
 		return ret
 	}
 	return *o.Gtin
@@ -117,7 +117,7 @@ func (o *Meta) GetGtin() MetaImei {
 
 // GetGtinOk returns a tuple with the Gtin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Meta) GetGtinOk() (*MetaImei, bool) {
+func (o *Meta) GetGtinOk() (*MetaGtin, bool) {
 	if o == nil || IsNil(o.Gtin) {
 		return nil, false
 	}
@@ -133,8 +133,8 @@ func (o *Meta) HasGtin() bool {
 	return false
 }
 
-// SetGtin gets a reference to the given MetaImei and assigns it to the Gtin field.
-func (o *Meta) SetGtin(v MetaImei) {
+// SetGtin gets a reference to the given MetaGtin and assigns it to the Gtin field.
+func (o *Meta) SetGtin(v MetaGtin) {
 	o.Gtin = &v
 }
 

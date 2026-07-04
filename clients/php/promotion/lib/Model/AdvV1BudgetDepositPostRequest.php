@@ -86,8 +86,8 @@ class AdvV1BudgetDepositPostRequest implements ModelInterface, ArrayAccess, \Jso
      */
     protected static array $openAPINullables = [
         'sum' => false,
-        'cashback_sum' => true,
-        'cashback_percent' => true,
+        'cashback_sum' => false,
+        'cashback_percent' => false,
         'type' => false,
         'return' => false
     ];
@@ -330,7 +330,7 @@ class AdvV1BudgetDepositPostRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets sum
      *
-     * @param int|null $sum Общая сумма пополнения бюджета
+     * @param int|null $sum Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -364,14 +364,7 @@ class AdvV1BudgetDepositPostRequest implements ModelInterface, ArrayAccess, \Jso
     public function setCashbackSum($cashback_sum)
     {
         if (is_null($cashback_sum)) {
-            array_push($this->openAPINullablesSetToNull, 'cashback_sum');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cashback_sum', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable cashback_sum cannot be null');
         }
         $this->container['cashback_sum'] = $cashback_sum;
 
@@ -398,14 +391,7 @@ class AdvV1BudgetDepositPostRequest implements ModelInterface, ArrayAccess, \Jso
     public function setCashbackPercent($cashback_percent)
     {
         if (is_null($cashback_percent)) {
-            array_push($this->openAPINullablesSetToNull, 'cashback_percent');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cashback_percent', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable cashback_percent cannot be null');
         }
         $this->container['cashback_percent'] = $cashback_percent;
 

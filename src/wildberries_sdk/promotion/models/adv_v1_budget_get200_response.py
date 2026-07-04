@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,9 @@ class AdvV1BudgetGet200Response(BaseModel):
     """ # noqa: E501
     cash: Optional[StrictInt] = Field(default=None, description="Поле не используется. Значение всегда 0.")
     netting: Optional[StrictInt] = Field(default=None, description="Поле не используется. Значение всегда 0.")
-    total: Optional[StrictInt] = Field(default=None, description="Бюджет кампании, ₽")
-    __properties: ClassVar[List[str]] = ["cash", "netting", "total"]
+    total: Optional[StrictInt] = Field(default=None, description="Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    __properties: ClassVar[List[str]] = ["cash", "netting", "total", "currency"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,7 +86,8 @@ class AdvV1BudgetGet200Response(BaseModel):
         _obj = cls.model_validate({
             "cash": obj.get("cash"),
             "netting": obj.get("netting"),
-            "total": obj.get("total")
+            "total": obj.get("total"),
+            "currency": obj.get("currency")
         })
         return _obj
 

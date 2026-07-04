@@ -346,7 +346,7 @@ class ApiAdvertV1BidsPatchRequestBidsInner implements ModelInterface, ArrayAcces
     /**
      * Sets nm_bids
      *
-     * @param \Wildberries\Sdk\Promotion\Model\ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner[] $nm_bids Ставки, копейки
+     * @param \Wildberries\Sdk\Promotion\Model\ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner[] $nm_bids Ставки
      *
      * @return self
      */

@@ -269,6 +269,8 @@ main().catch(console.error);
 - `promotion.DefaultApi.apiV1CalendarPromotionsGet` — Список акций
 - `promotion.DefaultApi.apiV1CalendarPromotionsNomenclaturesGet` — Список товаров для участия в акции
 - `promotion.DefaultApi.apiV1CalendarPromotionsUploadPost` — Добавить товар в акцию
+- `promotion.DefaultApi.getV1Config` — Конфигурационные значения продвижения
+- `promotion.DefaultApi.postV1NormqueryBids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 
 ### communications (`communications`)
 - `communications.DefaultApi.apiFeedbacksV1PinsCountGet` — Количество закреплённых и откреплённых отзывов

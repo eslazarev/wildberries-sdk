@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -33,6 +33,7 @@ __all__ = [
     "ApiFeedbacksV1PinsGet200Response",
     "ApiFeedbacksV1PinsLimitsGet200Response",
     "ApiFeedbacksV1PinsPost200Response",
+    "ApiV1ClaimPatch400Response",
     "ApiV1ClaimPatchRequest",
     "ApiV1ClaimsGet200Response",
     "ApiV1ClaimsGet200ResponseClaimsInner",
@@ -43,9 +44,13 @@ __all__ = [
     "ApiV1FeedbackGet200ResponseDataPhotoLinksInner",
     "ApiV1FeedbackGet200ResponseDataProductDetails",
     "ApiV1FeedbackGet200ResponseDataVideo",
+    "ApiV1FeedbacksAnswerPatchRequest",
     "ApiV1FeedbacksAnswerPostRequest",
     "ApiV1FeedbacksArchiveGet200Response",
     "ApiV1FeedbacksArchiveGet200ResponseData",
+    "ApiV1FeedbacksCountGet200Response",
+    "ApiV1FeedbacksCountUnansweredGet200Response",
+    "ApiV1FeedbacksCountUnansweredGet200ResponseData",
     "ApiV1FeedbacksGet200Response",
     "ApiV1FeedbacksGet200ResponseData",
     "ApiV1FeedbacksOrderReturnPostRequest",
@@ -54,6 +59,9 @@ __all__ = [
     "ApiV1NewFeedbacksQuestionsGet401Response",
     "ApiV1NewFeedbacksQuestionsGet402Response",
     "ApiV1QuestionGet200Response",
+    "ApiV1QuestionGet200ResponseData",
+    "ApiV1QuestionGet200ResponseDataAnswer",
+    "ApiV1QuestionGet200ResponseDataProductDetails",
     "ApiV1QuestionsCountGet200Response",
     "ApiV1QuestionsCountUnansweredGet200Response",
     "ApiV1QuestionsCountUnansweredGet200ResponseData",
@@ -98,6 +106,9 @@ __all__ = [
     "RespondResultErr",
     "RespondSuccessResponse",
     "ResponseFeedbackInner",
+    "ResponseFeedbackInnerAnswer",
+    "ResponseFeedbackInnerProductDetails",
+    "ResponseFeedbackInnerVideo",
     "ResponseFeedbackQuestionErr",
     "Sender",
     "StandardizedFQError",
@@ -123,6 +134,7 @@ from wildberries_sdk.communications.models.api_feedbacks_v1_pins_delete200_respo
 from wildberries_sdk.communications.models.api_feedbacks_v1_pins_get200_response import ApiFeedbacksV1PinsGet200Response as ApiFeedbacksV1PinsGet200Response
 from wildberries_sdk.communications.models.api_feedbacks_v1_pins_limits_get200_response import ApiFeedbacksV1PinsLimitsGet200Response as ApiFeedbacksV1PinsLimitsGet200Response
 from wildberries_sdk.communications.models.api_feedbacks_v1_pins_post200_response import ApiFeedbacksV1PinsPost200Response as ApiFeedbacksV1PinsPost200Response
+from wildberries_sdk.communications.models.api_v1_claim_patch400_response import ApiV1ClaimPatch400Response as ApiV1ClaimPatch400Response
 from wildberries_sdk.communications.models.api_v1_claim_patch_request import ApiV1ClaimPatchRequest as ApiV1ClaimPatchRequest
 from wildberries_sdk.communications.models.api_v1_claims_get200_response import ApiV1ClaimsGet200Response as ApiV1ClaimsGet200Response
 from wildberries_sdk.communications.models.api_v1_claims_get200_response_claims_inner import ApiV1ClaimsGet200ResponseClaimsInner as ApiV1ClaimsGet200ResponseClaimsInner
@@ -133,9 +145,13 @@ from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_
 from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_photo_links_inner import ApiV1FeedbackGet200ResponseDataPhotoLinksInner as ApiV1FeedbackGet200ResponseDataPhotoLinksInner
 from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_product_details import ApiV1FeedbackGet200ResponseDataProductDetails as ApiV1FeedbackGet200ResponseDataProductDetails
 from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_video import ApiV1FeedbackGet200ResponseDataVideo as ApiV1FeedbackGet200ResponseDataVideo
+from wildberries_sdk.communications.models.api_v1_feedbacks_answer_patch_request import ApiV1FeedbacksAnswerPatchRequest as ApiV1FeedbacksAnswerPatchRequest
 from wildberries_sdk.communications.models.api_v1_feedbacks_answer_post_request import ApiV1FeedbacksAnswerPostRequest as ApiV1FeedbacksAnswerPostRequest
 from wildberries_sdk.communications.models.api_v1_feedbacks_archive_get200_response import ApiV1FeedbacksArchiveGet200Response as ApiV1FeedbacksArchiveGet200Response
 from wildberries_sdk.communications.models.api_v1_feedbacks_archive_get200_response_data import ApiV1FeedbacksArchiveGet200ResponseData as ApiV1FeedbacksArchiveGet200ResponseData
+from wildberries_sdk.communications.models.api_v1_feedbacks_count_get200_response import ApiV1FeedbacksCountGet200Response as ApiV1FeedbacksCountGet200Response
+from wildberries_sdk.communications.models.api_v1_feedbacks_count_unanswered_get200_response import ApiV1FeedbacksCountUnansweredGet200Response as ApiV1FeedbacksCountUnansweredGet200Response
+from wildberries_sdk.communications.models.api_v1_feedbacks_count_unanswered_get200_response_data import ApiV1FeedbacksCountUnansweredGet200ResponseData as ApiV1FeedbacksCountUnansweredGet200ResponseData
 from wildberries_sdk.communications.models.api_v1_feedbacks_get200_response import ApiV1FeedbacksGet200Response as ApiV1FeedbacksGet200Response
 from wildberries_sdk.communications.models.api_v1_feedbacks_get200_response_data import ApiV1FeedbacksGet200ResponseData as ApiV1FeedbacksGet200ResponseData
 from wildberries_sdk.communications.models.api_v1_feedbacks_order_return_post_request import ApiV1FeedbacksOrderReturnPostRequest as ApiV1FeedbacksOrderReturnPostRequest
@@ -144,6 +160,9 @@ from wildberries_sdk.communications.models.api_v1_new_feedbacks_questions_get200
 from wildberries_sdk.communications.models.api_v1_new_feedbacks_questions_get401_response import ApiV1NewFeedbacksQuestionsGet401Response as ApiV1NewFeedbacksQuestionsGet401Response
 from wildberries_sdk.communications.models.api_v1_new_feedbacks_questions_get402_response import ApiV1NewFeedbacksQuestionsGet402Response as ApiV1NewFeedbacksQuestionsGet402Response
 from wildberries_sdk.communications.models.api_v1_question_get200_response import ApiV1QuestionGet200Response as ApiV1QuestionGet200Response
+from wildberries_sdk.communications.models.api_v1_question_get200_response_data import ApiV1QuestionGet200ResponseData as ApiV1QuestionGet200ResponseData
+from wildberries_sdk.communications.models.api_v1_question_get200_response_data_answer import ApiV1QuestionGet200ResponseDataAnswer as ApiV1QuestionGet200ResponseDataAnswer
+from wildberries_sdk.communications.models.api_v1_question_get200_response_data_product_details import ApiV1QuestionGet200ResponseDataProductDetails as ApiV1QuestionGet200ResponseDataProductDetails
 from wildberries_sdk.communications.models.api_v1_questions_count_get200_response import ApiV1QuestionsCountGet200Response as ApiV1QuestionsCountGet200Response
 from wildberries_sdk.communications.models.api_v1_questions_count_unanswered_get200_response import ApiV1QuestionsCountUnansweredGet200Response as ApiV1QuestionsCountUnansweredGet200Response
 from wildberries_sdk.communications.models.api_v1_questions_count_unanswered_get200_response_data import ApiV1QuestionsCountUnansweredGet200ResponseData as ApiV1QuestionsCountUnansweredGet200ResponseData
@@ -188,6 +207,9 @@ from wildberries_sdk.communications.models.openapi_seller_limits_response_data i
 from wildberries_sdk.communications.models.respond_result_err import RespondResultErr as RespondResultErr
 from wildberries_sdk.communications.models.respond_success_response import RespondSuccessResponse as RespondSuccessResponse
 from wildberries_sdk.communications.models.response_feedback_inner import ResponseFeedbackInner as ResponseFeedbackInner
+from wildberries_sdk.communications.models.response_feedback_inner_answer import ResponseFeedbackInnerAnswer as ResponseFeedbackInnerAnswer
+from wildberries_sdk.communications.models.response_feedback_inner_product_details import ResponseFeedbackInnerProductDetails as ResponseFeedbackInnerProductDetails
+from wildberries_sdk.communications.models.response_feedback_inner_video import ResponseFeedbackInnerVideo as ResponseFeedbackInnerVideo
 from wildberries_sdk.communications.models.response_feedback_question_err import ResponseFeedbackQuestionErr as ResponseFeedbackQuestionErr
 from wildberries_sdk.communications.models.sender import Sender as Sender
 from wildberries_sdk.communications.models.standardized_fq_error import StandardizedFQError as StandardizedFQError

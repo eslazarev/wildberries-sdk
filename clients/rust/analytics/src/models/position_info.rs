@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PositionInfo {
     #[serde(rename = "average")]
-    pub average: Box<models::CommonInfoAdvertisedProducts>,
+    pub average: Box<models::PositionInfoAverage>,
     #[serde(rename = "median")]
-    pub median: Box<models::CommonInfoAdvertisedProducts>,
+    pub median: Box<models::PositionInfoMedian>,
     /// Данные для чарта по средней и медианной позиции товара в результатах поиска
     #[serde(rename = "chartItems")]
     pub chart_items: Vec<models::SearchReportPositionChartItem>,
@@ -27,7 +27,7 @@ pub struct PositionInfo {
 
 impl PositionInfo {
     /// Информация о позиции товара
-    pub fn new(average: models::CommonInfoAdvertisedProducts, median: models::CommonInfoAdvertisedProducts, chart_items: Vec<models::SearchReportPositionChartItem>, clusters: models::SearchReportPositionClusters) -> PositionInfo {
+    pub fn new(average: models::PositionInfoAverage, median: models::PositionInfoMedian, chart_items: Vec<models::SearchReportPositionChartItem>, clusters: models::SearchReportPositionClusters) -> PositionInfo {
         PositionInfo {
             average: Box::new(average),
             median: Box::new(median),

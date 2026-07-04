@@ -20,6 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from wildberries_sdk.analytics.models.float_graph_by_period_item import FloatGraphByPeriodItem
+from wildberries_sdk.analytics.models.table_common_metrics_avg_stock_turnover import TableCommonMetricsAvgStockTurnover
+from wildberries_sdk.analytics.models.table_common_metrics_office_missing_time import TableCommonMetricsOfficeMissingTime
 from wildberries_sdk.analytics.models.table_common_metrics_sale_rate import TableCommonMetricsSaleRate
 from typing import Optional, Set
 from typing_extensions import Self
@@ -39,10 +41,10 @@ class TableCommonMetrics(BaseModel):
     stock_count: StrictInt = Field(description="Остатки на текущий день, шт.", alias="stockCount", json_schema_extra={"examples": [50]})
     stock_sum: StrictInt = Field(description="Стоимость остатков на текущий день", alias="stockSum", json_schema_extra={"examples": [50000]})
     sale_rate: TableCommonMetricsSaleRate = Field(alias="saleRate")
-    avg_stock_turnover: TableCommonMetricsSaleRate = Field(alias="avgStockTurnover")
+    avg_stock_turnover: TableCommonMetricsAvgStockTurnover = Field(alias="avgStockTurnover")
     to_client_count: StrictInt = Field(description="В пути к клиенту, шт.", alias="toClientCount", json_schema_extra={"examples": [20]})
     from_client_count: StrictInt = Field(description="В пути от клиента, шт.", alias="fromClientCount", json_schema_extra={"examples": [30]})
-    office_missing_time: TableCommonMetricsSaleRate = Field(alias="officeMissingTime")
+    office_missing_time: TableCommonMetricsOfficeMissingTime = Field(alias="officeMissingTime")
     lost_orders_count: Union[StrictFloat, StrictInt] = Field(description="Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostOrdersCount", json_schema_extra={"examples": [1550.52]})
     lost_orders_sum: Union[StrictFloat, StrictInt] = Field(description="Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostOrdersSum", json_schema_extra={"examples": [155000.25]})
     lost_buyouts_count: Union[StrictFloat, StrictInt] = Field(description="Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostBuyoutsCount", json_schema_extra={"examples": [123.55]})
@@ -126,10 +128,10 @@ class TableCommonMetrics(BaseModel):
             "stockCount": obj.get("stockCount"),
             "stockSum": obj.get("stockSum"),
             "saleRate": TableCommonMetricsSaleRate.from_dict(obj["saleRate"]) if obj.get("saleRate") is not None else None,
-            "avgStockTurnover": TableCommonMetricsSaleRate.from_dict(obj["avgStockTurnover"]) if obj.get("avgStockTurnover") is not None else None,
+            "avgStockTurnover": TableCommonMetricsAvgStockTurnover.from_dict(obj["avgStockTurnover"]) if obj.get("avgStockTurnover") is not None else None,
             "toClientCount": obj.get("toClientCount"),
             "fromClientCount": obj.get("fromClientCount"),
-            "officeMissingTime": TableCommonMetricsSaleRate.from_dict(obj["officeMissingTime"]) if obj.get("officeMissingTime") is not None else None,
+            "officeMissingTime": TableCommonMetricsOfficeMissingTime.from_dict(obj["officeMissingTime"]) if obj.get("officeMissingTime") is not None else None,
             "lostOrdersCount": obj.get("lostOrdersCount"),
             "lostOrdersSum": obj.get("lostOrdersSum"),
             "lostBuyoutsCount": obj.get("lostBuyoutsCount"),

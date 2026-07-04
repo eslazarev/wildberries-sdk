@@ -38,7 +38,7 @@ pub struct ContentV2GetCardsTrashPost200ResponseCardsInner {
     pub wholesale: Option<Box<models::ContentV2GetCardsListPost200ResponseCardsInnerWholesale>>,
     /// Массив размеров
     #[serde(rename = "sizes", skip_serializing_if = "Option::is_none")]
-    pub sizes: Option<Vec<models::ContentV2GetCardsListPost200ResponseCardsInnerSizesInner>>,
+    pub sizes: Option<Vec<models::ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner>>,
     #[serde(rename = "dimensions", skip_serializing_if = "Option::is_none")]
     pub dimensions: Option<Box<models::ContentV2GetCardsListPost200ResponseCardsInnerDimensions>>,
     /// Характеристики

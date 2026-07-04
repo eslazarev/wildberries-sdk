@@ -50,7 +50,7 @@ pub struct StatisticsComparison {
     #[serde(rename = "addToWishlistDynamic")]
     pub add_to_wishlist_dynamic: i32,
     #[serde(rename = "timeToReadyDynamic")]
-    pub time_to_ready_dynamic: Box<models::StatisticTimeToReady>,
+    pub time_to_ready_dynamic: Box<models::ComparisonTimeToReadyDynamic>,
     /// Динамика локальных заказов в рамках одного региона
     #[serde(rename = "localizationPercentDynamic")]
     pub localization_percent_dynamic: i32,
@@ -61,7 +61,7 @@ pub struct StatisticsComparison {
 }
 
 impl StatisticsComparison {
-    pub fn new(open_count_dynamic: i32, cart_count_dynamic: i32, order_count_dynamic: i32, order_sum_dynamic: i32, buyout_count_dynamic: i32, buyout_sum_dynamic: i32, cancel_count_dynamic: i32, cancel_sum_dynamic: i32, avg_orders_count_per_day_dynamic: i32, avg_price_dynamic: i32, share_order_percent_dynamic: i32, add_to_wishlist_dynamic: i32, time_to_ready_dynamic: models::StatisticTimeToReady, localization_percent_dynamic: i32, wb_club_dynamic: models::ComparisonWbClubDynamic, conversions: models::StatisticConversions) -> StatisticsComparison {
+    pub fn new(open_count_dynamic: i32, cart_count_dynamic: i32, order_count_dynamic: i32, order_sum_dynamic: i32, buyout_count_dynamic: i32, buyout_sum_dynamic: i32, cancel_count_dynamic: i32, cancel_sum_dynamic: i32, avg_orders_count_per_day_dynamic: i32, avg_price_dynamic: i32, share_order_percent_dynamic: i32, add_to_wishlist_dynamic: i32, time_to_ready_dynamic: models::ComparisonTimeToReadyDynamic, localization_percent_dynamic: i32, wb_club_dynamic: models::ComparisonWbClubDynamic, conversions: models::StatisticConversions) -> StatisticsComparison {
         StatisticsComparison {
             open_count_dynamic,
             cart_count_dynamic,

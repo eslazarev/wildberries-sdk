@@ -19,7 +19,7 @@ var _ MappedNullable = &TaskCreated{}
 
 // TaskCreated struct for TaskCreated
 type TaskCreated struct {
-	Data *RequestAlreadyExistsErrorData `json:"data,omitempty"`
+	Data *TaskCreatedData `json:"data,omitempty"`
 	// Флаг ошибки
 	Error *bool `json:"error,omitempty"`
 	// Текст ошибки
@@ -44,9 +44,9 @@ func NewTaskCreatedWithDefaults() *TaskCreated {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *TaskCreated) GetData() RequestAlreadyExistsErrorData {
+func (o *TaskCreated) GetData() TaskCreatedData {
 	if o == nil || IsNil(o.Data) {
-		var ret RequestAlreadyExistsErrorData
+		var ret TaskCreatedData
 		return ret
 	}
 	return *o.Data
@@ -54,7 +54,7 @@ func (o *TaskCreated) GetData() RequestAlreadyExistsErrorData {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskCreated) GetDataOk() (*RequestAlreadyExistsErrorData, bool) {
+func (o *TaskCreated) GetDataOk() (*TaskCreatedData, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *TaskCreated) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given RequestAlreadyExistsErrorData and assigns it to the Data field.
-func (o *TaskCreated) SetData(v RequestAlreadyExistsErrorData) {
+// SetData gets a reference to the given TaskCreatedData and assigns it to the Data field.
+func (o *TaskCreated) SetData(v TaskCreatedData) {
 	o.Data = &v
 }
 

@@ -60,7 +60,9 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         'advert_id' => 'int',
         'nm_id' => 'int',
         'norm_query' => 'string',
-        'bid' => 'int'
+        'bid' => 'int',
+        'bid_kopecks' => 'int',
+        'currency' => 'string'
     ];
 
     /**
@@ -74,7 +76,9 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         'advert_id' => null,
         'nm_id' => null,
         'norm_query' => null,
-        'bid' => null
+        'bid' => null,
+        'bid_kopecks' => null,
+        'currency' => 'ISO 4217'
     ];
 
     /**
@@ -86,7 +90,9 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         'advert_id' => false,
         'nm_id' => false,
         'norm_query' => false,
-        'bid' => false
+        'bid' => false,
+        'bid_kopecks' => false,
+        'currency' => false
     ];
 
     /**
@@ -178,7 +184,9 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         'advert_id' => 'advert_id',
         'nm_id' => 'nm_id',
         'norm_query' => 'norm_query',
-        'bid' => 'bid'
+        'bid' => 'bid',
+        'bid_kopecks' => 'bid_kopecks',
+        'currency' => 'currency'
     ];
 
     /**
@@ -190,7 +198,9 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         'advert_id' => 'setAdvertId',
         'nm_id' => 'setNmId',
         'norm_query' => 'setNormQuery',
-        'bid' => 'setBid'
+        'bid' => 'setBid',
+        'bid_kopecks' => 'setBidKopecks',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -202,7 +212,9 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         'advert_id' => 'getAdvertId',
         'nm_id' => 'getNmId',
         'norm_query' => 'getNormQuery',
-        'bid' => 'getBid'
+        'bid' => 'getBid',
+        'bid_kopecks' => 'getBidKopecks',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -266,6 +278,8 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('nm_id', $data ?? [], null);
         $this->setIfExists('norm_query', $data ?? [], null);
         $this->setIfExists('bid', $data ?? [], null);
+        $this->setIfExists('bid_kopecks', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -306,6 +320,12 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['bid'] === null) {
             $invalidProperties[] = "'bid' can't be null";
+        }
+        if ($this->container['bid_kopecks'] === null) {
+            $invalidProperties[] = "'bid_kopecks' can't be null";
+        }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
         }
         return $invalidProperties;
     }
@@ -416,7 +436,7 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets bid
      *
-     * @param int $bid Текущая ставка за тысячу показов, ₽
+     * @param int $bid Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
      *
      * @return self
      */
@@ -426,6 +446,60 @@ class V0GetNormQueryBidsItem implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable bid cannot be null');
         }
         $this->container['bid'] = $bid;
+
+        return $this;
+    }
+
+    /**
+     * Gets bid_kopecks
+     *
+     * @return int
+     */
+    public function getBidKopecks()
+    {
+        return $this->container['bid_kopecks'];
+    }
+
+    /**
+     * Sets bid_kopecks
+     *
+     * @param int $bid_kopecks Текущая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+     *
+     * @return self
+     */
+    public function setBidKopecks($bid_kopecks)
+    {
+        if (is_null($bid_kopecks)) {
+            throw new \InvalidArgumentException('non-nullable bid_kopecks cannot be null');
+        }
+        $this->container['bid_kopecks'] = $bid_kopecks;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

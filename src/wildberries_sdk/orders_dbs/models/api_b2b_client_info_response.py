@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.orders_dbs.models.api_b2b_client_info import ApiB2bClientInfo
-from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_status_receive_post200_response_results_inner_errors_inner import ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner
+from wildberries_sdk.orders_dbs.models.api_b2b_client_info_response_errors_inner import ApiB2bClientInfoResponseErrorsInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,7 +30,7 @@ class ApiB2bClientInfoResponse(BaseModel):
     ApiB2bClientInfoResponse
     """ # noqa: E501
     data: Optional[ApiB2bClientInfo] = None
-    errors: Optional[List[ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner]] = Field(default=None, description="Детали ошибки")
+    errors: Optional[List[ApiB2bClientInfoResponseErrorsInner]] = Field(default=None, description="Детали ошибки")
     is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError", json_schema_extra={"examples": [True]})
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
     __properties: ClassVar[List[str]] = ["data", "errors", "isError", "orderId"]
@@ -97,7 +97,7 @@ class ApiB2bClientInfoResponse(BaseModel):
 
         _obj = cls.model_validate({
             "data": ApiB2bClientInfo.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "errors": [ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
+            "errors": [ApiB2bClientInfoResponseErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
             "isError": obj.get("isError"),
             "orderId": obj.get("orderId")
         })

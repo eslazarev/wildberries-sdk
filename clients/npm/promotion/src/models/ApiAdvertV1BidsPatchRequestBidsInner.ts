@@ -34,7 +34,7 @@ export interface ApiAdvertV1BidsPatchRequestBidsInner {
      */
     advertId: number;
     /**
-     * Ставки, копейки
+     * Ставки
      * @type {Array<ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner>}
      * @memberof ApiAdvertV1BidsPatchRequestBidsInner
      */

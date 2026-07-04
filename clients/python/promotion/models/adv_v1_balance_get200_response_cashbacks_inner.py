@@ -27,7 +27,7 @@ class AdvV1BalanceGet200ResponseCashbacksInner(BaseModel):
     """
     AdvV1BalanceGet200ResponseCashbacksInner
     """ # noqa: E501
-    sum: Optional[StrictInt] = Field(default=None, description="Промо-бонусы, ₽")
+    sum: Optional[StrictInt] = Field(default=None, description="Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     percent: Optional[StrictInt] = Field(default=None, description="Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз")
     expiration_date: Optional[StrictStr] = Field(default=None, description="Дата окончания действия промо-бонусов")
     __properties: ClassVar[List[str]] = ["sum", "percent", "expiration_date"]

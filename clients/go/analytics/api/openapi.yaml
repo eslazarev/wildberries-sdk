@@ -2882,9 +2882,9 @@ components:
             dynamics: 50
       properties:
         average:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/PositionInfo_average"
         median:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/PositionInfo_median"
         chartItems:
           description: Данные для чарта по средней и медианной позиции товара в результатах
             поиска
@@ -2942,11 +2942,11 @@ components:
           dynamics: 50
       properties:
         firstHundred:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/SearchReportPositionClusters_firstHundred"
         secondHundred:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/SearchReportPositionClusters_secondHundred"
         below:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/SearchReportPositionClusters_below"
       required:
       - below
       - firstHundred
@@ -2985,9 +2985,9 @@ components:
           open: 124
       properties:
         visibility:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/VisibilityInfo_visibility"
         openCard:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/VisibilityInfo_openCard"
         byDay:
           description: Данные для отрисовки графика в личном кабинете по видимости
             и переходам в карточки по дням
@@ -3204,19 +3204,19 @@ components:
           price:
             $ref: "#/components/schemas/TableItemItem_allOf_price"
           avgPosition:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableGroupItem_metrics_avgPosition"
           openCard:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/VisibilityInfo_openCard"
           addToCart:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableGroupItem_metrics_addToCart"
           openToCart:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableGroupItem_metrics_openToCart"
           orders:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableGroupItem_metrics_orders"
           cartToOrder:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableGroupItem_metrics_cartToOrder"
           visibility:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableGroupItem_metrics_visibility"
         type: object
       example:
         nmId: 268913787
@@ -4009,28 +4009,28 @@ components:
           price:
             $ref: "#/components/schemas/TableItemItem_allOf_price"
           frequency:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableSearchTextItem_allOf_frequency"
           weekFrequency:
             description: Количество обращений с поисковым запросом за неделю
             example: 140
             format: uint64
             type: integer
           medianPosition:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableSearchTextItem_allOf_medianPosition"
           avgPosition:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableGroupItem_metrics_avgPosition"
           openCard:
             $ref: "#/components/schemas/TableSearchTextItem_allOf_openCard"
           addToCart:
-            $ref: "#/components/schemas/TableSearchTextItem_allOf_openCard"
+            $ref: "#/components/schemas/TableSearchTextItem_allOf_addToCart"
           openToCart:
-            $ref: "#/components/schemas/TableSearchTextItem_allOf_openCard"
+            $ref: "#/components/schemas/TableSearchTextItem_allOf_openToCart"
           orders:
-            $ref: "#/components/schemas/TableSearchTextItem_allOf_openCard"
+            $ref: "#/components/schemas/TableSearchTextItem_allOf_orders"
           cartToOrder:
-            $ref: "#/components/schemas/TableSearchTextItem_allOf_openCard"
+            $ref: "#/components/schemas/TableSearchTextItem_allOf_cartToOrder"
           visibility:
-            $ref: "#/components/schemas/TableItemItem_allOf_avgPosition"
+            $ref: "#/components/schemas/TableSearchTextItem_allOf_visibility"
         required:
         - addToCart
         - avgPosition
@@ -5399,7 +5399,7 @@ components:
         saleRate:
           $ref: "#/components/schemas/TableCommonMetrics_saleRate"
         avgStockTurnover:
-          $ref: "#/components/schemas/TableCommonMetrics_saleRate"
+          $ref: "#/components/schemas/TableCommonMetrics_avgStockTurnover"
         toClientCount:
           description: "В пути к клиенту, шт."
           example: 20
@@ -5411,7 +5411,7 @@ components:
           format: uint64
           type: integer
         officeMissingTime:
-          $ref: "#/components/schemas/TableCommonMetrics_saleRate"
+          $ref: "#/components/schemas/TableCommonMetrics_officeMissingTime"
         lostOrdersCount:
           description: |
             Упущенные заказы, шт. Особые случаи:
@@ -6187,7 +6187,7 @@ components:
         selectedPeriod:
           $ref: "#/components/schemas/ItemsRequest_selectedPeriod"
         pastPeriod:
-          $ref: "#/components/schemas/ItemsRequest_selectedPeriod"
+          $ref: "#/components/schemas/ItemsRequest_pastPeriod"
         nmIds:
           description: |
             Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
@@ -6476,7 +6476,7 @@ components:
         selected:
           $ref: "#/components/schemas/Statistics_selected"
         past:
-          $ref: "#/components/schemas/Statistics_selected"
+          $ref: "#/components/schemas/Statistics_past"
         comparison:
           $ref: "#/components/schemas/Statistics_comparison"
       required:
@@ -6661,7 +6661,7 @@ components:
           format: int
           type: integer
         timeToReadyDynamic:
-          $ref: "#/components/schemas/Statistic_timeToReady"
+          $ref: "#/components/schemas/Comparison_timeToReadyDynamic"
         localizationPercentDynamic:
           description: Динамика локальных заказов в рамках одного региона
           example: 46
@@ -7277,21 +7277,21 @@ components:
             dynamics: 17
             total: 51
           fourStar:
-            current: 19
-            dynamics: 17
-            total: 51
+            current: 2
+            dynamics: 1
+            total: 13
           threeStar:
-            current: 19
-            dynamics: 17
-            total: 51
+            current: 1
+            dynamics: 1
+            total: 11
           twoStar:
-            current: 19
-            dynamics: 17
-            total: 51
+            current: 5
+            dynamics: 5
+            total: 34
           oneStar:
-            current: 19
-            dynamics: 17
-            total: 51
+            current: -1
+            dynamics: -1
+            total: 7
         cards:
         - nmId: 123456789
           title: iPh 17 512 ГБ Серебристый
@@ -7308,23 +7308,23 @@ components:
             dynamics: 0.31
             percentile: 1.7
           feedbackCount:
-            current: 5
-            dynamics: 50
+            current: 12
+            dynamics: 9
           fiveStar:
-            current: 5
-            dynamics: 50
+            current: 9
+            dynamics: 7
           fourStar:
-            current: 5
-            dynamics: 50
+            current: 0
+            dynamics: -1
           threeStar:
-            current: 5
-            dynamics: 50
+            current: 1
+            dynamics: 1
           twoStar:
-            current: 5
-            dynamics: 50
+            current: 2
+            dynamics: 2
           oneStar:
-            current: 5
-            dynamics: 50
+            current: 0
+            dynamics: 0
           disqualified: 7
         - nmId: 123456789
           title: iPh 17 512 ГБ Серебристый
@@ -7341,23 +7341,23 @@ components:
             dynamics: 0.31
             percentile: 1.7
           feedbackCount:
-            current: 5
-            dynamics: 50
+            current: 12
+            dynamics: 9
           fiveStar:
-            current: 5
-            dynamics: 50
+            current: 9
+            dynamics: 7
           fourStar:
-            current: 5
-            dynamics: 50
+            current: 0
+            dynamics: -1
           threeStar:
-            current: 5
-            dynamics: 50
+            current: 1
+            dynamics: 1
           twoStar:
-            current: 5
-            dynamics: 50
+            current: 2
+            dynamics: 2
           oneStar:
-            current: 5
-            dynamics: 50
+            current: 0
+            dynamics: 0
           disqualified: 7
       properties:
         sellerRating:
@@ -7404,21 +7404,21 @@ components:
           dynamics: 17
           total: 51
         fourStar:
-          current: 19
-          dynamics: 17
-          total: 51
+          current: 2
+          dynamics: 1
+          total: 13
         threeStar:
-          current: 19
-          dynamics: 17
-          total: 51
+          current: 1
+          dynamics: 1
+          total: 11
         twoStar:
-          current: 19
-          dynamics: 17
-          total: 51
+          current: 5
+          dynamics: 5
+          total: 34
         oneStar:
-          current: 19
-          dynamics: 17
-          total: 51
+          current: -1
+          dynamics: -1
+          total: 7
       properties:
         current:
           description: Прирост оценок за период
@@ -7435,13 +7435,13 @@ components:
         fiveStar:
           $ref: "#/components/schemas/FeedbacksIncreaseItem_fiveStar"
         fourStar:
-          $ref: "#/components/schemas/FeedbacksIncreaseItem_fiveStar"
+          $ref: "#/components/schemas/FeedbacksIncreaseItem_fourStar"
         threeStar:
-          $ref: "#/components/schemas/FeedbacksIncreaseItem_fiveStar"
+          $ref: "#/components/schemas/FeedbacksIncreaseItem_threeStar"
         twoStar:
-          $ref: "#/components/schemas/FeedbacksIncreaseItem_fiveStar"
+          $ref: "#/components/schemas/FeedbacksIncreaseItem_twoStar"
         oneStar:
-          $ref: "#/components/schemas/FeedbacksIncreaseItem_fiveStar"
+          $ref: "#/components/schemas/FeedbacksIncreaseItem_oneStar"
       required:
       - current
       - dynamics
@@ -7472,23 +7472,23 @@ components:
           dynamics: 0.31
           percentile: 1.7
         feedbackCount:
-          current: 5
-          dynamics: 50
+          current: 12
+          dynamics: 9
         fiveStar:
-          current: 5
-          dynamics: 50
+          current: 9
+          dynamics: 7
         fourStar:
-          current: 5
-          dynamics: 50
+          current: 0
+          dynamics: -1
         threeStar:
-          current: 5
-          dynamics: 50
+          current: 1
+          dynamics: 1
         twoStar:
-          current: 5
-          dynamics: 50
+          current: 2
+          dynamics: 2
         oneStar:
-          current: 5
-          dynamics: 50
+          current: 0
+          dynamics: 0
         disqualified: 7
       type: object
     TableItemBaseCommon:
@@ -7543,17 +7543,17 @@ components:
     DistributionTableIndicators:
       properties:
         feedbackCount:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/DistributionTableIndicators_feedbackCount"
         fiveStar:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/DistributionTableIndicators_fiveStar"
         fourStar:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/DistributionTableIndicators_fourStar"
         threeStar:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/DistributionTableIndicators_threeStar"
         twoStar:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/DistributionTableIndicators_twoStar"
         oneStar:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/DistributionTableIndicators_oneStar"
         disqualified:
           description: "Отзывы, исключённые из рейтинга"
           example: 7
@@ -9434,21 +9434,21 @@ components:
               dynamics: 17
               total: 51
             fourStar:
-              current: 19
-              dynamics: 17
-              total: 51
+              current: 2
+              dynamics: 1
+              total: 13
             threeStar:
-              current: 19
-              dynamics: 17
-              total: 51
+              current: 1
+              dynamics: 1
+              total: 11
             twoStar:
-              current: 19
-              dynamics: 17
-              total: 51
+              current: 5
+              dynamics: 5
+              total: 34
             oneStar:
-              current: 19
-              dynamics: 17
-              total: 51
+              current: -1
+              dynamics: -1
+              total: 7
           cards:
           - nmId: 123456789
             title: iPh 17 512 ГБ Серебристый
@@ -9465,23 +9465,23 @@ components:
               dynamics: 0.31
               percentile: 1.7
             feedbackCount:
-              current: 5
-              dynamics: 50
+              current: 12
+              dynamics: 9
             fiveStar:
-              current: 5
-              dynamics: 50
+              current: 9
+              dynamics: 7
             fourStar:
-              current: 5
-              dynamics: 50
+              current: 0
+              dynamics: -1
             threeStar:
-              current: 5
-              dynamics: 50
+              current: 1
+              dynamics: 1
             twoStar:
-              current: 5
-              dynamics: 50
+              current: 2
+              dynamics: 2
             oneStar:
-              current: 5
-              dynamics: 50
+              current: 0
+              dynamics: 0
             disqualified: 7
           - nmId: 123456789
             title: iPh 17 512 ГБ Серебристый
@@ -9498,23 +9498,23 @@ components:
               dynamics: 0.31
               percentile: 1.7
             feedbackCount:
-              current: 5
-              dynamics: 50
+              current: 12
+              dynamics: 9
             fiveStar:
-              current: 5
-              dynamics: 50
+              current: 9
+              dynamics: 7
             fourStar:
-              current: 5
-              dynamics: 50
+              current: 0
+              dynamics: -1
             threeStar:
-              current: 5
-              dynamics: 50
+              current: 1
+              dynamics: 1
             twoStar:
-              current: 5
-              dynamics: 50
+              current: 2
+              dynamics: 2
             oneStar:
-              current: 5
-              dynamics: 50
+              current: 0
+              dynamics: 0
             disqualified: 7
       properties:
         data:
@@ -9558,6 +9558,126 @@ components:
       required:
       - current
       type: object
+    PositionInfo_average:
+      description: Средняя позиция товара в результатах поиска
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущая средняя позиция товара
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    PositionInfo_median:
+      description: Медианная позиция товара в результатах поиска
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущая медианная позиция товара
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    SearchReportPositionClusters_firstHundred:
+      description: от 1 до 100
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущее количество товаров
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    SearchReportPositionClusters_secondHundred:
+      description: от 101 до 200
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущее количество товаров
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    SearchReportPositionClusters_below:
+      description: от 201 и ниже
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущее количество товаров
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    VisibilityInfo_visibility:
+      description: "Видимость — процент вероятности, что пользователь увидит карто\
+        чку товара. Зависит от средней позиции"
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Видимость в текущий период
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    VisibilityInfo_openCard:
+      description: Количество переходов в карточку товара из поиска
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущее количество переходов
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
     VisibilityInfo_byDay_inner:
       example:
         dt: 2024-02-10
@@ -9583,6 +9703,110 @@ components:
       - dt
       - open
       - visibility
+      type: object
+    TableGroupItem_metrics_avgPosition:
+      description: Средняя позиция товара в результатах поиска
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущая средняя позиция
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    TableGroupItem_metrics_addToCart:
+      description: Сколько раз товар из поиска добавили в корзину
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущее количество
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    TableGroupItem_metrics_openToCart:
+      description: Конверсия в корзину из поиска — доля добавлений товара в корзину
+        по отношению ко всем переходам в карточку товара из поиска
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущая конверсия
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    TableGroupItem_metrics_orders:
+      description: Сколько раз товары из поиска заказали
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущее количество
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    TableGroupItem_metrics_cartToOrder:
+      description: Конверсия в заказ из поиска — доля заказов товара по отношению
+        ко всем добавлениям товара из поиска в корзину
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущая конверсия
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    TableGroupItem_metrics_visibility:
+      description: Процент видимости товара в результатах поиска
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущий процент видимости
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
       type: object
     TableGroupItem_metrics:
       description: Метрики товара в таблице
@@ -9610,19 +9834,19 @@ components:
           dynamics: 50
       properties:
         avgPosition:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/TableGroupItem_metrics_avgPosition"
         openCard:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/VisibilityInfo_openCard"
         addToCart:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/TableGroupItem_metrics_addToCart"
         openToCart:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/TableGroupItem_metrics_openToCart"
         orders:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/TableGroupItem_metrics_orders"
         cartToOrder:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/TableGroupItem_metrics_cartToOrder"
         visibility:
-          $ref: "#/components/schemas/CommonInfo_advertisedProducts"
+          $ref: "#/components/schemas/TableGroupItem_metrics_visibility"
       required:
       - addToCart
       - avgPosition
@@ -9654,14 +9878,34 @@ components:
       - maxPrice
       - minPrice
       type: object
-    TableItemItem_allOf_avgPosition:
-      description: Средняя позиция товара в результатах поиска
+    TableSearchTextItem_allOf_frequency:
+      description: Количество обращений с поисковым запросом
       example:
         current: 5
         dynamics: 50
       properties:
         current:
-          description: Текущая средняя позиция
+          description: Текущее количество
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
+      type: object
+    TableSearchTextItem_allOf_medianPosition:
+      description: "Медианная позиция. Учитываются только те позиции, из которых п\
+        ользователи добавляли товар в корзину или переходили в его карточку. Серед\
+        инное значение позиции в поисковой выдаче, которое исключает сильные откло\
+        нения данных от среднего значения"
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущая медианная позиция
           example: 5
           type: integer
         dynamics:
@@ -9695,6 +9939,125 @@ components:
       required:
       - current
       - percentile
+      type: object
+    TableSearchTextItem_allOf_addToCart:
+      description: Сколько раз товар из поиска добавили в корзину
+      example:
+        current: 5
+        dynamics: 50
+        percentile: 50
+      properties:
+        current:
+          description: Текущее количество
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+        percentile:
+          description: "Процент, на который показатель добавлений в корзину выше,\
+            \ чем у карточек других продавцов по поисковому запросу"
+          example: 50
+          format: uint64
+          type: integer
+      required:
+      - current
+      - percentile
+      type: object
+    TableSearchTextItem_allOf_openToCart:
+      description: Конверсия в корзину из поиска — доля добавлений товара в корзину
+        по отношению ко всем переходам в карточку товара из поиска
+      example:
+        current: 5
+        dynamics: 50
+        percentile: 50
+      properties:
+        current:
+          description: Текущая конверсия
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+        percentile:
+          description: "Процент, на который показатель конверсии в корзину выше, ч\
+            ем у карточек других продавцов по поисковому запросу"
+          example: 50
+          format: uint64
+          type: integer
+      required:
+      - current
+      - percentile
+      type: object
+    TableSearchTextItem_allOf_orders:
+      description: Сколько раз товары из поиска заказали
+      example:
+        current: 5
+        dynamics: 50
+        percentile: 50
+      properties:
+        current:
+          description: Текущее количество
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+        percentile:
+          description: "Процент, на который показатель заказов выше, чем у карточе\
+            к других продавцов по поисковому запросу"
+          example: 50
+          format: uint64
+          type: integer
+      required:
+      - current
+      - percentile
+      type: object
+    TableSearchTextItem_allOf_cartToOrder:
+      description: Конверсия в заказ из поиска — доля заказов товара по отношению
+        ко всем добавлениям товара из поиска в корзину
+      example:
+        current: 5
+        dynamics: 50
+        percentile: 50
+      properties:
+        current:
+          description: Текущая конверсия
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+        percentile:
+          description: "Процент, на который показатель конверсии в заказ выше, чем\
+            \ у карточек других продавцов по поисковому запросу"
+          example: 50
+          format: uint64
+          type: integer
+      required:
+      - current
+      - percentile
+      type: object
+    TableSearchTextItem_allOf_visibility:
+      description: Процент видимости товара в результатах поиска
+      example:
+        current: 5
+        dynamics: 50
+      properties:
+        current:
+          description: Текущий процент
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 50
+          type: integer
+      required:
+      - current
       type: object
     SalesFunnelItemReq_params:
       description: Параметры отчёта
@@ -10152,6 +10515,55 @@ components:
       - days
       - hours
       type: object
+    TableCommonMetrics_avgStockTurnover:
+      description: |
+        Оборачиваемость средних остатков. Особые случаи:
+          1. `"hours":-1` — бесконечная длительность
+          2. `"hours":-2` — нулевая длительность
+          3. `"hours":-3` — нерассчитанная длительность
+      example:
+        days: 5
+        hours: 15
+      properties:
+        days:
+          description: Количество дней
+          example: 5
+          format: int32
+          type: integer
+        hours:
+          description: Количество часов
+          example: 15
+          format: int32
+          type: integer
+      required:
+      - days
+      - hours
+      type: object
+    TableCommonMetrics_officeMissingTime:
+      description: |
+        Время отсутствия товара на складе. Особые случаи:
+          1. `"hours":-1` — бесконечная длительность
+          2. `"hours":-2` — нулевая длительность
+          3. `"hours":-3` — нерассчитанная длительность
+          4. `"hours":-4` — отсутствие в течение всего периода
+      example:
+        days: 5
+        hours: 15
+      properties:
+        days:
+          description: Количество дней
+          example: 5
+          format: int32
+          type: integer
+        hours:
+          description: Количество часов
+          example: 15
+          format: int32
+          type: integer
+      required:
+      - days
+      - hours
+      type: object
     TableItemItemSt_metrics_allOf_currentPrice:
       description: Текущая цена
       example:
@@ -10378,6 +10790,14 @@ components:
     ItemsRequest_selectedPeriod:
       allOf:
       - description: Запрашиваемый период
+        type: object
+      - $ref: "#/components/schemas/DatePeriod"
+      example:
+        start: 2023-06-01
+        end: 2024-03-01
+    ItemsRequest_pastPeriod:
+      allOf:
+      - description: Период для сравнения
         type: object
       - $ref: "#/components/schemas/DatePeriod"
       example:
@@ -10767,6 +11187,44 @@ components:
           addToCartPercent: 19
           cartToOrderPercent: 65
           buyoutPercent: 0
+    Statistics_past:
+      allOf:
+      - description: Период для сравнения
+        type: object
+      - $ref: "#/components/schemas/Statistic"
+      example:
+        period: ""
+        openCount: 45
+        cartCount: 34
+        orderCount: 19
+        orderSum: 1262
+        buyoutCount: 19
+        buyoutSum: 1262
+        cancelCount: 0
+        cancelSum: 0
+        avgPrice: 1262
+        avgOrdersCountPerDay: 0.04
+        shareOrderPercent: 3
+        addToWishlist: 455
+        timeToReady:
+          days: 1
+          hours: 8
+          mins: 34
+        localizationPercent: 46
+        wbClub:
+          orderCount: 19
+          orderSum: 1262
+          buyoutSum: 1262
+          buyoutCount: 19
+          cancelSum: 0
+          cancelCount: 0
+          avgPrice: 1262
+          buyoutPercent: 43
+          avgOrderCountPerDay: 0.04
+        conversions:
+          addToCartPercent: 19
+          cartToOrderPercent: 65
+          buyoutPercent: 0
     Statistics_comparison:
       allOf:
       - description: Сравнение
@@ -10837,6 +11295,15 @@ components:
         addToCartPercent: 19
         cartToOrderPercent: 65
         buyoutPercent: 0
+    Comparison_timeToReadyDynamic:
+      allOf:
+      - description: Динамика среднего времени доставки
+        type: object
+      - $ref: "#/components/schemas/TimeToReady"
+      example:
+        days: 1
+        hours: 8
+        mins: 34
     Comparison_wbClubDynamic:
       allOf:
       - description: Динамика заказов с WB Клубом
@@ -10935,6 +11402,98 @@ components:
       - current
       - total
       type: object
+    FeedbacksIncreaseItem_fourStar:
+      description: Отзывы 4 звезды
+      example:
+        current: 2
+        dynamics: 1
+        total: 13
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 2
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 1
+          type: integer
+        total:
+          description: Всего оценок
+          example: 13
+          type: integer
+      required:
+      - current
+      - total
+      type: object
+    FeedbacksIncreaseItem_threeStar:
+      description: Отзывы 3 звезды
+      example:
+        current: 1
+        dynamics: 1
+        total: 11
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 1
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 1
+          type: integer
+        total:
+          description: Всего оценок
+          example: 11
+          type: integer
+      required:
+      - current
+      - total
+      type: object
+    FeedbacksIncreaseItem_twoStar:
+      description: Отзывы 2 звезды
+      example:
+        current: 5
+        dynamics: 5
+        total: 34
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 5
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 5
+          type: integer
+        total:
+          description: Всего оценок
+          example: 34
+          type: integer
+      required:
+      - current
+      - total
+      type: object
+    FeedbacksIncreaseItem_oneStar:
+      description: Отзывы 1 звезда
+      example:
+        current: -1
+        dynamics: -1
+        total: 7
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: -1
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: -1
+          type: integer
+        total:
+          description: Всего оценок
+          example: 7
+          type: integer
+      required:
+      - current
+      - total
+      type: object
     TableItemBaseCommon_feedbackRating:
       description: Рейтинг товара по отзывам
       example:
@@ -10962,6 +11521,108 @@ components:
       required:
       - current
       - percentile
+      type: object
+    DistributionTableIndicators_feedbackCount:
+      description: Все отзывы за период
+      example:
+        current: 12
+        dynamics: 9
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 12
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 9
+          type: integer
+      required:
+      - current
+      type: object
+    DistributionTableIndicators_fiveStar:
+      description: Отзывы 5 звёзд
+      example:
+        current: 9
+        dynamics: 7
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 9
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 7
+          type: integer
+      required:
+      - current
+      type: object
+    DistributionTableIndicators_fourStar:
+      description: Отзывы 4 звезды
+      example:
+        current: 0
+        dynamics: -1
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 0
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: -1
+          type: integer
+      required:
+      - current
+      type: object
+    DistributionTableIndicators_threeStar:
+      description: Отзывы 3 звезды
+      example:
+        current: 1
+        dynamics: 1
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 1
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 1
+          type: integer
+      required:
+      - current
+      type: object
+    DistributionTableIndicators_twoStar:
+      description: Отзывы 2 звезды
+      example:
+        current: 2
+        dynamics: 2
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 2
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 2
+          type: integer
+      required:
+      - current
+      type: object
+    DistributionTableIndicators_oneStar:
+      description: Отзывы 1 звезда
+      example:
+        current: 0
+        dynamics: 0
+      properties:
+        current:
+          description: Прирост оценок за период
+          example: 0
+          type: integer
+        dynamics:
+          description: "Динамика по сравнению с предыдущим периодом, %"
+          example: 0
+          type: integer
+      required:
+      - current
       type: object
   securitySchemes:
     HeaderApiKey:

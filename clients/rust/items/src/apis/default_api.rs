@@ -1622,7 +1622,7 @@ pub async fn api_v3_warehouses_warehouse_id_put(configuration: &configuration::C
 }
 
 /// Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
-pub async fn content_v2_barcodes_post(configuration: &configuration::Configuration, content_v2_barcodes_post_request: models::ContentV2BarcodesPostRequest) -> Result<models::ContentV2DirectoryKindsGet200Response, Error<ContentV2BarcodesPostError>> {
+pub async fn content_v2_barcodes_post(configuration: &configuration::Configuration, content_v2_barcodes_post_request: models::ContentV2BarcodesPostRequest) -> Result<models::ContentV2BarcodesPost200Response, Error<ContentV2BarcodesPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_content_v2_barcodes_post_request = content_v2_barcodes_post_request;
 
@@ -1657,8 +1657,8 @@ pub async fn content_v2_barcodes_post(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2BarcodesPost200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2BarcodesPost200Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2181,7 +2181,7 @@ pub async fn content_v2_directory_kinds_get(configuration: &configuration::Confi
 }
 
 /// Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
-pub async fn content_v2_directory_seasons_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectoryKindsGet200Response, Error<ContentV2DirectorySeasonsGetError>> {
+pub async fn content_v2_directory_seasons_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectorySeasonsGet200Response, Error<ContentV2DirectorySeasonsGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2218,8 +2218,8 @@ pub async fn content_v2_directory_seasons_get(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectorySeasonsGet200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectorySeasonsGet200Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2283,7 +2283,7 @@ pub async fn content_v2_directory_tnved_get(configuration: &configuration::Confi
 }
 
 /// Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
-pub async fn content_v2_directory_vat_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectoryKindsGet200Response, Error<ContentV2DirectoryVatGetError>> {
+pub async fn content_v2_directory_vat_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ContentV2DirectoryVatGet200Response, Error<ContentV2DirectoryVatGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -2320,8 +2320,8 @@ pub async fn content_v2_directory_vat_get(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryKindsGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentV2DirectoryVatGet200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentV2DirectoryVatGet200Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2637,10 +2637,10 @@ pub async fn content_v2_tag_id_delete(configuration: &configuration::Configurati
 }
 
 /// Метод заменяет данные ярлыка: имя и цвет. <br>Новые данные можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
-pub async fn content_v2_tag_id_patch(configuration: &configuration::Configuration, id: i32, content_v2_tag_post_request: models::ContentV2TagPostRequest) -> Result<models::ResponseContentError, Error<ContentV2TagIdPatchError>> {
+pub async fn content_v2_tag_id_patch(configuration: &configuration::Configuration, id: i32, content_v2_tag_id_patch_request: models::ContentV2TagIdPatchRequest) -> Result<models::ResponseContentError, Error<ContentV2TagIdPatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_id = id;
-    let p_body_content_v2_tag_post_request = content_v2_tag_post_request;
+    let p_body_content_v2_tag_id_patch_request = content_v2_tag_id_patch_request;
 
     let uri_str = format!("{}/content/v2/tag/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -2656,7 +2656,7 @@ pub async fn content_v2_tag_id_patch(configuration: &configuration::Configuratio
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_content_v2_tag_post_request);
+    req_builder = req_builder.json(&p_body_content_v2_tag_id_patch_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

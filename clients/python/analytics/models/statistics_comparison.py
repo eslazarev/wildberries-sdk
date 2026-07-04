@@ -19,9 +19,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
+from wildberries_sdk.analytics.models.comparison_time_to_ready_dynamic import ComparisonTimeToReadyDynamic
 from wildberries_sdk.analytics.models.comparison_wb_club_dynamic import ComparisonWbClubDynamic
 from wildberries_sdk.analytics.models.statistic_conversions import StatisticConversions
-from wildberries_sdk.analytics.models.statistic_time_to_ready import StatisticTimeToReady
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -42,7 +42,7 @@ class StatisticsComparison(BaseModel):
     avg_price_dynamic: StrictInt = Field(description="Динамика средней цены на товары. Учитываются скидки для акций", alias="avgPriceDynamic", json_schema_extra={"examples": [-100]})
     share_order_percent_dynamic: StrictInt = Field(description="Динамика доли в выручке", alias="shareOrderPercentDynamic", json_schema_extra={"examples": [-80]})
     add_to_wishlist_dynamic: StrictInt = Field(description="Динамика добавлений товара в избранное", alias="addToWishlistDynamic", json_schema_extra={"examples": [60]})
-    time_to_ready_dynamic: StatisticTimeToReady = Field(alias="timeToReadyDynamic")
+    time_to_ready_dynamic: ComparisonTimeToReadyDynamic = Field(alias="timeToReadyDynamic")
     localization_percent_dynamic: StrictInt = Field(description="Динамика локальных заказов в рамках одного региона", alias="localizationPercentDynamic", json_schema_extra={"examples": [46]})
     wb_club_dynamic: ComparisonWbClubDynamic = Field(alias="wbClubDynamic")
     conversions: StatisticConversions
@@ -120,7 +120,7 @@ class StatisticsComparison(BaseModel):
             "avgPriceDynamic": obj.get("avgPriceDynamic"),
             "shareOrderPercentDynamic": obj.get("shareOrderPercentDynamic"),
             "addToWishlistDynamic": obj.get("addToWishlistDynamic"),
-            "timeToReadyDynamic": StatisticTimeToReady.from_dict(obj["timeToReadyDynamic"]) if obj.get("timeToReadyDynamic") is not None else None,
+            "timeToReadyDynamic": ComparisonTimeToReadyDynamic.from_dict(obj["timeToReadyDynamic"]) if obj.get("timeToReadyDynamic") is not None else None,
             "localizationPercentDynamic": obj.get("localizationPercentDynamic"),
             "wbClubDynamic": ComparisonWbClubDynamic.from_dict(obj["wbClubDynamic"]) if obj.get("wbClubDynamic") is not None else None,
             "conversions": StatisticConversions.from_dict(obj["conversions"]) if obj.get("conversions") is not None else None

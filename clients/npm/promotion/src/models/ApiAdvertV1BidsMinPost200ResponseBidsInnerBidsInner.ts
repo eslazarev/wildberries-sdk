@@ -28,13 +28,20 @@ import {
  */
 export interface ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
     /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner
+     */
+    currency: string;
+    /**
      * 
      * @type {PlacementType}
      * @memberof ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner
      */
     type: PlacementType;
     /**
-     * Минимальная ставка, копейки
+     * Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * 
      * @type {number}
      * @memberof ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner
      */
@@ -47,6 +54,7 @@ export interface ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
  * Check if a given object implements the ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner interface.
  */
 export function instanceOfApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner(value: object): value is ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
+    if (!('currency' in value) || value['currency'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('value' in value) || value['value'] === undefined) return false;
     return true;
@@ -62,6 +70,7 @@ export function ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInnerFromJSONTyped
     }
     return {
         
+        'currency': json['currency'],
         'type': PlacementTypeFromJSON(json['type']),
         'value': json['value'],
     };
@@ -78,6 +87,7 @@ export function ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInnerToJSONTyped(v
 
     return {
         
+        'currency': value['currency'],
         'type': PlacementTypeToJSON(value['type']),
         'value': value['value'],
     };

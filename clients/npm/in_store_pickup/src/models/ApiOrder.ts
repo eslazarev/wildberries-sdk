@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ApiNewOrderOptions } from './ApiNewOrderOptions';
+import type { ApiOrderOptions } from './ApiOrderOptions';
 import {
-    ApiNewOrderOptionsFromJSON,
-    ApiNewOrderOptionsFromJSONTyped,
-    ApiNewOrderOptionsToJSON,
-    ApiNewOrderOptionsToJSONTyped,
-} from './ApiNewOrderOptions';
+    ApiOrderOptionsFromJSON,
+    ApiOrderOptionsFromJSONTyped,
+    ApiOrderOptionsToJSON,
+    ApiOrderOptionsToJSONTyped,
+} from './ApiOrderOptions';
 
 /**
  * 
@@ -167,10 +167,10 @@ export interface ApiOrder {
     warehouseId?: number;
     /**
      * 
-     * @type {ApiNewOrderOptions}
+     * @type {ApiOrderOptions}
      * @memberof ApiOrder
      */
-    options?: ApiNewOrderOptions;
+    options?: ApiOrderOptions;
 }
 
 
@@ -221,7 +221,7 @@ export function ApiOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'skus': json['skus'] == null ? undefined : json['skus'],
         'warehouseAddress': json['warehouseAddress'] == null ? undefined : json['warehouseAddress'],
         'warehouseId': json['warehouseId'] == null ? undefined : json['warehouseId'],
-        'options': json['options'] == null ? undefined : ApiNewOrderOptionsFromJSON(json['options']),
+        'options': json['options'] == null ? undefined : ApiOrderOptionsFromJSON(json['options']),
     };
 }
 
@@ -255,7 +255,7 @@ export function ApiOrderToJSONTyped(value?: ApiOrder | null, ignoreDiscriminator
         'skus': value['skus'],
         'warehouseAddress': value['warehouseAddress'],
         'warehouseId': value['warehouseId'],
-        'options': ApiNewOrderOptionsToJSON(value['options']),
+        'options': ApiOrderOptionsToJSON(value['options']),
     };
 }
 

@@ -67,7 +67,7 @@ type Order struct {
 	Comment *string `json:"comment,omitempty"`
 	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
-	Options *V3ArchiveOrderOptions `json:"options,omitempty"`
+	Options *OrderOptions `json:"options,omitempty"`
 }
 
 // NewOrder instantiates a new Order object
@@ -877,9 +877,9 @@ func (o *Order) SetIsZeroOrder(v bool) {
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise.
-func (o *Order) GetOptions() V3ArchiveOrderOptions {
+func (o *Order) GetOptions() OrderOptions {
 	if o == nil || IsNil(o.Options) {
-		var ret V3ArchiveOrderOptions
+		var ret OrderOptions
 		return ret
 	}
 	return *o.Options
@@ -887,7 +887,7 @@ func (o *Order) GetOptions() V3ArchiveOrderOptions {
 
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Order) GetOptionsOk() (*V3ArchiveOrderOptions, bool) {
+func (o *Order) GetOptionsOk() (*OrderOptions, bool) {
 	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
@@ -903,8 +903,8 @@ func (o *Order) HasOptions() bool {
 	return false
 }
 
-// SetOptions gets a reference to the given V3ArchiveOrderOptions and assigns it to the Options field.
-func (o *Order) SetOptions(v V3ArchiveOrderOptions) {
+// SetOptions gets a reference to the given OrderOptions and assigns it to the Options field.
+func (o *Order) SetOptions(v OrderOptions) {
 	o.Options = &v
 }
 

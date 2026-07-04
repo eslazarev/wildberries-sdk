@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { StatIntervalInterval } from './StatIntervalInterval';
+import type { RequestWithIntervalInterval } from './RequestWithIntervalInterval';
 import {
-    StatIntervalIntervalFromJSON,
-    StatIntervalIntervalFromJSONTyped,
-    StatIntervalIntervalToJSON,
-    StatIntervalIntervalToJSONTyped,
-} from './StatIntervalInterval';
+    RequestWithIntervalIntervalFromJSON,
+    RequestWithIntervalIntervalFromJSONTyped,
+    RequestWithIntervalIntervalToJSON,
+    RequestWithIntervalIntervalToJSONTyped,
+} from './RequestWithIntervalInterval';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface RequestWithInterval {
     id: number;
     /**
      * 
-     * @type {StatIntervalInterval}
+     * @type {RequestWithIntervalInterval}
      * @memberof RequestWithInterval
      */
-    interval: StatIntervalInterval;
+    interval: RequestWithIntervalInterval;
 }
 
 /**
@@ -61,7 +61,7 @@ export function RequestWithIntervalFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'id': json['id'],
-        'interval': StatIntervalIntervalFromJSON(json['interval']),
+        'interval': RequestWithIntervalIntervalFromJSON(json['interval']),
     };
 }
 
@@ -77,7 +77,7 @@ export function RequestWithIntervalToJSONTyped(value?: RequestWithInterval | nul
     return {
         
         'id': value['id'],
-        'interval': StatIntervalIntervalToJSON(value['interval']),
+        'interval': RequestWithIntervalIntervalToJSON(value['interval']),
     };
 }
 

@@ -29,7 +29,7 @@ class AdvV1UpdGet200ResponseInner(BaseModel):
     """ # noqa: E501
     upd_num: Optional[StrictInt] = Field(default=None, description="Номер выставленного документа", alias="updNum")
     upd_time: Optional[StrictStr] = Field(default=None, description="Время списания", alias="updTime")
-    upd_sum: Optional[StrictInt] = Field(default=None, description="Выставленная сумма", alias="updSum")
+    upd_sum: Optional[StrictInt] = Field(default=None, description="Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="updSum")
     advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
     camp_name: Optional[StrictStr] = Field(default=None, description="Название кампании", alias="campName")
     advert_type: Optional[StrictInt] = Field(default=None, description="Тип кампании", alias="advertType")

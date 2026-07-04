@@ -19,7 +19,12 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts
+from wildberries_sdk.analytics.models.distribution_table_indicators_feedback_count import DistributionTableIndicatorsFeedbackCount
+from wildberries_sdk.analytics.models.distribution_table_indicators_five_star import DistributionTableIndicatorsFiveStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_four_star import DistributionTableIndicatorsFourStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_one_star import DistributionTableIndicatorsOneStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_three_star import DistributionTableIndicatorsThreeStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_two_star import DistributionTableIndicatorsTwoStar
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,12 +33,12 @@ class DistributionTableIndicators(BaseModel):
     """
     DistributionTableIndicators
     """ # noqa: E501
-    feedback_count: Optional[CommonInfoAdvertisedProducts] = Field(default=None, alias="feedbackCount")
-    five_star: Optional[CommonInfoAdvertisedProducts] = Field(default=None, alias="fiveStar")
-    four_star: Optional[CommonInfoAdvertisedProducts] = Field(default=None, alias="fourStar")
-    three_star: Optional[CommonInfoAdvertisedProducts] = Field(default=None, alias="threeStar")
-    two_star: Optional[CommonInfoAdvertisedProducts] = Field(default=None, alias="twoStar")
-    one_star: Optional[CommonInfoAdvertisedProducts] = Field(default=None, alias="oneStar")
+    feedback_count: Optional[DistributionTableIndicatorsFeedbackCount] = Field(default=None, alias="feedbackCount")
+    five_star: Optional[DistributionTableIndicatorsFiveStar] = Field(default=None, alias="fiveStar")
+    four_star: Optional[DistributionTableIndicatorsFourStar] = Field(default=None, alias="fourStar")
+    three_star: Optional[DistributionTableIndicatorsThreeStar] = Field(default=None, alias="threeStar")
+    two_star: Optional[DistributionTableIndicatorsTwoStar] = Field(default=None, alias="twoStar")
+    one_star: Optional[DistributionTableIndicatorsOneStar] = Field(default=None, alias="oneStar")
     disqualified: Optional[StrictInt] = Field(default=None, description="Отзывы, исключённые из рейтинга", json_schema_extra={"examples": [7]})
     __properties: ClassVar[List[str]] = ["feedbackCount", "fiveStar", "fourStar", "threeStar", "twoStar", "oneStar", "disqualified"]
 
@@ -106,12 +111,12 @@ class DistributionTableIndicators(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "feedbackCount": CommonInfoAdvertisedProducts.from_dict(obj["feedbackCount"]) if obj.get("feedbackCount") is not None else None,
-            "fiveStar": CommonInfoAdvertisedProducts.from_dict(obj["fiveStar"]) if obj.get("fiveStar") is not None else None,
-            "fourStar": CommonInfoAdvertisedProducts.from_dict(obj["fourStar"]) if obj.get("fourStar") is not None else None,
-            "threeStar": CommonInfoAdvertisedProducts.from_dict(obj["threeStar"]) if obj.get("threeStar") is not None else None,
-            "twoStar": CommonInfoAdvertisedProducts.from_dict(obj["twoStar"]) if obj.get("twoStar") is not None else None,
-            "oneStar": CommonInfoAdvertisedProducts.from_dict(obj["oneStar"]) if obj.get("oneStar") is not None else None,
+            "feedbackCount": DistributionTableIndicatorsFeedbackCount.from_dict(obj["feedbackCount"]) if obj.get("feedbackCount") is not None else None,
+            "fiveStar": DistributionTableIndicatorsFiveStar.from_dict(obj["fiveStar"]) if obj.get("fiveStar") is not None else None,
+            "fourStar": DistributionTableIndicatorsFourStar.from_dict(obj["fourStar"]) if obj.get("fourStar") is not None else None,
+            "threeStar": DistributionTableIndicatorsThreeStar.from_dict(obj["threeStar"]) if obj.get("threeStar") is not None else None,
+            "twoStar": DistributionTableIndicatorsTwoStar.from_dict(obj["twoStar"]) if obj.get("twoStar") is not None else None,
+            "oneStar": DistributionTableIndicatorsOneStar.from_dict(obj["oneStar"]) if obj.get("oneStar") is not None else None,
             "disqualified": obj.get("disqualified")
         })
         return _obj

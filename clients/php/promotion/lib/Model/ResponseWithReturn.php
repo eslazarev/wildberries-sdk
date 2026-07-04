@@ -57,7 +57,8 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $openAPITypes = [
-        'total' => 'int'
+        'total' => 'int',
+        'currency' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'total' => null
+        'total' => null,
+        'currency' => 'ISO 4217'
     ];
 
     /**
@@ -77,7 +79,8 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'total' => false
+        'total' => false,
+        'currency' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total'
+        'total' => 'total',
+        'currency' => 'currency'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal'
+        'total' => 'setTotal',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal'
+        'total' => 'getTotal',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -245,6 +251,7 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(?array $data = null)
     {
         $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -312,6 +319,33 @@ class ResponseWithReturn implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

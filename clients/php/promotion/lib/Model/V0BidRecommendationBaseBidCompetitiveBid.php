@@ -303,7 +303,7 @@ class V0BidRecommendationBaseBidCompetitiveBid implements ModelInterface, ArrayA
     /**
      * Sets bid_kopecks
      *
-     * @param int|null $bid_kopecks Рекомендуемая ставка, копеек
+     * @param int|null $bid_kopecks Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

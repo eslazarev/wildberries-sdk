@@ -2336,7 +2336,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_orders_stickers_post_request"
+              $ref: "#/components/schemas/_api_v3_orders_stickers_cross_border_post_request"
       responses:
         "200":
           content:
@@ -2907,7 +2907,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_orders_status_history_post_request"
+              $ref: "#/components/schemas/_api_marketplace_v3_supplies__supplyId__orders_patch_request"
         required: true
       responses:
         "204":
@@ -3991,7 +3991,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_supplies__supplyId__trbx_delete_request"
+              $ref: "#/components/schemas/_api_v3_supplies__supplyId__trbx_stickers_post_request"
       responses:
         "200":
           content:
@@ -4877,7 +4877,7 @@ components:
         comment: "Упакуйте в плёнку, пожалуйста"
         isZeroOrder: false
         options:
-          isB2B: false
+          isB2B: true
       properties:
         address:
           $ref: "#/components/schemas/Order_address"
@@ -5042,7 +5042,7 @@ components:
           example: false
           type: boolean
         options:
-          $ref: "#/components/schemas/v3_ArchiveOrder_options"
+          $ref: "#/components/schemas/Order_options"
       type: object
     Supply:
       example:
@@ -5196,7 +5196,7 @@ components:
         isZeroOrder: false
         isPickupPointShipmentAllowed: true
         options:
-          isB2B: false
+          isB2B: true
       properties:
         address:
           $ref: "#/components/schemas/Order_address"
@@ -5415,7 +5415,7 @@ components:
           nullable: false
           type: boolean
         options:
-          $ref: "#/components/schemas/v3_ArchiveOrder_options"
+          $ref: "#/components/schemas/Order_options"
       type: object
     SupplyTrbx:
       example:
@@ -5846,7 +5846,7 @@ components:
           isZeroOrder: false
           isPickupPointShipmentAllowed: true
           options:
-            isB2B: false
+            isB2B: true
         - address:
             fullAddress: "Челябинская область, г. Челябинск, 51-я улица Арабкира,\
               \ д. 10А, кв. 42"
@@ -5889,7 +5889,7 @@ components:
           isZeroOrder: false
           isPickupPointShipmentAllowed: true
           options:
-            isB2B: false
+            isB2B: true
       nullable: false
       properties:
         orders:
@@ -5936,7 +5936,7 @@ components:
           comment: "Упакуйте в плёнку, пожалуйста"
           isZeroOrder: false
           options:
-            isB2B: false
+            isB2B: true
         - address:
             fullAddress: "Челябинская область, г. Челябинск, 51-я улица Арабкира,\
               \ д. 10А, кв. 42"
@@ -5970,7 +5970,7 @@ components:
           comment: "Упакуйте в плёнку, пожалуйста"
           isZeroOrder: false
           options:
-            isB2B: false
+            isB2B: true
       nullable: false
       properties:
         next:
@@ -6229,6 +6229,18 @@ components:
           maxLength: 29
           minLength: 17
           type: string
+      type: object
+    _api_v3_orders_stickers_cross_border_post_request:
+      properties:
+        orders:
+          description: Список ID сборочных заданий
+          items:
+            example: 3869227998
+            format: int64
+            type: integer
+          maxItems: 100
+          minItems: 1
+          type: array
       type: object
     _api_v3_orders_stickers_cross_border_post_200_response_stickers_inner:
       example:
@@ -6493,6 +6505,21 @@ components:
           nullable: false
           type: string
       type: object
+    _api_marketplace_v3_supplies__supplyId__orders_patch_request:
+      properties:
+        orders:
+          description: ID сборочных заданий
+          example:
+          - 5632423
+          - 3453452
+          - 7654533
+          - 4529544
+          items:
+            type: integer
+          maxItems: 100
+          minItems: 1
+          type: array
+      type: object
     _api_v3_supplies__supplyId__barcode_get_200_response:
       example:
         barcode: WB-GI-12345678
@@ -6553,6 +6580,17 @@ components:
       properties:
         trbxIds:
           description: "Список ID грузомест, которые необходимо удалить"
+          items:
+            example: WB-TRBX-1234567
+            type: string
+          type: array
+      required:
+      - trbxIds
+      type: object
+    _api_v3_supplies__supplyId__trbx_stickers_post_request:
+      properties:
+        trbxIds:
+          description: "Список ID грузомест, по которым необходимо вернуть стикеры"
           items:
             example: WB-TRBX-1234567
             type: string
@@ -6832,6 +6870,18 @@ components:
           format: float64
           nullable: false
           type: number
+      type: object
+    Order_options:
+      description: Опции заказа
+      example:
+        isB2B: true
+      properties:
+        isB2B:
+          description: |
+            Признак B2B-продажи:
+              - `false` — не B2B-продажа
+              - `true` — B2B-продажа
+          type: boolean
       type: object
     MetaDetails_inner:
       example:

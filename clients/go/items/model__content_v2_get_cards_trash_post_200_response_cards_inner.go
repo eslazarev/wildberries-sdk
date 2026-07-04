@@ -35,7 +35,7 @@ type ContentV2GetCardsTrashPost200ResponseCardsInner struct {
 	Video *string `json:"video,omitempty"`
 	Wholesale *ContentV2GetCardsListPost200ResponseCardsInnerWholesale `json:"wholesale,omitempty"`
 	// Массив размеров
-	Sizes []ContentV2GetCardsListPost200ResponseCardsInnerSizesInner `json:"sizes,omitempty"`
+	Sizes []ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner `json:"sizes,omitempty"`
 	Dimensions *ContentV2GetCardsListPost200ResponseCardsInnerDimensions `json:"dimensions,omitempty"`
 	// Характеристики
 	Characteristics []ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner `json:"characteristics,omitempty"`
@@ -323,9 +323,9 @@ func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) SetWholesale(v Content
 }
 
 // GetSizes returns the Sizes field value if set, zero value otherwise.
-func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) GetSizes() []ContentV2GetCardsListPost200ResponseCardsInnerSizesInner {
+func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) GetSizes() []ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner {
 	if o == nil || IsNil(o.Sizes) {
-		var ret []ContentV2GetCardsListPost200ResponseCardsInnerSizesInner
+		var ret []ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner
 		return ret
 	}
 	return o.Sizes
@@ -333,7 +333,7 @@ func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) GetSizes() []ContentV2
 
 // GetSizesOk returns a tuple with the Sizes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) GetSizesOk() ([]ContentV2GetCardsListPost200ResponseCardsInnerSizesInner, bool) {
+func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) GetSizesOk() ([]ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner, bool) {
 	if o == nil || IsNil(o.Sizes) {
 		return nil, false
 	}
@@ -349,8 +349,8 @@ func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) HasSizes() bool {
 	return false
 }
 
-// SetSizes gets a reference to the given []ContentV2GetCardsListPost200ResponseCardsInnerSizesInner and assigns it to the Sizes field.
-func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) SetSizes(v []ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) {
+// SetSizes gets a reference to the given []ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner and assigns it to the Sizes field.
+func (o *ContentV2GetCardsTrashPost200ResponseCardsInner) SetSizes(v []ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner) {
 	o.Sizes = v
 }
 

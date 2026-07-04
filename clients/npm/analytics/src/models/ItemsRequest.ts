@@ -27,6 +27,13 @@ import {
     ItemsRequestSelectedPeriodToJSON,
     ItemsRequestSelectedPeriodToJSONTyped,
 } from './ItemsRequestSelectedPeriod';
+import type { ItemsRequestPastPeriod } from './ItemsRequestPastPeriod';
+import {
+    ItemsRequestPastPeriodFromJSON,
+    ItemsRequestPastPeriodFromJSONTyped,
+    ItemsRequestPastPeriodToJSON,
+    ItemsRequestPastPeriodToJSONTyped,
+} from './ItemsRequestPastPeriod';
 
 /**
  * 
@@ -42,10 +49,10 @@ export interface ItemsRequest {
     selectedPeriod: ItemsRequestSelectedPeriod;
     /**
      * 
-     * @type {ItemsRequestSelectedPeriod}
+     * @type {ItemsRequestPastPeriod}
      * @memberof ItemsRequest
      */
-    pastPeriod?: ItemsRequestSelectedPeriod;
+    pastPeriod?: ItemsRequestPastPeriod;
     /**
      * Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
      * 
@@ -116,7 +123,7 @@ export function ItemsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'selectedPeriod': ItemsRequestSelectedPeriodFromJSON(json['selectedPeriod']),
-        'pastPeriod': json['pastPeriod'] == null ? undefined : ItemsRequestSelectedPeriodFromJSON(json['pastPeriod']),
+        'pastPeriod': json['pastPeriod'] == null ? undefined : ItemsRequestPastPeriodFromJSON(json['pastPeriod']),
         'nmIds': json['nmIds'] == null ? undefined : json['nmIds'],
         'brandNames': json['brandNames'] == null ? undefined : json['brandNames'],
         'subjectIds': json['subjectIds'] == null ? undefined : json['subjectIds'],
@@ -140,7 +147,7 @@ export function ItemsRequestToJSONTyped(value?: ItemsRequest | null, ignoreDiscr
     return {
         
         'selectedPeriod': ItemsRequestSelectedPeriodToJSON(value['selectedPeriod']),
-        'pastPeriod': ItemsRequestSelectedPeriodToJSON(value['pastPeriod']),
+        'pastPeriod': ItemsRequestPastPeriodToJSON(value['pastPeriod']),
         'nmIds': value['nmIds'],
         'brandNames': value['brandNames'],
         'subjectIds': value['subjectIds'],

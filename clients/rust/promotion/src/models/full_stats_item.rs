@@ -29,7 +29,7 @@ pub struct FullStatsItem {
     /// Количество кликов
     #[serde(rename = "clicks")]
     pub clicks: i32,
-    /// Средняя стоимость клика, ₽
+    /// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "cpc")]
     pub cpc: f64,
     /// CR (conversion rate) — отношение количества заказов к общему количеству кликов
@@ -47,20 +47,23 @@ pub struct FullStatsItem {
     /// Количество заказанных товаров, шт.
     #[serde(rename = "shks")]
     pub shks: i32,
-    /// Затраты, ₽
+    /// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "sum")]
     pub sum: f64,
-    /// Сумма заказов, ₽
+    /// Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "sum_price")]
     pub sum_price: f64,
     /// Количество просмотров
     #[serde(rename = "views")]
     pub views: i32,
+    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    #[serde(rename = "currency")]
+    pub currency: String,
 }
 
 impl FullStatsItem {
     /// Статистика по одной кампании за период, указанный в запросе. По всем артикулам WB и платформам
-    pub fn new(advert_id: i32, atbs: i32, canceled: i32, clicks: i32, cpc: f64, cr: f64, ctr: f64, days: Vec<models::DaysV3Inner>, orders: i32, shks: i32, sum: f64, sum_price: f64, views: i32) -> FullStatsItem {
+    pub fn new(advert_id: i32, atbs: i32, canceled: i32, clicks: i32, cpc: f64, cr: f64, ctr: f64, days: Vec<models::DaysV3Inner>, orders: i32, shks: i32, sum: f64, sum_price: f64, views: i32, currency: String) -> FullStatsItem {
         FullStatsItem {
             advert_id,
             atbs,
@@ -76,6 +79,7 @@ impl FullStatsItem {
             sum,
             sum_price,
             views,
+            currency,
         }
     }
 }

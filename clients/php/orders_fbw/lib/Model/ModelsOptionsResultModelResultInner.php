@@ -58,7 +58,7 @@ class ModelsOptionsResultModelResultInner implements ModelInterface, ArrayAccess
      */
     protected static $openAPITypes = [
         'barcode' => 'string',
-        'error' => '\Wildberries\Sdk\OrdersFbw\Model\ApiV1AcceptanceOptionsPost402Response',
+        'error' => '\Wildberries\Sdk\OrdersFbw\Model\ModelsOptionsResultModelResultInnerError',
         'is_error' => 'bool',
         'warehouses' => '\Wildberries\Sdk\OrdersFbw\Model\ModelsOptionsResultModelResultInnerWarehousesInner[]'
     ];
@@ -340,7 +340,7 @@ class ModelsOptionsResultModelResultInner implements ModelInterface, ArrayAccess
     /**
      * Gets error
      *
-     * @return \Wildberries\Sdk\OrdersFbw\Model\ApiV1AcceptanceOptionsPost402Response|null
+     * @return \Wildberries\Sdk\OrdersFbw\Model\ModelsOptionsResultModelResultInnerError|null
      */
     public function getError()
     {
@@ -350,7 +350,7 @@ class ModelsOptionsResultModelResultInner implements ModelInterface, ArrayAccess
     /**
      * Sets error
      *
-     * @param \Wildberries\Sdk\OrdersFbw\Model\ApiV1AcceptanceOptionsPost402Response|null $error error
+     * @param \Wildberries\Sdk\OrdersFbw\Model\ModelsOptionsResultModelResultInnerError|null $error error
      *
      * @return self
      */

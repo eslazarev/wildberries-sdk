@@ -35,6 +35,7 @@ from wildberries_sdk.in_store_pickup.models.api_order import ApiOrder
 from wildberries_sdk.in_store_pickup.models.api_order_client_info import ApiOrderClientInfo
 from wildberries_sdk.in_store_pickup.models.api_order_client_info_resp import ApiOrderClientInfoResp
 from wildberries_sdk.in_store_pickup.models.api_order_meta_v2 import ApiOrderMetaV2
+from wildberries_sdk.in_store_pickup.models.api_order_options import ApiOrderOptions
 from wildberries_sdk.in_store_pickup.models.api_order_status_v2 import ApiOrderStatusV2
 from wildberries_sdk.in_store_pickup.models.api_order_statuses_v2 import ApiOrderStatusesV2
 from wildberries_sdk.in_store_pickup.models.api_orders import ApiOrders

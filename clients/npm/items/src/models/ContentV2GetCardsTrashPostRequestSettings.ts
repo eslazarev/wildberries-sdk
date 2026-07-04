@@ -27,13 +27,13 @@ import {
     ContentV2GetCardsTrashPostRequestSettingsFilterToJSON,
     ContentV2GetCardsTrashPostRequestSettingsFilterToJSONTyped,
 } from './ContentV2GetCardsTrashPostRequestSettingsFilter';
-import type { ContentV2GetCardsListPostRequestSettingsSort } from './ContentV2GetCardsListPostRequestSettingsSort';
+import type { ContentV2GetCardsTrashPostRequestSettingsSort } from './ContentV2GetCardsTrashPostRequestSettingsSort';
 import {
-    ContentV2GetCardsListPostRequestSettingsSortFromJSON,
-    ContentV2GetCardsListPostRequestSettingsSortFromJSONTyped,
-    ContentV2GetCardsListPostRequestSettingsSortToJSON,
-    ContentV2GetCardsListPostRequestSettingsSortToJSONTyped,
-} from './ContentV2GetCardsListPostRequestSettingsSort';
+    ContentV2GetCardsTrashPostRequestSettingsSortFromJSON,
+    ContentV2GetCardsTrashPostRequestSettingsSortFromJSONTyped,
+    ContentV2GetCardsTrashPostRequestSettingsSortToJSON,
+    ContentV2GetCardsTrashPostRequestSettingsSortToJSONTyped,
+} from './ContentV2GetCardsTrashPostRequestSettingsSort';
 
 /**
  * Настройки
@@ -43,10 +43,10 @@ import {
 export interface ContentV2GetCardsTrashPostRequestSettings {
     /**
      * 
-     * @type {ContentV2GetCardsListPostRequestSettingsSort}
+     * @type {ContentV2GetCardsTrashPostRequestSettingsSort}
      * @memberof ContentV2GetCardsTrashPostRequestSettings
      */
-    sort?: ContentV2GetCardsListPostRequestSettingsSort;
+    sort?: ContentV2GetCardsTrashPostRequestSettingsSort;
     /**
      * 
      * @type {ContentV2GetCardsTrashPostRequestSettingsCursor}
@@ -78,7 +78,7 @@ export function ContentV2GetCardsTrashPostRequestSettingsFromJSONTyped(json: any
     }
     return {
         
-        'sort': json['sort'] == null ? undefined : ContentV2GetCardsListPostRequestSettingsSortFromJSON(json['sort']),
+        'sort': json['sort'] == null ? undefined : ContentV2GetCardsTrashPostRequestSettingsSortFromJSON(json['sort']),
         'cursor': json['cursor'] == null ? undefined : ContentV2GetCardsTrashPostRequestSettingsCursorFromJSON(json['cursor']),
         'filter': json['filter'] == null ? undefined : ContentV2GetCardsTrashPostRequestSettingsFilterFromJSON(json['filter']),
     };
@@ -95,7 +95,7 @@ export function ContentV2GetCardsTrashPostRequestSettingsToJSONTyped(value?: Con
 
     return {
         
-        'sort': ContentV2GetCardsListPostRequestSettingsSortToJSON(value['sort']),
+        'sort': ContentV2GetCardsTrashPostRequestSettingsSortToJSON(value['sort']),
         'cursor': ContentV2GetCardsTrashPostRequestSettingsCursorToJSON(value['cursor']),
         'filter': ContentV2GetCardsTrashPostRequestSettingsFilterToJSON(value['filter']),
     };

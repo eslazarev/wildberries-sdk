@@ -18,18 +18,19 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class TableItemItemAllOfAvgPosition(BaseModel):
+class ComparisonTimeToReadyDynamic(BaseModel):
     """
-    Средняя позиция товара в результатах поиска
+    ComparisonTimeToReadyDynamic
     """ # noqa: E501
-    current: StrictInt = Field(description="Текущая средняя позиция", json_schema_extra={"examples": [5]})
-    dynamics: Optional[StrictInt] = Field(default=None, description="Динамика по сравнению с предыдущим периодом, %", json_schema_extra={"examples": [50]})
-    __properties: ClassVar[List[str]] = ["current", "dynamics"]
+    days: StrictInt = Field(description="Дни", json_schema_extra={"examples": [1]})
+    hours: StrictInt = Field(description="Часы", json_schema_extra={"examples": [8]})
+    mins: StrictInt = Field(description="Минуты", json_schema_extra={"examples": [34]})
+    __properties: ClassVar[List[str]] = ["days", "hours", "mins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -49,7 +50,7 @@ class TableItemItemAllOfAvgPosition(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TableItemItemAllOfAvgPosition from a JSON string"""
+        """Create an instance of ComparisonTimeToReadyDynamic from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +75,7 @@ class TableItemItemAllOfAvgPosition(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TableItemItemAllOfAvgPosition from a dict"""
+        """Create an instance of ComparisonTimeToReadyDynamic from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +83,9 @@ class TableItemItemAllOfAvgPosition(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "current": obj.get("current"),
-            "dynamics": obj.get("dynamics")
+            "days": obj.get("days"),
+            "hours": obj.get("hours"),
+            "mins": obj.get("mins")
         })
         return _obj
 

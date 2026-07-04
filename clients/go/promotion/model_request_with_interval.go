@@ -23,7 +23,7 @@ var _ MappedNullable = &RequestWithInterval{}
 type RequestWithInterval struct {
 	// ID кампании
 	Id int32 `json:"id"`
-	Interval StatIntervalInterval `json:"interval"`
+	Interval RequestWithIntervalInterval `json:"interval"`
 }
 
 type _RequestWithInterval RequestWithInterval
@@ -32,7 +32,7 @@ type _RequestWithInterval RequestWithInterval
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRequestWithInterval(id int32, interval StatIntervalInterval) *RequestWithInterval {
+func NewRequestWithInterval(id int32, interval RequestWithIntervalInterval) *RequestWithInterval {
 	this := RequestWithInterval{}
 	this.Id = id
 	this.Interval = interval
@@ -72,9 +72,9 @@ func (o *RequestWithInterval) SetId(v int32) {
 }
 
 // GetInterval returns the Interval field value
-func (o *RequestWithInterval) GetInterval() StatIntervalInterval {
+func (o *RequestWithInterval) GetInterval() RequestWithIntervalInterval {
 	if o == nil {
-		var ret StatIntervalInterval
+		var ret RequestWithIntervalInterval
 		return ret
 	}
 
@@ -83,7 +83,7 @@ func (o *RequestWithInterval) GetInterval() StatIntervalInterval {
 
 // GetIntervalOk returns a tuple with the Interval field value
 // and a boolean to check if the value has been set.
-func (o *RequestWithInterval) GetIntervalOk() (*StatIntervalInterval, bool) {
+func (o *RequestWithInterval) GetIntervalOk() (*RequestWithIntervalInterval, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *RequestWithInterval) GetIntervalOk() (*StatIntervalInterval, bool) {
 }
 
 // SetInterval sets field value
-func (o *RequestWithInterval) SetInterval(v StatIntervalInterval) {
+func (o *RequestWithInterval) SetInterval(v RequestWithIntervalInterval) {
 	o.Interval = v
 }
 

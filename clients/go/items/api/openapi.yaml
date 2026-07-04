@@ -782,7 +782,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_content_v2_directory_kinds_get_200_response"
+                $ref: "#/components/schemas/_content_v2_directory_seasons_get_200_response"
           description: Успешно
         "400":
           content:
@@ -897,7 +897,7 @@ paths:
                 errorText: ""
                 additionalErrors: null
               schema:
-                $ref: "#/components/schemas/_content_v2_directory_kinds_get_200_response"
+                $ref: "#/components/schemas/_content_v2_directory_vat_get_200_response"
           description: Успешно
         "400":
           content:
@@ -1554,7 +1554,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_content_v2_tag_post_request"
+              $ref: "#/components/schemas/_content_v2_tag__id__patch_request"
         required: true
       responses:
         "200":
@@ -3019,7 +3019,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_content_v2_directory_kinds_get_200_response"
+                $ref: "#/components/schemas/_content_v2_barcodes_post_200_response"
           description: Успешно
         "401":
           content:
@@ -7595,7 +7595,7 @@ components:
       properties:
         contacts:
           items:
-            $ref: "#/components/schemas/_api_v3_dbw_warehouses__warehouseId__contacts_get_200_response_contacts_inner"
+            $ref: "#/components/schemas/StoreContactRequestBody_contacts_inner"
           maxItems: 5
           type: array
       type: object
@@ -7809,7 +7809,7 @@ components:
     RequestAlreadyExistsError:
       example:
         data:
-          id: 0
+          id: 6
           alreadyExists: true
         error: true
         errorText: errorText
@@ -7850,12 +7850,12 @@ components:
       example:
         data:
           id: 0
-          alreadyExists: true
+          alreadyExists: false
         error: false
         errorText: ""
       properties:
         data:
-          $ref: "#/components/schemas/RequestAlreadyExistsError_data"
+          $ref: "#/components/schemas/TaskCreated_data"
         error:
           description: Флаг ошибки
           example: false
@@ -9534,6 +9534,59 @@ components:
           nullable: true
           type: string
       type: object
+    _content_v2_directory_seasons_get_200_response:
+      example:
+        data:
+        - демисезон
+        - демисезон
+        error: false
+        errorText: ""
+        additionalErrors: ""
+      properties:
+        data:
+          description: Массив значений для хар-ки Сезон
+          items:
+            example: демисезон
+            type: string
+          type: array
+        error:
+          description: Флаг ошибки
+          example: false
+          type: boolean
+        errorText:
+          description: Описание ошибки
+          example: ""
+          type: string
+        additionalErrors:
+          description: Дополнительные ошибки
+          example: ""
+          nullable: true
+          type: string
+      type: object
+    _content_v2_directory_vat_get_200_response:
+      example:
+        data:
+        - data
+        - data
+        error: true
+        errorText: errorText
+        additionalErrors: additionalErrors
+      properties:
+        data:
+          items:
+            type: string
+          type: array
+        error:
+          description: Флаг наличия ошибки
+          type: boolean
+        errorText:
+          description: Текст ошибки
+          type: string
+        additionalErrors:
+          description: Дополнительные ошибки
+          nullable: true
+          type: string
+      type: object
     _content_v2_directory_tnved_get_200_response_data_inner:
       example:
         tnved: tnved
@@ -9640,6 +9693,17 @@ components:
               - `E4EAFF` — синий
               - `DEF1DD` — зеленый
               - `FFECC7` — желтый
+          example: D1CFD7
+          type: string
+        name:
+          description: Имя ярлыка
+          example: Sale
+          type: string
+      type: object
+    _content_v2_tag__id__patch_request:
+      properties:
+        color:
+          description: Цвет ярлыка
           example: D1CFD7
           type: string
         name:
@@ -10373,6 +10437,17 @@ components:
           nullable: true
           type: object
       type: object
+    _content_v2_get_cards_trash_post_request_settings_sort:
+      description: Параметр сортировки
+      properties:
+        ascending:
+          default: false
+          description: |
+            Сортировать по `trashedAt`:
+              - `false` — по убыванию
+              - `true` — по возрастанию
+          type: boolean
+      type: object
     _content_v2_get_cards_trash_post_request_settings_cursor:
       description: Пагинатор
       properties:
@@ -10400,7 +10475,7 @@ components:
       description: Настройки
       properties:
         sort:
-          $ref: "#/components/schemas/_content_v2_get_cards_list_post_request_settings_sort"
+          $ref: "#/components/schemas/_content_v2_get_cards_trash_post_request_settings_sort"
         cursor:
           $ref: "#/components/schemas/_content_v2_get_cards_trash_post_request_settings_cursor"
         filter:
@@ -10410,6 +10485,31 @@ components:
       properties:
         settings:
           $ref: "#/components/schemas/_content_v2_get_cards_trash_post_request_settings"
+      type: object
+    _content_v2_get_cards_trash_post_200_response_cards_inner_sizes_inner:
+      example:
+        chrtID: 1
+        techSize: techSize
+        wbSize: wbSize
+        skus:
+        - 12345Ejf5
+        - 12345Ejf5
+      properties:
+        chrtID:
+          description: ID размера
+          type: integer
+        techSize:
+          description: Размер товара
+          type: string
+        wbSize:
+          description: Российский размер товара
+          type: string
+        skus:
+          description: Массив баркодов
+          items:
+            example: 12345Ejf5
+            type: string
+          type: array
       type: object
     _content_v2_get_cards_trash_post_200_response_cards_inner:
       example:
@@ -10434,13 +10534,13 @@ components:
           enabled: true
           quantum: 5.962133916683182
         sizes:
-        - chrtID: 2
+        - chrtID: 1
           techSize: techSize
           wbSize: wbSize
           skus:
           - 12345Ejf5
           - 12345Ejf5
-        - chrtID: 2
+        - chrtID: 1
           techSize: techSize
           wbSize: wbSize
           skus:
@@ -10497,7 +10597,7 @@ components:
         sizes:
           description: Массив размеров
           items:
-            $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_sizes_inner"
+            $ref: "#/components/schemas/_content_v2_get_cards_trash_post_200_response_cards_inner_sizes_inner"
           type: array
         dimensions:
           $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_dimensions"
@@ -10518,7 +10618,7 @@ components:
       description: Пагинатор
       example:
         trashedAt: trashedAt
-        nmID: 1
+        nmID: 5
         total: 5
       properties:
         trashedAt:
@@ -10557,13 +10657,13 @@ components:
             enabled: true
             quantum: 5.962133916683182
           sizes:
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
             - 12345Ejf5
             - 12345Ejf5
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
@@ -10605,13 +10705,13 @@ components:
             enabled: true
             quantum: 5.962133916683182
           sizes:
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
             - 12345Ejf5
             - 12345Ejf5
-          - chrtID: 2
+          - chrtID: 1
             techSize: techSize
             wbSize: wbSize
             skus:
@@ -10634,7 +10734,7 @@ components:
           trashedAt: trashedAt
         cursor:
           trashedAt: trashedAt
-          nmID: 1
+          nmID: 5
           total: 5
       properties:
         cards:
@@ -10686,6 +10786,55 @@ components:
             оступное количество баркодов для генерации - `5 000`"
           example: 100
           type: integer
+      type: object
+    _content_v2_barcodes_post_200_response:
+      example:
+        data:
+        - "5032781145187"
+        - "5032781145187"
+        error: false
+        errorText: ""
+        additionalErrors: ""
+      properties:
+        data:
+          description: Массив сгенерированных баркодов
+          items:
+            example: "5032781145187"
+            type: string
+          type: array
+        error:
+          description: Флаг ошибки
+          example: false
+          type: boolean
+        errorText:
+          description: Описание ошибки
+          example: ""
+          type: string
+        additionalErrors:
+          description: Дополнительные ошибки
+          example: ""
+          nullable: true
+          type: string
+      type: object
+    _content_v2_cards_upload_post_request_inner_variants_inner_dimensions:
+      description: |
+        Габариты и вес товара **c упаковкой**.<br>
+        Укажите в `сантиметрах` и `килограммах` для любого товара.<br>
+        Если данные не указаны, автоматически сгенерируются нулевые значения длины, ширины, высоты и веса.<br>
+        Синхронизация данных новой карточки с сервисом может занимать до 30 минут
+      properties:
+        length:
+          description: "Длина, см"
+          type: integer
+        width:
+          description: "Ширина, см"
+          type: integer
+        height:
+          description: "Высота, см"
+          type: integer
+        weightBrutto:
+          description: "Вес, кг<br>Количество знаков после запятой <=3"
+          type: number
       type: object
     _content_v2_cards_upload_post_request_inner_variants_inner_sizes_inner:
       properties:
@@ -10741,7 +10890,7 @@ components:
         wholesale:
           $ref: "#/components/schemas/_content_v2_get_cards_list_post_200_response_cards_inner_wholesale"
         dimensions:
-          $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner_dimensions"
+          $ref: "#/components/schemas/_content_v2_cards_upload_post_request_inner_variants_inner_dimensions"
         sizes:
           description: |
             Массив размеров.<br>
@@ -10777,6 +10926,43 @@ components:
       - subjectID
       - variants
       type: object
+    _content_v2_cards_upload_add_post_request_cardsToAdd_inner_dimensions:
+      description: |
+        Габариты и вес товара **c упаковкой**.<br>
+        Укажите в `сантиметрах` и `килограммах` для любого товара. <br>
+        Если данные не указаны, автоматически сгенерируются нулевые значения длины, ширины, высоты и веса. <br>
+        Синхронизация данных с сервисом может занимать до 30 минут
+      properties:
+        length:
+          description: "Длина, см"
+          type: integer
+        width:
+          description: "Ширина, см"
+          type: integer
+        height:
+          description: "Высота, см"
+          type: integer
+        weightBrutto:
+          description: "Вес, кг<br>Количество знаков после запятой <=3"
+          type: number
+      type: object
+    _content_v2_cards_upload_add_post_request_cardsToAdd_inner_sizes_inner:
+      properties:
+        techSize:
+          description: "Размер товара (например, XL, 45)"
+          type: string
+        wbSize:
+          description: Российский размер товара
+          type: string
+        price:
+          description: Цена товара
+          type: integer
+        skus:
+          description: "Баркод. Если не указать, сгенерируется автоматически"
+          items:
+            type: string
+          type: array
+      type: object
     _content_v2_cards_upload_add_post_request_cardsToAdd_inner:
       maximum: 29
       minimum: 1
@@ -10811,13 +10997,13 @@ components:
             Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
           type: string
         dimensions:
-          $ref: "#/components/schemas/_content_v2_cards_update_post_request_inner_dimensions"
+          $ref: "#/components/schemas/_content_v2_cards_upload_add_post_request_cardsToAdd_inner_dimensions"
         sizes:
           description: |
             Массив размеров.<br>
             Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = "A", `wbSize` = "1" и баркодом
           items:
-            $ref: "#/components/schemas/_content_v2_cards_upload_post_request_inner_variants_inner_sizes_inner"
+            $ref: "#/components/schemas/_content_v2_cards_upload_add_post_request_cardsToAdd_inner_sizes_inner"
           type: array
         characteristics:
           description: |
@@ -11711,6 +11897,28 @@ components:
         value:
           description: "Значение параметра, где произошла ошибка"
       type: object
+    StoreContactRequestBody_contacts_inner:
+      example:
+        comment: Иванов Иван Иванович. Звонить с 10 до 21 часа.
+        phone: "+79998887766"
+      properties:
+        comment:
+          description: Комментарий
+          example: Иванов Иван Иванович. Звонить с 10 до 21 часа.
+          maxLength: 1000
+          nullable: false
+          type: string
+        phone:
+          description: |
+            Номер телефона.<br>Поддерживаются коды стран:
+              - `+7` — Россия, Казахстан
+              - `+374` — Армения
+              - `+375` — Беларусь
+              - `+996` — Кыргызстан
+          example: "+79998887766"
+          nullable: false
+          type: string
+      type: object
     responseItemList_additionalErrors_oneOf:
       additionalProperties: false
       example:
@@ -11737,7 +11945,7 @@ components:
     RequestAlreadyExistsError_data:
       description: Данные ответа
       example:
-        id: 0
+        id: 6
         alreadyExists: true
       properties:
         id:
@@ -11788,6 +11996,21 @@ components:
         message:
           description: Описание ошибки
           type: string
+      type: object
+    TaskCreated_data:
+      description: Данные ответа
+      example:
+        id: 0
+        alreadyExists: false
+      properties:
+        id:
+          description: ID загрузки
+          type: integer
+        alreadyExists:
+          description: |
+            Флаг дублирования загрузки: `true` — такая загрузка уже есть
+          example: false
+          type: boolean
       type: object
     B2BWholesale_inner:
       properties:

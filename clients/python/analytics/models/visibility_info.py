@@ -19,8 +19,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts
 from wildberries_sdk.analytics.models.visibility_info_by_day_inner import VisibilityInfoByDayInner
+from wildberries_sdk.analytics.models.visibility_info_open_card import VisibilityInfoOpenCard
+from wildberries_sdk.analytics.models.visibility_info_visibility import VisibilityInfoVisibility
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +30,8 @@ class VisibilityInfo(BaseModel):
     """
     Видимость карточек и переходы в карточки. По дням, неделям, месяцам
     """ # noqa: E501
-    visibility: CommonInfoAdvertisedProducts
-    open_card: CommonInfoAdvertisedProducts = Field(alias="openCard")
+    visibility: VisibilityInfoVisibility
+    open_card: VisibilityInfoOpenCard = Field(alias="openCard")
     by_day: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням", alias="byDay")
     by_week: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям", alias="byWeek")
     by_month: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам", alias="byMonth")
@@ -114,8 +115,8 @@ class VisibilityInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "visibility": CommonInfoAdvertisedProducts.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None,
-            "openCard": CommonInfoAdvertisedProducts.from_dict(obj["openCard"]) if obj.get("openCard") is not None else None,
+            "visibility": VisibilityInfoVisibility.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None,
+            "openCard": VisibilityInfoOpenCard.from_dict(obj["openCard"]) if obj.get("openCard") is not None else None,
             "byDay": [VisibilityInfoByDayInner.from_dict(_item) for _item in obj["byDay"]] if obj.get("byDay") is not None else None,
             "byWeek": [VisibilityInfoByDayInner.from_dict(_item) for _item in obj["byWeek"]] if obj.get("byWeek") is not None else None,
             "byMonth": [VisibilityInfoByDayInner.from_dict(_item) for _item in obj["byMonth"]] if obj.get("byMonth") is not None else None

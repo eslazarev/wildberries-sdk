@@ -20,7 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.in_store_pickup.models.api_new_order_options import ApiNewOrderOptions
+from wildberries_sdk.in_store_pickup.models.api_order_options import ApiOrderOptions
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -48,7 +48,7 @@ class ApiOrder(BaseModel):
     skus: Optional[List[StrictStr]] = Field(default=None, description="Массив баркодов товара", json_schema_extra={"examples": [["2043227963145"]]})
     warehouse_address: Optional[StrictStr] = Field(default=None, description="Адрес магазина (склада продавца), на который поступило сборочное задание", alias="warehouseAddress", json_schema_extra={"examples": ["Москва, район Якиманка, Софийская набережная, 4 с1"]})
     warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId", json_schema_extra={"examples": [1162157]})
-    options: Optional[ApiNewOrderOptions] = None
+    options: Optional[ApiOrderOptions] = None
     __properties: ClassVar[List[str]] = ["article", "cargoType", "chrtId", "createdAt", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "id", "isZeroOrder", "nmId", "orderCode", "payMode", "rid", "skus", "warehouseAddress", "warehouseId", "options"]
 
     @field_validator('cargo_type')
@@ -134,7 +134,7 @@ class ApiOrder(BaseModel):
             "skus": obj.get("skus"),
             "warehouseAddress": obj.get("warehouseAddress"),
             "warehouseId": obj.get("warehouseId"),
-            "options": ApiNewOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
+            "options": ApiOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj
 

@@ -16,7 +16,7 @@ pub struct Statistics {
     #[serde(rename = "selected")]
     pub selected: Box<models::StatisticsSelected>,
     #[serde(rename = "past", skip_serializing_if = "Option::is_none")]
-    pub past: Option<Box<models::StatisticsSelected>>,
+    pub past: Option<Box<models::StatisticsPast>>,
     #[serde(rename = "comparison", skip_serializing_if = "Option::is_none")]
     pub comparison: Option<Box<models::StatisticsComparison>>,
 }

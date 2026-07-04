@@ -57,6 +57,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
      * @var string[]
      */
     protected static $openAPITypes = [
+        'currency' => 'string',
         'type' => '\Wildberries\Sdk\Promotion\Model\PlacementType',
         'value' => 'int'
     ];
@@ -69,6 +70,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'currency' => 'ISO 4217',
         'type' => null,
         'value' => null
     ];
@@ -79,6 +81,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'currency' => false,
         'type' => false,
         'value' => false
     ];
@@ -169,6 +172,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
+        'currency' => 'currency',
         'type' => 'type',
         'value' => 'value'
     ];
@@ -179,6 +183,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
+        'currency' => 'setCurrency',
         'type' => 'setType',
         'value' => 'setValue'
     ];
@@ -189,6 +194,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
+        'currency' => 'getCurrency',
         'type' => 'getType',
         'value' => 'getValue'
     ];
@@ -250,6 +256,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
     }
@@ -281,6 +288,9 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
     {
         $invalidProperties = [];
 
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -301,6 +311,33 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
 
     /**
      * Gets type
@@ -342,7 +379,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
     /**
      * Sets value
      *
-     * @param int $value Минимальная ставка, копейки
+     * @param int $value Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

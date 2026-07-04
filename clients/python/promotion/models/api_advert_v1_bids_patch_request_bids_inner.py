@@ -30,7 +30,7 @@ class ApiAdvertV1BidsPatchRequestBidsInner(BaseModel):
     ApiAdvertV1BidsPatchRequestBidsInner
     """ # noqa: E501
     advert_id: StrictInt = Field(description="ID кампании")
-    nm_bids: Annotated[List[ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner], Field(max_length=50)] = Field(description="Ставки, копейки")
+    nm_bids: Annotated[List[ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner], Field(max_length=50)] = Field(description="Ставки")
     __properties: ClassVar[List[str]] = ["advert_id", "nm_bids"]
 
     model_config = ConfigDict(

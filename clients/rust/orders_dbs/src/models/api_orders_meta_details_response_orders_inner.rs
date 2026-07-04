@@ -21,7 +21,7 @@ pub struct ApiOrdersMetaDetailsResponseOrdersInner {
     pub is_error: bool,
     /// Информация об ошибке
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner>>,
+    pub errors: Option<Vec<models::ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>>,
     /// Идентификаторы маркировки и статусы их валидации
     #[serde(rename = "metaDetails", skip_serializing_if = "Option::is_none")]
     pub meta_details: Option<Vec<models::ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>>,

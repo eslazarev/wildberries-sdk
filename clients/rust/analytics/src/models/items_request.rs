@@ -16,7 +16,7 @@ pub struct ItemsRequest {
     #[serde(rename = "selectedPeriod")]
     pub selected_period: Box<models::ItemsRequestSelectedPeriod>,
     #[serde(rename = "pastPeriod", skip_serializing_if = "Option::is_none")]
-    pub past_period: Option<Box<models::ItemsRequestSelectedPeriod>>,
+    pub past_period: Option<Box<models::ItemsRequestPastPeriod>>,
     /// Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах 
     #[serde(rename = "nmIds", skip_serializing_if = "Option::is_none")]
     pub nm_ids: Option<Vec<i32>>,

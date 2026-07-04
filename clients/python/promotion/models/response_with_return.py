@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,8 @@ class ResponseWithReturn(BaseModel):
     ResponseWithReturn
     """ # noqa: E501
     total: Optional[StrictInt] = Field(default=None, description="Размер обновлённого бюджета")
-    __properties: ClassVar[List[str]] = ["total"]
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    __properties: ClassVar[List[str]] = ["total", "currency"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -81,7 +82,8 @@ class ResponseWithReturn(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "total": obj.get("total")
+            "total": obj.get("total"),
+            "currency": obj.get("currency")
         })
         return _obj
 

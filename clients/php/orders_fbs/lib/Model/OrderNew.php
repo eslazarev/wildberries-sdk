@@ -88,7 +88,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
         'cross_border_type' => 'int',
         'is_zero_order' => 'bool',
         'is_pickup_point_shipment_allowed' => 'bool',
-        'options' => '\Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrderOptions'
+        'options' => '\Wildberries\Sdk\OrdersFbs\Model\OrderOptions'
     ];
 
     /**
@@ -1505,7 +1505,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets options
      *
-     * @return \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrderOptions|null
+     * @return \Wildberries\Sdk\OrdersFbs\Model\OrderOptions|null
      */
     public function getOptions()
     {
@@ -1515,7 +1515,7 @@ class OrderNew implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets options
      *
-     * @param \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrderOptions|null $options options
+     * @param \Wildberries\Sdk\OrdersFbs\Model\OrderOptions|null $options options
      *
      * @return self
      */

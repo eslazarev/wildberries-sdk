@@ -31,10 +31,10 @@ pub struct ContentV2CardsUploadAddPostRequestCardsToAddInner {
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     #[serde(rename = "dimensions", skip_serializing_if = "Option::is_none")]
-    pub dimensions: Option<Box<models::ContentV2CardsUpdatePostRequestInnerDimensions>>,
+    pub dimensions: Option<Box<models::ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions>>,
     /// Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом 
     #[serde(rename = "sizes", skip_serializing_if = "Option::is_none")]
-    pub sizes: Option<Vec<models::ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner>>,
+    pub sizes: Option<Vec<models::ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner>>,
     /// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) 
     #[serde(rename = "characteristics", skip_serializing_if = "Option::is_none")]
     pub characteristics: Option<Vec<models::ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>>,

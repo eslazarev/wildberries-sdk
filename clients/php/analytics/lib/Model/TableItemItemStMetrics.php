@@ -68,10 +68,10 @@ class TableItemItemStMetrics implements ModelInterface, ArrayAccess, \JsonSerial
         'stock_count' => 'int',
         'stock_sum' => 'int',
         'sale_rate' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate',
-        'avg_stock_turnover' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate',
+        'avg_stock_turnover' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsAvgStockTurnover',
         'to_client_count' => 'int',
         'from_client_count' => 'int',
-        'office_missing_time' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate',
+        'office_missing_time' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsOfficeMissingTime',
         'lost_orders_count' => 'float',
         'lost_orders_sum' => 'float',
         'lost_buyouts_count' => 'float',
@@ -788,7 +788,7 @@ class TableItemItemStMetrics implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets avg_stock_turnover
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate
+     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsAvgStockTurnover
      */
     public function getAvgStockTurnover()
     {
@@ -798,7 +798,7 @@ class TableItemItemStMetrics implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets avg_stock_turnover
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate $avg_stock_turnover avg_stock_turnover
+     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsAvgStockTurnover $avg_stock_turnover avg_stock_turnover
      *
      * @return self
      */
@@ -869,7 +869,7 @@ class TableItemItemStMetrics implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets office_missing_time
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate
+     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsOfficeMissingTime
      */
     public function getOfficeMissingTime()
     {
@@ -879,7 +879,7 @@ class TableItemItemStMetrics implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets office_missing_time
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate $office_missing_time office_missing_time
+     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsOfficeMissingTime $office_missing_time office_missing_time
      *
      * @return self
      */

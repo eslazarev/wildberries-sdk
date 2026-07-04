@@ -59,8 +59,8 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'imei' => '\Wildberries\Sdk\OrdersDbw\Model\MetaImei',
-        'uin' => '\Wildberries\Sdk\OrdersDbw\Model\MetaImei',
-        'gtin' => '\Wildberries\Sdk\OrdersDbw\Model\MetaImei',
+        'uin' => '\Wildberries\Sdk\OrdersDbw\Model\MetaUin',
+        'gtin' => '\Wildberries\Sdk\OrdersDbw\Model\MetaGtin',
         'sgtin' => '\Wildberries\Sdk\OrdersDbw\Model\MetaSgtin'
     ];
 
@@ -341,7 +341,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets uin
      *
-     * @return \Wildberries\Sdk\OrdersDbw\Model\MetaImei|null
+     * @return \Wildberries\Sdk\OrdersDbw\Model\MetaUin|null
      */
     public function getUin()
     {
@@ -351,7 +351,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets uin
      *
-     * @param \Wildberries\Sdk\OrdersDbw\Model\MetaImei|null $uin uin
+     * @param \Wildberries\Sdk\OrdersDbw\Model\MetaUin|null $uin uin
      *
      * @return self
      */
@@ -368,7 +368,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gtin
      *
-     * @return \Wildberries\Sdk\OrdersDbw\Model\MetaImei|null
+     * @return \Wildberries\Sdk\OrdersDbw\Model\MetaGtin|null
      */
     public function getGtin()
     {
@@ -378,7 +378,7 @@ class Meta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gtin
      *
-     * @param \Wildberries\Sdk\OrdersDbw\Model\MetaImei|null $gtin gtin
+     * @param \Wildberries\Sdk\OrdersDbw\Model\MetaGtin|null $gtin gtin
      *
      * @return self
      */

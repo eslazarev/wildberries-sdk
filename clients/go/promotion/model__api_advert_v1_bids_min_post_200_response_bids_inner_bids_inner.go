@@ -21,8 +21,10 @@ var _ MappedNullable = &ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner{}
 
 // ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner struct for ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner
 type ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner struct {
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency string `json:"currency"`
 	Type PlacementType `json:"type"`
-	// Минимальная ставка, копейки
+	// Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
 	Value int32 `json:"value"`
 }
 
@@ -32,8 +34,9 @@ type _ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner ApiAdvertV1BidsMinPost
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner(type_ PlacementType, value int32) *ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
+func NewApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner(currency string, type_ PlacementType, value int32) *ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
 	this := ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner{}
+	this.Currency = currency
 	this.Type = type_
 	this.Value = value
 	return &this
@@ -45,6 +48,30 @@ func NewApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner(type_ PlacementType,
 func NewApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInnerWithDefaults() *ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
 	this := ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner{}
 	return &this
+}
+
+// GetCurrency returns the Currency field value
+func (o *ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner) GetCurrency() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value
+// and a boolean to check if the value has been set.
+func (o *ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner) GetCurrencyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Currency, true
+}
+
+// SetCurrency sets field value
+func (o *ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner) SetCurrency(v string) {
+	o.Currency = v
 }
 
 // GetType returns the Type field value
@@ -105,6 +132,7 @@ func (o ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner) MarshalJSON() ([]by
 
 func (o ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["currency"] = o.Currency
 	toSerialize["type"] = o.Type
 	toSerialize["value"] = o.Value
 	return toSerialize, nil
@@ -115,6 +143,7 @@ func (o *ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner) UnmarshalJSON(data
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"currency",
 		"type",
 		"value",
 	}

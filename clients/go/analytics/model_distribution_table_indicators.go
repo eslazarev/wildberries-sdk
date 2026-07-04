@@ -19,12 +19,12 @@ var _ MappedNullable = &DistributionTableIndicators{}
 
 // DistributionTableIndicators struct for DistributionTableIndicators
 type DistributionTableIndicators struct {
-	FeedbackCount *CommonInfoAdvertisedProducts `json:"feedbackCount,omitempty"`
-	FiveStar *CommonInfoAdvertisedProducts `json:"fiveStar,omitempty"`
-	FourStar *CommonInfoAdvertisedProducts `json:"fourStar,omitempty"`
-	ThreeStar *CommonInfoAdvertisedProducts `json:"threeStar,omitempty"`
-	TwoStar *CommonInfoAdvertisedProducts `json:"twoStar,omitempty"`
-	OneStar *CommonInfoAdvertisedProducts `json:"oneStar,omitempty"`
+	FeedbackCount *DistributionTableIndicatorsFeedbackCount `json:"feedbackCount,omitempty"`
+	FiveStar *DistributionTableIndicatorsFiveStar `json:"fiveStar,omitempty"`
+	FourStar *DistributionTableIndicatorsFourStar `json:"fourStar,omitempty"`
+	ThreeStar *DistributionTableIndicatorsThreeStar `json:"threeStar,omitempty"`
+	TwoStar *DistributionTableIndicatorsTwoStar `json:"twoStar,omitempty"`
+	OneStar *DistributionTableIndicatorsOneStar `json:"oneStar,omitempty"`
 	// Отзывы, исключённые из рейтинга
 	Disqualified *int32 `json:"disqualified,omitempty"`
 }
@@ -47,9 +47,9 @@ func NewDistributionTableIndicatorsWithDefaults() *DistributionTableIndicators {
 }
 
 // GetFeedbackCount returns the FeedbackCount field value if set, zero value otherwise.
-func (o *DistributionTableIndicators) GetFeedbackCount() CommonInfoAdvertisedProducts {
+func (o *DistributionTableIndicators) GetFeedbackCount() DistributionTableIndicatorsFeedbackCount {
 	if o == nil || IsNil(o.FeedbackCount) {
-		var ret CommonInfoAdvertisedProducts
+		var ret DistributionTableIndicatorsFeedbackCount
 		return ret
 	}
 	return *o.FeedbackCount
@@ -57,7 +57,7 @@ func (o *DistributionTableIndicators) GetFeedbackCount() CommonInfoAdvertisedPro
 
 // GetFeedbackCountOk returns a tuple with the FeedbackCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableIndicators) GetFeedbackCountOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *DistributionTableIndicators) GetFeedbackCountOk() (*DistributionTableIndicatorsFeedbackCount, bool) {
 	if o == nil || IsNil(o.FeedbackCount) {
 		return nil, false
 	}
@@ -73,15 +73,15 @@ func (o *DistributionTableIndicators) HasFeedbackCount() bool {
 	return false
 }
 
-// SetFeedbackCount gets a reference to the given CommonInfoAdvertisedProducts and assigns it to the FeedbackCount field.
-func (o *DistributionTableIndicators) SetFeedbackCount(v CommonInfoAdvertisedProducts) {
+// SetFeedbackCount gets a reference to the given DistributionTableIndicatorsFeedbackCount and assigns it to the FeedbackCount field.
+func (o *DistributionTableIndicators) SetFeedbackCount(v DistributionTableIndicatorsFeedbackCount) {
 	o.FeedbackCount = &v
 }
 
 // GetFiveStar returns the FiveStar field value if set, zero value otherwise.
-func (o *DistributionTableIndicators) GetFiveStar() CommonInfoAdvertisedProducts {
+func (o *DistributionTableIndicators) GetFiveStar() DistributionTableIndicatorsFiveStar {
 	if o == nil || IsNil(o.FiveStar) {
-		var ret CommonInfoAdvertisedProducts
+		var ret DistributionTableIndicatorsFiveStar
 		return ret
 	}
 	return *o.FiveStar
@@ -89,7 +89,7 @@ func (o *DistributionTableIndicators) GetFiveStar() CommonInfoAdvertisedProducts
 
 // GetFiveStarOk returns a tuple with the FiveStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableIndicators) GetFiveStarOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *DistributionTableIndicators) GetFiveStarOk() (*DistributionTableIndicatorsFiveStar, bool) {
 	if o == nil || IsNil(o.FiveStar) {
 		return nil, false
 	}
@@ -105,15 +105,15 @@ func (o *DistributionTableIndicators) HasFiveStar() bool {
 	return false
 }
 
-// SetFiveStar gets a reference to the given CommonInfoAdvertisedProducts and assigns it to the FiveStar field.
-func (o *DistributionTableIndicators) SetFiveStar(v CommonInfoAdvertisedProducts) {
+// SetFiveStar gets a reference to the given DistributionTableIndicatorsFiveStar and assigns it to the FiveStar field.
+func (o *DistributionTableIndicators) SetFiveStar(v DistributionTableIndicatorsFiveStar) {
 	o.FiveStar = &v
 }
 
 // GetFourStar returns the FourStar field value if set, zero value otherwise.
-func (o *DistributionTableIndicators) GetFourStar() CommonInfoAdvertisedProducts {
+func (o *DistributionTableIndicators) GetFourStar() DistributionTableIndicatorsFourStar {
 	if o == nil || IsNil(o.FourStar) {
-		var ret CommonInfoAdvertisedProducts
+		var ret DistributionTableIndicatorsFourStar
 		return ret
 	}
 	return *o.FourStar
@@ -121,7 +121,7 @@ func (o *DistributionTableIndicators) GetFourStar() CommonInfoAdvertisedProducts
 
 // GetFourStarOk returns a tuple with the FourStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableIndicators) GetFourStarOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *DistributionTableIndicators) GetFourStarOk() (*DistributionTableIndicatorsFourStar, bool) {
 	if o == nil || IsNil(o.FourStar) {
 		return nil, false
 	}
@@ -137,15 +137,15 @@ func (o *DistributionTableIndicators) HasFourStar() bool {
 	return false
 }
 
-// SetFourStar gets a reference to the given CommonInfoAdvertisedProducts and assigns it to the FourStar field.
-func (o *DistributionTableIndicators) SetFourStar(v CommonInfoAdvertisedProducts) {
+// SetFourStar gets a reference to the given DistributionTableIndicatorsFourStar and assigns it to the FourStar field.
+func (o *DistributionTableIndicators) SetFourStar(v DistributionTableIndicatorsFourStar) {
 	o.FourStar = &v
 }
 
 // GetThreeStar returns the ThreeStar field value if set, zero value otherwise.
-func (o *DistributionTableIndicators) GetThreeStar() CommonInfoAdvertisedProducts {
+func (o *DistributionTableIndicators) GetThreeStar() DistributionTableIndicatorsThreeStar {
 	if o == nil || IsNil(o.ThreeStar) {
-		var ret CommonInfoAdvertisedProducts
+		var ret DistributionTableIndicatorsThreeStar
 		return ret
 	}
 	return *o.ThreeStar
@@ -153,7 +153,7 @@ func (o *DistributionTableIndicators) GetThreeStar() CommonInfoAdvertisedProduct
 
 // GetThreeStarOk returns a tuple with the ThreeStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableIndicators) GetThreeStarOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *DistributionTableIndicators) GetThreeStarOk() (*DistributionTableIndicatorsThreeStar, bool) {
 	if o == nil || IsNil(o.ThreeStar) {
 		return nil, false
 	}
@@ -169,15 +169,15 @@ func (o *DistributionTableIndicators) HasThreeStar() bool {
 	return false
 }
 
-// SetThreeStar gets a reference to the given CommonInfoAdvertisedProducts and assigns it to the ThreeStar field.
-func (o *DistributionTableIndicators) SetThreeStar(v CommonInfoAdvertisedProducts) {
+// SetThreeStar gets a reference to the given DistributionTableIndicatorsThreeStar and assigns it to the ThreeStar field.
+func (o *DistributionTableIndicators) SetThreeStar(v DistributionTableIndicatorsThreeStar) {
 	o.ThreeStar = &v
 }
 
 // GetTwoStar returns the TwoStar field value if set, zero value otherwise.
-func (o *DistributionTableIndicators) GetTwoStar() CommonInfoAdvertisedProducts {
+func (o *DistributionTableIndicators) GetTwoStar() DistributionTableIndicatorsTwoStar {
 	if o == nil || IsNil(o.TwoStar) {
-		var ret CommonInfoAdvertisedProducts
+		var ret DistributionTableIndicatorsTwoStar
 		return ret
 	}
 	return *o.TwoStar
@@ -185,7 +185,7 @@ func (o *DistributionTableIndicators) GetTwoStar() CommonInfoAdvertisedProducts 
 
 // GetTwoStarOk returns a tuple with the TwoStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableIndicators) GetTwoStarOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *DistributionTableIndicators) GetTwoStarOk() (*DistributionTableIndicatorsTwoStar, bool) {
 	if o == nil || IsNil(o.TwoStar) {
 		return nil, false
 	}
@@ -201,15 +201,15 @@ func (o *DistributionTableIndicators) HasTwoStar() bool {
 	return false
 }
 
-// SetTwoStar gets a reference to the given CommonInfoAdvertisedProducts and assigns it to the TwoStar field.
-func (o *DistributionTableIndicators) SetTwoStar(v CommonInfoAdvertisedProducts) {
+// SetTwoStar gets a reference to the given DistributionTableIndicatorsTwoStar and assigns it to the TwoStar field.
+func (o *DistributionTableIndicators) SetTwoStar(v DistributionTableIndicatorsTwoStar) {
 	o.TwoStar = &v
 }
 
 // GetOneStar returns the OneStar field value if set, zero value otherwise.
-func (o *DistributionTableIndicators) GetOneStar() CommonInfoAdvertisedProducts {
+func (o *DistributionTableIndicators) GetOneStar() DistributionTableIndicatorsOneStar {
 	if o == nil || IsNil(o.OneStar) {
-		var ret CommonInfoAdvertisedProducts
+		var ret DistributionTableIndicatorsOneStar
 		return ret
 	}
 	return *o.OneStar
@@ -217,7 +217,7 @@ func (o *DistributionTableIndicators) GetOneStar() CommonInfoAdvertisedProducts 
 
 // GetOneStarOk returns a tuple with the OneStar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DistributionTableIndicators) GetOneStarOk() (*CommonInfoAdvertisedProducts, bool) {
+func (o *DistributionTableIndicators) GetOneStarOk() (*DistributionTableIndicatorsOneStar, bool) {
 	if o == nil || IsNil(o.OneStar) {
 		return nil, false
 	}
@@ -233,8 +233,8 @@ func (o *DistributionTableIndicators) HasOneStar() bool {
 	return false
 }
 
-// SetOneStar gets a reference to the given CommonInfoAdvertisedProducts and assigns it to the OneStar field.
-func (o *DistributionTableIndicators) SetOneStar(v CommonInfoAdvertisedProducts) {
+// SetOneStar gets a reference to the given DistributionTableIndicatorsOneStar and assigns it to the OneStar field.
+func (o *DistributionTableIndicators) SetOneStar(v DistributionTableIndicatorsOneStar) {
 	o.OneStar = &v
 }
 

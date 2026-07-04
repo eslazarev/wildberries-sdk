@@ -2388,7 +2388,7 @@ class DefaultApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Communications\Model\ApiV1ClaimsGet400Response',
+                        '\Wildberries\Sdk\Communications\Model\ApiV1ClaimPatch400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3487,7 +3487,7 @@ class DefaultApi
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request api_v1_feedbacks_answer_post_request (optional)
+     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPatchRequest|null $api_v1_feedbacks_answer_patch_request api_v1_feedbacks_answer_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1FeedbacksAnswerPatch'] to see the possible values for this operation
@@ -3496,9 +3496,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV1FeedbacksAnswerPatch($api_v1_feedbacks_answer_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
+    public function apiV1FeedbacksAnswerPatch($api_v1_feedbacks_answer_patch_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
     {
-        $this->apiV1FeedbacksAnswerPatchWithHttpInfo($api_v1_feedbacks_answer_post_request, $hostIndex, $variables, $contentType);
+        $this->apiV1FeedbacksAnswerPatchWithHttpInfo($api_v1_feedbacks_answer_patch_request, $hostIndex, $variables, $contentType);
     }
 
     /**
@@ -3511,7 +3511,7 @@ class DefaultApi
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
+     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPatchRequest|null $api_v1_feedbacks_answer_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1FeedbacksAnswerPatch'] to see the possible values for this operation
@@ -3520,9 +3520,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV1FeedbacksAnswerPatchWithHttpInfo($api_v1_feedbacks_answer_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
+    public function apiV1FeedbacksAnswerPatchWithHttpInfo($api_v1_feedbacks_answer_patch_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
     {
-        $request = $this->apiV1FeedbacksAnswerPatchRequest($api_v1_feedbacks_answer_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV1FeedbacksAnswerPatchRequest($api_v1_feedbacks_answer_patch_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3591,7 +3591,7 @@ class DefaultApi
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
+     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPatchRequest|null $api_v1_feedbacks_answer_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1FeedbacksAnswerPatch'] to see the possible values for this operation
@@ -3599,9 +3599,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV1FeedbacksAnswerPatchAsync($api_v1_feedbacks_answer_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
+    public function apiV1FeedbacksAnswerPatchAsync($api_v1_feedbacks_answer_patch_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
     {
-        return $this->apiV1FeedbacksAnswerPatchAsyncWithHttpInfo($api_v1_feedbacks_answer_post_request, $hostIndex, $variables, $contentType)
+        return $this->apiV1FeedbacksAnswerPatchAsyncWithHttpInfo($api_v1_feedbacks_answer_patch_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3619,7 +3619,7 @@ class DefaultApi
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
+     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPatchRequest|null $api_v1_feedbacks_answer_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1FeedbacksAnswerPatch'] to see the possible values for this operation
@@ -3627,10 +3627,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV1FeedbacksAnswerPatchAsyncWithHttpInfo($api_v1_feedbacks_answer_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
+    public function apiV1FeedbacksAnswerPatchAsyncWithHttpInfo($api_v1_feedbacks_answer_patch_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
     {
         $returnType = '';
-        $request = $this->apiV1FeedbacksAnswerPatchRequest($api_v1_feedbacks_answer_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV1FeedbacksAnswerPatchRequest($api_v1_feedbacks_answer_patch_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3663,7 +3663,7 @@ class DefaultApi
      * URL: https://feedbacks-api.wildberries.ru
      * URL: https://feedbacks-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPostRequest|null $api_v1_feedbacks_answer_post_request (optional)
+     * @param  \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksAnswerPatchRequest|null $api_v1_feedbacks_answer_patch_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV1FeedbacksAnswerPatch'] to see the possible values for this operation
@@ -3671,7 +3671,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV1FeedbacksAnswerPatchRequest($api_v1_feedbacks_answer_post_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
+    public function apiV1FeedbacksAnswerPatchRequest($api_v1_feedbacks_answer_patch_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksAnswerPatch'][0])
     {
 
 
@@ -3694,12 +3694,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($api_v1_feedbacks_answer_post_request)) {
+        if (isset($api_v1_feedbacks_answer_patch_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_v1_feedbacks_answer_post_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_v1_feedbacks_answer_patch_request));
             } else {
-                $httpBody = $api_v1_feedbacks_answer_post_request;
+                $httpBody = $api_v1_feedbacks_answer_patch_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4591,7 +4591,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountGet200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response
+     * @return \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountGet200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response
      */
     public function apiV1FeedbacksCountGet($date_from = null, $date_to = null, $is_answered = true, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksCountGet'][0])
     {
@@ -4618,7 +4618,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountGet200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountGet200Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV1FeedbacksCountGetWithHttpInfo($date_from = null, $date_to = null, $is_answered = true, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksCountGet'][0])
     {
@@ -4650,7 +4650,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountGet200Response',
+                        '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountGet200Response',
                         $request,
                         $response,
                     );
@@ -4702,7 +4702,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountGet200Response',
+                '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountGet200Response',
                 $request,
                 $response,
             );
@@ -4711,7 +4711,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountGet200Response',
+                        '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountGet200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4815,7 +4815,7 @@ class DefaultApi
      */
     public function apiV1FeedbacksCountGetAsyncWithHttpInfo($date_from = null, $date_to = null, $is_answered = true, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksCountGet'][0])
     {
-        $returnType = '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountGet200Response';
+        $returnType = '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountGet200Response';
         $request = $this->apiV1FeedbacksCountGetRequest($date_from, $date_to, $is_answered, $hostIndex, $variables, $contentType);
 
         return $this->client
@@ -5022,7 +5022,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountUnansweredGet200Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response
+     * @return \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountUnansweredGet200Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response
      */
     public function apiV1FeedbacksCountUnansweredGet(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksCountUnansweredGet'][0])
     {
@@ -5046,7 +5046,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Communications\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountUnansweredGet200Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountUnansweredGet200Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet402Response|\Wildberries\Sdk\Communications\Model\ResponseFeedbackQuestionErr|\Wildberries\Sdk\Communications\Model\ApiV1NewFeedbacksQuestionsGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV1FeedbacksCountUnansweredGetWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksCountUnansweredGet'][0])
     {
@@ -5078,7 +5078,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountUnansweredGet200Response',
+                        '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountUnansweredGet200Response',
                         $request,
                         $response,
                     );
@@ -5124,7 +5124,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountUnansweredGet200Response',
+                '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountUnansweredGet200Response',
                 $request,
                 $response,
             );
@@ -5133,7 +5133,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountUnansweredGet200Response',
+                        '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountUnansweredGet200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5223,7 +5223,7 @@ class DefaultApi
      */
     public function apiV1FeedbacksCountUnansweredGetAsyncWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV1FeedbacksCountUnansweredGet'][0])
     {
-        $returnType = '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsCountUnansweredGet200Response';
+        $returnType = '\Wildberries\Sdk\Communications\Model\ApiV1FeedbacksCountUnansweredGet200Response';
         $request = $this->apiV1FeedbacksCountUnansweredGetRequest($hostIndex, $variables, $contentType);
 
         return $this->client

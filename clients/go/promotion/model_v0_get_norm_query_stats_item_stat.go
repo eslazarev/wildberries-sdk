@@ -31,9 +31,9 @@ type V0GetNormQueryStatsItemStat struct {
 	Orders *int32 `json:"orders,omitempty"`
 	// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
 	Ctr NullableFloat64 `json:"ctr,omitempty"`
-	// Стоимость одного клика, ₽
+	// Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float64 `json:"cpc,omitempty"`
-	// Средняя стоимость за тысячу показов, ₽.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+	// Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
 	Cpm NullableFloat64 `json:"cpm,omitempty"`
 	// Средняя позиция товара на страницах поисковой выдачи
 	AvgPos *float64 `json:"avg_pos,omitempty"`
@@ -41,6 +41,8 @@ type V0GetNormQueryStatsItemStat struct {
 	Shks *int32 `json:"shks,omitempty"`
 	// Затраты на продвижение товаров в конкретном поисковом кластере кампании 
 	Spend *float64 `json:"spend,omitempty"`
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency *string `json:"currency,omitempty"`
 }
 
 // NewV0GetNormQueryStatsItemStat instantiates a new V0GetNormQueryStatsItemStat object
@@ -442,6 +444,38 @@ func (o *V0GetNormQueryStatsItemStat) SetSpend(v float64) {
 	o.Spend = &v
 }
 
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *V0GetNormQueryStatsItemStat) GetCurrency() string {
+	if o == nil || IsNil(o.Currency) {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *V0GetNormQueryStatsItemStat) GetCurrencyOk() (*string, bool) {
+	if o == nil || IsNil(o.Currency) {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *V0GetNormQueryStatsItemStat) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *V0GetNormQueryStatsItemStat) SetCurrency(v string) {
+	o.Currency = &v
+}
+
 func (o V0GetNormQueryStatsItemStat) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -484,6 +518,9 @@ func (o V0GetNormQueryStatsItemStat) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Spend) {
 		toSerialize["spend"] = o.Spend
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
 	}
 	return toSerialize, nil
 }

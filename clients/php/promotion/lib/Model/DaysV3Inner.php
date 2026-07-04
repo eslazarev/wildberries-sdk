@@ -560,7 +560,7 @@ class DaysV3Inner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cpc
      *
-     * @param float $cpc Средняя стоимость клика, ₽
+     * @param float $cpc Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -695,7 +695,7 @@ class DaysV3Inner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sum
      *
-     * @param float $sum Затраты, ₽
+     * @param float $sum Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -722,7 +722,7 @@ class DaysV3Inner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sum_price
      *
-     * @param float $sum_price Заказов на сумму, ₽
+     * @param float $sum_price Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ApiV1AcceptanceOptionsPost402Response } from './ApiV1AcceptanceOptionsPost402Response';
+import type { ModelsOptionsResultModelResultInnerError } from './ModelsOptionsResultModelResultInnerError';
 import {
-    ApiV1AcceptanceOptionsPost402ResponseFromJSON,
-    ApiV1AcceptanceOptionsPost402ResponseFromJSONTyped,
-    ApiV1AcceptanceOptionsPost402ResponseToJSON,
-    ApiV1AcceptanceOptionsPost402ResponseToJSONTyped,
-} from './ApiV1AcceptanceOptionsPost402Response';
+    ModelsOptionsResultModelResultInnerErrorFromJSON,
+    ModelsOptionsResultModelResultInnerErrorFromJSONTyped,
+    ModelsOptionsResultModelResultInnerErrorToJSON,
+    ModelsOptionsResultModelResultInnerErrorToJSONTyped,
+} from './ModelsOptionsResultModelResultInnerError';
 import type { ModelsOptionsResultModelResultInnerWarehousesInner } from './ModelsOptionsResultModelResultInnerWarehousesInner';
 import {
     ModelsOptionsResultModelResultInnerWarehousesInnerFromJSON,
@@ -42,10 +42,10 @@ export interface ModelsOptionsResultModelResultInner {
     barcode?: string;
     /**
      * 
-     * @type {ApiV1AcceptanceOptionsPost402Response}
+     * @type {ModelsOptionsResultModelResultInnerError}
      * @memberof ModelsOptionsResultModelResultInner
      */
-    error?: ApiV1AcceptanceOptionsPost402Response;
+    error?: ModelsOptionsResultModelResultInnerError;
     /**
      * Наличие ошибки:
      *   - `true` — ошибка есть
@@ -81,7 +81,7 @@ export function ModelsOptionsResultModelResultInnerFromJSONTyped(json: any, igno
     return {
         
         'barcode': json['barcode'] == null ? undefined : json['barcode'],
-        'error': json['error'] == null ? undefined : ApiV1AcceptanceOptionsPost402ResponseFromJSON(json['error']),
+        'error': json['error'] == null ? undefined : ModelsOptionsResultModelResultInnerErrorFromJSON(json['error']),
         'isError': json['isError'] == null ? undefined : json['isError'],
         'warehouses': json['warehouses'] == null ? undefined : ((json['warehouses'] as Array<any>).map(ModelsOptionsResultModelResultInnerWarehousesInnerFromJSON)),
     };
@@ -99,7 +99,7 @@ export function ModelsOptionsResultModelResultInnerToJSONTyped(value?: ModelsOpt
     return {
         
         'barcode': value['barcode'],
-        'error': ApiV1AcceptanceOptionsPost402ResponseToJSON(value['error']),
+        'error': ModelsOptionsResultModelResultInnerErrorToJSON(value['error']),
         'isError': value['isError'],
         'warehouses': value['warehouses'] == null ? undefined : ((value['warehouses'] as Array<any>).map(ModelsOptionsResultModelResultInnerWarehousesInnerToJSON)),
     };

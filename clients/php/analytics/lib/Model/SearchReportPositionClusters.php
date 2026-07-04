@@ -58,9 +58,9 @@ class SearchReportPositionClusters implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $openAPITypes = [
-        'first_hundred' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'second_hundred' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts',
-        'below' => '\Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts'
+        'first_hundred' => '\Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersFirstHundred',
+        'second_hundred' => '\Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersSecondHundred',
+        'below' => '\Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersBelow'
     ];
 
     /**
@@ -316,7 +316,7 @@ class SearchReportPositionClusters implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets first_hundred
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts
+     * @return \Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersFirstHundred
      */
     public function getFirstHundred()
     {
@@ -326,7 +326,7 @@ class SearchReportPositionClusters implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets first_hundred
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts $first_hundred first_hundred
+     * @param \Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersFirstHundred $first_hundred first_hundred
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class SearchReportPositionClusters implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets second_hundred
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts
+     * @return \Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersSecondHundred
      */
     public function getSecondHundred()
     {
@@ -353,7 +353,7 @@ class SearchReportPositionClusters implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets second_hundred
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts $second_hundred second_hundred
+     * @param \Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersSecondHundred $second_hundred second_hundred
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class SearchReportPositionClusters implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets below
      *
-     * @return \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts
+     * @return \Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersBelow
      */
     public function getBelow()
     {
@@ -380,7 +380,7 @@ class SearchReportPositionClusters implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets below
      *
-     * @param \Wildberries\Sdk\Analytics\Model\CommonInfoAdvertisedProducts $below below
+     * @param \Wildberries\Sdk\Analytics\Model\SearchReportPositionClustersBelow $below below
      *
      * @return self
      */

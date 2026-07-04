@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContentV2GetCardsTrashPostRequestSettings {
     #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
-    pub sort: Option<Box<models::ContentV2GetCardsListPostRequestSettingsSort>>,
+    pub sort: Option<Box<models::ContentV2GetCardsTrashPostRequestSettingsSort>>,
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<Box<models::ContentV2GetCardsTrashPostRequestSettingsCursor>>,
     #[serde(rename = "filter", skip_serializing_if = "Option::is_none")]

@@ -40,12 +40,12 @@ type TableSizeResponseSizesInnerMetrics struct {
 	// Стоимость остатков на текущий день
 	StockSum int32 `json:"stockSum"`
 	SaleRate TableCommonMetricsSaleRate `json:"saleRate"`
-	AvgStockTurnover TableCommonMetricsSaleRate `json:"avgStockTurnover"`
+	AvgStockTurnover TableCommonMetricsAvgStockTurnover `json:"avgStockTurnover"`
 	// В пути к клиенту, шт.
 	ToClientCount int32 `json:"toClientCount"`
 	// В пути от клиента, шт.
 	FromClientCount int32 `json:"fromClientCount"`
-	OfficeMissingTime TableCommonMetricsSaleRate `json:"officeMissingTime"`
+	OfficeMissingTime TableCommonMetricsOfficeMissingTime `json:"officeMissingTime"`
 	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
 	LostOrdersCount float32 `json:"lostOrdersCount"`
 	// Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
@@ -63,7 +63,7 @@ type _TableSizeResponseSizesInnerMetrics TableSizeResponseSizesInnerMetrics
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableSizeResponseSizesInnerMetrics(ordersCount int32, ordersSum int32, avgOrders float32, avgOrdersByMonth []FloatGraphByPeriodItem, buyoutCount int32, buyoutSum int32, buyoutPercent int32, stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, avgStockTurnover TableCommonMetricsSaleRate, toClientCount int32, fromClientCount int32, officeMissingTime TableCommonMetricsSaleRate, lostOrdersCount float32, lostOrdersSum float32, lostBuyoutsCount float32, lostBuyoutsSum float32, currentPrice TableItemItemStMetricsAllOfCurrentPrice) *TableSizeResponseSizesInnerMetrics {
+func NewTableSizeResponseSizesInnerMetrics(ordersCount int32, ordersSum int32, avgOrders float32, avgOrdersByMonth []FloatGraphByPeriodItem, buyoutCount int32, buyoutSum int32, buyoutPercent int32, stockCount int32, stockSum int32, saleRate TableCommonMetricsSaleRate, avgStockTurnover TableCommonMetricsAvgStockTurnover, toClientCount int32, fromClientCount int32, officeMissingTime TableCommonMetricsOfficeMissingTime, lostOrdersCount float32, lostOrdersSum float32, lostBuyoutsCount float32, lostBuyoutsSum float32, currentPrice TableItemItemStMetricsAllOfCurrentPrice) *TableSizeResponseSizesInnerMetrics {
 	this := TableSizeResponseSizesInnerMetrics{}
 	this.OrdersCount = ordersCount
 	this.OrdersSum = ordersSum
@@ -336,9 +336,9 @@ func (o *TableSizeResponseSizesInnerMetrics) SetSaleRate(v TableCommonMetricsSal
 }
 
 // GetAvgStockTurnover returns the AvgStockTurnover field value
-func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnover() TableCommonMetricsSaleRate {
+func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnover() TableCommonMetricsAvgStockTurnover {
 	if o == nil {
-		var ret TableCommonMetricsSaleRate
+		var ret TableCommonMetricsAvgStockTurnover
 		return ret
 	}
 
@@ -347,7 +347,7 @@ func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnover() TableCommonMe
 
 // GetAvgStockTurnoverOk returns a tuple with the AvgStockTurnover field value
 // and a boolean to check if the value has been set.
-func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnoverOk() (*TableCommonMetricsSaleRate, bool) {
+func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnoverOk() (*TableCommonMetricsAvgStockTurnover, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -355,7 +355,7 @@ func (o *TableSizeResponseSizesInnerMetrics) GetAvgStockTurnoverOk() (*TableComm
 }
 
 // SetAvgStockTurnover sets field value
-func (o *TableSizeResponseSizesInnerMetrics) SetAvgStockTurnover(v TableCommonMetricsSaleRate) {
+func (o *TableSizeResponseSizesInnerMetrics) SetAvgStockTurnover(v TableCommonMetricsAvgStockTurnover) {
 	o.AvgStockTurnover = v
 }
 
@@ -408,9 +408,9 @@ func (o *TableSizeResponseSizesInnerMetrics) SetFromClientCount(v int32) {
 }
 
 // GetOfficeMissingTime returns the OfficeMissingTime field value
-func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTime() TableCommonMetricsSaleRate {
+func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTime() TableCommonMetricsOfficeMissingTime {
 	if o == nil {
-		var ret TableCommonMetricsSaleRate
+		var ret TableCommonMetricsOfficeMissingTime
 		return ret
 	}
 
@@ -419,7 +419,7 @@ func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTime() TableCommonM
 
 // GetOfficeMissingTimeOk returns a tuple with the OfficeMissingTime field value
 // and a boolean to check if the value has been set.
-func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTimeOk() (*TableCommonMetricsSaleRate, bool) {
+func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTimeOk() (*TableCommonMetricsOfficeMissingTime, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -427,7 +427,7 @@ func (o *TableSizeResponseSizesInnerMetrics) GetOfficeMissingTimeOk() (*TableCom
 }
 
 // SetOfficeMissingTime sets field value
-func (o *TableSizeResponseSizesInnerMetrics) SetOfficeMissingTime(v TableCommonMetricsSaleRate) {
+func (o *TableSizeResponseSizesInnerMetrics) SetOfficeMissingTime(v TableCommonMetricsOfficeMissingTime) {
 	o.OfficeMissingTime = v
 }
 

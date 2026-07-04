@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.promotion.models.placement_type import PlacementType
 from typing import Optional, Set
@@ -28,9 +28,10 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner(BaseModel):
     """
     ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner
     """ # noqa: E501
+    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     type: PlacementType
-    value: StrictInt = Field(description="Минимальная ставка, копейки")
-    __properties: ClassVar[List[str]] = ["type", "value"]
+    value: StrictInt = Field(description="Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ")
+    __properties: ClassVar[List[str]] = ["currency", "type", "value"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -83,6 +84,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "currency": obj.get("currency"),
             "type": obj.get("type"),
             "value": obj.get("value")
         })

@@ -31,12 +31,13 @@ class GetAdvertsAdvertsInner(BaseModel):
     GetAdvertsAdvertsInner
     """ # noqa: E501
     bid_type: StrictStr = Field(description="Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка ")
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     id: StrictInt = Field(description="ID кампании")
     nm_settings: Optional[List[AdvertNMsSettings]] = Field(description="Настройки товаров")
     settings: AdvertSettings
     status: StrictInt = Field(description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")
     timestamps: Timestamps
-    __properties: ClassVar[List[str]] = ["bid_type", "id", "nm_settings", "settings", "status", "timestamps"]
+    __properties: ClassVar[List[str]] = ["bid_type", "currency", "id", "nm_settings", "settings", "status", "timestamps"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -115,6 +116,7 @@ class GetAdvertsAdvertsInner(BaseModel):
 
         _obj = cls.model_validate({
             "bid_type": obj.get("bid_type"),
+            "currency": obj.get("currency"),
             "id": obj.get("id"),
             "nm_settings": [AdvertNMsSettings.from_dict(_item) for _item in obj["nm_settings"]] if obj.get("nm_settings") is not None else None,
             "settings": AdvertSettings.from_dict(obj["settings"]) if obj.get("settings") is not None else None,

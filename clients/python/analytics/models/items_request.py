@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from wildberries_sdk.analytics.models.items_request_past_period import ItemsRequestPastPeriod
 from wildberries_sdk.analytics.models.items_request_selected_period import ItemsRequestSelectedPeriod
 from wildberries_sdk.analytics.models.order_by import OrderBy
 from typing import Optional, Set
@@ -31,7 +32,7 @@ class ItemsRequest(BaseModel):
     ItemsRequest
     """ # noqa: E501
     selected_period: ItemsRequestSelectedPeriod = Field(alias="selectedPeriod")
-    past_period: Optional[ItemsRequestSelectedPeriod] = Field(default=None, alias="pastPeriod")
+    past_period: Optional[ItemsRequestPastPeriod] = Field(default=None, alias="pastPeriod")
     nm_ids: Optional[Annotated[List[StrictInt], Field(min_length=0, max_length=1000)]] = Field(default=None, description="Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах ", alias="nmIds", json_schema_extra={"examples": [[1234567]]})
     brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames", json_schema_extra={"examples": [["nike", "adidas"]]})
     subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds", json_schema_extra={"examples": [[64, 334]]})
@@ -103,7 +104,7 @@ class ItemsRequest(BaseModel):
 
         _obj = cls.model_validate({
             "selectedPeriod": ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
-            "pastPeriod": ItemsRequestSelectedPeriod.from_dict(obj["pastPeriod"]) if obj.get("pastPeriod") is not None else None,
+            "pastPeriod": ItemsRequestPastPeriod.from_dict(obj["pastPeriod"]) if obj.get("pastPeriod") is not None else None,
             "nmIds": obj.get("nmIds"),
             "brandNames": obj.get("brandNames"),
             "subjectIds": obj.get("subjectIds"),

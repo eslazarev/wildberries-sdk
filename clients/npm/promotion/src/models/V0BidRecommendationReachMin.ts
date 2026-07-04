@@ -21,13 +21,13 @@ import { mapValues } from '../runtime';
  */
 export interface V0BidRecommendationReachMin {
     /**
-     * Рекомендуемая ставка в копейках
+     * Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof V0BidRecommendationReachMin
      */
     bidKopecks?: number;
     /**
-     * Минимальная ставка в копейках
+     * Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof V0BidRecommendationReachMin
      */

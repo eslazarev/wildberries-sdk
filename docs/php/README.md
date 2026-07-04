@@ -282,6 +282,8 @@ var_dump($response);
 - `promotion.DefaultApi.apiV1CalendarPromotionsGet` — `GET /api/v1/calendar/promotions` — Список акций
 - `promotion.DefaultApi.apiV1CalendarPromotionsNomenclaturesGet` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
 - `promotion.DefaultApi.apiV1CalendarPromotionsUploadPost` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
+- `promotion.DefaultApi.getV1Config` — `GET /api/advert/v1/config` — Конфигурационные значения продвижения
+- `promotion.DefaultApi.postV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 
 ### communications (`communications`)
 - `communications.DefaultApi.apiFeedbacksV1PinsCountGet` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов

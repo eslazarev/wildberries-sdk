@@ -39,6 +39,11 @@ import {
     ApiFeedbacksV1PinsPost200ResponseToJSON,
 } from '../models/ApiFeedbacksV1PinsPost200Response';
 import {
+    type ApiV1ClaimPatch400Response,
+    ApiV1ClaimPatch400ResponseFromJSON,
+    ApiV1ClaimPatch400ResponseToJSON,
+} from '../models/ApiV1ClaimPatch400Response';
+import {
     type ApiV1ClaimPatchRequest,
     ApiV1ClaimPatchRequestFromJSON,
     ApiV1ClaimPatchRequestToJSON,
@@ -59,6 +64,11 @@ import {
     ApiV1FeedbackGet200ResponseToJSON,
 } from '../models/ApiV1FeedbackGet200Response';
 import {
+    type ApiV1FeedbacksAnswerPatchRequest,
+    ApiV1FeedbacksAnswerPatchRequestFromJSON,
+    ApiV1FeedbacksAnswerPatchRequestToJSON,
+} from '../models/ApiV1FeedbacksAnswerPatchRequest';
+import {
     type ApiV1FeedbacksAnswerPostRequest,
     ApiV1FeedbacksAnswerPostRequestFromJSON,
     ApiV1FeedbacksAnswerPostRequestToJSON,
@@ -68,6 +78,16 @@ import {
     ApiV1FeedbacksArchiveGet200ResponseFromJSON,
     ApiV1FeedbacksArchiveGet200ResponseToJSON,
 } from '../models/ApiV1FeedbacksArchiveGet200Response';
+import {
+    type ApiV1FeedbacksCountGet200Response,
+    ApiV1FeedbacksCountGet200ResponseFromJSON,
+    ApiV1FeedbacksCountGet200ResponseToJSON,
+} from '../models/ApiV1FeedbacksCountGet200Response';
+import {
+    type ApiV1FeedbacksCountUnansweredGet200Response,
+    ApiV1FeedbacksCountUnansweredGet200ResponseFromJSON,
+    ApiV1FeedbacksCountUnansweredGet200ResponseToJSON,
+} from '../models/ApiV1FeedbacksCountUnansweredGet200Response';
 import {
     type ApiV1FeedbacksGet200Response,
     ApiV1FeedbacksGet200ResponseFromJSON,
@@ -220,8 +240,8 @@ export interface ApiV1FeedbackGetRequest {
     id: string;
 }
 
-export interface ApiV1FeedbacksAnswerPatchRequest {
-    apiV1FeedbacksAnswerPostRequest?: ApiV1FeedbacksAnswerPostRequest;
+export interface ApiV1FeedbacksAnswerPatchOperationRequest {
+    apiV1FeedbacksAnswerPatchRequest?: ApiV1FeedbacksAnswerPatchRequest;
 }
 
 export interface ApiV1FeedbacksAnswerPostOperationRequest {
@@ -776,7 +796,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Creates request options for apiV1FeedbacksAnswerPatch without sending the request
      */
-    async apiV1FeedbacksAnswerPatchRequestOpts(requestParameters: ApiV1FeedbacksAnswerPatchRequest): Promise<runtime.RequestOpts> {
+    async apiV1FeedbacksAnswerPatchRequestOpts(requestParameters: ApiV1FeedbacksAnswerPatchOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -795,7 +815,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: ApiV1FeedbacksAnswerPostRequestToJSON(requestParameters['apiV1FeedbacksAnswerPostRequest']),
+            body: ApiV1FeedbacksAnswerPatchRequestToJSON(requestParameters['apiV1FeedbacksAnswerPatchRequest']),
         };
     }
 
@@ -803,7 +823,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks~1answer/post) покупателя. <br><br> Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  <div class=\"description_important\">   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Отредактировать ответ на отзыв
      */
-    async apiV1FeedbacksAnswerPatchRaw(requestParameters: ApiV1FeedbacksAnswerPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async apiV1FeedbacksAnswerPatchRaw(requestParameters: ApiV1FeedbacksAnswerPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const requestOptions = await this.apiV1FeedbacksAnswerPatchRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
@@ -814,7 +834,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks~1answer/post) покупателя. <br><br> Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  <div class=\"description_important\">   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Отредактировать ответ на отзыв
      */
-    async apiV1FeedbacksAnswerPatch(requestParameters: ApiV1FeedbacksAnswerPatchRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async apiV1FeedbacksAnswerPatch(requestParameters: ApiV1FeedbacksAnswerPatchOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.apiV1FeedbacksAnswerPatchRaw(requestParameters, initOverrides);
     }
 
@@ -975,18 +995,18 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Количество отзывов
      */
-    async apiV1FeedbacksCountGetRaw(requestParameters: ApiV1FeedbacksCountGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1QuestionsCountGet200Response>> {
+    async apiV1FeedbacksCountGetRaw(requestParameters: ApiV1FeedbacksCountGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1FeedbacksCountGet200Response>> {
         const requestOptions = await this.apiV1FeedbacksCountGetRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1QuestionsCountGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1FeedbacksCountGet200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Количество отзывов
      */
-    async apiV1FeedbacksCountGet(requestParameters: ApiV1FeedbacksCountGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1QuestionsCountGet200Response> {
+    async apiV1FeedbacksCountGet(requestParameters: ApiV1FeedbacksCountGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1FeedbacksCountGet200Response> {
         const response = await this.apiV1FeedbacksCountGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1018,18 +1038,18 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает:   - количество необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за сегодня и за всё время  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Необработанные отзывы
      */
-    async apiV1FeedbacksCountUnansweredGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1QuestionsCountUnansweredGet200Response>> {
+    async apiV1FeedbacksCountUnansweredGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1FeedbacksCountUnansweredGet200Response>> {
         const requestOptions = await this.apiV1FeedbacksCountUnansweredGetRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1QuestionsCountUnansweredGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1FeedbacksCountUnansweredGet200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает:   - количество необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за сегодня и за всё время  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Необработанные отзывы
      */
-    async apiV1FeedbacksCountUnansweredGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1QuestionsCountUnansweredGet200Response> {
+    async apiV1FeedbacksCountUnansweredGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1FeedbacksCountUnansweredGet200Response> {
         const response = await this.apiV1FeedbacksCountUnansweredGetRaw(initOverrides);
         return await response.value();
     }

@@ -23,7 +23,7 @@ var _ MappedNullable = &ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner{}
 type ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner struct {
 	// Артикул WB
 	NmId int64 `json:"nm_id"`
-	// Ставка
+	// Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks int64 `json:"bid_kopecks"`
 	// Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях 
 	Placement string `json:"placement"`

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -68,8 +68,10 @@ __all__ = [
     "DeliveryDatesRequest",
     "Error",
     "Meta",
+    "MetaGtin",
     "MetaImei",
     "MetaSgtin",
+    "MetaUin",
     "Order",
     "OrderCourierInfo",
     "OrderCourierInfoResp",
@@ -134,8 +136,10 @@ from wildberries_sdk.orders_dbw.models.delivery_dates_info_resp_orders_inner imp
 from wildberries_sdk.orders_dbw.models.delivery_dates_request import DeliveryDatesRequest as DeliveryDatesRequest
 from wildberries_sdk.orders_dbw.models.error import Error as Error
 from wildberries_sdk.orders_dbw.models.meta import Meta as Meta
+from wildberries_sdk.orders_dbw.models.meta_gtin import MetaGtin as MetaGtin
 from wildberries_sdk.orders_dbw.models.meta_imei import MetaImei as MetaImei
 from wildberries_sdk.orders_dbw.models.meta_sgtin import MetaSgtin as MetaSgtin
+from wildberries_sdk.orders_dbw.models.meta_uin import MetaUin as MetaUin
 from wildberries_sdk.orders_dbw.models.order import Order as Order
 from wildberries_sdk.orders_dbw.models.order_courier_info import OrderCourierInfo as OrderCourierInfo
 from wildberries_sdk.orders_dbw.models.order_courier_info_resp import OrderCourierInfoResp as OrderCourierInfoResp

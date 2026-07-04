@@ -58,6 +58,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $openAPITypes = [
         'bid_type' => 'string',
+        'currency' => 'string',
         'id' => 'int',
         'nm_settings' => '\Wildberries\Sdk\Promotion\Model\AdvertNMsSettings[]',
         'settings' => '\Wildberries\Sdk\Promotion\Model\AdvertSettings',
@@ -74,6 +75,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $openAPIFormats = [
         'bid_type' => null,
+        'currency' => 'ISO 4217',
         'id' => 'int64',
         'nm_settings' => null,
         'settings' => null,
@@ -88,6 +90,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static array $openAPINullables = [
         'bid_type' => false,
+        'currency' => false,
         'id' => false,
         'nm_settings' => true,
         'settings' => false,
@@ -182,6 +185,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'bid_type' => 'bid_type',
+        'currency' => 'currency',
         'id' => 'id',
         'nm_settings' => 'nm_settings',
         'settings' => 'settings',
@@ -196,6 +200,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'bid_type' => 'setBidType',
+        'currency' => 'setCurrency',
         'id' => 'setId',
         'nm_settings' => 'setNmSettings',
         'settings' => 'setSettings',
@@ -210,6 +215,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'bid_type' => 'getBidType',
+        'currency' => 'getCurrency',
         'id' => 'getId',
         'nm_settings' => 'getNmSettings',
         'settings' => 'getSettings',
@@ -298,6 +304,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(?array $data = null)
     {
         $this->setIfExists('bid_type', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('nm_settings', $data ?? [], null);
         $this->setIfExists('settings', $data ?? [], null);
@@ -397,6 +404,33 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable bid_type cannot be null');
         }
         $this->container['bid_type'] = $bid_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

@@ -416,7 +416,7 @@ class V0SetNormQueryBidsRequestItem implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets bid
      *
-     * @param int $bid Ставка за тысячу показов, ₽
+     * @param int $bid Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

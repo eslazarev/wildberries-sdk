@@ -23,6 +23,8 @@ var _ MappedNullable = &GetAdvertsAdvertsInner{}
 type GetAdvertsAdvertsInner struct {
 	// Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка 
 	BidType string `json:"bid_type"`
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency *string `json:"currency,omitempty"`
 	// ID кампании
 	Id int64 `json:"id"`
 	// Настройки товаров
@@ -80,6 +82,38 @@ func (o *GetAdvertsAdvertsInner) GetBidTypeOk() (*string, bool) {
 // SetBidType sets field value
 func (o *GetAdvertsAdvertsInner) SetBidType(v string) {
 	o.BidType = v
+}
+
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *GetAdvertsAdvertsInner) GetCurrency() string {
+	if o == nil || IsNil(o.Currency) {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetAdvertsAdvertsInner) GetCurrencyOk() (*string, bool) {
+	if o == nil || IsNil(o.Currency) {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *GetAdvertsAdvertsInner) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *GetAdvertsAdvertsInner) SetCurrency(v string) {
+	o.Currency = &v
 }
 
 // GetId returns the Id field value
@@ -215,6 +249,9 @@ func (o GetAdvertsAdvertsInner) MarshalJSON() ([]byte, error) {
 func (o GetAdvertsAdvertsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["bid_type"] = o.BidType
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
+	}
 	toSerialize["id"] = o.Id
 	if o.NmSettings != nil {
 		toSerialize["nm_settings"] = o.NmSettings

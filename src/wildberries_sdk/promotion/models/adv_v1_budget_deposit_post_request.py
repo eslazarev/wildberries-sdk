@@ -27,7 +27,7 @@ class AdvV1BudgetDepositPostRequest(BaseModel):
     """
     AdvV1BudgetDepositPostRequest
     """ # noqa: E501
-    sum: Optional[StrictInt] = Field(default=None, description="Общая сумма пополнения бюджета", json_schema_extra={"examples": [5000]})
+    sum: Optional[StrictInt] = Field(default=None, description="Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", json_schema_extra={"examples": [5000]})
     cashback_sum: Optional[StrictInt] = Field(default=None, description="Сумма пополнения бюджета промо-бонусами. <br> Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. <br> Списать промо-бонусы можно только для источников пополнения:   - `0` — счёт   - `1` — баланс ", json_schema_extra={"examples": [1000]})
     cashback_percent: Optional[StrictInt] = Field(default=None, description="Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get) <br> Если вы указали `cashback_sum`, параметр `cashback_percent` становится обязательным ", json_schema_extra={"examples": [50]})
     type: Optional[StrictInt] = Field(default=None, description="Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы ", json_schema_extra={"examples": [1]})
@@ -73,16 +73,6 @@ class AdvV1BudgetDepositPostRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if cashback_sum (nullable) is None
-        # and model_fields_set contains the field
-        if self.cashback_sum is None and "cashback_sum" in self.model_fields_set:
-            _dict['cashback_sum'] = None
-
-        # set to None if cashback_percent (nullable) is None
-        # and model_fields_set contains the field
-        if self.cashback_percent is None and "cashback_percent" in self.model_fields_set:
-            _dict['cashback_percent'] = None
-
         return _dict
 
     @classmethod

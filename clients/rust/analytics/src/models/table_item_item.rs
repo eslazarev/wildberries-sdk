@@ -49,23 +49,23 @@ pub struct TableItemItem {
     #[serde(rename = "price")]
     pub price: Box<models::TableItemItemAllOfPrice>,
     #[serde(rename = "avgPosition")]
-    pub avg_position: Box<models::TableItemItemAllOfAvgPosition>,
+    pub avg_position: Box<models::TableGroupItemMetricsAvgPosition>,
     #[serde(rename = "openCard")]
-    pub open_card: Box<models::TableItemItemAllOfAvgPosition>,
+    pub open_card: Box<models::VisibilityInfoOpenCard>,
     #[serde(rename = "addToCart")]
-    pub add_to_cart: Box<models::TableItemItemAllOfAvgPosition>,
+    pub add_to_cart: Box<models::TableGroupItemMetricsAddToCart>,
     #[serde(rename = "openToCart")]
-    pub open_to_cart: Box<models::TableItemItemAllOfAvgPosition>,
+    pub open_to_cart: Box<models::TableGroupItemMetricsOpenToCart>,
     #[serde(rename = "orders")]
-    pub orders: Box<models::TableItemItemAllOfAvgPosition>,
+    pub orders: Box<models::TableGroupItemMetricsOrders>,
     #[serde(rename = "cartToOrder")]
-    pub cart_to_order: Box<models::TableItemItemAllOfAvgPosition>,
+    pub cart_to_order: Box<models::TableGroupItemMetricsCartToOrder>,
     #[serde(rename = "visibility")]
-    pub visibility: Box<models::TableItemItemAllOfAvgPosition>,
+    pub visibility: Box<models::TableGroupItemMetricsVisibility>,
 }
 
 impl TableItemItem {
-    pub fn new(nm_id: i64, vendor_code: String, is_advertised: bool, is_card_rated: bool, rating: f64, feedback_rating: f64, price: models::TableItemItemAllOfPrice, avg_position: models::TableItemItemAllOfAvgPosition, open_card: models::TableItemItemAllOfAvgPosition, add_to_cart: models::TableItemItemAllOfAvgPosition, open_to_cart: models::TableItemItemAllOfAvgPosition, orders: models::TableItemItemAllOfAvgPosition, cart_to_order: models::TableItemItemAllOfAvgPosition, visibility: models::TableItemItemAllOfAvgPosition) -> TableItemItem {
+    pub fn new(nm_id: i64, vendor_code: String, is_advertised: bool, is_card_rated: bool, rating: f64, feedback_rating: f64, price: models::TableItemItemAllOfPrice, avg_position: models::TableGroupItemMetricsAvgPosition, open_card: models::VisibilityInfoOpenCard, add_to_cart: models::TableGroupItemMetricsAddToCart, open_to_cart: models::TableGroupItemMetricsOpenToCart, orders: models::TableGroupItemMetricsOrders, cart_to_order: models::TableGroupItemMetricsCartToOrder, visibility: models::TableGroupItemMetricsVisibility) -> TableItemItem {
         TableItemItem {
             nm_id,
             name: None,

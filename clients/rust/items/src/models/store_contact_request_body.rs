@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StoreContactRequestBody {
     #[serde(rename = "contacts", skip_serializing_if = "Option::is_none")]
-    pub contacts: Option<Vec<models::ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner>>,
+    pub contacts: Option<Vec<models::StoreContactRequestBodyContactsInner>>,
 }
 
 impl StoreContactRequestBody {

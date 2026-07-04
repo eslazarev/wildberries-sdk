@@ -23,7 +23,7 @@ var _ MappedNullable = &ApiAdvertV1BidsPatchRequestBidsInner{}
 type ApiAdvertV1BidsPatchRequestBidsInner struct {
 	// ID кампании
 	AdvertId int64 `json:"advert_id"`
-	// Ставки, копейки
+	// Ставки
 	NmBids []ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner `json:"nm_bids"`
 }
 

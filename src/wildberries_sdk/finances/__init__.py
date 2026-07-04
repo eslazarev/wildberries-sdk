@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -44,6 +44,7 @@ __all__ = [
     "GetDoc",
     "GetDocData",
     "GetDocs",
+    "GetDocsData",
     "GetList",
     "GetListData",
     "GetListDataDocumentsInner",
@@ -87,6 +88,7 @@ from wildberries_sdk.finances.models.get_categories_data_categories_inner import
 from wildberries_sdk.finances.models.get_doc import GetDoc as GetDoc
 from wildberries_sdk.finances.models.get_doc_data import GetDocData as GetDocData
 from wildberries_sdk.finances.models.get_docs import GetDocs as GetDocs
+from wildberries_sdk.finances.models.get_docs_data import GetDocsData as GetDocsData
 from wildberries_sdk.finances.models.get_list import GetList as GetList
 from wildberries_sdk.finances.models.get_list_data import GetListData as GetListData
 from wildberries_sdk.finances.models.get_list_data_documents_inner import GetListDataDocumentsInner as GetListDataDocumentsInner

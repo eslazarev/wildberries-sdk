@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -50,6 +50,7 @@ __all__ = [
     "ApiOrderClientInfo",
     "ApiOrderClientInfoResp",
     "ApiOrderMetaV2",
+    "ApiOrderOptions",
     "ApiOrderStatusV2",
     "ApiOrderStatusesV2",
     "ApiOrders",
@@ -118,6 +119,7 @@ from wildberries_sdk.in_store_pickup.models.api_order import ApiOrder as ApiOrde
 from wildberries_sdk.in_store_pickup.models.api_order_client_info import ApiOrderClientInfo as ApiOrderClientInfo
 from wildberries_sdk.in_store_pickup.models.api_order_client_info_resp import ApiOrderClientInfoResp as ApiOrderClientInfoResp
 from wildberries_sdk.in_store_pickup.models.api_order_meta_v2 import ApiOrderMetaV2 as ApiOrderMetaV2
+from wildberries_sdk.in_store_pickup.models.api_order_options import ApiOrderOptions as ApiOrderOptions
 from wildberries_sdk.in_store_pickup.models.api_order_status_v2 import ApiOrderStatusV2 as ApiOrderStatusV2
 from wildberries_sdk.in_store_pickup.models.api_order_statuses_v2 import ApiOrderStatusesV2 as ApiOrderStatusesV2
 from wildberries_sdk.in_store_pickup.models.api_orders import ApiOrders as ApiOrders

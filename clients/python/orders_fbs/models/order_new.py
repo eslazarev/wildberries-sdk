@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from wildberries_sdk.orders_fbs.models.order_address import OrderAddress
-from wildberries_sdk.orders_fbs.models.v3_archive_order_options import V3ArchiveOrderOptions
+from wildberries_sdk.orders_fbs.models.order_options import OrderOptions
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -62,7 +62,7 @@ class OrderNew(BaseModel):
     cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка ", alias="crossBorderType", json_schema_extra={"examples": [1]})
     is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder", json_schema_extra={"examples": [False]})
     is_pickup_point_shipment_allowed: Optional[StrictBool] = Field(default=None, description="Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да ", alias="isPickupPointShipmentAllowed", json_schema_extra={"examples": [True]})
-    options: Optional[V3ArchiveOrderOptions] = None
+    options: Optional[OrderOptions] = None
     __properties: ClassVar[List[str]] = ["address", "ddate", "sellerDate", "salePrice", "requiredMeta", "optionalMeta", "deliveryType", "comment", "scanPrice", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "isZeroOrder", "isPickupPointShipmentAllowed", "options"]
 
     @field_validator('delivery_type')
@@ -218,7 +218,7 @@ class OrderNew(BaseModel):
             "crossBorderType": obj.get("crossBorderType"),
             "isZeroOrder": obj.get("isZeroOrder"),
             "isPickupPointShipmentAllowed": obj.get("isPickupPointShipmentAllowed"),
-            "options": V3ArchiveOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
+            "options": OrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
         })
         return _obj
 

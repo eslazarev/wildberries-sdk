@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiV1QuestionGet200Response{}
 
 // ApiV1QuestionGet200Response struct for ApiV1QuestionGet200Response
 type ApiV1QuestionGet200Response struct {
-	Data *ApiV1QuestionsGet200ResponseDataQuestionsInner `json:"data,omitempty"`
+	Data *ApiV1QuestionGet200ResponseData `json:"data,omitempty"`
 	// Есть ли ошибка
 	Error *bool `json:"error,omitempty"`
 	// Описание ошибки
@@ -46,9 +46,9 @@ func NewApiV1QuestionGet200ResponseWithDefaults() *ApiV1QuestionGet200Response {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *ApiV1QuestionGet200Response) GetData() ApiV1QuestionsGet200ResponseDataQuestionsInner {
+func (o *ApiV1QuestionGet200Response) GetData() ApiV1QuestionGet200ResponseData {
 	if o == nil || IsNil(o.Data) {
-		var ret ApiV1QuestionsGet200ResponseDataQuestionsInner
+		var ret ApiV1QuestionGet200ResponseData
 		return ret
 	}
 	return *o.Data
@@ -56,7 +56,7 @@ func (o *ApiV1QuestionGet200Response) GetData() ApiV1QuestionsGet200ResponseData
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiV1QuestionGet200Response) GetDataOk() (*ApiV1QuestionsGet200ResponseDataQuestionsInner, bool) {
+func (o *ApiV1QuestionGet200Response) GetDataOk() (*ApiV1QuestionGet200ResponseData, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -72,8 +72,8 @@ func (o *ApiV1QuestionGet200Response) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given ApiV1QuestionsGet200ResponseDataQuestionsInner and assigns it to the Data field.
-func (o *ApiV1QuestionGet200Response) SetData(v ApiV1QuestionsGet200ResponseDataQuestionsInner) {
+// SetData gets a reference to the given ApiV1QuestionGet200ResponseData and assigns it to the Data field.
+func (o *ApiV1QuestionGet200Response) SetData(v ApiV1QuestionGet200ResponseData) {
 	o.Data = &v
 }
 

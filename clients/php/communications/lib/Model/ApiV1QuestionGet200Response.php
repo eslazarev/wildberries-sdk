@@ -57,7 +57,7 @@ class ApiV1QuestionGet200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\Wildberries\Sdk\Communications\Model\ApiV1QuestionsGet200ResponseDataQuestionsInner',
+        'data' => '\Wildberries\Sdk\Communications\Model\ApiV1QuestionGet200ResponseData',
         'error' => 'bool',
         'error_text' => 'string',
         'additional_errors' => 'string[]'
@@ -313,7 +313,7 @@ class ApiV1QuestionGet200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Communications\Model\ApiV1QuestionsGet200ResponseDataQuestionsInner|null
+     * @return \Wildberries\Sdk\Communications\Model\ApiV1QuestionGet200ResponseData|null
      */
     public function getData()
     {
@@ -323,7 +323,7 @@ class ApiV1QuestionGet200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Communications\Model\ApiV1QuestionsGet200ResponseDataQuestionsInner|null $data data
+     * @param \Wildberries\Sdk\Communications\Model\ApiV1QuestionGet200ResponseData|null $data data
      *
      * @return self
      */

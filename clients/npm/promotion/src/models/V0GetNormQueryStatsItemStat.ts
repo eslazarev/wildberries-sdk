@@ -62,13 +62,13 @@ export interface V0GetNormQueryStatsItemStat {
      */
     ctr?: number | null;
     /**
-     * Стоимость одного клика, ₽
+     * Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof V0GetNormQueryStatsItemStat
      */
     cpc?: number;
     /**
-     * Средняя стоимость за тысячу показов, ₽.
+     * Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
@@ -95,6 +95,12 @@ export interface V0GetNormQueryStatsItemStat {
      * @memberof V0GetNormQueryStatsItemStat
      */
     spend?: number;
+    /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof V0GetNormQueryStatsItemStat
+     */
+    currency?: string;
 }
 
 /**
@@ -125,6 +131,7 @@ export function V0GetNormQueryStatsItemStatFromJSONTyped(json: any, ignoreDiscri
         'avgPos': json['avg_pos'] == null ? undefined : json['avg_pos'],
         'shks': json['shks'] == null ? undefined : json['shks'],
         'spend': json['spend'] == null ? undefined : json['spend'],
+        'currency': json['currency'] == null ? undefined : json['currency'],
     };
 }
 
@@ -150,6 +157,7 @@ export function V0GetNormQueryStatsItemStatToJSONTyped(value?: V0GetNormQuerySta
         'avg_pos': value['avgPos'],
         'shks': value['shks'],
         'spend': value['spend'],
+        'currency': value['currency'],
     };
 }
 

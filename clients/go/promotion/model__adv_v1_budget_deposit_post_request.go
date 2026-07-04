@@ -19,12 +19,12 @@ var _ MappedNullable = &AdvV1BudgetDepositPostRequest{}
 
 // AdvV1BudgetDepositPostRequest struct for AdvV1BudgetDepositPostRequest
 type AdvV1BudgetDepositPostRequest struct {
-	// Общая сумма пополнения бюджета
+	// Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum *int32 `json:"sum,omitempty"`
 	// Сумма пополнения бюджета промо-бонусами. <br> Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get). <br> Оставшаяся часть общей суммы спишется с указанного источника пополнения. <br> Списать промо-бонусы можно только для источников пополнения:   - `0` — счёт   - `1` — баланс 
-	CashbackSum NullableInt32 `json:"cashback_sum,omitempty"`
+	CashbackSum *int32 `json:"cashback_sum,omitempty"`
 	// Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get) <br> Если вы указали `cashback_sum`, параметр `cashback_percent` становится обязательным 
-	CashbackPercent NullableInt32 `json:"cashback_percent,omitempty"`
+	CashbackPercent *int32 `json:"cashback_percent,omitempty"`
 	// Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы 
 	Type *int32 `json:"type,omitempty"`
 	// Флаг возврата ответа (`true` — в ответе вернется обновлённый размер бюджета кампании, `false` или не указать параметр вообще — не вернётся.)
@@ -80,88 +80,68 @@ func (o *AdvV1BudgetDepositPostRequest) SetSum(v int32) {
 	o.Sum = &v
 }
 
-// GetCashbackSum returns the CashbackSum field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCashbackSum returns the CashbackSum field value if set, zero value otherwise.
 func (o *AdvV1BudgetDepositPostRequest) GetCashbackSum() int32 {
-	if o == nil || IsNil(o.CashbackSum.Get()) {
+	if o == nil || IsNil(o.CashbackSum) {
 		var ret int32
 		return ret
 	}
-	return *o.CashbackSum.Get()
+	return *o.CashbackSum
 }
 
 // GetCashbackSumOk returns a tuple with the CashbackSum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdvV1BudgetDepositPostRequest) GetCashbackSumOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackSum) {
 		return nil, false
 	}
-	return o.CashbackSum.Get(), o.CashbackSum.IsSet()
+	return o.CashbackSum, true
 }
 
 // HasCashbackSum returns a boolean if a field has been set.
 func (o *AdvV1BudgetDepositPostRequest) HasCashbackSum() bool {
-	if o != nil && o.CashbackSum.IsSet() {
+	if o != nil && !IsNil(o.CashbackSum) {
 		return true
 	}
 
 	return false
 }
 
-// SetCashbackSum gets a reference to the given NullableInt32 and assigns it to the CashbackSum field.
+// SetCashbackSum gets a reference to the given int32 and assigns it to the CashbackSum field.
 func (o *AdvV1BudgetDepositPostRequest) SetCashbackSum(v int32) {
-	o.CashbackSum.Set(&v)
-}
-// SetCashbackSumNil sets the value for CashbackSum to be an explicit nil
-func (o *AdvV1BudgetDepositPostRequest) SetCashbackSumNil() {
-	o.CashbackSum.Set(nil)
+	o.CashbackSum = &v
 }
 
-// UnsetCashbackSum ensures that no value is present for CashbackSum, not even an explicit nil
-func (o *AdvV1BudgetDepositPostRequest) UnsetCashbackSum() {
-	o.CashbackSum.Unset()
-}
-
-// GetCashbackPercent returns the CashbackPercent field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCashbackPercent returns the CashbackPercent field value if set, zero value otherwise.
 func (o *AdvV1BudgetDepositPostRequest) GetCashbackPercent() int32 {
-	if o == nil || IsNil(o.CashbackPercent.Get()) {
+	if o == nil || IsNil(o.CashbackPercent) {
 		var ret int32
 		return ret
 	}
-	return *o.CashbackPercent.Get()
+	return *o.CashbackPercent
 }
 
 // GetCashbackPercentOk returns a tuple with the CashbackPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdvV1BudgetDepositPostRequest) GetCashbackPercentOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CashbackPercent) {
 		return nil, false
 	}
-	return o.CashbackPercent.Get(), o.CashbackPercent.IsSet()
+	return o.CashbackPercent, true
 }
 
 // HasCashbackPercent returns a boolean if a field has been set.
 func (o *AdvV1BudgetDepositPostRequest) HasCashbackPercent() bool {
-	if o != nil && o.CashbackPercent.IsSet() {
+	if o != nil && !IsNil(o.CashbackPercent) {
 		return true
 	}
 
 	return false
 }
 
-// SetCashbackPercent gets a reference to the given NullableInt32 and assigns it to the CashbackPercent field.
+// SetCashbackPercent gets a reference to the given int32 and assigns it to the CashbackPercent field.
 func (o *AdvV1BudgetDepositPostRequest) SetCashbackPercent(v int32) {
-	o.CashbackPercent.Set(&v)
-}
-// SetCashbackPercentNil sets the value for CashbackPercent to be an explicit nil
-func (o *AdvV1BudgetDepositPostRequest) SetCashbackPercentNil() {
-	o.CashbackPercent.Set(nil)
-}
-
-// UnsetCashbackPercent ensures that no value is present for CashbackPercent, not even an explicit nil
-func (o *AdvV1BudgetDepositPostRequest) UnsetCashbackPercent() {
-	o.CashbackPercent.Unset()
+	o.CashbackPercent = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -241,11 +221,11 @@ func (o AdvV1BudgetDepositPostRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Sum) {
 		toSerialize["sum"] = o.Sum
 	}
-	if o.CashbackSum.IsSet() {
-		toSerialize["cashback_sum"] = o.CashbackSum.Get()
+	if !IsNil(o.CashbackSum) {
+		toSerialize["cashback_sum"] = o.CashbackSum
 	}
-	if o.CashbackPercent.IsSet() {
-		toSerialize["cashback_percent"] = o.CashbackPercent.Get()
+	if !IsNil(o.CashbackPercent) {
+		toSerialize["cashback_percent"] = o.CashbackPercent
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type

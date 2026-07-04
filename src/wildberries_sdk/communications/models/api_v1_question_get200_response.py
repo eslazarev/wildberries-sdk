@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.communications.models.api_v1_questions_get200_response_data_questions_inner import ApiV1QuestionsGet200ResponseDataQuestionsInner
+from wildberries_sdk.communications.models.api_v1_question_get200_response_data import ApiV1QuestionGet200ResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class ApiV1QuestionGet200Response(BaseModel):
     """
     ApiV1QuestionGet200Response
     """ # noqa: E501
-    data: Optional[ApiV1QuestionsGet200ResponseDataQuestionsInner] = None
+    data: Optional[ApiV1QuestionGet200ResponseData] = None
     error: Optional[StrictBool] = Field(default=None, description="Есть ли ошибка", json_schema_extra={"examples": [False]})
     error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText", json_schema_extra={"examples": [""]})
     additional_errors: Optional[List[StrictStr]] = Field(default=None, description="Дополнительные ошибки", alias="additionalErrors")
@@ -93,7 +93,7 @@ class ApiV1QuestionGet200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": ApiV1QuestionsGet200ResponseDataQuestionsInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": ApiV1QuestionGet200ResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "error": obj.get("error"),
             "errorText": obj.get("errorText"),
             "additionalErrors": obj.get("additionalErrors")

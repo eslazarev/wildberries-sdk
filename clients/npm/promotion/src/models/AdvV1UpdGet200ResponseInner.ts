@@ -32,7 +32,7 @@ export interface AdvV1UpdGet200ResponseInner {
      */
     updTime?: string | null;
     /**
-     * Выставленная сумма
+     * Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof AdvV1UpdGet200ResponseInner
      */

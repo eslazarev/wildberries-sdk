@@ -21,8 +21,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_characteristics_inner import ContentV2CardsUpdatePostRequestInnerCharacteristicsInner
-from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_dimensions import ContentV2CardsUpdatePostRequestInnerDimensions
-from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_sizes_inner import ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner
+from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_dimensions import ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions
+from wildberries_sdk.items.models.content_v2_cards_upload_add_post_request_cards_to_add_inner_sizes_inner import ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_wholesale import ContentV2GetCardsListPost200ResponseCardsInnerWholesale
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,8 +38,8 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner(BaseModel):
     wholesale: Optional[ContentV2GetCardsListPost200ResponseCardsInnerWholesale] = None
     title: Optional[Annotated[str, Field(strict=True, max_length=60)]] = Field(default=None, description="Наименование товара")
     description: Optional[StrictStr] = Field(default=None, description="Описание товара.<br> Максимальное количество символов зависит от категории товара<br> Стандарт — 2000, минимум — 1000, максимум — 5000<br> Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов ")
-    dimensions: Optional[ContentV2CardsUpdatePostRequestInnerDimensions] = None
-    sizes: Optional[List[ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner]] = Field(default=None, description="Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом ")
+    dimensions: Optional[ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions] = None
+    sizes: Optional[List[ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner]] = Field(default=None, description="Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом ")
     characteristics: Optional[List[ContentV2CardsUpdatePostRequestInnerCharacteristicsInner]] = Field(default=None, description="Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) ")
     __properties: ClassVar[List[str]] = ["brand", "vendorCode", "kizMarked", "wholesale", "title", "description", "dimensions", "sizes", "characteristics"]
 
@@ -120,8 +120,8 @@ class ContentV2CardsUploadAddPostRequestCardsToAddInner(BaseModel):
             "wholesale": ContentV2GetCardsListPost200ResponseCardsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
             "title": obj.get("title"),
             "description": obj.get("description"),
-            "dimensions": ContentV2CardsUpdatePostRequestInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
-            "sizes": [ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
+            "dimensions": ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
+            "sizes": [ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
             "characteristics": [ContentV2CardsUpdatePostRequestInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None
         })
         return _obj

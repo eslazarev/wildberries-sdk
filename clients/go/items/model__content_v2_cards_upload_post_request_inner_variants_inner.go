@@ -32,7 +32,7 @@ type ContentV2CardsUploadPostRequestInnerVariantsInner struct {
 	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz` 
 	KizMarked *bool `json:"kizMarked,omitempty"`
 	Wholesale *ContentV2GetCardsListPost200ResponseCardsInnerWholesale `json:"wholesale,omitempty"`
-	Dimensions *ContentV2CardsUpdatePostRequestInnerDimensions `json:"dimensions,omitempty"`
+	Dimensions *ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions `json:"dimensions,omitempty"`
 	// Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом 
 	Sizes []ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner `json:"sizes,omitempty"`
 	// Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) 
@@ -248,9 +248,9 @@ func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) SetWholesale(v Conte
 }
 
 // GetDimensions returns the Dimensions field value if set, zero value otherwise.
-func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) GetDimensions() ContentV2CardsUpdatePostRequestInnerDimensions {
+func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) GetDimensions() ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions {
 	if o == nil || IsNil(o.Dimensions) {
-		var ret ContentV2CardsUpdatePostRequestInnerDimensions
+		var ret ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
 		return ret
 	}
 	return *o.Dimensions
@@ -258,7 +258,7 @@ func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) GetDimensions() Cont
 
 // GetDimensionsOk returns a tuple with the Dimensions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) GetDimensionsOk() (*ContentV2CardsUpdatePostRequestInnerDimensions, bool) {
+func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) GetDimensionsOk() (*ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions, bool) {
 	if o == nil || IsNil(o.Dimensions) {
 		return nil, false
 	}
@@ -274,8 +274,8 @@ func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) HasDimensions() bool
 	return false
 }
 
-// SetDimensions gets a reference to the given ContentV2CardsUpdatePostRequestInnerDimensions and assigns it to the Dimensions field.
-func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) SetDimensions(v ContentV2CardsUpdatePostRequestInnerDimensions) {
+// SetDimensions gets a reference to the given ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions and assigns it to the Dimensions field.
+func (o *ContentV2CardsUploadPostRequestInnerVariantsInner) SetDimensions(v ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions) {
 	o.Dimensions = &v
 }
 

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -50,16 +50,27 @@ __all__ = [
     "CommonShippingOfficeFilters",
     "CommonSizeFilters",
     "Comparison",
+    "ComparisonTimeToReadyDynamic",
     "ComparisonWbClubDynamic",
     "Conversions",
     "DatePeriod",
     "DistributionTableIndicators",
+    "DistributionTableIndicatorsFeedbackCount",
+    "DistributionTableIndicatorsFiveStar",
+    "DistributionTableIndicatorsFourStar",
+    "DistributionTableIndicatorsOneStar",
+    "DistributionTableIndicatorsThreeStar",
+    "DistributionTableIndicatorsTwoStar",
     "DistributionTableItem",
     "ErrorObject",
     "ErrorObject400",
     "ErrorObject403",
     "FeedbacksIncreaseItem",
     "FeedbacksIncreaseItemFiveStar",
+    "FeedbacksIncreaseItemFourStar",
+    "FeedbacksIncreaseItemOneStar",
+    "FeedbacksIncreaseItemThreeStar",
+    "FeedbacksIncreaseItemTwoStar",
     "FloatGraphByPeriodItem",
     "GroupedHistoryRequest",
     "History",
@@ -84,6 +95,7 @@ __all__ = [
     "ItemSearchTextsResponse",
     "ItemStocks",
     "ItemsRequest",
+    "ItemsRequestPastPeriod",
     "ItemsRequestSelectedPeriod",
     "ItemsResponse",
     "ItemsResponseProductsInner",
@@ -110,6 +122,8 @@ __all__ = [
     "PeriodOrdersRequest",
     "PositionCluster",
     "PositionInfo",
+    "PositionInfoAverage",
+    "PositionInfoMedian",
     "PostSalesFunnelGroupedHistory200Response",
     "PostSalesFunnelProducts200Response",
     "PostSalesFunnelProducts200ResponseData",
@@ -129,6 +143,9 @@ __all__ = [
     "SearchReportItemReqParams",
     "SearchReportPositionChartItem",
     "SearchReportPositionClusters",
+    "SearchReportPositionClustersBelow",
+    "SearchReportPositionClustersFirstHundred",
+    "SearchReportPositionClustersSecondHundred",
     "SearchReportTextReq",
     "SearchReportTextReqParams",
     "Statistic",
@@ -137,15 +154,24 @@ __all__ = [
     "StatisticWbClub",
     "Statistics",
     "StatisticsComparison",
+    "StatisticsPast",
     "StatisticsSelected",
     "StockType",
     "TableCommonMetrics",
+    "TableCommonMetricsAvgStockTurnover",
+    "TableCommonMetricsOfficeMissingTime",
     "TableCommonMetricsSaleRate",
     "TableDetailsRequest",
     "TableDetailsResponse",
     "TableGroupField",
     "TableGroupItem",
     "TableGroupItemMetrics",
+    "TableGroupItemMetricsAddToCart",
+    "TableGroupItemMetricsAvgPosition",
+    "TableGroupItemMetricsCartToOrder",
+    "TableGroupItemMetricsOpenToCart",
+    "TableGroupItemMetricsOrders",
+    "TableGroupItemMetricsVisibility",
     "TableGroupItemSt",
     "TableGroupRequest",
     "TableGroupRequestSt",
@@ -155,7 +181,6 @@ __all__ = [
     "TableItemBaseCommonFeedbackRating",
     "TableItemFloat",
     "TableItemItem",
-    "TableItemItemAllOfAvgPosition",
     "TableItemItemAllOfPrice",
     "TableItemItemSt",
     "TableItemItemStMetrics",
@@ -165,7 +190,14 @@ __all__ = [
     "TableOfficeItem",
     "TableOrderBy",
     "TableSearchTextItem",
+    "TableSearchTextItemAllOfAddToCart",
+    "TableSearchTextItemAllOfCartToOrder",
+    "TableSearchTextItemAllOfFrequency",
+    "TableSearchTextItemAllOfMedianPosition",
     "TableSearchTextItemAllOfOpenCard",
+    "TableSearchTextItemAllOfOpenToCart",
+    "TableSearchTextItemAllOfOrders",
+    "TableSearchTextItemAllOfVisibility",
     "TableShippingOfficeItem",
     "TableShippingOfficeItemOfficesInner",
     "TableShippingOfficeMetrics",
@@ -178,6 +210,8 @@ __all__ = [
     "TimeToReady",
     "VisibilityInfo",
     "VisibilityInfoByDayInner",
+    "VisibilityInfoOpenCard",
+    "VisibilityInfoVisibility",
     "WbClubMetrics",
     "WbClubMetricsDynamic",
 ]
@@ -219,16 +253,27 @@ from wildberries_sdk.analytics.models.common_response_properties import CommonRe
 from wildberries_sdk.analytics.models.common_shipping_office_filters import CommonShippingOfficeFilters as CommonShippingOfficeFilters
 from wildberries_sdk.analytics.models.common_size_filters import CommonSizeFilters as CommonSizeFilters
 from wildberries_sdk.analytics.models.comparison import Comparison as Comparison
+from wildberries_sdk.analytics.models.comparison_time_to_ready_dynamic import ComparisonTimeToReadyDynamic as ComparisonTimeToReadyDynamic
 from wildberries_sdk.analytics.models.comparison_wb_club_dynamic import ComparisonWbClubDynamic as ComparisonWbClubDynamic
 from wildberries_sdk.analytics.models.conversions import Conversions as Conversions
 from wildberries_sdk.analytics.models.date_period import DatePeriod as DatePeriod
 from wildberries_sdk.analytics.models.distribution_table_indicators import DistributionTableIndicators as DistributionTableIndicators
+from wildberries_sdk.analytics.models.distribution_table_indicators_feedback_count import DistributionTableIndicatorsFeedbackCount as DistributionTableIndicatorsFeedbackCount
+from wildberries_sdk.analytics.models.distribution_table_indicators_five_star import DistributionTableIndicatorsFiveStar as DistributionTableIndicatorsFiveStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_four_star import DistributionTableIndicatorsFourStar as DistributionTableIndicatorsFourStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_one_star import DistributionTableIndicatorsOneStar as DistributionTableIndicatorsOneStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_three_star import DistributionTableIndicatorsThreeStar as DistributionTableIndicatorsThreeStar
+from wildberries_sdk.analytics.models.distribution_table_indicators_two_star import DistributionTableIndicatorsTwoStar as DistributionTableIndicatorsTwoStar
 from wildberries_sdk.analytics.models.distribution_table_item import DistributionTableItem as DistributionTableItem
 from wildberries_sdk.analytics.models.error_object import ErrorObject as ErrorObject
 from wildberries_sdk.analytics.models.error_object400 import ErrorObject400 as ErrorObject400
 from wildberries_sdk.analytics.models.error_object403 import ErrorObject403 as ErrorObject403
 from wildberries_sdk.analytics.models.feedbacks_increase_item import FeedbacksIncreaseItem as FeedbacksIncreaseItem
 from wildberries_sdk.analytics.models.feedbacks_increase_item_five_star import FeedbacksIncreaseItemFiveStar as FeedbacksIncreaseItemFiveStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_four_star import FeedbacksIncreaseItemFourStar as FeedbacksIncreaseItemFourStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_one_star import FeedbacksIncreaseItemOneStar as FeedbacksIncreaseItemOneStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_three_star import FeedbacksIncreaseItemThreeStar as FeedbacksIncreaseItemThreeStar
+from wildberries_sdk.analytics.models.feedbacks_increase_item_two_star import FeedbacksIncreaseItemTwoStar as FeedbacksIncreaseItemTwoStar
 from wildberries_sdk.analytics.models.float_graph_by_period_item import FloatGraphByPeriodItem as FloatGraphByPeriodItem
 from wildberries_sdk.analytics.models.grouped_history_request import GroupedHistoryRequest as GroupedHistoryRequest
 from wildberries_sdk.analytics.models.history import History as History
@@ -253,6 +298,7 @@ from wildberries_sdk.analytics.models.item_search_texts_request import ItemSearc
 from wildberries_sdk.analytics.models.item_search_texts_response import ItemSearchTextsResponse as ItemSearchTextsResponse
 from wildberries_sdk.analytics.models.item_stocks import ItemStocks as ItemStocks
 from wildberries_sdk.analytics.models.items_request import ItemsRequest as ItemsRequest
+from wildberries_sdk.analytics.models.items_request_past_period import ItemsRequestPastPeriod as ItemsRequestPastPeriod
 from wildberries_sdk.analytics.models.items_request_selected_period import ItemsRequestSelectedPeriod as ItemsRequestSelectedPeriod
 from wildberries_sdk.analytics.models.items_response import ItemsResponse as ItemsResponse
 from wildberries_sdk.analytics.models.items_response_products_inner import ItemsResponseProductsInner as ItemsResponseProductsInner
@@ -279,6 +325,8 @@ from wildberries_sdk.analytics.models.period_item_rating import PeriodItemRating
 from wildberries_sdk.analytics.models.period_orders_request import PeriodOrdersRequest as PeriodOrdersRequest
 from wildberries_sdk.analytics.models.position_cluster import PositionCluster as PositionCluster
 from wildberries_sdk.analytics.models.position_info import PositionInfo as PositionInfo
+from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage as PositionInfoAverage
+from wildberries_sdk.analytics.models.position_info_median import PositionInfoMedian as PositionInfoMedian
 from wildberries_sdk.analytics.models.post_sales_funnel_grouped_history200_response import PostSalesFunnelGroupedHistory200Response as PostSalesFunnelGroupedHistory200Response
 from wildberries_sdk.analytics.models.post_sales_funnel_products200_response import PostSalesFunnelProducts200Response as PostSalesFunnelProducts200Response
 from wildberries_sdk.analytics.models.post_sales_funnel_products200_response_data import PostSalesFunnelProducts200ResponseData as PostSalesFunnelProducts200ResponseData
@@ -298,6 +346,9 @@ from wildberries_sdk.analytics.models.search_report_item_req import SearchReport
 from wildberries_sdk.analytics.models.search_report_item_req_params import SearchReportItemReqParams as SearchReportItemReqParams
 from wildberries_sdk.analytics.models.search_report_position_chart_item import SearchReportPositionChartItem as SearchReportPositionChartItem
 from wildberries_sdk.analytics.models.search_report_position_clusters import SearchReportPositionClusters as SearchReportPositionClusters
+from wildberries_sdk.analytics.models.search_report_position_clusters_below import SearchReportPositionClustersBelow as SearchReportPositionClustersBelow
+from wildberries_sdk.analytics.models.search_report_position_clusters_first_hundred import SearchReportPositionClustersFirstHundred as SearchReportPositionClustersFirstHundred
+from wildberries_sdk.analytics.models.search_report_position_clusters_second_hundred import SearchReportPositionClustersSecondHundred as SearchReportPositionClustersSecondHundred
 from wildberries_sdk.analytics.models.search_report_text_req import SearchReportTextReq as SearchReportTextReq
 from wildberries_sdk.analytics.models.search_report_text_req_params import SearchReportTextReqParams as SearchReportTextReqParams
 from wildberries_sdk.analytics.models.statistic import Statistic as Statistic
@@ -306,15 +357,24 @@ from wildberries_sdk.analytics.models.statistic_time_to_ready import StatisticTi
 from wildberries_sdk.analytics.models.statistic_wb_club import StatisticWbClub as StatisticWbClub
 from wildberries_sdk.analytics.models.statistics import Statistics as Statistics
 from wildberries_sdk.analytics.models.statistics_comparison import StatisticsComparison as StatisticsComparison
+from wildberries_sdk.analytics.models.statistics_past import StatisticsPast as StatisticsPast
 from wildberries_sdk.analytics.models.statistics_selected import StatisticsSelected as StatisticsSelected
 from wildberries_sdk.analytics.models.stock_type import StockType as StockType
 from wildberries_sdk.analytics.models.table_common_metrics import TableCommonMetrics as TableCommonMetrics
+from wildberries_sdk.analytics.models.table_common_metrics_avg_stock_turnover import TableCommonMetricsAvgStockTurnover as TableCommonMetricsAvgStockTurnover
+from wildberries_sdk.analytics.models.table_common_metrics_office_missing_time import TableCommonMetricsOfficeMissingTime as TableCommonMetricsOfficeMissingTime
 from wildberries_sdk.analytics.models.table_common_metrics_sale_rate import TableCommonMetricsSaleRate as TableCommonMetricsSaleRate
 from wildberries_sdk.analytics.models.table_details_request import TableDetailsRequest as TableDetailsRequest
 from wildberries_sdk.analytics.models.table_details_response import TableDetailsResponse as TableDetailsResponse
 from wildberries_sdk.analytics.models.table_group_field import TableGroupField as TableGroupField
 from wildberries_sdk.analytics.models.table_group_item import TableGroupItem as TableGroupItem
 from wildberries_sdk.analytics.models.table_group_item_metrics import TableGroupItemMetrics as TableGroupItemMetrics
+from wildberries_sdk.analytics.models.table_group_item_metrics_add_to_cart import TableGroupItemMetricsAddToCart as TableGroupItemMetricsAddToCart
+from wildberries_sdk.analytics.models.table_group_item_metrics_avg_position import TableGroupItemMetricsAvgPosition as TableGroupItemMetricsAvgPosition
+from wildberries_sdk.analytics.models.table_group_item_metrics_cart_to_order import TableGroupItemMetricsCartToOrder as TableGroupItemMetricsCartToOrder
+from wildberries_sdk.analytics.models.table_group_item_metrics_open_to_cart import TableGroupItemMetricsOpenToCart as TableGroupItemMetricsOpenToCart
+from wildberries_sdk.analytics.models.table_group_item_metrics_orders import TableGroupItemMetricsOrders as TableGroupItemMetricsOrders
+from wildberries_sdk.analytics.models.table_group_item_metrics_visibility import TableGroupItemMetricsVisibility as TableGroupItemMetricsVisibility
 from wildberries_sdk.analytics.models.table_group_item_st import TableGroupItemSt as TableGroupItemSt
 from wildberries_sdk.analytics.models.table_group_request import TableGroupRequest as TableGroupRequest
 from wildberries_sdk.analytics.models.table_group_request_st import TableGroupRequestSt as TableGroupRequestSt
@@ -324,7 +384,6 @@ from wildberries_sdk.analytics.models.table_item_base_common import TableItemBas
 from wildberries_sdk.analytics.models.table_item_base_common_feedback_rating import TableItemBaseCommonFeedbackRating as TableItemBaseCommonFeedbackRating
 from wildberries_sdk.analytics.models.table_item_float import TableItemFloat as TableItemFloat
 from wildberries_sdk.analytics.models.table_item_item import TableItemItem as TableItemItem
-from wildberries_sdk.analytics.models.table_item_item_all_of_avg_position import TableItemItemAllOfAvgPosition as TableItemItemAllOfAvgPosition
 from wildberries_sdk.analytics.models.table_item_item_all_of_price import TableItemItemAllOfPrice as TableItemItemAllOfPrice
 from wildberries_sdk.analytics.models.table_item_item_st import TableItemItemSt as TableItemItemSt
 from wildberries_sdk.analytics.models.table_item_item_st_metrics import TableItemItemStMetrics as TableItemItemStMetrics
@@ -334,7 +393,14 @@ from wildberries_sdk.analytics.models.table_item_response import TableItemRespon
 from wildberries_sdk.analytics.models.table_office_item import TableOfficeItem as TableOfficeItem
 from wildberries_sdk.analytics.models.table_order_by import TableOrderBy as TableOrderBy
 from wildberries_sdk.analytics.models.table_search_text_item import TableSearchTextItem as TableSearchTextItem
+from wildberries_sdk.analytics.models.table_search_text_item_all_of_add_to_cart import TableSearchTextItemAllOfAddToCart as TableSearchTextItemAllOfAddToCart
+from wildberries_sdk.analytics.models.table_search_text_item_all_of_cart_to_order import TableSearchTextItemAllOfCartToOrder as TableSearchTextItemAllOfCartToOrder
+from wildberries_sdk.analytics.models.table_search_text_item_all_of_frequency import TableSearchTextItemAllOfFrequency as TableSearchTextItemAllOfFrequency
+from wildberries_sdk.analytics.models.table_search_text_item_all_of_median_position import TableSearchTextItemAllOfMedianPosition as TableSearchTextItemAllOfMedianPosition
 from wildberries_sdk.analytics.models.table_search_text_item_all_of_open_card import TableSearchTextItemAllOfOpenCard as TableSearchTextItemAllOfOpenCard
+from wildberries_sdk.analytics.models.table_search_text_item_all_of_open_to_cart import TableSearchTextItemAllOfOpenToCart as TableSearchTextItemAllOfOpenToCart
+from wildberries_sdk.analytics.models.table_search_text_item_all_of_orders import TableSearchTextItemAllOfOrders as TableSearchTextItemAllOfOrders
+from wildberries_sdk.analytics.models.table_search_text_item_all_of_visibility import TableSearchTextItemAllOfVisibility as TableSearchTextItemAllOfVisibility
 from wildberries_sdk.analytics.models.table_shipping_office_item import TableShippingOfficeItem as TableShippingOfficeItem
 from wildberries_sdk.analytics.models.table_shipping_office_item_offices_inner import TableShippingOfficeItemOfficesInner as TableShippingOfficeItemOfficesInner
 from wildberries_sdk.analytics.models.table_shipping_office_metrics import TableShippingOfficeMetrics as TableShippingOfficeMetrics
@@ -347,6 +413,8 @@ from wildberries_sdk.analytics.models.text_limit import TextLimit as TextLimit
 from wildberries_sdk.analytics.models.time_to_ready import TimeToReady as TimeToReady
 from wildberries_sdk.analytics.models.visibility_info import VisibilityInfo as VisibilityInfo
 from wildberries_sdk.analytics.models.visibility_info_by_day_inner import VisibilityInfoByDayInner as VisibilityInfoByDayInner
+from wildberries_sdk.analytics.models.visibility_info_open_card import VisibilityInfoOpenCard as VisibilityInfoOpenCard
+from wildberries_sdk.analytics.models.visibility_info_visibility import VisibilityInfoVisibility as VisibilityInfoVisibility
 from wildberries_sdk.analytics.models.wb_club_metrics import WbClubMetrics as WbClubMetrics
 from wildberries_sdk.analytics.models.wb_club_metrics_dynamic import WbClubMetricsDynamic as WbClubMetricsDynamic
 

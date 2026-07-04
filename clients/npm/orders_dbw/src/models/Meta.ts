@@ -27,6 +27,20 @@ import {
     MetaSgtinToJSON,
     MetaSgtinToJSONTyped,
 } from './MetaSgtin';
+import type { MetaUin } from './MetaUin';
+import {
+    MetaUinFromJSON,
+    MetaUinFromJSONTyped,
+    MetaUinToJSON,
+    MetaUinToJSONTyped,
+} from './MetaUin';
+import type { MetaGtin } from './MetaGtin';
+import {
+    MetaGtinFromJSON,
+    MetaGtinFromJSONTyped,
+    MetaGtinToJSON,
+    MetaGtinToJSONTyped,
+} from './MetaGtin';
 
 /**
  * Идентификаторы маркировки сборочного задания
@@ -42,16 +56,16 @@ export interface Meta {
     imei?: MetaImei;
     /**
      * 
-     * @type {MetaImei}
+     * @type {MetaUin}
      * @memberof Meta
      */
-    uin?: MetaImei;
+    uin?: MetaUin;
     /**
      * 
-     * @type {MetaImei}
+     * @type {MetaGtin}
      * @memberof Meta
      */
-    gtin?: MetaImei;
+    gtin?: MetaGtin;
     /**
      * 
      * @type {MetaSgtin}
@@ -78,8 +92,8 @@ export function MetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): Meta
     return {
         
         'imei': json['imei'] == null ? undefined : MetaImeiFromJSON(json['imei']),
-        'uin': json['uin'] == null ? undefined : MetaImeiFromJSON(json['uin']),
-        'gtin': json['gtin'] == null ? undefined : MetaImeiFromJSON(json['gtin']),
+        'uin': json['uin'] == null ? undefined : MetaUinFromJSON(json['uin']),
+        'gtin': json['gtin'] == null ? undefined : MetaGtinFromJSON(json['gtin']),
         'sgtin': json['sgtin'] == null ? undefined : MetaSgtinFromJSON(json['sgtin']),
     };
 }
@@ -96,8 +110,8 @@ export function MetaToJSONTyped(value?: Meta | null, ignoreDiscriminator: boolea
     return {
         
         'imei': MetaImeiToJSON(value['imei']),
-        'uin': MetaImeiToJSON(value['uin']),
-        'gtin': MetaImeiToJSON(value['gtin']),
+        'uin': MetaUinToJSON(value['uin']),
+        'gtin': MetaGtinToJSON(value['gtin']),
         'sgtin': MetaSgtinToJSON(value['sgtin']),
     };
 }

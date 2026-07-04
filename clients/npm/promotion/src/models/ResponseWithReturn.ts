@@ -25,6 +25,12 @@ export interface ResponseWithReturn {
      * @memberof ResponseWithReturn
      */
     total?: number;
+    /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof ResponseWithReturn
+     */
+    currency?: string;
 }
 
 /**
@@ -45,6 +51,7 @@ export function ResponseWithReturnFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'total': json['total'] == null ? undefined : json['total'],
+        'currency': json['currency'] == null ? undefined : json['currency'],
     };
 }
 
@@ -60,6 +67,7 @@ export function ResponseWithReturnToJSONTyped(value?: ResponseWithReturn | null,
     return {
         
         'total': value['total'],
+        'currency': value['currency'],
     };
 }
 

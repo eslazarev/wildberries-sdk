@@ -4442,7 +4442,7 @@ func (r ApiContentV2BarcodesPostRequest) ContentV2BarcodesPostRequest(contentV2B
 	return r
 }
 
-func (r ApiContentV2BarcodesPostRequest) Execute() (*ContentV2DirectoryKindsGet200Response, *http.Response, error) {
+func (r ApiContentV2BarcodesPostRequest) Execute() (*ContentV2BarcodesPost200Response, *http.Response, error) {
 	return r.ApiService.ContentV2BarcodesPostExecute(r)
 }
 
@@ -4484,13 +4484,13 @@ func (a *DefaultApiService) ContentV2BarcodesPost(ctx context.Context) ApiConten
 }
 
 // Execute executes the request
-//  @return ContentV2DirectoryKindsGet200Response
-func (a *DefaultApiService) ContentV2BarcodesPostExecute(r ApiContentV2BarcodesPostRequest) (*ContentV2DirectoryKindsGet200Response, *http.Response, error) {
+//  @return ContentV2BarcodesPost200Response
+func (a *DefaultApiService) ContentV2BarcodesPostExecute(r ApiContentV2BarcodesPostRequest) (*ContentV2BarcodesPost200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ContentV2DirectoryKindsGet200Response
+		localVarReturnValue  *ContentV2BarcodesPost200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ContentV2BarcodesPost")
@@ -6794,7 +6794,7 @@ func (r ApiContentV2DirectorySeasonsGetRequest) Locale(locale string) ApiContent
 	return r
 }
 
-func (r ApiContentV2DirectorySeasonsGetRequest) Execute() (*ContentV2DirectoryKindsGet200Response, *http.Response, error) {
+func (r ApiContentV2DirectorySeasonsGetRequest) Execute() (*ContentV2DirectorySeasonsGet200Response, *http.Response, error) {
 	return r.ApiService.ContentV2DirectorySeasonsGetExecute(r)
 }
 
@@ -6836,13 +6836,13 @@ func (a *DefaultApiService) ContentV2DirectorySeasonsGet(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return ContentV2DirectoryKindsGet200Response
-func (a *DefaultApiService) ContentV2DirectorySeasonsGetExecute(r ApiContentV2DirectorySeasonsGetRequest) (*ContentV2DirectoryKindsGet200Response, *http.Response, error) {
+//  @return ContentV2DirectorySeasonsGet200Response
+func (a *DefaultApiService) ContentV2DirectorySeasonsGetExecute(r ApiContentV2DirectorySeasonsGetRequest) (*ContentV2DirectorySeasonsGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ContentV2DirectoryKindsGet200Response
+		localVarReturnValue  *ContentV2DirectorySeasonsGet200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ContentV2DirectorySeasonsGet")
@@ -7191,7 +7191,7 @@ func (r ApiContentV2DirectoryVatGetRequest) Locale(locale string) ApiContentV2Di
 	return r
 }
 
-func (r ApiContentV2DirectoryVatGetRequest) Execute() (*ContentV2DirectoryKindsGet200Response, *http.Response, error) {
+func (r ApiContentV2DirectoryVatGetRequest) Execute() (*ContentV2DirectoryVatGet200Response, *http.Response, error) {
 	return r.ApiService.ContentV2DirectoryVatGetExecute(r)
 }
 
@@ -7233,13 +7233,13 @@ func (a *DefaultApiService) ContentV2DirectoryVatGet(ctx context.Context) ApiCon
 }
 
 // Execute executes the request
-//  @return ContentV2DirectoryKindsGet200Response
-func (a *DefaultApiService) ContentV2DirectoryVatGetExecute(r ApiContentV2DirectoryVatGetRequest) (*ContentV2DirectoryKindsGet200Response, *http.Response, error) {
+//  @return ContentV2DirectoryVatGet200Response
+func (a *DefaultApiService) ContentV2DirectoryVatGetExecute(r ApiContentV2DirectoryVatGetRequest) (*ContentV2DirectoryVatGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ContentV2DirectoryKindsGet200Response
+		localVarReturnValue  *ContentV2DirectoryVatGet200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ContentV2DirectoryVatGet")
@@ -8635,11 +8635,11 @@ type ApiContentV2TagIdPatchRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	id int32
-	contentV2TagPostRequest *ContentV2TagPostRequest
+	contentV2TagIdPatchRequest *ContentV2TagIdPatchRequest
 }
 
-func (r ApiContentV2TagIdPatchRequest) ContentV2TagPostRequest(contentV2TagPostRequest ContentV2TagPostRequest) ApiContentV2TagIdPatchRequest {
-	r.contentV2TagPostRequest = &contentV2TagPostRequest
+func (r ApiContentV2TagIdPatchRequest) ContentV2TagIdPatchRequest(contentV2TagIdPatchRequest ContentV2TagIdPatchRequest) ApiContentV2TagIdPatchRequest {
+	r.contentV2TagIdPatchRequest = &contentV2TagIdPatchRequest
 	return r
 }
 
@@ -8708,8 +8708,8 @@ func (a *DefaultApiService) ContentV2TagIdPatchExecute(r ApiContentV2TagIdPatchR
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.contentV2TagPostRequest == nil {
-		return localVarReturnValue, nil, reportError("contentV2TagPostRequest is required and must be specified")
+	if r.contentV2TagIdPatchRequest == nil {
+		return localVarReturnValue, nil, reportError("contentV2TagIdPatchRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -8730,7 +8730,7 @@ func (a *DefaultApiService) ContentV2TagIdPatchExecute(r ApiContentV2TagIdPatchR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.contentV2TagPostRequest
+	localVarPostBody = r.contentV2TagIdPatchRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

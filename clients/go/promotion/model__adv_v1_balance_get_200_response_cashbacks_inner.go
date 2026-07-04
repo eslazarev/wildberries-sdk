@@ -19,7 +19,7 @@ var _ MappedNullable = &AdvV1BalanceGet200ResponseCashbacksInner{}
 
 // AdvV1BalanceGet200ResponseCashbacksInner struct for AdvV1BalanceGet200ResponseCashbacksInner
 type AdvV1BalanceGet200ResponseCashbacksInner struct {
-	// Промо-бонусы, ₽
+	// Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum *int32 `json:"sum,omitempty"`
 	// Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз
 	Percent *int32 `json:"percent,omitempty"`

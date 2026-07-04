@@ -644,10 +644,10 @@ pub async fn api_marketplace_v3_supplies_supply_id_order_ids_get(configuration: 
 }
 
 /// Метод добавляет до 100 [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) к поставке и переводит их в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке.  Может перемещать сборочные задания:   - между активными поставками   - из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1supplies~1orders~1reshipment/get)  <div class=\"description_important\">   В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания <a href =\"./orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get\">из поля</a> <code>cargoType</code>.   <br>   После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.  </div>  <div class=\"description_important\"> В поставку нельзя добавить сборочные задания, поступившие на разные склады. </div> <div class=\"description_important\"> В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок. После этого поставка приобретает тип первого добавленного сборочного задания из поля <code>crossBorderType</code>. Далее в неё можно добавить только сборочные задания такого же типа. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_supplies_supply_id_orders_patch(configuration: &configuration::Configuration, supply_id: &str, api_v3_orders_status_history_post_request: models::ApiV3OrdersStatusHistoryPostRequest) -> Result<(), Error<ApiMarketplaceV3SuppliesSupplyIdOrdersPatchError>> {
+pub async fn api_marketplace_v3_supplies_supply_id_orders_patch(configuration: &configuration::Configuration, supply_id: &str, api_marketplace_v3_supplies_supply_id_orders_patch_request: models::ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest) -> Result<(), Error<ApiMarketplaceV3SuppliesSupplyIdOrdersPatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_supply_id = supply_id;
-    let p_body_api_v3_orders_status_history_post_request = api_v3_orders_status_history_post_request;
+    let p_body_api_marketplace_v3_supplies_supply_id_orders_patch_request = api_marketplace_v3_supplies_supply_id_orders_patch_request;
 
     let uri_str = format!("{}/api/marketplace/v3/supplies/{supplyId}/orders", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -663,7 +663,7 @@ pub async fn api_marketplace_v3_supplies_supply_id_orders_patch(configuration: &
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_orders_status_history_post_request);
+    req_builder = req_builder.json(&p_body_api_marketplace_v3_supplies_supply_id_orders_patch_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1169,9 +1169,9 @@ pub async fn api_v3_orders_status_post(configuration: &configuration::Configurat
 }
 
 /// Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) трансграничных поставок в формате PDF.<br><br>  Для каждого сборочного задания в ответе указывается статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов  <div class=\"description_important\">   Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус <code>ready</code>. </div>  Ограничения:   - За один запрос можно получить максимум 100 стикеров.   - Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`, `complete`.  В песочнице этот метод всегда возвращает ответ <code>200</code>.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_orders_stickers_cross_border_post(configuration: &configuration::Configuration, api_v3_orders_stickers_post_request: Option<models::ApiV3OrdersStickersPostRequest>) -> Result<models::ApiV3OrdersStickersCrossBorderPost200Response, Error<ApiV3OrdersStickersCrossBorderPostError>> {
+pub async fn api_v3_orders_stickers_cross_border_post(configuration: &configuration::Configuration, api_v3_orders_stickers_cross_border_post_request: Option<models::ApiV3OrdersStickersCrossBorderPostRequest>) -> Result<models::ApiV3OrdersStickersCrossBorderPost200Response, Error<ApiV3OrdersStickersCrossBorderPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_orders_stickers_post_request = api_v3_orders_stickers_post_request;
+    let p_body_api_v3_orders_stickers_cross_border_post_request = api_v3_orders_stickers_cross_border_post_request;
 
     let uri_str = format!("{}/api/v3/orders/stickers/cross-border", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1187,7 +1187,7 @@ pub async fn api_v3_orders_stickers_cross_border_post(configuration: &configurat
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_orders_stickers_post_request);
+    req_builder = req_builder.json(&p_body_api_v3_orders_stickers_cross_border_post_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1894,11 +1894,11 @@ pub async fn api_v3_supplies_supply_id_trbx_post(configuration: &configuration::
 }
 
 /// Метод возвращает QR-стикеры в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG <br><br> Размер стикеров — 580x400 px.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_supplies_supply_id_trbx_stickers_post(configuration: &configuration::Configuration, supply_id: &str, r#type: &str, api_v3_supplies_supply_id_trbx_delete_request: Option<models::ApiV3SuppliesSupplyIdTrbxDeleteRequest>) -> Result<models::ApiV3SuppliesSupplyIdTrbxStickersPost200Response, Error<ApiV3SuppliesSupplyIdTrbxStickersPostError>> {
+pub async fn api_v3_supplies_supply_id_trbx_stickers_post(configuration: &configuration::Configuration, supply_id: &str, r#type: &str, api_v3_supplies_supply_id_trbx_stickers_post_request: Option<models::ApiV3SuppliesSupplyIdTrbxStickersPostRequest>) -> Result<models::ApiV3SuppliesSupplyIdTrbxStickersPost200Response, Error<ApiV3SuppliesSupplyIdTrbxStickersPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_supply_id = supply_id;
     let p_query_type = r#type;
-    let p_body_api_v3_supplies_supply_id_trbx_delete_request = api_v3_supplies_supply_id_trbx_delete_request;
+    let p_body_api_v3_supplies_supply_id_trbx_stickers_post_request = api_v3_supplies_supply_id_trbx_stickers_post_request;
 
     let uri_str = format!("{}/api/v3/supplies/{supplyId}/trbx/stickers", configuration.base_path, supplyId=crate::apis::urlencode(p_path_supply_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1915,7 +1915,7 @@ pub async fn api_v3_supplies_supply_id_trbx_stickers_post(configuration: &config
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_supplies_supply_id_trbx_delete_request);
+    req_builder = req_builder.json(&p_body_api_v3_supplies_supply_id_trbx_stickers_post_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

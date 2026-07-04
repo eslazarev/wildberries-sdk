@@ -59,6 +59,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'balance' => 'int',
         'net' => 'int',
+        'currency' => 'string',
         'bonus' => 'int',
         'cashbacks' => '\Wildberries\Sdk\Promotion\Model\AdvV1BalanceGet200ResponseCashbacksInner[]'
     ];
@@ -73,6 +74,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPIFormats = [
         'balance' => null,
         'net' => null,
+        'currency' => 'ISO 4217',
         'bonus' => null,
         'cashbacks' => null
     ];
@@ -85,6 +87,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     protected static array $openAPINullables = [
         'balance' => false,
         'net' => false,
+        'currency' => false,
         'bonus' => false,
         'cashbacks' => false
     ];
@@ -177,6 +180,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     protected static $attributeMap = [
         'balance' => 'balance',
         'net' => 'net',
+        'currency' => 'currency',
         'bonus' => 'bonus',
         'cashbacks' => 'cashbacks'
     ];
@@ -189,6 +193,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     protected static $setters = [
         'balance' => 'setBalance',
         'net' => 'setNet',
+        'currency' => 'setCurrency',
         'bonus' => 'setBonus',
         'cashbacks' => 'setCashbacks'
     ];
@@ -201,6 +206,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     protected static $getters = [
         'balance' => 'getBalance',
         'net' => 'getNet',
+        'currency' => 'getCurrency',
         'bonus' => 'getBonus',
         'cashbacks' => 'getCashbacks'
     ];
@@ -264,6 +270,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     {
         $this->setIfExists('balance', $data ?? [], null);
         $this->setIfExists('net', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('bonus', $data ?? [], null);
         $this->setIfExists('cashbacks', $data ?? [], null);
     }
@@ -323,7 +330,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets balance
      *
-     * @param int|null $balance Счёт, ₽
+     * @param int|null $balance Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -350,7 +357,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets net
      *
-     * @param int|null $net Баланс, ₽
+     * @param int|null $net Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -360,6 +367,33 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable net cannot be null');
         }
         $this->container['net'] = $net;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }
@@ -377,7 +411,7 @@ class AdvV1BalanceGet200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets bonus
      *
-     * @param int|null $bonus Бонусы, ₽
+     * @param int|null $bonus Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

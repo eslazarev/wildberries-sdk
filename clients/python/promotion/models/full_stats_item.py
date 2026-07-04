@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from wildberries_sdk.promotion.models.booster_stats_v3_inner import BoosterStatsV3Inner
 from wildberries_sdk.promotion.models.days_v3_inner import DaysV3Inner
@@ -34,16 +34,17 @@ class FullStatsItem(BaseModel):
     booster_stats: Optional[List[BoosterStatsV3Inner]] = Field(default=None, description="Статистика по средней позиции товара (для кампаний с единой ставкой)", alias="boosterStats")
     canceled: StrictInt = Field(description="Отмены, шт.")
     clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика, ₽")
+    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству кликов")
     ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
     days: List[DaysV3Inner] = Field(description="Статистка по дням")
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты, ₽")
-    sum_price: Union[StrictFloat, StrictInt] = Field(description="Сумма заказов, ₽")
+    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    sum_price: Union[StrictFloat, StrictInt] = Field(description="Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     views: StrictInt = Field(description="Количество просмотров")
-    __properties: ClassVar[List[str]] = ["advertId", "atbs", "boosterStats", "canceled", "clicks", "cpc", "cr", "ctr", "days", "orders", "shks", "sum", "sum_price", "views"]
+    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    __properties: ClassVar[List[str]] = ["advertId", "atbs", "boosterStats", "canceled", "clicks", "cpc", "cr", "ctr", "days", "orders", "shks", "sum", "sum_price", "views", "currency"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -123,7 +124,8 @@ class FullStatsItem(BaseModel):
             "shks": obj.get("shks"),
             "sum": obj.get("sum"),
             "sum_price": obj.get("sum_price"),
-            "views": obj.get("views")
+            "views": obj.get("views"),
+            "currency": obj.get("currency")
         })
         return _obj
 

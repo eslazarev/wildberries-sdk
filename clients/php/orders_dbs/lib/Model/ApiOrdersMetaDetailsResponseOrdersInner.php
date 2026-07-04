@@ -59,7 +59,7 @@ class ApiOrdersMetaDetailsResponseOrdersInner implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'order_id' => 'int',
         'is_error' => 'bool',
-        'errors' => '\Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner[]',
+        'errors' => '\Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner[]',
         'meta_details' => '\Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner[]'
     ];
 
@@ -370,7 +370,7 @@ class ApiOrdersMetaDetailsResponseOrdersInner implements ModelInterface, ArrayAc
     /**
      * Gets errors
      *
-     * @return \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner[]|null
+     * @return \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner[]|null
      */
     public function getErrors()
     {
@@ -380,7 +380,7 @@ class ApiOrdersMetaDetailsResponseOrdersInner implements ModelInterface, ArrayAc
     /**
      * Sets errors
      *
-     * @param \Wildberries\Sdk\OrdersDbs\Model\ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner[]|null $errors Информация об ошибке
+     * @param \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner[]|null $errors Информация об ошибке
      *
      * @return self
      */

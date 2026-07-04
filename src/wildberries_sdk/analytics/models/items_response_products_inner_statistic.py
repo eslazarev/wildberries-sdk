@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.analytics.models.statistics_comparison import StatisticsComparison
+from wildberries_sdk.analytics.models.statistics_past import StatisticsPast
 from wildberries_sdk.analytics.models.statistics_selected import StatisticsSelected
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +31,7 @@ class ItemsResponseProductsInnerStatistic(BaseModel):
     ItemsResponseProductsInnerStatistic
     """ # noqa: E501
     selected: StatisticsSelected
-    past: Optional[StatisticsSelected] = None
+    past: Optional[StatisticsPast] = None
     comparison: Optional[StatisticsComparison] = None
     __properties: ClassVar[List[str]] = ["selected", "past", "comparison"]
 
@@ -95,7 +96,7 @@ class ItemsResponseProductsInnerStatistic(BaseModel):
 
         _obj = cls.model_validate({
             "selected": StatisticsSelected.from_dict(obj["selected"]) if obj.get("selected") is not None else None,
-            "past": StatisticsSelected.from_dict(obj["past"]) if obj.get("past") is not None else None,
+            "past": StatisticsPast.from_dict(obj["past"]) if obj.get("past") is not None else None,
             "comparison": StatisticsComparison.from_dict(obj["comparison"]) if obj.get("comparison") is not None else None
         })
         return _obj

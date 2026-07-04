@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -29,6 +29,7 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest",
+    "ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest",
     "ApiV3OrdersGet200Response",
     "ApiV3OrdersNewGet200Response",
     "ApiV3OrdersOrderIdMetaExpirationPutRequest",
@@ -45,6 +46,7 @@ __all__ = [
     "ApiV3OrdersStatusPostRequest",
     "ApiV3OrdersStickersCrossBorderPost200Response",
     "ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner",
+    "ApiV3OrdersStickersCrossBorderPostRequest",
     "ApiV3OrdersStickersPost200Response",
     "ApiV3OrdersStickersPost200ResponseStickersInner",
     "ApiV3OrdersStickersPostRequest",
@@ -64,6 +66,7 @@ __all__ = [
     "ApiV3SuppliesSupplyIdTrbxPost201Response",
     "ApiV3SuppliesSupplyIdTrbxPostRequest",
     "ApiV3SuppliesSupplyIdTrbxStickersPost200Response",
+    "ApiV3SuppliesSupplyIdTrbxStickersPostRequest",
     "CrossborderTurkeyClientInfo",
     "CrossborderTurkeyClientInfoResp",
     "Error",
@@ -76,6 +79,7 @@ __all__ = [
     "Order",
     "OrderAddress",
     "OrderNew",
+    "OrderOptions",
     "OrdersRequestAPI",
     "PassOffice",
     "Supply",
@@ -113,6 +117,7 @@ from wildberries_sdk.orders_fbs.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from wildberries_sdk.orders_fbs.models.api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request import ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest as ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
+from wildberries_sdk.orders_fbs.models.api_marketplace_v3_supplies_supply_id_orders_patch_request import ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest as ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest
 from wildberries_sdk.orders_fbs.models.api_v3_orders_get200_response import ApiV3OrdersGet200Response as ApiV3OrdersGet200Response
 from wildberries_sdk.orders_fbs.models.api_v3_orders_new_get200_response import ApiV3OrdersNewGet200Response as ApiV3OrdersNewGet200Response
 from wildberries_sdk.orders_fbs.models.api_v3_orders_order_id_meta_expiration_put_request import ApiV3OrdersOrderIdMetaExpirationPutRequest as ApiV3OrdersOrderIdMetaExpirationPutRequest
@@ -129,6 +134,7 @@ from wildberries_sdk.orders_fbs.models.api_v3_orders_status_post200_response_ord
 from wildberries_sdk.orders_fbs.models.api_v3_orders_status_post_request import ApiV3OrdersStatusPostRequest as ApiV3OrdersStatusPostRequest
 from wildberries_sdk.orders_fbs.models.api_v3_orders_stickers_cross_border_post200_response import ApiV3OrdersStickersCrossBorderPost200Response as ApiV3OrdersStickersCrossBorderPost200Response
 from wildberries_sdk.orders_fbs.models.api_v3_orders_stickers_cross_border_post200_response_stickers_inner import ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner as ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
+from wildberries_sdk.orders_fbs.models.api_v3_orders_stickers_cross_border_post_request import ApiV3OrdersStickersCrossBorderPostRequest as ApiV3OrdersStickersCrossBorderPostRequest
 from wildberries_sdk.orders_fbs.models.api_v3_orders_stickers_post200_response import ApiV3OrdersStickersPost200Response as ApiV3OrdersStickersPost200Response
 from wildberries_sdk.orders_fbs.models.api_v3_orders_stickers_post200_response_stickers_inner import ApiV3OrdersStickersPost200ResponseStickersInner as ApiV3OrdersStickersPost200ResponseStickersInner
 from wildberries_sdk.orders_fbs.models.api_v3_orders_stickers_post_request import ApiV3OrdersStickersPostRequest as ApiV3OrdersStickersPostRequest
@@ -148,6 +154,7 @@ from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_get200_res
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_post201_response import ApiV3SuppliesSupplyIdTrbxPost201Response as ApiV3SuppliesSupplyIdTrbxPost201Response
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_post_request import ApiV3SuppliesSupplyIdTrbxPostRequest as ApiV3SuppliesSupplyIdTrbxPostRequest
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post200_response import ApiV3SuppliesSupplyIdTrbxStickersPost200Response as ApiV3SuppliesSupplyIdTrbxStickersPost200Response
+from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post_request import ApiV3SuppliesSupplyIdTrbxStickersPostRequest as ApiV3SuppliesSupplyIdTrbxStickersPostRequest
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info import CrossborderTurkeyClientInfo as CrossborderTurkeyClientInfo
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp as CrossborderTurkeyClientInfoResp
 from wildberries_sdk.orders_fbs.models.error import Error as Error
@@ -160,6 +167,7 @@ from wildberries_sdk.orders_fbs.models.model_pass import ModelPass as ModelPass
 from wildberries_sdk.orders_fbs.models.order import Order as Order
 from wildberries_sdk.orders_fbs.models.order_address import OrderAddress as OrderAddress
 from wildberries_sdk.orders_fbs.models.order_new import OrderNew as OrderNew
+from wildberries_sdk.orders_fbs.models.order_options import OrderOptions as OrderOptions
 from wildberries_sdk.orders_fbs.models.orders_request_api import OrdersRequestAPI as OrdersRequestAPI
 from wildberries_sdk.orders_fbs.models.pass_office import PassOffice as PassOffice
 from wildberries_sdk.orders_fbs.models.supply import Supply as Supply

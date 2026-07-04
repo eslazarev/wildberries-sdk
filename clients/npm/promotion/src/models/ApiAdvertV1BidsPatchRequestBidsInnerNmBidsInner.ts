@@ -26,7 +26,7 @@ export interface ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner {
      */
     nmId: number;
     /**
-     * Ставка, копейки
+     * Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner
      */

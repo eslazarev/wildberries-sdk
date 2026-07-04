@@ -27,7 +27,7 @@ class V0BidRecommendationBaseBidCompetitiveBid(BaseModel):
     """
     Конкурентная ставка — расчётная средняя ставка других продавцов, продающих аналогичные товары по похожей цене. У половины продавцов из расчёта ставка выше конкурентной, а другой половины — ниже 
     """ # noqa: E501
-    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка, копеек", alias="bidKopecks")
+    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="bidKopecks")
     __properties: ClassVar[List[str]] = ["bidKopecks"]
 
     model_config = ConfigDict(

@@ -19,7 +19,7 @@ var _ MappedNullable = &StoreContactRequestBody{}
 
 // StoreContactRequestBody Контакты склада продавца
 type StoreContactRequestBody struct {
-	Contacts []ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner `json:"contacts,omitempty"`
+	Contacts []StoreContactRequestBodyContactsInner `json:"contacts,omitempty"`
 }
 
 // NewStoreContactRequestBody instantiates a new StoreContactRequestBody object
@@ -40,9 +40,9 @@ func NewStoreContactRequestBodyWithDefaults() *StoreContactRequestBody {
 }
 
 // GetContacts returns the Contacts field value if set, zero value otherwise.
-func (o *StoreContactRequestBody) GetContacts() []ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner {
+func (o *StoreContactRequestBody) GetContacts() []StoreContactRequestBodyContactsInner {
 	if o == nil || IsNil(o.Contacts) {
-		var ret []ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner
+		var ret []StoreContactRequestBodyContactsInner
 		return ret
 	}
 	return o.Contacts
@@ -50,7 +50,7 @@ func (o *StoreContactRequestBody) GetContacts() []ApiV3DbwWarehousesWarehouseIdC
 
 // GetContactsOk returns a tuple with the Contacts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StoreContactRequestBody) GetContactsOk() ([]ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner, bool) {
+func (o *StoreContactRequestBody) GetContactsOk() ([]StoreContactRequestBodyContactsInner, bool) {
 	if o == nil || IsNil(o.Contacts) {
 		return nil, false
 	}
@@ -66,8 +66,8 @@ func (o *StoreContactRequestBody) HasContacts() bool {
 	return false
 }
 
-// SetContacts gets a reference to the given []ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner and assigns it to the Contacts field.
-func (o *StoreContactRequestBody) SetContacts(v []ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner) {
+// SetContacts gets a reference to the given []StoreContactRequestBodyContactsInner and assigns it to the Contacts field.
+func (o *StoreContactRequestBody) SetContacts(v []StoreContactRequestBodyContactsInner) {
 	o.Contacts = v
 }
 

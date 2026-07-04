@@ -31,7 +31,7 @@ type FullStatsItem struct {
 	Canceled int32 `json:"canceled"`
 	// Количество кликов
 	Clicks int32 `json:"clicks"`
-	// Средняя стоимость клика, ₽
+	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc float64 `json:"cpc"`
 	// CR (conversion rate) — отношение количества заказов к общему количеству кликов
 	Cr float64 `json:"cr"`
@@ -43,12 +43,14 @@ type FullStatsItem struct {
 	Orders int32 `json:"orders"`
 	// Количество заказанных товаров, шт.
 	Shks int32 `json:"shks"`
-	// Затраты, ₽
+	// Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Sum float64 `json:"sum"`
-	// Сумма заказов, ₽
+	// Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	SumPrice float64 `json:"sum_price"`
 	// Количество просмотров
 	Views int32 `json:"views"`
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency string `json:"currency"`
 }
 
 type _FullStatsItem FullStatsItem
@@ -57,7 +59,7 @@ type _FullStatsItem FullStatsItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFullStatsItem(advertId int32, atbs int32, canceled int32, clicks int32, cpc float64, cr float64, ctr float64, days []DaysV3Inner, orders int32, shks int32, sum float64, sumPrice float64, views int32) *FullStatsItem {
+func NewFullStatsItem(advertId int32, atbs int32, canceled int32, clicks int32, cpc float64, cr float64, ctr float64, days []DaysV3Inner, orders int32, shks int32, sum float64, sumPrice float64, views int32, currency string) *FullStatsItem {
 	this := FullStatsItem{}
 	this.AdvertId = advertId
 	this.Atbs = atbs
@@ -72,6 +74,7 @@ func NewFullStatsItem(advertId int32, atbs int32, canceled int32, clicks int32, 
 	this.Sum = sum
 	this.SumPrice = sumPrice
 	this.Views = views
+	this.Currency = currency
 	return &this
 }
 
@@ -427,6 +430,30 @@ func (o *FullStatsItem) SetViews(v int32) {
 	o.Views = v
 }
 
+// GetCurrency returns the Currency field value
+func (o *FullStatsItem) GetCurrency() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value
+// and a boolean to check if the value has been set.
+func (o *FullStatsItem) GetCurrencyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Currency, true
+}
+
+// SetCurrency sets field value
+func (o *FullStatsItem) SetCurrency(v string) {
+	o.Currency = v
+}
+
 func (o FullStatsItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -453,6 +480,7 @@ func (o FullStatsItem) ToMap() (map[string]interface{}, error) {
 	toSerialize["sum"] = o.Sum
 	toSerialize["sum_price"] = o.SumPrice
 	toSerialize["views"] = o.Views
+	toSerialize["currency"] = o.Currency
 	return toSerialize, nil
 }
 
@@ -474,6 +502,7 @@ func (o *FullStatsItem) UnmarshalJSON(data []byte) (err error) {
 		"sum",
 		"sum_price",
 		"views",
+		"currency",
 	}
 
 	allProperties := make(map[string]interface{})

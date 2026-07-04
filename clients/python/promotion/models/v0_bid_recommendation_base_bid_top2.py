@@ -27,7 +27,7 @@ class V0BidRecommendationBaseBidTop2(BaseModel):
     """
     Топ-ставка 
     """ # noqa: E501
-    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка, копеек. Если `0`, для данного предмета топ-ставка не используется", alias="bidKopecks")
+    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется", alias="bidKopecks")
     __properties: ClassVar[List[str]] = ["bidKopecks"]
 
     model_config = ConfigDict(

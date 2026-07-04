@@ -59,7 +59,7 @@ class AdvV1StatsPostRequestInner implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'id' => 'int',
         'dates' => '\DateTime[]',
-        'interval' => '\Wildberries\Sdk\Promotion\Model\StatIntervalInterval'
+        'interval' => '\Wildberries\Sdk\Promotion\Model\RequestWithIntervalInterval'
     ];
 
     /**
@@ -369,7 +369,7 @@ class AdvV1StatsPostRequestInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets interval
      *
-     * @return \Wildberries\Sdk\Promotion\Model\StatIntervalInterval
+     * @return \Wildberries\Sdk\Promotion\Model\RequestWithIntervalInterval
      */
     public function getInterval()
     {
@@ -379,7 +379,7 @@ class AdvV1StatsPostRequestInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets interval
      *
-     * @param \Wildberries\Sdk\Promotion\Model\StatIntervalInterval $interval interval
+     * @param \Wildberries\Sdk\Promotion\Model\RequestWithIntervalInterval $interval interval
      *
      * @return self
      */

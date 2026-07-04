@@ -23,6 +23,8 @@ var _ MappedNullable = &ApiAdvertV1BidsPatch200Response{}
 type ApiAdvertV1BidsPatch200Response struct {
 	// Результат отработки запроса
 	Bids []ApiAdvertV1BidsPatch200ResponseBidsInner `json:"bids"`
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency string `json:"currency"`
 }
 
 type _ApiAdvertV1BidsPatch200Response ApiAdvertV1BidsPatch200Response
@@ -31,9 +33,10 @@ type _ApiAdvertV1BidsPatch200Response ApiAdvertV1BidsPatch200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiAdvertV1BidsPatch200Response(bids []ApiAdvertV1BidsPatch200ResponseBidsInner) *ApiAdvertV1BidsPatch200Response {
+func NewApiAdvertV1BidsPatch200Response(bids []ApiAdvertV1BidsPatch200ResponseBidsInner, currency string) *ApiAdvertV1BidsPatch200Response {
 	this := ApiAdvertV1BidsPatch200Response{}
 	this.Bids = bids
+	this.Currency = currency
 	return &this
 }
 
@@ -69,6 +72,30 @@ func (o *ApiAdvertV1BidsPatch200Response) SetBids(v []ApiAdvertV1BidsPatch200Res
 	o.Bids = v
 }
 
+// GetCurrency returns the Currency field value
+func (o *ApiAdvertV1BidsPatch200Response) GetCurrency() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value
+// and a boolean to check if the value has been set.
+func (o *ApiAdvertV1BidsPatch200Response) GetCurrencyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Currency, true
+}
+
+// SetCurrency sets field value
+func (o *ApiAdvertV1BidsPatch200Response) SetCurrency(v string) {
+	o.Currency = v
+}
+
 func (o ApiAdvertV1BidsPatch200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -80,6 +107,7 @@ func (o ApiAdvertV1BidsPatch200Response) MarshalJSON() ([]byte, error) {
 func (o ApiAdvertV1BidsPatch200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["bids"] = o.Bids
+	toSerialize["currency"] = o.Currency
 	return toSerialize, nil
 }
 
@@ -89,6 +117,7 @@ func (o *ApiAdvertV1BidsPatch200Response) UnmarshalJSON(data []byte) (err error)
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"bids",
+		"currency",
 	}
 
 	allProperties := make(map[string]interface{})

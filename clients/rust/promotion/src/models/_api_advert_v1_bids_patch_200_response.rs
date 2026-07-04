@@ -16,12 +16,16 @@ pub struct ApiAdvertV1BidsPatch200Response {
     /// Результат отработки запроса
     #[serde(rename = "bids")]
     pub bids: Vec<models::ApiAdvertV1BidsPatch200ResponseBidsInner>,
+    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    #[serde(rename = "currency")]
+    pub currency: String,
 }
 
 impl ApiAdvertV1BidsPatch200Response {
-    pub fn new(bids: Vec<models::ApiAdvertV1BidsPatch200ResponseBidsInner>) -> ApiAdvertV1BidsPatch200Response {
+    pub fn new(bids: Vec<models::ApiAdvertV1BidsPatch200ResponseBidsInner>, currency: String) -> ApiAdvertV1BidsPatch200Response {
         ApiAdvertV1BidsPatch200Response {
             bids,
+            currency,
         }
     }
 }

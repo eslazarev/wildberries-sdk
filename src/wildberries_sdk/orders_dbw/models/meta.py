@@ -19,8 +19,10 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from wildberries_sdk.orders_dbw.models.meta_gtin import MetaGtin
 from wildberries_sdk.orders_dbw.models.meta_imei import MetaImei
 from wildberries_sdk.orders_dbw.models.meta_sgtin import MetaSgtin
+from wildberries_sdk.orders_dbw.models.meta_uin import MetaUin
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,8 +32,8 @@ class Meta(BaseModel):
     Идентификаторы маркировки сборочного задания
     """ # noqa: E501
     imei: Optional[MetaImei] = None
-    uin: Optional[MetaImei] = None
-    gtin: Optional[MetaImei] = None
+    uin: Optional[MetaUin] = None
+    gtin: Optional[MetaGtin] = None
     sgtin: Optional[MetaSgtin] = None
     __properties: ClassVar[List[str]] = ["imei", "uin", "gtin", "sgtin"]
 
@@ -99,8 +101,8 @@ class Meta(BaseModel):
 
         _obj = cls.model_validate({
             "imei": MetaImei.from_dict(obj["imei"]) if obj.get("imei") is not None else None,
-            "uin": MetaImei.from_dict(obj["uin"]) if obj.get("uin") is not None else None,
-            "gtin": MetaImei.from_dict(obj["gtin"]) if obj.get("gtin") is not None else None,
+            "uin": MetaUin.from_dict(obj["uin"]) if obj.get("uin") is not None else None,
+            "gtin": MetaGtin.from_dict(obj["gtin"]) if obj.get("gtin") is not None else None,
             "sgtin": MetaSgtin.from_dict(obj["sgtin"]) if obj.get("sgtin") is not None else None
         })
         return _obj

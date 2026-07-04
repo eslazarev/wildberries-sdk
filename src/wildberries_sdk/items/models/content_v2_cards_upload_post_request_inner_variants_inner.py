@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_characteristics_inner import ContentV2CardsUpdatePostRequestInnerCharacteristicsInner
-from wildberries_sdk.items.models.content_v2_cards_update_post_request_inner_dimensions import ContentV2CardsUpdatePostRequestInnerDimensions
+from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_dimensions import ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
 from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner_variants_inner_sizes_inner import ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response_cards_inner_wholesale import ContentV2GetCardsListPost200ResponseCardsInnerWholesale
 from typing import Optional, Set
@@ -38,7 +38,7 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner(BaseModel):
     vendor_code: Annotated[str, Field(strict=True, max_length=72)] = Field(description="Артикул продавца", alias="vendorCode")
     kiz_marked: Optional[StrictBool] = Field(default=False, description="Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz` ", alias="kizMarked")
     wholesale: Optional[ContentV2GetCardsListPost200ResponseCardsInnerWholesale] = None
-    dimensions: Optional[ContentV2CardsUpdatePostRequestInnerDimensions] = None
+    dimensions: Optional[ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions] = None
     sizes: Optional[List[ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner]] = Field(default=None, description="Массив размеров.<br> Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = \"A\", `wbSize` = \"1\" и баркодом ")
     characteristics: Optional[List[ContentV2CardsUpdatePostRequestInnerCharacteristicsInner]] = Field(default=None, description="Характеристики товара. <br> Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) ")
     __properties: ClassVar[List[str]] = ["brand", "title", "description", "vendorCode", "kizMarked", "wholesale", "dimensions", "sizes", "characteristics"]
@@ -120,7 +120,7 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner(BaseModel):
             "vendorCode": obj.get("vendorCode"),
             "kizMarked": obj.get("kizMarked") if obj.get("kizMarked") is not None else False,
             "wholesale": ContentV2GetCardsListPost200ResponseCardsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
-            "dimensions": ContentV2CardsUpdatePostRequestInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
+            "dimensions": ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
             "sizes": [ContentV2CardsUploadPostRequestInnerVariantsInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
             "characteristics": [ContentV2CardsUpdatePostRequestInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None
         })

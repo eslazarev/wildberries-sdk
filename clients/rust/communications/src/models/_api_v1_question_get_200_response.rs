@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiV1QuestionGet200Response {
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Box<models::ApiV1QuestionsGet200ResponseDataQuestionsInner>>,
+    pub data: Option<Box<models::ApiV1QuestionGet200ResponseData>>,
     /// Есть ли ошибка
     #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
     pub error: Option<bool>,

@@ -33,12 +33,13 @@ class V0GetNormQueryStatsItemStat(BaseModel):
     atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
-    cpc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Стоимость одного клика, ₽")
-    cpm: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Средняя стоимость за тысячу показов, ₽.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
+    cpc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    cpm: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
     avg_pos: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Средняя позиция товара на страницах поисковой выдачи")
     shks: Optional[StrictInt] = Field(default=None, description="Количество заказанных товаров, шт.")
     spend: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Затраты на продвижение товаров в конкретном поисковом кластере кампании ")
-    __properties: ClassVar[List[str]] = ["norm_query", "views", "clicks", "atbs", "orders", "ctr", "cpc", "cpm", "avg_pos", "shks", "spend"]
+    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    __properties: ClassVar[List[str]] = ["norm_query", "views", "clicks", "atbs", "orders", "ctr", "cpc", "cpm", "avg_pos", "shks", "spend", "currency"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -116,7 +117,8 @@ class V0GetNormQueryStatsItemStat(BaseModel):
             "cpm": obj.get("cpm"),
             "avg_pos": obj.get("avg_pos"),
             "shks": obj.get("shks"),
-            "spend": obj.get("spend")
+            "spend": obj.get("spend"),
+            "currency": obj.get("currency")
         })
         return _obj
 

@@ -32,11 +32,17 @@ export interface AdvV1BudgetGet200Response {
      */
     netting?: number;
     /**
-     * Бюджет кампании, ₽
+     * Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof AdvV1BudgetGet200Response
      */
     total?: number;
+    /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof AdvV1BudgetGet200Response
+     */
+    currency?: string;
 }
 
 /**
@@ -59,6 +65,7 @@ export function AdvV1BudgetGet200ResponseFromJSONTyped(json: any, ignoreDiscrimi
         'cash': json['cash'] == null ? undefined : json['cash'],
         'netting': json['netting'] == null ? undefined : json['netting'],
         'total': json['total'] == null ? undefined : json['total'],
+        'currency': json['currency'] == null ? undefined : json['currency'],
     };
 }
 
@@ -76,6 +83,7 @@ export function AdvV1BudgetGet200ResponseToJSONTyped(value?: AdvV1BudgetGet200Re
         'cash': value['cash'],
         'netting': value['netting'],
         'total': value['total'],
+        'currency': value['currency'],
     };
 }
 

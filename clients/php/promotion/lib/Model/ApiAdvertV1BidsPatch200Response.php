@@ -57,7 +57,8 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $openAPITypes = [
-        'bids' => '\Wildberries\Sdk\Promotion\Model\ApiAdvertV1BidsPatch200ResponseBidsInner[]'
+        'bids' => '\Wildberries\Sdk\Promotion\Model\ApiAdvertV1BidsPatch200ResponseBidsInner[]',
+        'currency' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'bids' => null
+        'bids' => null,
+        'currency' => 'ISO 4217'
     ];
 
     /**
@@ -77,7 +79,8 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'bids' => false
+        'bids' => false,
+        'currency' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'bids' => 'bids'
+        'bids' => 'bids',
+        'currency' => 'currency'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'bids' => 'setBids'
+        'bids' => 'setBids',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'bids' => 'getBids'
+        'bids' => 'getBids',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -245,6 +251,7 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
     public function __construct(?array $data = null)
     {
         $this->setIfExists('bids', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -276,6 +283,9 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
 
         if ($this->container['bids'] === null) {
             $invalidProperties[] = "'bids' can't be null";
+        }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
         }
         return $invalidProperties;
     }
@@ -315,6 +325,33 @@ class ApiAdvertV1BidsPatch200Response implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable bids cannot be null');
         }
         $this->container['bids'] = $bids;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

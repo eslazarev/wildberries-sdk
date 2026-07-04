@@ -67,7 +67,8 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
         'cpm' => 'float',
         'avg_pos' => 'float',
         'shks' => 'int',
-        'spend' => 'float'
+        'spend' => 'float',
+        'currency' => 'string'
     ];
 
     /**
@@ -88,7 +89,8 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
         'cpm' => 'double',
         'avg_pos' => 'double',
         'shks' => null,
-        'spend' => 'double'
+        'spend' => 'double',
+        'currency' => 'ISO 4217'
     ];
 
     /**
@@ -107,7 +109,8 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
         'cpm' => true,
         'avg_pos' => false,
         'shks' => false,
-        'spend' => false
+        'spend' => false,
+        'currency' => false
     ];
 
     /**
@@ -206,7 +209,8 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
         'cpm' => 'cpm',
         'avg_pos' => 'avg_pos',
         'shks' => 'shks',
-        'spend' => 'spend'
+        'spend' => 'spend',
+        'currency' => 'currency'
     ];
 
     /**
@@ -225,7 +229,8 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
         'cpm' => 'setCpm',
         'avg_pos' => 'setAvgPos',
         'shks' => 'setShks',
-        'spend' => 'setSpend'
+        'spend' => 'setSpend',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -244,7 +249,8 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
         'cpm' => 'getCpm',
         'avg_pos' => 'getAvgPos',
         'shks' => 'getShks',
-        'spend' => 'getSpend'
+        'spend' => 'getSpend',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -315,6 +321,7 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('avg_pos', $data ?? [], null);
         $this->setIfExists('shks', $data ?? [], null);
         $this->setIfExists('spend', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -548,7 +555,7 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets cpc
      *
-     * @param float|null $cpc Стоимость одного клика, ₽
+     * @param float|null $cpc Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -575,7 +582,7 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets cpm
      *
-     * @param float|null $cpm Средняя стоимость за тысячу показов, ₽.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
+     * @param float|null $cpm Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      *
      * @return self
      */
@@ -673,6 +680,33 @@ class V0GetNormQueryStatsItemStat implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable spend cannot be null');
         }
         $this->container['spend'] = $spend;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

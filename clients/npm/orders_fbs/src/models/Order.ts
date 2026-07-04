@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { V3ArchiveOrderOptions } from './V3ArchiveOrderOptions';
-import {
-    V3ArchiveOrderOptionsFromJSON,
-    V3ArchiveOrderOptionsFromJSONTyped,
-    V3ArchiveOrderOptionsToJSON,
-    V3ArchiveOrderOptionsToJSONTyped,
-} from './V3ArchiveOrderOptions';
 import type { OrderAddress } from './OrderAddress';
 import {
     OrderAddressFromJSON,
@@ -27,6 +20,13 @@ import {
     OrderAddressToJSON,
     OrderAddressToJSONTyped,
 } from './OrderAddress';
+import type { OrderOptions } from './OrderOptions';
+import {
+    OrderOptionsFromJSON,
+    OrderOptionsFromJSONTyped,
+    OrderOptionsToJSON,
+    OrderOptionsToJSONTyped,
+} from './OrderOptions';
 
 /**
  * 
@@ -203,10 +203,10 @@ export interface Order {
     isZeroOrder?: boolean;
     /**
      * 
-     * @type {V3ArchiveOrderOptions}
+     * @type {OrderOptions}
      * @memberof Order
      */
-    options?: V3ArchiveOrderOptions;
+    options?: OrderOptions;
 }
 
 
@@ -279,7 +279,7 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'crossBorderType': json['crossBorderType'] == null ? undefined : json['crossBorderType'],
         'comment': json['comment'] == null ? undefined : json['comment'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
-        'options': json['options'] == null ? undefined : V3ArchiveOrderOptionsFromJSON(json['options']),
+        'options': json['options'] == null ? undefined : OrderOptionsFromJSON(json['options']),
     };
 }
 
@@ -318,7 +318,7 @@ export function OrderToJSONTyped(value?: Order | null, ignoreDiscriminator: bool
         'crossBorderType': value['crossBorderType'],
         'comment': value['comment'],
         'isZeroOrder': value['isZeroOrder'],
-        'options': V3ArchiveOrderOptionsToJSON(value['options']),
+        'options': OrderOptionsToJSON(value['options']),
     };
 }
 

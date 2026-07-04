@@ -2864,9 +2864,9 @@ components:
         imei:
           $ref: "#/components/schemas/Meta_imei"
         uin:
-          $ref: "#/components/schemas/Meta_imei"
+          $ref: "#/components/schemas/Meta_uin"
         gtin:
-          $ref: "#/components/schemas/Meta_imei"
+          $ref: "#/components/schemas/Meta_gtin"
         sgtin:
           $ref: "#/components/schemas/Meta_sgtin"
       type: object
@@ -3503,6 +3503,26 @@ components:
       type: object
     Meta_imei:
       description: IMEI
+      example:
+        value: "123456789012345"
+      properties:
+        value:
+          example: "123456789012345"
+          nullable: true
+          type: string
+      type: object
+    Meta_uin:
+      description: УИН
+      example:
+        value: "123456789012345"
+      properties:
+        value:
+          example: "123456789012345"
+          nullable: true
+          type: string
+      type: object
+    Meta_gtin:
+      description: GTIN
       example:
         value: "123456789012345"
       properties:

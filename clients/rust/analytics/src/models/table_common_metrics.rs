@@ -44,7 +44,7 @@ pub struct TableCommonMetrics {
     #[serde(rename = "saleRate")]
     pub sale_rate: Box<models::TableCommonMetricsSaleRate>,
     #[serde(rename = "avgStockTurnover")]
-    pub avg_stock_turnover: Box<models::TableCommonMetricsSaleRate>,
+    pub avg_stock_turnover: Box<models::TableCommonMetricsAvgStockTurnover>,
     /// В пути к клиенту, шт.
     #[serde(rename = "toClientCount")]
     pub to_client_count: i32,
@@ -52,7 +52,7 @@ pub struct TableCommonMetrics {
     #[serde(rename = "fromClientCount")]
     pub from_client_count: i32,
     #[serde(rename = "officeMissingTime")]
-    pub office_missing_time: Box<models::TableCommonMetricsSaleRate>,
+    pub office_missing_time: Box<models::TableCommonMetricsOfficeMissingTime>,
     /// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
     #[serde(rename = "lostOrdersCount")]
     pub lost_orders_count: f64,
@@ -69,7 +69,7 @@ pub struct TableCommonMetrics {
 
 impl TableCommonMetrics {
     /// Метрики
-    pub fn new(orders_count: i32, orders_sum: i32, avg_orders: f64, avg_orders_by_month: Vec<models::FloatGraphByPeriodItem>, buyout_count: i32, buyout_sum: i32, buyout_percent: i32, stock_count: i32, stock_sum: i32, sale_rate: models::TableCommonMetricsSaleRate, avg_stock_turnover: models::TableCommonMetricsSaleRate, to_client_count: i32, from_client_count: i32, office_missing_time: models::TableCommonMetricsSaleRate, lost_orders_count: f64, lost_orders_sum: f64, lost_buyouts_count: f64, lost_buyouts_sum: f64) -> TableCommonMetrics {
+    pub fn new(orders_count: i32, orders_sum: i32, avg_orders: f64, avg_orders_by_month: Vec<models::FloatGraphByPeriodItem>, buyout_count: i32, buyout_sum: i32, buyout_percent: i32, stock_count: i32, stock_sum: i32, sale_rate: models::TableCommonMetricsSaleRate, avg_stock_turnover: models::TableCommonMetricsAvgStockTurnover, to_client_count: i32, from_client_count: i32, office_missing_time: models::TableCommonMetricsOfficeMissingTime, lost_orders_count: f64, lost_orders_sum: f64, lost_buyouts_count: f64, lost_buyouts_sum: f64) -> TableCommonMetrics {
         TableCommonMetrics {
             orders_count,
             orders_sum,

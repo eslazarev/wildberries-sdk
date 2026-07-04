@@ -69,7 +69,7 @@ class Comparison implements ModelInterface, ArrayAccess, \JsonSerializable
         'avg_price_dynamic' => 'int',
         'share_order_percent_dynamic' => 'int',
         'add_to_wishlist_dynamic' => 'int',
-        'time_to_ready_dynamic' => '\Wildberries\Sdk\Analytics\Model\StatisticTimeToReady',
+        'time_to_ready_dynamic' => '\Wildberries\Sdk\Analytics\Model\ComparisonTimeToReadyDynamic',
         'localization_percent_dynamic' => 'int',
         'wb_club_dynamic' => '\Wildberries\Sdk\Analytics\Model\ComparisonWbClubDynamic',
         'conversions' => '\Wildberries\Sdk\Analytics\Model\StatisticConversions'
@@ -769,7 +769,7 @@ class Comparison implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets time_to_ready_dynamic
      *
-     * @return \Wildberries\Sdk\Analytics\Model\StatisticTimeToReady
+     * @return \Wildberries\Sdk\Analytics\Model\ComparisonTimeToReadyDynamic
      */
     public function getTimeToReadyDynamic()
     {
@@ -779,7 +779,7 @@ class Comparison implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets time_to_ready_dynamic
      *
-     * @param \Wildberries\Sdk\Analytics\Model\StatisticTimeToReady $time_to_ready_dynamic time_to_ready_dynamic
+     * @param \Wildberries\Sdk\Analytics\Model\ComparisonTimeToReadyDynamic $time_to_ready_dynamic time_to_ready_dynamic
      *
      * @return self
      */

@@ -27,13 +27,6 @@ import {
     ContentV2GetCardsListPost200ResponseCardsInnerPhotosInnerToJSON,
     ContentV2GetCardsListPost200ResponseCardsInnerPhotosInnerToJSONTyped,
 } from './ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner';
-import type { ContentV2GetCardsListPost200ResponseCardsInnerSizesInner } from './ContentV2GetCardsListPost200ResponseCardsInnerSizesInner';
-import {
-    ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerFromJSON,
-    ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerFromJSONTyped,
-    ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerToJSON,
-    ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerToJSONTyped,
-} from './ContentV2GetCardsListPost200ResponseCardsInnerSizesInner';
 import type { ContentV2GetCardsListPost200ResponseCardsInnerDimensions } from './ContentV2GetCardsListPost200ResponseCardsInnerDimensions';
 import {
     ContentV2GetCardsListPost200ResponseCardsInnerDimensionsFromJSON,
@@ -41,6 +34,13 @@ import {
     ContentV2GetCardsListPost200ResponseCardsInnerDimensionsToJSON,
     ContentV2GetCardsListPost200ResponseCardsInnerDimensionsToJSONTyped,
 } from './ContentV2GetCardsListPost200ResponseCardsInnerDimensions';
+import type { ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner } from './ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner';
+import {
+    ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInnerFromJSON,
+    ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInnerFromJSONTyped,
+    ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInnerToJSON,
+    ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInnerToJSONTyped,
+} from './ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner';
 import type { ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner } from './ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner';
 import {
     ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerFromJSON,
@@ -110,10 +110,10 @@ export interface ContentV2GetCardsTrashPost200ResponseCardsInner {
     wholesale?: ContentV2GetCardsListPost200ResponseCardsInnerWholesale;
     /**
      * Массив размеров
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInnerSizesInner>}
+     * @type {Array<ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner>}
      * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
-    sizes?: Array<ContentV2GetCardsListPost200ResponseCardsInnerSizesInner>;
+    sizes?: Array<ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner>;
     /**
      * 
      * @type {ContentV2GetCardsListPost200ResponseCardsInnerDimensions}
@@ -165,7 +165,7 @@ export function ContentV2GetCardsTrashPost200ResponseCardsInnerFromJSONTyped(jso
         'photos': json['photos'] == null ? undefined : ((json['photos'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerPhotosInnerFromJSON)),
         'video': json['video'] == null ? undefined : json['video'],
         'wholesale': json['wholesale'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerWholesaleFromJSON(json['wholesale']),
-        'sizes': json['sizes'] == null ? undefined : ((json['sizes'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerFromJSON)),
+        'sizes': json['sizes'] == null ? undefined : ((json['sizes'] as Array<any>).map(ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInnerFromJSON)),
         'dimensions': json['dimensions'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerDimensionsFromJSON(json['dimensions']),
         'characteristics': json['characteristics'] == null ? undefined : ((json['characteristics'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerFromJSON)),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
@@ -192,7 +192,7 @@ export function ContentV2GetCardsTrashPost200ResponseCardsInnerToJSONTyped(value
         'photos': value['photos'] == null ? undefined : ((value['photos'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerPhotosInnerToJSON)),
         'video': value['video'],
         'wholesale': ContentV2GetCardsListPost200ResponseCardsInnerWholesaleToJSON(value['wholesale']),
-        'sizes': value['sizes'] == null ? undefined : ((value['sizes'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerSizesInnerToJSON)),
+        'sizes': value['sizes'] == null ? undefined : ((value['sizes'] as Array<any>).map(ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInnerToJSON)),
         'dimensions': ContentV2GetCardsListPost200ResponseCardsInnerDimensionsToJSON(value['dimensions']),
         'characteristics': value['characteristics'] == null ? undefined : ((value['characteristics'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerToJSON)),
         'createdAt': value['createdAt'],

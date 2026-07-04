@@ -21,7 +21,7 @@ var _ MappedNullable = &ModelsOptionsResultModelResultInner{}
 type ModelsOptionsResultModelResultInner struct {
 	// Баркод из карточки товара
 	Barcode *string `json:"barcode,omitempty"`
-	Error *ApiV1AcceptanceOptionsPost402Response `json:"error,omitempty"`
+	Error *ModelsOptionsResultModelResultInnerError `json:"error,omitempty"`
 	// Наличие ошибки:   - `true` — ошибка есть   - Поля нет — ошибка отсутствует 
 	IsError *bool `json:"isError,omitempty"`
 	// Список складов. При наличии ошибки будет `null`
@@ -78,9 +78,9 @@ func (o *ModelsOptionsResultModelResultInner) SetBarcode(v string) {
 }
 
 // GetError returns the Error field value if set, zero value otherwise.
-func (o *ModelsOptionsResultModelResultInner) GetError() ApiV1AcceptanceOptionsPost402Response {
+func (o *ModelsOptionsResultModelResultInner) GetError() ModelsOptionsResultModelResultInnerError {
 	if o == nil || IsNil(o.Error) {
-		var ret ApiV1AcceptanceOptionsPost402Response
+		var ret ModelsOptionsResultModelResultInnerError
 		return ret
 	}
 	return *o.Error
@@ -88,7 +88,7 @@ func (o *ModelsOptionsResultModelResultInner) GetError() ApiV1AcceptanceOptionsP
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsOptionsResultModelResultInner) GetErrorOk() (*ApiV1AcceptanceOptionsPost402Response, bool) {
+func (o *ModelsOptionsResultModelResultInner) GetErrorOk() (*ModelsOptionsResultModelResultInnerError, bool) {
 	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
@@ -104,8 +104,8 @@ func (o *ModelsOptionsResultModelResultInner) HasError() bool {
 	return false
 }
 
-// SetError gets a reference to the given ApiV1AcceptanceOptionsPost402Response and assigns it to the Error field.
-func (o *ModelsOptionsResultModelResultInner) SetError(v ApiV1AcceptanceOptionsPost402Response) {
+// SetError gets a reference to the given ModelsOptionsResultModelResultInnerError and assigns it to the Error field.
+func (o *ModelsOptionsResultModelResultInner) SetError(v ModelsOptionsResultModelResultInnerError) {
 	o.Error = &v
 }
 

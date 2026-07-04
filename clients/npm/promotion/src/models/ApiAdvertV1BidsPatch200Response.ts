@@ -33,6 +33,12 @@ export interface ApiAdvertV1BidsPatch200Response {
      * @memberof ApiAdvertV1BidsPatch200Response
      */
     bids: Array<ApiAdvertV1BidsPatch200ResponseBidsInner>;
+    /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof ApiAdvertV1BidsPatch200Response
+     */
+    currency: string;
 }
 
 /**
@@ -40,6 +46,7 @@ export interface ApiAdvertV1BidsPatch200Response {
  */
 export function instanceOfApiAdvertV1BidsPatch200Response(value: object): value is ApiAdvertV1BidsPatch200Response {
     if (!('bids' in value) || value['bids'] === undefined) return false;
+    if (!('currency' in value) || value['currency'] === undefined) return false;
     return true;
 }
 
@@ -54,6 +61,7 @@ export function ApiAdvertV1BidsPatch200ResponseFromJSONTyped(json: any, ignoreDi
     return {
         
         'bids': ((json['bids'] as Array<any>).map(ApiAdvertV1BidsPatch200ResponseBidsInnerFromJSON)),
+        'currency': json['currency'],
     };
 }
 
@@ -69,6 +77,7 @@ export function ApiAdvertV1BidsPatch200ResponseToJSONTyped(value?: ApiAdvertV1Bi
     return {
         
         'bids': ((value['bids'] as Array<any>).map(ApiAdvertV1BidsPatch200ResponseBidsInnerToJSON)),
+        'currency': value['currency'],
     };
 }
 

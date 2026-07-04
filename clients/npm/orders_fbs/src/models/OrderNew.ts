@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { V3ArchiveOrderOptions } from './V3ArchiveOrderOptions';
-import {
-    V3ArchiveOrderOptionsFromJSON,
-    V3ArchiveOrderOptionsFromJSONTyped,
-    V3ArchiveOrderOptionsToJSON,
-    V3ArchiveOrderOptionsToJSONTyped,
-} from './V3ArchiveOrderOptions';
 import type { OrderAddress } from './OrderAddress';
 import {
     OrderAddressFromJSON,
@@ -27,6 +20,13 @@ import {
     OrderAddressToJSON,
     OrderAddressToJSONTyped,
 } from './OrderAddress';
+import type { OrderOptions } from './OrderOptions';
+import {
+    OrderOptionsFromJSON,
+    OrderOptionsFromJSONTyped,
+    OrderOptionsToJSON,
+    OrderOptionsToJSONTyped,
+} from './OrderOptions';
 
 /**
  * 
@@ -256,10 +256,10 @@ export interface OrderNew {
     isPickupPointShipmentAllowed?: boolean;
     /**
      * 
-     * @type {V3ArchiveOrderOptions}
+     * @type {OrderOptions}
      * @memberof OrderNew
      */
-    options?: V3ArchiveOrderOptions;
+    options?: OrderOptions;
 }
 
 
@@ -339,7 +339,7 @@ export function OrderNewFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'crossBorderType': json['crossBorderType'] == null ? undefined : json['crossBorderType'],
         'isZeroOrder': json['isZeroOrder'] == null ? undefined : json['isZeroOrder'],
         'isPickupPointShipmentAllowed': json['isPickupPointShipmentAllowed'] == null ? undefined : json['isPickupPointShipmentAllowed'],
-        'options': json['options'] == null ? undefined : V3ArchiveOrderOptionsFromJSON(json['options']),
+        'options': json['options'] == null ? undefined : OrderOptionsFromJSON(json['options']),
     };
 }
 
@@ -385,7 +385,7 @@ export function OrderNewToJSONTyped(value?: OrderNew | null, ignoreDiscriminator
         'crossBorderType': value['crossBorderType'],
         'isZeroOrder': value['isZeroOrder'],
         'isPickupPointShipmentAllowed': value['isPickupPointShipmentAllowed'],
-        'options': V3ArchiveOrderOptionsToJSON(value['options']),
+        'options': OrderOptionsToJSON(value['options']),
     };
 }
 

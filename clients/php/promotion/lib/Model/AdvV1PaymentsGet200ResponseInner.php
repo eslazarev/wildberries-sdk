@@ -62,7 +62,8 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
         'sum' => 'int',
         'type' => 'int',
         'status_id' => 'int',
-        'card_status' => 'string'
+        'card_status' => 'string',
+        'currency' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
         'sum' => null,
         'type' => null,
         'status_id' => null,
-        'card_status' => null
+        'card_status' => null,
+        'currency' => 'ISO 4217'
     ];
 
     /**
@@ -92,7 +94,8 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
         'sum' => false,
         'type' => false,
         'status_id' => false,
-        'card_status' => false
+        'card_status' => false,
+        'currency' => false
     ];
 
     /**
@@ -186,7 +189,8 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
         'sum' => 'sum',
         'type' => 'type',
         'status_id' => 'statusId',
-        'card_status' => 'cardStatus'
+        'card_status' => 'cardStatus',
+        'currency' => 'currency'
     ];
 
     /**
@@ -200,7 +204,8 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
         'sum' => 'setSum',
         'type' => 'setType',
         'status_id' => 'setStatusId',
-        'card_status' => 'setCardStatus'
+        'card_status' => 'setCardStatus',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -214,7 +219,8 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
         'sum' => 'getSum',
         'type' => 'getType',
         'status_id' => 'getStatusId',
-        'card_status' => 'getCardStatus'
+        'card_status' => 'getCardStatus',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -280,6 +286,7 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('status_id', $data ?? [], null);
         $this->setIfExists('card_status', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -482,6 +489,33 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable card_status cannot be null');
         }
         $this->container['card_status'] = $card_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

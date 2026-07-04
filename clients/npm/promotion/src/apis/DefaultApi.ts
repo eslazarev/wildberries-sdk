@@ -159,10 +159,25 @@ import {
     ApiV1CalendarPromotionsNomenclaturesGet200ResponseToJSON,
 } from '../models/ApiV1CalendarPromotionsNomenclaturesGet200Response';
 import {
+    type ApiV1CalendarPromotionsNomenclaturesGet400Response,
+    ApiV1CalendarPromotionsNomenclaturesGet400ResponseFromJSON,
+    ApiV1CalendarPromotionsNomenclaturesGet400ResponseToJSON,
+} from '../models/ApiV1CalendarPromotionsNomenclaturesGet400Response';
+import {
+    type ApiV1CalendarPromotionsNomenclaturesGet422Response,
+    ApiV1CalendarPromotionsNomenclaturesGet422ResponseFromJSON,
+    ApiV1CalendarPromotionsNomenclaturesGet422ResponseToJSON,
+} from '../models/ApiV1CalendarPromotionsNomenclaturesGet422Response';
+import {
     type ApiV1CalendarPromotionsUploadPost200Response,
     ApiV1CalendarPromotionsUploadPost200ResponseFromJSON,
     ApiV1CalendarPromotionsUploadPost200ResponseToJSON,
 } from '../models/ApiV1CalendarPromotionsUploadPost200Response';
+import {
+    type ApiV1CalendarPromotionsUploadPost422Response,
+    ApiV1CalendarPromotionsUploadPost422ResponseFromJSON,
+    ApiV1CalendarPromotionsUploadPost422ResponseToJSON,
+} from '../models/ApiV1CalendarPromotionsUploadPost422Response';
 import {
     type ApiV1CalendarPromotionsUploadPostRequest,
     ApiV1CalendarPromotionsUploadPostRequestFromJSON,
@@ -273,6 +288,21 @@ import {
     V1GetNormQueryStatsResponseFromJSON,
     V1GetNormQueryStatsResponseToJSON,
 } from '../models/V1GetNormQueryStatsResponse';
+import {
+    type V1SetNormQueryBidsRequest,
+    V1SetNormQueryBidsRequestFromJSON,
+    V1SetNormQueryBidsRequestToJSON,
+} from '../models/V1SetNormQueryBidsRequest';
+import {
+    type V1SetNormQueryBidsResponse,
+    V1SetNormQueryBidsResponseFromJSON,
+    V1SetNormQueryBidsResponseToJSON,
+} from '../models/V1SetNormQueryBidsResponse';
+import {
+    type V2GetConfigResponse,
+    V2GetConfigResponseFromJSON,
+    V2GetConfigResponseToJSON,
+} from '../models/V2GetConfigResponse';
 
 export interface AdvV0AuctionNmsPatchOperationRequest {
     advV0AuctionNmsPatchRequest: AdvV0AuctionNmsPatchRequest;
@@ -428,6 +458,10 @@ export interface ApiV1CalendarPromotionsNomenclaturesGetRequest {
 
 export interface ApiV1CalendarPromotionsUploadPostOperationRequest {
     apiV1CalendarPromotionsUploadPostRequest: ApiV1CalendarPromotionsUploadPostRequest;
+}
+
+export interface PostV1NormqueryBidsRequest {
+    v1SetNormQueryBidsRequest: V1SetNormQueryBidsRequest;
 }
 
 /**
@@ -679,7 +713,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ставки на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установить ставки для поисковых кластеров
      */
     async advV0NormqueryBidsPostRaw(requestParameters: AdvV0NormqueryBidsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -690,7 +724,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ставки на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Установить ставки для поисковых кластеров
      */
     async advV0NormqueryBidsPost(requestParameters: AdvV0NormqueryBidsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2094,7 +2128,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает минимальные ставки для карточек товаров в копейках по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Минимальные ставки для карточек товаров
      */
     async apiAdvertV1BidsMinPostRaw(requestParameters: ApiAdvertV1BidsMinPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiAdvertV1BidsMinPost200Response>> {
@@ -2105,7 +2139,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает минимальные ставки для карточек товаров в копейках по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Минимальные ставки для карточек товаров
      */
     async apiAdvertV1BidsMinPost(requestParameters: ApiAdvertV1BidsMinPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiAdvertV1BidsMinPost200Response> {
@@ -2482,6 +2516,102 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async apiV1CalendarPromotionsUploadPost(requestParameters: ApiV1CalendarPromotionsUploadPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1CalendarPromotionsUploadPost200Response> {
         const response = await this.apiV1CalendarPromotionsUploadPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Config without sending the request
+     */
+    async getV1ConfigRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v1/config`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Конфигурационные значения продвижения
+     */
+    async getV1ConfigRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V2GetConfigResponse>> {
+        const requestOptions = await this.getV1ConfigRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V2GetConfigResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Конфигурационные значения продвижения
+     */
+    async getV1Config(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V2GetConfigResponse> {
+        const response = await this.getV1ConfigRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV1NormqueryBids without sending the request
+     */
+    async postV1NormqueryBidsRequestOpts(requestParameters: PostV1NormqueryBidsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v1SetNormQueryBidsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v1SetNormQueryBidsRequest',
+                'Required parameter "v1SetNormQueryBidsRequest" was null or undefined when calling postV1NormqueryBids().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v1/normquery/bids`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1SetNormQueryBidsRequestToJSON(requestParameters['v1SetNormQueryBidsRequest']),
+        };
+    }
+
+    /**
+     * Метод устанавливает ставки на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div> 
+     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     */
+    async postV1NormqueryBidsRaw(requestParameters: PostV1NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1SetNormQueryBidsResponse>> {
+        const requestOptions = await this.postV1NormqueryBidsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1SetNormQueryBidsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод устанавливает ставки на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div> 
+     * Установить ставки для поисковых кластеров в валюте аккаунта продавца
+     */
+    async postV1NormqueryBids(requestParameters: PostV1NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1SetNormQueryBidsResponse> {
+        const response = await this.postV1NormqueryBidsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

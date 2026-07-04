@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.orders_fbw.models.api_v1_acceptance_options_post402_response import ApiV1AcceptanceOptionsPost402Response
+from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner_error import ModelsOptionsResultModelResultInnerError
 from wildberries_sdk.orders_fbw.models.models_options_result_model_result_inner_warehouses_inner import ModelsOptionsResultModelResultInnerWarehousesInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,7 @@ class ModelsOptionsResultModelResultInner(BaseModel):
     ModelsOptionsResultModelResultInner
     """ # noqa: E501
     barcode: Optional[StrictStr] = Field(default=None, description="Баркод из карточки товара")
-    error: Optional[ApiV1AcceptanceOptionsPost402Response] = None
+    error: Optional[ModelsOptionsResultModelResultInnerError] = None
     is_error: Optional[StrictBool] = Field(default=None, description="Наличие ошибки:   - `true` — ошибка есть   - Поля нет — ошибка отсутствует ", alias="isError")
     warehouses: Optional[List[ModelsOptionsResultModelResultInnerWarehousesInner]] = Field(default=None, description="Список складов. При наличии ошибки будет `null`")
     __properties: ClassVar[List[str]] = ["barcode", "error", "isError", "warehouses"]
@@ -102,7 +102,7 @@ class ModelsOptionsResultModelResultInner(BaseModel):
 
         _obj = cls.model_validate({
             "barcode": obj.get("barcode"),
-            "error": ApiV1AcceptanceOptionsPost402Response.from_dict(obj["error"]) if obj.get("error") is not None else None,
+            "error": ModelsOptionsResultModelResultInnerError.from_dict(obj["error"]) if obj.get("error") is not None else None,
             "isError": obj.get("isError"),
             "warehouses": [ModelsOptionsResultModelResultInnerWarehousesInner.from_dict(_item) for _item in obj["warehouses"]] if obj.get("warehouses") is not None else None
         })

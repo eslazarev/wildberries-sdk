@@ -27,8 +27,11 @@ from wildberries_sdk.communications.models.api_feedbacks_v1_pins_post200_respons
 from wildberries_sdk.communications.models.api_v1_claim_patch_request import ApiV1ClaimPatchRequest
 from wildberries_sdk.communications.models.api_v1_claims_get200_response import ApiV1ClaimsGet200Response
 from wildberries_sdk.communications.models.api_v1_feedback_get200_response import ApiV1FeedbackGet200Response
+from wildberries_sdk.communications.models.api_v1_feedbacks_answer_patch_request import ApiV1FeedbacksAnswerPatchRequest
 from wildberries_sdk.communications.models.api_v1_feedbacks_answer_post_request import ApiV1FeedbacksAnswerPostRequest
 from wildberries_sdk.communications.models.api_v1_feedbacks_archive_get200_response import ApiV1FeedbacksArchiveGet200Response
+from wildberries_sdk.communications.models.api_v1_feedbacks_count_get200_response import ApiV1FeedbacksCountGet200Response
+from wildberries_sdk.communications.models.api_v1_feedbacks_count_unanswered_get200_response import ApiV1FeedbacksCountUnansweredGet200Response
 from wildberries_sdk.communications.models.api_v1_feedbacks_get200_response import ApiV1FeedbacksGet200Response
 from wildberries_sdk.communications.models.api_v1_feedbacks_order_return_post_request import ApiV1FeedbacksOrderReturnPostRequest
 from wildberries_sdk.communications.models.api_v1_new_feedbacks_questions_get200_response import ApiV1NewFeedbacksQuestionsGet200Response
@@ -1792,7 +1795,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "ApiV1ClaimsGet400Response",
+            '400': "ApiV1ClaimPatch400Response",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
             '429': "ApiV1NewFeedbacksQuestionsGet401Response",
@@ -1863,7 +1866,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "ApiV1ClaimsGet400Response",
+            '400': "ApiV1ClaimPatch400Response",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
             '429': "ApiV1NewFeedbacksQuestionsGet401Response",
@@ -1934,7 +1937,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "ApiV1ClaimsGet400Response",
+            '400': "ApiV1ClaimPatch400Response",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
             '429': "ApiV1NewFeedbacksQuestionsGet401Response",
@@ -2657,7 +2660,7 @@ class DefaultApi:
     @validate_call
     def api_v1_feedbacks_answer_patch(
         self,
-        api_v1_feedbacks_answer_post_request: Optional[ApiV1FeedbacksAnswerPostRequest] = None,
+        api_v1_feedbacks_answer_patch_request: Optional[ApiV1FeedbacksAnswerPatchRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2675,8 +2678,8 @@ class DefaultApi:
 
         Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks~1answer/post) покупателя. <br><br> Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  <div class=\"description_important\">   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
-        :param api_v1_feedbacks_answer_post_request:
-        :type api_v1_feedbacks_answer_post_request: ApiV1FeedbacksAnswerPostRequest
+        :param api_v1_feedbacks_answer_patch_request:
+        :type api_v1_feedbacks_answer_patch_request: ApiV1FeedbacksAnswerPatchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2700,7 +2703,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v1_feedbacks_answer_patch_serialize(
-            api_v1_feedbacks_answer_post_request=api_v1_feedbacks_answer_post_request,
+            api_v1_feedbacks_answer_patch_request=api_v1_feedbacks_answer_patch_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2727,7 +2730,7 @@ class DefaultApi:
     @validate_call
     def api_v1_feedbacks_answer_patch_with_http_info(
         self,
-        api_v1_feedbacks_answer_post_request: Optional[ApiV1FeedbacksAnswerPostRequest] = None,
+        api_v1_feedbacks_answer_patch_request: Optional[ApiV1FeedbacksAnswerPatchRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2745,8 +2748,8 @@ class DefaultApi:
 
         Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks~1answer/post) покупателя. <br><br> Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  <div class=\"description_important\">   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
-        :param api_v1_feedbacks_answer_post_request:
-        :type api_v1_feedbacks_answer_post_request: ApiV1FeedbacksAnswerPostRequest
+        :param api_v1_feedbacks_answer_patch_request:
+        :type api_v1_feedbacks_answer_patch_request: ApiV1FeedbacksAnswerPatchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2770,7 +2773,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v1_feedbacks_answer_patch_serialize(
-            api_v1_feedbacks_answer_post_request=api_v1_feedbacks_answer_post_request,
+            api_v1_feedbacks_answer_patch_request=api_v1_feedbacks_answer_patch_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2797,7 +2800,7 @@ class DefaultApi:
     @validate_call
     def api_v1_feedbacks_answer_patch_without_preload_content(
         self,
-        api_v1_feedbacks_answer_post_request: Optional[ApiV1FeedbacksAnswerPostRequest] = None,
+        api_v1_feedbacks_answer_patch_request: Optional[ApiV1FeedbacksAnswerPatchRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2815,8 +2818,8 @@ class DefaultApi:
 
         Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks~1answer/post) покупателя. <br><br> Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  <div class=\"description_important\">   ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
-        :param api_v1_feedbacks_answer_post_request:
-        :type api_v1_feedbacks_answer_post_request: ApiV1FeedbacksAnswerPostRequest
+        :param api_v1_feedbacks_answer_patch_request:
+        :type api_v1_feedbacks_answer_patch_request: ApiV1FeedbacksAnswerPatchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2840,7 +2843,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._api_v1_feedbacks_answer_patch_serialize(
-            api_v1_feedbacks_answer_post_request=api_v1_feedbacks_answer_post_request,
+            api_v1_feedbacks_answer_patch_request=api_v1_feedbacks_answer_patch_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2862,7 +2865,7 @@ class DefaultApi:
 
     def _api_v1_feedbacks_answer_patch_serialize(
         self,
-        api_v1_feedbacks_answer_post_request,
+        api_v1_feedbacks_answer_patch_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2892,8 +2895,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if api_v1_feedbacks_answer_post_request is not None:
-            _body_params = api_v1_feedbacks_answer_post_request
+        if api_v1_feedbacks_answer_patch_request is not None:
+            _body_params = api_v1_feedbacks_answer_patch_request
 
 
         # set the HTTP header `Accept`
@@ -3587,7 +3590,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiV1QuestionsCountGet200Response:
+    ) -> ApiV1FeedbacksCountGet200Response:
         """Количество отзывов
 
         Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
@@ -3631,7 +3634,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiV1QuestionsCountGet200Response",
+            '200': "ApiV1FeedbacksCountGet200Response",
             '400': "ResponseFeedbackQuestionErr",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
@@ -3667,7 +3670,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiResponse[ApiV1QuestionsCountGet200Response]:
+    ) -> ApiResponse[ApiV1FeedbacksCountGet200Response]:
         """Количество отзывов
 
         Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
@@ -3711,7 +3714,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiV1QuestionsCountGet200Response",
+            '200': "ApiV1FeedbacksCountGet200Response",
             '400': "ResponseFeedbackQuestionErr",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
@@ -3791,7 +3794,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiV1QuestionsCountGet200Response",
+            '200': "ApiV1FeedbacksCountGet200Response",
             '400': "ResponseFeedbackQuestionErr",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
@@ -3901,7 +3904,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiV1QuestionsCountUnansweredGet200Response:
+    ) -> ApiV1FeedbacksCountUnansweredGet200Response:
         """Необработанные отзывы
 
         Метод возвращает:   - количество необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за сегодня и за всё время  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
@@ -3936,7 +3939,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiV1QuestionsCountUnansweredGet200Response",
+            '200': "ApiV1FeedbacksCountUnansweredGet200Response",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
             '403': "ResponseFeedbackQuestionErr",
@@ -3968,7 +3971,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiResponse[ApiV1QuestionsCountUnansweredGet200Response]:
+    ) -> ApiResponse[ApiV1FeedbacksCountUnansweredGet200Response]:
         """Необработанные отзывы
 
         Метод возвращает:   - количество необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за сегодня и за всё время  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
@@ -4003,7 +4006,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiV1QuestionsCountUnansweredGet200Response",
+            '200': "ApiV1FeedbacksCountUnansweredGet200Response",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
             '403': "ResponseFeedbackQuestionErr",
@@ -4070,7 +4073,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiV1QuestionsCountUnansweredGet200Response",
+            '200': "ApiV1FeedbacksCountUnansweredGet200Response",
             '401': "ApiV1NewFeedbacksQuestionsGet401Response",
             '402': "ApiV1NewFeedbacksQuestionsGet402Response",
             '403': "ResponseFeedbackQuestionErr",

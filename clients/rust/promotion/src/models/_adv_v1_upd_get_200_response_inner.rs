@@ -19,7 +19,7 @@ pub struct AdvV1UpdGet200ResponseInner {
     /// Время списания
     #[serde(rename = "updTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub upd_time: Option<Option<String>>,
-    /// Выставленная сумма
+    /// Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "updSum", skip_serializing_if = "Option::is_none")]
     pub upd_sum: Option<i32>,
     /// ID кампании

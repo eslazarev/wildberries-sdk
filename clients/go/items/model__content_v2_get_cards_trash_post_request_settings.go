@@ -19,7 +19,7 @@ var _ MappedNullable = &ContentV2GetCardsTrashPostRequestSettings{}
 
 // ContentV2GetCardsTrashPostRequestSettings Настройки
 type ContentV2GetCardsTrashPostRequestSettings struct {
-	Sort *ContentV2GetCardsListPostRequestSettingsSort `json:"sort,omitempty"`
+	Sort *ContentV2GetCardsTrashPostRequestSettingsSort `json:"sort,omitempty"`
 	Cursor *ContentV2GetCardsTrashPostRequestSettingsCursor `json:"cursor,omitempty"`
 	Filter *ContentV2GetCardsTrashPostRequestSettingsFilter `json:"filter,omitempty"`
 }
@@ -42,9 +42,9 @@ func NewContentV2GetCardsTrashPostRequestSettingsWithDefaults() *ContentV2GetCar
 }
 
 // GetSort returns the Sort field value if set, zero value otherwise.
-func (o *ContentV2GetCardsTrashPostRequestSettings) GetSort() ContentV2GetCardsListPostRequestSettingsSort {
+func (o *ContentV2GetCardsTrashPostRequestSettings) GetSort() ContentV2GetCardsTrashPostRequestSettingsSort {
 	if o == nil || IsNil(o.Sort) {
-		var ret ContentV2GetCardsListPostRequestSettingsSort
+		var ret ContentV2GetCardsTrashPostRequestSettingsSort
 		return ret
 	}
 	return *o.Sort
@@ -52,7 +52,7 @@ func (o *ContentV2GetCardsTrashPostRequestSettings) GetSort() ContentV2GetCardsL
 
 // GetSortOk returns a tuple with the Sort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2GetCardsTrashPostRequestSettings) GetSortOk() (*ContentV2GetCardsListPostRequestSettingsSort, bool) {
+func (o *ContentV2GetCardsTrashPostRequestSettings) GetSortOk() (*ContentV2GetCardsTrashPostRequestSettingsSort, bool) {
 	if o == nil || IsNil(o.Sort) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *ContentV2GetCardsTrashPostRequestSettings) HasSort() bool {
 	return false
 }
 
-// SetSort gets a reference to the given ContentV2GetCardsListPostRequestSettingsSort and assigns it to the Sort field.
-func (o *ContentV2GetCardsTrashPostRequestSettings) SetSort(v ContentV2GetCardsListPostRequestSettingsSort) {
+// SetSort gets a reference to the given ContentV2GetCardsTrashPostRequestSettingsSort and assigns it to the Sort field.
+func (o *ContentV2GetCardsTrashPostRequestSettings) SetSort(v ContentV2GetCardsTrashPostRequestSettingsSort) {
 	o.Sort = &v
 }
 

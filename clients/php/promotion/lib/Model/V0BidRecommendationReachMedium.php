@@ -310,7 +310,7 @@ class V0BidRecommendationReachMedium implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets bid_kopecks
      *
-     * @param int|null $bid_kopecks Рекомендуемая ставка в копейках
+     * @param int|null $bid_kopecks Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class V0BidRecommendationReachMedium implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets bid_kopecks_min
      *
-     * @param int|null $bid_kopecks_min Минимальная ставка в копейках
+     * @param int|null $bid_kopecks_min Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

@@ -42,6 +42,8 @@ pub mod api_order_client_info_resp;
 pub use self::api_order_client_info_resp::ApiOrderClientInfoResp;
 pub mod api_order_meta_v2;
 pub use self::api_order_meta_v2::ApiOrderMetaV2;
+pub mod api_order_options;
+pub use self::api_order_options::ApiOrderOptions;
 pub mod api_order_status_v2;
 pub use self::api_order_status_v2::ApiOrderStatusV2;
 pub mod api_order_statuses_v2;

@@ -59,7 +59,8 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'cash' => 'int',
         'netting' => 'int',
-        'total' => 'int'
+        'total' => 'int',
+        'currency' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'cash' => null,
         'netting' => null,
-        'total' => null
+        'total' => null,
+        'currency' => 'ISO 4217'
     ];
 
     /**
@@ -83,7 +85,8 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'cash' => false,
         'netting' => false,
-        'total' => false
+        'total' => false,
+        'currency' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'cash' => 'cash',
         'netting' => 'netting',
-        'total' => 'total'
+        'total' => 'total',
+        'currency' => 'currency'
     ];
 
     /**
@@ -185,7 +189,8 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'cash' => 'setCash',
         'netting' => 'setNetting',
-        'total' => 'setTotal'
+        'total' => 'setTotal',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -196,7 +201,8 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'cash' => 'getCash',
         'netting' => 'getNetting',
-        'total' => 'getTotal'
+        'total' => 'getTotal',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -259,6 +265,7 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('cash', $data ?? [], null);
         $this->setIfExists('netting', $data ?? [], null);
         $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -370,7 +377,7 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets total
      *
-     * @param int|null $total Бюджет кампании, ₽
+     * @param int|null $total Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -380,6 +387,33 @@ class AdvV1BudgetGet200Response implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

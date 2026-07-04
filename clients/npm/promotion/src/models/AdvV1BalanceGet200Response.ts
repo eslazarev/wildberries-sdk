@@ -28,19 +28,25 @@ import {
  */
 export interface AdvV1BalanceGet200Response {
     /**
-     * Счёт, ₽
+     * Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof AdvV1BalanceGet200Response
      */
     balance?: number;
     /**
-     * Баланс, ₽
+     * Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof AdvV1BalanceGet200Response
      */
     net?: number;
     /**
-     * Бонусы, ₽
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof AdvV1BalanceGet200Response
+     */
+    currency?: string;
+    /**
+     * Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof AdvV1BalanceGet200Response
      */
@@ -72,6 +78,7 @@ export function AdvV1BalanceGet200ResponseFromJSONTyped(json: any, ignoreDiscrim
         
         'balance': json['balance'] == null ? undefined : json['balance'],
         'net': json['net'] == null ? undefined : json['net'],
+        'currency': json['currency'] == null ? undefined : json['currency'],
         'bonus': json['bonus'] == null ? undefined : json['bonus'],
         'cashbacks': json['cashbacks'] == null ? undefined : ((json['cashbacks'] as Array<any>).map(AdvV1BalanceGet200ResponseCashbacksInnerFromJSON)),
     };
@@ -90,6 +97,7 @@ export function AdvV1BalanceGet200ResponseToJSONTyped(value?: AdvV1BalanceGet200
         
         'balance': value['balance'],
         'net': value['net'],
+        'currency': value['currency'],
         'bonus': value['bonus'],
         'cashbacks': value['cashbacks'] == null ? undefined : ((value['cashbacks'] as Array<any>).map(AdvV1BalanceGet200ResponseCashbacksInnerToJSON)),
     };

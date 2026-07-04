@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ApiV1QuestionsGet200ResponseDataQuestionsInner } from './ApiV1QuestionsGet200ResponseDataQuestionsInner';
+import type { ApiV1QuestionGet200ResponseData } from './ApiV1QuestionGet200ResponseData';
 import {
-    ApiV1QuestionsGet200ResponseDataQuestionsInnerFromJSON,
-    ApiV1QuestionsGet200ResponseDataQuestionsInnerFromJSONTyped,
-    ApiV1QuestionsGet200ResponseDataQuestionsInnerToJSON,
-    ApiV1QuestionsGet200ResponseDataQuestionsInnerToJSONTyped,
-} from './ApiV1QuestionsGet200ResponseDataQuestionsInner';
+    ApiV1QuestionGet200ResponseDataFromJSON,
+    ApiV1QuestionGet200ResponseDataFromJSONTyped,
+    ApiV1QuestionGet200ResponseDataToJSON,
+    ApiV1QuestionGet200ResponseDataToJSONTyped,
+} from './ApiV1QuestionGet200ResponseData';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface ApiV1QuestionGet200Response {
     /**
      * 
-     * @type {ApiV1QuestionsGet200ResponseDataQuestionsInner}
+     * @type {ApiV1QuestionGet200ResponseData}
      * @memberof ApiV1QuestionGet200Response
      */
-    data?: ApiV1QuestionsGet200ResponseDataQuestionsInner;
+    data?: ApiV1QuestionGet200ResponseData;
     /**
      * Есть ли ошибка
      * @type {boolean}
@@ -70,7 +70,7 @@ export function ApiV1QuestionGet200ResponseFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'data': json['data'] == null ? undefined : ApiV1QuestionsGet200ResponseDataQuestionsInnerFromJSON(json['data']),
+        'data': json['data'] == null ? undefined : ApiV1QuestionGet200ResponseDataFromJSON(json['data']),
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
         'additionalErrors': json['additionalErrors'] == null ? undefined : json['additionalErrors'],
@@ -88,7 +88,7 @@ export function ApiV1QuestionGet200ResponseToJSONTyped(value?: ApiV1QuestionGet2
 
     return {
         
-        'data': ApiV1QuestionsGet200ResponseDataQuestionsInnerToJSON(value['data']),
+        'data': ApiV1QuestionGet200ResponseDataToJSON(value['data']),
         'error': value['error'],
         'errorText': value['errorText'],
         'additionalErrors': value['additionalErrors'],

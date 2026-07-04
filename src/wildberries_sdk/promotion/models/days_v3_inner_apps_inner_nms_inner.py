@@ -30,15 +30,15 @@ class DaysV3InnerAppsInnerNmsInner(BaseModel):
     atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
     canceled: StrictInt = Field(description="Отмены, шт.")
     clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика, ₽")
+    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству кликов")
     ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
     name: StrictStr = Field(description="Название товара")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты, ₽")
-    sum_price: Union[StrictFloat, StrictInt] = Field(description="Заказов на сумму, ₽")
+    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    sum_price: Union[StrictFloat, StrictInt] = Field(description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     views: StrictInt = Field(description="Количество просмотров")
     __properties: ClassVar[List[str]] = ["atbs", "canceled", "clicks", "cpc", "cr", "ctr", "name", "nmId", "orders", "shks", "sum", "sum_price", "views"]
 

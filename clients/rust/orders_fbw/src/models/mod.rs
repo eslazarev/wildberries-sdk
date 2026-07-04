@@ -20,6 +20,8 @@ pub mod models_options_result_model;
 pub use self::models_options_result_model::ModelsOptionsResultModel;
 pub mod models_options_result_model_result_inner;
 pub use self::models_options_result_model_result_inner::ModelsOptionsResultModelResultInner;
+pub mod models_options_result_model_result_inner_error;
+pub use self::models_options_result_model_result_inner_error::ModelsOptionsResultModelResultInnerError;
 pub mod models_options_result_model_result_inner_warehouses_inner;
 pub use self::models_options_result_model_result_inner_warehouses_inner::ModelsOptionsResultModelResultInnerWarehousesInner;
 pub mod models_supplies_filters_request;

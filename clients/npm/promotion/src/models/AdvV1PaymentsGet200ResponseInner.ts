@@ -67,6 +67,12 @@ export interface AdvV1PaymentsGet200ResponseInner {
      * @memberof AdvV1PaymentsGet200ResponseInner
      */
     cardStatus?: string;
+    /**
+     * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @type {string}
+     * @memberof AdvV1PaymentsGet200ResponseInner
+     */
+    currency?: string;
 }
 
 /**
@@ -92,6 +98,7 @@ export function AdvV1PaymentsGet200ResponseInnerFromJSONTyped(json: any, ignoreD
         'type': json['type'] == null ? undefined : json['type'],
         'statusId': json['statusId'] == null ? undefined : json['statusId'],
         'cardStatus': json['cardStatus'] == null ? undefined : json['cardStatus'],
+        'currency': json['currency'] == null ? undefined : json['currency'],
     };
 }
 
@@ -112,6 +119,7 @@ export function AdvV1PaymentsGet200ResponseInnerToJSONTyped(value?: AdvV1Payment
         'type': value['type'],
         'statusId': value['statusId'],
         'cardStatus': value['cardStatus'],
+        'currency': value['currency'],
     };
 }
 

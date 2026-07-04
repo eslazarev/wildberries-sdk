@@ -19,7 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts
+from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage
+from wildberries_sdk.analytics.models.position_info_median import PositionInfoMedian
 from wildberries_sdk.analytics.models.search_report_position_chart_item import SearchReportPositionChartItem
 from wildberries_sdk.analytics.models.search_report_position_clusters import SearchReportPositionClusters
 from typing import Optional, Set
@@ -30,8 +31,8 @@ class PositionInfo(BaseModel):
     """
     Информация о позиции товара
     """ # noqa: E501
-    average: CommonInfoAdvertisedProducts
-    median: CommonInfoAdvertisedProducts
+    average: PositionInfoAverage
+    median: PositionInfoMedian
     chart_items: List[SearchReportPositionChartItem] = Field(description="Данные для чарта по средней и медианной позиции товара в результатах поиска", alias="chartItems")
     clusters: SearchReportPositionClusters
     __properties: ClassVar[List[str]] = ["average", "median", "chartItems", "clusters"]
@@ -103,8 +104,8 @@ class PositionInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "average": CommonInfoAdvertisedProducts.from_dict(obj["average"]) if obj.get("average") is not None else None,
-            "median": CommonInfoAdvertisedProducts.from_dict(obj["median"]) if obj.get("median") is not None else None,
+            "average": PositionInfoAverage.from_dict(obj["average"]) if obj.get("average") is not None else None,
+            "median": PositionInfoMedian.from_dict(obj["median"]) if obj.get("median") is not None else None,
             "chartItems": [SearchReportPositionChartItem.from_dict(_item) for _item in obj["chartItems"]] if obj.get("chartItems") is not None else None,
             "clusters": SearchReportPositionClusters.from_dict(obj["clusters"]) if obj.get("clusters") is not None else None
         })

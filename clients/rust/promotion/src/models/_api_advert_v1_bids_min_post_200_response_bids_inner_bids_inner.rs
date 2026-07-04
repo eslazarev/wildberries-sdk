@@ -13,16 +13,20 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
+    /// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    #[serde(rename = "currency")]
+    pub currency: String,
     #[serde(rename = "type")]
     pub r#type: models::PlacementType,
-    /// Минимальная ставка, копейки
+    /// Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
     #[serde(rename = "value")]
     pub value: i32,
 }
 
 impl ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
-    pub fn new(r#type: models::PlacementType, value: i32) -> ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
+    pub fn new(currency: String, r#type: models::PlacementType, value: i32) -> ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
         ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
+            currency,
             r#type,
             value,
         }

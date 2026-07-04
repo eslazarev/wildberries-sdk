@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.orders_dbs.models.api_marketplace_v3_dbs_orders_status_receive_post200_response_results_inner_errors_inner import ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner
+from wildberries_sdk.orders_dbs.models.api_orders_meta_details_response_orders_inner_errors_inner import ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
 from wildberries_sdk.orders_dbs.models.api_orders_meta_details_response_orders_inner_meta_details_inner import ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class ApiOrdersMetaDetailsResponseOrdersInner(BaseModel):
     """ # noqa: E501
     order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
     is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError", json_schema_extra={"examples": [False]})
-    errors: Optional[List[ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner]] = Field(default=None, description="Информация об ошибке", json_schema_extra={"examples": [[]]})
+    errors: Optional[List[ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner]] = Field(default=None, description="Информация об ошибке", json_schema_extra={"examples": [[]]})
     meta_details: Optional[List[ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner]] = Field(default=None, description="Идентификаторы маркировки и статусы их валидации", alias="metaDetails")
     __properties: ClassVar[List[str]] = ["orderId", "isError", "errors", "metaDetails"]
 
@@ -102,7 +102,7 @@ class ApiOrdersMetaDetailsResponseOrdersInner(BaseModel):
         _obj = cls.model_validate({
             "orderId": obj.get("orderId"),
             "isError": obj.get("isError"),
-            "errors": [ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
+            "errors": [ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
             "metaDetails": [ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner.from_dict(_item) for _item in obj["metaDetails"]] if obj.get("metaDetails") is not None else None
         })
         return _obj

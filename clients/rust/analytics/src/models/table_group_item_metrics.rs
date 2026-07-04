@@ -15,24 +15,24 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TableGroupItemMetrics {
     #[serde(rename = "avgPosition")]
-    pub avg_position: Box<models::CommonInfoAdvertisedProducts>,
+    pub avg_position: Box<models::TableGroupItemMetricsAvgPosition>,
     #[serde(rename = "openCard")]
-    pub open_card: Box<models::CommonInfoAdvertisedProducts>,
+    pub open_card: Box<models::VisibilityInfoOpenCard>,
     #[serde(rename = "addToCart")]
-    pub add_to_cart: Box<models::CommonInfoAdvertisedProducts>,
+    pub add_to_cart: Box<models::TableGroupItemMetricsAddToCart>,
     #[serde(rename = "openToCart")]
-    pub open_to_cart: Box<models::CommonInfoAdvertisedProducts>,
+    pub open_to_cart: Box<models::TableGroupItemMetricsOpenToCart>,
     #[serde(rename = "orders")]
-    pub orders: Box<models::CommonInfoAdvertisedProducts>,
+    pub orders: Box<models::TableGroupItemMetricsOrders>,
     #[serde(rename = "cartToOrder")]
-    pub cart_to_order: Box<models::CommonInfoAdvertisedProducts>,
+    pub cart_to_order: Box<models::TableGroupItemMetricsCartToOrder>,
     #[serde(rename = "visibility")]
-    pub visibility: Box<models::CommonInfoAdvertisedProducts>,
+    pub visibility: Box<models::TableGroupItemMetricsVisibility>,
 }
 
 impl TableGroupItemMetrics {
     /// Метрики товара в таблице
-    pub fn new(avg_position: models::CommonInfoAdvertisedProducts, open_card: models::CommonInfoAdvertisedProducts, add_to_cart: models::CommonInfoAdvertisedProducts, open_to_cart: models::CommonInfoAdvertisedProducts, orders: models::CommonInfoAdvertisedProducts, cart_to_order: models::CommonInfoAdvertisedProducts, visibility: models::CommonInfoAdvertisedProducts) -> TableGroupItemMetrics {
+    pub fn new(avg_position: models::TableGroupItemMetricsAvgPosition, open_card: models::VisibilityInfoOpenCard, add_to_cart: models::TableGroupItemMetricsAddToCart, open_to_cart: models::TableGroupItemMetricsOpenToCart, orders: models::TableGroupItemMetricsOrders, cart_to_order: models::TableGroupItemMetricsCartToOrder, visibility: models::TableGroupItemMetricsVisibility) -> TableGroupItemMetrics {
         TableGroupItemMetrics {
             avg_position: Box::new(avg_position),
             open_card: Box::new(open_card),

@@ -1191,7 +1191,7 @@ func (a *DefaultApiService) ApiV1ClaimPatchExecute(r ApiApiV1ClaimPatchRequest) 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1ClaimsGet400Response
+			var v ApiV1ClaimPatch400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1650,11 +1650,11 @@ func (a *DefaultApiService) ApiV1FeedbackGetExecute(r ApiApiV1FeedbackGetRequest
 type ApiApiV1FeedbacksAnswerPatchRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	apiV1FeedbacksAnswerPostRequest *ApiV1FeedbacksAnswerPostRequest
+	apiV1FeedbacksAnswerPatchRequest *ApiV1FeedbacksAnswerPatchRequest
 }
 
-func (r ApiApiV1FeedbacksAnswerPatchRequest) ApiV1FeedbacksAnswerPostRequest(apiV1FeedbacksAnswerPostRequest ApiV1FeedbacksAnswerPostRequest) ApiApiV1FeedbacksAnswerPatchRequest {
-	r.apiV1FeedbacksAnswerPostRequest = &apiV1FeedbacksAnswerPostRequest
+func (r ApiApiV1FeedbacksAnswerPatchRequest) ApiV1FeedbacksAnswerPatchRequest(apiV1FeedbacksAnswerPatchRequest ApiV1FeedbacksAnswerPatchRequest) ApiApiV1FeedbacksAnswerPatchRequest {
+	r.apiV1FeedbacksAnswerPatchRequest = &apiV1FeedbacksAnswerPatchRequest
 	return r
 }
 
@@ -1733,7 +1733,7 @@ func (a *DefaultApiService) ApiV1FeedbacksAnswerPatchExecute(r ApiApiV1Feedbacks
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV1FeedbacksAnswerPostRequest
+	localVarPostBody = r.apiV1FeedbacksAnswerPatchRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2242,7 +2242,7 @@ func (r ApiApiV1FeedbacksCountGetRequest) IsAnswered(isAnswered bool) ApiApiV1Fe
 	return r
 }
 
-func (r ApiApiV1FeedbacksCountGetRequest) Execute() (*ApiV1QuestionsCountGet200Response, *http.Response, error) {
+func (r ApiApiV1FeedbacksCountGetRequest) Execute() (*ApiV1FeedbacksCountGet200Response, *http.Response, error) {
 	return r.ApiService.ApiV1FeedbacksCountGetExecute(r)
 }
 
@@ -2275,13 +2275,13 @@ func (a *DefaultApiService) ApiV1FeedbacksCountGet(ctx context.Context) ApiApiV1
 }
 
 // Execute executes the request
-//  @return ApiV1QuestionsCountGet200Response
-func (a *DefaultApiService) ApiV1FeedbacksCountGetExecute(r ApiApiV1FeedbacksCountGetRequest) (*ApiV1QuestionsCountGet200Response, *http.Response, error) {
+//  @return ApiV1FeedbacksCountGet200Response
+func (a *DefaultApiService) ApiV1FeedbacksCountGetExecute(r ApiApiV1FeedbacksCountGetRequest) (*ApiV1FeedbacksCountGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1QuestionsCountGet200Response
+		localVarReturnValue  *ApiV1FeedbacksCountGet200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1FeedbacksCountGet")
@@ -2435,7 +2435,7 @@ type ApiApiV1FeedbacksCountUnansweredGetRequest struct {
 	ApiService *DefaultApiService
 }
 
-func (r ApiApiV1FeedbacksCountUnansweredGetRequest) Execute() (*ApiV1QuestionsCountUnansweredGet200Response, *http.Response, error) {
+func (r ApiApiV1FeedbacksCountUnansweredGetRequest) Execute() (*ApiV1FeedbacksCountUnansweredGet200Response, *http.Response, error) {
 	return r.ApiService.ApiV1FeedbacksCountUnansweredGetExecute(r)
 }
 
@@ -2469,13 +2469,13 @@ func (a *DefaultApiService) ApiV1FeedbacksCountUnansweredGet(ctx context.Context
 }
 
 // Execute executes the request
-//  @return ApiV1QuestionsCountUnansweredGet200Response
-func (a *DefaultApiService) ApiV1FeedbacksCountUnansweredGetExecute(r ApiApiV1FeedbacksCountUnansweredGetRequest) (*ApiV1QuestionsCountUnansweredGet200Response, *http.Response, error) {
+//  @return ApiV1FeedbacksCountUnansweredGet200Response
+func (a *DefaultApiService) ApiV1FeedbacksCountUnansweredGetExecute(r ApiApiV1FeedbacksCountUnansweredGetRequest) (*ApiV1FeedbacksCountUnansweredGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1QuestionsCountUnansweredGet200Response
+		localVarReturnValue  *ApiV1FeedbacksCountUnansweredGet200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1FeedbacksCountUnansweredGet")

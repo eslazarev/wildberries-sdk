@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wildberries_sdk.items.models.api_v3_dbw_warehouses_warehouse_id_contacts_get200_response_contacts_inner import ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner
+from wildberries_sdk.items.models.store_contact_request_body_contacts_inner import StoreContactRequestBodyContactsInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +29,7 @@ class StoreContactRequestBody(BaseModel):
     """
     Контакты склада продавца
     """ # noqa: E501
-    contacts: Optional[Annotated[List[ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner], Field(max_length=5)]] = None
+    contacts: Optional[Annotated[List[StoreContactRequestBodyContactsInner], Field(max_length=5)]] = None
     __properties: ClassVar[List[str]] = ["contacts"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class StoreContactRequestBody(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "contacts": [ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner.from_dict(_item) for _item in obj["contacts"]] if obj.get("contacts") is not None else None
+            "contacts": [StoreContactRequestBodyContactsInner.from_dict(_item) for _item in obj["contacts"]] if obj.get("contacts") is not None else None
         })
         return _obj
 

@@ -19,9 +19,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.items.models.content_v2_get_cards_list_post_request_settings_sort import ContentV2GetCardsListPostRequestSettingsSort
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings_cursor import ContentV2GetCardsTrashPostRequestSettingsCursor
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings_filter import ContentV2GetCardsTrashPostRequestSettingsFilter
+from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request_settings_sort import ContentV2GetCardsTrashPostRequestSettingsSort
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,7 +30,7 @@ class ContentV2GetCardsTrashPostRequestSettings(BaseModel):
     """
     Настройки
     """ # noqa: E501
-    sort: Optional[ContentV2GetCardsListPostRequestSettingsSort] = None
+    sort: Optional[ContentV2GetCardsTrashPostRequestSettingsSort] = None
     cursor: Optional[ContentV2GetCardsTrashPostRequestSettingsCursor] = None
     filter: Optional[ContentV2GetCardsTrashPostRequestSettingsFilter] = None
     __properties: ClassVar[List[str]] = ["sort", "cursor", "filter"]
@@ -95,7 +95,7 @@ class ContentV2GetCardsTrashPostRequestSettings(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "sort": ContentV2GetCardsListPostRequestSettingsSort.from_dict(obj["sort"]) if obj.get("sort") is not None else None,
+            "sort": ContentV2GetCardsTrashPostRequestSettingsSort.from_dict(obj["sort"]) if obj.get("sort") is not None else None,
             "cursor": ContentV2GetCardsTrashPostRequestSettingsCursor.from_dict(obj["cursor"]) if obj.get("cursor") is not None else None,
             "filter": ContentV2GetCardsTrashPostRequestSettingsFilter.from_dict(obj["filter"]) if obj.get("filter") is not None else None
         })

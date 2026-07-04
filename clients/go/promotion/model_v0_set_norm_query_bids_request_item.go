@@ -27,7 +27,7 @@ type V0SetNormQueryBidsRequestItem struct {
 	NmId int32 `json:"nm_id"`
 	// Поисковый кластер
 	NormQuery string `json:"norm_query"`
-	// Ставка за тысячу показов, ₽
+	// Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Bid int32 `json:"bid"`
 }
 

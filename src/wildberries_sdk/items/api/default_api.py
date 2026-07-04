@@ -37,6 +37,7 @@ from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_put_request import 
 from wildberries_sdk.items.models.api_v3_warehouses_post201_response import ApiV3WarehousesPost201Response
 from wildberries_sdk.items.models.api_v3_warehouses_post_request import ApiV3WarehousesPostRequest
 from wildberries_sdk.items.models.brands_response import BrandsResponse
+from wildberries_sdk.items.models.content_v2_barcodes_post200_response import ContentV2BarcodesPost200Response
 from wildberries_sdk.items.models.content_v2_barcodes_post_request import ContentV2BarcodesPostRequest
 from wildberries_sdk.items.models.content_v2_cards_delete_trash_post200_response import ContentV2CardsDeleteTrashPost200Response
 from wildberries_sdk.items.models.content_v2_cards_delete_trash_post_request import ContentV2CardsDeleteTrashPostRequest
@@ -48,7 +49,9 @@ from wildberries_sdk.items.models.content_v2_cards_upload_post_request_inner imp
 from wildberries_sdk.items.models.content_v2_directory_colors_get200_response import ContentV2DirectoryColorsGet200Response
 from wildberries_sdk.items.models.content_v2_directory_countries_get200_response import ContentV2DirectoryCountriesGet200Response
 from wildberries_sdk.items.models.content_v2_directory_kinds_get200_response import ContentV2DirectoryKindsGet200Response
+from wildberries_sdk.items.models.content_v2_directory_seasons_get200_response import ContentV2DirectorySeasonsGet200Response
 from wildberries_sdk.items.models.content_v2_directory_tnved_get200_response import ContentV2DirectoryTnvedGet200Response
+from wildberries_sdk.items.models.content_v2_directory_vat_get200_response import ContentV2DirectoryVatGet200Response
 from wildberries_sdk.items.models.content_v2_get_cards_list_post200_response import ContentV2GetCardsListPost200Response
 from wildberries_sdk.items.models.content_v2_get_cards_list_post_request import ContentV2GetCardsListPostRequest
 from wildberries_sdk.items.models.content_v2_get_cards_trash_post200_response import ContentV2GetCardsTrashPost200Response
@@ -56,6 +59,7 @@ from wildberries_sdk.items.models.content_v2_get_cards_trash_post_request import
 from wildberries_sdk.items.models.content_v2_object_all_get200_response import ContentV2ObjectAllGet200Response
 from wildberries_sdk.items.models.content_v2_object_charcs_subject_id_get200_response import ContentV2ObjectCharcsSubjectIdGet200Response
 from wildberries_sdk.items.models.content_v2_object_parent_all_get200_response import ContentV2ObjectParentAllGet200Response
+from wildberries_sdk.items.models.content_v2_tag_id_patch_request import ContentV2TagIdPatchRequest
 from wildberries_sdk.items.models.content_v2_tag_nomenclature_link_post_request import ContentV2TagNomenclatureLinkPostRequest
 from wildberries_sdk.items.models.content_v2_tag_post_request import ContentV2TagPostRequest
 from wildberries_sdk.items.models.content_v2_tags_get200_response import ContentV2TagsGet200Response
@@ -6683,7 +6687,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ContentV2DirectoryKindsGet200Response:
+    ) -> ContentV2BarcodesPost200Response:
         """Генерация баркодов
 
         Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
@@ -6721,7 +6725,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2BarcodesPost200Response",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
             '403': "ResponseBodyContentError403",
@@ -6754,7 +6758,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiResponse[ContentV2DirectoryKindsGet200Response]:
+    ) -> ApiResponse[ContentV2BarcodesPost200Response]:
         """Генерация баркодов
 
         Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
@@ -6792,7 +6796,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2BarcodesPost200Response",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
             '403': "ResponseBodyContentError403",
@@ -6863,7 +6867,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2BarcodesPost200Response",
             '401': "ContentV2ObjectParentAllGet401Response",
             '402': "ContentV2TagsGet402Response",
             '403': "ResponseBodyContentError403",
@@ -10154,7 +10158,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ContentV2DirectoryKindsGet200Response:
+    ) -> ContentV2DirectorySeasonsGet200Response:
         """Сезон
 
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
@@ -10192,7 +10196,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2DirectorySeasonsGet200Response",
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '403': "ResponseBodyContentError403",
@@ -10225,7 +10229,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiResponse[ContentV2DirectoryKindsGet200Response]:
+    ) -> ApiResponse[ContentV2DirectorySeasonsGet200Response]:
         """Сезон
 
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
@@ -10263,7 +10267,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2DirectorySeasonsGet200Response",
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '403': "ResponseBodyContentError403",
@@ -10334,7 +10338,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2DirectorySeasonsGet200Response",
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '403': "ResponseBodyContentError403",
@@ -10748,7 +10752,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ContentV2DirectoryKindsGet200Response:
+    ) -> ContentV2DirectoryVatGet200Response:
         """Ставка НДС
 
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
@@ -10786,7 +10790,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2DirectoryVatGet200Response",
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '403': "ResponseBodyContentError403",
@@ -10819,7 +10823,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiResponse[ContentV2DirectoryKindsGet200Response]:
+    ) -> ApiResponse[ContentV2DirectoryVatGet200Response]:
         """Ставка НДС
 
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов |  Исключение — методы:  <ul>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>     <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>     <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li> </ul> </div> 
@@ -10857,7 +10861,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2DirectoryVatGet200Response",
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '403': "ResponseBodyContentError403",
@@ -10928,7 +10932,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ContentV2DirectoryKindsGet200Response",
+            '200': "ContentV2DirectoryVatGet200Response",
             '400': "ResponseBodyContentError400",
             '401': "ContentV2ObjectParentAllGet401Response",
             '403': "ResponseBodyContentError403",
@@ -12838,7 +12842,7 @@ class DefaultApi:
     def content_v2_tag_id_patch(
         self,
         id: Annotated[StrictInt, Field(description="Числовой ID ярлыка")],
-        content_v2_tag_post_request: ContentV2TagPostRequest,
+        content_v2_tag_id_patch_request: ContentV2TagIdPatchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12858,8 +12862,8 @@ class DefaultApi:
 
         :param id: Числовой ID ярлыка (required)
         :type id: int
-        :param content_v2_tag_post_request: (required)
-        :type content_v2_tag_post_request: ContentV2TagPostRequest
+        :param content_v2_tag_id_patch_request: (required)
+        :type content_v2_tag_id_patch_request: ContentV2TagIdPatchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12884,7 +12888,7 @@ class DefaultApi:
 
         _param = self._content_v2_tag_id_patch_serialize(
             id=id,
-            content_v2_tag_post_request=content_v2_tag_post_request,
+            content_v2_tag_id_patch_request=content_v2_tag_id_patch_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12914,7 +12918,7 @@ class DefaultApi:
     def content_v2_tag_id_patch_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="Числовой ID ярлыка")],
-        content_v2_tag_post_request: ContentV2TagPostRequest,
+        content_v2_tag_id_patch_request: ContentV2TagIdPatchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12934,8 +12938,8 @@ class DefaultApi:
 
         :param id: Числовой ID ярлыка (required)
         :type id: int
-        :param content_v2_tag_post_request: (required)
-        :type content_v2_tag_post_request: ContentV2TagPostRequest
+        :param content_v2_tag_id_patch_request: (required)
+        :type content_v2_tag_id_patch_request: ContentV2TagIdPatchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12960,7 +12964,7 @@ class DefaultApi:
 
         _param = self._content_v2_tag_id_patch_serialize(
             id=id,
-            content_v2_tag_post_request=content_v2_tag_post_request,
+            content_v2_tag_id_patch_request=content_v2_tag_id_patch_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12990,7 +12994,7 @@ class DefaultApi:
     def content_v2_tag_id_patch_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="Числовой ID ярлыка")],
-        content_v2_tag_post_request: ContentV2TagPostRequest,
+        content_v2_tag_id_patch_request: ContentV2TagIdPatchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13010,8 +13014,8 @@ class DefaultApi:
 
         :param id: Числовой ID ярлыка (required)
         :type id: int
-        :param content_v2_tag_post_request: (required)
-        :type content_v2_tag_post_request: ContentV2TagPostRequest
+        :param content_v2_tag_id_patch_request: (required)
+        :type content_v2_tag_id_patch_request: ContentV2TagIdPatchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13036,7 +13040,7 @@ class DefaultApi:
 
         _param = self._content_v2_tag_id_patch_serialize(
             id=id,
-            content_v2_tag_post_request=content_v2_tag_post_request,
+            content_v2_tag_id_patch_request=content_v2_tag_id_patch_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13061,7 +13065,7 @@ class DefaultApi:
     def _content_v2_tag_id_patch_serialize(
         self,
         id,
-        content_v2_tag_post_request,
+        content_v2_tag_id_patch_request,
         _request_auth,
         _content_type,
         _headers,
@@ -13093,8 +13097,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if content_v2_tag_post_request is not None:
-            _body_params = content_v2_tag_post_request
+        if content_v2_tag_id_patch_request is not None:
+            _body_params = content_v2_tag_id_patch_request
 
 
         # set the HTTP header `Accept`

@@ -68,10 +68,10 @@ class TableCommonMetrics implements ModelInterface, ArrayAccess, \JsonSerializab
         'stock_count' => 'int',
         'stock_sum' => 'int',
         'sale_rate' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate',
-        'avg_stock_turnover' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate',
+        'avg_stock_turnover' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsAvgStockTurnover',
         'to_client_count' => 'int',
         'from_client_count' => 'int',
-        'office_missing_time' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate',
+        'office_missing_time' => '\Wildberries\Sdk\Analytics\Model\TableCommonMetricsOfficeMissingTime',
         'lost_orders_count' => 'float',
         'lost_orders_sum' => 'float',
         'lost_buyouts_count' => 'float',
@@ -736,7 +736,7 @@ class TableCommonMetrics implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets avg_stock_turnover
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate
+     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsAvgStockTurnover
      */
     public function getAvgStockTurnover()
     {
@@ -746,7 +746,7 @@ class TableCommonMetrics implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets avg_stock_turnover
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate $avg_stock_turnover avg_stock_turnover
+     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsAvgStockTurnover $avg_stock_turnover avg_stock_turnover
      *
      * @return self
      */
@@ -817,7 +817,7 @@ class TableCommonMetrics implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets office_missing_time
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate
+     * @return \Wildberries\Sdk\Analytics\Model\TableCommonMetricsOfficeMissingTime
      */
     public function getOfficeMissingTime()
     {
@@ -827,7 +827,7 @@ class TableCommonMetrics implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets office_missing_time
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsSaleRate $office_missing_time office_missing_time
+     * @param \Wildberries\Sdk\Analytics\Model\TableCommonMetricsOfficeMissingTime $office_missing_time office_missing_time
      *
      * @return self
      */

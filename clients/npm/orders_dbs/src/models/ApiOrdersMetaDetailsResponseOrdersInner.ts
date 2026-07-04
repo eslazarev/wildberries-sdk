@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner } from './ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner';
+import {
+    ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerFromJSON,
+    ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerFromJSONTyped,
+    ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerToJSON,
+    ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerToJSONTyped,
+} from './ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner';
 import type { ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner } from './ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner';
 import {
     ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerToJSON,
     ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerToJSONTyped,
 } from './ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner';
-import type { ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner } from './ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner';
-import {
-    ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInnerFromJSON,
-    ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInnerFromJSONTyped,
-    ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInnerToJSON,
-    ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInnerToJSONTyped,
-} from './ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner';
 
 /**
  * 
@@ -48,10 +48,10 @@ export interface ApiOrdersMetaDetailsResponseOrdersInner {
     isError: boolean;
     /**
      * Информация об ошибке
-     * @type {Array<ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner>}
+     * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>}
      * @memberof ApiOrdersMetaDetailsResponseOrdersInner
      */
-    errors?: Array<ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInner>;
+    errors?: Array<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>;
     /**
      * Идентификаторы маркировки и статусы их валидации
      * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>}
@@ -80,7 +80,7 @@ export function ApiOrdersMetaDetailsResponseOrdersInnerFromJSONTyped(json: any, 
         
         'orderId': json['orderId'] == null ? undefined : json['orderId'],
         'isError': json['isError'],
-        'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInnerFromJSON)),
+        'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerFromJSON)),
         'metaDetails': json['metaDetails'] == null ? undefined : ((json['metaDetails'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerFromJSON)),
     };
 }
@@ -98,7 +98,7 @@ export function ApiOrdersMetaDetailsResponseOrdersInnerToJSONTyped(value?: ApiOr
         
         'orderId': value['orderId'],
         'isError': value['isError'],
-        'errors': value['errors'] == null ? undefined : ((value['errors'] as Array<any>).map(ApiMarketplaceV3DbsOrdersStatusReceivePost200ResponseResultsInnerErrorsInnerToJSON)),
+        'errors': value['errors'] == null ? undefined : ((value['errors'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerErrorsInnerToJSON)),
         'metaDetails': value['metaDetails'] == null ? undefined : ((value['metaDetails'] as Array<any>).map(ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInnerToJSON)),
     };
 }

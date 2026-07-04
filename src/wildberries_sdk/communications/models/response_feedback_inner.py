@@ -20,10 +20,10 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_answer import ApiV1FeedbackGet200ResponseDataAnswer
 from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_photo_links_inner import ApiV1FeedbackGet200ResponseDataPhotoLinksInner
-from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_product_details import ApiV1FeedbackGet200ResponseDataProductDetails
-from wildberries_sdk.communications.models.api_v1_feedback_get200_response_data_video import ApiV1FeedbackGet200ResponseDataVideo
+from wildberries_sdk.communications.models.response_feedback_inner_answer import ResponseFeedbackInnerAnswer
+from wildberries_sdk.communications.models.response_feedback_inner_product_details import ResponseFeedbackInnerProductDetails
+from wildberries_sdk.communications.models.response_feedback_inner_video import ResponseFeedbackInnerVideo
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -38,11 +38,11 @@ class ResponseFeedbackInner(BaseModel):
     cons: Optional[StrictStr] = Field(default=None, description="Недостатки товара")
     product_valuation: Optional[StrictInt] = Field(default=None, description="Оценка товара", alias="productValuation")
     created_date: Optional[datetime] = Field(default=None, description="Дата и время создания отзыва", alias="createdDate")
-    answer: Optional[ApiV1FeedbackGet200ResponseDataAnswer] = None
+    answer: Optional[ResponseFeedbackInnerAnswer] = None
     state: Optional[StrictStr] = Field(default=None, description="Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан ")
-    product_details: Optional[ApiV1FeedbackGet200ResponseDataProductDetails] = Field(default=None, alias="productDetails")
+    product_details: Optional[ResponseFeedbackInnerProductDetails] = Field(default=None, alias="productDetails")
     photo_links: Optional[List[ApiV1FeedbackGet200ResponseDataPhotoLinksInner]] = Field(default=None, description="Массив структур фотографий", alias="photoLinks")
-    video: Optional[ApiV1FeedbackGet200ResponseDataVideo] = None
+    video: Optional[ResponseFeedbackInnerVideo] = None
     was_viewed: Optional[StrictBool] = Field(default=None, description="Просмотрен ли отзыв", alias="wasViewed")
     user_name: Optional[StrictStr] = Field(default=None, description="Имя автора отзыва", alias="userName")
     order_status: Optional[StrictStr] = Field(default=None, description="Статус заказа. <br>Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен ", alias="orderStatus")
@@ -171,11 +171,11 @@ class ResponseFeedbackInner(BaseModel):
             "cons": obj.get("cons"),
             "productValuation": obj.get("productValuation"),
             "createdDate": obj.get("createdDate"),
-            "answer": ApiV1FeedbackGet200ResponseDataAnswer.from_dict(obj["answer"]) if obj.get("answer") is not None else None,
+            "answer": ResponseFeedbackInnerAnswer.from_dict(obj["answer"]) if obj.get("answer") is not None else None,
             "state": obj.get("state"),
-            "productDetails": ApiV1FeedbackGet200ResponseDataProductDetails.from_dict(obj["productDetails"]) if obj.get("productDetails") is not None else None,
+            "productDetails": ResponseFeedbackInnerProductDetails.from_dict(obj["productDetails"]) if obj.get("productDetails") is not None else None,
             "photoLinks": [ApiV1FeedbackGet200ResponseDataPhotoLinksInner.from_dict(_item) for _item in obj["photoLinks"]] if obj.get("photoLinks") is not None else None,
-            "video": ApiV1FeedbackGet200ResponseDataVideo.from_dict(obj["video"]) if obj.get("video") is not None else None,
+            "video": ResponseFeedbackInnerVideo.from_dict(obj["video"]) if obj.get("video") is not None else None,
             "wasViewed": obj.get("wasViewed"),
             "userName": obj.get("userName"),
             "orderStatus": obj.get("orderStatus"),

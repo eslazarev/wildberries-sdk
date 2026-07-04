@@ -69,13 +69,13 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'rating' => 'float',
         'feedback_rating' => 'float',
         'price' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfPrice',
-        'avg_position' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition',
-        'open_card' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition',
-        'add_to_cart' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition',
-        'open_to_cart' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition',
-        'orders' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition',
-        'cart_to_order' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition',
-        'visibility' => '\Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition'
+        'avg_position' => '\Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsAvgPosition',
+        'open_card' => '\Wildberries\Sdk\Analytics\Model\VisibilityInfoOpenCard',
+        'add_to_cart' => '\Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsAddToCart',
+        'open_to_cart' => '\Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsOpenToCart',
+        'orders' => '\Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsOrders',
+        'cart_to_order' => '\Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsCartToOrder',
+        'visibility' => '\Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsVisibility'
     ];
 
     /**
@@ -784,7 +784,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets avg_position
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition
+     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsAvgPosition
      */
     public function getAvgPosition()
     {
@@ -794,7 +794,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets avg_position
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition $avg_position avg_position
+     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsAvgPosition $avg_position avg_position
      *
      * @return self
      */
@@ -811,7 +811,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets open_card
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition
+     * @return \Wildberries\Sdk\Analytics\Model\VisibilityInfoOpenCard
      */
     public function getOpenCard()
     {
@@ -821,7 +821,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets open_card
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition $open_card open_card
+     * @param \Wildberries\Sdk\Analytics\Model\VisibilityInfoOpenCard $open_card open_card
      *
      * @return self
      */
@@ -838,7 +838,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets add_to_cart
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition
+     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsAddToCart
      */
     public function getAddToCart()
     {
@@ -848,7 +848,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets add_to_cart
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition $add_to_cart add_to_cart
+     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsAddToCart $add_to_cart add_to_cart
      *
      * @return self
      */
@@ -865,7 +865,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets open_to_cart
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition
+     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsOpenToCart
      */
     public function getOpenToCart()
     {
@@ -875,7 +875,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets open_to_cart
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition $open_to_cart open_to_cart
+     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsOpenToCart $open_to_cart open_to_cart
      *
      * @return self
      */
@@ -892,7 +892,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition
+     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsOrders
      */
     public function getOrders()
     {
@@ -902,7 +902,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition $orders orders
+     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsOrders $orders orders
      *
      * @return self
      */
@@ -919,7 +919,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cart_to_order
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition
+     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsCartToOrder
      */
     public function getCartToOrder()
     {
@@ -929,7 +929,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cart_to_order
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition $cart_to_order cart_to_order
+     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsCartToOrder $cart_to_order cart_to_order
      *
      * @return self
      */
@@ -946,7 +946,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets visibility
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition
+     * @return \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsVisibility
      */
     public function getVisibility()
     {
@@ -956,7 +956,7 @@ class TableItemItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets visibility
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemItemAllOfAvgPosition $visibility visibility
+     * @param \Wildberries\Sdk\Analytics\Model\TableGroupItemMetricsVisibility $visibility visibility
      *
      * @return self
      */

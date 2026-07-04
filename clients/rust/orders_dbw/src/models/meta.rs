@@ -17,9 +17,9 @@ pub struct Meta {
     #[serde(rename = "imei", skip_serializing_if = "Option::is_none")]
     pub imei: Option<Box<models::MetaImei>>,
     #[serde(rename = "uin", skip_serializing_if = "Option::is_none")]
-    pub uin: Option<Box<models::MetaImei>>,
+    pub uin: Option<Box<models::MetaUin>>,
     #[serde(rename = "gtin", skip_serializing_if = "Option::is_none")]
-    pub gtin: Option<Box<models::MetaImei>>,
+    pub gtin: Option<Box<models::MetaGtin>>,
     #[serde(rename = "sgtin", skip_serializing_if = "Option::is_none")]
     pub sgtin: Option<Box<models::MetaSgtin>>,
 }

@@ -19,11 +19,13 @@ var _ MappedNullable = &AdvV1BalanceGet200Response{}
 
 // AdvV1BalanceGet200Response struct for AdvV1BalanceGet200Response
 type AdvV1BalanceGet200Response struct {
-	// Счёт, ₽
+	// Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Balance *int32 `json:"balance,omitempty"`
-	// Баланс, ₽
+	// Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Net *int32 `json:"net,omitempty"`
-	// Бонусы, ₽
+	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	Currency *string `json:"currency,omitempty"`
+	// Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Bonus *int32 `json:"bonus,omitempty"`
 	// Промо-бонусы
 	Cashbacks []AdvV1BalanceGet200ResponseCashbacksInner `json:"cashbacks,omitempty"`
@@ -110,6 +112,38 @@ func (o *AdvV1BalanceGet200Response) SetNet(v int32) {
 	o.Net = &v
 }
 
+// GetCurrency returns the Currency field value if set, zero value otherwise.
+func (o *AdvV1BalanceGet200Response) GetCurrency() string {
+	if o == nil || IsNil(o.Currency) {
+		var ret string
+		return ret
+	}
+	return *o.Currency
+}
+
+// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdvV1BalanceGet200Response) GetCurrencyOk() (*string, bool) {
+	if o == nil || IsNil(o.Currency) {
+		return nil, false
+	}
+	return o.Currency, true
+}
+
+// HasCurrency returns a boolean if a field has been set.
+func (o *AdvV1BalanceGet200Response) HasCurrency() bool {
+	if o != nil && !IsNil(o.Currency) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+func (o *AdvV1BalanceGet200Response) SetCurrency(v string) {
+	o.Currency = &v
+}
+
 // GetBonus returns the Bonus field value if set, zero value otherwise.
 func (o *AdvV1BalanceGet200Response) GetBonus() int32 {
 	if o == nil || IsNil(o.Bonus) {
@@ -189,6 +223,9 @@ func (o AdvV1BalanceGet200Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Net) {
 		toSerialize["net"] = o.Net
+	}
+	if !IsNil(o.Currency) {
+		toSerialize["currency"] = o.Currency
 	}
 	if !IsNil(o.Bonus) {
 		toSerialize["bonus"] = o.Bonus

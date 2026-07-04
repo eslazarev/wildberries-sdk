@@ -316,7 +316,7 @@ class AdvV1BalanceGet200ResponseCashbacksInner implements ModelInterface, ArrayA
     /**
      * Sets sum
      *
-     * @param int|null $sum Промо-бонусы, ₽
+     * @param int|null $sum Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

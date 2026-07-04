@@ -16,6 +16,7 @@ export * from './GetCategoriesDataCategoriesInner';
 export * from './GetDoc';
 export * from './GetDocData';
 export * from './GetDocs';
+export * from './GetDocsData';
 export * from './GetList';
 export * from './GetListData';
 export * from './GetListDataDocumentsInner';

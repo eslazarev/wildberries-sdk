@@ -16,7 +16,7 @@ pub struct ApiAdvertV1BidsPatchRequestBidsInner {
     /// ID кампании
     #[serde(rename = "advert_id")]
     pub advert_id: i64,
-    /// Ставки, копейки
+    /// Ставки
     #[serde(rename = "nm_bids")]
     pub nm_bids: Vec<models::ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner>,
 }

@@ -869,11 +869,11 @@ type ApiApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest struct {
 	ctx context.Context
 	ApiService *FBSAPIService
 	supplyId string
-	apiV3OrdersStatusHistoryPostRequest *ApiV3OrdersStatusHistoryPostRequest
+	apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest *ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest
 }
 
-func (r ApiApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest) ApiV3OrdersStatusHistoryPostRequest(apiV3OrdersStatusHistoryPostRequest ApiV3OrdersStatusHistoryPostRequest) ApiApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest {
-	r.apiV3OrdersStatusHistoryPostRequest = &apiV3OrdersStatusHistoryPostRequest
+func (r ApiApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest) ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest(apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest) ApiApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest {
+	r.apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest = &apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest
 	return r
 }
 
@@ -947,8 +947,8 @@ func (a *FBSAPIService) ApiMarketplaceV3SuppliesSupplyIdOrdersPatchExecute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiV3OrdersStatusHistoryPostRequest == nil {
-		return nil, reportError("apiV3OrdersStatusHistoryPostRequest is required and must be specified")
+	if r.apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest == nil {
+		return nil, reportError("apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -969,7 +969,7 @@ func (a *FBSAPIService) ApiMarketplaceV3SuppliesSupplyIdOrdersPatchExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV3OrdersStatusHistoryPostRequest
+	localVarPostBody = r.apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3494,11 +3494,11 @@ func (a *FBSAPIService) ApiV3OrdersStatusPostExecute(r ApiApiV3OrdersStatusPostR
 type ApiApiV3OrdersStickersCrossBorderPostRequest struct {
 	ctx context.Context
 	ApiService *FBSAPIService
-	apiV3OrdersStickersPostRequest *ApiV3OrdersStickersPostRequest
+	apiV3OrdersStickersCrossBorderPostRequest *ApiV3OrdersStickersCrossBorderPostRequest
 }
 
-func (r ApiApiV3OrdersStickersCrossBorderPostRequest) ApiV3OrdersStickersPostRequest(apiV3OrdersStickersPostRequest ApiV3OrdersStickersPostRequest) ApiApiV3OrdersStickersCrossBorderPostRequest {
-	r.apiV3OrdersStickersPostRequest = &apiV3OrdersStickersPostRequest
+func (r ApiApiV3OrdersStickersCrossBorderPostRequest) ApiV3OrdersStickersCrossBorderPostRequest(apiV3OrdersStickersCrossBorderPostRequest ApiV3OrdersStickersCrossBorderPostRequest) ApiApiV3OrdersStickersCrossBorderPostRequest {
+	r.apiV3OrdersStickersCrossBorderPostRequest = &apiV3OrdersStickersCrossBorderPostRequest
 	return r
 }
 
@@ -3585,7 +3585,7 @@ func (a *FBSAPIService) ApiV3OrdersStickersCrossBorderPostExecute(r ApiApiV3Orde
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV3OrdersStickersPostRequest
+	localVarPostBody = r.apiV3OrdersStickersCrossBorderPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -6814,7 +6814,7 @@ type ApiApiV3SuppliesSupplyIdTrbxStickersPostRequest struct {
 	ApiService *FBSAPIService
 	supplyId string
 	type_ *string
-	apiV3SuppliesSupplyIdTrbxDeleteRequest *ApiV3SuppliesSupplyIdTrbxDeleteRequest
+	apiV3SuppliesSupplyIdTrbxStickersPostRequest *ApiV3SuppliesSupplyIdTrbxStickersPostRequest
 }
 
 // Тип стикера
@@ -6823,8 +6823,8 @@ func (r ApiApiV3SuppliesSupplyIdTrbxStickersPostRequest) Type_(type_ string) Api
 	return r
 }
 
-func (r ApiApiV3SuppliesSupplyIdTrbxStickersPostRequest) ApiV3SuppliesSupplyIdTrbxDeleteRequest(apiV3SuppliesSupplyIdTrbxDeleteRequest ApiV3SuppliesSupplyIdTrbxDeleteRequest) ApiApiV3SuppliesSupplyIdTrbxStickersPostRequest {
-	r.apiV3SuppliesSupplyIdTrbxDeleteRequest = &apiV3SuppliesSupplyIdTrbxDeleteRequest
+func (r ApiApiV3SuppliesSupplyIdTrbxStickersPostRequest) ApiV3SuppliesSupplyIdTrbxStickersPostRequest(apiV3SuppliesSupplyIdTrbxStickersPostRequest ApiV3SuppliesSupplyIdTrbxStickersPostRequest) ApiApiV3SuppliesSupplyIdTrbxStickersPostRequest {
+	r.apiV3SuppliesSupplyIdTrbxStickersPostRequest = &apiV3SuppliesSupplyIdTrbxStickersPostRequest
 	return r
 }
 
@@ -6910,7 +6910,7 @@ func (a *FBSAPIService) ApiV3SuppliesSupplyIdTrbxStickersPostExecute(r ApiApiV3S
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV3SuppliesSupplyIdTrbxDeleteRequest
+	localVarPostBody = r.apiV3SuppliesSupplyIdTrbxStickersPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -76,7 +76,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'skus' => 'string[]',
         'warehouse_address' => 'string',
         'warehouse_id' => 'int',
-        'options' => '\Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions'
+        'options' => '\Wildberries\Sdk\InStorePickup\Model\ApiOrderOptions'
     ];
 
     /**
@@ -974,7 +974,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets options
      *
-     * @return \Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions|null
+     * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrderOptions|null
      */
     public function getOptions()
     {
@@ -984,7 +984,7 @@ class ApiOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets options
      *
-     * @param \Wildberries\Sdk\InStorePickup\Model\ApiNewOrderOptions|null $options options
+     * @param \Wildberries\Sdk\InStorePickup\Model\ApiOrderOptions|null $options options
      *
      * @return self
      */

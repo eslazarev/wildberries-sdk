@@ -44,13 +44,13 @@ type TableItemItem struct {
 	// Рейтинг по отзывам
 	FeedbackRating float32 `json:"feedbackRating"`
 	Price TableItemItemAllOfPrice `json:"price"`
-	AvgPosition TableItemItemAllOfAvgPosition `json:"avgPosition"`
-	OpenCard TableItemItemAllOfAvgPosition `json:"openCard"`
-	AddToCart TableItemItemAllOfAvgPosition `json:"addToCart"`
-	OpenToCart TableItemItemAllOfAvgPosition `json:"openToCart"`
-	Orders TableItemItemAllOfAvgPosition `json:"orders"`
-	CartToOrder TableItemItemAllOfAvgPosition `json:"cartToOrder"`
-	Visibility TableItemItemAllOfAvgPosition `json:"visibility"`
+	AvgPosition TableGroupItemMetricsAvgPosition `json:"avgPosition"`
+	OpenCard VisibilityInfoOpenCard `json:"openCard"`
+	AddToCart TableGroupItemMetricsAddToCart `json:"addToCart"`
+	OpenToCart TableGroupItemMetricsOpenToCart `json:"openToCart"`
+	Orders TableGroupItemMetricsOrders `json:"orders"`
+	CartToOrder TableGroupItemMetricsCartToOrder `json:"cartToOrder"`
+	Visibility TableGroupItemMetricsVisibility `json:"visibility"`
 }
 
 type _TableItemItem TableItemItem
@@ -59,7 +59,7 @@ type _TableItemItem TableItemItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTableItemItem(nmId int64, vendorCode string, isAdvertised bool, isCardRated bool, rating float32, feedbackRating float32, price TableItemItemAllOfPrice, avgPosition TableItemItemAllOfAvgPosition, openCard TableItemItemAllOfAvgPosition, addToCart TableItemItemAllOfAvgPosition, openToCart TableItemItemAllOfAvgPosition, orders TableItemItemAllOfAvgPosition, cartToOrder TableItemItemAllOfAvgPosition, visibility TableItemItemAllOfAvgPosition) *TableItemItem {
+func NewTableItemItem(nmId int64, vendorCode string, isAdvertised bool, isCardRated bool, rating float32, feedbackRating float32, price TableItemItemAllOfPrice, avgPosition TableGroupItemMetricsAvgPosition, openCard VisibilityInfoOpenCard, addToCart TableGroupItemMetricsAddToCart, openToCart TableGroupItemMetricsOpenToCart, orders TableGroupItemMetricsOrders, cartToOrder TableGroupItemMetricsCartToOrder, visibility TableGroupItemMetricsVisibility) *TableItemItem {
 	this := TableItemItem{}
 	this.NmId = nmId
 	this.VendorCode = vendorCode
@@ -415,9 +415,9 @@ func (o *TableItemItem) SetPrice(v TableItemItemAllOfPrice) {
 }
 
 // GetAvgPosition returns the AvgPosition field value
-func (o *TableItemItem) GetAvgPosition() TableItemItemAllOfAvgPosition {
+func (o *TableItemItem) GetAvgPosition() TableGroupItemMetricsAvgPosition {
 	if o == nil {
-		var ret TableItemItemAllOfAvgPosition
+		var ret TableGroupItemMetricsAvgPosition
 		return ret
 	}
 
@@ -426,7 +426,7 @@ func (o *TableItemItem) GetAvgPosition() TableItemItemAllOfAvgPosition {
 
 // GetAvgPositionOk returns a tuple with the AvgPosition field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItem) GetAvgPositionOk() (*TableItemItemAllOfAvgPosition, bool) {
+func (o *TableItemItem) GetAvgPositionOk() (*TableGroupItemMetricsAvgPosition, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -434,14 +434,14 @@ func (o *TableItemItem) GetAvgPositionOk() (*TableItemItemAllOfAvgPosition, bool
 }
 
 // SetAvgPosition sets field value
-func (o *TableItemItem) SetAvgPosition(v TableItemItemAllOfAvgPosition) {
+func (o *TableItemItem) SetAvgPosition(v TableGroupItemMetricsAvgPosition) {
 	o.AvgPosition = v
 }
 
 // GetOpenCard returns the OpenCard field value
-func (o *TableItemItem) GetOpenCard() TableItemItemAllOfAvgPosition {
+func (o *TableItemItem) GetOpenCard() VisibilityInfoOpenCard {
 	if o == nil {
-		var ret TableItemItemAllOfAvgPosition
+		var ret VisibilityInfoOpenCard
 		return ret
 	}
 
@@ -450,7 +450,7 @@ func (o *TableItemItem) GetOpenCard() TableItemItemAllOfAvgPosition {
 
 // GetOpenCardOk returns a tuple with the OpenCard field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItem) GetOpenCardOk() (*TableItemItemAllOfAvgPosition, bool) {
+func (o *TableItemItem) GetOpenCardOk() (*VisibilityInfoOpenCard, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -458,14 +458,14 @@ func (o *TableItemItem) GetOpenCardOk() (*TableItemItemAllOfAvgPosition, bool) {
 }
 
 // SetOpenCard sets field value
-func (o *TableItemItem) SetOpenCard(v TableItemItemAllOfAvgPosition) {
+func (o *TableItemItem) SetOpenCard(v VisibilityInfoOpenCard) {
 	o.OpenCard = v
 }
 
 // GetAddToCart returns the AddToCart field value
-func (o *TableItemItem) GetAddToCart() TableItemItemAllOfAvgPosition {
+func (o *TableItemItem) GetAddToCart() TableGroupItemMetricsAddToCart {
 	if o == nil {
-		var ret TableItemItemAllOfAvgPosition
+		var ret TableGroupItemMetricsAddToCart
 		return ret
 	}
 
@@ -474,7 +474,7 @@ func (o *TableItemItem) GetAddToCart() TableItemItemAllOfAvgPosition {
 
 // GetAddToCartOk returns a tuple with the AddToCart field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItem) GetAddToCartOk() (*TableItemItemAllOfAvgPosition, bool) {
+func (o *TableItemItem) GetAddToCartOk() (*TableGroupItemMetricsAddToCart, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -482,14 +482,14 @@ func (o *TableItemItem) GetAddToCartOk() (*TableItemItemAllOfAvgPosition, bool) 
 }
 
 // SetAddToCart sets field value
-func (o *TableItemItem) SetAddToCart(v TableItemItemAllOfAvgPosition) {
+func (o *TableItemItem) SetAddToCart(v TableGroupItemMetricsAddToCart) {
 	o.AddToCart = v
 }
 
 // GetOpenToCart returns the OpenToCart field value
-func (o *TableItemItem) GetOpenToCart() TableItemItemAllOfAvgPosition {
+func (o *TableItemItem) GetOpenToCart() TableGroupItemMetricsOpenToCart {
 	if o == nil {
-		var ret TableItemItemAllOfAvgPosition
+		var ret TableGroupItemMetricsOpenToCart
 		return ret
 	}
 
@@ -498,7 +498,7 @@ func (o *TableItemItem) GetOpenToCart() TableItemItemAllOfAvgPosition {
 
 // GetOpenToCartOk returns a tuple with the OpenToCart field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItem) GetOpenToCartOk() (*TableItemItemAllOfAvgPosition, bool) {
+func (o *TableItemItem) GetOpenToCartOk() (*TableGroupItemMetricsOpenToCart, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -506,14 +506,14 @@ func (o *TableItemItem) GetOpenToCartOk() (*TableItemItemAllOfAvgPosition, bool)
 }
 
 // SetOpenToCart sets field value
-func (o *TableItemItem) SetOpenToCart(v TableItemItemAllOfAvgPosition) {
+func (o *TableItemItem) SetOpenToCart(v TableGroupItemMetricsOpenToCart) {
 	o.OpenToCart = v
 }
 
 // GetOrders returns the Orders field value
-func (o *TableItemItem) GetOrders() TableItemItemAllOfAvgPosition {
+func (o *TableItemItem) GetOrders() TableGroupItemMetricsOrders {
 	if o == nil {
-		var ret TableItemItemAllOfAvgPosition
+		var ret TableGroupItemMetricsOrders
 		return ret
 	}
 
@@ -522,7 +522,7 @@ func (o *TableItemItem) GetOrders() TableItemItemAllOfAvgPosition {
 
 // GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItem) GetOrdersOk() (*TableItemItemAllOfAvgPosition, bool) {
+func (o *TableItemItem) GetOrdersOk() (*TableGroupItemMetricsOrders, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -530,14 +530,14 @@ func (o *TableItemItem) GetOrdersOk() (*TableItemItemAllOfAvgPosition, bool) {
 }
 
 // SetOrders sets field value
-func (o *TableItemItem) SetOrders(v TableItemItemAllOfAvgPosition) {
+func (o *TableItemItem) SetOrders(v TableGroupItemMetricsOrders) {
 	o.Orders = v
 }
 
 // GetCartToOrder returns the CartToOrder field value
-func (o *TableItemItem) GetCartToOrder() TableItemItemAllOfAvgPosition {
+func (o *TableItemItem) GetCartToOrder() TableGroupItemMetricsCartToOrder {
 	if o == nil {
-		var ret TableItemItemAllOfAvgPosition
+		var ret TableGroupItemMetricsCartToOrder
 		return ret
 	}
 
@@ -546,7 +546,7 @@ func (o *TableItemItem) GetCartToOrder() TableItemItemAllOfAvgPosition {
 
 // GetCartToOrderOk returns a tuple with the CartToOrder field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItem) GetCartToOrderOk() (*TableItemItemAllOfAvgPosition, bool) {
+func (o *TableItemItem) GetCartToOrderOk() (*TableGroupItemMetricsCartToOrder, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -554,14 +554,14 @@ func (o *TableItemItem) GetCartToOrderOk() (*TableItemItemAllOfAvgPosition, bool
 }
 
 // SetCartToOrder sets field value
-func (o *TableItemItem) SetCartToOrder(v TableItemItemAllOfAvgPosition) {
+func (o *TableItemItem) SetCartToOrder(v TableGroupItemMetricsCartToOrder) {
 	o.CartToOrder = v
 }
 
 // GetVisibility returns the Visibility field value
-func (o *TableItemItem) GetVisibility() TableItemItemAllOfAvgPosition {
+func (o *TableItemItem) GetVisibility() TableGroupItemMetricsVisibility {
 	if o == nil {
-		var ret TableItemItemAllOfAvgPosition
+		var ret TableGroupItemMetricsVisibility
 		return ret
 	}
 
@@ -570,7 +570,7 @@ func (o *TableItemItem) GetVisibility() TableItemItemAllOfAvgPosition {
 
 // GetVisibilityOk returns a tuple with the Visibility field value
 // and a boolean to check if the value has been set.
-func (o *TableItemItem) GetVisibilityOk() (*TableItemItemAllOfAvgPosition, bool) {
+func (o *TableItemItem) GetVisibilityOk() (*TableGroupItemMetricsVisibility, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -578,7 +578,7 @@ func (o *TableItemItem) GetVisibilityOk() (*TableItemItemAllOfAvgPosition, bool)
 }
 
 // SetVisibility sets field value
-func (o *TableItemItem) SetVisibility(v TableItemItemAllOfAvgPosition) {
+func (o *TableItemItem) SetVisibility(v TableGroupItemMetricsVisibility) {
 	o.Visibility = v
 }
 

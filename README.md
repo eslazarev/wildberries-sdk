@@ -285,6 +285,8 @@ SDK выпускается с security-first процессом:
 - `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
 - `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
 - `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
+- `GET /api/advert/v1/config` — Конфигурационные значения продвижения (getV1Config)
+- `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца (postV1NormqueryBids)
 - `GET /api/advert/v2/adverts` — Информация о кампаниях
 - `GET /api/v1/calendar/promotions` — Список акций
 - `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях

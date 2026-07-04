@@ -71,7 +71,8 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'shks' => 'int',
         'sum' => 'float',
         'sum_price' => 'float',
-        'views' => 'int'
+        'views' => 'int',
+        'currency' => 'string'
     ];
 
     /**
@@ -95,7 +96,8 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'shks' => null,
         'sum' => 'double',
         'sum_price' => 'double',
-        'views' => null
+        'views' => null,
+        'currency' => 'ISO 4217'
     ];
 
     /**
@@ -117,7 +119,8 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'shks' => false,
         'sum' => false,
         'sum_price' => false,
-        'views' => false
+        'views' => false,
+        'currency' => false
     ];
 
     /**
@@ -219,7 +222,8 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'shks' => 'shks',
         'sum' => 'sum',
         'sum_price' => 'sum_price',
-        'views' => 'views'
+        'views' => 'views',
+        'currency' => 'currency'
     ];
 
     /**
@@ -241,7 +245,8 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'shks' => 'setShks',
         'sum' => 'setSum',
         'sum_price' => 'setSumPrice',
-        'views' => 'setViews'
+        'views' => 'setViews',
+        'currency' => 'setCurrency'
     ];
 
     /**
@@ -263,7 +268,8 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'shks' => 'getShks',
         'sum' => 'getSum',
         'sum_price' => 'getSumPrice',
-        'views' => 'getViews'
+        'views' => 'getViews',
+        'currency' => 'getCurrency'
     ];
 
     /**
@@ -337,6 +343,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('sum', $data ?? [], null);
         $this->setIfExists('sum_price', $data ?? [], null);
         $this->setIfExists('views', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
     }
 
     /**
@@ -404,6 +411,9 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['views'] === null) {
             $invalidProperties[] = "'views' can't be null";
+        }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
         }
         return $invalidProperties;
     }
@@ -568,7 +578,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cpc
      *
-     * @param float $cpc Средняя стоимость клика, ₽
+     * @param float $cpc Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -730,7 +740,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sum
      *
-     * @param float $sum Затраты, ₽
+     * @param float $sum Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -757,7 +767,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sum_price
      *
-     * @param float $sum_price Сумма заказов, ₽
+     * @param float $sum_price Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */
@@ -794,6 +804,33 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable views cannot be null');
         }
         $this->container['views'] = $views;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $this->container['currency'] = $currency;
 
         return $this;
     }

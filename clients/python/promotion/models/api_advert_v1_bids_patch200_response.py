@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from wildberries_sdk.promotion.models.api_advert_v1_bids_patch200_response_bids_inner import ApiAdvertV1BidsPatch200ResponseBidsInner
 from typing import Optional, Set
@@ -29,7 +29,8 @@ class ApiAdvertV1BidsPatch200Response(BaseModel):
     ApiAdvertV1BidsPatch200Response
     """ # noqa: E501
     bids: List[ApiAdvertV1BidsPatch200ResponseBidsInner] = Field(description="Результат отработки запроса")
-    __properties: ClassVar[List[str]] = ["bids"]
+    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    __properties: ClassVar[List[str]] = ["bids", "currency"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,7 +90,8 @@ class ApiAdvertV1BidsPatch200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "bids": [ApiAdvertV1BidsPatch200ResponseBidsInner.from_dict(_item) for _item in obj["bids"]] if obj.get("bids") is not None else None
+            "bids": [ApiAdvertV1BidsPatch200ResponseBidsInner.from_dict(_item) for _item in obj["bids"]] if obj.get("bids") is not None else None,
+            "currency": obj.get("currency")
         })
         return _obj
 

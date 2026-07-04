@@ -56,7 +56,7 @@ export interface DaysV3InnerAppsInner {
      */
     clicks: number;
     /**
-     * Средняя стоимость клика, ₽
+     * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof DaysV3InnerAppsInner
      */
@@ -92,13 +92,13 @@ export interface DaysV3InnerAppsInner {
      */
     shks: number;
     /**
-     * Затраты, ₽
+     * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof DaysV3InnerAppsInner
      */
     sum: number;
     /**
-     * Заказов на сумму, ₽
+     * Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      * @type {number}
      * @memberof DaysV3InnerAppsInner
      */

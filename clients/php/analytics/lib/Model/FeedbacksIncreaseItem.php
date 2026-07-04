@@ -62,10 +62,10 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'total' => 'int',
         'dynamics' => 'int',
         'five_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar',
-        'four_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar',
-        'three_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar',
-        'two_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar',
-        'one_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar'
+        'four_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFourStar',
+        'three_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemThreeStar',
+        'two_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemTwoStar',
+        'one_star' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemOneStar'
     ];
 
     /**
@@ -474,7 +474,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets four_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar
+     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFourStar
      */
     public function getFourStar()
     {
@@ -484,7 +484,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets four_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar $four_star four_star
+     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFourStar $four_star four_star
      *
      * @return self
      */
@@ -501,7 +501,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets three_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar
+     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemThreeStar
      */
     public function getThreeStar()
     {
@@ -511,7 +511,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets three_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar $three_star three_star
+     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemThreeStar $three_star three_star
      *
      * @return self
      */
@@ -528,7 +528,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets two_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar
+     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemTwoStar
      */
     public function getTwoStar()
     {
@@ -538,7 +538,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets two_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar $two_star two_star
+     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemTwoStar $two_star two_star
      *
      * @return self
      */
@@ -555,7 +555,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets one_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar
+     * @return \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemOneStar
      */
     public function getOneStar()
     {
@@ -565,7 +565,7 @@ class FeedbacksIncreaseItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets one_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemFiveStar $one_star one_star
+     * @param \Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItemOneStar $one_star one_star
      *
      * @return self
      */

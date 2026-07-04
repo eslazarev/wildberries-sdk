@@ -19,7 +19,13 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wildberries_sdk.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts
+from wildberries_sdk.analytics.models.table_group_item_metrics_add_to_cart import TableGroupItemMetricsAddToCart
+from wildberries_sdk.analytics.models.table_group_item_metrics_avg_position import TableGroupItemMetricsAvgPosition
+from wildberries_sdk.analytics.models.table_group_item_metrics_cart_to_order import TableGroupItemMetricsCartToOrder
+from wildberries_sdk.analytics.models.table_group_item_metrics_open_to_cart import TableGroupItemMetricsOpenToCart
+from wildberries_sdk.analytics.models.table_group_item_metrics_orders import TableGroupItemMetricsOrders
+from wildberries_sdk.analytics.models.table_group_item_metrics_visibility import TableGroupItemMetricsVisibility
+from wildberries_sdk.analytics.models.visibility_info_open_card import VisibilityInfoOpenCard
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,13 +34,13 @@ class TableGroupItemMetrics(BaseModel):
     """
     Метрики товара в таблице
     """ # noqa: E501
-    avg_position: CommonInfoAdvertisedProducts = Field(alias="avgPosition")
-    open_card: CommonInfoAdvertisedProducts = Field(alias="openCard")
-    add_to_cart: CommonInfoAdvertisedProducts = Field(alias="addToCart")
-    open_to_cart: CommonInfoAdvertisedProducts = Field(alias="openToCart")
-    orders: CommonInfoAdvertisedProducts
-    cart_to_order: CommonInfoAdvertisedProducts = Field(alias="cartToOrder")
-    visibility: CommonInfoAdvertisedProducts
+    avg_position: TableGroupItemMetricsAvgPosition = Field(alias="avgPosition")
+    open_card: VisibilityInfoOpenCard = Field(alias="openCard")
+    add_to_cart: TableGroupItemMetricsAddToCart = Field(alias="addToCart")
+    open_to_cart: TableGroupItemMetricsOpenToCart = Field(alias="openToCart")
+    orders: TableGroupItemMetricsOrders
+    cart_to_order: TableGroupItemMetricsCartToOrder = Field(alias="cartToOrder")
+    visibility: TableGroupItemMetricsVisibility
     __properties: ClassVar[List[str]] = ["avgPosition", "openCard", "addToCart", "openToCart", "orders", "cartToOrder", "visibility"]
 
     model_config = ConfigDict(
@@ -109,13 +115,13 @@ class TableGroupItemMetrics(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "avgPosition": CommonInfoAdvertisedProducts.from_dict(obj["avgPosition"]) if obj.get("avgPosition") is not None else None,
-            "openCard": CommonInfoAdvertisedProducts.from_dict(obj["openCard"]) if obj.get("openCard") is not None else None,
-            "addToCart": CommonInfoAdvertisedProducts.from_dict(obj["addToCart"]) if obj.get("addToCart") is not None else None,
-            "openToCart": CommonInfoAdvertisedProducts.from_dict(obj["openToCart"]) if obj.get("openToCart") is not None else None,
-            "orders": CommonInfoAdvertisedProducts.from_dict(obj["orders"]) if obj.get("orders") is not None else None,
-            "cartToOrder": CommonInfoAdvertisedProducts.from_dict(obj["cartToOrder"]) if obj.get("cartToOrder") is not None else None,
-            "visibility": CommonInfoAdvertisedProducts.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None
+            "avgPosition": TableGroupItemMetricsAvgPosition.from_dict(obj["avgPosition"]) if obj.get("avgPosition") is not None else None,
+            "openCard": VisibilityInfoOpenCard.from_dict(obj["openCard"]) if obj.get("openCard") is not None else None,
+            "addToCart": TableGroupItemMetricsAddToCart.from_dict(obj["addToCart"]) if obj.get("addToCart") is not None else None,
+            "openToCart": TableGroupItemMetricsOpenToCart.from_dict(obj["openToCart"]) if obj.get("openToCart") is not None else None,
+            "orders": TableGroupItemMetricsOrders.from_dict(obj["orders"]) if obj.get("orders") is not None else None,
+            "cartToOrder": TableGroupItemMetricsCartToOrder.from_dict(obj["cartToOrder"]) if obj.get("cartToOrder") is not None else None,
+            "visibility": TableGroupItemMetricsVisibility.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None
         })
         return _obj
 

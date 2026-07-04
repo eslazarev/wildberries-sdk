@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.120"
+__version__ = "0.1.121"
 
 # Define package exports
 __all__ = [
@@ -86,8 +86,11 @@ __all__ = [
     "ApiV1CalendarPromotionsGet402Response",
     "ApiV1CalendarPromotionsNomenclaturesGet200Response",
     "ApiV1CalendarPromotionsNomenclaturesGet200ResponseData",
+    "ApiV1CalendarPromotionsNomenclaturesGet400Response",
+    "ApiV1CalendarPromotionsNomenclaturesGet422Response",
     "ApiV1CalendarPromotionsUploadPost200Response",
     "ApiV1CalendarPromotionsUploadPost200ResponseData",
+    "ApiV1CalendarPromotionsUploadPost422Response",
     "ApiV1CalendarPromotionsUploadPostRequest",
     "ApiV1CalendarPromotionsUploadPostRequestData",
     "BoosterStatsV3Inner",
@@ -103,11 +106,13 @@ __all__ = [
     "GetAdverts",
     "GetAdvertsAdvertsInner",
     "Model400Response",
+    "NormQueryBidFailResponseItem",
     "PlacementType",
     "PromotionsItemsList",
     "RequestWithCampaignID",
     "RequestWithDate",
     "RequestWithInterval",
+    "RequestWithIntervalInterval",
     "Response400",
     "ResponseAdvError1",
     "ResponseWithReturn",
@@ -158,6 +163,11 @@ __all__ = [
     "V1GetNormQueryStatsResponseItem",
     "V1GetNormQueryStatsResponseItemDailyStat",
     "V1GetNormQueryStatsResponseItemStat",
+    "V1SetNormQueryBidsRequest",
+    "V1SetNormQueryBidsRequestItem",
+    "V1SetNormQueryBidsResponse",
+    "V1SetNormQueryBidsSuccessResponseItem",
+    "V2GetConfigResponse",
 ]
 
 # import apis into sdk package
@@ -233,8 +243,11 @@ from wildberries_sdk.promotion.models.api_v1_calendar_promotions_get400_response
 from wildberries_sdk.promotion.models.api_v1_calendar_promotions_get402_response import ApiV1CalendarPromotionsGet402Response as ApiV1CalendarPromotionsGet402Response
 from wildberries_sdk.promotion.models.api_v1_calendar_promotions_nomenclatures_get200_response import ApiV1CalendarPromotionsNomenclaturesGet200Response as ApiV1CalendarPromotionsNomenclaturesGet200Response
 from wildberries_sdk.promotion.models.api_v1_calendar_promotions_nomenclatures_get200_response_data import ApiV1CalendarPromotionsNomenclaturesGet200ResponseData as ApiV1CalendarPromotionsNomenclaturesGet200ResponseData
+from wildberries_sdk.promotion.models.api_v1_calendar_promotions_nomenclatures_get400_response import ApiV1CalendarPromotionsNomenclaturesGet400Response as ApiV1CalendarPromotionsNomenclaturesGet400Response
+from wildberries_sdk.promotion.models.api_v1_calendar_promotions_nomenclatures_get422_response import ApiV1CalendarPromotionsNomenclaturesGet422Response as ApiV1CalendarPromotionsNomenclaturesGet422Response
 from wildberries_sdk.promotion.models.api_v1_calendar_promotions_upload_post200_response import ApiV1CalendarPromotionsUploadPost200Response as ApiV1CalendarPromotionsUploadPost200Response
 from wildberries_sdk.promotion.models.api_v1_calendar_promotions_upload_post200_response_data import ApiV1CalendarPromotionsUploadPost200ResponseData as ApiV1CalendarPromotionsUploadPost200ResponseData
+from wildberries_sdk.promotion.models.api_v1_calendar_promotions_upload_post422_response import ApiV1CalendarPromotionsUploadPost422Response as ApiV1CalendarPromotionsUploadPost422Response
 from wildberries_sdk.promotion.models.api_v1_calendar_promotions_upload_post_request import ApiV1CalendarPromotionsUploadPostRequest as ApiV1CalendarPromotionsUploadPostRequest
 from wildberries_sdk.promotion.models.api_v1_calendar_promotions_upload_post_request_data import ApiV1CalendarPromotionsUploadPostRequestData as ApiV1CalendarPromotionsUploadPostRequestData
 from wildberries_sdk.promotion.models.booster_stats_v3_inner import BoosterStatsV3Inner as BoosterStatsV3Inner
@@ -250,11 +263,13 @@ from wildberries_sdk.promotion.models.full_stats_item import FullStatsItem as Fu
 from wildberries_sdk.promotion.models.get_adverts import GetAdverts as GetAdverts
 from wildberries_sdk.promotion.models.get_adverts_adverts_inner import GetAdvertsAdvertsInner as GetAdvertsAdvertsInner
 from wildberries_sdk.promotion.models.model400_response import Model400Response as Model400Response
+from wildberries_sdk.promotion.models.norm_query_bid_fail_response_item import NormQueryBidFailResponseItem as NormQueryBidFailResponseItem
 from wildberries_sdk.promotion.models.placement_type import PlacementType as PlacementType
 from wildberries_sdk.promotion.models.promotions_items_list import PromotionsItemsList as PromotionsItemsList
 from wildberries_sdk.promotion.models.request_with_campaign_id import RequestWithCampaignID as RequestWithCampaignID
 from wildberries_sdk.promotion.models.request_with_date import RequestWithDate as RequestWithDate
 from wildberries_sdk.promotion.models.request_with_interval import RequestWithInterval as RequestWithInterval
+from wildberries_sdk.promotion.models.request_with_interval_interval import RequestWithIntervalInterval as RequestWithIntervalInterval
 from wildberries_sdk.promotion.models.response400 import Response400 as Response400
 from wildberries_sdk.promotion.models.response_adv_error1 import ResponseAdvError1 as ResponseAdvError1
 from wildberries_sdk.promotion.models.response_with_return import ResponseWithReturn as ResponseWithReturn
@@ -305,4 +320,9 @@ from wildberries_sdk.promotion.models.v1_get_norm_query_stats_response import V1
 from wildberries_sdk.promotion.models.v1_get_norm_query_stats_response_item import V1GetNormQueryStatsResponseItem as V1GetNormQueryStatsResponseItem
 from wildberries_sdk.promotion.models.v1_get_norm_query_stats_response_item_daily_stat import V1GetNormQueryStatsResponseItemDailyStat as V1GetNormQueryStatsResponseItemDailyStat
 from wildberries_sdk.promotion.models.v1_get_norm_query_stats_response_item_stat import V1GetNormQueryStatsResponseItemStat as V1GetNormQueryStatsResponseItemStat
+from wildberries_sdk.promotion.models.v1_set_norm_query_bids_request import V1SetNormQueryBidsRequest as V1SetNormQueryBidsRequest
+from wildberries_sdk.promotion.models.v1_set_norm_query_bids_request_item import V1SetNormQueryBidsRequestItem as V1SetNormQueryBidsRequestItem
+from wildberries_sdk.promotion.models.v1_set_norm_query_bids_response import V1SetNormQueryBidsResponse as V1SetNormQueryBidsResponse
+from wildberries_sdk.promotion.models.v1_set_norm_query_bids_success_response_item import V1SetNormQueryBidsSuccessResponseItem as V1SetNormQueryBidsSuccessResponseItem
+from wildberries_sdk.promotion.models.v2_get_config_response import V2GetConfigResponse as V2GetConfigResponse
 
