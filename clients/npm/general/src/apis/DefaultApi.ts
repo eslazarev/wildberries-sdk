@@ -39,6 +39,11 @@ import {
     ErrorResponseToJSON,
 } from '../models/ErrorResponse';
 import {
+    type GetCommonV1Rating403Response,
+    GetCommonV1Rating403ResponseFromJSON,
+    GetCommonV1Rating403ResponseToJSON,
+} from '../models/GetCommonV1Rating403Response';
+import {
     type GetUsersResponse,
     GetUsersResponseFromJSON,
     GetUsersResponseToJSON,

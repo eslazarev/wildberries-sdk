@@ -62,10 +62,10 @@ export function ApiV1QuestionsPatch200ResponseFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'data': json['data'] == null ? undefined : json['data'],
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
-        'additionalErrors': json['additionalErrors'] == null ? undefined : json['additionalErrors'],
+        'additionalErrors': json['additionalErrors'] === undefined ? undefined : json['additionalErrors'] === null ? null : json['additionalErrors'],
     };
 }
 

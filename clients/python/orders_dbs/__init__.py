@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.121"
+__version__ = "0.1.122"
 
 # Define package exports
 __all__ = [
@@ -88,6 +88,7 @@ __all__ = [
     "OrderNewDBSAddress",
     "OrderNewDBSOptions",
     "OrdersRequestAPI",
+    "Response403General",
 ]
 
 # import apis into sdk package
@@ -165,4 +166,5 @@ from wildberries_sdk.orders_dbs.models.order_new_dbs import OrderNewDBS as Order
 from wildberries_sdk.orders_dbs.models.order_new_dbs_address import OrderNewDBSAddress as OrderNewDBSAddress
 from wildberries_sdk.orders_dbs.models.order_new_dbs_options import OrderNewDBSOptions as OrderNewDBSOptions
 from wildberries_sdk.orders_dbs.models.orders_request_api import OrdersRequestAPI as OrdersRequestAPI
+from wildberries_sdk.orders_dbs.models.response403_general import Response403General as Response403General
 

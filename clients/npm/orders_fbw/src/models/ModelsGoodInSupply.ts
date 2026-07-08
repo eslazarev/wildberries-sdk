@@ -120,14 +120,14 @@ export function ModelsGoodInSupplyFromJSONTyped(json: any, ignoreDiscriminator: 
         'vendorCode': json['vendorCode'] == null ? undefined : json['vendorCode'],
         'nmID': json['nmID'] == null ? undefined : json['nmID'],
         'needKiz': json['needKiz'] == null ? undefined : json['needKiz'],
-        'tnved': json['tnved'] == null ? undefined : json['tnved'],
+        'tnved': json['tnved'] === undefined ? undefined : json['tnved'] === null ? null : json['tnved'],
         'techSize': json['techSize'] == null ? undefined : json['techSize'],
-        'color': json['color'] == null ? undefined : json['color'],
-        'supplierBoxAmount': json['supplierBoxAmount'] == null ? undefined : json['supplierBoxAmount'],
+        'color': json['color'] === undefined ? undefined : json['color'] === null ? null : json['color'],
+        'supplierBoxAmount': json['supplierBoxAmount'] === undefined ? undefined : json['supplierBoxAmount'] === null ? null : json['supplierBoxAmount'],
         'quantity': json['quantity'] == null ? undefined : json['quantity'],
-        'readyForSaleQuantity': json['readyForSaleQuantity'] == null ? undefined : json['readyForSaleQuantity'],
-        'acceptedQuantity': json['acceptedQuantity'] == null ? undefined : json['acceptedQuantity'],
-        'unloadingQuantity': json['unloadingQuantity'] == null ? undefined : json['unloadingQuantity'],
+        'readyForSaleQuantity': json['readyForSaleQuantity'] === undefined ? undefined : json['readyForSaleQuantity'] === null ? null : json['readyForSaleQuantity'],
+        'acceptedQuantity': json['acceptedQuantity'] === undefined ? undefined : json['acceptedQuantity'] === null ? null : json['acceptedQuantity'],
+        'unloadingQuantity': json['unloadingQuantity'] === undefined ? undefined : json['unloadingQuantity'] === null ? null : json['unloadingQuantity'],
     };
 }
 

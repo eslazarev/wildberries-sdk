@@ -111,7 +111,7 @@ export function ApiV1QuestionGet200ResponseDataFromJSONTyped(json: any, ignoreDi
         'text': json['text'] == null ? undefined : json['text'],
         'createdDate': json['createdDate'] == null ? undefined : (new Date(json['createdDate'])),
         'state': json['state'] == null ? undefined : json['state'],
-        'answer': json['answer'] == null ? undefined : ApiV1QuestionGet200ResponseDataAnswerFromJSON(json['answer']),
+        'answer': json['answer'] === undefined ? undefined : json['answer'] === null ? null : ApiV1QuestionGet200ResponseDataAnswerFromJSON(json['answer']),
         'productDetails': json['productDetails'] == null ? undefined : ApiV1QuestionGet200ResponseDataProductDetailsFromJSON(json['productDetails']),
         'wasViewed': json['wasViewed'] == null ? undefined : json['wasViewed'],
         'isWarned': json['isWarned'] == null ? undefined : json['isWarned'],

@@ -72,7 +72,7 @@ export function ApiBatchErrorResponseMetaDetailsInnerFromJSONTyped(json: any, ig
     return {
         
         'key': json['key'],
-        'value': json['value'] == null ? undefined : json['value'],
+        'value': json['value'] === undefined ? undefined : json['value'] === null ? null : json['value'],
         'decision': json['decision'],
     };
 }

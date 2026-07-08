@@ -622,7 +622,7 @@ export function DetailReportItemFromJSONTyped(json: any, ignoreDiscriminator: bo
         'dateTo': json['date_to'] == null ? undefined : (new Date(json['date_to'])),
         'createDt': json['create_dt'] == null ? undefined : (new Date(json['create_dt'])),
         'currencyName': json['currency_name'] == null ? undefined : json['currency_name'],
-        'suppliercontractCode': json['suppliercontract_code'] == null ? undefined : json['suppliercontract_code'],
+        'suppliercontractCode': json['suppliercontract_code'] === undefined ? undefined : json['suppliercontract_code'] === null ? null : json['suppliercontract_code'],
         'rrdId': json['rrd_id'] == null ? undefined : json['rrd_id'],
         'giId': json['gi_id'] == null ? undefined : json['gi_id'],
         'dlvPrc': json['dlv_prc'] == null ? undefined : json['dlv_prc'],

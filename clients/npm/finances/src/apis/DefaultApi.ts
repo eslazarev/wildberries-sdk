@@ -89,6 +89,11 @@ import {
     PostV1SalesReportsList400ResponseToJSON,
 } from '../models/PostV1SalesReportsList400Response';
 import {
+    type PostV1SalesReportsList403Response,
+    PostV1SalesReportsList403ResponseFromJSON,
+    PostV1SalesReportsList403ResponseToJSON,
+} from '../models/PostV1SalesReportsList403Response';
+import {
     type RequestDownload,
     RequestDownloadFromJSON,
     RequestDownloadToJSON,

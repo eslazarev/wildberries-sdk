@@ -58,8 +58,8 @@ export function ApiV2BufferGoodsTaskGet200ResponseDataFromJSONTyped(json: any, i
     }
     return {
         
-        'uploadID': json['uploadID'] == null ? undefined : json['uploadID'],
-        'bufferGoods': json['bufferGoods'] == null ? undefined : ((json['bufferGoods'] as Array<any>).map(GoodBufferHistoryFromJSON)),
+        'uploadID': json['uploadID'] === undefined ? undefined : json['uploadID'] === null ? null : json['uploadID'],
+        'bufferGoods': json['bufferGoods'] === undefined ? undefined : json['bufferGoods'] === null ? null : ((json['bufferGoods'] as Array<any>).map(GoodBufferHistoryFromJSON)),
     };
 }
 

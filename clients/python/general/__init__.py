@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.121"
+__version__ = "0.1.122"
 
 # Define package exports
 __all__ = [
@@ -38,6 +38,7 @@ __all__ = [
     "CreateInviteRequestInvite",
     "CreateInviteResponse",
     "ErrorResponse",
+    "GetCommonV1Rating403Response",
     "GetUsersResponse",
     "GetUsersResponseUsersInner",
     "GetUsersResponseUsersInnerInviteeInfo",
@@ -80,6 +81,7 @@ from wildberries_sdk.general.models.create_invite_request import CreateInviteReq
 from wildberries_sdk.general.models.create_invite_request_invite import CreateInviteRequestInvite as CreateInviteRequestInvite
 from wildberries_sdk.general.models.create_invite_response import CreateInviteResponse as CreateInviteResponse
 from wildberries_sdk.general.models.error_response import ErrorResponse as ErrorResponse
+from wildberries_sdk.general.models.get_common_v1_rating403_response import GetCommonV1Rating403Response as GetCommonV1Rating403Response
 from wildberries_sdk.general.models.get_users_response import GetUsersResponse as GetUsersResponse
 from wildberries_sdk.general.models.get_users_response_users_inner import GetUsersResponseUsersInner as GetUsersResponseUsersInner
 from wildberries_sdk.general.models.get_users_response_users_inner_invitee_info import GetUsersResponseUsersInnerInviteeInfo as GetUsersResponseUsersInnerInviteeInfo

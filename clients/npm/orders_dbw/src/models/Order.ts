@@ -202,7 +202,7 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
     }
     return {
         
-        'address': json['address'] == null ? undefined : OrderNewDBWAddressFromJSON(json['address']),
+        'address': json['address'] === undefined ? undefined : json['address'] === null ? null : OrderNewDBWAddressFromJSON(json['address']),
         'options': json['options'] == null ? undefined : OrderNewDBWOptionsFromJSON(json['options']),
         'orderUid': json['orderUid'] == null ? undefined : json['orderUid'],
         'groupId': json['groupId'] == null ? undefined : json['groupId'],

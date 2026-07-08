@@ -131,14 +131,14 @@ export function ModelsSupplyFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'phone': json['phone'] == null ? undefined : json['phone'],
-        'supplyID': json['supplyID'] == null ? undefined : json['supplyID'],
+        'supplyID': json['supplyID'] === undefined ? undefined : json['supplyID'] === null ? null : json['supplyID'],
         'preorderID': json['preorderID'] == null ? undefined : json['preorderID'],
         'createDate': json['createDate'] == null ? undefined : json['createDate'],
-        'supplyDate': json['supplyDate'] == null ? undefined : json['supplyDate'],
-        'factDate': json['factDate'] == null ? undefined : json['factDate'],
-        'updatedDate': json['updatedDate'] == null ? undefined : json['updatedDate'],
+        'supplyDate': json['supplyDate'] === undefined ? undefined : json['supplyDate'] === null ? null : json['supplyDate'],
+        'factDate': json['factDate'] === undefined ? undefined : json['factDate'] === null ? null : json['factDate'],
+        'updatedDate': json['updatedDate'] === undefined ? undefined : json['updatedDate'] === null ? null : json['updatedDate'],
         'statusID': json['statusID'] == null ? undefined : json['statusID'],
-        'boxTypeID': json['boxTypeID'] == null ? undefined : json['boxTypeID'],
+        'boxTypeID': json['boxTypeID'] === undefined ? undefined : json['boxTypeID'] === null ? null : json['boxTypeID'],
         'isBoxOnPallet': json['isBoxOnPallet'] == null ? undefined : json['isBoxOnPallet'],
     };
 }

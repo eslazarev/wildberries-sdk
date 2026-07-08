@@ -140,7 +140,7 @@ export function OfficeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Of
         'latitude': json['latitude'] == null ? undefined : json['latitude'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
-        'federalDistrict': json['federalDistrict'] == null ? undefined : json['federalDistrict'],
+        'federalDistrict': json['federalDistrict'] === undefined ? undefined : json['federalDistrict'] === null ? null : json['federalDistrict'],
         'selected': json['selected'] == null ? undefined : json['selected'],
     };
 }

@@ -34,7 +34,7 @@
       "Wildberries\\Sdk\\OrdersFbw\\": "clients/php/orders_fbw/lib/",
       "Wildberries\\Sdk\\Promotion\\": "clients/php/promotion/lib/",
       "Wildberries\\Sdk\\Communications\\": "clients/php/communications/lib/",
-      "Wildberries\\Sdk\\Tariffs\\": "clients/php/tariffs/lib/",
+      "Wildberries\\Sdk\\Rates\\": "clients/php/rates/lib/",
       "Wildberries\\Sdk\\Analytics\\": "clients/php/analytics/lib/",
       "Wildberries\\Sdk\\Reports\\": "clients/php/reports/lib/",
       "Wildberries\\Sdk\\Finances\\": "clients/php/finances/lib/"

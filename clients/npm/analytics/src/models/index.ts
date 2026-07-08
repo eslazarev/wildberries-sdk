@@ -103,6 +103,7 @@ export * from './PostSalesFunnelProducts401Response';
 export * from './PostSalesFunnelProducts402Response';
 export * from './PostV1ItemRating200Response';
 export * from './PostV1StocksReportWbWarehouses200Response';
+export * from './Response403General';
 export * from './Response429Download';
 export * from './Response429DownloadDaily';
 export * from './SalesFunnelGroupReq';

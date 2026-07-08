@@ -204,6 +204,8 @@ pub mod post_v1_item_rating_200_response;
 pub use self::post_v1_item_rating_200_response::PostV1ItemRating200Response;
 pub mod post_v1_stocks_report_wb_warehouses_200_response;
 pub use self::post_v1_stocks_report_wb_warehouses_200_response::PostV1StocksReportWbWarehouses200Response;
+pub mod response403_general;
+pub use self::response403_general::Response403General;
 pub mod response429_download;
 pub use self::response429_download::Response429Download;
 pub mod response429_download_daily;

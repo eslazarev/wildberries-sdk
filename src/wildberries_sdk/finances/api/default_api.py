@@ -2039,6 +2039,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2111,6 +2112,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2183,6 +2185,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2336,6 +2339,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2412,6 +2416,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2488,6 +2493,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2639,6 +2645,7 @@ class DefaultApi:
             '204': None,
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2710,6 +2717,7 @@ class DefaultApi:
             '204': None,
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2781,6 +2789,7 @@ class DefaultApi:
             '204': None,
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -3227,6 +3236,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -3303,6 +3313,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -3379,6 +3390,7 @@ class DefaultApi:
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
             '402': "ApiV1AccountBalanceGet402Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -3530,6 +3542,7 @@ class DefaultApi:
             '204': None,
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -3601,6 +3614,7 @@ class DefaultApi:
             '204': None,
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -3672,6 +3686,7 @@ class DefaultApi:
             '204': None,
             '400': "PostV1SalesReportsList400Response",
             '401': "ApiV1AccountBalanceGet401Response",
+            '403': "PostV1SalesReportsList403Response",
             '429': "ApiV1AccountBalanceGet401Response",
         }
         response_data = self.api_client.call_api(

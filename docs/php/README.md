@@ -312,12 +312,12 @@ var_dump($response);
 - `communications.DefaultApi.apiV1SellerEventsGet` — `GET /api/v1/seller/events` — События чатов
 - `communications.DefaultApi.apiV1SellerMessagePost` — `POST /api/v1/seller/message` — Отправить сообщение
 
-### tariffs (`tariffs`)
-- `tariffs.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
-- `tariffs.DefaultApi.apiV1TariffsBoxGet` — `GET /api/v1/tariffs/box` — Тарифы для коробов
-- `tariffs.DefaultApi.apiV1TariffsCommissionGet` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
-- `tariffs.DefaultApi.apiV1TariffsPalletGet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
-- `tariffs.DefaultApi.apiV1TariffsReturnGet` — `GET /api/v1/tariffs/return` — Тарифы на возврат
+### rates (`rates`)
+- `rates.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
+- `rates.DefaultApi.apiV1TariffsBoxGet` — `GET /api/v1/tariffs/box` — Тарифы для коробов
+- `rates.DefaultApi.apiV1TariffsCommissionGet` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
+- `rates.DefaultApi.apiV1TariffsPalletGet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
+- `rates.DefaultApi.apiV1TariffsReturnGet` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
 - `analytics.CSVApi.apiV2NmReportDownloadsFileDownloadIdGet` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт

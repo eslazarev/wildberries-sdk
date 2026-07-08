@@ -158,6 +158,11 @@ import {
     OrdersRequestAPIFromJSON,
     OrdersRequestAPIToJSON,
 } from '../models/OrdersRequestAPI';
+import {
+    type Response403General,
+    Response403GeneralFromJSON,
+    Response403GeneralToJSON,
+} from '../models/Response403General';
 
 export interface ApiMarketplaceV3DbsOrdersB2bInfoPostRequest {
     apiOrdersRequestV2: ApiOrdersRequestV2;

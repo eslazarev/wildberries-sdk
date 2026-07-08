@@ -1,7 +1,7 @@
 /*
 Маркетинг и продвижение
 
-<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
+<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
 
 API version: promotion
 */
@@ -21,8 +21,9 @@ var _ MappedNullable = &FullStatsError{}
 
 // FullStatsError Ошибка
 type FullStatsError struct {
+	Errors []FullStatsErrorErrorsInner `json:"errors,omitempty"`
 	// Детали ошибки
-	Detail string `json:"detail"`
+	Detail *string `json:"detail,omitempty"`
 	// ID внутреннего сервиса WB
 	Origin string `json:"origin"`
 	// ID запроса
@@ -39,9 +40,8 @@ type _FullStatsError FullStatsError
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFullStatsError(detail string, origin string, requestId string, status int32, title string) *FullStatsError {
+func NewFullStatsError(origin string, requestId string, status int32, title string) *FullStatsError {
 	this := FullStatsError{}
-	this.Detail = detail
 	this.Origin = origin
 	this.RequestId = requestId
 	this.Status = status
@@ -57,28 +57,68 @@ func NewFullStatsErrorWithDefaults() *FullStatsError {
 	return &this
 }
 
-// GetDetail returns the Detail field value
+// GetErrors returns the Errors field value if set, zero value otherwise.
+func (o *FullStatsError) GetErrors() []FullStatsErrorErrorsInner {
+	if o == nil || IsNil(o.Errors) {
+		var ret []FullStatsErrorErrorsInner
+		return ret
+	}
+	return o.Errors
+}
+
+// GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FullStatsError) GetErrorsOk() ([]FullStatsErrorErrorsInner, bool) {
+	if o == nil || IsNil(o.Errors) {
+		return nil, false
+	}
+	return o.Errors, true
+}
+
+// HasErrors returns a boolean if a field has been set.
+func (o *FullStatsError) HasErrors() bool {
+	if o != nil && !IsNil(o.Errors) {
+		return true
+	}
+
+	return false
+}
+
+// SetErrors gets a reference to the given []FullStatsErrorErrorsInner and assigns it to the Errors field.
+func (o *FullStatsError) SetErrors(v []FullStatsErrorErrorsInner) {
+	o.Errors = v
+}
+
+// GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *FullStatsError) GetDetail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
 	}
-
-	return o.Detail
+	return *o.Detail
 }
 
-// GetDetailOk returns a tuple with the Detail field value
+// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FullStatsError) GetDetailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
-	return &o.Detail, true
+	return o.Detail, true
 }
 
-// SetDetail sets field value
+// HasDetail returns a boolean if a field has been set.
+func (o *FullStatsError) HasDetail() bool {
+	if o != nil && !IsNil(o.Detail) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetail gets a reference to the given string and assigns it to the Detail field.
 func (o *FullStatsError) SetDetail(v string) {
-	o.Detail = v
+	o.Detail = &v
 }
 
 // GetOrigin returns the Origin field value
@@ -187,7 +227,12 @@ func (o FullStatsError) MarshalJSON() ([]byte, error) {
 
 func (o FullStatsError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["detail"] = o.Detail
+	if !IsNil(o.Errors) {
+		toSerialize["errors"] = o.Errors
+	}
+	if !IsNil(o.Detail) {
+		toSerialize["detail"] = o.Detail
+	}
 	toSerialize["origin"] = o.Origin
 	toSerialize["request_id"] = o.RequestId
 	toSerialize["status"] = o.Status
@@ -200,7 +245,6 @@ func (o *FullStatsError) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"detail",
 		"origin",
 		"request_id",
 		"status",

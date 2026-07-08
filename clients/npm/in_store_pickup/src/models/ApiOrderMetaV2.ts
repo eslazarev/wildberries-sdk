@@ -86,12 +86,12 @@ export function ApiOrderMetaV2FromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'error': json['error'],
-        'gtin': json['gtin'] == null ? undefined : json['gtin'],
-        'imei': json['imei'] == null ? undefined : json['imei'],
+        'gtin': json['gtin'] === undefined ? undefined : json['gtin'] === null ? null : json['gtin'],
+        'imei': json['imei'] === undefined ? undefined : json['imei'] === null ? null : json['imei'],
         'orderId': json['orderId'],
-        'sgtin': json['sgtin'] == null ? undefined : json['sgtin'],
-        'uin': json['uin'] == null ? undefined : json['uin'],
-        'customsDeclaration': json['customsDeclaration'] == null ? undefined : json['customsDeclaration'],
+        'sgtin': json['sgtin'] === undefined ? undefined : json['sgtin'] === null ? null : json['sgtin'],
+        'uin': json['uin'] === undefined ? undefined : json['uin'] === null ? null : json['uin'],
+        'customsDeclaration': json['customsDeclaration'] === undefined ? undefined : json['customsDeclaration'] === null ? null : json['customsDeclaration'],
     };
 }
 

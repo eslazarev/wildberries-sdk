@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.121"
+__version__ = "0.1.122"
 
 # Define package exports
 __all__ = [
@@ -49,6 +49,7 @@ __all__ = [
     "GetListData",
     "GetListDataDocumentsInner",
     "PostV1SalesReportsList400Response",
+    "PostV1SalesReportsList403Response",
     "RequestDownload",
     "RequestDownloadParamsInner",
     "SalesReportListReq",
@@ -93,6 +94,7 @@ from wildberries_sdk.finances.models.get_list import GetList as GetList
 from wildberries_sdk.finances.models.get_list_data import GetListData as GetListData
 from wildberries_sdk.finances.models.get_list_data_documents_inner import GetListDataDocumentsInner as GetListDataDocumentsInner
 from wildberries_sdk.finances.models.post_v1_sales_reports_list400_response import PostV1SalesReportsList400Response as PostV1SalesReportsList400Response
+from wildberries_sdk.finances.models.post_v1_sales_reports_list403_response import PostV1SalesReportsList403Response as PostV1SalesReportsList403Response
 from wildberries_sdk.finances.models.request_download import RequestDownload as RequestDownload
 from wildberries_sdk.finances.models.request_download_params_inner import RequestDownloadParamsInner as RequestDownloadParamsInner
 from wildberries_sdk.finances.models.sales_report_list_req import SalesReportListReq as SalesReportListReq

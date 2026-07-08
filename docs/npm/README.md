@@ -299,12 +299,12 @@ main().catch(console.error);
 - `communications.DefaultApi.apiV1SellerEventsGet` — События чатов
 - `communications.DefaultApi.apiV1SellerMessagePost` — Отправить сообщение
 
-### tariffs (`tariffs`)
-- `tariffs.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — Тарифы на поставку
-- `tariffs.DefaultApi.apiV1TariffsBoxGet` — Тарифы для коробов
-- `tariffs.DefaultApi.apiV1TariffsCommissionGet` — Комиссия по категориям товаров
-- `tariffs.DefaultApi.apiV1TariffsPalletGet` — Тарифы для монопаллет
-- `tariffs.DefaultApi.apiV1TariffsReturnGet` — Тарифы на возврат
+### rates (`rates`)
+- `rates.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — Тарифы на поставку
+- `rates.DefaultApi.apiV1TariffsBoxGet` — Тарифы для коробов
+- `rates.DefaultApi.apiV1TariffsCommissionGet` — Комиссия по категориям товаров
+- `rates.DefaultApi.apiV1TariffsPalletGet` — Тарифы для монопаллет
+- `rates.DefaultApi.apiV1TariffsReturnGet` — Тарифы на возврат
 
 ### analytics (`analytics`)
 - `analytics.CSVApi.apiV2NmReportDownloadsFileDownloadIdGet` — Получить отчёт

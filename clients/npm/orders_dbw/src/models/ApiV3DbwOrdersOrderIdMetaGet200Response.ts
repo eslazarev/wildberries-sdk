@@ -52,7 +52,7 @@ export function ApiV3DbwOrdersOrderIdMetaGet200ResponseFromJSONTyped(json: any, 
     }
     return {
         
-        'meta': json['meta'] == null ? undefined : MetaFromJSON(json['meta']),
+        'meta': json['meta'] === undefined ? undefined : json['meta'] === null ? null : MetaFromJSON(json['meta']),
     };
 }
 

@@ -52,7 +52,7 @@ export function DbsOnlyClientInfoRespFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(DbsOnlyClientInfoFromJSON)),
+        'orders': json['orders'] === undefined ? undefined : json['orders'] === null ? null : ((json['orders'] as Array<any>).map(DbsOnlyClientInfoFromJSON)),
     };
 }
 

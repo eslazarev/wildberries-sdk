@@ -83,9 +83,9 @@ export function ApiV1FeedbackGet200ResponseDataProductDetailsFromJSONTyped(json:
         'nmId': json['nmId'] == null ? undefined : json['nmId'],
         'imtId': json['imtId'] == null ? undefined : json['imtId'],
         'productName': json['productName'] == null ? undefined : json['productName'],
-        'supplierArticle': json['supplierArticle'] == null ? undefined : json['supplierArticle'],
-        'supplierName': json['supplierName'] == null ? undefined : json['supplierName'],
-        'brandName': json['brandName'] == null ? undefined : json['brandName'],
+        'supplierArticle': json['supplierArticle'] === undefined ? undefined : json['supplierArticle'] === null ? null : json['supplierArticle'],
+        'supplierName': json['supplierName'] === undefined ? undefined : json['supplierName'] === null ? null : json['supplierName'],
+        'brandName': json['brandName'] === undefined ? undefined : json['brandName'] === null ? null : json['brandName'],
         'size': json['size'] == null ? undefined : json['size'],
     };
 }

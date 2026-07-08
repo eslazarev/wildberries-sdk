@@ -182,9 +182,9 @@ export function ApiV1ClaimsGet200ResponseClaimsInnerFromJSONTyped(json: any, ign
         'statusEx': json['status_ex'] == null ? undefined : json['status_ex'],
         'nmId': json['nm_id'] == null ? undefined : json['nm_id'],
         'userComment': json['user_comment'] == null ? undefined : json['user_comment'],
-        'wbComment': json['wb_comment'] == null ? undefined : json['wb_comment'],
+        'wbComment': json['wb_comment'] === undefined ? undefined : json['wb_comment'] === null ? null : json['wb_comment'],
         'dt': json['dt'] == null ? undefined : json['dt'],
-        'imtName': json['imt_name'] == null ? undefined : json['imt_name'],
+        'imtName': json['imt_name'] === undefined ? undefined : json['imt_name'] === null ? null : json['imt_name'],
         'orderDt': json['order_dt'] == null ? undefined : json['order_dt'],
         'dtUpdate': json['dt_update'] == null ? undefined : json['dt_update'],
         'photos': json['photos'] == null ? undefined : json['photos'],
@@ -193,7 +193,7 @@ export function ApiV1ClaimsGet200ResponseClaimsInnerFromJSONTyped(json: any, ign
         'price': json['price'] == null ? undefined : json['price'],
         'currencyCode': json['currency_code'] == null ? undefined : json['currency_code'],
         'srid': json['srid'] == null ? undefined : json['srid'],
-        'originIdInfo': json['origin_id_info'] == null ? undefined : json['origin_id_info'],
+        'originIdInfo': json['origin_id_info'] === undefined ? undefined : json['origin_id_info'] === null ? null : json['origin_id_info'],
         'deliveryDt': json['delivery_dt'] == null ? undefined : json['delivery_dt'],
     };
 }

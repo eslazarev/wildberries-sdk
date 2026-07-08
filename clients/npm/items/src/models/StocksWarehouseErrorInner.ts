@@ -64,7 +64,7 @@ export function StocksWarehouseErrorInnerFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(StocksWarehouseErrorInnerDataInnerFromJSON)),
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : ((json['data'] as Array<any>).map(StocksWarehouseErrorInnerDataInnerFromJSON)),
         'code': json['code'] == null ? undefined : json['code'],
         'message': json['message'] == null ? undefined : json['message'],
     };

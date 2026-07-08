@@ -215,9 +215,9 @@ export function OrderNewDBWFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'address': json['address'] == null ? undefined : OrderNewDBWAddressFromJSON(json['address']),
-        'salePrice': json['salePrice'] == null ? undefined : json['salePrice'],
-        'requiredMeta': json['requiredMeta'] == null ? undefined : json['requiredMeta'],
+        'address': json['address'] === undefined ? undefined : json['address'] === null ? null : OrderNewDBWAddressFromJSON(json['address']),
+        'salePrice': json['salePrice'] === undefined ? undefined : json['salePrice'] === null ? null : json['salePrice'],
+        'requiredMeta': json['requiredMeta'] === undefined ? undefined : json['requiredMeta'] === null ? null : json['requiredMeta'],
         'comment': json['comment'] == null ? undefined : json['comment'],
         'options': json['options'] == null ? undefined : OrderNewDBWOptionsFromJSON(json['options']),
         'orderUid': json['orderUid'] == null ? undefined : json['orderUid'],

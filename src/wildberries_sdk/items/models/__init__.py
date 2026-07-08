@@ -142,6 +142,7 @@ from wildberries_sdk.items.models.request_public_viewer_public_errors_table_list
 from wildberries_sdk.items.models.response208_set_recom import Response208SetRecom
 from wildberries_sdk.items.models.response400_get_recom import Response400GetRecom
 from wildberries_sdk.items.models.response400_set_recom import Response400SetRecom
+from wildberries_sdk.items.models.response403_general import Response403General
 from wildberries_sdk.items.models.response_body_content_error400 import ResponseBodyContentError400
 from wildberries_sdk.items.models.response_body_content_error403 import ResponseBodyContentError403
 from wildberries_sdk.items.models.response_content_error import ResponseContentError

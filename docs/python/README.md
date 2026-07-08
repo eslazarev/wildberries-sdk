@@ -311,12 +311,12 @@ print(feedbacks)
 - `communications.DefaultApi.api_v1_seller_events_get` — `GET /api/v1/seller/events` — События чатов
 - `communications.DefaultApi.api_v1_seller_message_post` — `POST /api/v1/seller/message` — Отправить сообщение
 
-### tariffs (`tariffs`)
-- `tariffs.DefaultApi.api_tariffs_v1_acceptance_coefficients_get` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
-- `tariffs.DefaultApi.api_v1_tariffs_box_get` — `GET /api/v1/tariffs/box` — Тарифы для коробов
-- `tariffs.DefaultApi.api_v1_tariffs_commission_get` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
-- `tariffs.DefaultApi.api_v1_tariffs_pallet_get` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
-- `tariffs.DefaultApi.api_v1_tariffs_return_get` — `GET /api/v1/tariffs/return` — Тарифы на возврат
+### rates (`rates`)
+- `rates.DefaultApi.api_tariffs_v1_acceptance_coefficients_get` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
+- `rates.DefaultApi.api_v1_tariffs_box_get` — `GET /api/v1/tariffs/box` — Тарифы для коробов
+- `rates.DefaultApi.api_v1_tariffs_commission_get` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
+- `rates.DefaultApi.api_v1_tariffs_pallet_get` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
+- `rates.DefaultApi.api_v1_tariffs_return_get` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
 - `analytics.DefaultApi.api_v2_nm_report_downloads_file_download_id_get` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт

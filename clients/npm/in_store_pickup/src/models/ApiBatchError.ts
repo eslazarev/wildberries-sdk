@@ -65,7 +65,7 @@ export function ApiBatchErrorFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'detail': json['detail'] == null ? undefined : json['detail'],
+        'detail': json['detail'] === undefined ? undefined : json['detail'] === null ? null : json['detail'],
         'origin': json['origin'],
         'requestId': json['requestId'],
         'title': json['title'],

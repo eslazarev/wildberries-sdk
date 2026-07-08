@@ -385,6 +385,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -477,6 +492,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
           description: Требуется платёж
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -580,6 +610,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_ping_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+          description: Доступ запрещён
         "404":
           content:
             application/problem+json:
@@ -675,6 +720,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_ping_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1033,6 +1093,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_ping_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1109,6 +1184,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_ping_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1187,6 +1277,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_ping_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -1299,6 +1404,21 @@ components:
           schema:
             $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
       description: Требуется платёж
+    "403":
+      content:
+        application/problem+json:
+          example:
+            title: forbidden
+            detail: base token is not allowed
+            code: base token is not allowed for this path
+            requestId: 722199b2e15bbca48cc1d488a7989976
+            origin: s2s-finance
+            status: 403
+            statusText: Forbidden
+            timestamp: 2026-05-25T02:47:09Z
+          schema:
+            $ref: "#/components/schemas/getCommonV1Rating_403_response"
+      description: Доступ запрещён
     "429":
       content:
         application/problem+json:
@@ -2064,6 +2184,34 @@ components:
         detail:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
             алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
+          type: string
+      type: object
+    getCommonV1Rating_403_response:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
           type: string
       type: object
     Access_inner:

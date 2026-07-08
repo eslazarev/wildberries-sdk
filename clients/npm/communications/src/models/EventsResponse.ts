@@ -59,7 +59,7 @@ export function EventsResponseFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'result': json['result'] == null ? undefined : EventsResultFromJSON(json['result']),
-        'errors': json['errors'] == null ? undefined : json['errors'],
+        'errors': json['errors'] === undefined ? undefined : json['errors'] === null ? null : json['errors'],
     };
 }
 

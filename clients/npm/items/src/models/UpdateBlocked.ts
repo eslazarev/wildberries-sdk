@@ -58,7 +58,7 @@ export function UpdateBlockedFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'code': json['code'] == null ? undefined : json['code'],
         'message': json['message'] == null ? undefined : json['message'],
-        'data': json['data'] == null ? undefined : json['data'],
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
     };
 }
 

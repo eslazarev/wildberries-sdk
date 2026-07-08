@@ -35,7 +35,7 @@ use \Wildberries\Sdk\OrdersDbs\ObjectSerializer;
  * ApiOrderMetaV2CustomsDeclaration Class Doc Comment
  *
  * @category Class
- * @description Номер грузовой таможенной декларации
+ * @description Номер ДТ
  * @package  Wildberries\Sdk\OrdersDbs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

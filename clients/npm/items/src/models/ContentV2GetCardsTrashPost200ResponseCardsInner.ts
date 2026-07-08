@@ -167,7 +167,7 @@ export function ContentV2GetCardsTrashPost200ResponseCardsInnerFromJSONTyped(jso
         'wholesale': json['wholesale'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerWholesaleFromJSON(json['wholesale']),
         'sizes': json['sizes'] == null ? undefined : ((json['sizes'] as Array<any>).map(ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInnerFromJSON)),
         'dimensions': json['dimensions'] == null ? undefined : ContentV2GetCardsListPost200ResponseCardsInnerDimensionsFromJSON(json['dimensions']),
-        'characteristics': json['characteristics'] == null ? undefined : ((json['characteristics'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerFromJSON)),
+        'characteristics': json['characteristics'] === undefined ? undefined : json['characteristics'] === null ? null : ((json['characteristics'] as Array<any>).map(ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInnerFromJSON)),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'trashedAt': json['trashedAt'] == null ? undefined : json['trashedAt'],
     };

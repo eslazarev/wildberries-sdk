@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.121"
+__version__ = "0.1.122"
 
 # Define package exports
 __all__ = [
@@ -131,6 +131,7 @@ __all__ = [
     "PostSalesFunnelProducts402Response",
     "PostV1ItemRating200Response",
     "PostV1StocksReportWbWarehouses200Response",
+    "Response403General",
     "Response429Download",
     "Response429DownloadDaily",
     "SalesFunnelGroupReq",
@@ -334,6 +335,7 @@ from wildberries_sdk.analytics.models.post_sales_funnel_products401_response imp
 from wildberries_sdk.analytics.models.post_sales_funnel_products402_response import PostSalesFunnelProducts402Response as PostSalesFunnelProducts402Response
 from wildberries_sdk.analytics.models.post_v1_item_rating200_response import PostV1ItemRating200Response as PostV1ItemRating200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response as PostV1StocksReportWbWarehouses200Response
+from wildberries_sdk.analytics.models.response403_general import Response403General as Response403General
 from wildberries_sdk.analytics.models.response429_download import Response429Download as Response429Download
 from wildberries_sdk.analytics.models.response429_download_daily import Response429DownloadDaily as Response429DownloadDaily
 from wildberries_sdk.analytics.models.sales_funnel_group_req import SalesFunnelGroupReq as SalesFunnelGroupReq

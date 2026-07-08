@@ -1,7 +1,7 @@
 /*
  * Маркетинг и продвижение
  *
- * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
+ * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
  *
  * The version of the OpenAPI document: promotion
  * 
@@ -14,9 +14,11 @@ use serde::{Deserialize, Serialize};
 /// FullStatsError : Ошибка
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FullStatsError {
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<models::FullStatsErrorErrorsInner>>,
     /// Детали ошибки
-    #[serde(rename = "detail")]
-    pub detail: String,
+    #[serde(rename = "detail", skip_serializing_if = "Option::is_none")]
+    pub detail: Option<String>,
     /// ID внутреннего сервиса WB
     #[serde(rename = "origin")]
     pub origin: String,
@@ -33,9 +35,10 @@ pub struct FullStatsError {
 
 impl FullStatsError {
     /// Ошибка
-    pub fn new(detail: String, origin: String, request_id: String, status: i32, title: String) -> FullStatsError {
+    pub fn new(origin: String, request_id: String, status: i32, title: String) -> FullStatsError {
         FullStatsError {
-            detail,
+            errors: None,
+            detail: None,
             origin,
             request_id,
             status,

@@ -4379,11 +4379,11 @@ paths:
         "403":
           content:
             application/json:
-              examples:
-                AccessDenied:
-                  $ref: "#/components/examples/Result403V3"
               schema:
                 $ref: "#/components/schemas/ResponseErrorV3"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Response403General"
           description: Доступ запрещён
         "429":
           content:
@@ -4641,7 +4641,7 @@ paths:
         Метод возвращает информацию про загрузку скидок в обработке.
 
         <div class="description_important">
-          Необработанная загрузка — это загрузка скидок в <a href="/openapi/promotion#tag/Kalendar-akcij">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции.
+          Необработанная загрузка — это загрузка скидок в <a href="/openapi/promotion#tag/promoCalendar">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции.
         </div>
 
         <div class="description_limit">
@@ -4741,7 +4741,7 @@ paths:
         Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.
 
         <div class="description_important">
-          Необработанная загрузка — это загрузка скидок в <a href="/openapi/promotion#tag/Kalendar-akcij">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции.
+          Необработанная загрузка — это загрузка скидок в <a href="/openapi/promotion#tag/promoCalendar">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции.
         </div>
 
         <div class="description_limit">
@@ -7207,14 +7207,6 @@ components:
         data: null
         error: true
         errorText: Access denied
-    Result403V3:
-      description: Доступ запрещён
-      value:
-        status: 403
-        title: Forbidden
-        detail: Access denied
-        requestId: 4b387d2e-13b0-4be7-a34c-be01fb35fd2d
-        origin: discounts-prices
     Result409:
       description: Изменение цен и скидок недоступно во время смены валюты
       value:
@@ -9186,6 +9178,42 @@ components:
       - requestId
       - title
       type: object
+    Response403General:
+      properties:
+        title:
+          description: Заголовок ошибки
+          example: forbidden
+          type: string
+        detail:
+          description: Детали ошибки
+          example: base token is not allowed
+          type: string
+        code:
+          description: Внутренний код ошибки
+          example: base token is not allowed for this path
+          type: string
+        requestId:
+          description: ID запроса
+          example: 722199b2e15bbca48cc1d488a7989976
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: s2s-finance
+          type: string
+        status:
+          description: HTTP статус-код
+          example: 403
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          example: Forbidden
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          example: 2026-05-25T02:47:09Z
+          format: date-time
+          type: string
+      type: object
     _content_v2_object_parent_all_get_200_response_data_inner:
       example:
         name: Электроника
@@ -9771,7 +9799,7 @@ components:
               Не используется в песочнице
           type: boolean
         objectIDs:
-          description: Поиск по id предметов
+          description: Поиск по ID предметов
           items:
             type: integer
           type: array

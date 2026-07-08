@@ -82,8 +82,8 @@ export function ApiMarketplaceV3DbwOrdersClientPost400ResponseFromJSONTyped(json
         
         'code': json['code'] == null ? undefined : json['code'],
         'message': json['message'] == null ? undefined : json['message'],
-        'data': json['data'] == null ? undefined : json['data'],
-        'detail': json['detail'] == null ? undefined : json['detail'],
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
+        'detail': json['detail'] === undefined ? undefined : json['detail'] === null ? null : json['detail'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'requestId': json['requestId'] == null ? undefined : json['requestId'],
         'title': json['title'] == null ? undefined : json['title'],

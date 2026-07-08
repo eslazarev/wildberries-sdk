@@ -227,8 +227,8 @@ export function ApiNewOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'ddate': json['ddate'] == null ? undefined : json['ddate'],
-        'salePrice': json['salePrice'] == null ? undefined : json['salePrice'],
-        'requiredMeta': json['requiredMeta'] == null ? undefined : json['requiredMeta'],
+        'salePrice': json['salePrice'] === undefined ? undefined : json['salePrice'] === null ? null : json['salePrice'],
+        'requiredMeta': json['requiredMeta'] === undefined ? undefined : json['requiredMeta'] === null ? null : json['requiredMeta'],
         'article': json['article'] == null ? undefined : json['article'],
         'rid': json['rid'] == null ? undefined : json['rid'],
         'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),

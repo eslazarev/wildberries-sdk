@@ -154,16 +154,16 @@ export function SupplyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
     return {
         
         'id': json['id'] == null ? undefined : json['id'],
-        'isB2b': json['isB2b'] == null ? undefined : json['isB2b'],
+        'isB2b': json['isB2b'] === undefined ? undefined : json['isB2b'] === null ? null : json['isB2b'],
         'isPickupPointShipmentAllowed': json['isPickupPointShipmentAllowed'] == null ? undefined : json['isPickupPointShipmentAllowed'],
         'done': json['done'] == null ? undefined : json['done'],
         'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
-        'closedAt': json['closedAt'] == null ? undefined : (new Date(json['closedAt'])),
-        'scanDt': json['scanDt'] == null ? undefined : (new Date(json['scanDt'])),
+        'closedAt': json['closedAt'] === undefined ? undefined : json['closedAt'] === null ? null : (new Date(json['closedAt'])),
+        'scanDt': json['scanDt'] === undefined ? undefined : json['scanDt'] === null ? null : (new Date(json['scanDt'])),
         'name': json['name'] == null ? undefined : json['name'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
-        'crossBorderType': json['crossBorderType'] == null ? undefined : json['crossBorderType'],
-        'destinationOfficeId': json['destinationOfficeId'] == null ? undefined : json['destinationOfficeId'],
+        'crossBorderType': json['crossBorderType'] === undefined ? undefined : json['crossBorderType'] === null ? null : json['crossBorderType'],
+        'destinationOfficeId': json['destinationOfficeId'] === undefined ? undefined : json['destinationOfficeId'] === null ? null : json['destinationOfficeId'],
         'recommendedWhId': json['recommendedWhId'] == null ? undefined : json['recommendedWhId'],
     };
 }

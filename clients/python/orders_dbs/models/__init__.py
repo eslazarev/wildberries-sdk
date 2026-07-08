@@ -73,4 +73,5 @@ from wildberries_sdk.orders_dbs.models.order_new_dbs import OrderNewDBS
 from wildberries_sdk.orders_dbs.models.order_new_dbs_address import OrderNewDBSAddress
 from wildberries_sdk.orders_dbs.models.order_new_dbs_options import OrderNewDBSOptions
 from wildberries_sdk.orders_dbs.models.orders_request_api import OrdersRequestAPI
+from wildberries_sdk.orders_dbs.models.response403_general import Response403General
 

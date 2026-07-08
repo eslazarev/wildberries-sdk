@@ -52,7 +52,7 @@ export function ApiV2ListGoodsSizeNmGet200ResponseDataFromJSONTyped(json: any, i
     }
     return {
         
-        'listGoods': json['listGoods'] == null ? undefined : ((json['listGoods'] as Array<any>).map(SizeGoodFromJSON)),
+        'listGoods': json['listGoods'] === undefined ? undefined : json['listGoods'] === null ? null : ((json['listGoods'] as Array<any>).map(SizeGoodFromJSON)),
     };
 }
 

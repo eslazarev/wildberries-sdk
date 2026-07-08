@@ -69,9 +69,9 @@ export function CourierInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'contacts': json['contacts'] == null ? undefined : CourierContactsResponseFromJSON(json['contacts']),
+        'contacts': json['contacts'] === undefined ? undefined : json['contacts'] === null ? null : CourierContactsResponseFromJSON(json['contacts']),
         'mustBeAssigned': json['mustBeAssigned'] == null ? undefined : json['mustBeAssigned'],
-        'updatedAt': json['updatedAt'] == null ? undefined : (new Date(json['updatedAt'])),
+        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : (new Date(json['updatedAt'])),
     };
 }
 

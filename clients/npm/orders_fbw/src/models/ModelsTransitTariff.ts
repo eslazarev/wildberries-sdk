@@ -79,7 +79,7 @@ export function ModelsTransitTariffFromJSONTyped(json: any, ignoreDiscriminator:
         'transitWarehouseName': json['transitWarehouseName'] == null ? undefined : json['transitWarehouseName'],
         'destinationWarehouseName': json['destinationWarehouseName'] == null ? undefined : json['destinationWarehouseName'],
         'activeFrom': json['activeFrom'] == null ? undefined : (new Date(json['activeFrom'])),
-        'boxTariff': json['boxTariff'] == null ? undefined : ((json['boxTariff'] as Array<any>).map(ModelsVolumeTariffFromJSON)),
+        'boxTariff': json['boxTariff'] === undefined ? undefined : json['boxTariff'] === null ? null : ((json['boxTariff'] as Array<any>).map(ModelsVolumeTariffFromJSON)),
         'palletTariff': json['palletTariff'] == null ? undefined : json['palletTariff'],
     };
 }

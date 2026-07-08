@@ -71,8 +71,8 @@ export function CourierContactsResponseFromJSONTyped(json: any, ignoreDiscrimina
         'carNumber': json['carNumber'] == null ? undefined : json['carNumber'],
         'fullName': json['fullName'] == null ? undefined : json['fullName'],
         'phone': json['phone'] == null ? undefined : json['phone'],
-        'pTimeFrom': json['pTimeFrom'] == null ? undefined : (new Date(json['pTimeFrom'])),
-        'pTimeTo': json['pTimeTo'] == null ? undefined : (new Date(json['pTimeTo'])),
+        'pTimeFrom': json['pTimeFrom'] === undefined ? undefined : json['pTimeFrom'] === null ? null : (new Date(json['pTimeFrom'])),
+        'pTimeTo': json['pTimeTo'] === undefined ? undefined : json['pTimeTo'] === null ? null : (new Date(json['pTimeTo'])),
     };
 }
 

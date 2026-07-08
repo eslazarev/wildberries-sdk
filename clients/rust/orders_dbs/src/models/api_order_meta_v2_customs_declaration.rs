@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// ApiOrderMetaV2CustomsDeclaration : Номер грузовой таможенной декларации
+/// ApiOrderMetaV2CustomsDeclaration : Номер ДТ
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrderMetaV2CustomsDeclaration {
     #[serde(rename = "value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -19,7 +19,7 @@ pub struct ApiOrderMetaV2CustomsDeclaration {
 }
 
 impl ApiOrderMetaV2CustomsDeclaration {
-    /// Номер грузовой таможенной декларации
+    /// Номер ДТ
     pub fn new() -> ApiOrderMetaV2CustomsDeclaration {
         ApiOrderMetaV2CustomsDeclaration {
             value: None,

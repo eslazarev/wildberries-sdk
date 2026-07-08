@@ -73,7 +73,7 @@ export function ContentV2TagsGet200ResponseFromJSONTyped(json: any, ignoreDiscri
         'data': json['data'] == null ? undefined : ContentV2TagsGet200ResponseDataFromJSON(json['data']),
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
-        'additionalErrors': json['additionalErrors'] == null ? undefined : json['additionalErrors'],
+        'additionalErrors': json['additionalErrors'] === undefined ? undefined : json['additionalErrors'] === null ? null : json['additionalErrors'],
     };
 }
 

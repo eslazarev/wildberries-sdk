@@ -256,6 +256,8 @@ pub mod response400_get_recom;
 pub use self::response400_get_recom::Response400GetRecom;
 pub mod response400_set_recom;
 pub use self::response400_set_recom::Response400SetRecom;
+pub mod response403_general;
+pub use self::response403_general::Response403General;
 pub mod response_body_content_error400;
 pub use self::response_body_content_error400::ResponseBodyContentError400;
 pub mod response_body_content_error403;

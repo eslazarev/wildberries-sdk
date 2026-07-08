@@ -129,6 +129,7 @@ export * from './RequestPublicViewerPublicErrorsTableListV2';
 export * from './Response208SetRecom';
 export * from './Response400GetRecom';
 export * from './Response400SetRecom';
+export * from './Response403General';
 export * from './ResponseBodyContentError400';
 export * from './ResponseBodyContentError403';
 export * from './ResponseContentError';

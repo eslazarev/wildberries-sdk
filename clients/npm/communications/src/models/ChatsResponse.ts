@@ -59,7 +59,7 @@ export function ChatsResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'result': json['result'] == null ? undefined : ((json['result'] as Array<any>).map(ChatFromJSON)),
-        'errors': json['errors'] == null ? undefined : json['errors'],
+        'errors': json['errors'] === undefined ? undefined : json['errors'] === null ? null : json['errors'],
     };
 }
 

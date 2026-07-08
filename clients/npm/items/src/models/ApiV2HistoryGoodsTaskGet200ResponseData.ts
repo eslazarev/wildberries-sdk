@@ -58,8 +58,8 @@ export function ApiV2HistoryGoodsTaskGet200ResponseDataFromJSONTyped(json: any, 
     }
     return {
         
-        'uploadID': json['uploadID'] == null ? undefined : json['uploadID'],
-        'historyGoods': json['historyGoods'] == null ? undefined : ((json['historyGoods'] as Array<any>).map(GoodHistoryFromJSON)),
+        'uploadID': json['uploadID'] === undefined ? undefined : json['uploadID'] === null ? null : json['uploadID'],
+        'historyGoods': json['historyGoods'] === undefined ? undefined : json['historyGoods'] === null ? null : ((json['historyGoods'] as Array<any>).map(GoodHistoryFromJSON)),
     };
 }
 

@@ -58,7 +58,7 @@ export function BrandsResponseErrorErrorsInnerFromJSONTyped(json: any, ignoreDis
         
         'message': json['message'] == null ? undefined : json['message'],
         'location': json['location'] == null ? undefined : json['location'],
-        'value': json['value'] == null ? undefined : json['value'],
+        'value': json['value'] === undefined ? undefined : json['value'] === null ? null : json['value'],
     };
 }
 

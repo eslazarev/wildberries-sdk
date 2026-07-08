@@ -108,7 +108,7 @@ export function GoodBufferHistoryFromJSONTyped(json: any, ignoreDiscriminator: b
         'discount': json['discount'] == null ? undefined : json['discount'],
         'clubDiscount': json['clubDiscount'] == null ? undefined : json['clubDiscount'],
         'status': json['status'] == null ? undefined : json['status'],
-        'errorText': json['errorText'] == null ? undefined : json['errorText'],
+        'errorText': json['errorText'] === undefined ? undefined : json['errorText'] === null ? null : json['errorText'],
     };
 }
 

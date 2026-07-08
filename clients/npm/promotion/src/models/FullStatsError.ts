@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Маркетинг и продвижение
- * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
+ * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
  *
  * The version of the OpenAPI document: promotion
  * 
@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FullStatsErrorErrorsInner } from './FullStatsErrorErrorsInner';
+import {
+    FullStatsErrorErrorsInnerFromJSON,
+    FullStatsErrorErrorsInnerFromJSONTyped,
+    FullStatsErrorErrorsInnerToJSON,
+    FullStatsErrorErrorsInnerToJSONTyped,
+} from './FullStatsErrorErrorsInner';
+
 /**
  * Ошибка
  * @export
@@ -20,11 +28,17 @@ import { mapValues } from '../runtime';
  */
 export interface FullStatsError {
     /**
+     * 
+     * @type {Array<FullStatsErrorErrorsInner>}
+     * @memberof FullStatsError
+     */
+    errors?: Array<FullStatsErrorErrorsInner>;
+    /**
      * Детали ошибки
      * @type {string}
      * @memberof FullStatsError
      */
-    detail: string;
+    detail?: string;
     /**
      * ID внутреннего сервиса WB
      * @type {string}
@@ -55,7 +69,6 @@ export interface FullStatsError {
  * Check if a given object implements the FullStatsError interface.
  */
 export function instanceOfFullStatsError(value: object): value is FullStatsError {
-    if (!('detail' in value) || value['detail'] === undefined) return false;
     if (!('origin' in value) || value['origin'] === undefined) return false;
     if ((!('requestId' in (value as Record<string, any>)) && !('request_id' in (value as Record<string, any>))) || ((value as Record<string, any>)['requestId'] === undefined && (value as Record<string, any>)['request_id'] === undefined)) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
@@ -73,7 +86,8 @@ export function FullStatsErrorFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'detail': json['detail'],
+        'errors': json['errors'] == null ? undefined : ((json['errors'] as Array<any>).map(FullStatsErrorErrorsInnerFromJSON)),
+        'detail': json['detail'] == null ? undefined : json['detail'],
         'origin': json['origin'],
         'requestId': json['request_id'],
         'status': json['status'],
@@ -92,6 +106,7 @@ export function FullStatsErrorToJSONTyped(value?: FullStatsError | null, ignoreD
 
     return {
         
+        'errors': value['errors'] == null ? undefined : ((value['errors'] as Array<any>).map(FullStatsErrorErrorsInnerToJSON)),
         'detail': value['detail'],
         'origin': value['origin'],
         'request_id': value['requestId'],

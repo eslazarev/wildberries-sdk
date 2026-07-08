@@ -1,7 +1,7 @@
 /*
 Маркетинг и продвижение
 
-<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
+<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
 
 API version: promotion
 */
@@ -5742,7 +5742,7 @@ func (r ApiApiV1CalendarPromotionsDetailsGetRequest) Execute() (*ApiV1CalendarPr
 /*
 ApiV1CalendarPromotionsDetailsGet Детальная информация об акциях
 
-Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
+Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -5966,7 +5966,7 @@ func (r ApiApiV1CalendarPromotionsGetRequest) Execute() (*ApiV1CalendarPromotion
 /*
 ApiV1CalendarPromotionsGet Список акций
 
-Метод возвращает список [акций](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
+Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -6181,7 +6181,7 @@ func (r ApiApiV1CalendarPromotionsNomenclaturesGetRequest) Execute() (*ApiV1Cale
 /*
 ApiV1CalendarPromotionsNomenclaturesGet Список товаров для участия в акции
 
-Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1upload/post).
+Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1upload/post).
 
 <div class="description_important">
   Данный метод неприменим для автоакций.
@@ -6382,7 +6382,7 @@ func (r ApiApiV1CalendarPromotionsUploadPostRequest) Execute() (*ApiV1CalendarPr
 /*
 ApiV1CalendarPromotionsUploadPost Добавить товар в акцию
 
-Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
+Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
 Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).
 
 <div class="description_important">

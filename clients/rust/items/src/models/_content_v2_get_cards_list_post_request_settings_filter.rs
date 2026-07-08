@@ -28,7 +28,7 @@ pub struct ContentV2GetCardsListPostRequestSettingsFilter {
     /// Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице 
     #[serde(rename = "allowedCategoriesOnly", skip_serializing_if = "Option::is_none")]
     pub allowed_categories_only: Option<bool>,
-    /// Поиск по id предметов
+    /// Поиск по ID предметов
     #[serde(rename = "objectIDs", skip_serializing_if = "Option::is_none")]
     pub object_ids: Option<Vec<i32>>,
     /// Поиск по брендам

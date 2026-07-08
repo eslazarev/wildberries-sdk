@@ -253,8 +253,8 @@ export function OrderNewDBSFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'salePrice': json['salePrice'] == null ? undefined : json['salePrice'],
-        'requiredMeta': json['requiredMeta'] == null ? undefined : json['requiredMeta'],
+        'salePrice': json['salePrice'] === undefined ? undefined : json['salePrice'] === null ? null : json['salePrice'],
+        'requiredMeta': json['requiredMeta'] === undefined ? undefined : json['requiredMeta'] === null ? null : json['requiredMeta'],
         'comment': json['comment'] == null ? undefined : json['comment'],
         'options': json['options'] == null ? undefined : OrderNewDBSOptionsFromJSON(json['options']),
         'address': json['address'] == null ? undefined : OrderNewDBSAddressFromJSON(json['address']),
@@ -262,7 +262,7 @@ export function OrderNewDBSFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'groupId': json['groupId'] == null ? undefined : json['groupId'],
         'article': json['article'] == null ? undefined : json['article'],
         'colorCode': json['colorCode'] == null ? undefined : json['colorCode'],
-        'rid': json['rid'] == null ? undefined : json['rid'],
+        'rid': json['rid'] === undefined ? undefined : json['rid'] === null ? null : json['rid'],
         'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
         'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
         'skus': json['skus'] == null ? undefined : json['skus'],

@@ -106,12 +106,12 @@ export function GoodHistoryFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'nmID': json['nmID'] == null ? undefined : json['nmID'],
         'vendorCode': json['vendorCode'] == null ? undefined : json['vendorCode'],
-        'sizeID': json['sizeID'] == null ? undefined : json['sizeID'],
+        'sizeID': json['sizeID'] === undefined ? undefined : json['sizeID'] === null ? null : json['sizeID'],
         'techSizeName': json['techSizeName'] == null ? undefined : json['techSizeName'],
-        'price': json['price'] == null ? undefined : json['price'],
+        'price': json['price'] === undefined ? undefined : json['price'] === null ? null : json['price'],
         'currencyIsoCode4217': json['currencyIsoCode4217'] == null ? undefined : json['currencyIsoCode4217'],
         'discount': json['discount'] == null ? undefined : json['discount'],
-        'clubDiscount': json['clubDiscount'] == null ? undefined : json['clubDiscount'],
+        'clubDiscount': json['clubDiscount'] === undefined ? undefined : json['clubDiscount'] === null ? null : json['clubDiscount'],
         'status': json['status'] == null ? undefined : json['status'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
     };

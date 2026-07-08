@@ -73,7 +73,7 @@ export function ApiV1QuestionsCountUnansweredGet200ResponseFromJSONTyped(json: a
         'data': json['data'] == null ? undefined : ApiV1QuestionsCountUnansweredGet200ResponseDataFromJSON(json['data']),
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
-        'additionalErrors': json['additionalErrors'] == null ? undefined : json['additionalErrors'],
+        'additionalErrors': json['additionalErrors'] === undefined ? undefined : json['additionalErrors'] === null ? null : json['additionalErrors'],
     };
 }
 

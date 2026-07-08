@@ -12,7 +12,7 @@ info:
       2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями
       3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний
       4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний
-      5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)
+      5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)
 
     Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>
 
@@ -43,6 +43,7 @@ tags:
   name: Статистика
 - description: ""
   name: Календарь акций
+  x-displayName: Календарь акций
 paths:
   /adv/v1/promotion/count:
     get:
@@ -3770,12 +3771,24 @@ paths:
         "400":
           content:
             application/json:
-              example:
-                detail: invalid ids
-                origin: camp-api-public-cache
-                request_id: 40a229f3775b03585b65420c787aaebe
-                status: 400
-                title: invalid payload
+              examples:
+                InvalidEndDate:
+                  value:
+                    detail: invalid ids
+                    origin: camp-api-public-cache
+                    request_id: 40a229f3775b03585b65420c787aaebe
+                    status: 400
+                    title: invalid payload
+                MaxDateRangeError:
+                  value:
+                    errors:
+                    - detail: max date range 31 days
+                      field: begin and end
+                    origin: camp-api-public-cache
+                    request_id: 71ee30f53243d7bd09c2c00b131688b2
+                    status: 400
+                    title: Invalid payload
+                    type: bad request
               schema:
                 $ref: "#/components/schemas/FullStatsError"
           description: Неправильный запрос
@@ -3926,7 +3939,7 @@ paths:
   /api/v1/calendar/promotions:
     get:
       description: |
-        Метод возвращает список [акций](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
+        Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -4066,7 +4079,7 @@ paths:
   /api/v1/calendar/promotions/details:
     get:
       description: |
-        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
+        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -4168,7 +4181,7 @@ paths:
   /api/v1/calendar/promotions/nomenclatures:
     get:
       description: |
-        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1upload/post).
+        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1upload/post).
 
         <div class="description_important">
           Данный метод неприменим для автоакций.
@@ -4271,8 +4284,8 @@ paths:
           content:
             application/json:
               examples:
-                PromotionCompletedOrNotExist:
-                  description: "Акция завершена, или акция с данным id не существу\
+                PromoCompletedOrNotExist:
+                  description: "Акция завершена, или акция с данным ID не существу\
                     ет"
                   value:
                     errorText: Unprocessable entity
@@ -4311,7 +4324,7 @@ paths:
   /api/v1/calendar/promotions/upload:
     post:
       description: |
-        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
+        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
         Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).
 
         <div class="description_important">
@@ -4330,7 +4343,7 @@ paths:
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
       requestBody:
-        $ref: "#/components/requestBodies/PromotionsSupplierTaskRequest"
+        $ref: "#/components/requestBodies/PromoSupplierTaskRequest"
       responses:
         "200":
           content:
@@ -5036,7 +5049,7 @@ components:
         default: false
         type: boolean
       style: form
-    limitPromotion:
+    limitPromo:
       description: Количество запрашиваемых акций
       explode: true
       in: query
@@ -5050,7 +5063,7 @@ components:
         type: integer
       style: form
   requestBodies:
-    PromotionsSupplierTaskRequest:
+    PromoSupplierTaskRequest:
       content:
         application/json:
           schema:
@@ -5114,8 +5127,8 @@ components:
       content:
         application/json:
           examples:
-            PromotionCompletedOrNotExist:
-              description: "Акция завершена, или акция с данным id не существует"
+            PromoCompletedOrNotExist:
+              description: "Акция завершена, или акция с данным ID не существует"
               value:
                 errorText: Unprocessable entity
           schema:
@@ -5127,7 +5140,7 @@ components:
           schema:
             $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_400_response"
       description: Неправильный запрос
-    ResponsePromotionsItemsLists:
+    ResponsePromoItemsLists:
       content:
         application/json:
           schema:
@@ -5145,13 +5158,13 @@ components:
           schema:
             $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_422_response"
       description: Ошибка обработки параметров запроса
-    PromotionsGetByIDSuccessResponse:
+    PromosGetByIDSuccessResponse:
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/_api_v1_calendar_promotions_details_get_200_response"
       description: Успешно
-    PromotionsSuccessResponse:
+    PromoSuccessResponse:
       content:
         application/json:
           schema:
@@ -6535,7 +6548,7 @@ components:
         error:
           type: string
       type: object
-    PromotionsItemsList:
+    PromoItemsList:
       example:
         id: 162579635
         inAction: true
@@ -7555,12 +7568,21 @@ components:
     FullStatsError:
       description: Ошибка
       example:
+        errors:
+        - detail: detail
+          field: field
+        - detail: detail
+          field: field
         detail: detail
         origin: origin
         request_id: request_id
         status: 4
         title: title
       properties:
+        errors:
+          items:
+            $ref: "#/components/schemas/FullStatsError_errors_inner"
+          type: array
         detail:
           description: Детали ошибки
           type: string
@@ -7577,7 +7599,6 @@ components:
           description: Заголовок ошибки
           type: string
       required:
-      - detail
       - origin
       - request_id
       - status
@@ -9157,7 +9178,7 @@ components:
         nomenclatures:
           description: Список товаров
           items:
-            $ref: "#/components/schemas/PromotionsItemsList"
+            $ref: "#/components/schemas/PromoItemsList"
           type: array
       type: object
     _api_v1_calendar_promotions_nomenclatures_get_200_response:
@@ -9896,6 +9917,18 @@ components:
       - avg_position
       - date
       - nm
+      type: object
+    FullStatsError_errors_inner:
+      example:
+        detail: detail
+        field: field
+      properties:
+        detail:
+          description: Детали ошибки
+          type: string
+        field:
+          description: Параметр с ошибкой
+          type: string
       type: object
   securitySchemes:
     HeaderApiKey:

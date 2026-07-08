@@ -21,6 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum ApiV1InvitePostError {
     Status400(models::ErrorResponse),
     Status401(models::PingGet401Response),
+    Status403(models::GetCommonV1Rating403Response),
     Status429(models::PingGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -41,6 +42,7 @@ pub enum ApiV1SellerInfoGetError {
 pub enum ApiV1UserDeleteError {
     Status400(models::ErrorResponse),
     Status401(models::PingGet401Response),
+    Status403(models::GetCommonV1Rating403Response),
     Status429(models::PingGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -51,6 +53,7 @@ pub enum ApiV1UserDeleteError {
 pub enum ApiV1UsersAccessPutError {
     Status400(models::ErrorResponse),
     Status401(models::PingGet401Response),
+    Status403(models::GetCommonV1Rating403Response),
     Status429(models::PingGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -61,6 +64,7 @@ pub enum ApiV1UsersAccessPutError {
 pub enum ApiV1UsersGetError {
     Status400(models::ErrorResponse),
     Status401(models::PingGet401Response),
+    Status403(models::GetCommonV1Rating403Response),
     Status429(models::PingGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -71,6 +75,7 @@ pub enum ApiV1UsersGetError {
 pub enum GetCommonV1RatingError {
     Status401(models::PingGet401Response),
     Status402(models::ApiV1SellerInfoGet402Response),
+    Status403(models::GetCommonV1Rating403Response),
     Status429(models::PingGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -81,6 +86,7 @@ pub enum GetCommonV1RatingError {
 pub enum GetCommonV1SubscriptionsError {
     Status401(models::PingGet401Response),
     Status402(models::ApiV1SellerInfoGet402Response),
+    Status403(models::GetCommonV1Rating403Response),
     Status429(models::PingGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -91,6 +97,7 @@ pub enum GetCommonV1SubscriptionsError {
 pub enum GetCommonV1TariffConstructorOptionsError {
     Status400(models::PlanBuilderErrors),
     Status401(models::PingGet401Response),
+    Status403(models::GetCommonV1Rating403Response),
     Status404(models::PlanBuilderErrors),
     Status429(models::PingGet401Response),
     UnknownValue(serde_json::Value),

@@ -21,6 +21,7 @@ export * from './GetList';
 export * from './GetListData';
 export * from './GetListDataDocumentsInner';
 export * from './PostV1SalesReportsList400Response';
+export * from './PostV1SalesReportsList403Response';
 export * from './RequestDownload';
 export * from './RequestDownloadParamsInner';
 export * from './SalesReportListReq';

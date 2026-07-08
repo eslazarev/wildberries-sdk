@@ -334,6 +334,11 @@ import {
     Response400SetRecomToJSON,
 } from '../models/Response400SetRecom';
 import {
+    type Response403General,
+    Response403GeneralFromJSON,
+    Response403GeneralToJSON,
+} from '../models/Response403General';
+import {
     type ResponseBodyContentError400,
     ResponseBodyContentError400FromJSON,
     ResponseBodyContentError400ToJSON,
@@ -737,7 +742,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/Kalendar-akcij\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Детализация необработанной загрузки
      */
     async apiV2BufferGoodsTaskGetRaw(requestParameters: ApiV2BufferGoodsTaskGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2BufferGoodsTaskGet200Response>> {
@@ -748,7 +753,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/Kalendar-akcij\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Детализация необработанной загрузки
      */
     async apiV2BufferGoodsTaskGet(requestParameters: ApiV2BufferGoodsTaskGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2BufferGoodsTaskGet200Response> {
@@ -791,7 +796,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию про загрузку скидок в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/Kalendar-akcij\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию про загрузку скидок в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Состояние необработанной загрузки
      */
     async apiV2BufferTasksGetRaw(requestParameters: ApiV2BufferTasksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV2BufferTasksGet200Response>> {
@@ -802,7 +807,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию про загрузку скидок в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/Kalendar-akcij\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию про загрузку скидок в обработке.  <div class=\"description_important\">   Необработанная загрузка — это загрузка скидок в <a href=\"/openapi/promotion#tag/promoCalendar\">календаре акций</a>. Такие скидки применятся к товарам только в момент старта акции. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Состояние необработанной загрузки
      */
     async apiV2BufferTasksGet(requestParameters: ApiV2BufferTasksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV2BufferTasksGet200Response> {

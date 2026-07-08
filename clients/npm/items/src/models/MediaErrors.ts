@@ -62,8 +62,8 @@ export function MediaErrorsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'additionalErrors': json['additionalErrors'] == null ? undefined : json['additionalErrors'],
-        'data': json['data'] == null ? undefined : json['data'],
+        'additionalErrors': json['additionalErrors'] === undefined ? undefined : json['additionalErrors'] === null ? null : json['additionalErrors'],
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
     };

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.121"
+__version__ = "0.1.122"
 
 # Define package exports
 __all__ = [
@@ -157,6 +157,7 @@ __all__ = [
     "Response208SetRecom",
     "Response400GetRecom",
     "Response400SetRecom",
+    "Response403General",
     "ResponseBodyContentError400",
     "ResponseBodyContentError403",
     "ResponseContentError",
@@ -336,6 +337,7 @@ from wildberries_sdk.items.models.request_public_viewer_public_errors_table_list
 from wildberries_sdk.items.models.response208_set_recom import Response208SetRecom as Response208SetRecom
 from wildberries_sdk.items.models.response400_get_recom import Response400GetRecom as Response400GetRecom
 from wildberries_sdk.items.models.response400_set_recom import Response400SetRecom as Response400SetRecom
+from wildberries_sdk.items.models.response403_general import Response403General as Response403General
 from wildberries_sdk.items.models.response_body_content_error400 import ResponseBodyContentError400 as ResponseBodyContentError400
 from wildberries_sdk.items.models.response_body_content_error403 import ResponseBodyContentError403 as ResponseBodyContentError403
 from wildberries_sdk.items.models.response_content_error import ResponseContentError as ResponseContentError

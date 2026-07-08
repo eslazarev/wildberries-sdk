@@ -58,7 +58,7 @@ export function ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInn
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
-        'value': json['value'] == null ? undefined : json['value'],
+        'value': json['value'] === undefined ? undefined : json['value'] === null ? null : json['value'],
     };
 }
 

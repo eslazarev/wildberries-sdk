@@ -64,7 +64,7 @@ export function ApiV2HistoryTasksGet200ResponseFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'data': json['data'] == null ? undefined : SellerTaskMetadataFromJSON(json['data']),
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : SellerTaskMetadataFromJSON(json['data']),
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
     };

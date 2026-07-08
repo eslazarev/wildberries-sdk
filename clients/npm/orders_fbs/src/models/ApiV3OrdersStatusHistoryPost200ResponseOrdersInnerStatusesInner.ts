@@ -98,7 +98,7 @@ export function ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInnerF
     }
     return {
         
-        'date': json['date'] == null ? undefined : json['date'],
+        'date': json['date'] === undefined ? undefined : json['date'] === null ? null : json['date'],
         'code': json['code'] == null ? undefined : json['code'],
     };
 }

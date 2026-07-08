@@ -56,7 +56,7 @@ export function ResponseErrorFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'data': json['data'] == null ? undefined : json['data'],
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
     };

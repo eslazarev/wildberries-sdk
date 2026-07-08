@@ -58,7 +58,7 @@ export function V3APIErrorV2ErrorsInnerFromJSONTyped(json: any, ignoreDiscrimina
         
         'location': json['location'] == null ? undefined : json['location'],
         'message': json['message'] == null ? undefined : json['message'],
-        'value': json['value'] == null ? undefined : json['value'],
+        'value': json['value'] === undefined ? undefined : json['value'] === null ? null : json['value'],
     };
 }
 

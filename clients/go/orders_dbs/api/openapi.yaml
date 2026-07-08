@@ -1104,6 +1104,9 @@ paths:
                 message: ""
               schema:
                 $ref: "#/components/schemas/Error"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Response403General"
           description: Доступ запрещён
         "429":
           content:
@@ -3587,6 +3590,42 @@ components:
           description: Наименование организации
           type: string
       type: object
+    Response403General:
+      properties:
+        title:
+          description: Заголовок ошибки
+          example: forbidden
+          type: string
+        detail:
+          description: Детали ошибки
+          example: base token is not allowed
+          type: string
+        code:
+          description: Внутренний код ошибки
+          example: base token is not allowed for this path
+          type: string
+        requestId:
+          description: ID запроса
+          example: 722199b2e15bbca48cc1d488a7989976
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          example: s2s-finance
+          type: string
+        status:
+          description: HTTP статус-код
+          example: 403
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          example: Forbidden
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          example: 2026-05-25T02:47:09Z
+          format: date-time
+          type: string
+      type: object
     _api_v3_dbs_orders_new_get_200_response:
       example:
         orders:
@@ -4217,7 +4256,7 @@ components:
       - isError
       type: object
     api_OrderMetaV2_customsDeclaration:
-      description: Номер грузовой таможенной декларации
+      description: Номер ДТ
       example:
         value: 10704010/010624/0000302
       properties:

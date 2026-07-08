@@ -54,7 +54,7 @@ export interface ContentV2GetCardsListPostRequestSettingsFilter {
      */
     allowedCategoriesOnly?: boolean;
     /**
-     * Поиск по id предметов
+     * Поиск по ID предметов
      * @type {Array<number>}
      * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */

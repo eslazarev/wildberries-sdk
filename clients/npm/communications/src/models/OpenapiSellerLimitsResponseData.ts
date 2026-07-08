@@ -58,8 +58,8 @@ export function OpenapiSellerLimitsResponseDataFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'subscription': json['subscription'] == null ? undefined : OpenapiSellerLimitFromJSON(json['subscription']),
-        'tariff': json['tariff'] == null ? undefined : OpenapiSellerLimitFromJSON(json['tariff']),
+        'subscription': json['subscription'] === undefined ? undefined : json['subscription'] === null ? null : OpenapiSellerLimitFromJSON(json['subscription']),
+        'tariff': json['tariff'] === undefined ? undefined : json['tariff'] === null ? null : OpenapiSellerLimitFromJSON(json['tariff']),
     };
 }
 

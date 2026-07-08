@@ -73,7 +73,7 @@ export function ContentV2DirectoryCountriesGet200ResponseFromJSONTyped(json: any
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(ContentV2DirectoryCountriesGet200ResponseDataInnerFromJSON)),
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
-        'additionalErrors': json['additionalErrors'] == null ? undefined : json['additionalErrors'],
+        'additionalErrors': json['additionalErrors'] === undefined ? undefined : json['additionalErrors'] === null ? null : json['additionalErrors'],
     };
 }
 

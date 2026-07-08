@@ -70,7 +70,7 @@ export function ResponseItemListFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'data': json['data'] == null ? undefined : json['data'],
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : json['data'],
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
         'additionalErrors': json['additionalErrors'] == null ? undefined : ResponseItemListAdditionalErrorsFromJSON(json['additionalErrors']),

@@ -407,6 +407,7 @@ class DefaultApi:
             '200': "CreateInviteResponse",
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -477,6 +478,7 @@ class DefaultApi:
             '200': "CreateInviteResponse",
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -547,6 +549,7 @@ class DefaultApi:
             '200': "CreateInviteResponse",
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -953,6 +956,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1023,6 +1027,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1093,6 +1098,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1229,6 +1235,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1299,6 +1306,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1369,6 +1377,7 @@ class DefaultApi:
             '200': None,
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1524,6 +1533,7 @@ class DefaultApi:
             '200': "GetUsersResponse",
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1602,6 +1612,7 @@ class DefaultApi:
             '200': "GetUsersResponse",
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1680,6 +1691,7 @@ class DefaultApi:
             '200': "GetUsersResponse",
             '400': "ErrorResponse",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1822,6 +1834,7 @@ class DefaultApi:
             '200': "SupplierRatingModel",
             '401': "PingGet401Response",
             '402': "ApiV1SellerInfoGet402Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1888,6 +1901,7 @@ class DefaultApi:
             '200': "SupplierRatingModel",
             '401': "PingGet401Response",
             '402': "ApiV1SellerInfoGet402Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -1954,6 +1968,7 @@ class DefaultApi:
             '200': "SupplierRatingModel",
             '401': "PingGet401Response",
             '402': "ApiV1SellerInfoGet402Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2081,6 +2096,7 @@ class DefaultApi:
             '200': "SubscriptionsJamInfo",
             '401': "PingGet401Response",
             '402': "ApiV1SellerInfoGet402Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2147,6 +2163,7 @@ class DefaultApi:
             '200': "SubscriptionsJamInfo",
             '401': "PingGet401Response",
             '402': "ApiV1SellerInfoGet402Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2213,6 +2230,7 @@ class DefaultApi:
             '200': "SubscriptionsJamInfo",
             '401': "PingGet401Response",
             '402': "ApiV1SellerInfoGet402Response",
+            '403': "GetCommonV1Rating403Response",
             '429': "PingGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -2344,6 +2362,7 @@ class DefaultApi:
             '200': "PlanBuilderOptionsInfo",
             '400': "PlanBuilderErrors",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '404': "PlanBuilderErrors",
             '429': "PingGet401Response",
         }
@@ -2415,6 +2434,7 @@ class DefaultApi:
             '200': "PlanBuilderOptionsInfo",
             '400': "PlanBuilderErrors",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '404': "PlanBuilderErrors",
             '429': "PingGet401Response",
         }
@@ -2486,6 +2506,7 @@ class DefaultApi:
             '200': "PlanBuilderOptionsInfo",
             '400': "PlanBuilderErrors",
             '401': "PingGet401Response",
+            '403': "GetCommonV1Rating403Response",
             '404': "PlanBuilderErrors",
             '429': "PingGet401Response",
         }

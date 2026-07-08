@@ -25,7 +25,7 @@ from pydantic_core import to_jsonable_python
 
 class ApiOrderMetaV2CustomsDeclaration(BaseModel):
     """
-    Номер грузовой таможенной декларации
+    Номер ДТ
     """ # noqa: E501
     value: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["10704010/010624/0000302"]})
     __properties: ClassVar[List[str]] = ["value"]

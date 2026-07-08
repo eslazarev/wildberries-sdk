@@ -159,6 +159,11 @@ import {
     PostV1StocksReportWbWarehouses200ResponseToJSON,
 } from '../models/PostV1StocksReportWbWarehouses200Response';
 import {
+    type Response403General,
+    Response403GeneralFromJSON,
+    Response403GeneralToJSON,
+} from '../models/Response403General';
+import {
     type TableDetailsRequest,
     TableDetailsRequestFromJSON,
     TableDetailsRequestToJSON,

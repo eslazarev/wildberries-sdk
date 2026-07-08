@@ -118,3 +118,5 @@ pub mod order_new_dbs_options;
 pub use self::order_new_dbs_options::OrderNewDbsOptions;
 pub mod orders_request_api;
 pub use self::orders_request_api::OrdersRequestApi;
+pub mod response403_general;
+pub use self::response403_general::Response403General;

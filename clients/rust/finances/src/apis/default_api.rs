@@ -86,6 +86,7 @@ pub enum PostV1AcquiringDetailedError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::ApiV1AccountBalanceGet401Response),
     Status402(models::ApiV1AccountBalanceGet402Response),
+    Status403(models::PostV1SalesReportsList403Response),
     Status429(models::ApiV1AccountBalanceGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -97,6 +98,7 @@ pub enum PostV1AcquiringDetailedReportIdError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::ApiV1AccountBalanceGet401Response),
     Status402(models::ApiV1AccountBalanceGet402Response),
+    Status403(models::PostV1SalesReportsList403Response),
     Status429(models::ApiV1AccountBalanceGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -107,6 +109,7 @@ pub enum PostV1AcquiringDetailedReportIdError {
 pub enum PostV1AcquiringListError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::ApiV1AccountBalanceGet401Response),
+    Status403(models::PostV1SalesReportsList403Response),
     Status429(models::ApiV1AccountBalanceGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -129,6 +132,7 @@ pub enum PostV1SalesReportsDetailedReportIdError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::ApiV1AccountBalanceGet401Response),
     Status402(models::ApiV1AccountBalanceGet402Response),
+    Status403(models::PostV1SalesReportsList403Response),
     Status429(models::ApiV1AccountBalanceGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -139,6 +143,7 @@ pub enum PostV1SalesReportsDetailedReportIdError {
 pub enum PostV1SalesReportsListError {
     Status400(models::PostV1SalesReportsList400Response),
     Status401(models::ApiV1AccountBalanceGet401Response),
+    Status403(models::PostV1SalesReportsList403Response),
     Status429(models::ApiV1AccountBalanceGet401Response),
     UnknownValue(serde_json::Value),
 }

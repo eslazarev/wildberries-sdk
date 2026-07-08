@@ -93,12 +93,12 @@ export function QuarantineItemsFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'nmID': json['nmID'] == null ? undefined : json['nmID'],
-        'sizeID': json['sizeID'] == null ? undefined : json['sizeID'],
+        'sizeID': json['sizeID'] === undefined ? undefined : json['sizeID'] === null ? null : json['sizeID'],
         'techSizeName': json['techSizeName'] == null ? undefined : json['techSizeName'],
         'currencyIsoCode4217': json['currencyIsoCode4217'] == null ? undefined : json['currencyIsoCode4217'],
-        'newPrice': json['newPrice'] == null ? undefined : json['newPrice'],
+        'newPrice': json['newPrice'] === undefined ? undefined : json['newPrice'] === null ? null : json['newPrice'],
         'oldPrice': json['oldPrice'] == null ? undefined : json['oldPrice'],
-        'newDiscount': json['newDiscount'] == null ? undefined : json['newDiscount'],
+        'newDiscount': json['newDiscount'] === undefined ? undefined : json['newDiscount'] === null ? null : json['newDiscount'],
         'oldDiscount': json['oldDiscount'] == null ? undefined : json['oldDiscount'],
         'priceDiff': json['priceDiff'] == null ? undefined : json['priceDiff'],
     };

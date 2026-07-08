@@ -299,12 +299,12 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `communications.DefaultApiService.ApiV1SellerEventsGet` — `GET /api/v1/seller/events` — События чатов
 - `communications.DefaultApiService.ApiV1SellerMessagePost` — `POST /api/v1/seller/message` — Отправить сообщение
 
-### tariffs (`tariffs`)
-- `tariffs.DefaultApiService.ApiTariffsV1AcceptanceCoefficientsGet` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
-- `tariffs.DefaultApiService.ApiV1TariffsBoxGet` — `GET /api/v1/tariffs/box` — Тарифы для коробов
-- `tariffs.DefaultApiService.ApiV1TariffsCommissionGet` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
-- `tariffs.DefaultApiService.ApiV1TariffsPalletGet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
-- `tariffs.DefaultApiService.ApiV1TariffsReturnGet` — `GET /api/v1/tariffs/return` — Тарифы на возврат
+### rates (`rates`)
+- `rates.DefaultApiService.ApiTariffsV1AcceptanceCoefficientsGet` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
+- `rates.DefaultApiService.ApiV1TariffsBoxGet` — `GET /api/v1/tariffs/box` — Тарифы для коробов
+- `rates.DefaultApiService.ApiV1TariffsCommissionGet` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
+- `rates.DefaultApiService.ApiV1TariffsPalletGet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
+- `rates.DefaultApiService.ApiV1TariffsReturnGet` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
 - `analytics.DefaultApiService.ApiV2SearchReportProductOrdersPost` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара

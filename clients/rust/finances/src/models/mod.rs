@@ -40,6 +40,8 @@ pub mod get_list_data_documents_inner;
 pub use self::get_list_data_documents_inner::GetListDataDocumentsInner;
 pub mod post_v1_sales_reports_list_400_response;
 pub use self::post_v1_sales_reports_list_400_response::PostV1SalesReportsList400Response;
+pub mod post_v1_sales_reports_list_403_response;
+pub use self::post_v1_sales_reports_list_403_response::PostV1SalesReportsList403Response;
 pub mod request_download;
 pub use self::request_download::RequestDownload;
 pub mod request_download_params_inner;

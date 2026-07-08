@@ -18,6 +18,8 @@ pub mod create_invite_response;
 pub use self::create_invite_response::CreateInviteResponse;
 pub mod error_response;
 pub use self::error_response::ErrorResponse;
+pub mod get_common_v1_rating_403_response;
+pub use self::get_common_v1_rating_403_response::GetCommonV1Rating403Response;
 pub mod get_users_response;
 pub use self::get_users_response::GetUsersResponse;
 pub mod get_users_response_users_inner;

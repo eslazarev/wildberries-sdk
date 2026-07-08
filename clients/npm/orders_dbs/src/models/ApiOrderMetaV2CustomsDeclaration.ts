@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Номер грузовой таможенной декларации
+ * Номер ДТ
  * @export
  * @interface ApiOrderMetaV2CustomsDeclaration
  */
@@ -44,7 +44,7 @@ export function ApiOrderMetaV2CustomsDeclarationFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'value': json['value'] == null ? undefined : json['value'],
+        'value': json['value'] === undefined ? undefined : json['value'] === null ? null : json['value'],
     };
 }
 

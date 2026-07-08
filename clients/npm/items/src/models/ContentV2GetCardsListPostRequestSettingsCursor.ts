@@ -58,7 +58,7 @@ export function ContentV2GetCardsListPostRequestSettingsCursorFromJSONTyped(json
     return {
         
         'limit': json['limit'] == null ? undefined : json['limit'],
-        'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
+        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : json['updatedAt'],
         'nmID': json['nmID'] == null ? undefined : json['nmID'],
     };
 }

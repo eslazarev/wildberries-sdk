@@ -320,7 +320,7 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/seller/events` — События чатов
 - `POST /api/v1/seller/message` — Отправить сообщение
 
-### Тарифы (`10-tariffs.yaml`)
+### Тарифы (`10-rates.yaml`)
 - `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
 - `GET /api/v1/tariffs/box` — Тарифы для коробов
 - `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров

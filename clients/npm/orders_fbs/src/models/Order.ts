@@ -255,8 +255,8 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
     }
     return {
         
-        'address': json['address'] == null ? undefined : OrderAddressFromJSON(json['address']),
-        'scanPrice': json['scanPrice'] == null ? undefined : json['scanPrice'],
+        'address': json['address'] === undefined ? undefined : json['address'] === null ? null : OrderAddressFromJSON(json['address']),
+        'scanPrice': json['scanPrice'] === undefined ? undefined : json['scanPrice'] === null ? null : json['scanPrice'],
         'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
         'supplyId': json['supplyId'] == null ? undefined : json['supplyId'],
         'orderUid': json['orderUid'] == null ? undefined : json['orderUid'],
@@ -264,7 +264,7 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'colorCode': json['colorCode'] == null ? undefined : json['colorCode'],
         'rid': json['rid'] == null ? undefined : json['rid'],
         'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
-        'offices': json['offices'] == null ? undefined : json['offices'],
+        'offices': json['offices'] === undefined ? undefined : json['offices'] === null ? null : json['offices'],
         'skus': json['skus'] == null ? undefined : json['skus'],
         'id': json['id'] == null ? undefined : json['id'],
         'warehouseId': json['warehouseId'] == null ? undefined : json['warehouseId'],

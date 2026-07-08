@@ -80,11 +80,11 @@ export function DeliveryDatesInfoRespOrdersInnerFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'dTimeFrom': json['dTimeFrom'] == null ? undefined : json['dTimeFrom'],
-        'dTimeTo': json['dTimeTo'] == null ? undefined : json['dTimeTo'],
-        'dTimeFromOld': json['dTimeFromOld'] == null ? undefined : json['dTimeFromOld'],
-        'dTimeToOld': json['dTimeToOld'] == null ? undefined : json['dTimeToOld'],
-        'dDateOld': json['dDateOld'] == null ? undefined : json['dDateOld'],
+        'dTimeFrom': json['dTimeFrom'] === undefined ? undefined : json['dTimeFrom'] === null ? null : json['dTimeFrom'],
+        'dTimeTo': json['dTimeTo'] === undefined ? undefined : json['dTimeTo'] === null ? null : json['dTimeTo'],
+        'dTimeFromOld': json['dTimeFromOld'] === undefined ? undefined : json['dTimeFromOld'] === null ? null : json['dTimeFromOld'],
+        'dTimeToOld': json['dTimeToOld'] === undefined ? undefined : json['dTimeToOld'] === null ? null : json['dTimeToOld'],
+        'dDateOld': json['dDateOld'] === undefined ? undefined : json['dDateOld'] === null ? null : json['dDateOld'],
         'dDate': json['dDate'] == null ? undefined : json['dDate'],
         'id': json['id'] == null ? undefined : json['id'],
     };

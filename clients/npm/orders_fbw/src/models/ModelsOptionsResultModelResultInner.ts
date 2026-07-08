@@ -83,7 +83,7 @@ export function ModelsOptionsResultModelResultInnerFromJSONTyped(json: any, igno
         'barcode': json['barcode'] == null ? undefined : json['barcode'],
         'error': json['error'] == null ? undefined : ModelsOptionsResultModelResultInnerErrorFromJSON(json['error']),
         'isError': json['isError'] == null ? undefined : json['isError'],
-        'warehouses': json['warehouses'] == null ? undefined : ((json['warehouses'] as Array<any>).map(ModelsOptionsResultModelResultInnerWarehousesInnerFromJSON)),
+        'warehouses': json['warehouses'] === undefined ? undefined : json['warehouses'] === null ? null : ((json['warehouses'] as Array<any>).map(ModelsOptionsResultModelResultInnerWarehousesInnerFromJSON)),
     };
 }
 

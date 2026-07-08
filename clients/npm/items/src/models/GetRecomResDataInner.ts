@@ -125,7 +125,7 @@ export function GetRecomResDataInnerFromJSONTyped(json: any, ignoreDiscriminator
         'imtId': json['imtId'],
         'vendorCode': json['vendorCode'],
         'brandName': json['brandName'],
-        'updatedAt': json['updatedAt'] == null ? undefined : (new Date(json['updatedAt'])),
+        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : (new Date(json['updatedAt'])),
         'picsCount': json['picsCount'],
         'title': json['title'],
         'subjectName': json['subjectName'],

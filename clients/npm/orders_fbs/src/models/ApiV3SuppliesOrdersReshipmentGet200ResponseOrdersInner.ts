@@ -50,8 +50,8 @@ export function ApiV3SuppliesOrdersReshipmentGet200ResponseOrdersInnerFromJSONTy
     }
     return {
         
-        'supplyID': json['supplyID'] == null ? undefined : json['supplyID'],
-        'orderID': json['orderID'] == null ? undefined : json['orderID'],
+        'supplyID': json['supplyID'] === undefined ? undefined : json['supplyID'] === null ? null : json['supplyID'],
+        'orderID': json['orderID'] === undefined ? undefined : json['orderID'] === null ? null : json['orderID'],
     };
 }
 

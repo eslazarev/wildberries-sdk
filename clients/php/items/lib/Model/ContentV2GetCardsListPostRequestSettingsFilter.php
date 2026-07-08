@@ -491,7 +491,7 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
     /**
      * Sets object_ids
      *
-     * @param int[]|null $object_ids Поиск по id предметов
+     * @param int[]|null $object_ids Поиск по ID предметов
      *
      * @return self
      */

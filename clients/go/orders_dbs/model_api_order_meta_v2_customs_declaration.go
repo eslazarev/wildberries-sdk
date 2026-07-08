@@ -17,7 +17,7 @@ import (
 // checks if the ApiOrderMetaV2CustomsDeclaration type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiOrderMetaV2CustomsDeclaration{}
 
-// ApiOrderMetaV2CustomsDeclaration Номер грузовой таможенной декларации
+// ApiOrderMetaV2CustomsDeclaration Номер ДТ
 type ApiOrderMetaV2CustomsDeclaration struct {
 	Value NullableString `json:"value,omitempty"`
 }

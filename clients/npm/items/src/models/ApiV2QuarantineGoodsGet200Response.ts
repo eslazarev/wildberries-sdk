@@ -64,7 +64,7 @@ export function ApiV2QuarantineGoodsGet200ResponseFromJSONTyped(json: any, ignor
     }
     return {
         
-        'data': json['data'] == null ? undefined : ApiV2QuarantineGoodsGet200ResponseDataFromJSON(json['data']),
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : ApiV2QuarantineGoodsGet200ResponseDataFromJSON(json['data']),
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
     };

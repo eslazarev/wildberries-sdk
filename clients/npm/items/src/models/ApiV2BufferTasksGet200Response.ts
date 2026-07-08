@@ -64,7 +64,7 @@ export function ApiV2BufferTasksGet200ResponseFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'data': json['data'] == null ? undefined : SellerTaskMetadataBufferFromJSON(json['data']),
+        'data': json['data'] === undefined ? undefined : json['data'] === null ? null : SellerTaskMetadataBufferFromJSON(json['data']),
         'error': json['error'] == null ? undefined : json['error'],
         'errorText': json['errorText'] == null ? undefined : json['errorText'],
     };

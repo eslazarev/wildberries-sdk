@@ -1,7 +1,7 @@
 /*
 Маркетинг и продвижение
 
-<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
+<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
 
 API version: promotion
 */
@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiV1CalendarPromotionsNomenclaturesGet200ResponseData{}
 // ApiV1CalendarPromotionsNomenclaturesGet200ResponseData Данные ответа
 type ApiV1CalendarPromotionsNomenclaturesGet200ResponseData struct {
 	// Список товаров
-	Nomenclatures []PromotionsItemsList `json:"nomenclatures,omitempty"`
+	Nomenclatures []PromoItemsList `json:"nomenclatures,omitempty"`
 }
 
 // NewApiV1CalendarPromotionsNomenclaturesGet200ResponseData instantiates a new ApiV1CalendarPromotionsNomenclaturesGet200ResponseData object
@@ -41,9 +41,9 @@ func NewApiV1CalendarPromotionsNomenclaturesGet200ResponseDataWithDefaults() *Ap
 }
 
 // GetNomenclatures returns the Nomenclatures field value if set, zero value otherwise.
-func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclatures() []PromotionsItemsList {
+func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclatures() []PromoItemsList {
 	if o == nil || IsNil(o.Nomenclatures) {
-		var ret []PromotionsItemsList
+		var ret []PromoItemsList
 		return ret
 	}
 	return o.Nomenclatures
@@ -51,7 +51,7 @@ func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclature
 
 // GetNomenclaturesOk returns a tuple with the Nomenclatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclaturesOk() ([]PromotionsItemsList, bool) {
+func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) GetNomenclaturesOk() ([]PromoItemsList, bool) {
 	if o == nil || IsNil(o.Nomenclatures) {
 		return nil, false
 	}
@@ -67,8 +67,8 @@ func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) HasNomenclature
 	return false
 }
 
-// SetNomenclatures gets a reference to the given []PromotionsItemsList and assigns it to the Nomenclatures field.
-func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) SetNomenclatures(v []PromotionsItemsList) {
+// SetNomenclatures gets a reference to the given []PromoItemsList and assigns it to the Nomenclatures field.
+func (o *ApiV1CalendarPromotionsNomenclaturesGet200ResponseData) SetNomenclatures(v []PromoItemsList) {
 	o.Nomenclatures = v
 }
 
