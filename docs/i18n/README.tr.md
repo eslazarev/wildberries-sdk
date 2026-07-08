@@ -61,7 +61,7 @@ Bu neden önemli — spesifikasyon değişiklik geçmişine bakın: [CHANGELOG.m
 - FBW tedarikleri — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - Pazarlama ve kampanya — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
 - Müşteri iletişimi — [`specs/09-communications.yaml`](../../specs/09-communications.yaml)
-- Tarifeler — [`specs/10-tariffs.yaml`](../../specs/10-tariffs.yaml)
+- Tarifeler — [`specs/10-rates.yaml`](../../specs/10-rates.yaml)
 - Analitik — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - Raporlar — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Finans ve muhasebe — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)

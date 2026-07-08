@@ -15,7 +15,7 @@ All five language clients share the same API surface because they are generated 
 ## OpenAPI specs (source of truth)
 
 - [01-general.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/01-general.yaml) — auth, common primitives, rate limits
-- [02-products.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/02-products.yaml) — product catalog, media, characteristics
+- [02-items.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/02-items.yaml) — product catalog, media, characteristics
 - [03-orders-fbs.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/03-orders-fbs.yaml) — FBS (Fulfillment By Seller) orders
 - [04-orders-dbw.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/04-orders-dbw.yaml) — DBW (Delivery By Wildberries) orders
 - [05-orders-dbs.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/05-orders-dbs.yaml) — DBS (Delivery By Seller) orders
@@ -23,7 +23,7 @@ All five language clients share the same API surface because they are generated 
 - [07-orders-fbw.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/07-orders-fbw.yaml) — FBW (Fulfillment By Wildberries) supplies
 - [08-promotion.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/08-promotion.yaml) — marketing, advertising, promotions
 - [09-communications.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/09-communications.yaml) — buyer communications, reviews, questions
-- [10-tariffs.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/10-tariffs.yaml) — logistics and commission tariffs
+- [10-rates.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/10-rates.yaml) — logistics and commission tariffs
 - [11-analytics.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/11-analytics.yaml) — analytics reports
 - [12-reports.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/12-reports.yaml) — sales and stock reports
 - [13-finances.yaml](https://github.com/eslazarev/wildberries-sdk/blob/main/specs/13-finances.yaml) — finances, payments, returns

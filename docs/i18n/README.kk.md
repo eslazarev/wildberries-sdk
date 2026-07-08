@@ -61,7 +61,7 @@
 - FBW жеткізілімдері — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - Маркетинг және жарнама — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
 - Сатып алушылармен байланыс — [`specs/09-communications.yaml`](../../specs/09-communications.yaml)
-- Тарифтер — [`specs/10-tariffs.yaml`](../../specs/10-tariffs.yaml)
+- Тарифтер — [`specs/10-rates.yaml`](../../specs/10-rates.yaml)
 - Аналитика — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - Есептер — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Қаржы және бухгалтерия — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)
