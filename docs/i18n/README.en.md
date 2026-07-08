@@ -61,7 +61,7 @@ Why this matters: see the spec change history in [CHANGELOG.md](../../CHANGELOG.
 - FBW supplies — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - Marketing and promotion — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
 - Buyer communications — [`specs/09-communications.yaml`](../../specs/09-communications.yaml)
-- Tariffs — [`specs/10-tariffs.yaml`](../../specs/10-tariffs.yaml)
+- Tariffs — [`specs/10-rates.yaml`](../../specs/10-rates.yaml)
 - Analytics — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - Reports — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - Finances and accounting — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)

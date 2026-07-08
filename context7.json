@@ -15,7 +15,7 @@
   "rules": [
     "This is a unified SDK — Python, Node.js, Go, PHP, and Rust clients expose the same operations derived from the same OpenAPI specs.",
     "When answering code questions, pick the language subdirectory under docs/ that matches the user's stack: docs/python, docs/npm, docs/go, docs/php, docs/rust.",
-    "specs/*.yaml are the source of truth (Wildberries API). specs/01-general.yaml covers auth and common primitives; 02-products, 03–07 orders, 08 promotion, 09 communications, 10 tariffs, 11 analytics, 12 reports, 13 finances.",
+    "specs/*.yaml are the source of truth (Wildberries API). specs/01-general.yaml covers auth and common primitives; 02-items, 03–07 orders, 08 promotion, 09 communications, 10 rates, 11 analytics, 12 reports, 13 finances.",
     "Clients are regenerated on every spec change — do not recommend hand-editing generated code under clients/; point users at the matching spec section instead.",
     "Auth uses bearer tokens from the Wildberries seller portal (see specs/01-general.yaml)."
   ],

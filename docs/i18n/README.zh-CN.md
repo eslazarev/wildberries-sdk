@@ -61,7 +61,7 @@
 - FBW 入库 — [`specs/07-orders-fbw.yaml`](../../specs/07-orders-fbw.yaml)
 - 营销和推广 — [`specs/08-promotion.yaml`](../../specs/08-promotion.yaml)
 - 买家沟通 — [`specs/09-communications.yaml`](../../specs/09-communications.yaml)
-- 资费 — [`specs/10-tariffs.yaml`](../../specs/10-tariffs.yaml)
+- 资费 — [`specs/10-rates.yaml`](../../specs/10-rates.yaml)
 - 分析 — [`specs/11-analytics.yaml`](../../specs/11-analytics.yaml)
 - 报表 — [`specs/12-reports.yaml`](../../specs/12-reports.yaml)
 - 财务和会计 — [`specs/13-finances.yaml`](../../specs/13-finances.yaml)

@@ -71,7 +71,7 @@ SDK выпускается с security-first процессом:
 - Поставки FBW: [`specs/07-orders-fbw.yaml`](#поставки-fbw-07-orders-fbwyaml)
 - Маркетинг и продвижение: [`specs/08-promotion.yaml`](#маркетинг-и-продвижение-08-promotionyaml)
 - Общение с покупателями: [`specs/09-communications.yaml`](#общение-с-покупателями-09-communicationsyaml)
-- Тарифы: [`specs/10-tariffs.yaml`](#тарифы-10-tariffsyaml)
+- Тарифы: [`specs/10-rates.yaml`](#тарифы-10-ratesyaml)
 - Аналитика и данные: [`specs/11-analytics.yaml`](#аналитика-и-данные-11-analyticsyaml)
 - Отчёты: [`specs/12-reports.yaml`](#отчёты-12-reportsyaml)
 - Документы и бухгалтерия: [`specs/13-finances.yaml`](#документы-и-бухгалтерия-13-financesyaml)

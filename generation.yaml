@@ -10,7 +10,7 @@ specs:
   - https://dev.wildberries.ru/api/swagger/yaml/ru/07-orders-fbw.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/08-promotion.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/09-communications.yaml?region=ru
-  - https://dev.wildberries.ru/api/swagger/yaml/ru/10-tariffs.yaml?region=ru
+  - https://dev.wildberries.ru/api/swagger/yaml/ru/10-rates.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/11-analytics.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/12-reports.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/13-finances.yaml?region=ru
