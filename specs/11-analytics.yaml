@@ -1324,6 +1324,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response403General'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/stocks-report/products/groups:
@@ -1651,6 +1654,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response403General'
         '429':
           $ref: '#/components/responses/429'
 components:
@@ -6128,6 +6134,42 @@ components:
       type: string
       example: RUB
       description: Валюта отчёта
+    Response403General:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Заголовок ошибки
+          example: forbidden
+        detail:
+          type: string
+          description: Детали ошибки
+          example: base token is not allowed
+        code:
+          type: string
+          description: Внутренний код ошибки
+          example: base token is not allowed for this path
+        requestId:
+          type: string
+          description: ID запроса
+          example: 722199b2e15bbca48cc1d488a7989976
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+          example: s2s-finance
+        status:
+          type: number
+          description: HTTP статус-код
+          example: 403
+        statusText:
+          type: string
+          description: Расшифровка HTTP статус-кода
+          example: Forbidden
+        timestamp:
+          type: string
+          format: date-time
+          description: Дата и время запроса
+          example: '2026-05-25T02:47:09Z'
   examples:
     SalesFunnelItemRes:
       description: ''

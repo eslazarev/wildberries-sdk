@@ -14,7 +14,7 @@ info:
       2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями
       3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний
       4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний
-      5. Работать с [календарём акций](/openapi/promotion#tag/Kalendar-akcij)
+      5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)
 
     Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>
 
@@ -40,6 +40,7 @@ tags:
   - name: Статистика
     description: ''
   - name: Календарь акций
+    x-displayName: Календарь акций
     description: ''
 paths:
   /adv/v1/promotion/count:
@@ -3686,12 +3687,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FullStatsError'
-              example:
-                detail: invalid ids
-                origin: camp-api-public-cache
-                request_id: 40a229f3775b03585b65420c787aaebe
-                status: 400
-                title: invalid payload
+              examples:
+                InvalidEndDate:
+                  value:
+                    detail: invalid ids
+                    origin: camp-api-public-cache
+                    request_id: 40a229f3775b03585b65420c787aaebe
+                    status: 400
+                    title: invalid payload
+                MaxDateRangeError:
+                  value:
+                    errors:
+                      - detail: max date range 31 days
+                        field: begin and end
+                    origin: camp-api-public-cache
+                    request_id: 71ee30f53243d7bd09c2c00b131688b2
+                    status: 400
+                    title: Invalid payload
+                    type: bad request
         '401':
           $ref: '#/components/responses/401'
         '429':
@@ -3797,7 +3810,7 @@ paths:
         - HeaderApiKey: []
       summary: Список акций
       description: |
-        Метод возвращает список [акций](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
+        Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -3814,11 +3827,11 @@ paths:
         - $ref: '#/components/parameters/startDateTime'
         - $ref: '#/components/parameters/endDateTime'
         - $ref: '#/components/parameters/allPromo'
-        - $ref: '#/components/parameters/limitPromotion'
+        - $ref: '#/components/parameters/limitPromo'
         - $ref: '#/components/parameters/offset'
       responses:
         '200':
-          $ref: '#/components/responses/PromotionsSuccessResponse'
+          $ref: '#/components/responses/PromoSuccessResponse'
         '400':
           $ref: '#/components/responses/ErrorFailedParseData'
         '401':
@@ -3844,7 +3857,7 @@ paths:
         - HeaderApiKey: []
       summary: Детальная информация об акциях
       description: |
-        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
+        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -3861,7 +3874,7 @@ paths:
         - $ref: '#/components/parameters/promotionIDs'
       responses:
         '200':
-          $ref: '#/components/responses/PromotionsGetByIDSuccessResponse'
+          $ref: '#/components/responses/PromosGetByIDSuccessResponse'
         '400':
           $ref: '#/components/responses/ErrorFailedParseData'
         '401':
@@ -3887,7 +3900,7 @@ paths:
         - HeaderApiKey: []
       summary: Список товаров для участия в акции
       description: |
-        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1upload/post).
+        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1upload/post).
 
         <div class="description_important">
           Данный метод неприменим для автоакций.
@@ -3908,7 +3921,7 @@ paths:
         - $ref: '#/components/parameters/offset'
       responses:
         '200':
-          $ref: '#/components/responses/ResponsePromotionsItemsLists'
+          $ref: '#/components/responses/ResponsePromoItemsLists'
         '400':
           $ref: '#/components/responses/ErrorWrongParameters'
         '401':
@@ -3936,7 +3949,7 @@ paths:
         - HeaderApiKey: []
       summary: Добавить товар в акцию
       description: |
-        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/Kalendar-akcij/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
+        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
         Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).
 
         <div class="description_important">
@@ -3955,7 +3968,7 @@ paths:
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
       requestBody:
-        $ref: '#/components/requestBodies/PromotionsSupplierTaskRequest'
+        $ref: '#/components/requestBodies/PromoSupplierTaskRequest'
       responses:
         '200':
           $ref: '#/components/responses/UploadSuccessResponse'
@@ -4875,7 +4888,7 @@ components:
       properties:
         error:
           type: string
-    PromotionsItemsList:
+    PromoItemsList:
       type: object
       properties:
         id:
@@ -5725,6 +5738,17 @@ components:
       type: object
       description: Ошибка
       properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              detail:
+                type: string
+                description: Детали ошибки
+              field:
+                type: string
+                description: Параметр с ошибкой
         detail:
           type: string
           description: Детали ошибки
@@ -5741,11 +5765,10 @@ components:
           type: string
           description: Заголовок ошибки
       required:
-        - detail
         - title
         - request_id
-        - origin
         - status
+        - origin
   parameters:
     inAction:
       in: query
@@ -5831,7 +5854,7 @@ components:
         type: boolean
         default: false
       required: true
-    limitPromotion:
+    limitPromo:
       in: query
       name: limit
       description: Количество запрашиваемых акций
@@ -5842,7 +5865,7 @@ components:
         maximum: 1000
         example: 10
   requestBodies:
-    PromotionsSupplierTaskRequest:
+    PromoSupplierTaskRequest:
       required: true
       content:
         application/json:
@@ -6000,8 +6023,8 @@ components:
                 type: string
                 description: Текст ошибки
           examples:
-            PromotionCompletedOrNotExist:
-              description: Акция завершена, или акция с данным id не существует
+            PromoCompletedOrNotExist:
+              description: Акция завершена, или акция с данным ID не существует
               value:
                 errorText: Unprocessable entity
     ErrorWrongParameters:
@@ -6015,7 +6038,7 @@ components:
                 type: string
                 description: Текст ошибки
                 example: Invalid query params
-    ResponsePromotionsItemsLists:
+    ResponsePromoItemsLists:
       description: Успешно
       content:
         application/json:
@@ -6029,7 +6052,7 @@ components:
                   nomenclatures:
                     type: array
                     items:
-                      $ref: '#/components/schemas/PromotionsItemsList'
+                      $ref: '#/components/schemas/PromoItemsList'
                     description: Список товаров
     UploadSuccessResponse:
       description: Успешно
@@ -6061,7 +6084,7 @@ components:
                 description: Текст ошибки
                 type: string
                 example: Unprocessable entity
-    PromotionsGetByIDSuccessResponse:
+    PromosGetByIDSuccessResponse:
       description: Успешно
       content:
         application/json:
@@ -6177,7 +6200,7 @@ components:
                             - condition: allProducts
                               participationRate: 35
                               boost: 30
-    PromotionsSuccessResponse:
+    PromoSuccessResponse:
       description: Успешно
       content:
         application/json:
