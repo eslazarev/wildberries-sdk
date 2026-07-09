@@ -319,7 +319,6 @@ class RequestDownload implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($params)) {
             throw new \InvalidArgumentException('non-nullable params cannot be null');
         }
-
         if ((count($params) > 50)) {
             throw new \InvalidArgumentException('invalid value for $params when calling RequestDownload., number of items must be less than or equal to 50.');
         }

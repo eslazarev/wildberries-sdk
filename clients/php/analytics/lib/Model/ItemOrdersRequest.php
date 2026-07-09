@@ -396,7 +396,6 @@ class ItemOrdersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($search_texts)) {
             throw new \InvalidArgumentException('non-nullable search_texts cannot be null');
         }
-
         if ((count($search_texts) > 30)) {
             throw new \InvalidArgumentException('invalid value for $search_texts when calling ItemOrdersRequest., number of items must be less than or equal to 30.');
         }

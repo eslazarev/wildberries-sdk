@@ -395,7 +395,6 @@ class ApiOrdersMetaDeleteRequest implements ModelInterface, ArrayAccess, \JsonSe
         if (is_null($orders_ids)) {
             throw new \InvalidArgumentException('non-nullable orders_ids cannot be null');
         }
-
         if ((count($orders_ids) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $orders_ids when calling ApiOrdersMetaDeleteRequest., number of items must be less than or equal to 1000.');
         }

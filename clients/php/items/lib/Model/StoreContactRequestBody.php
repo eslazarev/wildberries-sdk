@@ -316,7 +316,6 @@ class StoreContactRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($contacts)) {
             throw new \InvalidArgumentException('non-nullable contacts cannot be null');
         }
-
         if ((count($contacts) > 5)) {
             throw new \InvalidArgumentException('invalid value for $contacts when calling StoreContactRequestBody., number of items must be less than or equal to 5.');
         }

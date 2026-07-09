@@ -322,7 +322,6 @@ class ApiV3StocksWarehouseIdPutRequest implements ModelInterface, ArrayAccess, \
         if (is_null($stocks)) {
             throw new \InvalidArgumentException('non-nullable stocks cannot be null');
         }
-
         if ((count($stocks) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $stocks when calling ApiV3StocksWarehouseIdPutRequest., number of items must be less than or equal to 1000.');
         }

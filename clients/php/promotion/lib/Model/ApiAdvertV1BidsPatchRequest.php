@@ -318,7 +318,6 @@ class ApiAdvertV1BidsPatchRequest implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($bids)) {
             throw new \InvalidArgumentException('non-nullable bids cannot be null');
         }
-
         if ((count($bids) > 50)) {
             throw new \InvalidArgumentException('invalid value for $bids when calling ApiAdvertV1BidsPatchRequest., number of items must be less than or equal to 50.');
         }

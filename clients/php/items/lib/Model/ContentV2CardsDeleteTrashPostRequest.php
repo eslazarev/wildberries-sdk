@@ -312,7 +312,6 @@ class ContentV2CardsDeleteTrashPostRequest implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable nm_ids cannot be null');
         }
 
-
         $this->container['nm_ids'] = $nm_ids;
 
         return $this;

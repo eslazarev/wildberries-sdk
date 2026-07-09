@@ -413,7 +413,6 @@ class ApiAdvertV1BidsMinPostRequest implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable nm_ids cannot be null');
         }
 
-
         $this->container['nm_ids'] = $nm_ids;
 
         return $this;

@@ -322,7 +322,6 @@ class ApiV3SuppliesSupplyIdTrbxPostRequest implements ModelInterface, ArrayAcces
         if (is_null($amount)) {
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-
         if (($amount > 1000)) {
             throw new \InvalidArgumentException('invalid value for $amount when calling ApiV3SuppliesSupplyIdTrbxPostRequest., must be smaller than or equal to 1000.');
         }

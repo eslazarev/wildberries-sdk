@@ -514,7 +514,6 @@ class ApiV3PassesPassIdPutRequest implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($office_id)) {
             throw new \InvalidArgumentException('non-nullable office_id cannot be null');
         }
-
         if (($office_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $office_id when calling ApiV3PassesPassIdPutRequest., must be bigger than or equal to 1.');
         }

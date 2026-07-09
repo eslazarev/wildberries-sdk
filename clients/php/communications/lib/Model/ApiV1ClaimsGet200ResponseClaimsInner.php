@@ -780,7 +780,6 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         if (is_null($photos)) {
             throw new \InvalidArgumentException('non-nullable photos cannot be null');
         }
-
         if ((count($photos) > 10)) {
             throw new \InvalidArgumentException('invalid value for $photos when calling ApiV1ClaimsGet200ResponseClaimsInner., number of items must be less than or equal to 10.');
         }
@@ -814,7 +813,6 @@ class ApiV1ClaimsGet200ResponseClaimsInner implements ModelInterface, ArrayAcces
         if (is_null($video_paths)) {
             throw new \InvalidArgumentException('non-nullable video_paths cannot be null');
         }
-
         if ((count($video_paths) > 1)) {
             throw new \InvalidArgumentException('invalid value for $video_paths when calling ApiV1ClaimsGet200ResponseClaimsInner., number of items must be less than or equal to 1.');
         }

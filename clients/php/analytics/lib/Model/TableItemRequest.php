@@ -679,7 +679,6 @@ class TableItemRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($limit)) {
             throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-
         if (($limit > 1000)) {
             throw new \InvalidArgumentException('invalid value for $limit when calling TableItemRequest., must be smaller than or equal to 1000.');
         }

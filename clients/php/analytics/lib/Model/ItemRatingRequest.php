@@ -458,7 +458,6 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($nm_ids)) {
             throw new \InvalidArgumentException('non-nullable nm_ids cannot be null');
         }
-
         if ((count($nm_ids) > 50)) {
             throw new \InvalidArgumentException('invalid value for $nm_ids when calling ItemRatingRequest., number of items must be less than or equal to 50.');
         }
@@ -489,7 +488,6 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($subject_ids)) {
             throw new \InvalidArgumentException('non-nullable subject_ids cannot be null');
         }
-
         if ((count($subject_ids) > 50)) {
             throw new \InvalidArgumentException('invalid value for $subject_ids when calling ItemRatingRequest., number of items must be less than or equal to 50.');
         }
@@ -520,7 +518,6 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($brand_names)) {
             throw new \InvalidArgumentException('non-nullable brand_names cannot be null');
         }
-
         if ((count($brand_names) > 50)) {
             throw new \InvalidArgumentException('invalid value for $brand_names when calling ItemRatingRequest., number of items must be less than or equal to 50.');
         }
@@ -551,7 +548,6 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($tag_ids)) {
             throw new \InvalidArgumentException('non-nullable tag_ids cannot be null');
         }
-
         if ((count($tag_ids) > 50)) {
             throw new \InvalidArgumentException('invalid value for $tag_ids when calling ItemRatingRequest., number of items must be less than or equal to 50.');
         }
@@ -636,7 +632,6 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($limit)) {
             throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-
         if (($limit > 1000)) {
             throw new \InvalidArgumentException('invalid value for $limit when calling ItemRatingRequest., must be smaller than or equal to 1000.');
         }

@@ -575,7 +575,6 @@ class TableDetailsRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($nm_ids)) {
             throw new \InvalidArgumentException('non-nullable nm_ids cannot be null');
         }
-
         if ((count($nm_ids) > 50)) {
             throw new \InvalidArgumentException('invalid value for $nm_ids when calling TableDetailsRequest., number of items must be less than or equal to 50.');
         }
@@ -724,7 +723,6 @@ class TableDetailsRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($limit)) {
             throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-
         if (($limit > 1000)) {
             throw new \InvalidArgumentException('invalid value for $limit when calling TableDetailsRequest., must be smaller than or equal to 1000.');
         }

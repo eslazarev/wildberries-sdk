@@ -322,7 +322,6 @@ class ApiV3StocksWarehouseIdDeleteRequest implements ModelInterface, ArrayAccess
         if (is_null($chrt_ids)) {
             throw new \InvalidArgumentException('non-nullable chrt_ids cannot be null');
         }
-
         if ((count($chrt_ids) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $chrt_ids when calling ApiV3StocksWarehouseIdDeleteRequest., number of items must be less than or equal to 1000.');
         }

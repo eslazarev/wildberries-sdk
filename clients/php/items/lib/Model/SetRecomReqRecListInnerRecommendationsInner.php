@@ -353,7 +353,6 @@ class SetRecomReqRecListInnerRecommendationsInner implements ModelInterface, Arr
         if (is_null($sort)) {
             throw new \InvalidArgumentException('non-nullable sort cannot be null');
         }
-
         if (($sort > 20)) {
             throw new \InvalidArgumentException('invalid value for $sort when calling SetRecomReqRecListInnerRecommendationsInner., must be smaller than or equal to 20.');
         }

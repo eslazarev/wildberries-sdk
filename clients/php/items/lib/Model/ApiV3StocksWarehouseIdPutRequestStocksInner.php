@@ -349,7 +349,6 @@ class ApiV3StocksWarehouseIdPutRequestStocksInner implements ModelInterface, Arr
         if (is_null($amount)) {
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-
         if (($amount > 100000)) {
             throw new \InvalidArgumentException('invalid value for $amount when calling ApiV3StocksWarehouseIdPutRequestStocksInner., must be smaller than or equal to 100000.');
         }

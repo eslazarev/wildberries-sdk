@@ -353,7 +353,6 @@ class SetRecomReqRecListInner implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($recommendations)) {
             throw new \InvalidArgumentException('non-nullable recommendations cannot be null');
         }
-
         if ((count($recommendations) > 20)) {
             throw new \InvalidArgumentException('invalid value for $recommendations when calling SetRecomReqRecListInner., number of items must be less than or equal to 20.');
         }

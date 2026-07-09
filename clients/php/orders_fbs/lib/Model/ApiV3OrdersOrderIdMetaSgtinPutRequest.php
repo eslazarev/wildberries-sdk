@@ -319,7 +319,6 @@ class ApiV3OrdersOrderIdMetaSgtinPutRequest implements ModelInterface, ArrayAcce
         if (is_null($sgtins)) {
             throw new \InvalidArgumentException('non-nullable sgtins cannot be null');
         }
-
         if ((count($sgtins) > 100)) {
             throw new \InvalidArgumentException('invalid value for $sgtins when calling ApiV3OrdersOrderIdMetaSgtinPutRequest., number of items must be less than or equal to 100.');
         }

@@ -373,7 +373,6 @@ class ItemHistoryRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if (is_null($nm_ids)) {
             throw new \InvalidArgumentException('non-nullable nm_ids cannot be null');
         }
-
         if ((count($nm_ids) > 20)) {
             throw new \InvalidArgumentException('invalid value for $nm_ids when calling ItemHistoryRequest., number of items must be less than or equal to 20.');
         }

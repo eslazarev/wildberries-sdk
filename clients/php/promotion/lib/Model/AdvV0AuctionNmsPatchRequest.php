@@ -318,7 +318,6 @@ class AdvV0AuctionNmsPatchRequest implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($nms)) {
             throw new \InvalidArgumentException('non-nullable nms cannot be null');
         }
-
         if ((count($nms) > 20)) {
             throw new \InvalidArgumentException('invalid value for $nms when calling AdvV0AuctionNmsPatchRequest., number of items must be less than or equal to 20.');
         }

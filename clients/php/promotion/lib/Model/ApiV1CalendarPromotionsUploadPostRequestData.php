@@ -338,7 +338,6 @@ class ApiV1CalendarPromotionsUploadPostRequestData implements ModelInterface, Ar
         if (is_null($promotion_id)) {
             throw new \InvalidArgumentException('non-nullable promotion_id cannot be null');
         }
-
         if (($promotion_id < 1)) {
             throw new \InvalidArgumentException('invalid value for $promotion_id when calling ApiV1CalendarPromotionsUploadPostRequestData., must be bigger than or equal to 1.');
         }
@@ -397,7 +396,6 @@ class ApiV1CalendarPromotionsUploadPostRequestData implements ModelInterface, Ar
         if (is_null($nomenclatures)) {
             throw new \InvalidArgumentException('non-nullable nomenclatures cannot be null');
         }
-
         if ((count($nomenclatures) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $nomenclatures when calling ApiV1CalendarPromotionsUploadPostRequestData., number of items must be less than or equal to 1000.');
         }

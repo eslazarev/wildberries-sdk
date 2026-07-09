@@ -330,7 +330,6 @@ class SetRecomReq implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($rec_list)) {
             throw new \InvalidArgumentException('non-nullable rec_list cannot be null');
         }
-
         if ((count($rec_list) > 5000)) {
             throw new \InvalidArgumentException('invalid value for $rec_list when calling SetRecomReq., number of items must be less than or equal to 5000.');
         }

@@ -355,7 +355,6 @@ class ApiAdvertV1BidsPatchRequestBidsInner implements ModelInterface, ArrayAcces
         if (is_null($nm_bids)) {
             throw new \InvalidArgumentException('non-nullable nm_bids cannot be null');
         }
-
         if ((count($nm_bids) > 50)) {
             throw new \InvalidArgumentException('invalid value for $nm_bids when calling ApiAdvertV1BidsPatchRequestBidsInner., number of items must be less than or equal to 50.');
         }

@@ -318,7 +318,6 @@ class V0GetNormQueryListRequest implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($items)) {
             throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-
         if ((count($items) > 100)) {
             throw new \InvalidArgumentException('invalid value for $items when calling V0GetNormQueryListRequest., number of items must be less than or equal to 100.');
         }

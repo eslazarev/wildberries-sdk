@@ -319,7 +319,6 @@ class ApiV3OrdersStatusHistoryPostRequest implements ModelInterface, ArrayAccess
         if (is_null($orders)) {
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
         }
-
         if ((count($orders) > 100)) {
             throw new \InvalidArgumentException('invalid value for $orders when calling ApiV3OrdersStatusHistoryPostRequest., number of items must be less than or equal to 100.');
         }

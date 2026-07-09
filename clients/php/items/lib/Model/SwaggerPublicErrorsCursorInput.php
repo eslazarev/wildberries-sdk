@@ -330,7 +330,6 @@ class SwaggerPublicErrorsCursorInput implements ModelInterface, ArrayAccess, \Js
         if (is_null($limit)) {
             throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-
         if (($limit > 100)) {
             throw new \InvalidArgumentException('invalid value for $limit when calling SwaggerPublicErrorsCursorInput., must be smaller than or equal to 100.');
         }

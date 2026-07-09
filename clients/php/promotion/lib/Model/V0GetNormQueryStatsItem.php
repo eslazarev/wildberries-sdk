@@ -389,7 +389,6 @@ class V0GetNormQueryStatsItem implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($stats)) {
             throw new \InvalidArgumentException('non-nullable stats cannot be null');
         }
-
         if ((count($stats) > 100)) {
             throw new \InvalidArgumentException('invalid value for $stats when calling V0GetNormQueryStatsItem., number of items must be less than or equal to 100.');
         }

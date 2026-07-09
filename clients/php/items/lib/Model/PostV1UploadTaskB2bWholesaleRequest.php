@@ -322,7 +322,6 @@ class PostV1UploadTaskB2bWholesaleRequest implements ModelInterface, ArrayAccess
         if (is_null($data)) {
             throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
-
         if ((count($data) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $data when calling PostV1UploadTaskB2bWholesaleRequest., number of items must be less than or equal to 1000.');
         }

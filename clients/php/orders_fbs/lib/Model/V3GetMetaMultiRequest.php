@@ -319,7 +319,6 @@ class V3GetMetaMultiRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($orders)) {
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
         }
-
         if ((count($orders) > 100)) {
             throw new \InvalidArgumentException('invalid value for $orders when calling V3GetMetaMultiRequest., number of items must be less than or equal to 100.');
         }

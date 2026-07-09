@@ -322,7 +322,6 @@ class ApiMarketplaceV3DbsOrdersStickersPostRequest implements ModelInterface, Ar
         if (is_null($orders)) {
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
         }
-
         if ((count($orders) > 100)) {
             throw new \InvalidArgumentException('invalid value for $orders when calling ApiMarketplaceV3DbsOrdersStickersPostRequest., number of items must be less than or equal to 100.');
         }

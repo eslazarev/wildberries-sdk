@@ -315,7 +315,6 @@ class ApiOrderGroupsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($groups)) {
             throw new \InvalidArgumentException('non-nullable groups cannot be null');
         }
-
         if ((count($groups) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $groups when calling ApiOrderGroupsRequest., number of items must be less than or equal to 1000.');
         }

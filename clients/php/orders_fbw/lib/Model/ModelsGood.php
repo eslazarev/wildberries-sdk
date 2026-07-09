@@ -326,7 +326,6 @@ class ModelsGood implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($quantity)) {
             throw new \InvalidArgumentException('non-nullable quantity cannot be null');
         }
-
         if (($quantity > 999999)) {
             throw new \InvalidArgumentException('invalid value for $quantity when calling ModelsGood., must be smaller than or equal to 999999.');
         }

@@ -285,10 +285,6 @@ class TrbxStickers implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'barcode', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['file']) && (mb_strlen($this->container['file']) < 1)) {
-            $invalidProperties[] = "invalid value for 'file', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -357,10 +353,6 @@ class TrbxStickers implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($file)) {
             throw new \InvalidArgumentException('non-nullable file cannot be null');
-        }
-
-        if ((mb_strlen($file) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $file when calling TrbxStickers., must be bigger than or equal to 1.');
         }
 
         $this->container['file'] = $file;

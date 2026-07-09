@@ -318,7 +318,6 @@ class ApiOrdersSGTINsSetRequest implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($orders)) {
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
         }
-
         if ((count($orders) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $orders when calling ApiOrdersSGTINsSetRequest., number of items must be less than or equal to 1000.');
         }

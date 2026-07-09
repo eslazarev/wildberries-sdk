@@ -435,7 +435,6 @@ class SalesReportsDetailedReq implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($limit)) {
             throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-
         if (($limit > 100000)) {
             throw new \InvalidArgumentException('invalid value for $limit when calling SalesReportsDetailedReq., must be smaller than or equal to 100000.');
         }

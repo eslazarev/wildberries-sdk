@@ -392,7 +392,6 @@ class V0SetMinusNormQueryRequest implements ModelInterface, ArrayAccess, \JsonSe
         if (is_null($norm_queries)) {
             throw new \InvalidArgumentException('non-nullable norm_queries cannot be null');
         }
-
         if ((count($norm_queries) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $norm_queries when calling V0SetMinusNormQueryRequest., number of items must be less than or equal to 1000.');
         }

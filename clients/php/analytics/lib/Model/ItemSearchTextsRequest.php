@@ -464,7 +464,6 @@ class ItemSearchTextsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if (is_null($nm_ids)) {
             throw new \InvalidArgumentException('non-nullable nm_ids cannot be null');
         }
-
         if ((count($nm_ids) > 50)) {
             throw new \InvalidArgumentException('invalid value for $nm_ids when calling ItemSearchTextsRequest., number of items must be less than or equal to 50.');
         }

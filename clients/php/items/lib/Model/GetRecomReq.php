@@ -360,7 +360,6 @@ class GetRecomReq implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($brand_names)) {
             throw new \InvalidArgumentException('non-nullable brand_names cannot be null');
         }
-
         if ((count($brand_names) > 30)) {
             throw new \InvalidArgumentException('invalid value for $brand_names when calling GetRecomReq., number of items must be less than or equal to 30.');
         }
@@ -391,7 +390,6 @@ class GetRecomReq implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($limit)) {
             throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-
         if (($limit > 5000)) {
             throw new \InvalidArgumentException('invalid value for $limit when calling GetRecomReq., must be smaller than or equal to 5000.');
         }
@@ -484,7 +482,6 @@ class GetRecomReq implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($subject_ids)) {
             throw new \InvalidArgumentException('non-nullable subject_ids cannot be null');
         }
-
         if ((count($subject_ids) > 30)) {
             throw new \InvalidArgumentException('invalid value for $subject_ids when calling GetRecomReq., number of items must be less than or equal to 30.');
         }

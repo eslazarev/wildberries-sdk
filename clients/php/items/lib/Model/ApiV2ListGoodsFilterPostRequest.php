@@ -322,7 +322,6 @@ class ApiV2ListGoodsFilterPostRequest implements ModelInterface, ArrayAccess, \J
         if (is_null($nm_list)) {
             throw new \InvalidArgumentException('non-nullable nm_list cannot be null');
         }
-
         if ((count($nm_list) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $nm_list when calling ApiV2ListGoodsFilterPostRequest., number of items must be less than or equal to 1000.');
         }

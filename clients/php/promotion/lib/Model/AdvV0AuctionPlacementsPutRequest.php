@@ -318,7 +318,6 @@ class AdvV0AuctionPlacementsPutRequest implements ModelInterface, ArrayAccess, \
         if (is_null($placements)) {
             throw new \InvalidArgumentException('non-nullable placements cannot be null');
         }
-
         if ((count($placements) > 50)) {
             throw new \InvalidArgumentException('invalid value for $placements when calling AdvV0AuctionPlacementsPutRequest., number of items must be less than or equal to 50.');
         }

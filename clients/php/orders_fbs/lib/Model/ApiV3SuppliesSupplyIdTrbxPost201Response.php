@@ -316,7 +316,6 @@ class ApiV3SuppliesSupplyIdTrbxPost201Response implements ModelInterface, ArrayA
             throw new \InvalidArgumentException('non-nullable trbx_ids cannot be null');
         }
 
-
         if ((count($trbx_ids) < 1)) {
             throw new \InvalidArgumentException('invalid length for $trbx_ids when calling ApiV3SuppliesSupplyIdTrbxPost201Response., number of items must be greater than or equal to 1.');
         }

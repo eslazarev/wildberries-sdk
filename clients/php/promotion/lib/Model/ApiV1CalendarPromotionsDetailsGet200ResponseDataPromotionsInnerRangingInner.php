@@ -360,7 +360,6 @@ class ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInne
         if (is_null($participation_rate)) {
             throw new \InvalidArgumentException('non-nullable participation_rate cannot be null');
         }
-
         if (($participation_rate > 100)) {
             throw new \InvalidArgumentException('invalid value for $participation_rate when calling ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInner., must be smaller than or equal to 100.');
         }

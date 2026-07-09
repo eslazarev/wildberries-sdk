@@ -359,7 +359,6 @@ class ApiSGTINs implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($sgtins)) {
             throw new \InvalidArgumentException('non-nullable sgtins cannot be null');
         }
-
         if ((count($sgtins) > 24)) {
             throw new \InvalidArgumentException('invalid value for $sgtins when calling ApiSGTINs., number of items must be less than or equal to 24.');
         }

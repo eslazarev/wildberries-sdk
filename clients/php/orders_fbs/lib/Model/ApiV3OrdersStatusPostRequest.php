@@ -322,7 +322,6 @@ class ApiV3OrdersStatusPostRequest implements ModelInterface, ArrayAccess, \Json
         if (is_null($orders)) {
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
         }
-
         if ((count($orders) > 1000)) {
             throw new \InvalidArgumentException('invalid value for $orders when calling ApiV3OrdersStatusPostRequest., number of items must be less than or equal to 1000.');
         }

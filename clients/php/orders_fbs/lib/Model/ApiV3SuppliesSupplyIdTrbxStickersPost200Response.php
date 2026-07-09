@@ -316,7 +316,6 @@ class ApiV3SuppliesSupplyIdTrbxStickersPost200Response implements ModelInterface
             throw new \InvalidArgumentException('non-nullable stickers cannot be null');
         }
 
-
         if ((count($stickers) < 1)) {
             throw new \InvalidArgumentException('invalid length for $stickers when calling ApiV3SuppliesSupplyIdTrbxStickersPost200Response., number of items must be greater than or equal to 1.');
         }

@@ -318,7 +318,6 @@ class V0SetNormQueryBidsRequest implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($bids)) {
             throw new \InvalidArgumentException('non-nullable bids cannot be null');
         }
-
         if ((count($bids) > 100)) {
             throw new \InvalidArgumentException('invalid value for $bids when calling V0SetNormQueryBidsRequest., number of items must be less than or equal to 100.');
         }
