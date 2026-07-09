@@ -779,7 +779,17 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: AccessDenied
+                message: ''
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response403General'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/dbs/orders/status/deliver:
@@ -2753,7 +2763,7 @@ components:
               type: string
               example: 10704010/010624/0000302
               nullable: true
-          description: Номер грузовой таможенной декларации
+          description: Номер ДТ
     api.OrderStatusesV2:
       type: object
       example:
@@ -2989,3 +2999,39 @@ components:
         orgName:
           type: string
           description: Наименование организации
+    Response403General:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Заголовок ошибки
+          example: forbidden
+        detail:
+          type: string
+          description: Детали ошибки
+          example: base token is not allowed
+        code:
+          type: string
+          description: Внутренний код ошибки
+          example: base token is not allowed for this path
+        requestId:
+          type: string
+          description: ID запроса
+          example: 722199b2e15bbca48cc1d488a7989976
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+          example: s2s-finance
+        status:
+          type: number
+          description: HTTP статус-код
+          example: 403
+        statusText:
+          type: string
+          description: Расшифровка HTTP статус-кода
+          example: Forbidden
+        timestamp:
+          type: string
+          format: date-time
+          description: Дата и время запроса
+          example: '2026-05-25T02:47:09Z'
