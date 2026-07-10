@@ -39,7 +39,7 @@ paths:
         Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), которые есть у продавца на момент запроса.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -92,7 +92,7 @@ paths:
         Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -170,7 +170,7 @@ paths:
         <br>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -230,7 +230,7 @@ paths:
         Метод возвращает информацию о покупателях по ID сборочных заданий.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -323,7 +323,7 @@ paths:
         - `postponed_delivery` — курьерская доставка отложена
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -418,7 +418,7 @@ paths:
         Метод переводит [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -493,7 +493,7 @@ paths:
           - 400x300 px при `width=40&height=30` в запросе
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -629,7 +629,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -703,7 +703,7 @@ paths:
         Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -765,7 +765,7 @@ paths:
         Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) и переводит в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `cancel` — отменено продавцом.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -838,7 +838,7 @@ paths:
           - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)
 
           <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -912,7 +912,7 @@ paths:
         Можно передать только один ключ.
 
           <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -985,7 +985,7 @@ paths:
         Данный метод устарел. Он будет удалён [27 июля](https://dev.wildberries.ru/release-notes?id=508)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -1046,7 +1046,7 @@ paths:
         Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -1122,7 +1122,7 @@ paths:
         Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -1200,7 +1200,7 @@ paths:
         Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -1278,7 +1278,7 @@ paths:
         Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2108,10 +2108,10 @@ components:
               - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)
               - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)
               - [Отчёт о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
-              - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailedReportId)
-              - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailed)
-              - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailedReportId)
-              - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailed)
+              - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)
+              - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)
+              - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
+              - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string
@@ -2251,10 +2251,10 @@ components:
               - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)
               - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)
               - [Отчёт о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
-              - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailedReportId)
-              - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1SalesReportsDetailed)
-              - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailedReportId)
-              - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/Finansovye-otchyoty/operation/postV1AcquiringDetailed)
+              - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)
+              - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)
+              - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
+              - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string

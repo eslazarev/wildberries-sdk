@@ -9,7 +9,7 @@ info:
 
     <div class="api-block">
 
-    Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/Balans), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty) и [документов](/openapi/financial-reports-and-accounting#tag/Dokumenty) продавца.
+    Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/balance), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/financialReports) и [документов](/openapi/financial-reports-and-accounting#tag/documents) продавца.
 
     </div>
   x-file-name: finances
@@ -17,16 +17,20 @@ security:
   - HeaderApiKey: []
 tags:
   - name: Баланс
+    x-displayName: Баланс
     description: ''
   - name: Финансовые отчёты
+    x-displayName: Финансовые отчёты
     description: ''
   - name: Документы
+    x-displayName: Документы
     description: ''
 paths:
   /api/v1/account/balance:
     servers:
       - url: https://finance-api.wildberries.ru
     get:
+      operationId: getV1AccountBalance
       x-readonly-method: true
       x-category: finance
       security:
@@ -37,7 +41,7 @@ paths:
         <br><br>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -93,7 +97,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -103,7 +107,7 @@ paths:
         Данные доступны с 1 января 2025 года.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -152,7 +156,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -162,7 +166,7 @@ paths:
         Данные доступны с 1 января 2025 года.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -225,7 +229,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -269,6 +273,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV5SupplierReportDetailByPeriod
       deprecated: true
       x-readonly-method: true
       x-category: statistics
@@ -279,7 +284,7 @@ paths:
         Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -385,7 +390,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -393,7 +398,7 @@ paths:
         Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -442,7 +447,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -450,7 +455,7 @@ paths:
         Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -509,7 +514,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -517,7 +522,7 @@ paths:
         Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -554,6 +559,7 @@ paths:
     servers:
       - url: https://documents-api.wildberries.ru
     get:
+      operationId: getV1DocumentsCategories
       x-readonly-method: true
       x-category: documents
       tags:
@@ -562,10 +568,10 @@ paths:
         - HeaderApiKey: []
       summary: Категории документов
       description: |
-        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).
+        Метод возвращает категории документов для получения [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -594,6 +600,7 @@ paths:
     servers:
       - url: https://documents-api.wildberries.ru
     get:
+      operationId: getV1DocumentsList
       x-readonly-method: true
       x-category: documents
       security:
@@ -602,10 +609,10 @@ paths:
         - Документы
       summary: Список документов
       description: |
-        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download/get) или [несколько](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1download~1all/post) документов из полученного списка.
+        Метод возвращает список документов продавца. Вы можете получить [один](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](/openapi/financial-reports-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -666,7 +673,7 @@ paths:
           schema:
             type: string
             example: redeem-notification
-          description: ID [категории документов](./financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1categories/get) из поля `name`
+          description: ID [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`
         - in: query
           name: serviceName
           schema:
@@ -707,6 +714,7 @@ paths:
     servers:
       - url: https://documents-api.wildberries.ru
     get:
+      operationId: getV1DocumentsDownload
       x-readonly-method: true
       x-category: documents
       security:
@@ -715,10 +723,10 @@ paths:
         - Документы
       summary: Получить документ
       description: |
-        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).
+        Метод загружает один документ из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -762,6 +770,7 @@ paths:
     servers:
       - url: https://documents-api.wildberries.ru
     post:
+      operationId: postV1DocumentsDownloadAll
       x-readonly-method: true
       x-category: documents
       security:
@@ -770,10 +779,10 @@ paths:
         - Документы
       summary: Получить документы
       description: |
-        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get).
+        Метод загружает несколько документов из [списка документов продавца](/openapi/financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -866,11 +875,11 @@ components:
                   name:
                     type: string
                     example: redeem-notification
-                    description: ID категории документа из параметра [запроса](./financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get) `category`
+                    description: ID категории документа из параметра [запроса](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
                   title:
                     type: string
                     example: Уведомление о выкупе
-                    description: Название категории документа из поля [ответа](./financial-reports-and-accounting#tag/Dokumenty/~1api~1v1~1documents~1list/get) `category`
+                    description: Название категории документа из поля [ответа](./financial-reports-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
     GetList:
       properties:
         data:
@@ -893,7 +902,7 @@ components:
                   category:
                     type: string
                     example: Уведомление о выкупе
-                    description: Название [категории документов](./financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1categories/get) из поля ответа `title`
+                    description: Название [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля ответа `title`
                   extensions:
                     type: array
                     items:

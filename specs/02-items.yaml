@@ -68,7 +68,7 @@ paths:
         Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/work-with-products#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -80,8 +80,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -173,7 +171,7 @@ paths:
         Метод возвращает список названий [родительских категорий предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -185,8 +183,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -308,7 +304,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -320,8 +316,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -479,24 +473,16 @@ paths:
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Цвет`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Категории, предметы и характеристики
@@ -580,24 +566,16 @@ paths:
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Пол`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Категории, предметы и характеристики
@@ -675,7 +653,7 @@ paths:
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Страна производства`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -687,8 +665,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -780,24 +756,16 @@ paths:
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Сезон`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Категории, предметы и характеристики
@@ -875,24 +843,16 @@ paths:
         Метод возвращает возможные значения [характеристики](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get) предмета `Ставка НДС`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>Характеристик</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Категории, предметы и характеристики
@@ -975,7 +935,7 @@ paths:
         Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту ТНВЭД-кода.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -987,8 +947,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -1091,7 +1049,7 @@ paths:
         Метод возвращает список брендов по ID предмета.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1166,24 +1124,16 @@ paths:
         Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Ярлыки
@@ -1258,24 +1208,16 @@ paths:
         <br>Созданный ярлык можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Ярлыки
@@ -1356,24 +1298,16 @@ paths:
         <br>Новые данные можно получить в общем [списке](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Ярлыки
@@ -1444,24 +1378,16 @@ paths:
         Метод удаляет ярлык из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Ярлыки
@@ -1525,24 +1451,16 @@ paths:
         При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/work-with-products#tag/labels/paths/~1content~1v2~1tags/get) продавца.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Ярлыков</strong>:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
 
-        Исключение — методы:
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
 
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       tags:
         - Ярлыки
@@ -1647,24 +1565,11 @@ paths:
           3. Сохраните поля `"cursor":{"updatedAt":"***","nmID":"***"}` из последнего ответа текущей выгрузки.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 100 запросов | 600 мс | 5 запросов |
-
-        Исключение — методы:
-
-        <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
-        </ul>
         </div>
       parameters:
         - name: locale
@@ -2081,11 +1986,17 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов:
+
+        <ul>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get">получения лимитов карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
+        </ul>
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 10 запросов | 6 сек | 5 запросов |
+
         </div>
       tags:
         - Карточки товаров
@@ -2234,7 +2145,7 @@ paths:
         Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2480,7 +2391,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2492,8 +2403,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -2595,11 +2504,15 @@ paths:
         Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 3 запроса | 20 сек | 5 запросов |
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
       tags:
         - Карточки товаров
@@ -2687,7 +2600,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2802,7 +2715,7 @@ paths:
           3. Сохраните поля `"cursor":{"trashedAt":"***","nmID":***}` из последнего ответа текущей выгрузки.
 
           <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2814,8 +2727,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -3121,24 +3032,21 @@ paths:
         Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post) и [список карточек товаров в корзине](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 100 запросов | 600 мс | 5 запросов |
-
-        Исключение — методы:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов:
 
         <ul>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
+            <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1limits/get">получения лимитов карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
         </ul>
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |
+        | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+
         </div>
       tags:
         - Создание карточек товаров
@@ -3204,7 +3112,7 @@ paths:
         Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post). Можно использовать, если у вас нет собственных баркодов.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -3216,8 +3124,6 @@ paths:
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post">создания карточек товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post">создания карточек товаров с присоединением</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post">редактирования карточек товаров</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post">получения несозданных карточек товаров с ошибками</a></li>
-            <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">переноса карточек товаров в корзину</a></li>
             <li><a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post">восстановления карточек товаров из корзины</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList">получения списка рекомендаций в карточках товаров</a></li>
             <li><a href="/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet">установки рекомендаций для товаров</a></li>
@@ -3289,7 +3195,7 @@ paths:
       tags:
         - Создание карточек товаров
       summary: Создание карточек товаров
-      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек\_товаров по\_30 карточек в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>\n\nВ песочнице карточка товара создаётся сразу, без ожидания.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 10 запросов | 6 сек | 5 запросов |\n</div>\n"
+      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек\_товаров по\_30 карточек в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>\n\nВ песочнице карточка товара создаётся сразу, без ожидания.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 10 запросов | 6 сек | 5 запросов |\n</div>\n"
       requestBody:
         content:
           application/json:
@@ -3528,7 +3434,7 @@ paths:
         В песочнице карточка товара создаётся сразу, без ожидания.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3796,7 +3702,7 @@ paths:
       security:
         - HeaderApiKey: []
       summary: Загрузить медиафайл
-      description: "Метод загружает и добавляет один медиафайл к карточке товара.\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700x900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс | 5 запросов |\n\nИсключение — методы:\n\n<ul>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li>\n</ul>\n</div>\n"
+      description: "Метод загружает и добавляет один медиафайл к карточке товара.\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700x900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |\n\n</div>\n"
       tags:
         - Медиафайлы
       parameters:
@@ -3883,7 +3789,7 @@ paths:
       security:
         - HeaderApiKey: []
       summary: Загрузить медиафайлы по ссылкам
-      description: "Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.\n\n<div class=\"description_important\">\n  Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.\n</div>\n\nТребования к ссылкам:\n  * ссылка должна вести прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации, например. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной\n  * для доступа к файлу по ссылке не нужна авторизация\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700×900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\nЕсли видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Контент</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 100 запросов | 600 мс | 5 запросов |\n\nИсключение — методы:\n\n<ul>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload/post\">создания карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listingItems/paths/~1content~1v2~1cards~1upload~1add/post\">создания карточек товаров с присоединением</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post\">редактирования карточек товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post\">получения несозданных карточек товаров с ошибками</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post\">переноса карточек товаров в корзину</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post\">восстановления карточек товаров из корзины</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsList\">получения списка рекомендаций в карточках товаров</a></li>\n    <li><a href=\"/openapi/work-with-products#tag/recommendations/operation/postV1RecommendationsSet\">установки рекомендаций для товаров</a></li>\n</ul>\n</div>\n"
+      description: "Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.\n\n<div class=\"description_important\">\n  Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.\n</div>\n\nТребования к ссылкам:\n  * ссылка должна вести прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации, например. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной\n  * для доступа к файлу по ссылке не нужна авторизация\n\nТребования к изображениям:\n  * максимум изображений для одной карточки товара\_— 30\n  * минимальное разрешение — 700×900 px\n  * максимальный размер\_— 32\_Мб\n  * минимальное качество\_— 65%\n  * форматы\_— JPG, PNG, BMP, GIF (статичные), WebP\n\nТребования к видео:\n  * максимум одно\_видео для одной карточки товара\n  * максимальный размер\_— 50\_Мб\n  * форматы\_— MOV, MP4\n\nЕсли видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>Медиафайлов</strong>:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов |\n| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |\n\n</div>\n"
       tags:
         - Медиафайлы
       requestBody:
@@ -3977,7 +3883,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -3985,7 +3891,7 @@ paths:
         Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -4028,7 +3934,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -4036,7 +3942,7 @@ paths:
         Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -4097,7 +4003,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4204,7 +4110,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4309,7 +4215,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4392,7 +4298,7 @@ paths:
       description: |
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -4404,7 +4310,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4467,7 +4373,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4528,7 +4434,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4591,7 +4497,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4652,7 +4558,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4718,7 +4624,7 @@ paths:
           - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4779,7 +4685,7 @@ paths:
           - о [размерах товара](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1size~1nm/get)
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4842,7 +4748,7 @@ paths:
         Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4899,7 +4805,7 @@ paths:
       tags:
         - Цены и скидки
       summary: Получить товары в карантине
-      description: "Метод возвращает информацию о товарах в карантине.\n<br><br>\nЕсли новая цена товара со скидкой будет минимум в\_3 раза меньше старой, товар попадёт в\_[карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по\_старой цене. Ошибка об\_этом будет в\_ответах методов [состояний загрузок](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).\n<br><br>\nВы можете изменить цену или скидку с помощью API либо вывести товар из\_карантина в\_[личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).\n<br><br>\nДля товаров с [поразмерной установкой цен](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post) карантин не применяется.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |\n</div>\n"
+      description: "Метод возвращает информацию о товарах в карантине.\n<br><br>\nЕсли новая цена товара со скидкой будет минимум в\_3 раза меньше старой, товар попадёт в\_[карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по\_старой цене. Ошибка об\_этом будет в\_ответах методов [состояний загрузок](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).\n<br><br>\nВы можете изменить цену или скидку с помощью API либо вывести товар из\_карантина в\_[личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).\n<br><br>\nДля товаров с [поразмерной установкой цен](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task~1size/post) карантин не применяется.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Цены и скидки</strong>:\n\n\n| Тип | Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |\n| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |\n</div>\n"
       parameters:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
@@ -4963,7 +4869,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5078,7 +4984,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5166,7 +5072,7 @@ paths:
         Метод возвращает данные об остатках товаров на [складах продавца](/openapi/work-with-products#tag/Sklady-prodavca).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5261,7 +5167,7 @@ paths:
         Метод возвращает список всех складов WB для привязки к складам продавца. Предназначен для определения складов WB, чтобы сдавать готовые заказы по модели [FBS](/openapi/orders-fbs#tag/Zakazy-FBS) (Fulfillment by Seller).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5306,7 +5212,7 @@ paths:
         Метод возвращает список всех складов продавца. Может использоваться для получения [остатков товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5347,7 +5253,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5442,7 +5348,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5517,7 +5423,7 @@ paths:
         Метод удаляет склад продавца из [списка складов](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -5557,7 +5463,7 @@ paths:
         Только для складов с типом доставки `3` — доставка курьером WB (DBW).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
@@ -5637,7 +5543,7 @@ paths:
         К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
         <ul>
             <li>получение и обновление списка контактов</li>
             <li>получение и удаление идентификаторов маркировки</li>
