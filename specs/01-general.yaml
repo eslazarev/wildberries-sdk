@@ -7,40 +7,47 @@ info:
     <div class="api-block">
 
     В этом разделе:
-    - [общая информация о WB API](/openapi/api-information#tag/Vvedenie)
-    - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API)
-    - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token)
-    - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP)
-    - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov)
-    - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)
+    - [общая информация о WB API](/openapi/api-information#tag/introduction)
+    - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API)
+    - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token)
+    - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP)
+    - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov)
+    - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka)
 
     С помощью методов этого раздела вы можете:
-    - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get)
-    - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get)
-    - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get)
-    - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)
+    - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing)
+    - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News)
+    - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo)
+    - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)
 
     </div>
 security:
   - HeaderApiKey: []
 tags:
   - name: Введение
+    x-displayName: Введение
     description: ''
   - name: Авторизация
+    x-displayName: Авторизация
     description: ''
   - name: Проверка подключения к WB API
+    x-displayName: Проверка подключения к WB API
     description: ''
   - name: API новостей
+    x-displayName: API новостей
     description: ''
   - name: Информация о продавце
+    x-displayName: Информация о продавце
     description: ''
   - name: Управление пользователями продавца
+    x-displayName: Управление пользователями продавца
     description: ''
 paths:
   /ping:
     servers:
       - url: https://common-api.wildberries.ru
     get:
+      operationId: getPing
       x-readonly-method: true
       x-category: all
       tags:
@@ -78,7 +85,7 @@ paths:
         | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
 
         <div class="description_limit">
-          Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
+          Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
         </div>
       responses:
         '200':
@@ -107,6 +114,7 @@ paths:
     servers:
       - url: https://common-api.wildberries.ru
     get:
+      operationId: getV2News
       x-readonly-method: true
       x-category: commonapi
       tags:
@@ -119,7 +127,7 @@ paths:
         один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -232,6 +240,7 @@ paths:
     servers:
       - url: https://common-api.wildberries.ru
     get:
+      operationId: getV1SellerInfo
       x-readonly-method: true
       x-category: commonapi
       tags:
@@ -241,13 +250,13 @@ paths:
       summary: Получить информацию о продавце
       description: |
         <div class="description_auth">
-          Информацию о продавце можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
+          Информацию о продавце можно получить с токеном любой <a href="/openapi/api-information#tag/authorization/Kategorii-tokenov">категории</a>
         </div>
 
         Метод позволяет получать наименование продавца и ID его профиля.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -271,7 +280,7 @@ paths:
                   sid:
                     format: UUID
                     type: string
-                    description: Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/Avtorizaciya/Kak-ustroen-token)
+                    description: Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/authorization/Kak-ustroen-token)
                   tin:
                     type: string
                     description: ИНН
@@ -293,9 +302,9 @@ paths:
     servers:
       - url: https://feedbacks-api.wildberries.ru
     get:
+      operationId: getV1Rating
       x-readonly-method: true
       x-category: questionsandfeedback
-      operationId: getCommonV1Rating
       x-token-types:
         - service
       tags:
@@ -305,19 +314,19 @@ paths:
       summary: Получить рейтинг продавца
       description: |
         <div class="description_auth">
-          Для доступа к методу используйте <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
+          Для доступа к методу используйте <a href="/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
         </div>
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Сервисному</strong> токену
         </div>
 
         Метод возвращает пользовательский рейтинг продавца и количество отзывов.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -344,7 +353,7 @@ paths:
     get:
       x-readonly-method: true
       x-category: commonapi
-      operationId: getCommonV1Subscriptions
+      operationId: getV1Subscriptions
       x-token-types:
         - service
       tags:
@@ -354,12 +363,12 @@ paths:
       summary: Получить информацию о подписке Джем
       description: |
         <div class="description_auth">
-          Информацию о подписке Джем можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
+          Информацию о подписке Джем можно получить с токеном любой <a href="/openapi/api-information#tag/authorization/Kategorii-tokenov">категории</a>
         </div>
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Сервисному</strong> токену
         </div>
 
@@ -376,7 +385,7 @@ paths:
             - дата окончания последнего оплаченного периода `till`
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -403,7 +412,7 @@ paths:
     get:
       x-readonly-method: true
       x-category: commonapi
-      operationId: getCommonV1TariffConstructorOptions
+      operationId: getV1TariffConstructorOptions
       x-token-types:
         - service
       tags:
@@ -413,12 +422,12 @@ paths:
       summary: Получить информацию об опциях Конструктора тарифов
       description: |
         <div class="description_auth">
-          Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
+          Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href="/openapi/api-information#tag/authorization/Kategorii-tokenov">категории</a>
         </div>
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Сервисному</strong> токену
         </div>
 
@@ -427,7 +436,7 @@ paths:
         Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -485,6 +494,7 @@ paths:
     servers:
       - url: https://user-management-api.wildberries.ru
     post:
+      operationId: postV1Invite
       x-readonly-method: false
       x-category: usermanagement
       x-token-types:
@@ -496,7 +506,7 @@ paths:
       summary: Создать приглашение для нового пользователя
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
@@ -511,7 +521,7 @@ paths:
           - при одинаковых значениях `"disabled": false` доступ будет выдан
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -546,6 +556,7 @@ paths:
     servers:
       - url: https://user-management-api.wildberries.ru
     get:
+      operationId: getV1Users
       x-readonly-method: true
       x-category: usermanagement
       x-token-types:
@@ -557,7 +568,7 @@ paths:
       summary: Получить список активных или приглашённых пользователей продавца
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
@@ -574,7 +585,7 @@ paths:
         Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -870,6 +881,7 @@ paths:
     servers:
       - url: https://user-management-api.wildberries.ru
     put:
+      operationId: putV1UsersAccess
       x-readonly-method: false
       x-category: usermanagement
       x-token-types:
@@ -881,7 +893,7 @@ paths:
       summary: Изменить права доступа пользователей
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
@@ -890,7 +902,7 @@ paths:
         Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -921,6 +933,7 @@ paths:
     servers:
       - url: https://user-management-api.wildberries.ru
     delete:
+      operationId: deleteV1User
       x-readonly-method: false
       x-category: usermanagement
       x-token-types:
@@ -932,14 +945,14 @@ paths:
       summary: Удалить пользователя
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
-        Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca/paths/~1api~1v1~1users/get). Этому пользователю будет закрыт доступ в профиль продавца.
+        Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |

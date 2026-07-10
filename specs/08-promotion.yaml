@@ -61,7 +61,7 @@ paths:
         Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -146,7 +146,7 @@ paths:
         Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -280,7 +280,7 @@ paths:
         Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -443,7 +443,7 @@ paths:
           - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -555,7 +555,7 @@ paths:
         Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -631,7 +631,7 @@ paths:
         Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/Sozdanie-kampanij/paths/~1adv~1v1~1supplier~1subjects/get), также доступных для добавления в кампанию.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -711,7 +711,7 @@ paths:
         После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -764,7 +764,7 @@ paths:
         Метод меняет название [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Это можно сделать в любой момент существования кампании.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -844,7 +844,7 @@ paths:
         Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -911,7 +911,7 @@ paths:
         Метод ставит [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `9` — активна — на паузу.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -979,7 +979,7 @@ paths:
           - `11` — пауза
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1041,7 +1041,7 @@ paths:
         Для кампаний в статусах `4`, `9` и `11`.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1151,7 +1151,7 @@ paths:
           - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1322,7 +1322,7 @@ paths:
         Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1411,7 +1411,7 @@ paths:
         Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1489,7 +1489,7 @@ paths:
         Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/Upravlenie-kampaniyami/paths/~1adv~1v0~1start/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1603,7 +1603,7 @@ paths:
         Метод формирует список фактических затрат на рекламные кампании за заданный период.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1730,7 +1730,7 @@ paths:
         Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1851,7 +1851,7 @@ paths:
         Для добавляемых товаров устанавливается текущая минимальная ставка.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1987,7 +1987,7 @@ paths:
         Только для кампаний с типом оплаты `cpm` — за показы.
 
          <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2071,7 +2071,7 @@ paths:
         Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2347,7 +2347,7 @@ paths:
           - артикулам WB
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2430,13 +2430,13 @@ paths:
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2476,7 +2476,7 @@ paths:
         Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2487,7 +2487,7 @@ paths:
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену, 
                 <strong>Сервисному</strong> токену
         </div>
@@ -2537,7 +2537,7 @@ paths:
 
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2596,7 +2596,7 @@ paths:
 
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2611,13 +2611,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/V0SetNormQueryBidsRequest'
+              $ref: '#/components/schemas/V0DeleteNormQueryBidsRequest'
             example:
               bids:
                 - advert_id: 1825035
                   nm_id: 983512347
                   norm_query: Фраза 1
-                  bid: 1000
       responses:
         '200':
           description: Успешно
@@ -2655,7 +2654,7 @@ paths:
 
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2723,7 +2722,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2778,7 +2777,7 @@ paths:
         Метод возвращает количество [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца с группировкой по статусам.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2852,7 +2851,7 @@ paths:
         Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца по их типам и статусам.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3003,7 +3002,7 @@ paths:
         Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3303,7 +3302,7 @@ paths:
         В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3722,7 +3721,7 @@ paths:
         Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3813,7 +3812,7 @@ paths:
         Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3860,7 +3859,7 @@ paths:
         Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3907,7 +3906,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -3957,7 +3956,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3995,7 +3994,7 @@ paths:
         Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4070,7 +4069,7 @@ paths:
         Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4712,6 +4711,22 @@ components:
         bid:
           type: integer
           description: Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    V0DeleteNormQueryBidsRequestItem:
+      type: object
+      required:
+        - advert_id
+        - nm_id
+        - norm_query
+      properties:
+        advert_id:
+          type: integer
+          description: ID кампании
+        nm_id:
+          type: integer
+          description: Артикул WB
+        norm_query:
+          type: string
+          description: Поисковый кластер
     V0SetNormQueryBidsRequest:
       type: object
       required:
@@ -4722,6 +4737,16 @@ components:
           maxItems: 100
           items:
             $ref: '#/components/schemas/V0SetNormQueryBidsRequestItem'
+    V0DeleteNormQueryBidsRequest:
+      type: object
+      required:
+        - bids
+      properties:
+        bids:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/V0DeleteNormQueryBidsRequestItem'
     V0SetMinusNormQueryRequest:
       type: object
       required:
@@ -5764,6 +5789,9 @@ components:
         title:
           type: string
           description: Заголовок ошибки
+        type:
+          type: string
+          description: Тип ошибки
       required:
         - title
         - request_id

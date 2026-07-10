@@ -10,10 +10,10 @@ info:
     <div class="api-block">
 
     В разделе описаны методы получения:
-      - [информации для формирования поставок](/openapi/orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok)
-      - [информации о поставках](/openapi/orders-fbw#tag/Informaciya-o-postavkah)
+      - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)
+      - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)
 
-    Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок
+    Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок
 
     </div>
   x-file-name: orders-fbw
@@ -21,8 +21,10 @@ security:
   - HeaderApiKey: []
 tags:
   - name: Информация для формирования поставок
+    x-displayName: Информация для формирования поставок
     description: ''
   - name: Информация о поставках
+    x-displayName: Информация о поставках
     description: ''
 paths:
   /api/v1/acceptance/options:
@@ -34,6 +36,7 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV1AcceptanceOptions
       x-readonly-method: true
       x-category: supplies
       security:
@@ -45,7 +48,7 @@ paths:
         Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -112,6 +115,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1Warehouses
       x-readonly-method: true
       x-category: supplies
       security:
@@ -123,7 +127,7 @@ paths:
         Метод возвращает список складов WB.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -154,6 +158,7 @@ paths:
     servers:
       - url: https://supplies-api.wildberries.ru
     get:
+      operationId: getV1TransitTariffs
       x-readonly-method: true
       x-category: supplies
       tags:
@@ -163,7 +168,7 @@ paths:
         Метод возвращает информацию о доступных транзитных направлениях.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -193,6 +198,7 @@ paths:
     servers:
       - url: https://supplies-api.wildberries.ru
     post:
+      operationId: postV1Supplies
       x-readonly-method: true
       x-category: supplies
       tags:
@@ -202,7 +208,7 @@ paths:
         Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -306,6 +312,7 @@ paths:
     servers:
       - url: https://supplies-api.wildberries.ru
     get:
+      operationId: getV1SuppliesId
       x-readonly-method: true
       x-category: supplies
       tags:
@@ -315,7 +322,7 @@ paths:
         Метод возвращает детали поставки по ID.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -382,6 +389,7 @@ paths:
     servers:
       - url: https://supplies-api.wildberries.ru
     get:
+      operationId: getV1SuppliesIdGoods
       x-readonly-method: true
       x-category: supplies
       tags:
@@ -391,7 +399,7 @@ paths:
         Метод возвращает информацию о товарах в поставке.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -469,6 +477,7 @@ paths:
     servers:
       - url: https://supplies-api.wildberries.ru
     get:
+      operationId: getV1SuppliesIdPackage
       x-readonly-method: true
       x-category: supplies
       tags:
@@ -478,7 +487,7 @@ paths:
         Метод возвращает информацию об упаковке поставки.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1032,7 +1041,7 @@ components:
                   properties:
                     warehouseID:
                       type: integer
-                      description: ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok/paths/~1api~1v1~1warehouses/get)
+                      description: ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
                     canBox:
                       type: boolean
                       description: |
