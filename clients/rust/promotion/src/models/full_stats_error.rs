@@ -31,6 +31,9 @@ pub struct FullStatsError {
     /// Заголовок ошибки
     #[serde(rename = "title")]
     pub title: String,
+    /// Тип ошибки
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
 }
 
 impl FullStatsError {
@@ -43,6 +46,7 @@ impl FullStatsError {
             request_id,
             status,
             title,
+            r#type: None,
         }
     }
 }

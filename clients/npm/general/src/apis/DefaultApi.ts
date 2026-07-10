@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Общее
- * <div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/Vvedenie) - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get) - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get) - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get) - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)  </div> 
+ * <div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/introduction) - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)  </div> 
  *
  * The version of the OpenAPI document: general
  * 
@@ -13,16 +13,6 @@
  */
 
 import * as runtime from '../runtime';
-import {
-    type ApiV1SellerInfoGet200Response,
-    ApiV1SellerInfoGet200ResponseFromJSON,
-    ApiV1SellerInfoGet200ResponseToJSON,
-} from '../models/ApiV1SellerInfoGet200Response';
-import {
-    type ApiV1SellerInfoGet402Response,
-    ApiV1SellerInfoGet402ResponseFromJSON,
-    ApiV1SellerInfoGet402ResponseToJSON,
-} from '../models/ApiV1SellerInfoGet402Response';
 import {
     type CreateInviteRequest,
     CreateInviteRequestFromJSON,
@@ -39,20 +29,30 @@ import {
     ErrorResponseToJSON,
 } from '../models/ErrorResponse';
 import {
-    type GetCommonV1Rating403Response,
-    GetCommonV1Rating403ResponseFromJSON,
-    GetCommonV1Rating403ResponseToJSON,
-} from '../models/GetCommonV1Rating403Response';
+    type GetPing401Response,
+    GetPing401ResponseFromJSON,
+    GetPing401ResponseToJSON,
+} from '../models/GetPing401Response';
 import {
     type GetUsersResponse,
     GetUsersResponseFromJSON,
     GetUsersResponseToJSON,
 } from '../models/GetUsersResponse';
 import {
-    type PingGet401Response,
-    PingGet401ResponseFromJSON,
-    PingGet401ResponseToJSON,
-} from '../models/PingGet401Response';
+    type GetV1Rating403Response,
+    GetV1Rating403ResponseFromJSON,
+    GetV1Rating403ResponseToJSON,
+} from '../models/GetV1Rating403Response';
+import {
+    type GetV1SellerInfo200Response,
+    GetV1SellerInfo200ResponseFromJSON,
+    GetV1SellerInfo200ResponseToJSON,
+} from '../models/GetV1SellerInfo200Response';
+import {
+    type GetV1SellerInfo402Response,
+    GetV1SellerInfo402ResponseFromJSON,
+    GetV1SellerInfo402ResponseToJSON,
+} from '../models/GetV1SellerInfo402Response';
 import {
     type PlanBuilderErrors,
     PlanBuilderErrorsFromJSON,
@@ -79,26 +79,26 @@ import {
     UpdateUserAccessRequestToJSON,
 } from '../models/UpdateUserAccessRequest';
 
-export interface ApiV1InvitePostRequest {
-    createInviteRequest: CreateInviteRequest;
-}
-
-export interface ApiV1UserDeleteRequest {
+export interface DeleteV1UserRequest {
     deletedUserID: number;
 }
 
-export interface ApiV1UsersAccessPutRequest {
-    updateUserAccessRequest: UpdateUserAccessRequest;
+export interface GetV1TariffConstructorOptionsRequest {
+    locale?: GetV1TariffConstructorOptionsLocaleEnum;
 }
 
-export interface ApiV1UsersGetRequest {
+export interface GetV1UsersRequest {
     limit?: number;
     offset?: number;
     isInviteOnly?: boolean;
 }
 
-export interface GetCommonV1TariffConstructorOptionsRequest {
-    locale?: GetCommonV1TariffConstructorOptionsLocaleEnum;
+export interface PostV1InviteRequest {
+    createInviteRequest: CreateInviteRequest;
+}
+
+export interface PutV1UsersAccessRequest {
+    updateUserAccessRequest: UpdateUserAccessRequest;
 }
 
 /**
@@ -107,109 +107,13 @@ export interface GetCommonV1TariffConstructorOptionsRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiV1InvitePost without sending the request
+     * Creates request options for deleteV1User without sending the request
      */
-    async apiV1InvitePostRequestOpts(requestParameters: ApiV1InvitePostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['createInviteRequest'] == null) {
-            throw new runtime.RequiredError(
-                'createInviteRequest',
-                'Required parameter "createInviteRequest" was null or undefined when calling apiV1InvitePost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/invite`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateInviteRequestToJSON(requestParameters['createInviteRequest']),
-        };
-    }
-
-    /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.<br> Как выдаются права доступа: - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и **Джем** (`changeJam`) - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию - Если в `access` дважды указан один и тот же раздел (`code`):   - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан   - при одинаковых значениях `\"disabled\": true` доступ не будет выдан   - при одинаковых значениях `\"disabled\": false` доступ будет выдан  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
-     * Создать приглашение для нового пользователя
-     */
-    async apiV1InvitePostRaw(requestParameters: ApiV1InvitePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateInviteResponse>> {
-        const requestOptions = await this.apiV1InvitePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateInviteResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.<br> Как выдаются права доступа: - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и **Джем** (`changeJam`) - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию - Если в `access` дважды указан один и тот же раздел (`code`):   - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан   - при одинаковых значениях `\"disabled\": true` доступ не будет выдан   - при одинаковых значениях `\"disabled\": false` доступ будет выдан  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
-     * Создать приглашение для нового пользователя
-     */
-    async apiV1InvitePost(requestParameters: ApiV1InvitePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateInviteResponse> {
-        const response = await this.apiV1InvitePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1SellerInfoGet without sending the request
-     */
-    async apiV1SellerInfoGetRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/seller-info`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * <div class=\"description_auth\">   Информацию о продавце можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>  Метод позволяет получать наименование продавца и ID его профиля.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
-     * Получить информацию о продавце
-     */
-    async apiV1SellerInfoGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1SellerInfoGet200Response>> {
-        const requestOptions = await this.apiV1SellerInfoGetRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1SellerInfoGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * <div class=\"description_auth\">   Информацию о продавце можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>  Метод позволяет получать наименование продавца и ID его профиля.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
-     * Получить информацию о продавце
-     */
-    async apiV1SellerInfoGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1SellerInfoGet200Response> {
-        const response = await this.apiV1SellerInfoGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1UserDelete without sending the request
-     */
-    async apiV1UserDeleteRequestOpts(requestParameters: ApiV1UserDeleteRequest): Promise<runtime.RequestOpts> {
+    async deleteV1UserRequestOpts(requestParameters: DeleteV1UserRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['deletedUserID'] == null) {
             throw new runtime.RequiredError(
                 'deletedUserID',
-                'Required parameter "deletedUserID" was null or undefined when calling apiV1UserDelete().'
+                'Required parameter "deletedUserID" was null or undefined when calling deleteV1User().'
             );
         }
 
@@ -237,80 +141,204 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca/paths/~1api~1v1~1users/get). Этому пользователю будет закрыт доступ в профиль продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов | </div> 
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов | </div> 
      * Удалить пользователя
      */
-    async apiV1UserDeleteRaw(requestParameters: ApiV1UserDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV1UserDeleteRequestOpts(requestParameters);
+    async deleteV1UserRaw(requestParameters: DeleteV1UserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.deleteV1UserRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca/paths/~1api~1v1~1users/get). Этому пользователю будет закрыт доступ в профиль продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов | </div> 
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов | </div> 
      * Удалить пользователя
      */
-    async apiV1UserDelete(requestParameters: ApiV1UserDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV1UserDeleteRaw(requestParameters, initOverrides);
+    async deleteV1User(requestParameters: DeleteV1UserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteV1UserRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Creates request options for apiV1UsersAccessPut without sending the request
+     * Creates request options for getV1Rating without sending the request
      */
-    async apiV1UsersAccessPutRequestOpts(requestParameters: ApiV1UsersAccessPutRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['updateUserAccessRequest'] == null) {
-            throw new runtime.RequiredError(
-                'updateUserAccessRequest',
-                'Required parameter "updateUserAccessRequest" was null or undefined when calling apiV1UsersAccessPut().'
-            );
-        }
-
+    async getV1RatingRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
         }
 
 
-        let urlPath = `/api/v1/users/access`;
+        let urlPath = `/api/common/v1/rating`;
 
         return {
             path: urlPath,
-            method: 'PUT',
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateUserAccessRequestToJSON(requestParameters['updateUserAccessRequest']),
         };
     }
 
     /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод меняет права доступа одному или нескольким пользователям.<br> <br> Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
-     * Изменить права доступа пользователей
+     * <div class=\"description_auth\">   Для доступа к методу используйте <a href=\"/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токен</a> для категории <strong>Вопросы и отзывы</strong> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Получить рейтинг продавца
      */
-    async apiV1UsersAccessPutRaw(requestParameters: ApiV1UsersAccessPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV1UsersAccessPutRequestOpts(requestParameters);
+    async getV1RatingRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplierRatingModel>> {
+        const requestOptions = await this.getV1RatingRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupplierRatingModelFromJSON(jsonValue));
     }
 
     /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод меняет права доступа одному или нескольким пользователям.<br> <br> Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
-     * Изменить права доступа пользователей
+     * <div class=\"description_auth\">   Для доступа к методу используйте <a href=\"/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токен</a> для категории <strong>Вопросы и отзывы</strong> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
+     * Получить рейтинг продавца
      */
-    async apiV1UsersAccessPut(requestParameters: ApiV1UsersAccessPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV1UsersAccessPutRaw(requestParameters, initOverrides);
+    async getV1Rating(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplierRatingModel> {
+        const response = await this.getV1RatingRaw(initOverrides);
+        return await response.value();
     }
 
     /**
-     * Creates request options for apiV1UsersGet without sending the request
+     * Creates request options for getV1SellerInfo without sending the request
      */
-    async apiV1UsersGetRequestOpts(requestParameters: ApiV1UsersGetRequest): Promise<runtime.RequestOpts> {
+    async getV1SellerInfoRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/seller-info`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию о продавце можно получить с токеном любой <a href=\"/openapi/api-information#tag/authorization/Kategorii-tokenov\">категории</a> </div>  Метод позволяет получать наименование продавца и ID его профиля.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Получить информацию о продавце
+     */
+    async getV1SellerInfoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1SellerInfo200Response>> {
+        const requestOptions = await this.getV1SellerInfoRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1SellerInfo200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию о продавце можно получить с токеном любой <a href=\"/openapi/api-information#tag/authorization/Kategorii-tokenov\">категории</a> </div>  Метод позволяет получать наименование продавца и ID его профиля.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос | </div> 
+     * Получить информацию о продавце
+     */
+    async getV1SellerInfo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1SellerInfo200Response> {
+        const response = await this.getV1SellerInfoRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Subscriptions without sending the request
+     */
+    async getV1SubscriptionsRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/common/v1/subscriptions`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию о подписке Джем можно получить с токеном любой <a href=\"/openapi/api-information#tag/authorization/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):   - Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.   - Если продавец активировал и никогда не отменял подписку, возвращается:     - дата активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка закончилась или была отменена, но продавец подключил её повторно, возвращается:     - дата первой активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка неактивна, возвращается:     - дата первой активации подписки `since`     - дата окончания последнего оплаченного периода `till`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Получить информацию о подписке Джем
+     */
+    async getV1SubscriptionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionsJamInfo>> {
+        const requestOptions = await this.getV1SubscriptionsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionsJamInfoFromJSON(jsonValue));
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию о подписке Джем можно получить с токеном любой <a href=\"/openapi/api-information#tag/authorization/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):   - Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.   - Если продавец активировал и никогда не отменял подписку, возвращается:     - дата активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка закончилась или была отменена, но продавец подключил её повторно, возвращается:     - дата первой активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка неактивна, возвращается:     - дата первой активации подписки `since`     - дата окончания последнего оплаченного периода `till`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Получить информацию о подписке Джем
+     */
+    async getV1Subscriptions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionsJamInfo> {
+        const response = await this.getV1SubscriptionsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1TariffConstructorOptions without sending the request
+     */
+    async getV1TariffConstructorOptionsRequestOpts(requestParameters: GetV1TariffConstructorOptionsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/common/v1/tariff-constructor/options`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href=\"/openapi/api-information#tag/authorization/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Получить информацию об опциях Конструктора тарифов
+     */
+    async getV1TariffConstructorOptionsRaw(requestParameters: GetV1TariffConstructorOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PlanBuilderOptionsInfo>> {
+        const requestOptions = await this.getV1TariffConstructorOptionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PlanBuilderOptionsInfoFromJSON(jsonValue));
+    }
+
+    /**
+     * <div class=\"description_auth\">   Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href=\"/openapi/api-information#tag/authorization/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Получить информацию об опциях Конструктора тарифов
+     */
+    async getV1TariffConstructorOptions(requestParameters: GetV1TariffConstructorOptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PlanBuilderOptionsInfo> {
+        const response = await this.getV1TariffConstructorOptionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Users without sending the request
+     */
+    async getV1UsersRequestOpts(requestParameters: GetV1UsersRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -343,156 +371,128 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает список активных или приглашённых пользователей профиля продавца.<br><br> Чтобы выбрать список, укажите значение параметра `isInviteOnly`:   - `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ   - `isInviteOnly=false` или не указан — список активных пользователей  По каждому пользователю можно получить:   - роль пользователя   - разделы, к которым есть доступы   - статус приглашения  Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает список активных или приглашённых пользователей профиля продавца.<br><br> Чтобы выбрать список, укажите значение параметра `isInviteOnly`:   - `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ   - `isInviteOnly=false` или не указан — список активных пользователей  По каждому пользователю можно получить:   - роль пользователя   - разделы, к которым есть доступы   - статус приглашения  Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
      * Получить список активных или приглашённых пользователей продавца
      */
-    async apiV1UsersGetRaw(requestParameters: ApiV1UsersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetUsersResponse>> {
-        const requestOptions = await this.apiV1UsersGetRequestOpts(requestParameters);
+    async getV1UsersRaw(requestParameters: GetV1UsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetUsersResponse>> {
+        const requestOptions = await this.getV1UsersRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetUsersResponseFromJSON(jsonValue));
     }
 
     /**
-     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает список активных или приглашённых пользователей профиля продавца.<br><br> Чтобы выбрать список, укажите значение параметра `isInviteOnly`:   - `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ   - `isInviteOnly=false` или не указан — список активных пользователей  По каждому пользователю можно получить:   - роль пользователя   - разделы, к которым есть доступы   - статус приглашения  Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод возвращает список активных или приглашённых пользователей профиля продавца.<br><br> Чтобы выбрать список, укажите значение параметра `isInviteOnly`:   - `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ   - `isInviteOnly=false` или не указан — список активных пользователей  По каждому пользователю можно получить:   - роль пользователя   - разделы, к которым есть доступы   - статус приглашения  Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
      * Получить список активных или приглашённых пользователей продавца
      */
-    async apiV1UsersGet(requestParameters: ApiV1UsersGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetUsersResponse> {
-        const response = await this.apiV1UsersGetRaw(requestParameters, initOverrides);
+    async getV1Users(requestParameters: GetV1UsersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetUsersResponse> {
+        const response = await this.getV1UsersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for getCommonV1Rating without sending the request
+     * Creates request options for postV1Invite without sending the request
      */
-    async getCommonV1RatingRequestOpts(): Promise<runtime.RequestOpts> {
+    async postV1InviteRequestOpts(requestParameters: PostV1InviteRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['createInviteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createInviteRequest',
+                'Required parameter "createInviteRequest" was null or undefined when calling postV1Invite().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
         }
 
 
-        let urlPath = `/api/common/v1/rating`;
+        let urlPath = `/api/v1/invite`;
 
         return {
             path: urlPath,
-            method: 'GET',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: CreateInviteRequestToJSON(requestParameters['createInviteRequest']),
         };
     }
 
     /**
-     * <div class=\"description_auth\">   Для доступа к методу используйте <a href=\"/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токен</a> для категории <strong>Вопросы и отзывы</strong> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
-     * Получить рейтинг продавца
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.<br> Как выдаются права доступа: - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и **Джем** (`changeJam`) - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию - Если в `access` дважды указан один и тот же раздел (`code`):   - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан   - при одинаковых значениях `\"disabled\": true` доступ не будет выдан   - при одинаковых значениях `\"disabled\": false` доступ будет выдан  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
+     * Создать приглашение для нового пользователя
      */
-    async getCommonV1RatingRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplierRatingModel>> {
-        const requestOptions = await this.getCommonV1RatingRequestOpts();
+    async postV1InviteRaw(requestParameters: PostV1InviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateInviteResponse>> {
+        const requestOptions = await this.postV1InviteRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SupplierRatingModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateInviteResponseFromJSON(jsonValue));
     }
 
     /**
-     * <div class=\"description_auth\">   Для доступа к методу используйте <a href=\"/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token\">токен</a> для категории <strong>Вопросы и отзывы</strong> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает пользовательский рейтинг продавца и количество отзывов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос | </div> 
-     * Получить рейтинг продавца
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.<br> Как выдаются права доступа: - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и **Джем** (`changeJam`) - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию - Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию - Если в `access` дважды указан один и тот же раздел (`code`):   - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан   - при одинаковых значениях `\"disabled\": true` доступ не будет выдан   - при одинаковых значениях `\"disabled\": false` доступ будет выдан  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
+     * Создать приглашение для нового пользователя
      */
-    async getCommonV1Rating(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplierRatingModel> {
-        const response = await this.getCommonV1RatingRaw(initOverrides);
+    async postV1Invite(requestParameters: PostV1InviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateInviteResponse> {
+        const response = await this.postV1InviteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for getCommonV1Subscriptions without sending the request
+     * Creates request options for putV1UsersAccess without sending the request
      */
-    async getCommonV1SubscriptionsRequestOpts(): Promise<runtime.RequestOpts> {
+    async putV1UsersAccessRequestOpts(requestParameters: PutV1UsersAccessRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['updateUserAccessRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateUserAccessRequest',
+                'Required parameter "updateUserAccessRequest" was null or undefined when calling putV1UsersAccess().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
         }
 
 
-        let urlPath = `/api/common/v1/subscriptions`;
+        let urlPath = `/api/v1/users/access`;
 
         return {
             path: urlPath,
-            method: 'GET',
+            method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
+            body: UpdateUserAccessRequestToJSON(requestParameters['updateUserAccessRequest']),
         };
     }
 
     /**
-     * <div class=\"description_auth\">   Информацию о подписке Джем можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):   - Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.   - Если продавец активировал и никогда не отменял подписку, возвращается:     - дата активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка закончилась или была отменена, но продавец подключил её повторно, возвращается:     - дата первой активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка неактивна, возвращается:     - дата первой активации подписки `since`     - дата окончания последнего оплаченного периода `till`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
-     * Получить информацию о подписке Джем
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод меняет права доступа одному или нескольким пользователям.<br> <br> Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
+     * Изменить права доступа пользователей
      */
-    async getCommonV1SubscriptionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionsJamInfo>> {
-        const requestOptions = await this.getCommonV1SubscriptionsRequestOpts();
+    async putV1UsersAccessRaw(requestParameters: PutV1UsersAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV1UsersAccessRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionsJamInfoFromJSON(jsonValue));
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * <div class=\"description_auth\">   Информацию о подписке Джем можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):   - Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.   - Если продавец активировал и никогда не отменял подписку, возвращается:     - дата активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка закончилась или была отменена, но продавец подключил её повторно, возвращается:     - дата первой активации подписки `since`     - дата окончания текущего оплаченного периода `till`   - Если подписка неактивна, возвращается:     - дата первой активации подписки `since`     - дата окончания последнего оплаченного периода `till`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
-     * Получить информацию о подписке Джем
+     * <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену </div>  Метод меняет права доступа одному или нескольким пользователям.<br> <br> Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 5 запросов | </div> 
+     * Изменить права доступа пользователей
      */
-    async getCommonV1Subscriptions(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionsJamInfo> {
-        const response = await this.getCommonV1SubscriptionsRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getCommonV1TariffConstructorOptions without sending the request
-     */
-    async getCommonV1TariffConstructorOptionsRequestOpts(requestParameters: GetCommonV1TariffConstructorOptionsRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        if (requestParameters['locale'] != null) {
-            queryParameters['locale'] = requestParameters['locale'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/common/v1/tariff-constructor/options`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * <div class=\"description_auth\">   Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
-     * Получить информацию об опциях Конструктора тарифов
-     */
-    async getCommonV1TariffConstructorOptionsRaw(requestParameters: GetCommonV1TariffConstructorOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PlanBuilderOptionsInfo>> {
-        const requestOptions = await this.getCommonV1TariffConstructorOptionsRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PlanBuilderOptionsInfoFromJSON(jsonValue));
-    }
-
-    /**
-     * <div class=\"description_auth\">   Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href=\"/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov\">категории</a> </div>   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Сервисному</strong> токену </div>  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).<br><br>  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
-     * Получить информацию об опциях Конструктора тарифов
-     */
-    async getCommonV1TariffConstructorOptions(requestParameters: GetCommonV1TariffConstructorOptionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PlanBuilderOptionsInfo> {
-        const response = await this.getCommonV1TariffConstructorOptionsRaw(requestParameters, initOverrides);
-        return await response.value();
+    async putV1UsersAccess(requestParameters: PutV1UsersAccessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV1UsersAccessRaw(requestParameters, initOverrides);
     }
 
 }
@@ -500,8 +500,8 @@ export class DefaultApi extends runtime.BaseAPI {
 /**
  * @export
  */
-export const GetCommonV1TariffConstructorOptionsLocaleEnum = {
+export const GetV1TariffConstructorOptionsLocaleEnum = {
     Ru: 'ru',
     En: 'en'
 } as const;
-export type GetCommonV1TariffConstructorOptionsLocaleEnum = typeof GetCommonV1TariffConstructorOptionsLocaleEnum[keyof typeof GetCommonV1TariffConstructorOptionsLocaleEnum];
+export type GetV1TariffConstructorOptionsLocaleEnum = typeof GetV1TariffConstructorOptionsLocaleEnum[keyof typeof GetV1TariffConstructorOptionsLocaleEnum];

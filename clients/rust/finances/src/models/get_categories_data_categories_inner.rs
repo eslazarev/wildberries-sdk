@@ -1,7 +1,7 @@
 /*
  * Документы и бухгалтерия
  *
- * <div class=\"description_important\">   Узнать больше о документах и бухгалтерии можно в <a href=\"https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942\">справочном центре</a> </div>  <div class=\"api-block\">  Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/Balans), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty) и [документов](/openapi/financial-reports-and-accounting#tag/Dokumenty) продавца.  </div> 
+ * <div class=\"description_important\">   Узнать больше о документах и бухгалтерии можно в <a href=\"https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942\">справочном центре</a> </div>  <div class=\"api-block\">  Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/balance), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/financialReports) и [документов](/openapi/financial-reports-and-accounting#tag/documents) продавца.  </div> 
  *
  * The version of the OpenAPI document: finances
  * 
@@ -13,10 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetCategoriesDataCategoriesInner {
-    /// ID категории документа из параметра [запроса](./financial-reports-and-accounting#tag/Dokumenty/paths/~1api~1v1~1documents~1list/get) `category`
+    /// ID категории документа из параметра [запроса](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
-    /// Название категории документа из поля [ответа](./financial-reports-and-accounting#tag/Dokumenty/~1api~1v1~1documents~1list/get) `category`
+    /// Название категории документа из поля [ответа](./financial-reports-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
 }

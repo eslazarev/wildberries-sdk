@@ -1,7 +1,7 @@
 /*
  * Тарифы
  *
- * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+ * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/supplyRates)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/stockRates)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/returnCostToSeller)  </div> 
  *
  * The version of the OpenAPI document: rates
  * 
@@ -19,7 +19,7 @@ pub struct ModelsAcceptanceCoefficient {
     /// Коэффициент приёмки:   - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`   - `0` — бесплатная приёмка   - от `1` — множитель стоимости приёмки 
     #[serde(rename = "coefficient", skip_serializing_if = "Option::is_none")]
     pub coefficient: Option<f64>,
-    /// ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok/paths/~1api~1v1~1warehouses/get)
+    /// ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
     #[serde(rename = "warehouseID", skip_serializing_if = "Option::is_none")]
     pub warehouse_id: Option<i32>,
     /// Название склада

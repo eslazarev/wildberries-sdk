@@ -9,9 +9,9 @@ info:
 
     В разделе описаны методы получения:
       1. [Комиссий](/openapi/wb-tariffs#tag/fees)
-      2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)
-      3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)
-      4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)
+      2. [Тарифов на поставку](/openapi/wb-tariffs#tag/supplyRates)
+      3. [Тарифов на остаток](/openapi/wb-tariffs#tag/stockRates)
+      4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/returnCostToSeller)
 
     </div>
   title: Тарифы
@@ -27,10 +27,13 @@ tags:
   x-displayName: Комиссии
 - description: ""
   name: Тарифы на поставку
+  x-displayName: Тарифы на поставку
 - description: ""
   name: Тарифы на остаток
+  x-displayName: Тарифы на остаток
 - description: ""
   name: Стоимость возврата продавцу
+  x-displayName: Стоимость возврата продавцу
 paths:
   /api/v1/tariffs/commission:
     get:
@@ -38,7 +41,7 @@ paths:
         Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -48,6 +51,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1TariffsCommission
       parameters:
       - description: |
           Язык полей ответа `parentName` и `subjectName`:
@@ -78,7 +82,7 @@ paths:
                 FeeUAE:
                   $ref: "#/components/examples/FeeUAE"
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_200_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_200_response"
           description: Успешно
         "400":
           content:
@@ -106,7 +110,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Не авторизован
         "402":
           content:
@@ -116,7 +120,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -131,7 +135,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Слишком много запросов
       summary: Комиссия по категориям товаров
       tags:
@@ -150,7 +154,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -160,6 +164,7 @@ paths:
         | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AcceptanceCoefficients
       parameters:
       - description: ID складов.<br>По умолчанию возвращаются данные по всем складам
         example: "507,117501"
@@ -205,7 +210,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Не авторизован
         "402":
           content:
@@ -215,7 +220,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_402_response"
           description: Требуется платёж
         "403":
           description: Доступ запрещён
@@ -234,7 +239,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -258,7 +263,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -268,6 +273,7 @@ paths:
         | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1TariffsBox
       parameters:
       - description: Дата в формате ГГГГ-ММ-ДД
         explode: true
@@ -309,7 +315,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Не авторизован
         "402":
           content:
@@ -319,7 +325,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -334,7 +340,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Слишком много запросов
       summary: Тарифы для коробов
       tags:
@@ -356,7 +362,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -366,6 +372,7 @@ paths:
         | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1TariffsPallet
       parameters:
       - description: Дата в формате ГГГГ-ММ-ДД
         explode: true
@@ -408,7 +415,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Не авторизован
         "402":
           content:
@@ -418,7 +425,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -433,7 +440,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Слишком много запросов
       summary: Тарифы для монопаллет
       tags:
@@ -450,7 +457,7 @@ paths:
           - на обратную перевозку возвратов, которые не забрал продавец
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -460,6 +467,7 @@ paths:
         | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1TariffsReturn
       parameters:
       - description: Дата в формате ГГГГ-ММ-ДД
         explode: true
@@ -502,7 +510,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Не авторизован
         "402":
           content:
@@ -512,7 +520,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -527,7 +535,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+                $ref: "#/components/schemas/getV1TariffsCommission_401_response"
           description: Слишком много запросов
       summary: Тарифы на возврат
       tags:
@@ -657,7 +665,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+            $ref: "#/components/schemas/getV1TariffsCommission_401_response"
       description: Не авторизован
     "402":
       content:
@@ -667,7 +675,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v1_tariffs_commission_get_402_response"
+            $ref: "#/components/schemas/getV1TariffsCommission_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -682,7 +690,7 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_tariffs_commission_get_401_response"
+            $ref: "#/components/schemas/getV1TariffsCommission_401_response"
       description: Слишком много запросов
   schemas:
     models.RatesBoxResponse:
@@ -1165,7 +1173,7 @@ components:
               - от `1` — множитель стоимости приёмки
           type: number
         warehouseID:
-          description: "ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok/paths/~1api~1v1~1warehouses/get)"
+          description: "ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)"
           type: integer
         warehouseName:
           description: Название склада
@@ -1394,14 +1402,14 @@ components:
           description: Заголовок ошибки
           type: string
       type: object
-    _api_v1_tariffs_commission_get_200_response:
+    getV1TariffsCommission_200_response:
       oneOf:
       - $ref: "#/components/schemas/Fee"
       - $ref: "#/components/schemas/FeeChina"
       - $ref: "#/components/schemas/FeeTurkey"
       - $ref: "#/components/schemas/FeeUzbekistan"
       - $ref: "#/components/schemas/FeeUAE"
-    _api_v1_tariffs_commission_get_401_response:
+    getV1TariffsCommission_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -1429,7 +1437,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v1_tariffs_commission_get_402_response:
+    getV1TariffsCommission_402_response:
       properties:
         title:
           description: Заголовок ошибки

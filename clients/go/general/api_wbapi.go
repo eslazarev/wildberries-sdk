@@ -1,7 +1,7 @@
 /*
 Общее
 
-<div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/Vvedenie) - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get) - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get) - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get) - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)  </div> 
+<div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/introduction) - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)  </div> 
 
 API version: general
 */
@@ -22,17 +22,17 @@ import (
 // WBAPIAPIService WBAPIAPI service
 type WBAPIAPIService service
 
-type ApiPingGetRequest struct {
+type ApiGetPingRequest struct {
 	ctx context.Context
 	ApiService *WBAPIAPIService
 }
 
-func (r ApiPingGetRequest) Execute() (*PingGet200Response, *http.Response, error) {
-	return r.ApiService.PingGetExecute(r)
+func (r ApiGetPingRequest) Execute() (*GetPing200Response, *http.Response, error) {
+	return r.ApiService.GetPingExecute(r)
 }
 
 /*
-PingGet Проверка подключения
+GetPing Проверка подключения
 
 Метод проверяет:
   1. Успешно ли запрос доходит до WB API
@@ -63,31 +63,31 @@ PingGet Проверка подключения
 | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
 
 <div class="description_limit">
-  Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
+  Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
 </div>
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPingGetRequest
+ @return ApiGetPingRequest
 */
-func (a *WBAPIAPIService) PingGet(ctx context.Context) ApiPingGetRequest {
-	return ApiPingGetRequest{
+func (a *WBAPIAPIService) GetPing(ctx context.Context) ApiGetPingRequest {
+	return ApiGetPingRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PingGet200Response
-func (a *WBAPIAPIService) PingGetExecute(r ApiPingGetRequest) (*PingGet200Response, *http.Response, error) {
+//  @return GetPing200Response
+func (a *WBAPIAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPing200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PingGet200Response
+		localVarReturnValue  *GetPing200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WBAPIAPIService.PingGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WBAPIAPIService.GetPing")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -152,7 +152,7 @@ func (a *WBAPIAPIService) PingGetExecute(r ApiPingGetRequest) (*PingGet200Respon
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PingGet401Response
+			var v GetPing401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -163,7 +163,7 @@ func (a *WBAPIAPIService) PingGetExecute(r ApiPingGetRequest) (*PingGet200Respon
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PingGet401Response
+			var v GetPing401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -134,13 +134,13 @@ class DefaultApi
         'apiV1WarehouseRemainsTasksTaskIdStatusGet' => [
             'application/json',
         ],
-        'getDeductions' => [
+        'getV1Deductions' => [
             'application/json',
         ],
-        'getMeasurementPenalties' => [
+        'getV1MeasurementPenalties' => [
             'application/json',
         ],
-        'getWarehouseMeasurements' => [
+        'getV1WarehouseMeasurements' => [
             'application/json',
         ],
     ];
@@ -6256,7 +6256,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6282,7 +6282,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6431,7 +6431,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6460,7 +6460,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6518,7 +6518,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6667,7 +6667,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6693,7 +6693,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6842,7 +6842,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6871,7 +6871,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -6929,7 +6929,7 @@ class DefaultApi
      * URL: https://statistics-api.wildberries.ru
      * URL: https://statistics-api-sandbox.wildberries.ru
      *
-     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
+     * @param  \DateTime $date_from Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; (required)
      * @param  int|null $flag Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
@@ -8356,7 +8356,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getDeductions
+     * Operation getV1Deductions
      *
      * Подмены и неверные вложения
      *
@@ -8372,20 +8372,20 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeductions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Deductions'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Reports\Model\GetDeductions200Response|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response
+     * @return \Wildberries\Sdk\Reports\Model\GetV1Deductions200Response|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response
      */
-    public function getDeductions($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getDeductions'][0])
+    public function getV1Deductions($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Deductions'][0])
     {
-        list($response) = $this->getDeductionsWithHttpInfo($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType);
+        list($response) = $this->getV1DeductionsWithHttpInfo($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation getDeductionsWithHttpInfo
+     * Operation getV1DeductionsWithHttpInfo
      *
      * Подмены и неверные вложения
      *
@@ -8401,15 +8401,15 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeductions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Deductions'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Reports\Model\GetDeductions200Response|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Reports\Model\GetV1Deductions200Response|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDeductionsWithHttpInfo($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getDeductions'][0])
+    public function getV1DeductionsWithHttpInfo($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Deductions'][0])
     {
-        $request = $this->getDeductionsRequest($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType);
+        $request = $this->getV1DeductionsRequest($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8437,7 +8437,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Reports\Model\GetDeductions200Response',
+                        '\Wildberries\Sdk\Reports\Model\GetV1Deductions200Response',
                         $request,
                         $response,
                     );
@@ -8489,7 +8489,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Reports\Model\GetDeductions200Response',
+                '\Wildberries\Sdk\Reports\Model\GetV1Deductions200Response',
                 $request,
                 $response,
             );
@@ -8498,7 +8498,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Reports\Model\GetDeductions200Response',
+                        '\Wildberries\Sdk\Reports\Model\GetV1Deductions200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8551,7 +8551,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getDeductionsAsync
+     * Operation getV1DeductionsAsync
      *
      * Подмены и неверные вложения
      *
@@ -8567,14 +8567,14 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeductions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Deductions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeductionsAsync($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getDeductions'][0])
+    public function getV1DeductionsAsync($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Deductions'][0])
     {
-        return $this->getDeductionsAsyncWithHttpInfo($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType)
+        return $this->getV1DeductionsAsyncWithHttpInfo($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8583,7 +8583,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getDeductionsAsyncWithHttpInfo
+     * Operation getV1DeductionsAsyncWithHttpInfo
      *
      * Подмены и неверные вложения
      *
@@ -8599,15 +8599,15 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeductions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Deductions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeductionsAsyncWithHttpInfo($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getDeductions'][0])
+    public function getV1DeductionsAsyncWithHttpInfo($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Deductions'][0])
     {
-        $returnType = '\Wildberries\Sdk\Reports\Model\GetDeductions200Response';
-        $request = $this->getDeductionsRequest($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType);
+        $returnType = '\Wildberries\Sdk\Reports\Model\GetV1Deductions200Response';
+        $request = $this->getV1DeductionsRequest($date_to, $limit, $date_from, $sort, $order, $offset, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8646,7 +8646,7 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'getDeductions'
+     * Create request for operation 'getV1Deductions'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -8660,29 +8660,29 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeductions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1Deductions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDeductionsRequest($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getDeductions'][0])
+    public function getV1DeductionsRequest($date_to, $limit, $date_from = null, $sort = 'dtBonus', $order = 'desc', $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Deductions'][0])
     {
 
         // verify the required parameter 'date_to' is set
         if ($date_to === null || (is_array($date_to) && count($date_to) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $date_to when calling getDeductions'
+                'Missing the required parameter $date_to when calling getV1Deductions'
             );
         }
 
         // verify the required parameter 'limit' is set
         if ($limit === null || (is_array($limit) && count($limit) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $limit when calling getDeductions'
+                'Missing the required parameter $limit when calling getV1Deductions'
             );
         }
         if ($limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getDeductions, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV1Deductions, must be smaller than or equal to 1000.');
         }
         
 
@@ -8808,7 +8808,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForgetDeductions();
+        $hostSettings = $this->getHostSettingsForgetV1Deductions();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -8826,11 +8826,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation getDeductions
+     * Returns an array of host settings for Operation getV1Deductions
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForgetDeductions(): array
+    protected function getHostSettingsForgetV1Deductions(): array
     {
         return [
             [
@@ -8841,7 +8841,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getMeasurementPenalties
+     * Operation getV1MeasurementPenalties
      *
      * Удержания за занижение габаритов упаковки
      *
@@ -8855,20 +8855,20 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMeasurementPenalties'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1MeasurementPenalties'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Reports\Model\MeasurementPenalties|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response
      */
-    public function getMeasurementPenalties($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMeasurementPenalties'][0])
+    public function getV1MeasurementPenalties($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1MeasurementPenalties'][0])
     {
-        list($response) = $this->getMeasurementPenaltiesWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
+        list($response) = $this->getV1MeasurementPenaltiesWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation getMeasurementPenaltiesWithHttpInfo
+     * Operation getV1MeasurementPenaltiesWithHttpInfo
      *
      * Удержания за занижение габаритов упаковки
      *
@@ -8882,15 +8882,15 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMeasurementPenalties'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1MeasurementPenalties'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Reports\Model\MeasurementPenalties|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMeasurementPenaltiesWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMeasurementPenalties'][0])
+    public function getV1MeasurementPenaltiesWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1MeasurementPenalties'][0])
     {
-        $request = $this->getMeasurementPenaltiesRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
+        $request = $this->getV1MeasurementPenaltiesRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9032,7 +9032,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getMeasurementPenaltiesAsync
+     * Operation getV1MeasurementPenaltiesAsync
      *
      * Удержания за занижение габаритов упаковки
      *
@@ -9046,14 +9046,14 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMeasurementPenalties'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1MeasurementPenalties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeasurementPenaltiesAsync($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMeasurementPenalties'][0])
+    public function getV1MeasurementPenaltiesAsync($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1MeasurementPenalties'][0])
     {
-        return $this->getMeasurementPenaltiesAsyncWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType)
+        return $this->getV1MeasurementPenaltiesAsyncWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9062,7 +9062,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getMeasurementPenaltiesAsyncWithHttpInfo
+     * Operation getV1MeasurementPenaltiesAsyncWithHttpInfo
      *
      * Удержания за занижение габаритов упаковки
      *
@@ -9076,15 +9076,15 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMeasurementPenalties'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1MeasurementPenalties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMeasurementPenaltiesAsyncWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMeasurementPenalties'][0])
+    public function getV1MeasurementPenaltiesAsyncWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1MeasurementPenalties'][0])
     {
         $returnType = '\Wildberries\Sdk\Reports\Model\MeasurementPenalties';
-        $request = $this->getMeasurementPenaltiesRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
+        $request = $this->getV1MeasurementPenaltiesRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9123,7 +9123,7 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'getMeasurementPenalties'
+     * Create request for operation 'getV1MeasurementPenalties'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -9135,29 +9135,29 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMeasurementPenalties'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1MeasurementPenalties'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMeasurementPenaltiesRequest($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMeasurementPenalties'][0])
+    public function getV1MeasurementPenaltiesRequest($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1MeasurementPenalties'][0])
     {
 
         // verify the required parameter 'date_to' is set
         if ($date_to === null || (is_array($date_to) && count($date_to) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $date_to when calling getMeasurementPenalties'
+                'Missing the required parameter $date_to when calling getV1MeasurementPenalties'
             );
         }
 
         // verify the required parameter 'limit' is set
         if ($limit === null || (is_array($limit) && count($limit) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $limit when calling getMeasurementPenalties'
+                'Missing the required parameter $limit when calling getV1MeasurementPenalties'
             );
         }
         if ($limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getMeasurementPenalties, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV1MeasurementPenalties, must be smaller than or equal to 1000.');
         }
         
 
@@ -9263,7 +9263,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForgetMeasurementPenalties();
+        $hostSettings = $this->getHostSettingsForgetV1MeasurementPenalties();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -9281,11 +9281,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation getMeasurementPenalties
+     * Returns an array of host settings for Operation getV1MeasurementPenalties
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForgetMeasurementPenalties(): array
+    protected function getHostSettingsForgetV1MeasurementPenalties(): array
     {
         return [
             [
@@ -9296,7 +9296,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getWarehouseMeasurements
+     * Operation getV1WarehouseMeasurements
      *
      * Замеры склада
      *
@@ -9310,20 +9310,20 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehouseMeasurements'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1WarehouseMeasurements'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Reports\Model\WHM|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response
      */
-    public function getWarehouseMeasurements($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getWarehouseMeasurements'][0])
+    public function getV1WarehouseMeasurements($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseMeasurements'][0])
     {
-        list($response) = $this->getWarehouseMeasurementsWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
+        list($response) = $this->getV1WarehouseMeasurementsWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation getWarehouseMeasurementsWithHttpInfo
+     * Operation getV1WarehouseMeasurementsWithHttpInfo
      *
      * Замеры склада
      *
@@ -9337,15 +9337,15 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehouseMeasurements'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1WarehouseMeasurements'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\Reports\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Reports\Model\WHM|\Wildberries\Sdk\Reports\Model\Response400Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet402Response|\Wildberries\Sdk\Reports\Model\Response403Retentions|\Wildberries\Sdk\Reports\Model\ApiV1SupplierOrdersGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWarehouseMeasurementsWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getWarehouseMeasurements'][0])
+    public function getV1WarehouseMeasurementsWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseMeasurements'][0])
     {
-        $request = $this->getWarehouseMeasurementsRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
+        $request = $this->getV1WarehouseMeasurementsRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9487,7 +9487,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getWarehouseMeasurementsAsync
+     * Operation getV1WarehouseMeasurementsAsync
      *
      * Замеры склада
      *
@@ -9501,14 +9501,14 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehouseMeasurements'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1WarehouseMeasurements'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseMeasurementsAsync($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getWarehouseMeasurements'][0])
+    public function getV1WarehouseMeasurementsAsync($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseMeasurements'][0])
     {
-        return $this->getWarehouseMeasurementsAsyncWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType)
+        return $this->getV1WarehouseMeasurementsAsyncWithHttpInfo($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9517,7 +9517,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getWarehouseMeasurementsAsyncWithHttpInfo
+     * Operation getV1WarehouseMeasurementsAsyncWithHttpInfo
      *
      * Замеры склада
      *
@@ -9531,15 +9531,15 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehouseMeasurements'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1WarehouseMeasurements'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWarehouseMeasurementsAsyncWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getWarehouseMeasurements'][0])
+    public function getV1WarehouseMeasurementsAsyncWithHttpInfo($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseMeasurements'][0])
     {
         $returnType = '\Wildberries\Sdk\Reports\Model\WHM';
-        $request = $this->getWarehouseMeasurementsRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
+        $request = $this->getV1WarehouseMeasurementsRequest($date_to, $limit, $date_from, $offset, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9578,7 +9578,7 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'getWarehouseMeasurements'
+     * Create request for operation 'getV1WarehouseMeasurements'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -9590,29 +9590,29 @@ class DefaultApi
      * @param  int|null $offset Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (optional, default to 0)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWarehouseMeasurements'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV1WarehouseMeasurements'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWarehouseMeasurementsRequest($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getWarehouseMeasurements'][0])
+    public function getV1WarehouseMeasurementsRequest($date_to, $limit, $date_from = null, $offset = 0, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1WarehouseMeasurements'][0])
     {
 
         // verify the required parameter 'date_to' is set
         if ($date_to === null || (is_array($date_to) && count($date_to) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $date_to when calling getWarehouseMeasurements'
+                'Missing the required parameter $date_to when calling getV1WarehouseMeasurements'
             );
         }
 
         // verify the required parameter 'limit' is set
         if ($limit === null || (is_array($limit) && count($limit) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $limit when calling getWarehouseMeasurements'
+                'Missing the required parameter $limit when calling getV1WarehouseMeasurements'
             );
         }
         if ($limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getWarehouseMeasurements, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV1WarehouseMeasurements, must be smaller than or equal to 1000.');
         }
         
 
@@ -9718,7 +9718,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForgetWarehouseMeasurements();
+        $hostSettings = $this->getHostSettingsForgetV1WarehouseMeasurements();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -9736,11 +9736,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation getWarehouseMeasurements
+     * Returns an array of host settings for Operation getV1WarehouseMeasurements
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForgetWarehouseMeasurements(): array
+    protected function getHostSettingsForgetV1WarehouseMeasurements(): array
     {
         return [
             [

@@ -63,6 +63,12 @@ export interface FullStatsError {
      * @memberof FullStatsError
      */
     title: string;
+    /**
+     * Тип ошибки
+     * @type {string}
+     * @memberof FullStatsError
+     */
+    type?: string;
 }
 
 /**
@@ -92,6 +98,7 @@ export function FullStatsErrorFromJSONTyped(json: any, ignoreDiscriminator: bool
         'requestId': json['request_id'],
         'status': json['status'],
         'title': json['title'],
+        'type': json['type'] == null ? undefined : json['type'],
     };
 }
 
@@ -112,6 +119,7 @@ export function FullStatsErrorToJSONTyped(value?: FullStatsError | null, ignoreD
         'request_id': value['requestId'],
         'status': value['status'],
         'title': value['title'],
+        'type': value['type'],
     };
 }
 

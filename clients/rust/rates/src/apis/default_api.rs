@@ -1,7 +1,7 @@
 /*
  * Тарифы
  *
- * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+ * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/supplyRates)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/stockRates)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/returnCostToSeller)  </div> 
  *
  * The version of the OpenAPI document: rates
  * 
@@ -15,66 +15,66 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_tariffs_v1_acceptance_coefficients_get`]
+/// struct for typed errors of method [`get_v1_acceptance_coefficients`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiTariffsV1AcceptanceCoefficientsGetError {
+pub enum GetV1AcceptanceCoefficientsError {
     Status400(models::ModelsErrorModel),
-    Status401(models::ApiV1TariffsCommissionGet401Response),
-    Status402(models::ApiV1TariffsCommissionGet402Response),
+    Status401(models::GetV1TariffsCommission401Response),
+    Status402(models::GetV1TariffsCommission402Response),
     Status403(),
     Status404(),
-    Status429(models::ApiV1TariffsCommissionGet401Response),
+    Status429(models::GetV1TariffsCommission401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_tariffs_box_get`]
+/// struct for typed errors of method [`get_v1_tariffs_box`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1TariffsBoxGetError {
+pub enum GetV1TariffsBoxError {
     Status400(models::BadRequest),
-    Status401(models::ApiV1TariffsCommissionGet401Response),
-    Status402(models::ApiV1TariffsCommissionGet402Response),
-    Status429(models::ApiV1TariffsCommissionGet401Response),
+    Status401(models::GetV1TariffsCommission401Response),
+    Status402(models::GetV1TariffsCommission402Response),
+    Status429(models::GetV1TariffsCommission401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_tariffs_commission_get`]
+/// struct for typed errors of method [`get_v1_tariffs_commission`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1TariffsCommissionGetError {
+pub enum GetV1TariffsCommissionError {
     Status400(models::BadRequest),
-    Status401(models::ApiV1TariffsCommissionGet401Response),
-    Status402(models::ApiV1TariffsCommissionGet402Response),
-    Status429(models::ApiV1TariffsCommissionGet401Response),
+    Status401(models::GetV1TariffsCommission401Response),
+    Status402(models::GetV1TariffsCommission402Response),
+    Status429(models::GetV1TariffsCommission401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_tariffs_pallet_get`]
+/// struct for typed errors of method [`get_v1_tariffs_pallet`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1TariffsPalletGetError {
+pub enum GetV1TariffsPalletError {
     Status400(models::BadRequest),
-    Status401(models::ApiV1TariffsCommissionGet401Response),
-    Status402(models::ApiV1TariffsCommissionGet402Response),
-    Status429(models::ApiV1TariffsCommissionGet401Response),
+    Status401(models::GetV1TariffsCommission401Response),
+    Status402(models::GetV1TariffsCommission402Response),
+    Status429(models::GetV1TariffsCommission401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_tariffs_return_get`]
+/// struct for typed errors of method [`get_v1_tariffs_return`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1TariffsReturnGetError {
+pub enum GetV1TariffsReturnError {
     Status400(models::BadRequest),
-    Status401(models::ApiV1TariffsCommissionGet401Response),
-    Status402(models::ApiV1TariffsCommissionGet402Response),
-    Status429(models::ApiV1TariffsCommissionGet401Response),
+    Status401(models::GetV1TariffsCommission401Response),
+    Status402(models::GetV1TariffsCommission402Response),
+    Status429(models::GetV1TariffsCommission401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.  <div class=\"description_important\">   Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_tariffs_v1_acceptance_coefficients_get(configuration: &configuration::Configuration, warehouse_ids: Option<&str>) -> Result<Vec<models::ModelsAcceptanceCoefficient>, Error<ApiTariffsV1AcceptanceCoefficientsGetError>> {
+/// Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.  <div class=\"description_important\">   Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn get_v1_acceptance_coefficients(configuration: &configuration::Configuration, warehouse_ids: Option<&str>) -> Result<Vec<models::ModelsAcceptanceCoefficient>, Error<GetV1AcceptanceCoefficientsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_warehouse_ids = warehouse_ids;
 
@@ -116,13 +116,13 @@ pub async fn api_tariffs_v1_acceptance_coefficients_get(configuration: &configur
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiTariffsV1AcceptanceCoefficientsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1AcceptanceCoefficientsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:   - доставку со склада или пункта приёма до покупателя   - доставку от покупателя до пункта приёма   - хранение на складе WB  <div class=\"description_important\">   Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v1_tariffs_box_get(configuration: &configuration::Configuration, date: &str) -> Result<models::RatesBoxResponse, Error<ApiV1TariffsBoxGetError>> {
+/// Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:   - доставку со склада или пункта приёма до покупателя   - доставку от покупателя до пункта приёма   - хранение на складе WB  <div class=\"description_important\">   Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn get_v1_tariffs_box(configuration: &configuration::Configuration, date: &str) -> Result<models::RatesBoxResponse, Error<GetV1TariffsBoxError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date = date;
 
@@ -162,13 +162,13 @@ pub async fn api_v1_tariffs_box_get(configuration: &configuration::Configuration
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1TariffsBoxGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1TariffsBoxError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn api_v1_tariffs_commission_get(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::ApiV1TariffsCommissionGet200Response, Error<ApiV1TariffsCommissionGetError>> {
+/// Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+pub async fn get_v1_tariffs_commission(configuration: &configuration::Configuration, locale: Option<&str>) -> Result<models::GetV1TariffsCommission200Response, Error<GetV1TariffsCommissionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_locale = locale;
 
@@ -205,18 +205,18 @@ pub async fn api_v1_tariffs_commission_get(configuration: &configuration::Config
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV1TariffsCommissionGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV1TariffsCommissionGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV1TariffsCommission200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV1TariffsCommission200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1TariffsCommissionGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1TariffsCommissionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):   - доставки со склада до покупателя   - доставки от покупателя до склада   - хранения на складе WB  <div class=\"description_important\">   Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v1_tariffs_pallet_get(configuration: &configuration::Configuration, date: &str) -> Result<models::RatesPalletResponse, Error<ApiV1TariffsPalletGetError>> {
+/// Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):   - доставки со склада до покупателя   - доставки от покупателя до склада   - хранения на складе WB  <div class=\"description_important\">   Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn get_v1_tariffs_pallet(configuration: &configuration::Configuration, date: &str) -> Result<models::RatesPalletResponse, Error<GetV1TariffsPalletError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date = date;
 
@@ -256,13 +256,13 @@ pub async fn api_v1_tariffs_pallet_get(configuration: &configuration::Configurat
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1TariffsPalletGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1TariffsPalletError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):   - на перевозку товаров со склада WB или из пункта приёма до продавца   - на обратную перевозку возвратов, которые не забрал продавец  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v1_tariffs_return_get(configuration: &configuration::Configuration, date: &str) -> Result<models::ReturnRatesResponse, Error<ApiV1TariffsReturnGetError>> {
+/// Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):   - на перевозку товаров со склада WB или из пункта приёма до продавца   - на обратную перевозку возвратов, которые не забрал продавец  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn get_v1_tariffs_return(configuration: &configuration::Configuration, date: &str) -> Result<models::ReturnRatesResponse, Error<GetV1TariffsReturnError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date = date;
 
@@ -302,7 +302,7 @@ pub async fn api_v1_tariffs_return_get(configuration: &configuration::Configurat
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1TariffsReturnGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1TariffsReturnError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

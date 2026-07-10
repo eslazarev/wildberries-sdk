@@ -1,7 +1,7 @@
 /*
 Поставки FBW
 
-<div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok)   - [информации о поставках](/openapi/orders-fbw#tag/Informaciya-o-postavkah)  Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок  </div> 
+<div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)   - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)  Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок  </div> 
 
 API version: ordersfbw
 */
@@ -23,200 +23,7 @@ import (
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
-type ApiApiV1AcceptanceOptionsPostRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	modelsGood *[]ModelsGood
-	warehouseID *int32
-}
-
-func (r ApiApiV1AcceptanceOptionsPostRequest) ModelsGood(modelsGood []ModelsGood) ApiApiV1AcceptanceOptionsPostRequest {
-	r.modelsGood = &modelsGood
-	return r
-}
-
-// ID склада. &lt;br&gt; Если параметр не указан, возвращаются данные по всем складам.&lt;br&gt; **Максимум одно значение**
-func (r ApiApiV1AcceptanceOptionsPostRequest) WarehouseID(warehouseID int32) ApiApiV1AcceptanceOptionsPostRequest {
-	r.warehouseID = &warehouseID
-	return r
-}
-
-func (r ApiApiV1AcceptanceOptionsPostRequest) Execute() (*ModelsOptionsResultModel, *http.Response, error) {
-	return r.ApiService.ApiV1AcceptanceOptionsPostExecute(r)
-}
-
-/*
-ApiV1AcceptanceOptionsPost Опции приёмки
-
-Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AcceptanceOptionsPostRequest
-*/
-func (a *DefaultApiService) ApiV1AcceptanceOptionsPost(ctx context.Context) ApiApiV1AcceptanceOptionsPostRequest {
-	return ApiApiV1AcceptanceOptionsPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ModelsOptionsResultModel
-func (a *DefaultApiService) ApiV1AcceptanceOptionsPostExecute(r ApiApiV1AcceptanceOptionsPostRequest) (*ModelsOptionsResultModel, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModelsOptionsResultModel
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AcceptanceOptionsPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/acceptance/options"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.modelsGood == nil {
-		return localVarReturnValue, nil, reportError("modelsGood is required and must be specified")
-	}
-	if len(*r.modelsGood) > 5000 {
-		return localVarReturnValue, nil, reportError("modelsGood must have less than 5000 elements")
-	}
-
-	if r.warehouseID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "warehouseID", r.warehouseID, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.modelsGood
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ModelsErrorModel
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1AcceptanceOptionsPost401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1AcceptanceOptionsPost402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1AcceptanceOptionsPost401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1SuppliesIDGetRequest struct {
+type ApiGetV1SuppliesIdRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	iD int32
@@ -224,22 +31,22 @@ type ApiApiV1SuppliesIDGetRequest struct {
 }
 
 // Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
-func (r ApiApiV1SuppliesIDGetRequest) IsPreorderID(isPreorderID bool) ApiApiV1SuppliesIDGetRequest {
+func (r ApiGetV1SuppliesIdRequest) IsPreorderID(isPreorderID bool) ApiGetV1SuppliesIdRequest {
 	r.isPreorderID = &isPreorderID
 	return r
 }
 
-func (r ApiApiV1SuppliesIDGetRequest) Execute() (*ModelsSupplyDetails, *http.Response, error) {
-	return r.ApiService.ApiV1SuppliesIDGetExecute(r)
+func (r ApiGetV1SuppliesIdRequest) Execute() (*ModelsSupplyDetails, *http.Response, error) {
+	return r.ApiService.GetV1SuppliesIdExecute(r)
 }
 
 /*
-ApiV1SuppliesIDGet Детали поставки
+GetV1SuppliesId Детали поставки
 
 Метод возвращает детали поставки по ID.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -253,10 +60,10 @@ ApiV1SuppliesIDGet Детали поставки
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param iD ID поставки или заказа
- @return ApiApiV1SuppliesIDGetRequest
+ @return ApiGetV1SuppliesIdRequest
 */
-func (a *DefaultApiService) ApiV1SuppliesIDGet(ctx context.Context, iD int32) ApiApiV1SuppliesIDGetRequest {
-	return ApiApiV1SuppliesIDGetRequest{
+func (a *DefaultApiService) GetV1SuppliesId(ctx context.Context, iD int32) ApiGetV1SuppliesIdRequest {
+	return ApiGetV1SuppliesIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		iD: iD,
@@ -265,7 +72,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGet(ctx context.Context, iD int32) Ap
 
 // Execute executes the request
 //  @return ModelsSupplyDetails
-func (a *DefaultApiService) ApiV1SuppliesIDGetExecute(r ApiApiV1SuppliesIDGetRequest) (*ModelsSupplyDetails, *http.Response, error) {
+func (a *DefaultApiService) GetV1SuppliesIdExecute(r ApiGetV1SuppliesIdRequest) (*ModelsSupplyDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -273,7 +80,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGetExecute(r ApiApiV1SuppliesIDGetReq
 		localVarReturnValue  *ModelsSupplyDetails
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1SuppliesIDGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SuppliesId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -357,7 +164,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGetExecute(r ApiApiV1SuppliesIDGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -368,7 +175,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGetExecute(r ApiApiV1SuppliesIDGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1AcceptanceOptionsPost402Response
+			var v PostV1AcceptanceOptions402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -390,7 +197,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGetExecute(r ApiApiV1SuppliesIDGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -414,7 +221,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGetExecute(r ApiApiV1SuppliesIDGetReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1SuppliesIDGoodsGetRequest struct {
+type ApiGetV1SuppliesIdGoodsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	iD int32
@@ -424,34 +231,34 @@ type ApiApiV1SuppliesIDGoodsGetRequest struct {
 }
 
 // Количество записей в ответе
-func (r ApiApiV1SuppliesIDGoodsGetRequest) Limit(limit int32) ApiApiV1SuppliesIDGoodsGetRequest {
+func (r ApiGetV1SuppliesIdGoodsRequest) Limit(limit int32) ApiGetV1SuppliesIdGoodsRequest {
 	r.limit = &limit
 	return r
 }
 
 // После какого элемента выдавать данные
-func (r ApiApiV1SuppliesIDGoodsGetRequest) Offset(offset int32) ApiApiV1SuppliesIDGoodsGetRequest {
+func (r ApiGetV1SuppliesIdGoodsRequest) Offset(offset int32) ApiGetV1SuppliesIdGoodsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
-func (r ApiApiV1SuppliesIDGoodsGetRequest) IsPreorderID(isPreorderID bool) ApiApiV1SuppliesIDGoodsGetRequest {
+func (r ApiGetV1SuppliesIdGoodsRequest) IsPreorderID(isPreorderID bool) ApiGetV1SuppliesIdGoodsRequest {
 	r.isPreorderID = &isPreorderID
 	return r
 }
 
-func (r ApiApiV1SuppliesIDGoodsGetRequest) Execute() ([]ModelsGoodInSupply, *http.Response, error) {
-	return r.ApiService.ApiV1SuppliesIDGoodsGetExecute(r)
+func (r ApiGetV1SuppliesIdGoodsRequest) Execute() ([]ModelsGoodInSupply, *http.Response, error) {
+	return r.ApiService.GetV1SuppliesIdGoodsExecute(r)
 }
 
 /*
-ApiV1SuppliesIDGoodsGet Товары поставки
+GetV1SuppliesIdGoods Товары поставки
 
 Метод возвращает информацию о товарах в поставке.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -465,10 +272,10 @@ ApiV1SuppliesIDGoodsGet Товары поставки
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param iD ID поставки или заказа
- @return ApiApiV1SuppliesIDGoodsGetRequest
+ @return ApiGetV1SuppliesIdGoodsRequest
 */
-func (a *DefaultApiService) ApiV1SuppliesIDGoodsGet(ctx context.Context, iD int32) ApiApiV1SuppliesIDGoodsGetRequest {
-	return ApiApiV1SuppliesIDGoodsGetRequest{
+func (a *DefaultApiService) GetV1SuppliesIdGoods(ctx context.Context, iD int32) ApiGetV1SuppliesIdGoodsRequest {
+	return ApiGetV1SuppliesIdGoodsRequest{
 		ApiService: a,
 		ctx: ctx,
 		iD: iD,
@@ -477,7 +284,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGoodsGet(ctx context.Context, iD int3
 
 // Execute executes the request
 //  @return []ModelsGoodInSupply
-func (a *DefaultApiService) ApiV1SuppliesIDGoodsGetExecute(r ApiApiV1SuppliesIDGoodsGetRequest) ([]ModelsGoodInSupply, *http.Response, error) {
+func (a *DefaultApiService) GetV1SuppliesIdGoodsExecute(r ApiGetV1SuppliesIdGoodsRequest) ([]ModelsGoodInSupply, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -485,7 +292,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGoodsGetExecute(r ApiApiV1SuppliesIDG
 		localVarReturnValue  []ModelsGoodInSupply
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1SuppliesIDGoodsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SuppliesIdGoods")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -583,7 +390,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGoodsGetExecute(r ApiApiV1SuppliesIDG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -594,7 +401,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGoodsGetExecute(r ApiApiV1SuppliesIDG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1AcceptanceOptionsPost402Response
+			var v PostV1AcceptanceOptions402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -605,7 +412,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDGoodsGetExecute(r ApiApiV1SuppliesIDG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -629,23 +436,23 @@ func (a *DefaultApiService) ApiV1SuppliesIDGoodsGetExecute(r ApiApiV1SuppliesIDG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1SuppliesIDPackageGetRequest struct {
+type ApiGetV1SuppliesIdPackageRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	iD int32
 }
 
-func (r ApiApiV1SuppliesIDPackageGetRequest) Execute() ([]ModelsBox, *http.Response, error) {
-	return r.ApiService.ApiV1SuppliesIDPackageGetExecute(r)
+func (r ApiGetV1SuppliesIdPackageRequest) Execute() ([]ModelsBox, *http.Response, error) {
+	return r.ApiService.GetV1SuppliesIdPackageExecute(r)
 }
 
 /*
-ApiV1SuppliesIDPackageGet Упаковка поставки
+GetV1SuppliesIdPackage Упаковка поставки
 
 Метод возвращает информацию об упаковке поставки.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -659,10 +466,10 @@ ApiV1SuppliesIDPackageGet Упаковка поставки
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param iD ID поставки
- @return ApiApiV1SuppliesIDPackageGetRequest
+ @return ApiGetV1SuppliesIdPackageRequest
 */
-func (a *DefaultApiService) ApiV1SuppliesIDPackageGet(ctx context.Context, iD int32) ApiApiV1SuppliesIDPackageGetRequest {
-	return ApiApiV1SuppliesIDPackageGetRequest{
+func (a *DefaultApiService) GetV1SuppliesIdPackage(ctx context.Context, iD int32) ApiGetV1SuppliesIdPackageRequest {
+	return ApiGetV1SuppliesIdPackageRequest{
 		ApiService: a,
 		ctx: ctx,
 		iD: iD,
@@ -671,7 +478,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDPackageGet(ctx context.Context, iD in
 
 // Execute executes the request
 //  @return []ModelsBox
-func (a *DefaultApiService) ApiV1SuppliesIDPackageGetExecute(r ApiApiV1SuppliesIDPackageGetRequest) ([]ModelsBox, *http.Response, error) {
+func (a *DefaultApiService) GetV1SuppliesIdPackageExecute(r ApiGetV1SuppliesIdPackageRequest) ([]ModelsBox, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -679,7 +486,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDPackageGetExecute(r ApiApiV1SuppliesI
 		localVarReturnValue  []ModelsBox
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1SuppliesIDPackageGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SuppliesIdPackage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -756,7 +563,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDPackageGetExecute(r ApiApiV1SuppliesI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -767,7 +574,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDPackageGetExecute(r ApiApiV1SuppliesI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1AcceptanceOptionsPost402Response
+			var v PostV1AcceptanceOptions402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -778,7 +585,7 @@ func (a *DefaultApiService) ApiV1SuppliesIDPackageGetExecute(r ApiApiV1SuppliesI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -802,7 +609,494 @@ func (a *DefaultApiService) ApiV1SuppliesIDPackageGetExecute(r ApiApiV1SuppliesI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1SuppliesPostRequest struct {
+type ApiGetV1TransitTariffsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+}
+
+func (r ApiGetV1TransitTariffsRequest) Execute() ([]ModelsTransitTariff, *http.Response, error) {
+	return r.ApiService.GetV1TransitTariffsExecute(r)
+}
+
+/*
+GetV1TransitTariffs Транзитные направления
+
+Метод возвращает информацию о доступных транзитных направлениях.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
+| Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов |
+| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов |
+| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1TransitTariffsRequest
+*/
+func (a *DefaultApiService) GetV1TransitTariffs(ctx context.Context) ApiGetV1TransitTariffsRequest {
+	return ApiGetV1TransitTariffsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []ModelsTransitTariff
+func (a *DefaultApiService) GetV1TransitTariffsExecute(r ApiGetV1TransitTariffsRequest) ([]ModelsTransitTariff, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ModelsTransitTariff
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1TransitTariffs")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/transit-tariffs"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v PostV1AcceptanceOptions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v PostV1AcceptanceOptions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1WarehousesRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+}
+
+func (r ApiGetV1WarehousesRequest) Execute() ([]ModelsWarehousesResultItems, *http.Response, error) {
+	return r.ApiService.GetV1WarehousesExecute(r)
+}
+
+/*
+GetV1Warehouses Список складов
+
+Метод возвращает список складов WB.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
+| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1WarehousesRequest
+*/
+func (a *DefaultApiService) GetV1Warehouses(ctx context.Context) ApiGetV1WarehousesRequest {
+	return ApiGetV1WarehousesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []ModelsWarehousesResultItems
+func (a *DefaultApiService) GetV1WarehousesExecute(r ApiGetV1WarehousesRequest) ([]ModelsWarehousesResultItems, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ModelsWarehousesResultItems
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Warehouses")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/warehouses"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v PostV1AcceptanceOptions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v PostV1AcceptanceOptions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV1AcceptanceOptionsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	modelsGood *[]ModelsGood
+	warehouseID *int32
+}
+
+func (r ApiPostV1AcceptanceOptionsRequest) ModelsGood(modelsGood []ModelsGood) ApiPostV1AcceptanceOptionsRequest {
+	r.modelsGood = &modelsGood
+	return r
+}
+
+// ID склада. &lt;br&gt; Если параметр не указан, возвращаются данные по всем складам.&lt;br&gt; **Максимум одно значение**
+func (r ApiPostV1AcceptanceOptionsRequest) WarehouseID(warehouseID int32) ApiPostV1AcceptanceOptionsRequest {
+	r.warehouseID = &warehouseID
+	return r
+}
+
+func (r ApiPostV1AcceptanceOptionsRequest) Execute() (*ModelsOptionsResultModel, *http.Response, error) {
+	return r.ApiService.PostV1AcceptanceOptionsExecute(r)
+}
+
+/*
+PostV1AcceptanceOptions Опции приёмки
+
+Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
+| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV1AcceptanceOptionsRequest
+*/
+func (a *DefaultApiService) PostV1AcceptanceOptions(ctx context.Context) ApiPostV1AcceptanceOptionsRequest {
+	return ApiPostV1AcceptanceOptionsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ModelsOptionsResultModel
+func (a *DefaultApiService) PostV1AcceptanceOptionsExecute(r ApiPostV1AcceptanceOptionsRequest) (*ModelsOptionsResultModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelsOptionsResultModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1AcceptanceOptions")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/acceptance/options"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.modelsGood == nil {
+		return localVarReturnValue, nil, reportError("modelsGood is required and must be specified")
+	}
+	if len(*r.modelsGood) > 5000 {
+		return localVarReturnValue, nil, reportError("modelsGood must have less than 5000 elements")
+	}
+
+	if r.warehouseID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "warehouseID", r.warehouseID, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.modelsGood
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ModelsErrorModel
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v PostV1AcceptanceOptions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV1AcceptanceOptions402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v PostV1AcceptanceOptions401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV1SuppliesRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	modelsSuppliesFiltersRequest *ModelsSuppliesFiltersRequest
@@ -810,34 +1104,34 @@ type ApiApiV1SuppliesPostRequest struct {
 	offset *int32
 }
 
-func (r ApiApiV1SuppliesPostRequest) ModelsSuppliesFiltersRequest(modelsSuppliesFiltersRequest ModelsSuppliesFiltersRequest) ApiApiV1SuppliesPostRequest {
+func (r ApiPostV1SuppliesRequest) ModelsSuppliesFiltersRequest(modelsSuppliesFiltersRequest ModelsSuppliesFiltersRequest) ApiPostV1SuppliesRequest {
 	r.modelsSuppliesFiltersRequest = &modelsSuppliesFiltersRequest
 	return r
 }
 
 // Количество записей в ответе
-func (r ApiApiV1SuppliesPostRequest) Limit(limit int32) ApiApiV1SuppliesPostRequest {
+func (r ApiPostV1SuppliesRequest) Limit(limit int32) ApiPostV1SuppliesRequest {
 	r.limit = &limit
 	return r
 }
 
 // После какого элемента выдавать данные
-func (r ApiApiV1SuppliesPostRequest) Offset(offset int32) ApiApiV1SuppliesPostRequest {
+func (r ApiPostV1SuppliesRequest) Offset(offset int32) ApiPostV1SuppliesRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiApiV1SuppliesPostRequest) Execute() ([]ModelsSupply, *http.Response, error) {
-	return r.ApiService.ApiV1SuppliesPostExecute(r)
+func (r ApiPostV1SuppliesRequest) Execute() ([]ModelsSupply, *http.Response, error) {
+	return r.ApiService.PostV1SuppliesExecute(r)
 }
 
 /*
-ApiV1SuppliesPost Список поставок
+PostV1Supplies Список поставок
 
 Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -850,10 +1144,10 @@ ApiV1SuppliesPost Список поставок
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1SuppliesPostRequest
+ @return ApiPostV1SuppliesRequest
 */
-func (a *DefaultApiService) ApiV1SuppliesPost(ctx context.Context) ApiApiV1SuppliesPostRequest {
-	return ApiApiV1SuppliesPostRequest{
+func (a *DefaultApiService) PostV1Supplies(ctx context.Context) ApiPostV1SuppliesRequest {
+	return ApiPostV1SuppliesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -861,7 +1155,7 @@ func (a *DefaultApiService) ApiV1SuppliesPost(ctx context.Context) ApiApiV1Suppl
 
 // Execute executes the request
 //  @return []ModelsSupply
-func (a *DefaultApiService) ApiV1SuppliesPostExecute(r ApiApiV1SuppliesPostRequest) ([]ModelsSupply, *http.Response, error) {
+func (a *DefaultApiService) PostV1SuppliesExecute(r ApiPostV1SuppliesRequest) ([]ModelsSupply, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -869,7 +1163,7 @@ func (a *DefaultApiService) ApiV1SuppliesPostExecute(r ApiApiV1SuppliesPostReque
 		localVarReturnValue  []ModelsSupply
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1SuppliesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1Supplies")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -964,7 +1258,7 @@ func (a *DefaultApiService) ApiV1SuppliesPostExecute(r ApiApiV1SuppliesPostReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -975,7 +1269,7 @@ func (a *DefaultApiService) ApiV1SuppliesPostExecute(r ApiApiV1SuppliesPostReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1AcceptanceOptionsPost402Response
+			var v PostV1AcceptanceOptions402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -986,301 +1280,7 @@ func (a *DefaultApiService) ApiV1SuppliesPostExecute(r ApiApiV1SuppliesPostReque
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1AcceptanceOptionsPost401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1TransitTariffsGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-}
-
-func (r ApiApiV1TransitTariffsGetRequest) Execute() ([]ModelsTransitTariff, *http.Response, error) {
-	return r.ApiService.ApiV1TransitTariffsGetExecute(r)
-}
-
-/*
-ApiV1TransitTariffsGet Транзитные направления
-
-Метод возвращает информацию о доступных транзитных направлениях.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
-| Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов |
-| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1TransitTariffsGetRequest
-*/
-func (a *DefaultApiService) ApiV1TransitTariffsGet(ctx context.Context) ApiApiV1TransitTariffsGetRequest {
-	return ApiApiV1TransitTariffsGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []ModelsTransitTariff
-func (a *DefaultApiService) ApiV1TransitTariffsGetExecute(r ApiApiV1TransitTariffsGetRequest) ([]ModelsTransitTariff, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsTransitTariff
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1TransitTariffsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/transit-tariffs"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1AcceptanceOptionsPost401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1AcceptanceOptionsPost401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1WarehousesGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-}
-
-func (r ApiApiV1WarehousesGetRequest) Execute() ([]ModelsWarehousesResultItems, *http.Response, error) {
-	return r.ApiService.ApiV1WarehousesGetExecute(r)
-}
-
-/*
-ApiV1WarehousesGet Список складов
-
-Метод возвращает список складов WB.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов |
-| Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1WarehousesGetRequest
-*/
-func (a *DefaultApiService) ApiV1WarehousesGet(ctx context.Context) ApiApiV1WarehousesGetRequest {
-	return ApiApiV1WarehousesGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []ModelsWarehousesResultItems
-func (a *DefaultApiService) ApiV1WarehousesGetExecute(r ApiApiV1WarehousesGetRequest) ([]ModelsWarehousesResultItems, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ModelsWarehousesResultItems
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1WarehousesGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/warehouses"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1AcceptanceOptionsPost401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1AcceptanceOptionsPost401Response
+			var v PostV1AcceptanceOptions401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

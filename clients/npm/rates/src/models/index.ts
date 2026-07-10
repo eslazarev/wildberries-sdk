@@ -1,8 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-export * from './ApiV1TariffsCommissionGet200Response';
-export * from './ApiV1TariffsCommissionGet401Response';
-export * from './ApiV1TariffsCommissionGet402Response';
 export * from './BadRequest';
 export * from './Fee';
 export * from './FeeChina';
@@ -14,6 +11,9 @@ export * from './FeeUAE';
 export * from './FeeUAEReportInner';
 export * from './FeeUzbekistan';
 export * from './FeeUzbekistanReportInner';
+export * from './GetV1TariffsCommission200Response';
+export * from './GetV1TariffsCommission401Response';
+export * from './GetV1TariffsCommission402Response';
 export * from './ModelsAcceptanceCoefficient';
 export * from './ModelsErrorModel';
 export * from './ModelsRatesBoxResponse';

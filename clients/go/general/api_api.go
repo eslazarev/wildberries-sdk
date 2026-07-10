@@ -1,7 +1,7 @@
 /*
 Общее
 
-<div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/Vvedenie) - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get) - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get) - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get) - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)  </div> 
+<div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/introduction) - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)  </div> 
 
 API version: general
 */
@@ -22,7 +22,7 @@ import (
 // APIAPIService APIAPI service
 type APIAPIService service
 
-type ApiApiCommunicationsV2NewsGetRequest struct {
+type ApiGetV2NewsRequest struct {
 	ctx context.Context
 	ApiService *APIAPIService
 	from *string
@@ -30,29 +30,29 @@ type ApiApiCommunicationsV2NewsGetRequest struct {
 }
 
 // Дата, от которой необходимо выдать новости
-func (r ApiApiCommunicationsV2NewsGetRequest) From(from string) ApiApiCommunicationsV2NewsGetRequest {
+func (r ApiGetV2NewsRequest) From(from string) ApiGetV2NewsRequest {
 	r.from = &from
 	return r
 }
 
 // ID новости, начиная с которой — включая её — нужно получить список новостей
-func (r ApiApiCommunicationsV2NewsGetRequest) FromID(fromID int32) ApiApiCommunicationsV2NewsGetRequest {
+func (r ApiGetV2NewsRequest) FromID(fromID int32) ApiGetV2NewsRequest {
 	r.fromID = &fromID
 	return r
 }
 
-func (r ApiApiCommunicationsV2NewsGetRequest) Execute() (*ApiCommunicationsV2NewsGet200Response, *http.Response, error) {
-	return r.ApiService.ApiCommunicationsV2NewsGetExecute(r)
+func (r ApiGetV2NewsRequest) Execute() (*GetV2News200Response, *http.Response, error) {
+	return r.ApiService.GetV2NewsExecute(r)
 }
 
 /*
-ApiCommunicationsV2NewsGet Получение новостей портала продавцов
+GetV2News Получение новостей портала продавцов
 
 Метод позволяет получать новости портала продавцов. <br> Для получения успешного ответа необходимо указать
 один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -65,26 +65,26 @@ ApiCommunicationsV2NewsGet Получение новостей портала п
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiCommunicationsV2NewsGetRequest
+ @return ApiGetV2NewsRequest
 */
-func (a *APIAPIService) ApiCommunicationsV2NewsGet(ctx context.Context) ApiApiCommunicationsV2NewsGetRequest {
-	return ApiApiCommunicationsV2NewsGetRequest{
+func (a *APIAPIService) GetV2News(ctx context.Context) ApiGetV2NewsRequest {
+	return ApiGetV2NewsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiCommunicationsV2NewsGet200Response
-func (a *APIAPIService) ApiCommunicationsV2NewsGetExecute(r ApiApiCommunicationsV2NewsGetRequest) (*ApiCommunicationsV2NewsGet200Response, *http.Response, error) {
+//  @return GetV2News200Response
+func (a *APIAPIService) GetV2NewsExecute(r ApiGetV2NewsRequest) (*GetV2News200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiCommunicationsV2NewsGet200Response
+		localVarReturnValue  *GetV2News200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIAPIService.ApiCommunicationsV2NewsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIAPIService.GetV2News")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -155,7 +155,7 @@ func (a *APIAPIService) ApiCommunicationsV2NewsGetExecute(r ApiApiCommunications
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PingGet401Response
+			var v GetPing401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -166,7 +166,7 @@ func (a *APIAPIService) ApiCommunicationsV2NewsGetExecute(r ApiApiCommunications
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v PingGet401Response
+			var v GetPing401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

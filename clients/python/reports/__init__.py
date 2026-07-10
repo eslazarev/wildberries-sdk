@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.123"
+__version__ = "0.1.124"
 
 # Define package exports
 __all__ = [
@@ -56,11 +56,11 @@ __all__ = [
     "CreateTaskResponseData",
     "ExciseReportRequest",
     "ExciseReportResponse",
-    "GetDeductions200Response",
-    "GetDeductions200ResponseData",
-    "GetDeductions200ResponseDataReportsInner",
     "GetTasksResponse",
     "GetTasksResponseData",
+    "GetV1Deductions200Response",
+    "GetV1Deductions200ResponseData",
+    "GetV1Deductions200ResponseDataReportsInner",
     "MeasurementPenalties",
     "MeasurementPenaltiesData",
     "MeasurementPenaltiesDataReportsInner",
@@ -122,11 +122,11 @@ from wildberries_sdk.reports.models.create_task_response import CreateTaskRespon
 from wildberries_sdk.reports.models.create_task_response_data import CreateTaskResponseData as CreateTaskResponseData
 from wildberries_sdk.reports.models.excise_report_request import ExciseReportRequest as ExciseReportRequest
 from wildberries_sdk.reports.models.excise_report_response import ExciseReportResponse as ExciseReportResponse
-from wildberries_sdk.reports.models.get_deductions200_response import GetDeductions200Response as GetDeductions200Response
-from wildberries_sdk.reports.models.get_deductions200_response_data import GetDeductions200ResponseData as GetDeductions200ResponseData
-from wildberries_sdk.reports.models.get_deductions200_response_data_reports_inner import GetDeductions200ResponseDataReportsInner as GetDeductions200ResponseDataReportsInner
 from wildberries_sdk.reports.models.get_tasks_response import GetTasksResponse as GetTasksResponse
 from wildberries_sdk.reports.models.get_tasks_response_data import GetTasksResponseData as GetTasksResponseData
+from wildberries_sdk.reports.models.get_v1_deductions200_response import GetV1Deductions200Response as GetV1Deductions200Response
+from wildberries_sdk.reports.models.get_v1_deductions200_response_data import GetV1Deductions200ResponseData as GetV1Deductions200ResponseData
+from wildberries_sdk.reports.models.get_v1_deductions200_response_data_reports_inner import GetV1Deductions200ResponseDataReportsInner as GetV1Deductions200ResponseDataReportsInner
 from wildberries_sdk.reports.models.measurement_penalties import MeasurementPenalties as MeasurementPenalties
 from wildberries_sdk.reports.models.measurement_penalties_data import MeasurementPenaltiesData as MeasurementPenaltiesData
 from wildberries_sdk.reports.models.measurement_penalties_data_reports_inner import MeasurementPenaltiesDataReportsInner as MeasurementPenaltiesDataReportsInner

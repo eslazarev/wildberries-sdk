@@ -56,13 +56,13 @@ export interface DeliveryDatesInfoRespOrdersInner {
      */
     dDate?: string;
     /**
-     * Дата начала интервала для доставки, если указана покупателем
+     * Не используется
      * @type {string}
      * @memberof DeliveryDatesInfoRespOrdersInner
      */
     dDateFrom?: string | null;
     /**
-     * Дата окончания интервала для доставки, если указана покупателем
+     * Не используется
      * @type {string}
      * @memberof DeliveryDatesInfoRespOrdersInner
      */

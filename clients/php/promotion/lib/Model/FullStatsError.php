@@ -63,7 +63,8 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
         'origin' => 'string',
         'request_id' => 'string',
         'status' => 'int',
-        'title' => 'string'
+        'title' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -79,7 +80,8 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
         'origin' => null,
         'request_id' => null,
         'status' => null,
-        'title' => null
+        'title' => null,
+        'type' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
         'origin' => false,
         'request_id' => false,
         'status' => false,
-        'title' => false
+        'title' => false,
+        'type' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
         'origin' => 'origin',
         'request_id' => 'request_id',
         'status' => 'status',
-        'title' => 'title'
+        'title' => 'title',
+        'type' => 'type'
     ];
 
     /**
@@ -201,7 +205,8 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
         'origin' => 'setOrigin',
         'request_id' => 'setRequestId',
         'status' => 'setStatus',
-        'title' => 'setTitle'
+        'title' => 'setTitle',
+        'type' => 'setType'
     ];
 
     /**
@@ -215,7 +220,8 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
         'origin' => 'getOrigin',
         'request_id' => 'getRequestId',
         'status' => 'getStatus',
-        'title' => 'getTitle'
+        'title' => 'getTitle',
+        'type' => 'getType'
     ];
 
     /**
@@ -281,6 +287,7 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('request_id', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -495,6 +502,33 @@ class FullStatsError implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type Тип ошибки
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

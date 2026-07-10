@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.123"
+__version__ = "0.1.124"
 
 # Define package exports
 __all__ = [
@@ -137,6 +137,8 @@ __all__ = [
     "V0BidRecommendationReachMedium",
     "V0BidRecommendationReachMin",
     "V0BidsRecommendationsResponse",
+    "V0DeleteNormQueryBidsRequest",
+    "V0DeleteNormQueryBidsRequestItem",
     "V0GetNormQueryBidsItem",
     "V0GetNormQueryBidsRequest",
     "V0GetNormQueryBidsRequestItem",
@@ -295,6 +297,8 @@ from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_max import V0B
 from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_medium import V0BidRecommendationReachMedium as V0BidRecommendationReachMedium
 from wildberries_sdk.promotion.models.v0_bid_recommendation_reach_min import V0BidRecommendationReachMin as V0BidRecommendationReachMin
 from wildberries_sdk.promotion.models.v0_bids_recommendations_response import V0BidsRecommendationsResponse as V0BidsRecommendationsResponse
+from wildberries_sdk.promotion.models.v0_delete_norm_query_bids_request import V0DeleteNormQueryBidsRequest as V0DeleteNormQueryBidsRequest
+from wildberries_sdk.promotion.models.v0_delete_norm_query_bids_request_item import V0DeleteNormQueryBidsRequestItem as V0DeleteNormQueryBidsRequestItem
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_item import V0GetNormQueryBidsItem as V0GetNormQueryBidsItem
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_request import V0GetNormQueryBidsRequest as V0GetNormQueryBidsRequest
 from wildberries_sdk.promotion.models.v0_get_norm_query_bids_request_item import V0GetNormQueryBidsRequestItem as V0GetNormQueryBidsRequestItem

@@ -58,16 +58,16 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 ## Методы API
 
 ### general (`general`)
-- `general.DefaultApiService.ApiV1InvitePost` — `POST /api/v1/invite` — Создать приглашение для нового пользователя
-- `general.DefaultApiService.ApiV1SellerInfoGet` — `GET /api/v1/seller-info` — Получить информацию о продавце
-- `general.DefaultApiService.ApiV1UserDelete` — `DELETE /api/v1/user` — Удалить пользователя
-- `general.DefaultApiService.ApiV1UsersAccessPut` — `PUT /api/v1/users/access` — Изменить права доступа пользователей
-- `general.DefaultApiService.ApiV1UsersGet` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
-- `general.DefaultApiService.GetCommonV1Rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
-- `general.DefaultApiService.GetCommonV1Subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
-- `general.DefaultApiService.GetCommonV1TariffConstructorOptions` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
-- `general.APIAPIService.ApiCommunicationsV2NewsGet` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
-- `general.WBAPIAPIService.PingGet` — `GET /ping` — Проверка подключения
+- `general.DefaultApiService.DeleteV1User` — `DELETE /api/v1/user` — Удалить пользователя
+- `general.DefaultApiService.GetV1Rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
+- `general.DefaultApiService.GetV1SellerInfo` — `GET /api/v1/seller-info` — Получить информацию о продавце
+- `general.DefaultApiService.GetV1Subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
+- `general.DefaultApiService.GetV1TariffConstructorOptions` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
+- `general.DefaultApiService.GetV1Users` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
+- `general.DefaultApiService.PostV1Invite` — `POST /api/v1/invite` — Создать приглашение для нового пользователя
+- `general.DefaultApiService.PutV1UsersAccess` — `PUT /api/v1/users/access` — Изменить права доступа пользователей
+- `general.APIAPIService.GetV2News` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
+- `general.WBAPIAPIService.GetPing` — `GET /ping` — Проверка подключения
 
 ### items (`items`)
 - `items.DefaultApiService.ApiContentV1BrandsGet` — `GET /api/content/v1/brands` — Бренды
@@ -223,13 +223,13 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `in_store_pickup.DefaultApiService.PostV3ClickCollectOrdersMetaCustomsDeclaration` — `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
 
 ### orders_fbw (`orders_fbw`)
-- `orders_fbw.DefaultApiService.ApiV1AcceptanceOptionsPost` — `POST /api/v1/acceptance/options` — Опции приёмки
-- `orders_fbw.DefaultApiService.ApiV1SuppliesIDGet` — `GET /api/v1/supplies/{ID}` — Детали поставки
-- `orders_fbw.DefaultApiService.ApiV1SuppliesIDGoodsGet` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
-- `orders_fbw.DefaultApiService.ApiV1SuppliesIDPackageGet` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
-- `orders_fbw.DefaultApiService.ApiV1SuppliesPost` — `POST /api/v1/supplies` — Список поставок
-- `orders_fbw.DefaultApiService.ApiV1TransitTariffsGet` — `GET /api/v1/transit-tariffs` — Транзитные направления
-- `orders_fbw.DefaultApiService.ApiV1WarehousesGet` — `GET /api/v1/warehouses` — Список складов
+- `orders_fbw.DefaultApiService.GetV1SuppliesId` — `GET /api/v1/supplies/{ID}` — Детали поставки
+- `orders_fbw.DefaultApiService.GetV1SuppliesIdGoods` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
+- `orders_fbw.DefaultApiService.GetV1SuppliesIdPackage` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
+- `orders_fbw.DefaultApiService.GetV1TransitTariffs` — `GET /api/v1/transit-tariffs` — Транзитные направления
+- `orders_fbw.DefaultApiService.GetV1Warehouses` — `GET /api/v1/warehouses` — Список складов
+- `orders_fbw.DefaultApiService.PostV1AcceptanceOptions` — `POST /api/v1/acceptance/options` — Опции приёмки
+- `orders_fbw.DefaultApiService.PostV1Supplies` — `POST /api/v1/supplies` — Список поставок
 
 ### promotion (`promotion`)
 - `promotion.DefaultApiService.AdvV0AuctionNmsPatch` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
@@ -300,11 +300,11 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `communications.DefaultApiService.ApiV1SellerMessagePost` — `POST /api/v1/seller/message` — Отправить сообщение
 
 ### rates (`rates`)
-- `rates.DefaultApiService.ApiTariffsV1AcceptanceCoefficientsGet` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
-- `rates.DefaultApiService.ApiV1TariffsBoxGet` — `GET /api/v1/tariffs/box` — Тарифы для коробов
-- `rates.DefaultApiService.ApiV1TariffsCommissionGet` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
-- `rates.DefaultApiService.ApiV1TariffsPalletGet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
-- `rates.DefaultApiService.ApiV1TariffsReturnGet` — `GET /api/v1/tariffs/return` — Тарифы на возврат
+- `rates.DefaultApiService.GetV1AcceptanceCoefficients` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
+- `rates.DefaultApiService.GetV1TariffsBox` — `GET /api/v1/tariffs/box` — Тарифы для коробов
+- `rates.DefaultApiService.GetV1TariffsCommission` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
+- `rates.DefaultApiService.GetV1TariffsPallet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
+- `rates.DefaultApiService.GetV1TariffsReturn` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
 - `analytics.DefaultApiService.ApiV2SearchReportProductOrdersPost` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
@@ -316,11 +316,11 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `analytics.DefaultApiService.ApiV2StocksReportProductsGroupsPost` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
 - `analytics.DefaultApiService.ApiV2StocksReportProductsProductsPost` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
 - `analytics.DefaultApiService.ApiV2StocksReportProductsSizesPost` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
-- `analytics.DefaultApiService.PostSalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
-- `analytics.DefaultApiService.PostSalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
-- `analytics.DefaultApiService.PostSalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
 - `analytics.DefaultApiService.PostV1ItemRating` — `POST /api/analytics/v1/item-rating` — Получить отчёт
 - `analytics.DefaultApiService.PostV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
+- `analytics.DefaultApiService.PostV3SalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
+- `analytics.DefaultApiService.PostV3SalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
+- `analytics.DefaultApiService.PostV3SalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
 - `analytics.CSVAPIService.ApiV2NmReportDownloadsFileDownloadIdGet` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
 - `analytics.CSVAPIService.ApiV2NmReportDownloadsGet` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
 - `analytics.CSVAPIService.ApiV2NmReportDownloadsPost` — `POST /api/v2/nm-report/downloads` — Создать отчёт
@@ -347,21 +347,21 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `reports.DefaultApiService.ApiV1WarehouseRemainsGet` — `GET /api/v1/warehouse_remains` — Создать отчёт
 - `reports.DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdDownloadGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdStatusGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApiService.GetDeductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
-- `reports.DefaultApiService.GetMeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
-- `reports.DefaultApiService.GetWarehouseMeasurements` — `GET /api/analytics/v1/warehouse-measurements` — Замеры склада
+- `reports.DefaultApiService.GetV1Deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
+- `reports.DefaultApiService.GetV1MeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
+- `reports.DefaultApiService.GetV1WarehouseMeasurements` — `GET /api/analytics/v1/warehouse-measurements` — Замеры склада
 - `reports.CAPIService.ApiV1AnalyticsExciseReportPost` — `POST /api/v1/analytics/excise-report` — Получить отчёт
 
 ### finances (`finances`)
-- `finances.DefaultApiService.ApiV1AccountBalanceGet` — `GET /api/v1/account/balance` — Получить баланс продавца
-- `finances.DefaultApiService.ApiV1DocumentsCategoriesGet` — `GET /api/v1/documents/categories` — Категории документов
-- `finances.DefaultApiService.ApiV1DocumentsDownloadAllPost` — `POST /api/v1/documents/download/all` — Получить документы
-- `finances.DefaultApiService.ApiV1DocumentsDownloadGet` — `GET /api/v1/documents/download` — Получить документ
-- `finances.DefaultApiService.ApiV1DocumentsListGet` — `GET /api/v1/documents/list` — Список документов
-- `finances.DefaultApiService.ApiV5SupplierReportDetailByPeriodGet` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
+- `finances.DefaultApiService.GetV1AccountBalance` — `GET /api/v1/account/balance` — Получить баланс продавца
+- `finances.DefaultApiService.GetV1DocumentsCategories` — `GET /api/v1/documents/categories` — Категории документов
+- `finances.DefaultApiService.GetV1DocumentsDownload` — `GET /api/v1/documents/download` — Получить документ
+- `finances.DefaultApiService.GetV1DocumentsList` — `GET /api/v1/documents/list` — Список документов
+- `finances.DefaultApiService.GetV5SupplierReportDetailByPeriod` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
 - `finances.DefaultApiService.PostV1AcquiringDetailed` — `POST /api/finance/v1/acquiring/detailed` — Детализации к отчётам об издержках на приём платежей за период
 - `finances.DefaultApiService.PostV1AcquiringDetailedReportId` — `POST /api/finance/v1/acquiring/detailed/{reportId}` — Детализации к отчётам об издержках на приём платежей по ID отчётов
 - `finances.DefaultApiService.PostV1AcquiringList` — `POST /api/finance/v1/acquiring/list` — Список отчётов об издержках на приём платежей
+- `finances.DefaultApiService.PostV1DocumentsDownloadAll` — `POST /api/v1/documents/download/all` — Получить документы
 - `finances.DefaultApiService.PostV1SalesReportsDetailed` — `POST /api/finance/v1/sales-reports/detailed` — Детализации к отчётам реализации за период
 - `finances.DefaultApiService.PostV1SalesReportsDetailedReportId` — `POST /api/finance/v1/sales-reports/detailed/{reportId}` — Детализации к отчётам реализации по ID отчётов
 - `finances.DefaultApiService.PostV1SalesReportsList` — `POST /api/finance/v1/sales-reports/list` — Список отчётов реализации

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Общее
- * <div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/Vvedenie) - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get) - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get) - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get) - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)  </div> 
+ * <div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/introduction) - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)  </div> 
  *
  * The version of the OpenAPI document: general
  * 
@@ -14,15 +14,15 @@
 
 import * as runtime from '../runtime';
 import {
-    type PingGet200Response,
-    PingGet200ResponseFromJSON,
-    PingGet200ResponseToJSON,
-} from '../models/PingGet200Response';
+    type GetPing200Response,
+    GetPing200ResponseFromJSON,
+    GetPing200ResponseToJSON,
+} from '../models/GetPing200Response';
 import {
-    type PingGet401Response,
-    PingGet401ResponseFromJSON,
-    PingGet401ResponseToJSON,
-} from '../models/PingGet401Response';
+    type GetPing401Response,
+    GetPing401ResponseFromJSON,
+    GetPing401ResponseToJSON,
+} from '../models/GetPing401Response';
 
 /**
  * 
@@ -30,9 +30,9 @@ import {
 export class WBAPIApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for pingGet without sending the request
+     * Creates request options for getPing without sending the request
      */
-    async pingGetRequestOpts(): Promise<runtime.RequestOpts> {
+    async getPingRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -53,22 +53,22 @@ export class WBAPIApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод проверяет:   1. Успешно ли запрос доходит до WB API   2. Валидность токена авторизации и URL запроса   3. Совпадают ли категория токена и сервис  <div class=\"description_important\">   Метод не предназначен для проверки доступности сервисов WB </div>  У каждого сервиса есть свой вариант метода в зависимости от домена:  | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping`<br>`https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`<br>`https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping`<br>`https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping`<br>`https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`<br>`https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  <div class=\"description_limit\">   Максимум 3 запроса за 30 <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена </div> 
+     * Метод проверяет:   1. Успешно ли запрос доходит до WB API   2. Валидность токена авторизации и URL запроса   3. Совпадают ли категория токена и сервис  <div class=\"description_important\">   Метод не предназначен для проверки доступности сервисов WB </div>  У каждого сервиса есть свой вариант метода в зависимости от домена:  | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping`<br>`https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`<br>`https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping`<br>`https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping`<br>`https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`<br>`https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  <div class=\"description_limit\">   Максимум 3 запроса за 30 <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена </div> 
      * Проверка подключения
      */
-    async pingGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PingGet200Response>> {
-        const requestOptions = await this.pingGetRequestOpts();
+    async getPingRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPing200Response>> {
+        const requestOptions = await this.getPingRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PingGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetPing200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод проверяет:   1. Успешно ли запрос доходит до WB API   2. Валидность токена авторизации и URL запроса   3. Совпадают ли категория токена и сервис  <div class=\"description_important\">   Метод не предназначен для проверки доступности сервисов WB </div>  У каждого сервиса есть свой вариант метода в зависимости от домена:  | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping`<br>`https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`<br>`https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping`<br>`https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping`<br>`https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`<br>`https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  <div class=\"description_limit\">   Максимум 3 запроса за 30 <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена </div> 
+     * Метод проверяет:   1. Успешно ли запрос доходит до WB API   2. Валидность токена авторизации и URL запроса   3. Совпадают ли категория токена и сервис  <div class=\"description_important\">   Метод не предназначен для проверки доступности сервисов WB </div>  У каждого сервиса есть свой вариант метода в зависимости от домена:  | Категория | URL запроса | |---------------|-----------------------| | Контент | `https://content-api.wildberries.ru/ping`<br>`https://content-api-sandbox.wildberries.ru/ping` | | Аналитика | `https://seller-analytics-api.wildberries.ru/ping` | | Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`<br>`https://discounts-prices-api-sandbox.wildberries.ru/ping` | | Маркетплейс | `https://marketplace-api.wildberries.ru/ping` | | Статистика | `https://statistics-api.wildberries.ru/ping`<br>`https://statistics-api-sandbox.wildberries.ru/ping` | | Продвижение | `https://advert-api.wildberries.ru/ping`<br>`https://advert-api-sandbox.wildberries.ru/ping` | | Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`<br>`https://feedbacks-api-sandbox.wildberries.ru/ping` | | Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` | | Поставки | `https://supplies-api.wildberries.ru/ping` | | Возвраты покупателями | `https://returns-api.wildberries.ru/ping` | | Документы | `https://documents-api.wildberries.ru/ping` | | Финансы | `https://finance-api.wildberries.ru/ping` | | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` | | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |  <div class=\"description_limit\">   Максимум 3 запроса за 30 <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена </div> 
      * Проверка подключения
      */
-    async pingGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PingGet200Response> {
-        const response = await this.pingGetRaw(initOverrides);
+    async getPing(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPing200Response> {
+        const response = await this.getPingRaw(initOverrides);
         return await response.value();
     }
 

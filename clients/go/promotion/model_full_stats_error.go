@@ -32,6 +32,8 @@ type FullStatsError struct {
 	Status int32 `json:"status"`
 	// Заголовок ошибки
 	Title string `json:"title"`
+	// Тип ошибки
+	Type *string `json:"type,omitempty"`
 }
 
 type _FullStatsError FullStatsError
@@ -217,6 +219,38 @@ func (o *FullStatsError) SetTitle(v string) {
 	o.Title = v
 }
 
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *FullStatsError) GetType() string {
+	if o == nil || IsNil(o.Type) {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FullStatsError) GetTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.Type) {
+		return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *FullStatsError) HasType() bool {
+	if o != nil && !IsNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *FullStatsError) SetType(v string) {
+	o.Type = &v
+}
+
 func (o FullStatsError) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -237,6 +271,9 @@ func (o FullStatsError) ToMap() (map[string]interface{}, error) {
 	toSerialize["request_id"] = o.RequestId
 	toSerialize["status"] = o.Status
 	toSerialize["title"] = o.Title
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
 	return toSerialize, nil
 }
 

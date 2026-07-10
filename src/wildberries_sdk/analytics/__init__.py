@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.123"
+__version__ = "0.1.124"
 
 # Define package exports
 __all__ = [
@@ -124,13 +124,13 @@ __all__ = [
     "PositionInfo",
     "PositionInfoAverage",
     "PositionInfoMedian",
-    "PostSalesFunnelGroupedHistory200Response",
-    "PostSalesFunnelProducts200Response",
-    "PostSalesFunnelProducts200ResponseData",
-    "PostSalesFunnelProducts401Response",
-    "PostSalesFunnelProducts402Response",
     "PostV1ItemRating200Response",
     "PostV1StocksReportWbWarehouses200Response",
+    "PostV3SalesFunnelGroupedHistory200Response",
+    "PostV3SalesFunnelProducts200Response",
+    "PostV3SalesFunnelProducts200ResponseData",
+    "PostV3SalesFunnelProducts401Response",
+    "PostV3SalesFunnelProducts402Response",
     "Response403General",
     "Response429Download",
     "Response429DownloadDaily",
@@ -328,13 +328,13 @@ from wildberries_sdk.analytics.models.position_cluster import PositionCluster as
 from wildberries_sdk.analytics.models.position_info import PositionInfo as PositionInfo
 from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage as PositionInfoAverage
 from wildberries_sdk.analytics.models.position_info_median import PositionInfoMedian as PositionInfoMedian
-from wildberries_sdk.analytics.models.post_sales_funnel_grouped_history200_response import PostSalesFunnelGroupedHistory200Response as PostSalesFunnelGroupedHistory200Response
-from wildberries_sdk.analytics.models.post_sales_funnel_products200_response import PostSalesFunnelProducts200Response as PostSalesFunnelProducts200Response
-from wildberries_sdk.analytics.models.post_sales_funnel_products200_response_data import PostSalesFunnelProducts200ResponseData as PostSalesFunnelProducts200ResponseData
-from wildberries_sdk.analytics.models.post_sales_funnel_products401_response import PostSalesFunnelProducts401Response as PostSalesFunnelProducts401Response
-from wildberries_sdk.analytics.models.post_sales_funnel_products402_response import PostSalesFunnelProducts402Response as PostSalesFunnelProducts402Response
 from wildberries_sdk.analytics.models.post_v1_item_rating200_response import PostV1ItemRating200Response as PostV1ItemRating200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response as PostV1StocksReportWbWarehouses200Response
+from wildberries_sdk.analytics.models.post_v3_sales_funnel_grouped_history200_response import PostV3SalesFunnelGroupedHistory200Response as PostV3SalesFunnelGroupedHistory200Response
+from wildberries_sdk.analytics.models.post_v3_sales_funnel_products200_response import PostV3SalesFunnelProducts200Response as PostV3SalesFunnelProducts200Response
+from wildberries_sdk.analytics.models.post_v3_sales_funnel_products200_response_data import PostV3SalesFunnelProducts200ResponseData as PostV3SalesFunnelProducts200ResponseData
+from wildberries_sdk.analytics.models.post_v3_sales_funnel_products401_response import PostV3SalesFunnelProducts401Response as PostV3SalesFunnelProducts401Response
+from wildberries_sdk.analytics.models.post_v3_sales_funnel_products402_response import PostV3SalesFunnelProducts402Response as PostV3SalesFunnelProducts402Response
 from wildberries_sdk.analytics.models.response403_general import Response403General as Response403General
 from wildberries_sdk.analytics.models.response429_download import Response429Download as Response429Download
 from wildberries_sdk.analytics.models.response429_download_daily import Response429DownloadDaily as Response429DownloadDaily

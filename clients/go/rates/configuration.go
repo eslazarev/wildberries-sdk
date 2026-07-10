@@ -1,7 +1,7 @@
 /*
 Тарифы
 
-<div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+<div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/supplyRates)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/stockRates)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/returnCostToSeller)  </div> 
 
 API version: rates
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.123/go",
+		UserAgent:        "OpenAPI-Generator/0.1.124/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,31 +98,31 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.ApiTariffsV1AcceptanceCoefficientsGet": {
+			"DefaultApiService.GetV1AcceptanceCoefficients": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1TariffsBoxGet": {
+			"DefaultApiService.GetV1TariffsBox": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1TariffsCommissionGet": {
+			"DefaultApiService.GetV1TariffsCommission": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1TariffsPalletGet": {
+			"DefaultApiService.GetV1TariffsPallet": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1TariffsReturnGet": {
+			"DefaultApiService.GetV1TariffsReturn": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",

@@ -109,6 +109,8 @@ export * from './V0BidRecommendationReachMax';
 export * from './V0BidRecommendationReachMedium';
 export * from './V0BidRecommendationReachMin';
 export * from './V0BidsRecommendationsResponse';
+export * from './V0DeleteNormQueryBidsRequest';
+export * from './V0DeleteNormQueryBidsRequestItem';
 export * from './V0GetNormQueryBidsItem';
 export * from './V0GetNormQueryBidsRequest';
 export * from './V0GetNormQueryBidsRequestItem';

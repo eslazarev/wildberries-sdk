@@ -555,7 +555,7 @@ class DeliveryDatesInfoRespOrdersInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets d_date_from
      *
-     * @param string|null $d_date_from Дата начала интервала для доставки, если указана покупателем
+     * @param string|null $d_date_from Не используется
      *
      * @return self
      */
@@ -589,7 +589,7 @@ class DeliveryDatesInfoRespOrdersInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets d_date_to
      *
-     * @param string|null $d_date_to Дата окончания интервала для доставки, если указана покупателем
+     * @param string|null $d_date_to Не используется
      *
      * @return self
      */

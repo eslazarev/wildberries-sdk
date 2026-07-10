@@ -79,16 +79,16 @@ SDK выпускается с security-first процессом:
 
 <!-- METHODS_LIST_START -->
 ### Общее (`01-general.yaml`)
-- `GET /api/common/v1/rating` — Получить рейтинг продавца (getCommonV1Rating)
-- `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем (getCommonV1Subscriptions)
-- `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов (getCommonV1TariffConstructorOptions)
-- `GET /api/communications/v2/news` — Получение новостей портала продавцов
-- `POST /api/v1/invite` — Создать приглашение для нового пользователя
-- `GET /api/v1/seller-info` — Получить информацию о продавце
-- `DELETE /api/v1/user` — Удалить пользователя
-- `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
-- `PUT /api/v1/users/access` — Изменить права доступа пользователей
-- `GET /ping` — Проверка подключения
+- `GET /api/common/v1/rating` — Получить рейтинг продавца (getV1Rating)
+- `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем (getV1Subscriptions)
+- `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов (getV1TariffConstructorOptions)
+- `GET /api/communications/v2/news` — Получение новостей портала продавцов (getV2News)
+- `POST /api/v1/invite` — Создать приглашение для нового пользователя (postV1Invite)
+- `GET /api/v1/seller-info` — Получить информацию о продавце (getV1SellerInfo)
+- `DELETE /api/v1/user` — Удалить пользователя (deleteV1User)
+- `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца (getV1Users)
+- `PUT /api/v1/users/access` — Изменить права доступа пользователей (putV1UsersAccess)
+- `GET /ping` — Проверка подключения (getPing)
 
 ### Работа с товарами (`02-items.yaml`)
 - `GET /api/content/v1/brands` — Бренды
@@ -244,13 +244,13 @@ SDK выпускается с security-first процессом:
 - `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
 
 ### Поставки FBW (`07-orders-fbw.yaml`)
-- `POST /api/v1/acceptance/options` — Опции приёмки
-- `POST /api/v1/supplies` — Список поставок
-- `GET /api/v1/supplies/{ID}` — Детали поставки
-- `GET /api/v1/supplies/{ID}/goods` — Товары поставки
-- `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
-- `GET /api/v1/transit-tariffs` — Транзитные направления
-- `GET /api/v1/warehouses` — Список складов
+- `POST /api/v1/acceptance/options` — Опции приёмки (postV1AcceptanceOptions)
+- `POST /api/v1/supplies` — Список поставок (postV1Supplies)
+- `GET /api/v1/supplies/{ID}` — Детали поставки (getV1SuppliesId)
+- `GET /api/v1/supplies/{ID}/goods` — Товары поставки (getV1SuppliesIdGoods)
+- `GET /api/v1/supplies/{ID}/package` — Упаковка поставки (getV1SuppliesIdPackage)
+- `GET /api/v1/transit-tariffs` — Транзитные направления (getV1TransitTariffs)
+- `GET /api/v1/warehouses` — Список складов (getV1Warehouses)
 
 ### Маркетинг и продвижение (`08-promotion.yaml`)
 - `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
@@ -321,18 +321,18 @@ SDK выпускается с security-first процессом:
 - `POST /api/v1/seller/message` — Отправить сообщение
 
 ### Тарифы (`10-rates.yaml`)
-- `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
-- `GET /api/v1/tariffs/box` — Тарифы для коробов
-- `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
-- `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
-- `GET /api/v1/tariffs/return` — Тарифы на возврат
+- `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку (getV1AcceptanceCoefficients)
+- `GET /api/v1/tariffs/box` — Тарифы для коробов (getV1TariffsBox)
+- `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров (getV1TariffsCommission)
+- `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет (getV1TariffsPallet)
+- `GET /api/v1/tariffs/return` — Тарифы на возврат (getV1TariffsReturn)
 
 ### Аналитика и данные (`11-analytics.yaml`)
 - `POST /api/analytics/v1/item-rating` — Получить отчёт (postV1ItemRating)
 - `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB (postV1StocksReportWbWarehouses)
-- `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням (postSalesFunnelGroupedHistory)
-- `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период (postSalesFunnelProducts)
-- `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням (postSalesFunnelProductsHistory)
+- `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням (postV3SalesFunnelGroupedHistory)
+- `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период (postV3SalesFunnelProducts)
+- `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням (postV3SalesFunnelProductsHistory)
 - `GET /api/v2/nm-report/downloads` — Получить список отчётов
 - `POST /api/v2/nm-report/downloads` — Создать отчёт
 - `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
@@ -348,9 +348,9 @@ SDK выпускается с security-first процессом:
 - `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
 
 ### Отчёты (`12-reports.yaml`)
-- `GET /api/analytics/v1/deductions` — Подмены и неверные вложения (getDeductions)
-- `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки (getMeasurementPenalties)
-- `GET /api/analytics/v1/warehouse-measurements` — Замеры склада (getWarehouseMeasurements)
+- `GET /api/analytics/v1/deductions` — Подмены и неверные вложения (getV1Deductions)
+- `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки (getV1MeasurementPenalties)
+- `GET /api/analytics/v1/warehouse-measurements` — Замеры склада (getV1WarehouseMeasurements)
 - `GET /api/v1/acceptance_report` — Создать отчёт
 - `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
@@ -380,10 +380,10 @@ SDK выпускается с security-first процессом:
 - `POST /api/finance/v1/sales-reports/detailed` — Детализации к отчётам реализации за период (postV1SalesReportsDetailed)
 - `POST /api/finance/v1/sales-reports/detailed/{reportId}` — Детализации к отчётам реализации по ID отчётов (postV1SalesReportsDetailedReportId)
 - `POST /api/finance/v1/sales-reports/list` — Список отчётов реализации (postV1SalesReportsList)
-- `GET /api/v1/account/balance` — Получить баланс продавца
-- `GET /api/v1/documents/categories` — Категории документов
-- `GET /api/v1/documents/download` — Получить документ
-- `POST /api/v1/documents/download/all` — Получить документы
-- `GET /api/v1/documents/list` — Список документов
-- `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
+- `GET /api/v1/account/balance` — Получить баланс продавца (getV1AccountBalance)
+- `GET /api/v1/documents/categories` — Категории документов (getV1DocumentsCategories)
+- `GET /api/v1/documents/download` — Получить документ (getV1DocumentsDownload)
+- `POST /api/v1/documents/download/all` — Получить документы (postV1DocumentsDownloadAll)
+- `GET /api/v1/documents/list` — Список документов (getV1DocumentsList)
+- `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации (getV5SupplierReportDetailByPeriod)
 <!-- METHODS_LIST_END -->

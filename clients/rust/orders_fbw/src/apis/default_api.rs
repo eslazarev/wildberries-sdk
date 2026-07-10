@@ -1,7 +1,7 @@
 /*
  * Поставки FBW
  *
- * <div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/Informaciya-dlya-formirovaniya-postavok)   - [информации о поставках](/openapi/orders-fbw#tag/Informaciya-o-postavkah)  Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок  </div> 
+ * <div class=\"description_important\">   Узнать больше о поставках FBW можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies)   - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation)  Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в <a href='/sandbox'>песочнице</a> Поставок  </div> 
  *
  * The version of the OpenAPI document: ordersfbw
  * 
@@ -15,137 +15,87 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_v1_acceptance_options_post`]
+/// struct for typed errors of method [`get_v1_supplies_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1AcceptanceOptionsPostError {
+pub enum GetV1SuppliesIdError {
     Status400(models::ModelsErrorModel),
-    Status401(models::ApiV1AcceptanceOptionsPost401Response),
-    Status402(models::ApiV1AcceptanceOptionsPost402Response),
-    Status403(),
-    Status404(),
-    Status429(models::ApiV1AcceptanceOptionsPost401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v1_supplies_id_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV1SuppliesIdGetError {
-    Status400(models::ModelsErrorModel),
-    Status401(models::ApiV1AcceptanceOptionsPost401Response),
-    Status402(models::ApiV1AcceptanceOptionsPost402Response),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
     Status404(models::ModelsErrorModel),
-    Status429(models::ApiV1AcceptanceOptionsPost401Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_supplies_id_goods_get`]
+/// struct for typed errors of method [`get_v1_supplies_id_goods`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1SuppliesIdGoodsGetError {
+pub enum GetV1SuppliesIdGoodsError {
     Status400(models::ModelsErrorModel),
-    Status401(models::ApiV1AcceptanceOptionsPost401Response),
-    Status402(models::ApiV1AcceptanceOptionsPost402Response),
-    Status429(models::ApiV1AcceptanceOptionsPost401Response),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_supplies_id_package_get`]
+/// struct for typed errors of method [`get_v1_supplies_id_package`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1SuppliesIdPackageGetError {
+pub enum GetV1SuppliesIdPackageError {
     Status400(models::ModelsErrorModel),
-    Status401(models::ApiV1AcceptanceOptionsPost401Response),
-    Status402(models::ApiV1AcceptanceOptionsPost402Response),
-    Status429(models::ApiV1AcceptanceOptionsPost401Response),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_supplies_post`]
+/// struct for typed errors of method [`get_v1_transit_tariffs`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1SuppliesPostError {
-    Status400(models::ModelsErrorModel),
-    Status401(models::ApiV1AcceptanceOptionsPost401Response),
-    Status402(models::ApiV1AcceptanceOptionsPost402Response),
-    Status429(models::ApiV1AcceptanceOptionsPost401Response),
+pub enum GetV1TransitTariffsError {
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v1_transit_tariffs_get`]
+/// struct for typed errors of method [`get_v1_warehouses`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1TransitTariffsGetError {
-    Status401(models::ApiV1AcceptanceOptionsPost401Response),
-    Status429(models::ApiV1AcceptanceOptionsPost401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v1_warehouses_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV1WarehousesGetError {
-    Status401(models::ApiV1AcceptanceOptionsPost401Response),
+pub enum GetV1WarehousesError {
+    Status401(models::PostV1AcceptanceOptions401Response),
     Status403(),
     Status404(),
-    Status429(models::ApiV1AcceptanceOptionsPost401Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v1_acceptance_options`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1AcceptanceOptionsError {
+    Status400(models::ModelsErrorModel),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
+    Status403(),
+    Status404(),
+    Status429(models::PostV1AcceptanceOptions401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v1_supplies`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1SuppliesError {
+    Status400(models::ModelsErrorModel),
+    Status401(models::PostV1AcceptanceOptions401Response),
+    Status402(models::PostV1AcceptanceOptions402Response),
+    Status429(models::PostV1AcceptanceOptions401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v1_acceptance_options_post(configuration: &configuration::Configuration, models_good: Vec<models::ModelsGood>, warehouse_id: Option<i32>) -> Result<models::ModelsOptionsResultModel, Error<ApiV1AcceptanceOptionsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_models_good = models_good;
-    let p_query_warehouse_id = warehouse_id;
-
-    let uri_str = format!("{}/api/v1/acceptance/options", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref param_value) = p_query_warehouse_id {
-        req_builder = req_builder.query(&[("warehouseID", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_models_good);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsOptionsResultModel`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsOptionsResultModel`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV1AcceptanceOptionsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v1_supplies_id_get(configuration: &configuration::Configuration, id: i32, is_preorder_id: Option<bool>) -> Result<models::ModelsSupplyDetails, Error<ApiV1SuppliesIdGetError>> {
+/// Метод возвращает детали поставки по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn get_v1_supplies_id(configuration: &configuration::Configuration, id: i32, is_preorder_id: Option<bool>) -> Result<models::ModelsSupplyDetails, Error<GetV1SuppliesIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_id = id;
     let p_query_is_preorder_id = is_preorder_id;
@@ -188,13 +138,13 @@ pub async fn api_v1_supplies_id_get(configuration: &configuration::Configuration
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1SuppliesIdGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1SuppliesIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v1_supplies_id_goods_get(configuration: &configuration::Configuration, id: i32, limit: Option<i32>, offset: Option<i32>, is_preorder_id: Option<bool>) -> Result<Vec<models::ModelsGoodInSupply>, Error<ApiV1SuppliesIdGoodsGetError>> {
+/// Метод возвращает информацию о товарах в поставке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn get_v1_supplies_id_goods(configuration: &configuration::Configuration, id: i32, limit: Option<i32>, offset: Option<i32>, is_preorder_id: Option<bool>) -> Result<Vec<models::ModelsGoodInSupply>, Error<GetV1SuppliesIdGoodsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_id = id;
     let p_query_limit = limit;
@@ -245,13 +195,13 @@ pub async fn api_v1_supplies_id_goods_get(configuration: &configuration::Configu
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1SuppliesIdGoodsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1SuppliesIdGoodsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v1_supplies_id_package_get(configuration: &configuration::Configuration, id: i32) -> Result<Vec<models::ModelsBox>, Error<ApiV1SuppliesIdPackageGetError>> {
+/// Метод возвращает информацию об упаковке поставки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn get_v1_supplies_id_package(configuration: &configuration::Configuration, id: i32) -> Result<Vec<models::ModelsBox>, Error<GetV1SuppliesIdPackageError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_id = id;
 
@@ -290,13 +240,149 @@ pub async fn api_v1_supplies_id_package_get(configuration: &configuration::Confi
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1SuppliesIdPackageGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV1SuppliesIdPackageError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v1_supplies_post(configuration: &configuration::Configuration, models_supplies_filters_request: models::ModelsSuppliesFiltersRequest, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::ModelsSupply>, Error<ApiV1SuppliesPostError>> {
+/// Метод возвращает информацию о доступных транзитных направлениях.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
+pub async fn get_v1_transit_tariffs(configuration: &configuration::Configuration, ) -> Result<Vec<models::ModelsTransitTariff>, Error<GetV1TransitTariffsError>> {
+
+    let uri_str = format!("{}/api/v1/transit-tariffs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ModelsTransitTariff&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ModelsTransitTariff&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1TransitTariffsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список складов WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
+pub async fn get_v1_warehouses(configuration: &configuration::Configuration, ) -> Result<Vec<models::ModelsWarehousesResultItems>, Error<GetV1WarehousesError>> {
+
+    let uri_str = format!("{}/api/v1/warehouses", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ModelsWarehousesResultItems&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ModelsWarehousesResultItems&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV1WarehousesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v1_acceptance_options(configuration: &configuration::Configuration, models_good: Vec<models::ModelsGood>, warehouse_id: Option<i32>) -> Result<models::ModelsOptionsResultModel, Error<PostV1AcceptanceOptionsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_models_good = models_good;
+    let p_query_warehouse_id = warehouse_id;
+
+    let uri_str = format!("{}/api/v1/acceptance/options", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = p_query_warehouse_id {
+        req_builder = req_builder.query(&[("warehouseID", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_models_good);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsOptionsResultModel`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsOptionsResultModel`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1AcceptanceOptionsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v1_supplies(configuration: &configuration::Configuration, models_supplies_filters_request: models::ModelsSuppliesFiltersRequest, limit: Option<i32>, offset: Option<i32>) -> Result<Vec<models::ModelsSupply>, Error<PostV1SuppliesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_models_supplies_filters_request = models_supplies_filters_request;
     let p_query_limit = limit;
@@ -344,93 +430,7 @@ pub async fn api_v1_supplies_post(configuration: &configuration::Configuration, 
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1SuppliesPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о доступных транзитных направлениях.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
-pub async fn api_v1_transit_tariffs_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::ModelsTransitTariff>, Error<ApiV1TransitTariffsGetError>> {
-
-    let uri_str = format!("{}/api/v1/transit-tariffs", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ModelsTransitTariff&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ModelsTransitTariff&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV1TransitTariffsGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список складов WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос | </div> 
-pub async fn api_v1_warehouses_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::ModelsWarehousesResultItems>, Error<ApiV1WarehousesGetError>> {
-
-    let uri_str = format!("{}/api/v1/warehouses", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::ModelsWarehousesResultItems&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::ModelsWarehousesResultItems&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV1WarehousesGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<PostV1SuppliesError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -71,16 +71,16 @@ var_dump($response);
 ## Методы API
 
 ### general (`general`)
-- `general.APIApi.apiCommunicationsV2NewsGet` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
-- `general.DefaultApi.apiV1InvitePost` — `POST /api/v1/invite` — Создать приглашение для нового пользователя
-- `general.DefaultApi.apiV1SellerInfoGet` — `GET /api/v1/seller-info` — Получить информацию о продавце
-- `general.DefaultApi.apiV1UserDelete` — `DELETE /api/v1/user` — Удалить пользователя
-- `general.DefaultApi.apiV1UsersAccessPut` — `PUT /api/v1/users/access` — Изменить права доступа пользователей
-- `general.DefaultApi.apiV1UsersGet` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
-- `general.DefaultApi.getCommonV1Rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
-- `general.DefaultApi.getCommonV1Subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
-- `general.DefaultApi.getCommonV1TariffConstructorOptions` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
-- `general.WBAPIApi.pingGet` — `GET /ping` — Проверка подключения
+- `general.APIApi.getV2News` — `GET /api/communications/v2/news` — Получение новостей портала продавцов
+- `general.DefaultApi.deleteV1User` — `DELETE /api/v1/user` — Удалить пользователя
+- `general.DefaultApi.getV1Rating` — `GET /api/common/v1/rating` — Получить рейтинг продавца
+- `general.DefaultApi.getV1SellerInfo` — `GET /api/v1/seller-info` — Получить информацию о продавце
+- `general.DefaultApi.getV1Subscriptions` — `GET /api/common/v1/subscriptions` — Получить информацию о подписке Джем
+- `general.DefaultApi.getV1TariffConstructorOptions` — `GET /api/common/v1/tariff-constructor/options` — Получить информацию об опциях Конструктора тарифов
+- `general.DefaultApi.getV1Users` — `GET /api/v1/users` — Получить список активных или приглашённых пользователей продавца
+- `general.DefaultApi.postV1Invite` — `POST /api/v1/invite` — Создать приглашение для нового пользователя
+- `general.DefaultApi.putV1UsersAccess` — `PUT /api/v1/users/access` — Изменить права доступа пользователей
+- `general.WBAPIApi.getPing` — `GET /ping` — Проверка подключения
 
 ### items (`items`)
 - `items.DefaultApi.apiContentV1BrandsGet` — `GET /api/content/v1/brands` — Бренды
@@ -236,13 +236,13 @@ var_dump($response);
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration` — `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
 
 ### orders_fbw (`orders_fbw`)
-- `orders_fbw.DefaultApi.apiV1AcceptanceOptionsPost` — `POST /api/v1/acceptance/options` — Опции приёмки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDGet` — `GET /api/v1/supplies/{ID}` — Детали поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDGoodsGet` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDPackageGet` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesPost` — `POST /api/v1/supplies` — Список поставок
-- `orders_fbw.DefaultApi.apiV1TransitTariffsGet` — `GET /api/v1/transit-tariffs` — Транзитные направления
-- `orders_fbw.DefaultApi.apiV1WarehousesGet` — `GET /api/v1/warehouses` — Список складов
+- `orders_fbw.DefaultApi.getV1SuppliesId` — `GET /api/v1/supplies/{ID}` — Детали поставки
+- `orders_fbw.DefaultApi.getV1SuppliesIdGoods` — `GET /api/v1/supplies/{ID}/goods` — Товары поставки
+- `orders_fbw.DefaultApi.getV1SuppliesIdPackage` — `GET /api/v1/supplies/{ID}/package` — Упаковка поставки
+- `orders_fbw.DefaultApi.getV1TransitTariffs` — `GET /api/v1/transit-tariffs` — Транзитные направления
+- `orders_fbw.DefaultApi.getV1Warehouses` — `GET /api/v1/warehouses` — Список складов
+- `orders_fbw.DefaultApi.postV1AcceptanceOptions` — `POST /api/v1/acceptance/options` — Опции приёмки
+- `orders_fbw.DefaultApi.postV1Supplies` — `POST /api/v1/supplies` — Список поставок
 
 ### promotion (`promotion`)
 - `promotion.DefaultApi.advV0AuctionNmsPatch` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
@@ -313,11 +313,11 @@ var_dump($response);
 - `communications.DefaultApi.apiV1SellerMessagePost` — `POST /api/v1/seller/message` — Отправить сообщение
 
 ### rates (`rates`)
-- `rates.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
-- `rates.DefaultApi.apiV1TariffsBoxGet` — `GET /api/v1/tariffs/box` — Тарифы для коробов
-- `rates.DefaultApi.apiV1TariffsCommissionGet` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
-- `rates.DefaultApi.apiV1TariffsPalletGet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
-- `rates.DefaultApi.apiV1TariffsReturnGet` — `GET /api/v1/tariffs/return` — Тарифы на возврат
+- `rates.DefaultApi.getV1AcceptanceCoefficients` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
+- `rates.DefaultApi.getV1TariffsBox` — `GET /api/v1/tariffs/box` — Тарифы для коробов
+- `rates.DefaultApi.getV1TariffsCommission` — `GET /api/v1/tariffs/commission` — Комиссия по категориям товаров
+- `rates.DefaultApi.getV1TariffsPallet` — `GET /api/v1/tariffs/pallet` — Тарифы для монопаллет
+- `rates.DefaultApi.getV1TariffsReturn` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
 - `analytics.CSVApi.apiV2NmReportDownloadsFileDownloadIdGet` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
@@ -333,11 +333,11 @@ var_dump($response);
 - `analytics.DefaultApi.apiV2StocksReportProductsGroupsPost` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
 - `analytics.DefaultApi.apiV2StocksReportProductsProductsPost` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
 - `analytics.DefaultApi.apiV2StocksReportProductsSizesPost` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
-- `analytics.DefaultApi.postSalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
-- `analytics.DefaultApi.postSalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
-- `analytics.DefaultApi.postSalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
 - `analytics.DefaultApi.postV1ItemRating` — `POST /api/analytics/v1/item-rating` — Получить отчёт
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
+- `analytics.DefaultApi.postV3SalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
+- `analytics.DefaultApi.postV3SalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
+- `analytics.DefaultApi.postV3SalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
 
 ### reports (`reports`)
 - `reports.CApi.apiV1AnalyticsExciseReportPost` — `POST /api/v1/analytics/excise-report` — Получить отчёт
@@ -361,20 +361,20 @@ var_dump($response);
 - `reports.DefaultApi.apiV1WarehouseRemainsGet` — `GET /api/v1/warehouse_remains` — Создать отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdDownloadGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdStatusGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApi.getDeductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
-- `reports.DefaultApi.getMeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
-- `reports.DefaultApi.getWarehouseMeasurements` — `GET /api/analytics/v1/warehouse-measurements` — Замеры склада
+- `reports.DefaultApi.getV1Deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
+- `reports.DefaultApi.getV1MeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
+- `reports.DefaultApi.getV1WarehouseMeasurements` — `GET /api/analytics/v1/warehouse-measurements` — Замеры склада
 
 ### finances (`finances`)
-- `finances.DefaultApi.apiV1AccountBalanceGet` — `GET /api/v1/account/balance` — Получить баланс продавца
-- `finances.DefaultApi.apiV1DocumentsCategoriesGet` — `GET /api/v1/documents/categories` — Категории документов
-- `finances.DefaultApi.apiV1DocumentsDownloadAllPost` — `POST /api/v1/documents/download/all` — Получить документы
-- `finances.DefaultApi.apiV1DocumentsDownloadGet` — `GET /api/v1/documents/download` — Получить документ
-- `finances.DefaultApi.apiV1DocumentsListGet` — `GET /api/v1/documents/list` — Список документов
-- `finances.DefaultApi.apiV5SupplierReportDetailByPeriodGet` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
+- `finances.DefaultApi.getV1AccountBalance` — `GET /api/v1/account/balance` — Получить баланс продавца
+- `finances.DefaultApi.getV1DocumentsCategories` — `GET /api/v1/documents/categories` — Категории документов
+- `finances.DefaultApi.getV1DocumentsDownload` — `GET /api/v1/documents/download` — Получить документ
+- `finances.DefaultApi.getV1DocumentsList` — `GET /api/v1/documents/list` — Список документов
+- `finances.DefaultApi.getV5SupplierReportDetailByPeriod` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
 - `finances.DefaultApi.postV1AcquiringDetailed` — `POST /api/finance/v1/acquiring/detailed` — Детализации к отчётам об издержках на приём платежей за период
 - `finances.DefaultApi.postV1AcquiringDetailedReportId` — `POST /api/finance/v1/acquiring/detailed/{reportId}` — Детализации к отчётам об издержках на приём платежей по ID отчётов
 - `finances.DefaultApi.postV1AcquiringList` — `POST /api/finance/v1/acquiring/list` — Список отчётов об издержках на приём платежей
+- `finances.DefaultApi.postV1DocumentsDownloadAll` — `POST /api/v1/documents/download/all` — Получить документы
 - `finances.DefaultApi.postV1SalesReportsDetailed` — `POST /api/finance/v1/sales-reports/detailed` — Детализации к отчётам реализации за период
 - `finances.DefaultApi.postV1SalesReportsDetailedReportId` — `POST /api/finance/v1/sales-reports/detailed/{reportId}` — Детализации к отчётам реализации по ID отчётов
 - `finances.DefaultApi.postV1SalesReportsList` — `POST /api/finance/v1/sales-reports/list` — Список отчётов реализации

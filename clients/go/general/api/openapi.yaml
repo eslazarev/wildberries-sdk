@@ -4,18 +4,18 @@ info:
     <div class="api-block">
 
     В этом разделе:
-    - [общая информация о WB API](/openapi/api-information#tag/Vvedenie)
-    - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API)
-    - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token)
-    - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP)
-    - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov)
-    - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)
+    - [общая информация о WB API](/openapi/api-information#tag/introduction)
+    - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API)
+    - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token)
+    - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP)
+    - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov)
+    - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka)
 
     С помощью методов этого раздела вы можете:
-    - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get)
-    - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get)
-    - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get)
-    - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)
+    - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing)
+    - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News)
+    - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo)
+    - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)
 
     </div>
   title: Общее
@@ -28,16 +28,22 @@ security:
 tags:
 - description: ""
   name: Введение
+  x-displayName: Введение
 - description: ""
   name: Авторизация
+  x-displayName: Авторизация
 - description: ""
   name: Проверка подключения к WB API
+  x-displayName: Проверка подключения к WB API
 - description: ""
   name: API новостей
+  x-displayName: API новостей
 - description: ""
   name: Информация о продавце
+  x-displayName: Информация о продавце
 - description: ""
   name: Управление пользователями продавца
+  x-displayName: Управление пользователями продавца
 paths:
   /ping:
     get:
@@ -71,8 +77,9 @@ paths:
         | Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
 
         <div class="description_limit">
-          Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
+          Максимум 3 запроса за 30 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">секунд</a>. Если попытаться автоматизировать использование метода, запросы будут временно заблокированы. Лимит действует отдельно для каждого варианта метода в зависимости от домена
         </div>
+      operationId: getPing
       responses:
         "200":
           content:
@@ -81,7 +88,7 @@ paths:
                 TS: 2024-08-16T11:19:05+03:00
                 Status: OK
               schema:
-                $ref: "#/components/schemas/_ping_get_200_response"
+                $ref: "#/components/schemas/getPing_200_response"
           description: Успешно
         "401":
           content:
@@ -97,7 +104,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "429":
           content:
@@ -112,7 +119,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -130,7 +137,7 @@ paths:
         один из параметров `from` или `fromID`. <br> За один запрос можно получить не более 100 новостей.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -140,6 +147,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV2News
       parameters:
       - description: "Дата, от которой необходимо выдать новости"
         explode: true
@@ -203,7 +211,7 @@ paths:
                   - id: 41
                     name: Аналитика продавца
               schema:
-                $ref: "#/components/schemas/_api_communications_v2_news_get_200_response"
+                $ref: "#/components/schemas/getV2News_200_response"
           description: Успешно
         "400":
           description: Неправильный запрос
@@ -221,7 +229,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "429":
           content:
@@ -236,7 +244,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -251,13 +259,13 @@ paths:
     get:
       description: |
         <div class="description_auth">
-          Информацию о продавце можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
+          Информацию о продавце можно получить с токеном любой <a href="/openapi/api-information#tag/authorization/Kategorii-tokenov">категории</a>
         </div>
 
         Метод позволяет получать наименование продавца и ID его профиля.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -267,6 +275,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
         </div>
+      operationId: getV1SellerInfo
       responses:
         "200":
           content:
@@ -277,7 +286,7 @@ paths:
                 tin: "1234567890"
                 tradeMark: Flax Store
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_info_get_200_response"
+                $ref: "#/components/schemas/getV1SellerInfo_200_response"
           description: Успешно
         "401":
           content:
@@ -293,7 +302,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "402":
           content:
@@ -303,7 +312,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
+                $ref: "#/components/schemas/getV1SellerInfo_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -318,7 +327,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -333,25 +342,25 @@ paths:
     get:
       description: |
         <div class="description_auth">
-          Для доступа к методу используйте <a href="/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
+          Для доступа к методу используйте <a href="/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token">токен</a> для категории <strong>Вопросы и отзывы</strong>
         </div>
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Сервисному</strong> токену
         </div>
 
         Метод возвращает пользовательский рейтинг продавца и количество отзывов.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 1 запрос |
         </div>
-      operationId: getCommonV1Rating
+      operationId: getV1Rating
       responses:
         "200":
           content:
@@ -373,7 +382,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "402":
           content:
@@ -383,7 +392,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
+                $ref: "#/components/schemas/getV1SellerInfo_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -398,7 +407,7 @@ paths:
                 statusText: Forbidden
                 timestamp: 2026-05-25T02:47:09Z
               schema:
-                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+                $ref: "#/components/schemas/getV1Rating_403_response"
           description: Доступ запрещён
         "429":
           content:
@@ -413,7 +422,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -430,12 +439,12 @@ paths:
     get:
       description: |
         <div class="description_auth">
-          Информацию о подписке Джем можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
+          Информацию о подписке Джем можно получить с токеном любой <a href="/openapi/api-information#tag/authorization/Kategorii-tokenov">категории</a>
         </div>
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Сервисному</strong> токену
         </div>
 
@@ -452,13 +461,13 @@ paths:
             - дата окончания последнего оплаченного периода `till`
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 10 запросов |
         </div>
-      operationId: getCommonV1Subscriptions
+      operationId: getV1Subscriptions
       responses:
         "200":
           content:
@@ -480,7 +489,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "402":
           content:
@@ -490,7 +499,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
+                $ref: "#/components/schemas/getV1SellerInfo_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -505,7 +514,7 @@ paths:
                 statusText: Forbidden
                 timestamp: 2026-05-25T02:47:09Z
               schema:
-                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+                $ref: "#/components/schemas/getV1Rating_403_response"
           description: Доступ запрещён
         "429":
           content:
@@ -520,7 +529,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -537,12 +546,12 @@ paths:
     get:
       description: |
         <div class="description_auth">
-          Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href="/openapi/api-information#tag/Avtorizaciya/Kategorii-tokenov">категории</a>
+          Информацию об опциях Конструктора тарифов можно получить с токеном любой <a href="/openapi/api-information#tag/authorization/Kategorii-tokenov">категории</a>
         </div>
 
 
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Сервисному</strong> токену
         </div>
 
@@ -551,13 +560,13 @@ paths:
         Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 1 запрос | 1 мин | 10 запросов |
         </div>
-      operationId: getCommonV1TariffConstructorOptions
+      operationId: getV1TariffConstructorOptions
       parameters:
       - description: |
           Язык полей ответа:
@@ -608,7 +617,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "403":
           content:
@@ -623,7 +632,7 @@ paths:
                 statusText: Forbidden
                 timestamp: 2026-05-25T02:47:09Z
               schema:
-                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+                $ref: "#/components/schemas/getV1Rating_403_response"
           description: Доступ запрещён
         "404":
           content:
@@ -647,7 +656,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -664,7 +673,7 @@ paths:
     post:
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
@@ -679,12 +688,13 @@ paths:
           - при одинаковых значениях `"disabled": false` доступ будет выдан
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 5 запросов |
         </div>
+      operationId: postV1Invite
       requestBody:
         content:
           application/json:
@@ -718,7 +728,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "403":
           content:
@@ -733,7 +743,7 @@ paths:
                 statusText: Forbidden
                 timestamp: 2026-05-25T02:47:09Z
               schema:
-                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+                $ref: "#/components/schemas/getV1Rating_403_response"
           description: Доступ запрещён
         "429":
           content:
@@ -748,7 +758,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -765,7 +775,7 @@ paths:
     get:
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
@@ -782,12 +792,13 @@ paths:
         Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 5 запросов |
         </div>
+      operationId: getV1Users
       parameters:
       - description: Количество активных или приглашённых пользователей в ответе
         explode: true
@@ -1091,7 +1102,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "403":
           content:
@@ -1106,7 +1117,7 @@ paths:
                 statusText: Forbidden
                 timestamp: 2026-05-25T02:47:09Z
               schema:
-                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+                $ref: "#/components/schemas/getV1Rating_403_response"
           description: Доступ запрещён
         "429":
           content:
@@ -1121,7 +1132,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1138,7 +1149,7 @@ paths:
     put:
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
@@ -1147,12 +1158,13 @@ paths:
         Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 5 запросов |
         </div>
+      operationId: putV1UsersAccess
       requestBody:
         content:
           application/json:
@@ -1182,7 +1194,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "403":
           content:
@@ -1197,7 +1209,7 @@ paths:
                 statusText: Forbidden
                 timestamp: 2026-05-25T02:47:09Z
               schema:
-                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+                $ref: "#/components/schemas/getV1Rating_403_response"
           description: Доступ запрещён
         "429":
           content:
@@ -1212,7 +1224,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1229,19 +1241,20 @@ paths:
     delete:
       description: |
         <div class="description_token">
-            Метод <a href="/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
                 <strong>Персональному</strong> токену
         </div>
 
-        Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca/paths/~1api~1v1~1users/get). Этому пользователю будет закрыт доступ в профиль продавца.
+        Метод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 10 запросов |
         </div>
+      operationId: deleteV1User
       parameters:
       - description: "ID пользователя, которому будет закрыт доступ"
         explode: true
@@ -1275,7 +1288,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Не авторизован
         "403":
           content:
@@ -1290,7 +1303,7 @@ paths:
                 statusText: Forbidden
                 timestamp: 2026-05-25T02:47:09Z
               schema:
-                $ref: "#/components/schemas/getCommonV1Rating_403_response"
+                $ref: "#/components/schemas/getV1Rating_403_response"
           description: Доступ запрещён
         "429":
           content:
@@ -1305,7 +1318,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_ping_get_401_response"
+                $ref: "#/components/schemas/getPing_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1392,7 +1405,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_ping_get_401_response"
+            $ref: "#/components/schemas/getPing_401_response"
       description: Не авторизован
     "402":
       content:
@@ -1402,7 +1415,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v1_seller_info_get_402_response"
+            $ref: "#/components/schemas/getV1SellerInfo_402_response"
       description: Требуется платёж
     "403":
       content:
@@ -1417,7 +1430,7 @@ components:
             statusText: Forbidden
             timestamp: 2026-05-25T02:47:09Z
           schema:
-            $ref: "#/components/schemas/getCommonV1Rating_403_response"
+            $ref: "#/components/schemas/getV1Rating_403_response"
       description: Доступ запрещён
     "429":
       content:
@@ -1432,7 +1445,7 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_ping_get_401_response"
+            $ref: "#/components/schemas/getPing_401_response"
       description: Слишком много запросов
   schemas:
     Access:
@@ -2040,7 +2053,7 @@ components:
             type: string
           type: array
       type: object
-    _ping_get_200_response:
+    getPing_200_response:
       example:
         TS: TS
         Status: OK
@@ -2054,7 +2067,7 @@ components:
           - OK
           type: string
       type: object
-    _ping_get_401_response:
+    getPing_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -2082,7 +2095,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_communications_v2_news_get_200_response_data_inner_types_inner:
+    getV2News_200_response_data_inner_types_inner:
       example:
         id: 6
         name: name
@@ -2094,7 +2107,7 @@ components:
           description: Название тега
           type: string
       type: object
-    _api_communications_v2_news_get_200_response_data_inner:
+    getV2News_200_response_data_inner:
       example:
         content: content
         date: 2000-01-23T04:56:07.000+00:00
@@ -2123,10 +2136,10 @@ components:
         types:
           description: Теги новости
           items:
-            $ref: "#/components/schemas/_api_communications_v2_news_get_200_response_data_inner_types_inner"
+            $ref: "#/components/schemas/getV2News_200_response_data_inner_types_inner"
           type: array
       type: object
-    _api_communications_v2_news_get_200_response:
+    getV2News_200_response:
       example:
         data:
         - content: content
@@ -2151,10 +2164,10 @@ components:
         data:
           description: Новости
           items:
-            $ref: "#/components/schemas/_api_communications_v2_news_get_200_response_data_inner"
+            $ref: "#/components/schemas/getV2News_200_response_data_inner"
           type: array
       type: object
-    _api_v1_seller_info_get_200_response:
+    getV1SellerInfo_200_response:
       example:
         name: name
         sid: sid
@@ -2166,7 +2179,7 @@ components:
           type: string
         sid:
           description: "Уникальный ID продавца на Wildberries, [находящийся в публ\
-            ичном поле токена](./api-information#tag/Avtorizaciya/Kak-ustroen-token)"
+            ичном поле токена](./api-information#tag/authorization/Kak-ustroen-token)"
           format: UUID
           type: string
         tin:
@@ -2176,7 +2189,7 @@ components:
           description: Торговое наименование продавца
           type: string
       type: object
-    _api_v1_seller_info_get_402_response:
+    getV1SellerInfo_402_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -2186,7 +2199,7 @@ components:
             алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
           type: string
       type: object
-    getCommonV1Rating_403_response:
+    getV1Rating_403_response:
       properties:
         title:
           description: Заголовок ошибки

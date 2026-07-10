@@ -58,16 +58,16 @@ main().catch(console.error);
 ## Методы API
 
 ### general (`general`)
-- `general.APIApi.apiCommunicationsV2NewsGet` — Получение новостей портала продавцов
-- `general.DefaultApi.apiV1InvitePost` — Создать приглашение для нового пользователя
-- `general.DefaultApi.apiV1SellerInfoGet` — Получить информацию о продавце
-- `general.DefaultApi.apiV1UserDelete` — Удалить пользователя
-- `general.DefaultApi.apiV1UsersAccessPut` — Изменить права доступа пользователей
-- `general.DefaultApi.apiV1UsersGet` — Получить список активных или приглашённых пользователей продавца
-- `general.DefaultApi.getCommonV1Rating` — Получить рейтинг продавца
-- `general.DefaultApi.getCommonV1Subscriptions` — Получить информацию о подписке Джем
-- `general.DefaultApi.getCommonV1TariffConstructorOptions` — Получить информацию об опциях Конструктора тарифов
-- `general.WBAPIApi.pingGet` — Проверка подключения
+- `general.APIApi.getV2News` — Получение новостей портала продавцов
+- `general.DefaultApi.deleteV1User` — Удалить пользователя
+- `general.DefaultApi.getV1Rating` — Получить рейтинг продавца
+- `general.DefaultApi.getV1SellerInfo` — Получить информацию о продавце
+- `general.DefaultApi.getV1Subscriptions` — Получить информацию о подписке Джем
+- `general.DefaultApi.getV1TariffConstructorOptions` — Получить информацию об опциях Конструктора тарифов
+- `general.DefaultApi.getV1Users` — Получить список активных или приглашённых пользователей продавца
+- `general.DefaultApi.postV1Invite` — Создать приглашение для нового пользователя
+- `general.DefaultApi.putV1UsersAccess` — Изменить права доступа пользователей
+- `general.WBAPIApi.getPing` — Проверка подключения
 
 ### items (`items`)
 - `items.DefaultApi.apiContentV1BrandsGet` — Бренды
@@ -223,13 +223,13 @@ main().catch(console.error);
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration` — Закрепить за сборочными заданиями номера ДТ
 
 ### orders_fbw (`orders_fbw`)
-- `orders_fbw.DefaultApi.apiV1AcceptanceOptionsPost` — Опции приёмки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDGet` — Детали поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDGoodsGet` — Товары поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesIDPackageGet` — Упаковка поставки
-- `orders_fbw.DefaultApi.apiV1SuppliesPost` — Список поставок
-- `orders_fbw.DefaultApi.apiV1TransitTariffsGet` — Транзитные направления
-- `orders_fbw.DefaultApi.apiV1WarehousesGet` — Список складов
+- `orders_fbw.DefaultApi.getV1SuppliesId` — Детали поставки
+- `orders_fbw.DefaultApi.getV1SuppliesIdGoods` — Товары поставки
+- `orders_fbw.DefaultApi.getV1SuppliesIdPackage` — Упаковка поставки
+- `orders_fbw.DefaultApi.getV1TransitTariffs` — Транзитные направления
+- `orders_fbw.DefaultApi.getV1Warehouses` — Список складов
+- `orders_fbw.DefaultApi.postV1AcceptanceOptions` — Опции приёмки
+- `orders_fbw.DefaultApi.postV1Supplies` — Список поставок
 
 ### promotion (`promotion`)
 - `promotion.DefaultApi.advV0AuctionNmsPatch` — Изменение списка карточек товаров в кампаниях
@@ -300,11 +300,11 @@ main().catch(console.error);
 - `communications.DefaultApi.apiV1SellerMessagePost` — Отправить сообщение
 
 ### rates (`rates`)
-- `rates.DefaultApi.apiTariffsV1AcceptanceCoefficientsGet` — Тарифы на поставку
-- `rates.DefaultApi.apiV1TariffsBoxGet` — Тарифы для коробов
-- `rates.DefaultApi.apiV1TariffsCommissionGet` — Комиссия по категориям товаров
-- `rates.DefaultApi.apiV1TariffsPalletGet` — Тарифы для монопаллет
-- `rates.DefaultApi.apiV1TariffsReturnGet` — Тарифы на возврат
+- `rates.DefaultApi.getV1AcceptanceCoefficients` — Тарифы на поставку
+- `rates.DefaultApi.getV1TariffsBox` — Тарифы для коробов
+- `rates.DefaultApi.getV1TariffsCommission` — Комиссия по категориям товаров
+- `rates.DefaultApi.getV1TariffsPallet` — Тарифы для монопаллет
+- `rates.DefaultApi.getV1TariffsReturn` — Тарифы на возврат
 
 ### analytics (`analytics`)
 - `analytics.CSVApi.apiV2NmReportDownloadsFileDownloadIdGet` — Получить отчёт
@@ -320,11 +320,11 @@ main().catch(console.error);
 - `analytics.DefaultApi.apiV2StocksReportProductsGroupsPost` — Данные по группам
 - `analytics.DefaultApi.apiV2StocksReportProductsProductsPost` — Данные по товарам
 - `analytics.DefaultApi.apiV2StocksReportProductsSizesPost` — Данные по размерам
-- `analytics.DefaultApi.postSalesFunnelGroupedHistory` — Статистика групп карточек товаров по дням
-- `analytics.DefaultApi.postSalesFunnelProducts` — Статистика карточек товаров за период
-- `analytics.DefaultApi.postSalesFunnelProductsHistory` — Статистика карточек товаров по дням
 - `analytics.DefaultApi.postV1ItemRating` — Получить отчёт
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — Остатки на складах WB
+- `analytics.DefaultApi.postV3SalesFunnelGroupedHistory` — Статистика групп карточек товаров по дням
+- `analytics.DefaultApi.postV3SalesFunnelProducts` — Статистика карточек товаров за период
+- `analytics.DefaultApi.postV3SalesFunnelProductsHistory` — Статистика карточек товаров по дням
 
 ### reports (`reports`)
 - `reports.CApi.apiV1AnalyticsExciseReportPost` — Получить отчёт
@@ -348,20 +348,20 @@ main().catch(console.error);
 - `reports.DefaultApi.apiV1WarehouseRemainsGet` — Создать отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdDownloadGet` — Получить отчёт
 - `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdStatusGet` — Проверить статус
-- `reports.DefaultApi.getDeductions` — Подмены и неверные вложения
-- `reports.DefaultApi.getMeasurementPenalties` — Удержания за занижение габаритов упаковки
-- `reports.DefaultApi.getWarehouseMeasurements` — Замеры склада
+- `reports.DefaultApi.getV1Deductions` — Подмены и неверные вложения
+- `reports.DefaultApi.getV1MeasurementPenalties` — Удержания за занижение габаритов упаковки
+- `reports.DefaultApi.getV1WarehouseMeasurements` — Замеры склада
 
 ### finances (`finances`)
-- `finances.DefaultApi.apiV1AccountBalanceGet` — Получить баланс продавца
-- `finances.DefaultApi.apiV1DocumentsCategoriesGet` — Категории документов
-- `finances.DefaultApi.apiV1DocumentsDownloadAllPost` — Получить документы
-- `finances.DefaultApi.apiV1DocumentsDownloadGet` — Получить документ
-- `finances.DefaultApi.apiV1DocumentsListGet` — Список документов
-- `finances.DefaultApi.apiV5SupplierReportDetailByPeriodGet` — Отчёт о продажах по реализации
+- `finances.DefaultApi.getV1AccountBalance` — Получить баланс продавца
+- `finances.DefaultApi.getV1DocumentsCategories` — Категории документов
+- `finances.DefaultApi.getV1DocumentsDownload` — Получить документ
+- `finances.DefaultApi.getV1DocumentsList` — Список документов
+- `finances.DefaultApi.getV5SupplierReportDetailByPeriod` — Отчёт о продажах по реализации
 - `finances.DefaultApi.postV1AcquiringDetailed` — Детализации к отчётам об издержках на приём платежей за период
 - `finances.DefaultApi.postV1AcquiringDetailedReportId` — Детализации к отчётам об издержках на приём платежей по ID отчётов
 - `finances.DefaultApi.postV1AcquiringList` — Список отчётов об издержках на приём платежей
+- `finances.DefaultApi.postV1DocumentsDownloadAll` — Получить документы
 - `finances.DefaultApi.postV1SalesReportsDetailed` — Детализации к отчётам реализации за период
 - `finances.DefaultApi.postV1SalesReportsDetailedReportId` — Детализации к отчётам реализации по ID отчётов
 - `finances.DefaultApi.postV1SalesReportsList` — Список отчётов реализации

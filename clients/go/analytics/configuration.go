@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.123/go",
+		UserAgent:        "OpenAPI-Generator/0.1.124/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -152,24 +152,6 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.PostSalesFunnelGroupedHistory": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.PostSalesFunnelProducts": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.PostSalesFunnelProductsHistory": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"DefaultApiService.PostV1ItemRating": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
@@ -177,6 +159,24 @@ func NewConfiguration() *Configuration {
 				},
 			},
 			"DefaultApiService.PostV1StocksReportWbWarehouses": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV3SalesFunnelGroupedHistory": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV3SalesFunnelProducts": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV3SalesFunnelProductsHistory": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",

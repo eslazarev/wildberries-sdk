@@ -1,7 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-export * from './ApiV1AcceptanceOptionsPost401Response';
-export * from './ApiV1AcceptanceOptionsPost402Response';
 export * from './ModelsBox';
 export * from './ModelsDateFilterRequest';
 export * from './ModelsErrorModel';
@@ -19,3 +17,5 @@ export * from './ModelsSupplyDetails';
 export * from './ModelsTransitTariff';
 export * from './ModelsVolumeTariff';
 export * from './ModelsWarehousesResultItems';
+export * from './PostV1AcceptanceOptions401Response';
+export * from './PostV1AcceptanceOptions402Response';

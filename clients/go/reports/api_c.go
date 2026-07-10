@@ -59,7 +59,7 @@ ApiV1AnalyticsExciseReportPost Получить отчёт
 Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/cases/1).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |

@@ -31,10 +31,10 @@ pub struct DeliveryDatesInfoRespOrdersInner {
     /// Актуальная дата доставки, указанная покупателем
     #[serde(rename = "dDate", skip_serializing_if = "Option::is_none")]
     pub d_date: Option<String>,
-    /// Дата начала интервала для доставки, если указана покупателем
+    /// Не используется
     #[serde(rename = "dDateFrom", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub d_date_from: Option<Option<String>>,
-    /// Дата окончания интервала для доставки, если указана покупателем
+    /// Не используется
     #[serde(rename = "dDateTo", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub d_date_to: Option<Option<String>>,
     /// ID сборочного задания

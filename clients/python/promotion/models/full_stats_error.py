@@ -34,7 +34,8 @@ class FullStatsError(BaseModel):
     request_id: StrictStr = Field(description="ID запроса")
     status: StrictInt = Field(description="HTTP статус-код")
     title: StrictStr = Field(description="Заголовок ошибки")
-    __properties: ClassVar[List[str]] = ["errors", "detail", "origin", "request_id", "status", "title"]
+    type: Optional[StrictStr] = Field(default=None, description="Тип ошибки")
+    __properties: ClassVar[List[str]] = ["errors", "detail", "origin", "request_id", "status", "title", "type"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -99,7 +100,8 @@ class FullStatsError(BaseModel):
             "origin": obj.get("origin"),
             "request_id": obj.get("request_id"),
             "status": obj.get("status"),
-            "title": obj.get("title")
+            "title": obj.get("title"),
+            "type": obj.get("type")
         })
         return _obj
 

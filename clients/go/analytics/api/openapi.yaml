@@ -49,7 +49,7 @@ paths:
         Малая часть этих данных может появляться в течение нескольких дней.<br><br>
 
         Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
-        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br><br>
+        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>
 
         Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.<br><br>
 
@@ -64,7 +64,7 @@ paths:
         Можно использовать пагинацию.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -74,7 +74,7 @@ paths:
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
-      operationId: postSalesFunnelProducts
+      operationId: postV3SalesFunnelProducts
       requestBody:
         content:
           application/json:
@@ -86,7 +86,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_200_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_200_response"
           description: Успешно
         "400":
           content:
@@ -116,7 +116,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -126,7 +126,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -154,7 +154,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Статистика карточек товаров за период
       tags:
@@ -179,14 +179,14 @@ paths:
         Малая часть этих данных может появляться в течение нескольких дней.<br><br>
 
         Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
-        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).
+        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).
 
         <div class="description_important">
           Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -196,7 +196,7 @@ paths:
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
-      operationId: postSalesFunnelProductsHistory
+      operationId: postV3SalesFunnelProductsHistory
       requestBody:
         content:
           application/json:
@@ -238,7 +238,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -248,7 +248,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -276,7 +276,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Статистика карточек товаров по дням
       tags:
@@ -302,7 +302,7 @@ paths:
         Малая часть этих данных может появляться в течение нескольких дней.<br><br>
 
         Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br>
-        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br><br>
+        Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>
 
         Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.<br><br>
 
@@ -313,7 +313,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -323,7 +323,7 @@ paths:
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
-      operationId: postSalesFunnelGroupedHistory
+      operationId: postV3SalesFunnelGroupedHistory
       requestBody:
         content:
           application/json:
@@ -335,7 +335,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/postSalesFunnelGroupedHistory_200_response"
+                $ref: "#/components/schemas/postV3SalesFunnelGroupedHistory_200_response"
           description: Успешно
         "400":
           content:
@@ -365,7 +365,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -375,7 +375,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -403,7 +403,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Статистика групп карточек товаров по дням
       tags:
@@ -418,7 +418,7 @@ paths:
         Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) и статусы генерации.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -474,7 +474,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "403":
           content:
@@ -502,7 +502,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -540,7 +540,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -773,7 +773,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -783,7 +783,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -819,7 +819,7 @@ paths:
         Метод создает повторное [задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) `FAILED`.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -869,7 +869,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "403":
           content:
@@ -897,7 +897,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -916,7 +916,7 @@ paths:
         Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1204,7 +1204,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1214,7 +1214,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1242,7 +1242,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1274,7 +1274,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1317,7 +1317,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1327,7 +1327,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1348,7 +1348,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Основная страница
       tags:
@@ -1370,7 +1370,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1413,7 +1413,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1423,7 +1423,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1444,7 +1444,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Пагинация по группам
       tags:
@@ -1470,7 +1470,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1513,7 +1513,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1523,7 +1523,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1544,7 +1544,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Пагинация по товарам в группе
       tags:
@@ -1567,7 +1567,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1610,7 +1610,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1620,7 +1620,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1641,7 +1641,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Поисковые запросы по товару
       tags:
@@ -1666,7 +1666,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1709,7 +1709,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1719,7 +1719,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1740,7 +1740,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Заказы и позиции по поисковым запросам товара
       tags:
@@ -1751,13 +1751,13 @@ paths:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/stocks-report/wb-warehouses:
     post:
-      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену, \n        <strong>Базовому</strong>\
         \ токену <strong>с секретом</strong>\n</div>\n\nМетод возвращает текущие о\
         статки товаров на складах WB.\n<br><br>\nДанные обновляются 1 раз в 30 мин\
         ут.\n<br><br>\n1 строка ответа — данные об 1 размере товара на 1 складе WB.\n\
-        \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
+        \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
         \ 1 запрос |\n</div>\n"
@@ -1795,7 +1795,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1805,7 +1805,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1829,7 +1829,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Остатки на складах WB
       tags:
@@ -1852,7 +1852,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1895,7 +1895,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1905,7 +1905,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1926,7 +1926,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Данные по группам
       tags:
@@ -1945,7 +1945,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1988,7 +1988,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1998,7 +1998,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2019,7 +2019,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Данные по товарам
       tags:
@@ -2044,7 +2044,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2087,7 +2087,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2097,7 +2097,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2118,7 +2118,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Данные по размерам
       tags:
@@ -2137,7 +2137,7 @@ paths:
         Данные отчёта обновляются 1 раз в час.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2180,7 +2180,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2190,7 +2190,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2211,7 +2211,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Данные по складам
       tags:
@@ -2222,11 +2222,11 @@ paths:
     - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/item-rating:
     post:
-      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/Avtorizaciya/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\nМетод формирует набор дан\
         ных об оценках товаров.\n<br><br>\nДанные отчёта обновляются 1 раз в час.\n\
-        \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\"\
+        \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интерв\
         ал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек |\
         \ 3 запроса |\n</div>\n"
@@ -2264,7 +2264,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2274,7 +2274,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2298,7 +2298,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Слишком много запросов
       summary: Получить отчёт
       tags:
@@ -2389,7 +2389,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+            $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
       description: Не авторизован
     "402":
       content:
@@ -2399,7 +2399,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/postSalesFunnelProducts_402_response"
+            $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -2414,7 +2414,7 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/postSalesFunnelProducts_401_response"
+            $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
       description: Слишком много запросов
     BadRequestErrorResponse:
       content:
@@ -7634,7 +7634,7 @@ components:
           format: date-time
           type: string
       type: object
-    postSalesFunnelProducts_200_response_data:
+    postV3SalesFunnelProducts_200_response_data:
       allOf:
       - description: Статистика
         type: object
@@ -7876,7 +7876,7 @@ components:
                 cartToOrderPercent: 65
                 buyoutPercent: 0
         currency: RUB
-    postSalesFunnelProducts_200_response:
+    postV3SalesFunnelProducts_200_response:
       example:
         data:
           products:
@@ -8117,11 +8117,11 @@ components:
           currency: RUB
       properties:
         data:
-          $ref: "#/components/schemas/postSalesFunnelProducts_200_response_data"
+          $ref: "#/components/schemas/postV3SalesFunnelProducts_200_response_data"
       required:
       - data
       type: object
-    postSalesFunnelProducts_401_response:
+    postV3SalesFunnelProducts_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -8149,7 +8149,7 @@ components:
           format: date-time
           type: string
       type: object
-    postSalesFunnelProducts_402_response:
+    postV3SalesFunnelProducts_402_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -8159,7 +8159,7 @@ components:
             алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
           type: string
       type: object
-    postSalesFunnelGroupedHistory_200_response:
+    postV3SalesFunnelGroupedHistory_200_response:
       example:
         data:
         - product:

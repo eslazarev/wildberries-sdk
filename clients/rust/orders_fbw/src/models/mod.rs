@@ -1,7 +1,3 @@
-pub mod _api_v1_acceptance_options_post_401_response;
-pub use self::_api_v1_acceptance_options_post_401_response::ApiV1AcceptanceOptionsPost401Response;
-pub mod _api_v1_acceptance_options_post_402_response;
-pub use self::_api_v1_acceptance_options_post_402_response::ApiV1AcceptanceOptionsPost402Response;
 pub mod models_box;
 pub use self::models_box::ModelsBox;
 pub mod models_date_filter_request;
@@ -36,3 +32,7 @@ pub mod models_volume_tariff;
 pub use self::models_volume_tariff::ModelsVolumeTariff;
 pub mod models_warehouses_result_items;
 pub use self::models_warehouses_result_items::ModelsWarehousesResultItems;
+pub mod post_v1_acceptance_options_401_response;
+pub use self::post_v1_acceptance_options_401_response::PostV1AcceptanceOptions401Response;
+pub mod post_v1_acceptance_options_402_response;
+pub use self::post_v1_acceptance_options_402_response::PostV1AcceptanceOptions402Response;

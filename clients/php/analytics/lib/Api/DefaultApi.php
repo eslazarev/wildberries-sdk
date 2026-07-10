@@ -101,19 +101,19 @@ class DefaultApi
         'apiV2StocksReportProductsSizesPost' => [
             'application/json',
         ],
-        'postSalesFunnelGroupedHistory' => [
-            'application/json',
-        ],
-        'postSalesFunnelProducts' => [
-            'application/json',
-        ],
-        'postSalesFunnelProductsHistory' => [
-            'application/json',
-        ],
         'postV1ItemRating' => [
             'application/json',
         ],
         'postV1StocksReportWbWarehouses' => [
+            'application/json',
+        ],
+        'postV3SalesFunnelGroupedHistory' => [
+            'application/json',
+        ],
+        'postV3SalesFunnelProducts' => [
+            'application/json',
+        ],
+        'postV3SalesFunnelProductsHistory' => [
             'application/json',
         ],
     ];
@@ -180,7 +180,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductOrdersPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductOrdersPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2SearchReportProductOrdersPost($item_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
     {
@@ -204,7 +204,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductOrdersPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductOrdersPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2SearchReportProductOrdersPostWithHttpInfo($item_orders_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductOrdersPost'][0])
     {
@@ -248,13 +248,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -266,7 +266,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -313,7 +313,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -321,7 +321,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -337,7 +337,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -579,7 +579,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductSearchTextsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductSearchTextsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2SearchReportProductSearchTextsPost($item_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
     {
@@ -603,7 +603,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductSearchTextsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportProductSearchTextsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2SearchReportProductSearchTextsPostWithHttpInfo($item_search_texts_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportProductSearchTextsPost'][0])
     {
@@ -647,13 +647,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -665,7 +665,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -712,7 +712,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -720,7 +720,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -736,7 +736,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -978,7 +978,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportReportPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportReportPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2SearchReportReportPost($main_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportReportPost'][0])
     {
@@ -1002,7 +1002,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportReportPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportReportPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2SearchReportReportPostWithHttpInfo($main_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportReportPost'][0])
     {
@@ -1046,13 +1046,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -1064,7 +1064,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -1111,7 +1111,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1119,7 +1119,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1135,7 +1135,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1377,7 +1377,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableDetailsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableDetailsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2SearchReportTableDetailsPost($table_details_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportTableDetailsPost'][0])
     {
@@ -1401,7 +1401,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableDetailsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableDetailsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2SearchReportTableDetailsPostWithHttpInfo($table_details_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportTableDetailsPost'][0])
     {
@@ -1445,13 +1445,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -1463,7 +1463,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -1510,7 +1510,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1518,7 +1518,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1534,7 +1534,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1776,7 +1776,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2SearchReportTableGroupsPost($table_group_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportTableGroupsPost'][0])
     {
@@ -1800,7 +1800,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2SearchReportTableGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2SearchReportTableGroupsPostWithHttpInfo($table_group_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2SearchReportTableGroupsPost'][0])
     {
@@ -1844,13 +1844,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -1862,7 +1862,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -1909,7 +1909,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1917,7 +1917,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1933,7 +1933,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2175,7 +2175,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportOfficesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportOfficesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2StocksReportOfficesPost($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportOfficesPost'][0])
     {
@@ -2199,7 +2199,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportOfficesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportOfficesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2StocksReportOfficesPostWithHttpInfo($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportOfficesPost'][0])
     {
@@ -2243,13 +2243,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -2261,7 +2261,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -2308,7 +2308,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2316,7 +2316,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2332,7 +2332,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2574,7 +2574,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2StocksReportProductsGroupsPost($table_group_request_st, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsGroupsPost'][0])
     {
@@ -2598,7 +2598,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsGroupsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2StocksReportProductsGroupsPostWithHttpInfo($table_group_request_st, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsGroupsPost'][0])
     {
@@ -2642,13 +2642,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -2660,7 +2660,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -2707,7 +2707,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2715,7 +2715,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2731,7 +2731,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2973,7 +2973,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsProductsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsProductsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2StocksReportProductsProductsPost($table_item_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
     {
@@ -2997,7 +2997,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsProductsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsProductsPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2StocksReportProductsProductsPostWithHttpInfo($table_item_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsProductsPost'][0])
     {
@@ -3041,13 +3041,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -3059,7 +3059,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -3106,7 +3106,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3114,7 +3114,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3130,7 +3130,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3372,7 +3372,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsSizesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsSizesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function apiV2StocksReportProductsSizesPost($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsSizesPost'][0])
     {
@@ -3396,7 +3396,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsSizesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\ApiV2StocksReportProductsSizesPost200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiV2StocksReportProductsSizesPostWithHttpInfo($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV2StocksReportProductsSizesPost'][0])
     {
@@ -3440,13 +3440,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -3458,7 +3458,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -3505,7 +3505,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3513,7 +3513,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3529,7 +3529,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3756,1203 +3756,6 @@ class DefaultApi
     }
 
     /**
-     * Operation postSalesFunnelGroupedHistory
-     *
-     * Статистика групп карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request grouped_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelGroupedHistory'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\PostSalesFunnelGroupedHistory200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
-     */
-    public function postSalesFunnelGroupedHistory($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelGroupedHistory'][0])
-    {
-        list($response) = $this->postSalesFunnelGroupedHistoryWithHttpInfo($grouped_history_request, $hostIndex, $variables, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation postSalesFunnelGroupedHistoryWithHttpInfo
-     *
-     * Статистика групп карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelGroupedHistory'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\PostSalesFunnelGroupedHistory200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function postSalesFunnelGroupedHistoryWithHttpInfo($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelGroupedHistory'][0])
-    {
-        $request = $this->postSalesFunnelGroupedHistoryRequest($grouped_history_request, $hostIndex, $variables, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelGroupedHistory200Response',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $request,
-                        $response,
-                    );
-                case 429:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelGroupedHistory200Response',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelGroupedHistory200Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation postSalesFunnelGroupedHistoryAsync
-     *
-     * Статистика групп карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelGroupedHistory'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function postSalesFunnelGroupedHistoryAsync($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelGroupedHistory'][0])
-    {
-        return $this->postSalesFunnelGroupedHistoryAsyncWithHttpInfo($grouped_history_request, $hostIndex, $variables, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation postSalesFunnelGroupedHistoryAsyncWithHttpInfo
-     *
-     * Статистика групп карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelGroupedHistory'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function postSalesFunnelGroupedHistoryAsyncWithHttpInfo($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelGroupedHistory'][0])
-    {
-        $returnType = '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelGroupedHistory200Response';
-        $request = $this->postSalesFunnelGroupedHistoryRequest($grouped_history_request, $hostIndex, $variables, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'postSalesFunnelGroupedHistory'
-     *
-    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-    * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelGroupedHistory'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function postSalesFunnelGroupedHistoryRequest($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelGroupedHistory'][0])
-    {
-
-        // verify the required parameter 'grouped_history_request' is set
-        if ($grouped_history_request === null || (is_array($grouped_history_request) && count($grouped_history_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $grouped_history_request when calling postSalesFunnelGroupedHistory'
-            );
-        }
-
-
-        $resourcePath = '/api/analytics/v3/sales-funnel/grouped/history';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/problem+json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($grouped_history_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($grouped_history_request));
-            } else {
-                $httpBody = $grouped_history_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        # Preserve the original behavior of server indexing.
-        if ($hostIndex === null) {
-            $hostIndex = $this->hostIndex;
-        }
-
-        $hostSettings = $this->getHostSettingsForpostSalesFunnelGroupedHistory();
-
-        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
-        }
-        $operationHost = $this->config->isHostOverridden()
-            ? $this->config->getHost()
-            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Returns an array of host settings for Operation postSalesFunnelGroupedHistory
-     *
-     * @return array an array of host settings
-     */
-    protected function getHostSettingsForpostSalesFunnelGroupedHistory(): array
-    {
-        return [
-            [
-                "url" => "https://seller-analytics-api.wildberries.ru",
-                "description" => "No description provided",
-            ]
-        ];
-    }
-
-    /**
-     * Operation postSalesFunnelProducts
-     *
-     * Статистика карточек товаров за период
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request items_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
-     */
-    public function postSalesFunnelProducts($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
-    {
-        list($response) = $this->postSalesFunnelProductsWithHttpInfo($items_request, $hostIndex, $variables, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation postSalesFunnelProductsWithHttpInfo
-     *
-     * Статистика карточек товаров за период
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function postSalesFunnelProductsWithHttpInfo($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
-    {
-        $request = $this->postSalesFunnelProductsRequest($items_request, $hostIndex, $variables, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $request,
-                        $response,
-                    );
-                case 429:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation postSalesFunnelProductsAsync
-     *
-     * Статистика карточек товаров за период
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function postSalesFunnelProductsAsync($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
-    {
-        return $this->postSalesFunnelProductsAsyncWithHttpInfo($items_request, $hostIndex, $variables, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation postSalesFunnelProductsAsyncWithHttpInfo
-     *
-     * Статистика карточек товаров за период
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function postSalesFunnelProductsAsyncWithHttpInfo($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
-    {
-        $returnType = '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts200Response';
-        $request = $this->postSalesFunnelProductsRequest($items_request, $hostIndex, $variables, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'postSalesFunnelProducts'
-     *
-    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-    * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProducts'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function postSalesFunnelProductsRequest($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProducts'][0])
-    {
-
-        // verify the required parameter 'items_request' is set
-        if ($items_request === null || (is_array($items_request) && count($items_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $items_request when calling postSalesFunnelProducts'
-            );
-        }
-
-
-        $resourcePath = '/api/analytics/v3/sales-funnel/products';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/problem+json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($items_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($items_request));
-            } else {
-                $httpBody = $items_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        # Preserve the original behavior of server indexing.
-        if ($hostIndex === null) {
-            $hostIndex = $this->hostIndex;
-        }
-
-        $hostSettings = $this->getHostSettingsForpostSalesFunnelProducts();
-
-        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
-        }
-        $operationHost = $this->config->isHostOverridden()
-            ? $this->config->getHost()
-            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Returns an array of host settings for Operation postSalesFunnelProducts
-     *
-     * @return array an array of host settings
-     */
-    protected function getHostSettingsForpostSalesFunnelProducts(): array
-    {
-        return [
-            [
-                "url" => "https://seller-analytics-api.wildberries.ru",
-                "description" => "No description provided",
-            ]
-        ];
-    }
-
-    /**
-     * Operation postSalesFunnelProductsHistory
-     *
-     * Статистика карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request item_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
-     */
-    public function postSalesFunnelProductsHistory($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
-    {
-        list($response) = $this->postSalesFunnelProductsHistoryWithHttpInfo($item_history_request, $hostIndex, $variables, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation postSalesFunnelProductsHistoryWithHttpInfo
-     *
-     * Статистика карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function postSalesFunnelProductsHistoryWithHttpInfo($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
-    {
-        $request = $this->postSalesFunnelProductsHistoryRequest($item_history_request, $hostIndex, $variables, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $request,
-                        $response,
-                    );
-                case 429:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation postSalesFunnelProductsHistoryAsync
-     *
-     * Статистика карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function postSalesFunnelProductsHistoryAsync($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
-    {
-        return $this->postSalesFunnelProductsHistoryAsyncWithHttpInfo($item_history_request, $hostIndex, $variables, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation postSalesFunnelProductsHistoryAsyncWithHttpInfo
-     *
-     * Статистика карточек товаров по дням
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function postSalesFunnelProductsHistoryAsyncWithHttpInfo($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
-    {
-        $returnType = '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]';
-        $request = $this->postSalesFunnelProductsHistoryRequest($item_history_request, $hostIndex, $variables, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'postSalesFunnelProductsHistory'
-     *
-    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-    * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://seller-analytics-api.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postSalesFunnelProductsHistory'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function postSalesFunnelProductsHistoryRequest($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postSalesFunnelProductsHistory'][0])
-    {
-
-        // verify the required parameter 'item_history_request' is set
-        if ($item_history_request === null || (is_array($item_history_request) && count($item_history_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $item_history_request when calling postSalesFunnelProductsHistory'
-            );
-        }
-
-
-        $resourcePath = '/api/analytics/v3/sales-funnel/products/history';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/problem+json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($item_history_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_history_request));
-            } else {
-                $httpBody = $item_history_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        # Preserve the original behavior of server indexing.
-        if ($hostIndex === null) {
-            $hostIndex = $this->hostIndex;
-        }
-
-        $hostSettings = $this->getHostSettingsForpostSalesFunnelProductsHistory();
-
-        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
-        }
-        $operationHost = $this->config->isHostOverridden()
-            ? $this->config->getHost()
-            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Returns an array of host settings for Operation postSalesFunnelProductsHistory
-     *
-     * @return array an array of host settings
-     */
-    protected function getHostSettingsForpostSalesFunnelProductsHistory(): array
-    {
-        return [
-            [
-                "url" => "https://seller-analytics-api.wildberries.ru",
-                "description" => "No description provided",
-            ]
-        ];
-    }
-
-    /**
      * Operation postV1ItemRating
      *
      * Получить отчёт
@@ -4968,7 +3771,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\PostV1ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\PostV1ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function postV1ItemRating($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
     {
@@ -4992,7 +3795,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\PostV1ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\PostV1ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1ItemRatingWithHttpInfo($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
     {
@@ -5036,13 +3839,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -5054,7 +3857,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -5101,7 +3904,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5109,7 +3912,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5125,7 +3928,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5367,7 +4170,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Analytics\Model\PostV1StocksReportWbWarehouses200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response
+     * @return \Wildberries\Sdk\Analytics\Model\PostV1StocksReportWbWarehouses200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
     public function postV1StocksReportWbWarehouses($inventory_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1StocksReportWbWarehouses'][0])
     {
@@ -5391,7 +4194,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Analytics\Model\PostV1StocksReportWbWarehouses200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Analytics\Model\PostV1StocksReportWbWarehouses200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1StocksReportWbWarehousesWithHttpInfo($inventory_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1StocksReportWbWarehouses'][0])
     {
@@ -5435,13 +4238,13 @@ class DefaultApi
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
                 case 402:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $request,
                         $response,
                     );
@@ -5453,7 +4256,7 @@ class DefaultApi
                     );
                 case 429:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $request,
                         $response,
                     );
@@ -5500,7 +4303,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5508,7 +4311,7 @@ class DefaultApi
                 case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts402Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5524,7 +4327,7 @@ class DefaultApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\Analytics\Model\PostSalesFunnelProducts401Response',
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5741,6 +4544,1203 @@ class DefaultApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForpostV1StocksReportWbWarehouses(): array
+    {
+        return [
+            [
+                "url" => "https://seller-analytics-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV3SalesFunnelGroupedHistory
+     *
+     * Статистика групп карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request grouped_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelGroupedHistory'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelGroupedHistory200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
+     */
+    public function postV3SalesFunnelGroupedHistory($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelGroupedHistory'][0])
+    {
+        list($response) = $this->postV3SalesFunnelGroupedHistoryWithHttpInfo($grouped_history_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV3SalesFunnelGroupedHistoryWithHttpInfo
+     *
+     * Статистика групп карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelGroupedHistory'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelGroupedHistory200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV3SalesFunnelGroupedHistoryWithHttpInfo($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelGroupedHistory'][0])
+    {
+        $request = $this->postV3SalesFunnelGroupedHistoryRequest($grouped_history_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelGroupedHistory200Response',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelGroupedHistory200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelGroupedHistory200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV3SalesFunnelGroupedHistoryAsync
+     *
+     * Статистика групп карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelGroupedHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3SalesFunnelGroupedHistoryAsync($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelGroupedHistory'][0])
+    {
+        return $this->postV3SalesFunnelGroupedHistoryAsyncWithHttpInfo($grouped_history_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV3SalesFunnelGroupedHistoryAsyncWithHttpInfo
+     *
+     * Статистика групп карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelGroupedHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3SalesFunnelGroupedHistoryAsyncWithHttpInfo($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelGroupedHistory'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelGroupedHistory200Response';
+        $request = $this->postV3SalesFunnelGroupedHistoryRequest($grouped_history_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV3SalesFunnelGroupedHistory'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\GroupedHistoryRequest $grouped_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelGroupedHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV3SalesFunnelGroupedHistoryRequest($grouped_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelGroupedHistory'][0])
+    {
+
+        // verify the required parameter 'grouped_history_request' is set
+        if ($grouped_history_request === null || (is_array($grouped_history_request) && count($grouped_history_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $grouped_history_request when calling postV3SalesFunnelGroupedHistory'
+            );
+        }
+
+
+        $resourcePath = '/api/analytics/v3/sales-funnel/grouped/history';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($grouped_history_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($grouped_history_request));
+            } else {
+                $httpBody = $grouped_history_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV3SalesFunnelGroupedHistory();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV3SalesFunnelGroupedHistory
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV3SalesFunnelGroupedHistory(): array
+    {
+        return [
+            [
+                "url" => "https://seller-analytics-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV3SalesFunnelProducts
+     *
+     * Статистика карточек товаров за период
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request items_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProducts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
+     */
+    public function postV3SalesFunnelProducts($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProducts'][0])
+    {
+        list($response) = $this->postV3SalesFunnelProductsWithHttpInfo($items_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV3SalesFunnelProductsWithHttpInfo
+     *
+     * Статистика карточек товаров за период
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProducts'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV3SalesFunnelProductsWithHttpInfo($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProducts'][0])
+    {
+        $request = $this->postV3SalesFunnelProductsRequest($items_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts200Response',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV3SalesFunnelProductsAsync
+     *
+     * Статистика карточек товаров за период
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProducts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3SalesFunnelProductsAsync($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProducts'][0])
+    {
+        return $this->postV3SalesFunnelProductsAsyncWithHttpInfo($items_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV3SalesFunnelProductsAsyncWithHttpInfo
+     *
+     * Статистика карточек товаров за период
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProducts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3SalesFunnelProductsAsyncWithHttpInfo($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProducts'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts200Response';
+        $request = $this->postV3SalesFunnelProductsRequest($items_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV3SalesFunnelProducts'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemsRequest $items_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProducts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV3SalesFunnelProductsRequest($items_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProducts'][0])
+    {
+
+        // verify the required parameter 'items_request' is set
+        if ($items_request === null || (is_array($items_request) && count($items_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $items_request when calling postV3SalesFunnelProducts'
+            );
+        }
+
+
+        $resourcePath = '/api/analytics/v3/sales-funnel/products';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($items_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($items_request));
+            } else {
+                $httpBody = $items_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV3SalesFunnelProducts();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV3SalesFunnelProducts
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV3SalesFunnelProducts(): array
+    {
+        return [
+            [
+                "url" => "https://seller-analytics-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV3SalesFunnelProductsHistory
+     *
+     * Статистика карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request item_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProductsHistory'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
+     */
+    public function postV3SalesFunnelProductsHistory($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProductsHistory'][0])
+    {
+        list($response) = $this->postV3SalesFunnelProductsHistoryWithHttpInfo($item_history_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV3SalesFunnelProductsHistoryWithHttpInfo
+     *
+     * Статистика карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProductsHistory'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV3SalesFunnelProductsHistoryWithHttpInfo($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProductsHistory'][0])
+    {
+        $request = $this->postV3SalesFunnelProductsHistoryRequest($item_history_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV3SalesFunnelProductsHistoryAsync
+     *
+     * Статистика карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProductsHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3SalesFunnelProductsHistoryAsync($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProductsHistory'][0])
+    {
+        return $this->postV3SalesFunnelProductsHistoryAsyncWithHttpInfo($item_history_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV3SalesFunnelProductsHistoryAsyncWithHttpInfo
+     *
+     * Статистика карточек товаров по дням
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProductsHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3SalesFunnelProductsHistoryAsyncWithHttpInfo($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProductsHistory'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Analytics\Model\ItemHistoryResponseInner[]';
+        $request = $this->postV3SalesFunnelProductsHistoryRequest($item_history_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV3SalesFunnelProductsHistory'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemHistoryRequest $item_history_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SalesFunnelProductsHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV3SalesFunnelProductsHistoryRequest($item_history_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SalesFunnelProductsHistory'][0])
+    {
+
+        // verify the required parameter 'item_history_request' is set
+        if ($item_history_request === null || (is_array($item_history_request) && count($item_history_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $item_history_request when calling postV3SalesFunnelProductsHistory'
+            );
+        }
+
+
+        $resourcePath = '/api/analytics/v3/sales-funnel/products/history';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($item_history_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_history_request));
+            } else {
+                $httpBody = $item_history_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV3SalesFunnelProductsHistory();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV3SalesFunnelProductsHistory
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV3SalesFunnelProductsHistory(): array
     {
         return [
             [

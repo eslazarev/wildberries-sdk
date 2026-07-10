@@ -1,7 +1,7 @@
 /*
 Тарифы
 
-<div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+<div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/supplyRates)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/stockRates)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/returnCostToSeller)  </div> 
 
 API version: rates
 */
@@ -22,24 +22,24 @@ import (
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
-type ApiApiTariffsV1AcceptanceCoefficientsGetRequest struct {
+type ApiGetV1AcceptanceCoefficientsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	warehouseIDs *string
 }
 
 // ID складов.&lt;br&gt;По умолчанию возвращаются данные по всем складам
-func (r ApiApiTariffsV1AcceptanceCoefficientsGetRequest) WarehouseIDs(warehouseIDs string) ApiApiTariffsV1AcceptanceCoefficientsGetRequest {
+func (r ApiGetV1AcceptanceCoefficientsRequest) WarehouseIDs(warehouseIDs string) ApiGetV1AcceptanceCoefficientsRequest {
 	r.warehouseIDs = &warehouseIDs
 	return r
 }
 
-func (r ApiApiTariffsV1AcceptanceCoefficientsGetRequest) Execute() ([]ModelsAcceptanceCoefficient, *http.Response, error) {
-	return r.ApiService.ApiTariffsV1AcceptanceCoefficientsGetExecute(r)
+func (r ApiGetV1AcceptanceCoefficientsRequest) Execute() ([]ModelsAcceptanceCoefficient, *http.Response, error) {
+	return r.ApiService.GetV1AcceptanceCoefficientsExecute(r)
 }
 
 /*
-ApiTariffsV1AcceptanceCoefficientsGet Тарифы на поставку
+GetV1AcceptanceCoefficients Тарифы на поставку
 
 Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.
 
@@ -48,7 +48,7 @@ ApiTariffsV1AcceptanceCoefficientsGet Тарифы на поставку
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -61,10 +61,10 @@ ApiTariffsV1AcceptanceCoefficientsGet Тарифы на поставку
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiTariffsV1AcceptanceCoefficientsGetRequest
+ @return ApiGetV1AcceptanceCoefficientsRequest
 */
-func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGet(ctx context.Context) ApiApiTariffsV1AcceptanceCoefficientsGetRequest {
-	return ApiApiTariffsV1AcceptanceCoefficientsGetRequest{
+func (a *DefaultApiService) GetV1AcceptanceCoefficients(ctx context.Context) ApiGetV1AcceptanceCoefficientsRequest {
+	return ApiGetV1AcceptanceCoefficientsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -72,7 +72,7 @@ func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGet(ctx context.Co
 
 // Execute executes the request
 //  @return []ModelsAcceptanceCoefficient
-func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGetExecute(r ApiApiTariffsV1AcceptanceCoefficientsGetRequest) ([]ModelsAcceptanceCoefficient, *http.Response, error) {
+func (a *DefaultApiService) GetV1AcceptanceCoefficientsExecute(r ApiGetV1AcceptanceCoefficientsRequest) ([]ModelsAcceptanceCoefficient, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -80,7 +80,7 @@ func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGetExecute(r ApiAp
 		localVarReturnValue  []ModelsAcceptanceCoefficient
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiTariffsV1AcceptanceCoefficientsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AcceptanceCoefficients")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -159,7 +159,7 @@ func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGetExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -170,7 +170,7 @@ func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGetExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1TariffsCommissionGet402Response
+			var v GetV1TariffsCommission402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -181,7 +181,7 @@ func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGetExecute(r ApiAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -205,24 +205,24 @@ func (a *DefaultApiService) ApiTariffsV1AcceptanceCoefficientsGetExecute(r ApiAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1TariffsBoxGetRequest struct {
+type ApiGetV1TariffsBoxRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	date *string
 }
 
 // Дата в формате ГГГГ-ММ-ДД
-func (r ApiApiV1TariffsBoxGetRequest) Date(date string) ApiApiV1TariffsBoxGetRequest {
+func (r ApiGetV1TariffsBoxRequest) Date(date string) ApiGetV1TariffsBoxRequest {
 	r.date = &date
 	return r
 }
 
-func (r ApiApiV1TariffsBoxGetRequest) Execute() (*RatesBoxResponse, *http.Response, error) {
-	return r.ApiService.ApiV1TariffsBoxGetExecute(r)
+func (r ApiGetV1TariffsBoxRequest) Execute() (*RatesBoxResponse, *http.Response, error) {
+	return r.ApiService.GetV1TariffsBoxExecute(r)
 }
 
 /*
-ApiV1TariffsBoxGet Тарифы для коробов
+GetV1TariffsBox Тарифы для коробов
 
 Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:
   - доставку со склада или пункта приёма до покупателя
@@ -234,7 +234,7 @@ ApiV1TariffsBoxGet Тарифы для коробов
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -247,10 +247,10 @@ ApiV1TariffsBoxGet Тарифы для коробов
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1TariffsBoxGetRequest
+ @return ApiGetV1TariffsBoxRequest
 */
-func (a *DefaultApiService) ApiV1TariffsBoxGet(ctx context.Context) ApiApiV1TariffsBoxGetRequest {
-	return ApiApiV1TariffsBoxGetRequest{
+func (a *DefaultApiService) GetV1TariffsBox(ctx context.Context) ApiGetV1TariffsBoxRequest {
+	return ApiGetV1TariffsBoxRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -258,7 +258,7 @@ func (a *DefaultApiService) ApiV1TariffsBoxGet(ctx context.Context) ApiApiV1Tari
 
 // Execute executes the request
 //  @return RatesBoxResponse
-func (a *DefaultApiService) ApiV1TariffsBoxGetExecute(r ApiApiV1TariffsBoxGetRequest) (*RatesBoxResponse, *http.Response, error) {
+func (a *DefaultApiService) GetV1TariffsBoxExecute(r ApiGetV1TariffsBoxRequest) (*RatesBoxResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -266,7 +266,7 @@ func (a *DefaultApiService) ApiV1TariffsBoxGetExecute(r ApiApiV1TariffsBoxGetReq
 		localVarReturnValue  *RatesBoxResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1TariffsBoxGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1TariffsBox")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -346,7 +346,7 @@ func (a *DefaultApiService) ApiV1TariffsBoxGetExecute(r ApiApiV1TariffsBoxGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -357,7 +357,7 @@ func (a *DefaultApiService) ApiV1TariffsBoxGetExecute(r ApiApiV1TariffsBoxGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1TariffsCommissionGet402Response
+			var v GetV1TariffsCommission402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -368,7 +368,7 @@ func (a *DefaultApiService) ApiV1TariffsBoxGetExecute(r ApiApiV1TariffsBoxGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -392,29 +392,29 @@ func (a *DefaultApiService) ApiV1TariffsBoxGetExecute(r ApiApiV1TariffsBoxGetReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1TariffsCommissionGetRequest struct {
+type ApiGetV1TariffsCommissionRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	locale *string
 }
 
 // Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский 
-func (r ApiApiV1TariffsCommissionGetRequest) Locale(locale string) ApiApiV1TariffsCommissionGetRequest {
+func (r ApiGetV1TariffsCommissionRequest) Locale(locale string) ApiGetV1TariffsCommissionRequest {
 	r.locale = &locale
 	return r
 }
 
-func (r ApiApiV1TariffsCommissionGetRequest) Execute() (*ApiV1TariffsCommissionGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1TariffsCommissionGetExecute(r)
+func (r ApiGetV1TariffsCommissionRequest) Execute() (*GetV1TariffsCommission200Response, *http.Response, error) {
+	return r.ApiService.GetV1TariffsCommissionExecute(r)
 }
 
 /*
-ApiV1TariffsCommissionGet Комиссия по категориям товаров
+GetV1TariffsCommission Комиссия по категориям товаров
 
 Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -427,26 +427,26 @@ ApiV1TariffsCommissionGet Комиссия по категориям товар�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1TariffsCommissionGetRequest
+ @return ApiGetV1TariffsCommissionRequest
 */
-func (a *DefaultApiService) ApiV1TariffsCommissionGet(ctx context.Context) ApiApiV1TariffsCommissionGetRequest {
-	return ApiApiV1TariffsCommissionGetRequest{
+func (a *DefaultApiService) GetV1TariffsCommission(ctx context.Context) ApiGetV1TariffsCommissionRequest {
+	return ApiGetV1TariffsCommissionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1TariffsCommissionGet200Response
-func (a *DefaultApiService) ApiV1TariffsCommissionGetExecute(r ApiApiV1TariffsCommissionGetRequest) (*ApiV1TariffsCommissionGet200Response, *http.Response, error) {
+//  @return GetV1TariffsCommission200Response
+func (a *DefaultApiService) GetV1TariffsCommissionExecute(r ApiGetV1TariffsCommissionRequest) (*GetV1TariffsCommission200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1TariffsCommissionGet200Response
+		localVarReturnValue  *GetV1TariffsCommission200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1TariffsCommissionGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1TariffsCommission")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -525,7 +525,7 @@ func (a *DefaultApiService) ApiV1TariffsCommissionGetExecute(r ApiApiV1TariffsCo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -536,7 +536,7 @@ func (a *DefaultApiService) ApiV1TariffsCommissionGetExecute(r ApiApiV1TariffsCo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1TariffsCommissionGet402Response
+			var v GetV1TariffsCommission402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -547,7 +547,7 @@ func (a *DefaultApiService) ApiV1TariffsCommissionGetExecute(r ApiApiV1TariffsCo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -571,24 +571,24 @@ func (a *DefaultApiService) ApiV1TariffsCommissionGetExecute(r ApiApiV1TariffsCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1TariffsPalletGetRequest struct {
+type ApiGetV1TariffsPalletRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	date *string
 }
 
 // Дата в формате ГГГГ-ММ-ДД
-func (r ApiApiV1TariffsPalletGetRequest) Date(date string) ApiApiV1TariffsPalletGetRequest {
+func (r ApiGetV1TariffsPalletRequest) Date(date string) ApiGetV1TariffsPalletRequest {
 	r.date = &date
 	return r
 }
 
-func (r ApiApiV1TariffsPalletGetRequest) Execute() (*RatesPalletResponse, *http.Response, error) {
-	return r.ApiService.ApiV1TariffsPalletGetExecute(r)
+func (r ApiGetV1TariffsPalletRequest) Execute() (*RatesPalletResponse, *http.Response, error) {
+	return r.ApiService.GetV1TariffsPalletExecute(r)
 }
 
 /*
-ApiV1TariffsPalletGet Тарифы для монопаллет
+GetV1TariffsPallet Тарифы для монопаллет
 
 Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):
   - доставки со склада до покупателя
@@ -600,7 +600,7 @@ ApiV1TariffsPalletGet Тарифы для монопаллет
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -613,10 +613,10 @@ ApiV1TariffsPalletGet Тарифы для монопаллет
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1TariffsPalletGetRequest
+ @return ApiGetV1TariffsPalletRequest
 */
-func (a *DefaultApiService) ApiV1TariffsPalletGet(ctx context.Context) ApiApiV1TariffsPalletGetRequest {
-	return ApiApiV1TariffsPalletGetRequest{
+func (a *DefaultApiService) GetV1TariffsPallet(ctx context.Context) ApiGetV1TariffsPalletRequest {
+	return ApiGetV1TariffsPalletRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -624,7 +624,7 @@ func (a *DefaultApiService) ApiV1TariffsPalletGet(ctx context.Context) ApiApiV1T
 
 // Execute executes the request
 //  @return RatesPalletResponse
-func (a *DefaultApiService) ApiV1TariffsPalletGetExecute(r ApiApiV1TariffsPalletGetRequest) (*RatesPalletResponse, *http.Response, error) {
+func (a *DefaultApiService) GetV1TariffsPalletExecute(r ApiGetV1TariffsPalletRequest) (*RatesPalletResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -632,7 +632,7 @@ func (a *DefaultApiService) ApiV1TariffsPalletGetExecute(r ApiApiV1TariffsPallet
 		localVarReturnValue  *RatesPalletResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1TariffsPalletGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1TariffsPallet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -712,7 +712,7 @@ func (a *DefaultApiService) ApiV1TariffsPalletGetExecute(r ApiApiV1TariffsPallet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -723,7 +723,7 @@ func (a *DefaultApiService) ApiV1TariffsPalletGetExecute(r ApiApiV1TariffsPallet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1TariffsCommissionGet402Response
+			var v GetV1TariffsCommission402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -734,7 +734,7 @@ func (a *DefaultApiService) ApiV1TariffsPalletGetExecute(r ApiApiV1TariffsPallet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -758,31 +758,31 @@ func (a *DefaultApiService) ApiV1TariffsPalletGetExecute(r ApiApiV1TariffsPallet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1TariffsReturnGetRequest struct {
+type ApiGetV1TariffsReturnRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	date *string
 }
 
 // Дата в формате ГГГГ-ММ-ДД
-func (r ApiApiV1TariffsReturnGetRequest) Date(date string) ApiApiV1TariffsReturnGetRequest {
+func (r ApiGetV1TariffsReturnRequest) Date(date string) ApiGetV1TariffsReturnRequest {
 	r.date = &date
 	return r
 }
 
-func (r ApiApiV1TariffsReturnGetRequest) Execute() (*ReturnRatesResponse, *http.Response, error) {
-	return r.ApiService.ApiV1TariffsReturnGetExecute(r)
+func (r ApiGetV1TariffsReturnRequest) Execute() (*ReturnRatesResponse, *http.Response, error) {
+	return r.ApiService.GetV1TariffsReturnExecute(r)
 }
 
 /*
-ApiV1TariffsReturnGet Тарифы на возврат
+GetV1TariffsReturn Тарифы на возврат
 
 Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):
   - на перевозку товаров со склада WB или из пункта приёма до продавца
   - на обратную перевозку возвратов, которые не забрал продавец
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -795,10 +795,10 @@ ApiV1TariffsReturnGet Тарифы на возврат
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1TariffsReturnGetRequest
+ @return ApiGetV1TariffsReturnRequest
 */
-func (a *DefaultApiService) ApiV1TariffsReturnGet(ctx context.Context) ApiApiV1TariffsReturnGetRequest {
-	return ApiApiV1TariffsReturnGetRequest{
+func (a *DefaultApiService) GetV1TariffsReturn(ctx context.Context) ApiGetV1TariffsReturnRequest {
+	return ApiGetV1TariffsReturnRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -806,7 +806,7 @@ func (a *DefaultApiService) ApiV1TariffsReturnGet(ctx context.Context) ApiApiV1T
 
 // Execute executes the request
 //  @return ReturnRatesResponse
-func (a *DefaultApiService) ApiV1TariffsReturnGetExecute(r ApiApiV1TariffsReturnGetRequest) (*ReturnRatesResponse, *http.Response, error) {
+func (a *DefaultApiService) GetV1TariffsReturnExecute(r ApiGetV1TariffsReturnRequest) (*ReturnRatesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -814,7 +814,7 @@ func (a *DefaultApiService) ApiV1TariffsReturnGetExecute(r ApiApiV1TariffsReturn
 		localVarReturnValue  *ReturnRatesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1TariffsReturnGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1TariffsReturn")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -894,7 +894,7 @@ func (a *DefaultApiService) ApiV1TariffsReturnGetExecute(r ApiApiV1TariffsReturn
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -905,7 +905,7 @@ func (a *DefaultApiService) ApiV1TariffsReturnGetExecute(r ApiApiV1TariffsReturn
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1TariffsCommissionGet402Response
+			var v GetV1TariffsCommission402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -916,7 +916,7 @@ func (a *DefaultApiService) ApiV1TariffsReturnGetExecute(r ApiApiV1TariffsReturn
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1TariffsCommissionGet401Response
+			var v GetV1TariffsCommission401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -31,9 +31,9 @@ type DeliveryDatesInfoRespOrdersInner struct {
 	DDateOld NullableString `json:"dDateOld,omitempty"`
 	// Актуальная дата доставки, указанная покупателем
 	DDate *string `json:"dDate,omitempty"`
-	// Дата начала интервала для доставки, если указана покупателем
+	// Не используется
 	DDateFrom NullableString `json:"dDateFrom,omitempty"`
-	// Дата окончания интервала для доставки, если указана покупателем
+	// Не используется
 	DDateTo NullableString `json:"dDateTo,omitempty"`
 	// ID сборочного задания
 	Id *int32 `json:"id,omitempty"`

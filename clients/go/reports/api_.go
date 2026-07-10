@@ -55,7 +55,7 @@ ApiV1AcceptanceReportGet Создать отчёт
 Можно получить отчёт максимум за 31 день.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -233,7 +233,7 @@ ApiV1AcceptanceReportTasksTaskIdDownloadGet Получить отчёт
 Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -417,7 +417,7 @@ ApiV1AcceptanceReportTasksTaskIdStatusGet Проверить статус
 Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -600,7 +600,7 @@ ApiV1AnalyticsAntifraudDetailsGet Самовыкупы
 Данные доступны с августа 2023.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -786,7 +786,7 @@ ApiV1AnalyticsBannedProductsBlockedGet Заблокированные карто
 Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -977,7 +977,7 @@ ApiV1AnalyticsBannedProductsShadowedGet Скрытые из каталога
 Метод возвращает список [товаров продавца, скрытых из каталога](https://seller.wildberries.ru/analytics-reports/banned-products/shadowed).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1158,7 +1158,7 @@ ApiV1AnalyticsBrandShareBrandsGet Бренды продавца
 - Есть на складе WB.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1346,7 +1346,7 @@ ApiV1AnalyticsBrandShareGet Получить отчёт
 Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1561,7 +1561,7 @@ ApiV1AnalyticsBrandShareParentSubjectsGet Родительские катего�
 Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1767,7 +1767,7 @@ ApiV1AnalyticsGoodsLabelingGet Маркировка товара
 Можно получить данные максимум за 31 день. Данные доступны с марта 2024.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1960,7 +1960,7 @@ ApiV1AnalyticsGoodsReturnGet Получить отчёт
 Можно получить отчёт максимум за 31 день.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2153,7 +2153,7 @@ ApiV1AnalyticsRegionSaleGet Получить отчёт
 Можно получить отчёт максимум за 31 день.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2346,7 +2346,7 @@ ApiV1PaidStorageGet Создать отчёт
 Можно получить отчёт максимум за 8 дней.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2524,7 +2524,7 @@ ApiV1PaidStorageTasksTaskIdDownloadGet Получить отчёт
 Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2708,7 +2708,7 @@ ApiV1PaidStorageTasksTaskIdStatusGet Проверить статус
 Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -2872,7 +2872,7 @@ type ApiApiV1SupplierOrdersGetRequest struct {
 	flag *int32
 }
 
-// Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
+// Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
 func (r ApiApiV1SupplierOrdersGetRequest) DateFrom(dateFrom time.Time) ApiApiV1SupplierOrdersGetRequest {
 	r.dateFrom = &dateFrom
 	return r
@@ -2897,7 +2897,7 @@ ApiV1SupplierOrdersGet Заказы
 
 Информация о заказе хранится 90 дней с момента оформления.<br><br>
 
-В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br>
+В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br>
 Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://seller.wildberries.ru/content-analytics/order-feed) в личном кабинете.
 
 <div class="description_important">
@@ -2909,7 +2909,7 @@ ApiV1SupplierOrdersGet Заказы
 В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3081,7 +3081,7 @@ type ApiApiV1SupplierSalesGetRequest struct {
 	flag *int32
 }
 
-// Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/Vvedenie/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
+// Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
 func (r ApiApiV1SupplierSalesGetRequest) DateFrom(dateFrom time.Time) ApiApiV1SupplierSalesGetRequest {
 	r.dateFrom = &dateFrom
 	return r
@@ -3115,14 +3115,14 @@ ApiV1SupplierSalesGet Продажи
   - Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов
   - Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют
 
-Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty).<br><br>
+Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>
 
 Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.<br><br>
 
 В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3367,7 +3367,7 @@ ApiV1WarehouseRemainsGet Создать отчёт
 Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3600,7 +3600,7 @@ ApiV1WarehouseRemainsTasksTaskIdDownloadGet Получить отчёт
 Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3784,7 +3784,7 @@ ApiV1WarehouseRemainsTasksTaskIdStatusGet Проверить статус
 Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3941,7 +3941,7 @@ func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdStatusGetExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDeductionsRequest struct {
+type ApiGetV1DeductionsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	dateTo *time.Time
@@ -3953,52 +3953,52 @@ type ApiGetDeductionsRequest struct {
 }
 
 // Конец отчётного периода
-func (r ApiGetDeductionsRequest) DateTo(dateTo time.Time) ApiGetDeductionsRequest {
+func (r ApiGetV1DeductionsRequest) DateTo(dateTo time.Time) ApiGetV1DeductionsRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
 // Количество удержаний в ответе
-func (r ApiGetDeductionsRequest) Limit(limit int32) ApiGetDeductionsRequest {
+func (r ApiGetV1DeductionsRequest) Limit(limit int32) ApiGetV1DeductionsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Начало отчётного периода. По умолчанию используются дата и время, когда были впервые получены данные для отчёта
-func (r ApiGetDeductionsRequest) DateFrom(dateFrom time.Time) ApiGetDeductionsRequest {
+func (r ApiGetV1DeductionsRequest) DateFrom(dateFrom time.Time) ApiGetV1DeductionsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Сортировка: - &#x60;nmId&#x60; — по артикулу WB - &#x60;dtBonus&#x60; — по дате и времени удержания - &#x60;bonusSumm&#x60; — по сумме удержания 
-func (r ApiGetDeductionsRequest) Sort(sort string) ApiGetDeductionsRequest {
+func (r ApiGetV1DeductionsRequest) Sort(sort string) ApiGetV1DeductionsRequest {
 	r.sort = &sort
 	return r
 }
 
 // Порядок выдачи: - &#x60;desc&#x60; — по убыванию - &#x60;asc&#x60; — по возрастанию 
-func (r ApiGetDeductionsRequest) Order(order string) ApiGetDeductionsRequest {
+func (r ApiGetV1DeductionsRequest) Order(order string) ApiGetV1DeductionsRequest {
 	r.order = &order
 	return r
 }
 
 // Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
-func (r ApiGetDeductionsRequest) Offset(offset int32) ApiGetDeductionsRequest {
+func (r ApiGetV1DeductionsRequest) Offset(offset int32) ApiGetV1DeductionsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetDeductionsRequest) Execute() (*GetDeductions200Response, *http.Response, error) {
-	return r.ApiService.GetDeductionsExecute(r)
+func (r ApiGetV1DeductionsRequest) Execute() (*GetV1Deductions200Response, *http.Response, error) {
+	return r.ApiService.GetV1DeductionsExecute(r)
 }
 
 /*
-GetDeductions Подмены и неверные вложения
+GetV1Deductions Подмены и неверные вложения
 
 Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4011,26 +4011,26 @@ GetDeductions Подмены и неверные вложения
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetDeductionsRequest
+ @return ApiGetV1DeductionsRequest
 */
-func (a *DefaultApiService) GetDeductions(ctx context.Context) ApiGetDeductionsRequest {
-	return ApiGetDeductionsRequest{
+func (a *DefaultApiService) GetV1Deductions(ctx context.Context) ApiGetV1DeductionsRequest {
+	return ApiGetV1DeductionsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetDeductions200Response
-func (a *DefaultApiService) GetDeductionsExecute(r ApiGetDeductionsRequest) (*GetDeductions200Response, *http.Response, error) {
+//  @return GetV1Deductions200Response
+func (a *DefaultApiService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) (*GetV1Deductions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDeductions200Response
+		localVarReturnValue  *GetV1Deductions200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetDeductions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Deductions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4198,7 +4198,7 @@ func (a *DefaultApiService) GetDeductionsExecute(r ApiGetDeductionsRequest) (*Ge
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMeasurementPenaltiesRequest struct {
+type ApiGetV1MeasurementPenaltiesRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	dateTo *time.Time
@@ -4208,40 +4208,40 @@ type ApiGetMeasurementPenaltiesRequest struct {
 }
 
 // Конец отчётного периода
-func (r ApiGetMeasurementPenaltiesRequest) DateTo(dateTo time.Time) ApiGetMeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) DateTo(dateTo time.Time) ApiGetV1MeasurementPenaltiesRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
 // Количество удержаний в ответе
-func (r ApiGetMeasurementPenaltiesRequest) Limit(limit int32) ApiGetMeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) Limit(limit int32) ApiGetV1MeasurementPenaltiesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
-func (r ApiGetMeasurementPenaltiesRequest) DateFrom(dateFrom time.Time) ApiGetMeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) DateFrom(dateFrom time.Time) ApiGetV1MeasurementPenaltiesRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
-func (r ApiGetMeasurementPenaltiesRequest) Offset(offset int32) ApiGetMeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) Offset(offset int32) ApiGetV1MeasurementPenaltiesRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetMeasurementPenaltiesRequest) Execute() (*MeasurementPenalties, *http.Response, error) {
-	return r.ApiService.GetMeasurementPenaltiesExecute(r)
+func (r ApiGetV1MeasurementPenaltiesRequest) Execute() (*MeasurementPenalties, *http.Response, error) {
+	return r.ApiService.GetV1MeasurementPenaltiesExecute(r)
 }
 
 /*
-GetMeasurementPenalties Удержания за занижение габаритов упаковки
+GetV1MeasurementPenalties Удержания за занижение габаритов упаковки
 
 Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4254,10 +4254,10 @@ GetMeasurementPenalties Удержания за занижение габари�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetMeasurementPenaltiesRequest
+ @return ApiGetV1MeasurementPenaltiesRequest
 */
-func (a *DefaultApiService) GetMeasurementPenalties(ctx context.Context) ApiGetMeasurementPenaltiesRequest {
-	return ApiGetMeasurementPenaltiesRequest{
+func (a *DefaultApiService) GetV1MeasurementPenalties(ctx context.Context) ApiGetV1MeasurementPenaltiesRequest {
+	return ApiGetV1MeasurementPenaltiesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4265,7 +4265,7 @@ func (a *DefaultApiService) GetMeasurementPenalties(ctx context.Context) ApiGetM
 
 // Execute executes the request
 //  @return MeasurementPenalties
-func (a *DefaultApiService) GetMeasurementPenaltiesExecute(r ApiGetMeasurementPenaltiesRequest) (*MeasurementPenalties, *http.Response, error) {
+func (a *DefaultApiService) GetV1MeasurementPenaltiesExecute(r ApiGetV1MeasurementPenaltiesRequest) (*MeasurementPenalties, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4273,7 +4273,7 @@ func (a *DefaultApiService) GetMeasurementPenaltiesExecute(r ApiGetMeasurementPe
 		localVarReturnValue  *MeasurementPenalties
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetMeasurementPenalties")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1MeasurementPenalties")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4427,7 +4427,7 @@ func (a *DefaultApiService) GetMeasurementPenaltiesExecute(r ApiGetMeasurementPe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetWarehouseMeasurementsRequest struct {
+type ApiGetV1WarehouseMeasurementsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	dateTo *time.Time
@@ -4437,40 +4437,40 @@ type ApiGetWarehouseMeasurementsRequest struct {
 }
 
 // Конец отчётного периода
-func (r ApiGetWarehouseMeasurementsRequest) DateTo(dateTo time.Time) ApiGetWarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) DateTo(dateTo time.Time) ApiGetV1WarehouseMeasurementsRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
 // Количество замеров в ответе
-func (r ApiGetWarehouseMeasurementsRequest) Limit(limit int32) ApiGetWarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) Limit(limit int32) ApiGetV1WarehouseMeasurementsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
-func (r ApiGetWarehouseMeasurementsRequest) DateFrom(dateFrom time.Time) ApiGetWarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) DateFrom(dateFrom time.Time) ApiGetV1WarehouseMeasurementsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента
-func (r ApiGetWarehouseMeasurementsRequest) Offset(offset int32) ApiGetWarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) Offset(offset int32) ApiGetV1WarehouseMeasurementsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetWarehouseMeasurementsRequest) Execute() (*WHM, *http.Response, error) {
-	return r.ApiService.GetWarehouseMeasurementsExecute(r)
+func (r ApiGetV1WarehouseMeasurementsRequest) Execute() (*WHM, *http.Response, error) {
+	return r.ApiService.GetV1WarehouseMeasurementsExecute(r)
 }
 
 /*
-GetWarehouseMeasurements Замеры склада
+GetV1WarehouseMeasurements Замеры склада
 
 Метод возвращает отчёт о [замерах склада](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/warehouse-measurements)
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/Vvedenie/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4483,10 +4483,10 @@ GetWarehouseMeasurements Замеры склада
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetWarehouseMeasurementsRequest
+ @return ApiGetV1WarehouseMeasurementsRequest
 */
-func (a *DefaultApiService) GetWarehouseMeasurements(ctx context.Context) ApiGetWarehouseMeasurementsRequest {
-	return ApiGetWarehouseMeasurementsRequest{
+func (a *DefaultApiService) GetV1WarehouseMeasurements(ctx context.Context) ApiGetV1WarehouseMeasurementsRequest {
+	return ApiGetV1WarehouseMeasurementsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4494,7 +4494,7 @@ func (a *DefaultApiService) GetWarehouseMeasurements(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return WHM
-func (a *DefaultApiService) GetWarehouseMeasurementsExecute(r ApiGetWarehouseMeasurementsRequest) (*WHM, *http.Response, error) {
+func (a *DefaultApiService) GetV1WarehouseMeasurementsExecute(r ApiGetV1WarehouseMeasurementsRequest) (*WHM, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4502,7 +4502,7 @@ func (a *DefaultApiService) GetWarehouseMeasurementsExecute(r ApiGetWarehouseMea
 		localVarReturnValue  *WHM
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetWarehouseMeasurements")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1WarehouseMeasurements")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

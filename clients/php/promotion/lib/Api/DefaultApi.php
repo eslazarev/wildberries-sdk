@@ -1236,7 +1236,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://advert-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Promotion\Model\V0SetNormQueryBidsRequest $v0_set_norm_query_bids_request v0_set_norm_query_bids_request (required)
+     * @param  \Wildberries\Sdk\Promotion\Model\V0DeleteNormQueryBidsRequest $v0_delete_norm_query_bids_request v0_delete_norm_query_bids_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['advV0NormqueryBidsDelete'] to see the possible values for this operation
@@ -1245,9 +1245,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function advV0NormqueryBidsDelete($v0_set_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
+    public function advV0NormqueryBidsDelete($v0_delete_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
     {
-        $this->advV0NormqueryBidsDeleteWithHttpInfo($v0_set_norm_query_bids_request, $hostIndex, $variables, $contentType);
+        $this->advV0NormqueryBidsDeleteWithHttpInfo($v0_delete_norm_query_bids_request, $hostIndex, $variables, $contentType);
     }
 
     /**
@@ -1259,7 +1259,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://advert-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Promotion\Model\V0SetNormQueryBidsRequest $v0_set_norm_query_bids_request (required)
+     * @param  \Wildberries\Sdk\Promotion\Model\V0DeleteNormQueryBidsRequest $v0_delete_norm_query_bids_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['advV0NormqueryBidsDelete'] to see the possible values for this operation
@@ -1268,9 +1268,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function advV0NormqueryBidsDeleteWithHttpInfo($v0_set_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
+    public function advV0NormqueryBidsDeleteWithHttpInfo($v0_delete_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
     {
-        $request = $this->advV0NormqueryBidsDeleteRequest($v0_set_norm_query_bids_request, $hostIndex, $variables, $contentType);
+        $request = $this->advV0NormqueryBidsDeleteRequest($v0_delete_norm_query_bids_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1346,7 +1346,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://advert-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Promotion\Model\V0SetNormQueryBidsRequest $v0_set_norm_query_bids_request (required)
+     * @param  \Wildberries\Sdk\Promotion\Model\V0DeleteNormQueryBidsRequest $v0_delete_norm_query_bids_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['advV0NormqueryBidsDelete'] to see the possible values for this operation
@@ -1354,9 +1354,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function advV0NormqueryBidsDeleteAsync($v0_set_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
+    public function advV0NormqueryBidsDeleteAsync($v0_delete_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
     {
-        return $this->advV0NormqueryBidsDeleteAsyncWithHttpInfo($v0_set_norm_query_bids_request, $hostIndex, $variables, $contentType)
+        return $this->advV0NormqueryBidsDeleteAsyncWithHttpInfo($v0_delete_norm_query_bids_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1373,7 +1373,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://advert-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Promotion\Model\V0SetNormQueryBidsRequest $v0_set_norm_query_bids_request (required)
+     * @param  \Wildberries\Sdk\Promotion\Model\V0DeleteNormQueryBidsRequest $v0_delete_norm_query_bids_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['advV0NormqueryBidsDelete'] to see the possible values for this operation
@@ -1381,10 +1381,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function advV0NormqueryBidsDeleteAsyncWithHttpInfo($v0_set_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
+    public function advV0NormqueryBidsDeleteAsyncWithHttpInfo($v0_delete_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
     {
         $returnType = '';
-        $request = $this->advV0NormqueryBidsDeleteRequest($v0_set_norm_query_bids_request, $hostIndex, $variables, $contentType);
+        $request = $this->advV0NormqueryBidsDeleteRequest($v0_delete_norm_query_bids_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1416,7 +1416,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://advert-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Promotion\Model\V0SetNormQueryBidsRequest $v0_set_norm_query_bids_request (required)
+     * @param  \Wildberries\Sdk\Promotion\Model\V0DeleteNormQueryBidsRequest $v0_delete_norm_query_bids_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['advV0NormqueryBidsDelete'] to see the possible values for this operation
@@ -1424,13 +1424,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function advV0NormqueryBidsDeleteRequest($v0_set_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
+    public function advV0NormqueryBidsDeleteRequest($v0_delete_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['advV0NormqueryBidsDelete'][0])
     {
 
-        // verify the required parameter 'v0_set_norm_query_bids_request' is set
-        if ($v0_set_norm_query_bids_request === null || (is_array($v0_set_norm_query_bids_request) && count($v0_set_norm_query_bids_request) === 0)) {
+        // verify the required parameter 'v0_delete_norm_query_bids_request' is set
+        if ($v0_delete_norm_query_bids_request === null || (is_array($v0_delete_norm_query_bids_request) && count($v0_delete_norm_query_bids_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $v0_set_norm_query_bids_request when calling advV0NormqueryBidsDelete'
+                'Missing the required parameter $v0_delete_norm_query_bids_request when calling advV0NormqueryBidsDelete'
             );
         }
 
@@ -1453,12 +1453,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($v0_set_norm_query_bids_request)) {
+        if (isset($v0_delete_norm_query_bids_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($v0_set_norm_query_bids_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($v0_delete_norm_query_bids_request));
             } else {
-                $httpBody = $v0_set_norm_query_bids_request;
+                $httpBody = $v0_delete_norm_query_bids_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

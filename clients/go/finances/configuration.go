@@ -1,7 +1,7 @@
 /*
 Документы и бухгалтерия
 
-<div class=\"description_important\">   Узнать больше о документах и бухгалтерии можно в <a href=\"https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942\">справочном центре</a> </div>  <div class=\"api-block\">  Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/Balans), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/Finansovye-otchyoty) и [документов](/openapi/financial-reports-and-accounting#tag/Dokumenty) продавца.  </div> 
+<div class=\"description_important\">   Узнать больше о документах и бухгалтерии можно в <a href=\"https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942\">справочном центре</a> </div>  <div class=\"api-block\">  Просмотр [баланса](/openapi/financial-reports-and-accounting#tag/balance), [финансовых отчётов](/openapi/financial-reports-and-accounting#tag/financialReports) и [документов](/openapi/financial-reports-and-accounting#tag/documents) продавца.  </div> 
 
 API version: finances
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.123/go",
+		UserAgent:        "OpenAPI-Generator/0.1.124/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,37 +98,31 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.ApiV1AccountBalanceGet": {
+			"DefaultApiService.GetV1AccountBalance": {
 				{
 					URL: "https://finance-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1DocumentsCategoriesGet": {
+			"DefaultApiService.GetV1DocumentsCategories": {
 				{
 					URL: "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1DocumentsDownloadAllPost": {
+			"DefaultApiService.GetV1DocumentsDownload": {
 				{
 					URL: "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1DocumentsDownloadGet": {
+			"DefaultApiService.GetV1DocumentsList": {
 				{
 					URL: "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1DocumentsListGet": {
-				{
-					URL: "https://documents-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV5SupplierReportDetailByPeriodGet": {
+			"DefaultApiService.GetV5SupplierReportDetailByPeriod": {
 				{
 					URL: "https://statistics-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -153,6 +147,12 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.PostV1AcquiringList": {
 				{
 					URL: "https://finance-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV1DocumentsDownloadAll": {
+				{
+					URL: "https://documents-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},

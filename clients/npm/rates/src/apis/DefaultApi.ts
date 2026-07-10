@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Тарифы
- * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/Tarify-na-postavku)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/Tarify-na-ostatok)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/Stoimost-vozvrata-prodavcu)  </div> 
+ * <div class=\"description_important\">   Узнать больше о тарифах можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Комиссий](/openapi/wb-tariffs#tag/fees)   2. [Тарифов на поставку](/openapi/wb-tariffs#tag/supplyRates)   3. [Тарифов на остаток](/openapi/wb-tariffs#tag/stockRates)   4. [Тарифов на возврат товаров продавцу](/openapi/wb-tariffs#tag/returnCostToSeller)  </div> 
  *
  * The version of the OpenAPI document: rates
  * 
@@ -14,25 +14,25 @@
 
 import * as runtime from '../runtime';
 import {
-    type ApiV1TariffsCommissionGet200Response,
-    ApiV1TariffsCommissionGet200ResponseFromJSON,
-    ApiV1TariffsCommissionGet200ResponseToJSON,
-} from '../models/ApiV1TariffsCommissionGet200Response';
-import {
-    type ApiV1TariffsCommissionGet401Response,
-    ApiV1TariffsCommissionGet401ResponseFromJSON,
-    ApiV1TariffsCommissionGet401ResponseToJSON,
-} from '../models/ApiV1TariffsCommissionGet401Response';
-import {
-    type ApiV1TariffsCommissionGet402Response,
-    ApiV1TariffsCommissionGet402ResponseFromJSON,
-    ApiV1TariffsCommissionGet402ResponseToJSON,
-} from '../models/ApiV1TariffsCommissionGet402Response';
-import {
     type BadRequest,
     BadRequestFromJSON,
     BadRequestToJSON,
 } from '../models/BadRequest';
+import {
+    type GetV1TariffsCommission200Response,
+    GetV1TariffsCommission200ResponseFromJSON,
+    GetV1TariffsCommission200ResponseToJSON,
+} from '../models/GetV1TariffsCommission200Response';
+import {
+    type GetV1TariffsCommission401Response,
+    GetV1TariffsCommission401ResponseFromJSON,
+    GetV1TariffsCommission401ResponseToJSON,
+} from '../models/GetV1TariffsCommission401Response';
+import {
+    type GetV1TariffsCommission402Response,
+    GetV1TariffsCommission402ResponseFromJSON,
+    GetV1TariffsCommission402ResponseToJSON,
+} from '../models/GetV1TariffsCommission402Response';
 import {
     type ModelsAcceptanceCoefficient,
     ModelsAcceptanceCoefficientFromJSON,
@@ -59,23 +59,23 @@ import {
     ReturnRatesResponseToJSON,
 } from '../models/ReturnRatesResponse';
 
-export interface ApiTariffsV1AcceptanceCoefficientsGetRequest {
+export interface GetV1AcceptanceCoefficientsRequest {
     warehouseIDs?: string;
 }
 
-export interface ApiV1TariffsBoxGetRequest {
+export interface GetV1TariffsBoxRequest {
     date: string;
 }
 
-export interface ApiV1TariffsCommissionGetRequest {
+export interface GetV1TariffsCommissionRequest {
     locale?: string;
 }
 
-export interface ApiV1TariffsPalletGetRequest {
+export interface GetV1TariffsPalletRequest {
     date: string;
 }
 
-export interface ApiV1TariffsReturnGetRequest {
+export interface GetV1TariffsReturnRequest {
     date: string;
 }
 
@@ -85,9 +85,9 @@ export interface ApiV1TariffsReturnGetRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiTariffsV1AcceptanceCoefficientsGet without sending the request
+     * Creates request options for getV1AcceptanceCoefficients without sending the request
      */
-    async apiTariffsV1AcceptanceCoefficientsGetRequestOpts(requestParameters: ApiTariffsV1AcceptanceCoefficientsGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AcceptanceCoefficientsRequestOpts(requestParameters: GetV1AcceptanceCoefficientsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['warehouseIDs'] != null) {
@@ -112,33 +112,33 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.  <div class=\"description_important\">   Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.  <div class=\"description_important\">   Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы на поставку
      */
-    async apiTariffsV1AcceptanceCoefficientsGetRaw(requestParameters: ApiTariffsV1AcceptanceCoefficientsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsAcceptanceCoefficient>>> {
-        const requestOptions = await this.apiTariffsV1AcceptanceCoefficientsGetRequestOpts(requestParameters);
+    async getV1AcceptanceCoefficientsRaw(requestParameters: GetV1AcceptanceCoefficientsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ModelsAcceptanceCoefficient>>> {
+        const requestOptions = await this.getV1AcceptanceCoefficientsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ModelsAcceptanceCoefficientFromJSON));
     }
 
     /**
-     * Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.  <div class=\"description_important\">   Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.  <div class=\"description_important\">   Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы на поставку
      */
-    async apiTariffsV1AcceptanceCoefficientsGet(requestParameters: ApiTariffsV1AcceptanceCoefficientsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ModelsAcceptanceCoefficient>> {
-        const response = await this.apiTariffsV1AcceptanceCoefficientsGetRaw(requestParameters, initOverrides);
+    async getV1AcceptanceCoefficients(requestParameters: GetV1AcceptanceCoefficientsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ModelsAcceptanceCoefficient>> {
+        const response = await this.getV1AcceptanceCoefficientsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1TariffsBoxGet without sending the request
+     * Creates request options for getV1TariffsBox without sending the request
      */
-    async apiV1TariffsBoxGetRequestOpts(requestParameters: ApiV1TariffsBoxGetRequest): Promise<runtime.RequestOpts> {
+    async getV1TariffsBoxRequestOpts(requestParameters: GetV1TariffsBoxRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['date'] == null) {
             throw new runtime.RequiredError(
                 'date',
-                'Required parameter "date" was null or undefined when calling apiV1TariffsBoxGet().'
+                'Required parameter "date" was null or undefined when calling getV1TariffsBox().'
             );
         }
 
@@ -166,29 +166,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:   - доставку со склада или пункта приёма до покупателя   - доставку от покупателя до пункта приёма   - хранение на складе WB  <div class=\"description_important\">   Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:   - доставку со склада или пункта приёма до покупателя   - доставку от покупателя до пункта приёма   - хранение на складе WB  <div class=\"description_important\">   Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы для коробов
      */
-    async apiV1TariffsBoxGetRaw(requestParameters: ApiV1TariffsBoxGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatesBoxResponse>> {
-        const requestOptions = await this.apiV1TariffsBoxGetRequestOpts(requestParameters);
+    async getV1TariffsBoxRaw(requestParameters: GetV1TariffsBoxRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatesBoxResponse>> {
+        const requestOptions = await this.getV1TariffsBoxRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RatesBoxResponseFromJSON(jsonValue));
     }
 
     /**
-     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:   - доставку со склада или пункта приёма до покупателя   - доставку от покупателя до пункта приёма   - хранение на складе WB  <div class=\"description_important\">   Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:   - доставку со склада или пункта приёма до покупателя   - доставку от покупателя до пункта приёма   - хранение на складе WB  <div class=\"description_important\">   Тарифы для коробов совпадают с тарифами для <strong>Суперсейфа</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы для коробов
      */
-    async apiV1TariffsBoxGet(requestParameters: ApiV1TariffsBoxGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatesBoxResponse> {
-        const response = await this.apiV1TariffsBoxGetRaw(requestParameters, initOverrides);
+    async getV1TariffsBox(requestParameters: GetV1TariffsBoxRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatesBoxResponse> {
+        const response = await this.getV1TariffsBoxRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1TariffsCommissionGet without sending the request
+     * Creates request options for getV1TariffsCommission without sending the request
      */
-    async apiV1TariffsCommissionGetRequestOpts(requestParameters: ApiV1TariffsCommissionGetRequest): Promise<runtime.RequestOpts> {
+    async getV1TariffsCommissionRequestOpts(requestParameters: GetV1TariffsCommissionRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['locale'] != null) {
@@ -213,33 +213,33 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Комиссия по категориям товаров
      */
-    async apiV1TariffsCommissionGetRaw(requestParameters: ApiV1TariffsCommissionGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1TariffsCommissionGet200Response>> {
-        const requestOptions = await this.apiV1TariffsCommissionGetRequestOpts(requestParameters);
+    async getV1TariffsCommissionRaw(requestParameters: GetV1TariffsCommissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1TariffsCommission200Response>> {
+        const requestOptions = await this.getV1TariffsCommissionRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1TariffsCommissionGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1TariffsCommission200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1parent~1all/get) согласно модели продаж.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Комиссия по категориям товаров
      */
-    async apiV1TariffsCommissionGet(requestParameters: ApiV1TariffsCommissionGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1TariffsCommissionGet200Response> {
-        const response = await this.apiV1TariffsCommissionGetRaw(requestParameters, initOverrides);
+    async getV1TariffsCommission(requestParameters: GetV1TariffsCommissionRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1TariffsCommission200Response> {
+        const response = await this.getV1TariffsCommissionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1TariffsPalletGet without sending the request
+     * Creates request options for getV1TariffsPallet without sending the request
      */
-    async apiV1TariffsPalletGetRequestOpts(requestParameters: ApiV1TariffsPalletGetRequest): Promise<runtime.RequestOpts> {
+    async getV1TariffsPalletRequestOpts(requestParameters: GetV1TariffsPalletRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['date'] == null) {
             throw new runtime.RequiredError(
                 'date',
-                'Required parameter "date" was null or undefined when calling apiV1TariffsPalletGet().'
+                'Required parameter "date" was null or undefined when calling getV1TariffsPallet().'
             );
         }
 
@@ -267,33 +267,33 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):   - доставки со склада до покупателя   - доставки от покупателя до склада   - хранения на складе WB  <div class=\"description_important\">   Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):   - доставки со склада до покупателя   - доставки от покупателя до склада   - хранения на складе WB  <div class=\"description_important\">   Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы для монопаллет
      */
-    async apiV1TariffsPalletGetRaw(requestParameters: ApiV1TariffsPalletGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatesPalletResponse>> {
-        const requestOptions = await this.apiV1TariffsPalletGetRequestOpts(requestParameters);
+    async getV1TariffsPalletRaw(requestParameters: GetV1TariffsPalletRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatesPalletResponse>> {
+        const requestOptions = await this.getV1TariffsPalletRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RatesPalletResponseFromJSON(jsonValue));
     }
 
     /**
-     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):   - доставки со склада до покупателя   - доставки от покупателя до склада   - хранения на складе WB  <div class=\"description_important\">   Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):   - доставки со склада до покупателя   - доставки от покупателя до склада   - хранения на складе WB  <div class=\"description_important\">   Тарифы для монопаллет совпадают с тарифами для <strong>Поштучных паллет</strong> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы для монопаллет
      */
-    async apiV1TariffsPalletGet(requestParameters: ApiV1TariffsPalletGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatesPalletResponse> {
-        const response = await this.apiV1TariffsPalletGetRaw(requestParameters, initOverrides);
+    async getV1TariffsPallet(requestParameters: GetV1TariffsPalletRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatesPalletResponse> {
+        const response = await this.getV1TariffsPalletRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1TariffsReturnGet without sending the request
+     * Creates request options for getV1TariffsReturn without sending the request
      */
-    async apiV1TariffsReturnGetRequestOpts(requestParameters: ApiV1TariffsReturnGetRequest): Promise<runtime.RequestOpts> {
+    async getV1TariffsReturnRequestOpts(requestParameters: GetV1TariffsReturnRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['date'] == null) {
             throw new runtime.RequiredError(
                 'date',
-                'Required parameter "date" was null or undefined when calling apiV1TariffsReturnGet().'
+                'Required parameter "date" was null or undefined when calling getV1TariffsReturn().'
             );
         }
 
@@ -321,22 +321,22 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):   - на перевозку товаров со склада WB или из пункта приёма до продавца   - на обратную перевозку возвратов, которые не забрал продавец  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):   - на перевозку товаров со склада WB или из пункта приёма до продавца   - на обратную перевозку возвратов, которые не забрал продавец  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы на возврат
      */
-    async apiV1TariffsReturnGetRaw(requestParameters: ApiV1TariffsReturnGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReturnRatesResponse>> {
-        const requestOptions = await this.apiV1TariffsReturnGetRequestOpts(requestParameters);
+    async getV1TariffsReturnRaw(requestParameters: GetV1TariffsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReturnRatesResponse>> {
+        const requestOptions = await this.getV1TariffsReturnRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReturnRatesResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):   - на перевозку товаров со склада WB или из пункта приёма до продавца   - на обратную перевозку возвратов, которые не забрал продавец  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/Vvedenie/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):   - на перевозку товаров со склада WB или из пункта приёма до продавца   - на обратную перевозку возвратов, которые не забрал продавец  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Тарифы на возврат
      */
-    async apiV1TariffsReturnGet(requestParameters: ApiV1TariffsReturnGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReturnRatesResponse> {
-        const response = await this.apiV1TariffsReturnGetRaw(requestParameters, initOverrides);
+    async getV1TariffsReturn(requestParameters: GetV1TariffsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReturnRatesResponse> {
+        const response = await this.getV1TariffsReturnRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

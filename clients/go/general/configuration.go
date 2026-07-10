@@ -1,7 +1,7 @@
 /*
 Общее
 
-<div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/Vvedenie) - как [начать работу с WB API](/openapi/api-information#tag/Vvedenie/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/Avtorizaciya) и [создавать токены](/openapi/api-information#tag/Avtorizaciya/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/Vvedenie/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/Vvedenie/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/Vvedenie/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/Proverka-podklyucheniya-k-WB-API/paths/~1ping/get) - получить [новости портала продавцов](/openapi/api-information#tag/API-novostej/paths/~1api~1communications~1v2~1news/get) - получить [информацию о продавце](/openapi/api-information#tag/Informaciya-o-prodavce/paths/~1api~1v1~1seller-info/get) - [управлять пользователями продавца](/openapi/api-information#tag/Upravlenie-polzovatelyami-prodavca)  </div> 
+<div class=\"api-block\">  В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/introduction) - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka)  С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)  </div> 
 
 API version: general
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.123/go",
+		UserAgent:        "OpenAPI-Generator/0.1.124/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,61 +98,61 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.ApiV1InvitePost": {
+			"DefaultApiService.DeleteV1User": {
 				{
 					URL: "https://user-management-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1SellerInfoGet": {
-				{
-					URL: "https://common-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV1UserDelete": {
-				{
-					URL: "https://user-management-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV1UsersAccessPut": {
-				{
-					URL: "https://user-management-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV1UsersGet": {
-				{
-					URL: "https://user-management-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.GetCommonV1Rating": {
+			"DefaultApiService.GetV1Rating": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetCommonV1Subscriptions": {
+			"DefaultApiService.GetV1SellerInfo": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.GetCommonV1TariffConstructorOptions": {
+			"DefaultApiService.GetV1Subscriptions": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"APIAPIService.ApiCommunicationsV2NewsGet": {
+			"DefaultApiService.GetV1TariffConstructorOptions": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"WBAPIAPIService.PingGet": {
+			"DefaultApiService.GetV1Users": {
+				{
+					URL: "https://user-management-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV1Invite": {
+				{
+					URL: "https://user-management-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PutV1UsersAccess": {
+				{
+					URL: "https://user-management-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"APIAPIService.GetV2News": {
+				{
+					URL: "https://common-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"WBAPIAPIService.GetPing": {
 				{
 					URL: "https://common-api.wildberries.ru",
 					Description: "No description provided",
