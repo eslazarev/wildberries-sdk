@@ -370,7 +370,7 @@ export interface AdvV1AdvertGetRequest {
 }
 
 export interface AdvV1AdvertsGetRequest {
-    status?: number;
+    status?: string;
     type?: number;
     limit?: number;
     offset?: number;

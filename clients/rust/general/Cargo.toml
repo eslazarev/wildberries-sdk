@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_general"
-version = "0.1.124"
+version = "0.1.125"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries OpenAPI client (generated)."
 repository = "https://github.com/eslazarev/wildberries-sdk"

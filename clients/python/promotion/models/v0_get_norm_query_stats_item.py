@@ -19,7 +19,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from wildberries_sdk.promotion.models.v0_get_norm_query_stats_item_stat import V0GetNormQueryStatsItemStat
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +30,7 @@ class V0GetNormQueryStatsItem(BaseModel):
     """ # noqa: E501
     advert_id: StrictInt = Field(description="ID кампании")
     nm_id: StrictInt = Field(description="Артикул WB")
-    stats: Optional[Annotated[List[V0GetNormQueryStatsItemStat], Field(max_length=100)]] = None
+    stats: Optional[List[V0GetNormQueryStatsItemStat]] = None
     __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "stats"]
 
     model_config = ConfigDict(

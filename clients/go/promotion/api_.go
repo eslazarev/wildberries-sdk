@@ -2600,7 +2600,7 @@ func (a *DefaultApiService) AdvV1AdvertGetExecute(r ApiAdvV1AdvertGetRequest) (*
 type ApiAdvV1AdvertsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	status *int32
+	status *string
 	type_ *int32
 	limit *int32
 	offset *int32
@@ -2609,7 +2609,7 @@ type ApiAdvV1AdvertsGetRequest struct {
 }
 
 // Статус медиакампании:   - &#x60;1&#x60; — черновик   - &#x60;2&#x60; — модерация   - &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию)   - &#x60;4&#x60; — готова к запуску   - &#x60;5&#x60; — запланирована   - &#x60;6&#x60; — на показах   - &#x60;7&#x60; — завершена   - &#x60;8&#x60; — отменена   - &#x60;9&#x60; — приостановлена продавцом   - &#x60;10&#x60; — пауза по дневному лимиту   - &#x60;11&#x60; — пауза 
-func (r ApiAdvV1AdvertsGetRequest) Status(status int32) ApiAdvV1AdvertsGetRequest {
+func (r ApiAdvV1AdvertsGetRequest) Status(status string) ApiAdvV1AdvertsGetRequest {
 	r.status = &status
 	return r
 }

@@ -1010,7 +1010,7 @@ pub async fn adv_v1_advert_get(configuration: &configuration::Configuration, id:
 }
 
 /// Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn adv_v1_adverts_get(configuration: &configuration::Configuration, status: Option<i32>, r#type: Option<i32>, limit: Option<i32>, offset: Option<i32>, order: Option<&str>, direction: Option<&str>) -> Result<Vec<models::AdvV1AdvertsGet200ResponseInner>, Error<AdvV1AdvertsGetError>> {
+pub async fn adv_v1_adverts_get(configuration: &configuration::Configuration, status: Option<&str>, r#type: Option<i32>, limit: Option<i32>, offset: Option<i32>, order: Option<&str>, direction: Option<&str>) -> Result<Vec<models::AdvV1AdvertsGet200ResponseInner>, Error<AdvV1AdvertsGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_status = status;
     let p_query_type = r#type;

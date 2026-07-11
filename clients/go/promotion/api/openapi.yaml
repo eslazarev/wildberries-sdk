@@ -3163,8 +3163,8 @@ paths:
         name: status
         required: false
         schema:
-          example: 1
-          type: integer
+          example: "1,3,7"
+          type: string
         style: form
       - description: |
           Тип медиакампании:
@@ -5969,42 +5969,6 @@ components:
           shks: 4
           spend: 7.386281948385884
           currency: currency
-        - norm_query: norm_query
-          views: 1
-          clicks: 5
-          atbs: 5
-          orders: 2
-          ctr: 7.061401241503109
-          cpc: 9.301444243932576
-          cpm: 3.616076749251911
-          avg_pos: 2.027123023002322
-          shks: 4
-          spend: 7.386281948385884
-          currency: currency
-        - norm_query: norm_query
-          views: 1
-          clicks: 5
-          atbs: 5
-          orders: 2
-          ctr: 7.061401241503109
-          cpc: 9.301444243932576
-          cpm: 3.616076749251911
-          avg_pos: 2.027123023002322
-          shks: 4
-          spend: 7.386281948385884
-          currency: currency
-        - norm_query: norm_query
-          views: 1
-          clicks: 5
-          atbs: 5
-          orders: 2
-          ctr: 7.061401241503109
-          cpc: 9.301444243932576
-          cpm: 3.616076749251911
-          avg_pos: 2.027123023002322
-          shks: 4
-          spend: 7.386281948385884
-          currency: currency
       properties:
         advert_id:
           description: ID кампании
@@ -6015,7 +5979,6 @@ components:
         stats:
           items:
             $ref: "#/components/schemas/V0GetNormQueryStatsItemStat"
-          maxItems: 100
           type: array
       required:
       - advert_id
@@ -6124,81 +6087,9 @@ components:
             shks: 4
             spend: 7.386281948385884
             currency: currency
-          - norm_query: norm_query
-            views: 1
-            clicks: 5
-            atbs: 5
-            orders: 2
-            ctr: 7.061401241503109
-            cpc: 9.301444243932576
-            cpm: 3.616076749251911
-            avg_pos: 2.027123023002322
-            shks: 4
-            spend: 7.386281948385884
-            currency: currency
-          - norm_query: norm_query
-            views: 1
-            clicks: 5
-            atbs: 5
-            orders: 2
-            ctr: 7.061401241503109
-            cpc: 9.301444243932576
-            cpm: 3.616076749251911
-            avg_pos: 2.027123023002322
-            shks: 4
-            spend: 7.386281948385884
-            currency: currency
-          - norm_query: norm_query
-            views: 1
-            clicks: 5
-            atbs: 5
-            orders: 2
-            ctr: 7.061401241503109
-            cpc: 9.301444243932576
-            cpm: 3.616076749251911
-            avg_pos: 2.027123023002322
-            shks: 4
-            spend: 7.386281948385884
-            currency: currency
         - advert_id: 0
           nm_id: 6
           stats:
-          - norm_query: norm_query
-            views: 1
-            clicks: 5
-            atbs: 5
-            orders: 2
-            ctr: 7.061401241503109
-            cpc: 9.301444243932576
-            cpm: 3.616076749251911
-            avg_pos: 2.027123023002322
-            shks: 4
-            spend: 7.386281948385884
-            currency: currency
-          - norm_query: norm_query
-            views: 1
-            clicks: 5
-            atbs: 5
-            orders: 2
-            ctr: 7.061401241503109
-            cpc: 9.301444243932576
-            cpm: 3.616076749251911
-            avg_pos: 2.027123023002322
-            shks: 4
-            spend: 7.386281948385884
-            currency: currency
-          - norm_query: norm_query
-            views: 1
-            clicks: 5
-            atbs: 5
-            orders: 2
-            ctr: 7.061401241503109
-            cpc: 9.301444243932576
-            cpm: 3.616076749251911
-            avg_pos: 2.027123023002322
-            shks: 4
-            spend: 7.386281948385884
-            currency: currency
           - norm_query: norm_query
             views: 1
             clicks: 5

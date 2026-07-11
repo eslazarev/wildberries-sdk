@@ -294,10 +294,6 @@ class V0GetNormQueryStatsItem implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['nm_id'] === null) {
             $invalidProperties[] = "'nm_id' can't be null";
         }
-        if (!is_null($this->container['stats']) && (count($this->container['stats']) > 100)) {
-            $invalidProperties[] = "invalid value for 'stats', number of items must be less than or equal to 100.";
-        }
-
         return $invalidProperties;
     }
 
@@ -388,9 +384,6 @@ class V0GetNormQueryStatsItem implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($stats)) {
             throw new \InvalidArgumentException('non-nullable stats cannot be null');
-        }
-        if ((count($stats) > 100)) {
-            throw new \InvalidArgumentException('invalid value for $stats when calling V0GetNormQueryStatsItem., number of items must be less than or equal to 100.');
         }
         $this->container['stats'] = $stats;
 
