@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.07.11)
+- Promotion: изменён тип query-параметра `status` с `integer` на `string` (пример теперь `1,3,7`, что указывает на передачу списка статусов строкой).
+- Promotion: в схеме `stats` удалено ограничение `maxItems: 100` (массив `stats` больше не ограничен 100 элементами на уровне спецификации).
+
 ### Changed (2026.07.10)
 - Общие (API Information): добавлены `operationId` для методов `/ping` (`getPing`), `/api/communications/v2/news` (`getV2News`), `/api/v1/seller-info` (`getV1SellerInfo`), `/api/v1/rating` (`getV1Rating`, ранее `getCommonV1Rating`), `/api/v1/subscriptions` (`getV1Subscriptions`, ранее `getCommonV1Subscriptions`), `/api/v1/tariff-constructor/options` (`getV1TariffConstructorOptions`, ранее `getCommonV1TariffConstructorOptions`); добавлены `x-displayName` для тегов; обновлены ссылки на разделы `introduction/authorization/...` (без изменения контрактов/лимитов)
 - Управление пользователями продавца: добавлены `operationId` для `/api/v1/invite` (`postV1Invite`), `/api/v1/users` (`getV1Users`), `/api/v1/users/access` (`putV1UsersAccess`), `/api/v1/user` (`deleteV1User`); обновлены внутренние ссылки на новые теги/operationId
