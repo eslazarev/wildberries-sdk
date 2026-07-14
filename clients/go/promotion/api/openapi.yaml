@@ -206,6 +206,8 @@ paths:
                     subject:
                       id: 54
                       name: ювелирные кольца
+                  restrictions:
+                    can_change_nms: true
                   settings:
                     name: Кампания от 01.02.2024
                     payment_type: cpm
@@ -229,6 +231,8 @@ paths:
                     subject:
                       id: 69
                       name: платья
+                  restrictions:
+                    can_change_nms: false
                   settings:
                     name: 'Кампания от 28.08.2025 '
                     payment_type: cpc
@@ -4069,12 +4073,7 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
     servers:
-    - description: |
-        **Prod**
-      url: https://dp-calendar-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://dp-calendar-api-sandbox.wildberries.ru
+    - url: https://dp-calendar-api.wildberries.ru
   /api/v1/calendar/promotions/details:
     get:
       description: |
@@ -4171,12 +4170,7 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
     servers:
-    - description: |
-        **Prod**
-      url: https://dp-calendar-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://dp-calendar-api-sandbox.wildberries.ru
+    - url: https://dp-calendar-api.wildberries.ru
   /api/v1/calendar/promotions/nomenclatures:
     get:
       description: |
@@ -4314,12 +4308,7 @@ paths:
       x-readonly-method: true
       x-category: discountsandprices
     servers:
-    - description: |
-        **Prod**
-      url: https://dp-calendar-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://dp-calendar-api-sandbox.wildberries.ru
+    - url: https://dp-calendar-api.wildberries.ru
   /api/v1/calendar/promotions/upload:
     post:
       description: |
@@ -4411,12 +4400,7 @@ paths:
       x-readonly-method: false
       x-category: discountsandprices
     servers:
-    - description: |
-        **Prod**
-      url: https://dp-calendar-api.wildberries.ru
-    - description: |
-        **Sandbox**
-      url: https://dp-calendar-api-sandbox.wildberries.ru
+    - url: https://dp-calendar-api.wildberries.ru
   /adv/v0/normquery/list:
     post:
       description: |
@@ -6556,6 +6540,8 @@ components:
             placements:
               search: true
               recommendations: true
+          restrictions:
+            can_change_nms: true
           status: 2
           timestamps:
             created: 2000-01-23T04:56:07.000+00:00
@@ -6586,6 +6572,8 @@ components:
             placements:
               search: true
               recommendations: true
+          restrictions:
+            can_change_nms: true
           status: 2
           timestamps:
             created: 2000-01-23T04:56:07.000+00:00
@@ -9260,6 +9248,18 @@ components:
       - advert_id
       - nm_id
       type: object
+    GetAdverts_adverts_inner_restrictions:
+      description: Ограничения кампании
+      example:
+        can_change_nms: true
+      properties:
+        can_change_nms:
+          description: |
+            Можно ли изменять список товаров кампании:
+              - `true` — да
+              - `false` — нет
+          type: boolean
+      type: object
     GetAdverts_adverts_inner:
       example:
         bid_type: bid_type
@@ -9286,6 +9286,8 @@ components:
           placements:
             search: true
             recommendations: true
+        restrictions:
+          can_change_nms: true
         status: 2
         timestamps:
           created: 2000-01-23T04:56:07.000+00:00
@@ -9315,6 +9317,8 @@ components:
           type: array
         settings:
           $ref: "#/components/schemas/AdvertSettings"
+        restrictions:
+          $ref: "#/components/schemas/GetAdverts_adverts_inner_restrictions"
         status:
           description: |
             Статус кампании:
@@ -9338,6 +9342,7 @@ components:
       - bid_type
       - id
       - nm_settings
+      - restrictions
       - settings
       - status
       - timestamps

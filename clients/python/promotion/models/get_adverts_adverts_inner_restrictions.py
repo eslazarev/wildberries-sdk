@@ -17,36 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
-from wildberries_sdk.promotion.models.advert_nms_settings import AdvertNMsSettings
-from wildberries_sdk.promotion.models.advert_settings import AdvertSettings
-from wildberries_sdk.promotion.models.get_adverts_adverts_inner_restrictions import GetAdvertsAdvertsInnerRestrictions
-from wildberries_sdk.promotion.models.timestamps import Timestamps
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class GetAdvertsAdvertsInner(BaseModel):
+class GetAdvertsAdvertsInnerRestrictions(BaseModel):
     """
-    GetAdvertsAdvertsInner
+    Ограничения кампании
     """ # noqa: E501
-    bid_type: StrictStr = Field(description="Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка ")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    id: StrictInt = Field(description="ID кампании")
-    nm_settings: Optional[List[AdvertNMsSettings]] = Field(description="Настройки товаров")
-    settings: AdvertSettings
-    restrictions: GetAdvertsAdvertsInnerRestrictions
-    status: StrictInt = Field(description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")
-    timestamps: Timestamps
-    __properties: ClassVar[List[str]] = ["bid_type", "currency", "id", "nm_settings", "settings", "restrictions", "status", "timestamps"]
-
-    @field_validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set([-1, 4, 7, 8, 9, 11]):
-            raise ValueError("must be one of enum values (-1, 4, 7, 8, 9, 11)")
-        return value
+    can_change_nms: Optional[StrictBool] = Field(default=None, description="Можно ли изменять список товаров кампании:   - `true` — да   - `false` — нет ")
+    __properties: ClassVar[List[str]] = ["can_change_nms"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -66,7 +48,7 @@ class GetAdvertsAdvertsInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetAdvertsAdvertsInner from a JSON string"""
+        """Create an instance of GetAdvertsAdvertsInnerRestrictions from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -87,32 +69,11 @@ class GetAdvertsAdvertsInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in nm_settings (list)
-        _items = []
-        if self.nm_settings:
-            for _item_nm_settings in self.nm_settings:
-                if _item_nm_settings:
-                    _items.append(_item_nm_settings.to_dict())
-            _dict['nm_settings'] = _items
-        # override the default output from pydantic by calling `to_dict()` of settings
-        if self.settings:
-            _dict['settings'] = self.settings.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of restrictions
-        if self.restrictions:
-            _dict['restrictions'] = self.restrictions.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of timestamps
-        if self.timestamps:
-            _dict['timestamps'] = self.timestamps.to_dict()
-        # set to None if nm_settings (nullable) is None
-        # and model_fields_set contains the field
-        if self.nm_settings is None and "nm_settings" in self.model_fields_set:
-            _dict['nm_settings'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetAdvertsAdvertsInner from a dict"""
+        """Create an instance of GetAdvertsAdvertsInnerRestrictions from a dict"""
         if obj is None:
             return None
 
@@ -120,14 +81,7 @@ class GetAdvertsAdvertsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "bid_type": obj.get("bid_type"),
-            "currency": obj.get("currency"),
-            "id": obj.get("id"),
-            "nm_settings": [AdvertNMsSettings.from_dict(_item) for _item in obj["nm_settings"]] if obj.get("nm_settings") is not None else None,
-            "settings": AdvertSettings.from_dict(obj["settings"]) if obj.get("settings") is not None else None,
-            "restrictions": GetAdvertsAdvertsInnerRestrictions.from_dict(obj["restrictions"]) if obj.get("restrictions") is not None else None,
-            "status": obj.get("status"),
-            "timestamps": Timestamps.from_dict(obj["timestamps"]) if obj.get("timestamps") is not None else None
+            "can_change_nms": obj.get("can_change_nms")
         })
         return _obj
 

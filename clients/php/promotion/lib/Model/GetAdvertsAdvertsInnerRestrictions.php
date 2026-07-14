@@ -1,6 +1,6 @@
 <?php
 /**
- * GetAdvertsAdvertsInner
+ * GetAdvertsAdvertsInnerRestrictions
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Wildberries\Sdk\Promotion\ObjectSerializer;
 
 /**
- * GetAdvertsAdvertsInner Class Doc Comment
+ * GetAdvertsAdvertsInnerRestrictions Class Doc Comment
  *
  * @category Class
+ * @description Ограничения кампании
  * @package  Wildberries\Sdk\Promotion
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetAdvertsAdvertsInnerRestrictions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @var string
      */
-    protected static $openAPIModelName = 'GetAdverts_adverts_inner';
+    protected static $openAPIModelName = 'GetAdverts_adverts_inner_restrictions';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +58,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $openAPITypes = [
-        'bid_type' => 'string',
-        'currency' => 'string',
-        'id' => 'int',
-        'nm_settings' => '\Wildberries\Sdk\Promotion\Model\AdvertNMsSettings[]',
-        'settings' => '\Wildberries\Sdk\Promotion\Model\AdvertSettings',
-        'restrictions' => '\Wildberries\Sdk\Promotion\Model\GetAdvertsAdvertsInnerRestrictions',
-        'status' => 'int',
-        'timestamps' => '\Wildberries\Sdk\Promotion\Model\Timestamps'
+        'can_change_nms' => 'bool'
     ];
 
     /**
@@ -75,14 +69,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'bid_type' => null,
-        'currency' => 'ISO 4217',
-        'id' => 'int64',
-        'nm_settings' => null,
-        'settings' => null,
-        'restrictions' => null,
-        'status' => null,
-        'timestamps' => null
+        'can_change_nms' => null
     ];
 
     /**
@@ -91,14 +78,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'bid_type' => false,
-        'currency' => false,
-        'id' => false,
-        'nm_settings' => true,
-        'settings' => false,
-        'restrictions' => false,
-        'status' => false,
-        'timestamps' => false
+        'can_change_nms' => false
     ];
 
     /**
@@ -187,14 +167,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'bid_type' => 'bid_type',
-        'currency' => 'currency',
-        'id' => 'id',
-        'nm_settings' => 'nm_settings',
-        'settings' => 'settings',
-        'restrictions' => 'restrictions',
-        'status' => 'status',
-        'timestamps' => 'timestamps'
+        'can_change_nms' => 'can_change_nms'
     ];
 
     /**
@@ -203,14 +176,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'bid_type' => 'setBidType',
-        'currency' => 'setCurrency',
-        'id' => 'setId',
-        'nm_settings' => 'setNmSettings',
-        'settings' => 'setSettings',
-        'restrictions' => 'setRestrictions',
-        'status' => 'setStatus',
-        'timestamps' => 'setTimestamps'
+        'can_change_nms' => 'setCanChangeNms'
     ];
 
     /**
@@ -219,14 +185,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'bid_type' => 'getBidType',
-        'currency' => 'getCurrency',
-        'id' => 'getId',
-        'nm_settings' => 'getNmSettings',
-        'settings' => 'getSettings',
-        'restrictions' => 'getRestrictions',
-        'status' => 'getStatus',
-        'timestamps' => 'getTimestamps'
+        'can_change_nms' => 'getCanChangeNms'
     ];
 
     /**
@@ -270,29 +229,6 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    public const STATUS_MINUS_1 = -1;
-    public const STATUS_NUMBER_4 = 4;
-    public const STATUS_NUMBER_7 = 7;
-    public const STATUS_NUMBER_8 = 8;
-    public const STATUS_NUMBER_9 = 9;
-    public const STATUS_NUMBER_11 = 11;
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_MINUS_1,
-            self::STATUS_NUMBER_4,
-            self::STATUS_NUMBER_7,
-            self::STATUS_NUMBER_8,
-            self::STATUS_NUMBER_9,
-            self::STATUS_NUMBER_11,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -309,14 +245,7 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('bid_type', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('nm_settings', $data ?? [], null);
-        $this->setIfExists('settings', $data ?? [], null);
-        $this->setIfExists('restrictions', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('timestamps', $data ?? [], null);
+        $this->setIfExists('can_change_nms', $data ?? [], null);
     }
 
     /**
@@ -346,36 +275,6 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['bid_type'] === null) {
-            $invalidProperties[] = "'bid_type' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['nm_settings'] === null && !$this->isNullableSetToNull('nm_settings')) {
-            $invalidProperties[] = "'nm_settings' is required";
-        }
-        if ($this->container['settings'] === null) {
-            $invalidProperties[] = "'settings' can't be null";
-        }
-        if ($this->container['restrictions'] === null) {
-            $invalidProperties[] = "'restrictions' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['timestamps'] === null) {
-            $invalidProperties[] = "'timestamps' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -392,234 +291,28 @@ class GetAdvertsAdvertsInner implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets bid_type
+     * Gets can_change_nms
      *
-     * @return string
+     * @return bool|null
      */
-    public function getBidType()
+    public function getCanChangeNms()
     {
-        return $this->container['bid_type'];
+        return $this->container['can_change_nms'];
     }
 
     /**
-     * Sets bid_type
+     * Sets can_change_nms
      *
-     * @param string $bid_type Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка
+     * @param bool|null $can_change_nms Можно ли изменять список товаров кампании:   - `true` — да   - `false` — нет
      *
      * @return self
      */
-    public function setBidType($bid_type)
+    public function setCanChangeNms($can_change_nms)
     {
-        if (is_null($bid_type)) {
-            throw new \InvalidArgumentException('non-nullable bid_type cannot be null');
+        if (is_null($can_change_nms)) {
+            throw new \InvalidArgumentException('non-nullable can_change_nms cannot be null');
         }
-        $this->container['bid_type'] = $bid_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id ID кампании
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets nm_settings
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\AdvertNMsSettings[]|null
-     */
-    public function getNmSettings()
-    {
-        return $this->container['nm_settings'];
-    }
-
-    /**
-     * Sets nm_settings
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\AdvertNMsSettings[]|null $nm_settings Настройки товаров
-     *
-     * @return self
-     */
-    public function setNmSettings($nm_settings)
-    {
-        if (is_null($nm_settings)) {
-            array_push($this->openAPINullablesSetToNull, 'nm_settings');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('nm_settings', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['nm_settings'] = $nm_settings;
-
-        return $this;
-    }
-
-    /**
-     * Gets settings
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\AdvertSettings
-     */
-    public function getSettings()
-    {
-        return $this->container['settings'];
-    }
-
-    /**
-     * Sets settings
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\AdvertSettings $settings settings
-     *
-     * @return self
-     */
-    public function setSettings($settings)
-    {
-        if (is_null($settings)) {
-            throw new \InvalidArgumentException('non-nullable settings cannot be null');
-        }
-        $this->container['settings'] = $settings;
-
-        return $this;
-    }
-
-    /**
-     * Gets restrictions
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\GetAdvertsAdvertsInnerRestrictions
-     */
-    public function getRestrictions()
-    {
-        return $this->container['restrictions'];
-    }
-
-    /**
-     * Sets restrictions
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\GetAdvertsAdvertsInnerRestrictions $restrictions restrictions
-     *
-     * @return self
-     */
-    public function setRestrictions($restrictions)
-    {
-        if (is_null($restrictions)) {
-            throw new \InvalidArgumentException('non-nullable restrictions cannot be null');
-        }
-        $this->container['restrictions'] = $restrictions;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int $status Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets timestamps
-     *
-     * @return \Wildberries\Sdk\Promotion\Model\Timestamps
-     */
-    public function getTimestamps()
-    {
-        return $this->container['timestamps'];
-    }
-
-    /**
-     * Sets timestamps
-     *
-     * @param \Wildberries\Sdk\Promotion\Model\Timestamps $timestamps timestamps
-     *
-     * @return self
-     */
-    public function setTimestamps($timestamps)
-    {
-        if (is_null($timestamps)) {
-            throw new \InvalidArgumentException('non-nullable timestamps cannot be null');
-        }
-        $this->container['timestamps'] = $timestamps;
+        $this->container['can_change_nms'] = $can_change_nms;
 
         return $this;
     }

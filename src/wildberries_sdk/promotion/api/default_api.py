@@ -9673,7 +9673,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiV1CalendarPromotionsDetailsGet200Response:
         """Детальная информация об акциях
 
@@ -9744,7 +9744,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[ApiV1CalendarPromotionsDetailsGet200Response]:
         """Детальная информация об акциях
 
@@ -9815,7 +9815,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
         """Детальная информация об акциях
 
@@ -9877,8 +9877,7 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://dp-calendar-api.wildberries.ru',
-            'https://dp-calendar-api-sandbox.wildberries.ru'
+            'https://dp-calendar-api.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -9958,7 +9957,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiV1CalendarPromotionsGet200Response:
         """Список акций
 
@@ -10045,7 +10044,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[ApiV1CalendarPromotionsGet200Response]:
         """Список акций
 
@@ -10132,7 +10131,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
         """Список акций
 
@@ -10210,8 +10209,7 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://dp-calendar-api.wildberries.ru',
-            'https://dp-calendar-api-sandbox.wildberries.ru'
+            'https://dp-calendar-api.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -10323,7 +10321,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiV1CalendarPromotionsNomenclaturesGet200Response:
         """Список товаров для участия в акции
 
@@ -10407,7 +10405,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[ApiV1CalendarPromotionsNomenclaturesGet200Response]:
         """Список товаров для участия в акции
 
@@ -10491,7 +10489,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
         """Список товаров для участия в акции
 
@@ -10566,8 +10564,7 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://dp-calendar-api.wildberries.ru',
-            'https://dp-calendar-api-sandbox.wildberries.ru'
+            'https://dp-calendar-api.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 
@@ -10654,7 +10651,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiV1CalendarPromotionsUploadPost200Response:
         """Добавить товар в акцию
 
@@ -10726,7 +10723,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[ApiV1CalendarPromotionsUploadPost200Response]:
         """Добавить товар в акцию
 
@@ -10798,7 +10795,7 @@ class DefaultApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
         """Добавить товар в акцию
 
@@ -10861,8 +10858,7 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://dp-calendar-api.wildberries.ru',
-            'https://dp-calendar-api-sandbox.wildberries.ru'
+            'https://dp-calendar-api.wildberries.ru'
         ]
         _host = _hosts[_host_index]
 

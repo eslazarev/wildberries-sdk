@@ -91,6 +91,7 @@ from wildberries_sdk.promotion.models.full_stats_error_errors_inner import FullS
 from wildberries_sdk.promotion.models.full_stats_item import FullStatsItem
 from wildberries_sdk.promotion.models.get_adverts import GetAdverts
 from wildberries_sdk.promotion.models.get_adverts_adverts_inner import GetAdvertsAdvertsInner
+from wildberries_sdk.promotion.models.get_adverts_adverts_inner_restrictions import GetAdvertsAdvertsInnerRestrictions
 from wildberries_sdk.promotion.models.model400_response import Model400Response
 from wildberries_sdk.promotion.models.norm_query_bid_fail_response_item import NormQueryBidFailResponseItem
 from wildberries_sdk.promotion.models.placement_type import PlacementType

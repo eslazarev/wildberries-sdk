@@ -30,6 +30,7 @@ type GetAdvertsAdvertsInner struct {
 	// Настройки товаров
 	NmSettings []AdvertNMsSettings `json:"nm_settings"`
 	Settings AdvertSettings `json:"settings"`
+	Restrictions GetAdvertsAdvertsInnerRestrictions `json:"restrictions"`
 	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе 
 	Status int32 `json:"status"`
 	Timestamps Timestamps `json:"timestamps"`
@@ -41,12 +42,13 @@ type _GetAdvertsAdvertsInner GetAdvertsAdvertsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetAdvertsAdvertsInner(bidType string, id int64, nmSettings []AdvertNMsSettings, settings AdvertSettings, status int32, timestamps Timestamps) *GetAdvertsAdvertsInner {
+func NewGetAdvertsAdvertsInner(bidType string, id int64, nmSettings []AdvertNMsSettings, settings AdvertSettings, restrictions GetAdvertsAdvertsInnerRestrictions, status int32, timestamps Timestamps) *GetAdvertsAdvertsInner {
 	this := GetAdvertsAdvertsInner{}
 	this.BidType = bidType
 	this.Id = id
 	this.NmSettings = nmSettings
 	this.Settings = settings
+	this.Restrictions = restrictions
 	this.Status = status
 	this.Timestamps = timestamps
 	return &this
@@ -190,6 +192,30 @@ func (o *GetAdvertsAdvertsInner) SetSettings(v AdvertSettings) {
 	o.Settings = v
 }
 
+// GetRestrictions returns the Restrictions field value
+func (o *GetAdvertsAdvertsInner) GetRestrictions() GetAdvertsAdvertsInnerRestrictions {
+	if o == nil {
+		var ret GetAdvertsAdvertsInnerRestrictions
+		return ret
+	}
+
+	return o.Restrictions
+}
+
+// GetRestrictionsOk returns a tuple with the Restrictions field value
+// and a boolean to check if the value has been set.
+func (o *GetAdvertsAdvertsInner) GetRestrictionsOk() (*GetAdvertsAdvertsInnerRestrictions, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Restrictions, true
+}
+
+// SetRestrictions sets field value
+func (o *GetAdvertsAdvertsInner) SetRestrictions(v GetAdvertsAdvertsInnerRestrictions) {
+	o.Restrictions = v
+}
+
 // GetStatus returns the Status field value
 func (o *GetAdvertsAdvertsInner) GetStatus() int32 {
 	if o == nil {
@@ -257,6 +283,7 @@ func (o GetAdvertsAdvertsInner) ToMap() (map[string]interface{}, error) {
 		toSerialize["nm_settings"] = o.NmSettings
 	}
 	toSerialize["settings"] = o.Settings
+	toSerialize["restrictions"] = o.Restrictions
 	toSerialize["status"] = o.Status
 	toSerialize["timestamps"] = o.Timestamps
 	return toSerialize, nil
@@ -271,6 +298,7 @@ func (o *GetAdvertsAdvertsInner) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"nm_settings",
 		"settings",
+		"restrictions",
 		"status",
 		"timestamps",
 	}

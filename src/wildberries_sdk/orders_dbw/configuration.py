@@ -570,7 +570,7 @@ conf = wildberries_sdk.orders_dbw.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: ordersdbw\n"\
-               "SDK Package Version: 0.1.125".\
+               "SDK Package Version: 0.1.126".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:

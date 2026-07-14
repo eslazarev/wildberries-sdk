@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from wildberries_sdk.promotion.models.advert_nms_settings import AdvertNMsSettings
 from wildberries_sdk.promotion.models.advert_settings import AdvertSettings
+from wildberries_sdk.promotion.models.get_adverts_adverts_inner_restrictions import GetAdvertsAdvertsInnerRestrictions
 from wildberries_sdk.promotion.models.timestamps import Timestamps
 from typing import Optional, Set
 from typing_extensions import Self
@@ -35,9 +36,10 @@ class GetAdvertsAdvertsInner(BaseModel):
     id: StrictInt = Field(description="ID кампании")
     nm_settings: Optional[List[AdvertNMsSettings]] = Field(description="Настройки товаров")
     settings: AdvertSettings
+    restrictions: GetAdvertsAdvertsInnerRestrictions
     status: StrictInt = Field(description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")
     timestamps: Timestamps
-    __properties: ClassVar[List[str]] = ["bid_type", "currency", "id", "nm_settings", "settings", "status", "timestamps"]
+    __properties: ClassVar[List[str]] = ["bid_type", "currency", "id", "nm_settings", "settings", "restrictions", "status", "timestamps"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -95,6 +97,9 @@ class GetAdvertsAdvertsInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of settings
         if self.settings:
             _dict['settings'] = self.settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of restrictions
+        if self.restrictions:
+            _dict['restrictions'] = self.restrictions.to_dict()
         # override the default output from pydantic by calling `to_dict()` of timestamps
         if self.timestamps:
             _dict['timestamps'] = self.timestamps.to_dict()
@@ -120,6 +125,7 @@ class GetAdvertsAdvertsInner(BaseModel):
             "id": obj.get("id"),
             "nm_settings": [AdvertNMsSettings.from_dict(_item) for _item in obj["nm_settings"]] if obj.get("nm_settings") is not None else None,
             "settings": AdvertSettings.from_dict(obj["settings"]) if obj.get("settings") is not None else None,
+            "restrictions": GetAdvertsAdvertsInnerRestrictions.from_dict(obj["restrictions"]) if obj.get("restrictions") is not None else None,
             "status": obj.get("status"),
             "timestamps": Timestamps.from_dict(obj["timestamps"]) if obj.get("timestamps") is not None else None
         })

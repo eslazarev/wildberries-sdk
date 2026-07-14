@@ -27,6 +27,13 @@ import {
     AdvertNMsSettingsToJSON,
     AdvertNMsSettingsToJSONTyped,
 } from './AdvertNMsSettings';
+import type { GetAdvertsAdvertsInnerRestrictions } from './GetAdvertsAdvertsInnerRestrictions';
+import {
+    GetAdvertsAdvertsInnerRestrictionsFromJSON,
+    GetAdvertsAdvertsInnerRestrictionsFromJSONTyped,
+    GetAdvertsAdvertsInnerRestrictionsToJSON,
+    GetAdvertsAdvertsInnerRestrictionsToJSONTyped,
+} from './GetAdvertsAdvertsInnerRestrictions';
 import type { AdvertSettings } from './AdvertSettings';
 import {
     AdvertSettingsFromJSON,
@@ -75,6 +82,12 @@ export interface GetAdvertsAdvertsInner {
      */
     settings: AdvertSettings;
     /**
+     * 
+     * @type {GetAdvertsAdvertsInnerRestrictions}
+     * @memberof GetAdvertsAdvertsInner
+     */
+    restrictions: GetAdvertsAdvertsInnerRestrictions;
+    /**
      * Статус кампании:
      * - `-1` — удалена, процесс удаления будет завершён в течение 10 минут
      * - `4` — готова к запуску
@@ -118,6 +131,7 @@ export function instanceOfGetAdvertsAdvertsInner(value: object): value is GetAdv
     if (!('id' in value) || value['id'] === undefined) return false;
     if ((!('nmSettings' in (value as Record<string, any>)) && !('nm_settings' in (value as Record<string, any>))) || ((value as Record<string, any>)['nmSettings'] === undefined && (value as Record<string, any>)['nm_settings'] === undefined)) return false;
     if (!('settings' in value) || value['settings'] === undefined) return false;
+    if (!('restrictions' in value) || value['restrictions'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('timestamps' in value) || value['timestamps'] === undefined) return false;
     return true;
@@ -138,6 +152,7 @@ export function GetAdvertsAdvertsInnerFromJSONTyped(json: any, ignoreDiscriminat
         'id': json['id'],
         'nmSettings': (json['nm_settings'] == null ? null : (json['nm_settings'] as Array<any>).map(AdvertNMsSettingsFromJSON)),
         'settings': AdvertSettingsFromJSON(json['settings']),
+        'restrictions': GetAdvertsAdvertsInnerRestrictionsFromJSON(json['restrictions']),
         'status': json['status'],
         'timestamps': TimestampsFromJSON(json['timestamps']),
     };
@@ -159,6 +174,7 @@ export function GetAdvertsAdvertsInnerToJSONTyped(value?: GetAdvertsAdvertsInner
         'id': value['id'],
         'nm_settings': (value['nmSettings'] == null ? null : (value['nmSettings'] as Array<any>).map(AdvertNMsSettingsToJSON)),
         'settings': AdvertSettingsToJSON(value['settings']),
+        'restrictions': GetAdvertsAdvertsInnerRestrictionsToJSON(value['restrictions']),
         'status': value['status'],
         'timestamps': TimestampsToJSON(value['timestamps']),
     };

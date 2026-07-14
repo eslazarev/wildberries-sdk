@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.125"
+__version__ = "0.1.126"
 
 # Define package exports
 __all__ = [
@@ -106,6 +106,7 @@ __all__ = [
     "FullStatsItem",
     "GetAdverts",
     "GetAdvertsAdvertsInner",
+    "GetAdvertsAdvertsInnerRestrictions",
     "Model400Response",
     "NormQueryBidFailResponseItem",
     "PlacementType",
@@ -266,6 +267,7 @@ from wildberries_sdk.promotion.models.full_stats_error_errors_inner import FullS
 from wildberries_sdk.promotion.models.full_stats_item import FullStatsItem as FullStatsItem
 from wildberries_sdk.promotion.models.get_adverts import GetAdverts as GetAdverts
 from wildberries_sdk.promotion.models.get_adverts_adverts_inner import GetAdvertsAdvertsInner as GetAdvertsAdvertsInner
+from wildberries_sdk.promotion.models.get_adverts_adverts_inner_restrictions import GetAdvertsAdvertsInnerRestrictions as GetAdvertsAdvertsInnerRestrictions
 from wildberries_sdk.promotion.models.model400_response import Model400Response as Model400Response
 from wildberries_sdk.promotion.models.norm_query_bid_fail_response_item import NormQueryBidFailResponseItem as NormQueryBidFailResponseItem
 from wildberries_sdk.promotion.models.placement_type import PlacementType as PlacementType

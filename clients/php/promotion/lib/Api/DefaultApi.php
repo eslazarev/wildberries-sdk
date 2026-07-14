@@ -12204,7 +12204,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int[] $promotion_ids ID акций, по которым нужно вернуть информацию (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12229,7 +12228,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int[] $promotion_ids ID акций, по которым нужно вернуть информацию (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12377,7 +12375,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int[] $promotion_ids ID акций, по которым нужно вернуть информацию (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12405,7 +12402,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int[] $promotion_ids ID акций, по которым нужно вернуть информацию (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12462,7 +12458,6 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int[] $promotion_ids ID акций, по которым нужно вернуть информацию (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -12589,11 +12584,7 @@ class DefaultApi
         return [
             [
                 "url" => "https://dp-calendar-api.wildberries.ru",
-                "description" => "**Prod**",
-            ],
-            [
-                "url" => "https://dp-calendar-api-sandbox.wildberries.ru",
-                "description" => "**Sandbox**",
+                "description" => "No description provided",
             ]
         ];
     }
@@ -12606,7 +12597,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $start_date_time Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
      * @param  \DateTime $end_date_time Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -12635,7 +12625,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $start_date_time Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
      * @param  \DateTime $end_date_time Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -12787,7 +12776,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $start_date_time Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
      * @param  \DateTime $end_date_time Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -12819,7 +12807,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $start_date_time Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
      * @param  \DateTime $end_date_time Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -12880,7 +12867,6 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \DateTime $start_date_time Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
      * @param  \DateTime $end_date_time Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; (required)
@@ -13066,11 +13052,7 @@ class DefaultApi
         return [
             [
                 "url" => "https://dp-calendar-api.wildberries.ru",
-                "description" => "**Prod**",
-            ],
-            [
-                "url" => "https://dp-calendar-api-sandbox.wildberries.ru",
-                "description" => "**Sandbox**",
+                "description" => "No description provided",
             ]
         ];
     }
@@ -13083,7 +13065,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int $promotion_id ID акции (required)
      * @param  bool $in_action Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
@@ -13111,7 +13092,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int $promotion_id ID акции (required)
      * @param  bool $in_action Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
@@ -13276,7 +13256,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int $promotion_id ID акции (required)
      * @param  bool $in_action Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
@@ -13307,7 +13286,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int $promotion_id ID акции (required)
      * @param  bool $in_action Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
@@ -13367,7 +13345,6 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  int $promotion_id ID акции (required)
      * @param  bool $in_action Участвует в акции:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет (required)
@@ -13536,11 +13513,7 @@ class DefaultApi
         return [
             [
                 "url" => "https://dp-calendar-api.wildberries.ru",
-                "description" => "**Prod**",
-            ],
-            [
-                "url" => "https://dp-calendar-api-sandbox.wildberries.ru",
-                "description" => "**Sandbox**",
+                "description" => "No description provided",
             ]
         ];
     }
@@ -13553,7 +13526,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Promotion\Model\ApiV1CalendarPromotionsUploadPostRequest $api_v1_calendar_promotions_upload_post_request api_v1_calendar_promotions_upload_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13578,7 +13550,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Promotion\Model\ApiV1CalendarPromotionsUploadPostRequest $api_v1_calendar_promotions_upload_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13740,7 +13711,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Promotion\Model\ApiV1CalendarPromotionsUploadPostRequest $api_v1_calendar_promotions_upload_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13768,7 +13738,6 @@ class DefaultApi
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Promotion\Model\ApiV1CalendarPromotionsUploadPostRequest $api_v1_calendar_promotions_upload_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13825,7 +13794,6 @@ class DefaultApi
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://dp-calendar-api.wildberries.ru
-     * URL: https://dp-calendar-api-sandbox.wildberries.ru
      *
      * @param  \Wildberries\Sdk\Promotion\Model\ApiV1CalendarPromotionsUploadPostRequest $api_v1_calendar_promotions_upload_post_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
@@ -13944,11 +13912,7 @@ class DefaultApi
         return [
             [
                 "url" => "https://dp-calendar-api.wildberries.ru",
-                "description" => "**Prod**",
-            ],
-            [
-                "url" => "https://dp-calendar-api-sandbox.wildberries.ru",
-                "description" => "**Sandbox**",
+                "description" => "No description provided",
             ]
         ];
     }

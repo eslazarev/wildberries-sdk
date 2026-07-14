@@ -154,6 +154,8 @@ pub mod get_adverts;
 pub use self::get_adverts::GetAdverts;
 pub mod get_adverts_adverts_inner;
 pub use self::get_adverts_adverts_inner::GetAdvertsAdvertsInner;
+pub mod get_adverts_adverts_inner_restrictions;
+pub use self::get_adverts_adverts_inner_restrictions::GetAdvertsAdvertsInnerRestrictions;
 pub mod model_400_response;
 pub use self::model_400_response::Model400Response;
 pub mod norm_query_bid_fail_response_item;

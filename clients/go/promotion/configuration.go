@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.125/go",
+		UserAgent:        "OpenAPI-Generator/0.1.126/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -355,41 +355,25 @@ func NewConfiguration() *Configuration {
 			"DefaultApiService.ApiV1CalendarPromotionsDetailsGet": {
 				{
 					URL: "https://dp-calendar-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://dp-calendar-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.ApiV1CalendarPromotionsGet": {
 				{
 					URL: "https://dp-calendar-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://dp-calendar-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.ApiV1CalendarPromotionsNomenclaturesGet": {
 				{
 					URL: "https://dp-calendar-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://dp-calendar-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.ApiV1CalendarPromotionsUploadPost": {
 				{
 					URL: "https://dp-calendar-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://dp-calendar-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Config": {

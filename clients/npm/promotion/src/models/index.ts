@@ -78,6 +78,7 @@ export * from './FullStatsErrorErrorsInner';
 export * from './FullStatsItem';
 export * from './GetAdverts';
 export * from './GetAdvertsAdvertsInner';
+export * from './GetAdvertsAdvertsInnerRestrictions';
 export * from './Model400Response';
 export * from './NormQueryBidFailResponseItem';
 export * from './PlacementType';
