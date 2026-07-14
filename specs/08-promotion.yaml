@@ -216,6 +216,8 @@ paths:
                         subject:
                           id: 54
                           name: ювелирные кольца
+                    restrictions:
+                      can_change_nms: true
                     settings:
                       name: Кампания от 01.02.2024
                       payment_type: cpm
@@ -239,6 +241,8 @@ paths:
                         subject:
                           id: 69
                           name: платья
+                    restrictions:
+                      can_change_nms: false
                     settings:
                       name: 'Кампания от 28.08.2025 '
                       payment_type: cpc
@@ -3795,11 +3799,6 @@ paths:
   /api/v1/calendar/promotions:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://dp-calendar-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -3842,11 +3841,6 @@ paths:
   /api/v1/calendar/promotions/details:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://dp-calendar-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -3885,11 +3879,6 @@ paths:
   /api/v1/calendar/promotions/nomenclatures:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://dp-calendar-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     get:
       x-readonly-method: true
       x-category: discountsandprices
@@ -3934,11 +3923,6 @@ paths:
   /api/v1/calendar/promotions/upload:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://dp-calendar-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
     post:
       x-readonly-method: false
       x-category: discountsandprices
@@ -4965,6 +4949,7 @@ components:
               - nm_settings
               - status
               - bid_type
+              - restrictions
             properties:
               bid_type:
                 type: string
@@ -4988,6 +4973,16 @@ components:
                   $ref: '#/components/schemas/AdvertNMsSettings'
               settings:
                 $ref: '#/components/schemas/AdvertSettings'
+              restrictions:
+                type: object
+                description: Ограничения кампании
+                properties:
+                  can_change_nms:
+                    type: boolean
+                    description: |
+                      Можно ли изменять список товаров кампании:
+                        - `true` — да
+                        - `false` — нет
               status:
                 description: |
                   Статус кампании:

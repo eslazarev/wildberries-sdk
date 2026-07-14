@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.07.14)
+- Promotion/Реклама: в ответах кампаний добавлено новое обязательное поле `restrictions` (объект «Ограничения кампании») с флагом `can_change_nms: boolean`, определяющим, можно ли изменять список товаров (НМ) в кампании.
+- Promotion/Календарь промо: из описания `servers` для эндпоинтов `GET /api/v1/calendar/promotions`, `GET /api/v1/calendar/promotions/details`, `GET /api/v1/calendar/promotions/nomenclatures`, `POST /api/v1/calendar/promotions/upload` удалён sandbox-сервер `https://dp-calendar-api-sandbox.wildberries.ru` (остаётся только `https://dp-calendar-api.wildberries.ru`).
+
 ### Changed (2026.07.11)
 - Promotion: изменён тип query-параметра `status` с `integer` на `string` (пример теперь `1,3,7`, что указывает на передачу списка статусов строкой).
 - Promotion: в схеме `stats` удалено ограничение `maxItems: 100` (массив `stats` больше не ограничен 100 элементами на уровне спецификации).
