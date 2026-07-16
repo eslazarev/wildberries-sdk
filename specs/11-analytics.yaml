@@ -6287,7 +6287,7 @@ components:
                 description: Заголовок ошибки
               detail:
                 type: string
-                description: Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
+                description: Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
           example:
             title: payment required
             detail: wb solution for business has insufficient funds on its balance. please top up the balance in the company's personal account https://dev.wildberries.ru/company

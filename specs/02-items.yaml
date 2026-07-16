@@ -19,7 +19,7 @@ info:
     </div>
 
     <div class="description_ref">
-      Узнать, как использовать методы в бизнес-кейсах, можно в <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
+      Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
     </div>
   x-file-name: items
 security:
@@ -406,7 +406,7 @@ paths:
                         isVariable:
                           type: boolean
                           description: |
-                            Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:
+                            Признак [меняющейся характеристики](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:
                               -  `true` — варианты товара отличаются по этой характеристике
                               -  `false` — варианты товара не отличаются по этой характеристике
                         existNamedField:
@@ -1617,7 +1617,7 @@ paths:
                             - 0
                             - 1
                             - 2
-                          description: "Фильтр по\_фото:\n  * `-1`\_— любые карточки товаров\n  * `0`\_— только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров\n  * `1`\_— только карточки с\_фото\n  * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531)\n"
+                          description: "Фильтр по\_фото:\n  * `-1`\_— любые карточки товаров\n  * `0`\_— только карточки без фото. С [16 июня](/release-notes?id=531) — любые карточки товаров\n  * `1`\_— только карточки с\_фото\n  * `2` — только карточки без фото. С [16 июня](/release-notes?id=531)\n"
                           default: 0
                         textSearch:
                           type: string
@@ -1641,7 +1641,7 @@ paths:
                           items:
                             type: string
                         imtID:
-                          description: Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+                          description: Поиск по [ID для объединённых карточек товаров](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
                           type: integer
                     cursor:
                       description: |
@@ -1701,7 +1701,7 @@ paths:
                           description: Артикул WB
                         imtID:
                           type: integer
-                          description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
+                          description: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
                         nmUUID:
                           type: string
                           format: UUID
@@ -2376,7 +2376,7 @@ paths:
         - Карточки товаров
       summary: Объединение и разъединение карточек товаров
       description: |
-        Метод [объединяет и разъединяет](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
+        Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
         <br><br>
         Для объединения карточек товаров сделайте запрос **с указанием** `imtID`. Можно объединять не более 30 карточек товаров.<br>
         Для разъединения карточек товаров сделайте запрос **без указания** `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`.
@@ -2495,7 +2495,7 @@ paths:
         Метод переносит [карточки товаров в корзину](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1recover/post).
 
         <div class="description_important">
-          После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov">объединённых</a> карточек товаров
+          После переноса в корзину карточке товара присваивается новый <code>imtID</code> — ID для <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov">объединённых</a> карточек товаров
         </div>
 
         Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.<br>
@@ -2596,7 +2596,7 @@ paths:
         Метод восстанавливает [карточки товаров из корзины](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1trash/post).
 
         <div class="description_important">
-          Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov">объединённых</a> карточек товаров — что был присвоен ей при <a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">перемещении в корзину</a>
+          Карточка товара сохраняет тот же <code>imtID</code> — ID для <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov">объединённых</a> карточек товаров — что был присвоен ей при <a href="/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1delete~1trash/post">перемещении в корзину</a>
         </div>
 
         <div class="description_limit">
@@ -3195,7 +3195,7 @@ paths:
       tags:
         - Создание карточек товаров
       summary: Создание карточек товаров
-      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек\_товаров по\_30 карточек в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>\n\nВ песочнице карточка товара создаётся сразу, без ожидания.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 10 запросов | 6 сек | 5 запросов |\n</div>\n"
+      description: "Метод создаёт карточки товаров c указанием описаний и характеристик товаров.<br>\n\n<div class=\"description_important\">\n  Есть две формы запроса: для создания отдельных и объединённых карточек товаров\n</div>\n\nГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.\n<br><br>\nСоздание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены. <br>\nОдним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек\_товаров по\_30 карточек в\_каждой. Максимальный размер запроса 10 Мб.<br>\nЕсли ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1cards~1error~1list/post).<br><br>\n\nВ песочнице карточка товара создаётся сразу, без ожидания.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 10 запросов | 6 сек | 5 запросов |\n</div>\n"
       requestBody:
         content:
           application/json:
@@ -3215,7 +3215,7 @@ paths:
                     description: ID предмета
                   variants:
                     description: |
-                      [Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров.<br>Чтобы создать отдельную карточку, передайте только один объект
+                      [Объединённые](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров.<br>Чтобы создать отдельную карточку, передайте только один объект
                     type: array
                     items:
                       type: object
@@ -3424,7 +3424,7 @@ paths:
         - Создание карточек товаров
       summary: Создание карточек товаров с присоединением
       description: |
-        Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
+        Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
 
         Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
         <br><br>
@@ -3453,7 +3453,7 @@ paths:
                 imtID:
                   type: integer
                   description: |
-                    `imtID` отдельной карточки товара или группы [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки
+                    `imtID` отдельной карточки товара или группы [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки
                 cardsToAdd:
                   description: Добавляемые карточки товаров
                   type: array
@@ -5721,7 +5721,7 @@ components:
         - nmIDs
       properties:
         targetIMT:
-          description: Существующий `imtID`, под которым необходимо [объединить](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров
+          description: Существующий `imtID`, под которым необходимо [объединить](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров
           type: integer
           example: 123
         nmIDs:
@@ -6807,7 +6807,7 @@ components:
                 type: integer
                 example: 5870243
               imtId:
-                description: ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+                description: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
                 type: integer
                 example: 619043112
               vendorCode:
@@ -7241,7 +7241,7 @@ components:
                 description: Заголовок ошибки
               detail:
                 type: string
-                description: Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
+                description: Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
           example:
             title: payment required
             detail: wb solution for business has insufficient funds on its balance. please top up the balance in the company's personal account https://dev.wildberries.ru/company
@@ -7952,7 +7952,7 @@ components:
         additionalErrors:
           id: '342342'
     MissingRequiredCharacteristics:
-      description: Не указаны характеристики, обязательные для [объединённых](https://dev.wildberries.ru/release-notes?id=489) карточек товаров
+      description: Не указаны характеристики, обязательные для [объединённых](/release-notes?id=489) карточек товаров
       value:
         data: null
         error: true
@@ -7961,7 +7961,7 @@ components:
           vendor_code_1: 'missing required characteristics with ids: {1}, {2}'
           vendor_code_2: 'missing required characteristics with ids: {1}, {2}'
     NonUniqueCharacteristicsInOneGroupCreate:
-      description: Неуникальные характеристики в одной группе [объединённых](https://dev.wildberries.ru/release-notes?id=489) карточек товаров
+      description: Неуникальные характеристики в одной группе [объединённых](/release-notes?id=489) карточек товаров
       value:
         data: null
         error: true
@@ -7969,7 +7969,7 @@ components:
         additionalErrors:
           vendor_code_1: 'non unique characteristics in group with ids: {1}, {2}'
     NonUniqueCharacteristicsInOneGroupAdd:
-      description: Неуникальные характеристики в одной группе [объединённых](https://dev.wildberries.ru/release-notes?id=489) карточек товаров
+      description: Неуникальные характеристики в одной группе [объединённых](/release-notes?id=489) карточек товаров
       value:
         data: null
         error: true
