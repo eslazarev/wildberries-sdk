@@ -56,7 +56,7 @@ ApiV1AnalyticsExciseReportPost Получить отчёт
 
 Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>
 
-Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/cases/1).
+Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

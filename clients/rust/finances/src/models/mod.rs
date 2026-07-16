@@ -6,8 +6,6 @@ pub mod acquiring_reports_detailed_req;
 pub use self::acquiring_reports_detailed_req::AcquiringReportsDetailedReq;
 pub mod acquiring_reports_detailed_res;
 pub use self::acquiring_reports_detailed_res::AcquiringReportsDetailedRes;
-pub mod detail_report_item;
-pub use self::detail_report_item::DetailReportItem;
 pub mod financial_reports_detailed_report_id_req;
 pub use self::financial_reports_detailed_report_id_req::FinancialReportsDetailedReportIdReq;
 pub mod get_categories;

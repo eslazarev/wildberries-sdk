@@ -14,7 +14,7 @@ info:
     </div>
 
     <div class="description_ref">
-      Узнать, как использовать методы в бизнес-кейсах, можно в <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs">инструкции</a> по работе с <strong>заказами FBS</strong>
+      Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs">инструкции</a> по работе с <strong>заказами FBS</strong>
     </div>
 
     <div class="description_important">
@@ -1004,7 +1004,7 @@ paths:
 
         <div class="description_important">
         Сборочное задание можно отменить до его передачи Wildberries.
-        Чтобы проверить, можно ли отменить сборочное задание, используйте метод <a href ="https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post">POST /api/v3/orders/status</a>, поле <code>isCancellable</code>.
+        Чтобы проверить, можно ли отменить сборочное задание, используйте метод <a href ="/docs/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post">POST /api/v3/orders/status</a>, поле <code>isCancellable</code>.
         </div>
 
         <div class="description_limit">
@@ -5222,7 +5222,7 @@ components:
           type: integer
         requiredMeta:
           description: |
-            Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
+            Список идентификаторов маркировки, которые [необходимо добавить](/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
           example:
           - uin
           items:
@@ -5231,7 +5231,7 @@ components:
           type: array
         optionalMeta:
           description: |
-            Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br>
+            Список идентификаторов маркировки, которые [можно добавить](/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br>
             Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
           example:
           - sgtin
@@ -5704,7 +5704,7 @@ components:
           type: string
         detail:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
-            алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
+            алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
     _api_v3_passes_post_request:
@@ -6750,7 +6750,7 @@ components:
           type: string
         decision:
           description: |
-            [Статус проверки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs):
+            [Статус проверки](/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs):
             - `imei`
               - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки
               - `required` — Маркировка обязательна и не закреплена за сборочным заданием
@@ -6900,7 +6900,7 @@ components:
           example: null
         decision:
           description: |
-            [Статусы проверки идентификаторов маркировки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs). <br><br>
+            [Статусы проверки идентификаторов маркировки](/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs). <br><br>
             Статусы проверки`imei`, с которыми поставку можно перевести в доставку:
               - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
               - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна

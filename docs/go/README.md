@@ -357,7 +357,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `finances.DefaultApiService.GetV1DocumentsCategories` — `GET /api/v1/documents/categories` — Категории документов
 - `finances.DefaultApiService.GetV1DocumentsDownload` — `GET /api/v1/documents/download` — Получить документ
 - `finances.DefaultApiService.GetV1DocumentsList` — `GET /api/v1/documents/list` — Список документов
-- `finances.DefaultApiService.GetV5SupplierReportDetailByPeriod` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
 - `finances.DefaultApiService.PostV1AcquiringDetailed` — `POST /api/finance/v1/acquiring/detailed` — Детализации к отчётам об издержках на приём платежей за период
 - `finances.DefaultApiService.PostV1AcquiringDetailedReportId` — `POST /api/finance/v1/acquiring/detailed/{reportId}` — Детализации к отчётам об издержках на приём платежей по ID отчётов
 - `finances.DefaultApiService.PostV1AcquiringList` — `POST /api/finance/v1/acquiring/list` — Список отчётов об издержках на приём платежей

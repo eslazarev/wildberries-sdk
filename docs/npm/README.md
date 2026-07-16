@@ -357,7 +357,6 @@ main().catch(console.error);
 - `finances.DefaultApi.getV1DocumentsCategories` — Категории документов
 - `finances.DefaultApi.getV1DocumentsDownload` — Получить документ
 - `finances.DefaultApi.getV1DocumentsList` — Список документов
-- `finances.DefaultApi.getV5SupplierReportDetailByPeriod` — Отчёт о продажах по реализации
 - `finances.DefaultApi.postV1AcquiringDetailed` — Детализации к отчётам об издержках на приём платежей за период
 - `finances.DefaultApi.postV1AcquiringDetailedReportId` — Детализации к отчётам об издержках на приём платежей по ID отчётов
 - `finances.DefaultApi.postV1AcquiringList` — Список отчётов об издержках на приём платежей

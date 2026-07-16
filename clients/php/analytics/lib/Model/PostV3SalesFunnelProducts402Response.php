@@ -336,7 +336,7 @@ class PostV3SalesFunnelProducts402Response implements ModelInterface, ArrayAcces
     /**
      * Sets detail
      *
-     * @param string|null $detail Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
+     * @param string|null $detail Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
      *
      * @return self
      */

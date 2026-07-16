@@ -10,7 +10,7 @@ info:
     </div>
 
     <div class="description_ref">
-      Узнать, как использовать методы в бизнес-кейсах, можно в <a href="https://dev.wildberries.ru/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw">инструкции</a> по работе с <strong>заказами DBW</strong>
+      Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw">инструкции</a> по работе с <strong>заказами DBW</strong>
     </div>
   title: Заказы DBW
   version: ordersdbw
@@ -1309,7 +1309,7 @@ paths:
   /api/v3/dbw/orders/{orderId}/meta:
     get:
       deprecated: true
-      description: "Данный метод устарел. Он будет удалён [27 июля](https://dev.wildberries.ru/release-notes?id=508)\n\
+      description: "Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
@@ -2977,7 +2977,7 @@ components:
           type: string
         detail:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
-            алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
+            алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
     _api_v3_dbw_orders_get_200_response:

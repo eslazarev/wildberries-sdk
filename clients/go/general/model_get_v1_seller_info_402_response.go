@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV1SellerInfo402Response{}
 type GetV1SellerInfo402Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
-	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
+	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
 	Detail *string `json:"detail,omitempty"`
 }
 

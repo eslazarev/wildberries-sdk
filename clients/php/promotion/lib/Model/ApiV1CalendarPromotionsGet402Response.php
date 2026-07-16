@@ -336,7 +336,7 @@ class ApiV1CalendarPromotionsGet402Response implements ModelInterface, ArrayAcce
     /**
      * Sets detail
      *
-     * @param string|null $detail Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
+     * @param string|null $detail Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
      *
      * @return self
      */

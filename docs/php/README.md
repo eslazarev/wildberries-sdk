@@ -370,7 +370,6 @@ var_dump($response);
 - `finances.DefaultApi.getV1DocumentsCategories` — `GET /api/v1/documents/categories` — Категории документов
 - `finances.DefaultApi.getV1DocumentsDownload` — `GET /api/v1/documents/download` — Получить документ
 - `finances.DefaultApi.getV1DocumentsList` — `GET /api/v1/documents/list` — Список документов
-- `finances.DefaultApi.getV5SupplierReportDetailByPeriod` — `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации
 - `finances.DefaultApi.postV1AcquiringDetailed` — `POST /api/finance/v1/acquiring/detailed` — Детализации к отчётам об издержках на приём платежей за период
 - `finances.DefaultApi.postV1AcquiringDetailedReportId` — `POST /api/finance/v1/acquiring/detailed/{reportId}` — Детализации к отчётам об издержках на приём платежей по ID отчётов
 - `finances.DefaultApi.postV1AcquiringList` — `POST /api/finance/v1/acquiring/list` — Список отчётов об издержках на приём платежей

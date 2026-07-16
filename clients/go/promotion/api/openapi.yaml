@@ -8802,7 +8802,7 @@ components:
           type: string
         detail:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
-            алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
+            алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
     _api_v1_calendar_promotions_details_get_200_response_data_promotions_inner_ranging_inner:

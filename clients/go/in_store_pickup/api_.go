@@ -802,7 +802,7 @@ func (r ApiApiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest) Execute() (*Ap
 /*
 ApiMarketplaceV3ClickCollectOrdersMetaInfoPost Получить идентификаторы маркировки сборочных заданий
 
-Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=536)
+Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:

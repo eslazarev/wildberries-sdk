@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_finances"
-version = "0.1.126"
+version = "0.1.127"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries OpenAPI client (generated)."
 repository = "https://github.com/eslazarev/wildberries-sdk"
@@ -12,7 +12,6 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "^1.0", features = ["derive"] }
-serde_with = { version = "^3.8", default-features = false, features = ["base64", "std", "macros"] }
 serde_json = "^1.0"
 serde_repr = "^0.1"
 url = "^2.5"

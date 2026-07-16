@@ -2196,7 +2196,7 @@ components:
           type: string
         detail:
           description: "Детали ошибки. Ошибка возвращается только сервисам из [Кат\
-            алога решений для бизнеса](https://dev.wildberries.ru/business-solutions)"
+            алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
     getV1Rating_403_response:

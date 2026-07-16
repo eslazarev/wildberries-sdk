@@ -26,7 +26,7 @@ export interface PostV3SalesFunnelProducts402Response {
      */
     title?: string;
     /**
-     * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
+     * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
      * @type {string}
      * @memberof PostV3SalesFunnelProducts402Response
      */

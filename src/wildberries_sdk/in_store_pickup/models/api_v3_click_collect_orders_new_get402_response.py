@@ -28,7 +28,7 @@ class ApiV3ClickCollectOrdersNewGet402Response(BaseModel):
     ApiV3ClickCollectOrdersNewGet402Response
     """ # noqa: E501
     title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
-    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)")
+    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)")
     __properties: ClassVar[List[str]] = ["title", "detail"]
 
     model_config = ConfigDict(

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.126"
+__version__ = "0.1.127"
 
 # Define package exports
 __all__ = [
@@ -32,7 +32,6 @@ __all__ = [
     "AcquiringReportListRes",
     "AcquiringReportsDetailedReq",
     "AcquiringReportsDetailedRes",
-    "DetailReportItem",
     "FinancialReportsDetailedReportIdReq",
     "GetCategories",
     "GetCategoriesData",
@@ -77,7 +76,6 @@ from wildberries_sdk.finances.models.acquiring_report_list_req import AcquiringR
 from wildberries_sdk.finances.models.acquiring_report_list_res import AcquiringReportListRes as AcquiringReportListRes
 from wildberries_sdk.finances.models.acquiring_reports_detailed_req import AcquiringReportsDetailedReq as AcquiringReportsDetailedReq
 from wildberries_sdk.finances.models.acquiring_reports_detailed_res import AcquiringReportsDetailedRes as AcquiringReportsDetailedRes
-from wildberries_sdk.finances.models.detail_report_item import DetailReportItem as DetailReportItem
 from wildberries_sdk.finances.models.financial_reports_detailed_report_id_req import FinancialReportsDetailedReportIdReq as FinancialReportsDetailedReportIdReq
 from wildberries_sdk.finances.models.get_categories import GetCategories as GetCategories
 from wildberries_sdk.finances.models.get_categories_data import GetCategoriesData as GetCategoriesData

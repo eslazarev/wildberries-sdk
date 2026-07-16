@@ -385,5 +385,4 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/documents/download` — Получить документ (getV1DocumentsDownload)
 - `POST /api/v1/documents/download/all` — Получить документы (postV1DocumentsDownloadAll)
 - `GET /api/v1/documents/list` — Список документов (getV1DocumentsList)
-- `GET /api/v5/supplier/reportDetailByPeriod` — Отчёт о продажах по реализации (getV5SupplierReportDetailByPeriod)
 <!-- METHODS_LIST_END -->

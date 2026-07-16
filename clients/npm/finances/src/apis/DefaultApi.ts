@@ -34,11 +34,6 @@ import {
     AcquiringReportsDetailedResToJSON,
 } from '../models/AcquiringReportsDetailedRes';
 import {
-    type DetailReportItem,
-    DetailReportItemFromJSON,
-    DetailReportItemToJSON,
-} from '../models/DetailReportItem';
-import {
     type FinancialReportsDetailedReportIdReq,
     FinancialReportsDetailedReportIdReqFromJSON,
     FinancialReportsDetailedReportIdReqToJSON,
@@ -138,14 +133,6 @@ export interface GetV1DocumentsListRequest {
     serviceName?: string;
     limit?: number;
     offset?: number;
-}
-
-export interface GetV5SupplierReportDetailByPeriodRequest {
-    dateFrom: Date;
-    dateTo: Date;
-    limit?: number;
-    rrdid?: number;
-    period?: GetV5SupplierReportDetailByPeriodPeriodEnum;
 }
 
 export interface PostV1AcquiringDetailedRequest {
@@ -418,93 +405,6 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for getV5SupplierReportDetailByPeriod without sending the request
-     * @deprecated
-     */
-    async getV5SupplierReportDetailByPeriodRequestOpts(requestParameters: GetV5SupplierReportDetailByPeriodRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling getV5SupplierReportDetailByPeriod().'
-            );
-        }
-
-        if (requestParameters['dateTo'] == null) {
-            throw new runtime.RequiredError(
-                'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling getV5SupplierReportDetailByPeriod().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
-        }
-
-        if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        if (requestParameters['rrdid'] != null) {
-            queryParameters['rrdid'] = requestParameters['rrdid'];
-        }
-
-        if (requestParameters['period'] != null) {
-            queryParameters['period'] = requestParameters['period'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v5/supplier/reportDetailByPeriod`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
-     * Отчёт о продажах по реализации
-     * @deprecated
-     */
-    async getV5SupplierReportDetailByPeriodRaw(requestParameters: GetV5SupplierReportDetailByPeriodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<DetailReportItem>>> {
-        const requestOptions = await this.getV5SupplierReportDetailByPeriodRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(DetailReportItemFromJSON));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [15 июля](https://dev.wildberries.ru/release-notes?id=498).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
-     * Отчёт о продажах по реализации
-     * @deprecated
-     */
-    async getV5SupplierReportDetailByPeriod(requestParameters: GetV5SupplierReportDetailByPeriodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DetailReportItem> | null | undefined > {
-        const response = await this.getV5SupplierReportDetailByPeriodRaw(requestParameters, initOverrides);
-        switch (response.raw.status) {
-            case 200:
-                return await response.value();
-            case 204:
-                return null;
-            default:
-                return await response.value();
-        }
-    }
-
-    /**
      * Creates request options for postV1AcquiringDetailed without sending the request
      */
     async postV1AcquiringDetailedRequestOpts(requestParameters: PostV1AcquiringDetailedRequest): Promise<runtime.RequestOpts> {
@@ -772,7 +672,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Детализации к отчётам реализации за период
      */
     async postV1SalesReportsDetailedRaw(requestParameters: PostV1SalesReportsDetailedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesReportsDetailedRes>>> {
@@ -783,7 +683,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
+     * Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период. <br><br> Данные доступны с 29 января 2024 года.  <div class=\"description_important\">   Вы можете выгрузить данные в <a href=\"/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3\">Google Таблицы</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Детализации к отчётам реализации за период
      */
     async postV1SalesReportsDetailed(requestParameters: PostV1SalesReportsDetailedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesReportsDetailedRes> | null | undefined > {
@@ -944,11 +844,3 @@ export const GetV1DocumentsListOrderEnum = {
     Asc: 'asc'
 } as const;
 export type GetV1DocumentsListOrderEnum = typeof GetV1DocumentsListOrderEnum[keyof typeof GetV1DocumentsListOrderEnum];
-/**
- * @export
- */
-export const GetV5SupplierReportDetailByPeriodPeriodEnum = {
-    Weekly: 'weekly',
-    Daily: 'daily'
-} as const;
-export type GetV5SupplierReportDetailByPeriodPeriodEnum = typeof GetV5SupplierReportDetailByPeriodPeriodEnum[keyof typeof GetV5SupplierReportDetailByPeriodPeriodEnum];

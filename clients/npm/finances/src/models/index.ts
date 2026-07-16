@@ -4,7 +4,6 @@ export * from './AcquiringReportListReq';
 export * from './AcquiringReportListRes';
 export * from './AcquiringReportsDetailedReq';
 export * from './AcquiringReportsDetailedRes';
-export * from './DetailReportItem';
 export * from './FinancialReportsDetailedReportIdReq';
 export * from './GetCategories';
 export * from './GetCategoriesData';
