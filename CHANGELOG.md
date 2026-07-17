@@ -1,6 +1,15 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.07.17)
+- Promotion (Реклама): в ответе/схеме конфигурации кампаний добавлено обязательное поле `minTopUp` — минимальная сумма пополнения бюджета в minor units (0,01 от базовой валюты аккаунта продавца); обновлены описания ставок/шагов ставок с формулировкой «0,01 от базовой валюты» (ранее «от базовой единицы валюты»).
+- Analytics (Оценка товара): добавлен новый endpoint `POST /api/analytics/v2/item-rating` (operationId `postV2ItemRating`) с расширенными ответами ошибок (`403`, `429`).
+- Analytics (Оценка товара): `POST /api/analytics/v1/item-rating` помечен как `deprecated` и будет удалён 30 июля; сохранён как read-only.
+- Analytics (Оценка товара): введены версии схем для v1 (`ItemRatingRequestV1`, `ItemRatingResponseV1`, `DistributionTableItemV1`), исправлено имя схемы периода `PastPeriodItemRating` (ранее `pastPeriodItemRating`).
+- Analytics (Оценка товара): обновлён контракт v2 — новый `ItemRatingRequest` (обязательные `currentPeriod`, `orderBy`, `offset`; добавлены фильтры `subjectIds`, `brandNames`, `tagIds`, флаги `isNotIncludeNmsWithoutSales`, `onlyShadowedNms`, пагинация `limit` до 1000) и новый `ItemRatingResponse` (поле `items` вместо `cards`); `DistributionTableItem` расширен и теперь включает обязательные поля (в т.ч. `tagName`, `tagId`, `pinnedFeedback`, `isShadowed`) и детализированные метрики по отзывам/звёздам.
+- Reports (Контент-аналитика): раздел/тег переименован с «Скрытые товары» на «Заблокированные карточки»; для отчёта по заблокированным карточкам обновлён `summary` на «Получить отчёт».
+- Reports (Контент-аналитика): endpoint получения «Скрытые из каталога» помечен как `deprecated` и будет удалён 30 июля (описание заменено на уведомление об устаревании).
+
 ### Changed (2026.07.16)
 - Товары (Items): обновлены ссылки в описаниях/параметрах/ошибках (knowledge-base, release-notes) с абсолютных `https://dev.wildberries.ru/...` на относительные пути (`/knowledge-base/...`, `/release-notes?...`); функциональных изменений эндпоинтов/полей/лимитов нет
 - Заказы FBS: обновлены ссылки в описаниях (инструкция, проверка `isCancellable`, статусы маркировки) на относительные; контракт API без изменений
