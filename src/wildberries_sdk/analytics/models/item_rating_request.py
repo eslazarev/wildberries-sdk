@@ -37,11 +37,12 @@ class ItemRatingRequest(BaseModel):
     subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds", json_schema_extra={"examples": [[232, 1364]]})
     brand_names: Optional[Annotated[List[StrictStr], Field(max_length=50)]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames", json_schema_extra={"examples": [["Abikas", "Tike"]]})
     tag_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds", json_schema_extra={"examples": [[3, 5, 6]]})
-    is_not_include_nms_without_sales: Optional[StrictBool] = Field(default=False, description="Не учитывать товары без продаж", alias="isNotIncludeNMsWithoutSales", json_schema_extra={"examples": [True]})
+    is_not_include_nms_without_sales: Optional[StrictBool] = Field(default=False, description="Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры ", alias="isNotIncludeNmsWithoutSales", json_schema_extra={"examples": [True]})
+    only_shadowed_nms: Optional[StrictBool] = Field(default=False, description="Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры ", alias="onlyShadowedNms", json_schema_extra={"examples": [True]})
     order_by: OrderByItemRating = Field(alias="orderBy")
     limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(default=100, description="Количество товаров в ответе", json_schema_extra={"examples": [130]})
     offset: StrictInt = Field(description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента", json_schema_extra={"examples": [50]})
-    __properties: ClassVar[List[str]] = ["currentPeriod", "pastPeriod", "nmIds", "subjectIds", "brandNames", "tagIds", "isNotIncludeNMsWithoutSales", "orderBy", "limit", "offset"]
+    __properties: ClassVar[List[str]] = ["currentPeriod", "pastPeriod", "nmIds", "subjectIds", "brandNames", "tagIds", "isNotIncludeNmsWithoutSales", "onlyShadowedNms", "orderBy", "limit", "offset"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -109,7 +110,8 @@ class ItemRatingRequest(BaseModel):
             "subjectIds": obj.get("subjectIds"),
             "brandNames": obj.get("brandNames"),
             "tagIds": obj.get("tagIds"),
-            "isNotIncludeNMsWithoutSales": obj.get("isNotIncludeNMsWithoutSales") if obj.get("isNotIncludeNMsWithoutSales") is not None else False,
+            "isNotIncludeNmsWithoutSales": obj.get("isNotIncludeNmsWithoutSales") if obj.get("isNotIncludeNmsWithoutSales") is not None else False,
+            "onlyShadowedNms": obj.get("onlyShadowedNms") if obj.get("onlyShadowedNms") is not None else False,
             "orderBy": OrderByItemRating.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
             "limit": obj.get("limit") if obj.get("limit") is not None else 100,
             "offset": obj.get("offset")

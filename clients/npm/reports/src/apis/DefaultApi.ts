@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -539,7 +539,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      * Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Заблокированные карточки
+     * Получить отчёт
      */
     async apiV1AnalyticsBannedProductsBlockedGetRaw(requestParameters: ApiV1AnalyticsBannedProductsBlockedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsBannedProductsBlockedGet200Response>> {
         const requestOptions = await this.apiV1AnalyticsBannedProductsBlockedGetRequestOpts(requestParameters);
@@ -550,7 +550,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      * Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Заблокированные карточки
+     * Получить отчёт
      */
     async apiV1AnalyticsBannedProductsBlockedGet(requestParameters: ApiV1AnalyticsBannedProductsBlockedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsBannedProductsBlockedGet200Response> {
         const response = await this.apiV1AnalyticsBannedProductsBlockedGetRaw(requestParameters, initOverrides);
@@ -559,6 +559,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      * Creates request options for apiV1AnalyticsBannedProductsShadowedGet without sending the request
+     * @deprecated
      */
     async apiV1AnalyticsBannedProductsShadowedGetRequestOpts(requestParameters: ApiV1AnalyticsBannedProductsShadowedGetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['sort'] == null) {
@@ -603,8 +604,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [товаров продавца, скрытых из каталога](https://seller.wildberries.ru/analytics-reports/banned-products/shadowed).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Скрытые из каталога
+     * @deprecated
      */
     async apiV1AnalyticsBannedProductsShadowedGetRaw(requestParameters: ApiV1AnalyticsBannedProductsShadowedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsBannedProductsShadowedGet200Response>> {
         const requestOptions = await this.apiV1AnalyticsBannedProductsShadowedGetRequestOpts(requestParameters);
@@ -614,8 +616,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [товаров продавца, скрытых из каталога](https://seller.wildberries.ru/analytics-reports/banned-products/shadowed).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Скрытые из каталога
+     * @deprecated
      */
     async apiV1AnalyticsBannedProductsShadowedGet(requestParameters: ApiV1AnalyticsBannedProductsShadowedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsBannedProductsShadowedGet200Response> {
         const response = await this.apiV1AnalyticsBannedProductsShadowedGetRaw(requestParameters, initOverrides);

@@ -330,6 +330,7 @@ SDK выпускается с security-first процессом:
 ### Аналитика и данные (`11-analytics.yaml`)
 - `POST /api/analytics/v1/item-rating` — Получить отчёт (postV1ItemRating)
 - `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB (postV1StocksReportWbWarehouses)
+- `POST /api/analytics/v2/item-rating` — Получить отчёт (postV2ItemRating)
 - `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням (postV3SalesFunnelGroupedHistory)
 - `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период (postV3SalesFunnelProducts)
 - `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням (postV3SalesFunnelProductsHistory)
@@ -355,7 +356,7 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
 - `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `GET /api/v1/analytics/banned-products/blocked` — Заблокированные карточки
+- `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
 - `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
 - `GET /api/v1/analytics/brand-share` — Получить отчёт
 - `GET /api/v1/analytics/brand-share/brands` — Бренды продавца

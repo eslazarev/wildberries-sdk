@@ -27,7 +27,7 @@ type V1SetNormQueryBidsRequestItem struct {
 	NmId int32 `json:"nmId"`
 	// Поисковый кластер
 	NormQuery string `json:"normQuery"`
-	// Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config) 
+	// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config) 
 	BidMinorUnits int32 `json:"bidMinorUnits"`
 }
 

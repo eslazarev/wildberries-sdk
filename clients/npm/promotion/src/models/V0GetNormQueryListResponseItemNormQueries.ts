@@ -31,6 +31,12 @@ export interface V0GetNormQueryListResponseItemNormQueries {
      * @memberof V0GetNormQueryListResponseItemNormQueries
      */
     excluded?: Array<string> | null;
+    /**
+     * Архивные поисковые кластеры
+     * @type {Array<string>}
+     * @memberof V0GetNormQueryListResponseItemNormQueries
+     */
+    archived?: Array<string> | null;
 }
 
 /**
@@ -52,6 +58,7 @@ export function V0GetNormQueryListResponseItemNormQueriesFromJSONTyped(json: any
         
         'active': json['active'] === undefined ? undefined : json['active'] === null ? null : json['active'],
         'excluded': json['excluded'] === undefined ? undefined : json['excluded'] === null ? null : json['excluded'],
+        'archived': json['archived'] === undefined ? undefined : json['archived'] === null ? null : json['archived'],
     };
 }
 
@@ -68,6 +75,7 @@ export function V0GetNormQueryListResponseItemNormQueriesToJSONTyped(value?: V0G
         
         'active': value['active'],
         'excluded': value['excluded'],
+        'archived': value['archived'],
     };
 }
 

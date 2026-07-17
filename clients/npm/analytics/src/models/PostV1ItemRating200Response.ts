@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ItemRatingResponse } from './ItemRatingResponse';
+import type { ItemRatingResponseV1 } from './ItemRatingResponseV1';
 import {
-    ItemRatingResponseFromJSON,
-    ItemRatingResponseFromJSONTyped,
-    ItemRatingResponseToJSON,
-    ItemRatingResponseToJSONTyped,
-} from './ItemRatingResponse';
+    ItemRatingResponseV1FromJSON,
+    ItemRatingResponseV1FromJSONTyped,
+    ItemRatingResponseV1ToJSON,
+    ItemRatingResponseV1ToJSONTyped,
+} from './ItemRatingResponseV1';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface PostV1ItemRating200Response {
     /**
      * 
-     * @type {ItemRatingResponse}
+     * @type {ItemRatingResponseV1}
      * @memberof PostV1ItemRating200Response
      */
-    data: ItemRatingResponse;
+    data: ItemRatingResponseV1;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PostV1ItemRating200ResponseFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'data': ItemRatingResponseFromJSON(json['data']),
+        'data': ItemRatingResponseV1FromJSON(json['data']),
     };
 }
 
@@ -68,7 +68,7 @@ export function PostV1ItemRating200ResponseToJSONTyped(value?: PostV1ItemRating2
 
     return {
         
-        'data': ItemRatingResponseToJSON(value['data']),
+        'data': ItemRatingResponseV1ToJSON(value['data']),
     };
 }
 

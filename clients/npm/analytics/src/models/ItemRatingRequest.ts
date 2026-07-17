@@ -78,11 +78,23 @@ export interface ItemRatingRequest {
      */
     tagIds?: Array<number>;
     /**
-     * Не учитывать товары без продаж
+     * Не возвращать товары без продаж:
+     *   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`
+     *   - `false` — нет, возвращаются все товары, если не указаны другие параметры
+     * 
      * @type {boolean}
      * @memberof ItemRatingRequest
      */
-    isNotIncludeNMsWithoutSales?: boolean;
+    isNotIncludeNmsWithoutSales?: boolean;
+    /**
+     * Возвращаются ли в ответе только скрытые товары:
+     *   - `true` — да, возвращаются только скрытые из каталога товары
+     *   - `false` — нет, возвращаются все товары, если не указаны другие параметры
+     * 
+     * @type {boolean}
+     * @memberof ItemRatingRequest
+     */
+    onlyShadowedNms?: boolean;
     /**
      * 
      * @type {OrderByItemRating}
@@ -129,7 +141,8 @@ export function ItemRatingRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'subjectIds': json['subjectIds'] == null ? undefined : json['subjectIds'],
         'brandNames': json['brandNames'] == null ? undefined : json['brandNames'],
         'tagIds': json['tagIds'] == null ? undefined : json['tagIds'],
-        'isNotIncludeNMsWithoutSales': json['isNotIncludeNMsWithoutSales'] == null ? undefined : json['isNotIncludeNMsWithoutSales'],
+        'isNotIncludeNmsWithoutSales': json['isNotIncludeNmsWithoutSales'] == null ? undefined : json['isNotIncludeNmsWithoutSales'],
+        'onlyShadowedNms': json['onlyShadowedNms'] == null ? undefined : json['onlyShadowedNms'],
         'orderBy': OrderByItemRatingFromJSON(json['orderBy']),
         'limit': json['limit'] == null ? undefined : json['limit'],
         'offset': json['offset'],
@@ -153,7 +166,8 @@ export function ItemRatingRequestToJSONTyped(value?: ItemRatingRequest | null, i
         'subjectIds': value['subjectIds'],
         'brandNames': value['brandNames'],
         'tagIds': value['tagIds'],
-        'isNotIncludeNMsWithoutSales': value['isNotIncludeNMsWithoutSales'],
+        'isNotIncludeNmsWithoutSales': value['isNotIncludeNmsWithoutSales'],
+        'onlyShadowedNms': value['onlyShadowedNms'],
         'orderBy': OrderByItemRatingToJSON(value['orderBy']),
         'limit': value['limit'],
         'offset': value['offset'],

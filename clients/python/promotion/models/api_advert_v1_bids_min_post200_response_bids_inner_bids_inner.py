@@ -30,7 +30,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner(BaseModel):
     """ # noqa: E501
     currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     type: PlacementType
-    value: StrictInt = Field(description="Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ")
+    value: StrictInt = Field(description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ")
     __properties: ClassVar[List[str]] = ["currency", "type", "value"]
 
     model_config = ConfigDict(

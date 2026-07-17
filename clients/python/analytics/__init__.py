@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.127"
+__version__ = "0.1.128"
 
 # Define package exports
 __all__ = [
@@ -54,14 +54,15 @@ __all__ = [
     "ComparisonWbClubDynamic",
     "Conversions",
     "DatePeriod",
-    "DistributionTableIndicators",
-    "DistributionTableIndicatorsFeedbackCount",
-    "DistributionTableIndicatorsFiveStar",
-    "DistributionTableIndicatorsFourStar",
-    "DistributionTableIndicatorsOneStar",
-    "DistributionTableIndicatorsThreeStar",
-    "DistributionTableIndicatorsTwoStar",
     "DistributionTableItem",
+    "DistributionTableItemV1",
+    "DistributionTableItemV1FeedbackCount",
+    "DistributionTableItemV1FeedbackRating",
+    "DistributionTableItemV1FiveStar",
+    "DistributionTableItemV1FourStar",
+    "DistributionTableItemV1OneStar",
+    "DistributionTableItemV1ThreeStar",
+    "DistributionTableItemV1TwoStar",
     "ErrorObject",
     "ErrorObject400",
     "ErrorObject403",
@@ -90,7 +91,9 @@ __all__ = [
     "ItemOrdersResponse",
     "ItemOrdersTextItem",
     "ItemRatingRequest",
+    "ItemRatingRequestV1",
     "ItemRatingResponse",
+    "ItemRatingResponseV1",
     "ItemSearchTextsRequest",
     "ItemSearchTextsResponse",
     "ItemStocks",
@@ -126,6 +129,7 @@ __all__ = [
     "PositionInfoMedian",
     "PostV1ItemRating200Response",
     "PostV1StocksReportWbWarehouses200Response",
+    "PostV2ItemRating200Response",
     "PostV3SalesFunnelGroupedHistory200Response",
     "PostV3SalesFunnelProducts200Response",
     "PostV3SalesFunnelProducts200ResponseData",
@@ -178,8 +182,6 @@ __all__ = [
     "TableGroupRequestSt",
     "TableGroupResponse",
     "TableGroupResponseSt",
-    "TableItemBaseCommon",
-    "TableItemBaseCommonFeedbackRating",
     "TableItemFloat",
     "TableItemItem",
     "TableItemItemAllOfPrice",
@@ -258,14 +260,15 @@ from wildberries_sdk.analytics.models.comparison_time_to_ready_dynamic import Co
 from wildberries_sdk.analytics.models.comparison_wb_club_dynamic import ComparisonWbClubDynamic as ComparisonWbClubDynamic
 from wildberries_sdk.analytics.models.conversions import Conversions as Conversions
 from wildberries_sdk.analytics.models.date_period import DatePeriod as DatePeriod
-from wildberries_sdk.analytics.models.distribution_table_indicators import DistributionTableIndicators as DistributionTableIndicators
-from wildberries_sdk.analytics.models.distribution_table_indicators_feedback_count import DistributionTableIndicatorsFeedbackCount as DistributionTableIndicatorsFeedbackCount
-from wildberries_sdk.analytics.models.distribution_table_indicators_five_star import DistributionTableIndicatorsFiveStar as DistributionTableIndicatorsFiveStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_four_star import DistributionTableIndicatorsFourStar as DistributionTableIndicatorsFourStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_one_star import DistributionTableIndicatorsOneStar as DistributionTableIndicatorsOneStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_three_star import DistributionTableIndicatorsThreeStar as DistributionTableIndicatorsThreeStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_two_star import DistributionTableIndicatorsTwoStar as DistributionTableIndicatorsTwoStar
 from wildberries_sdk.analytics.models.distribution_table_item import DistributionTableItem as DistributionTableItem
+from wildberries_sdk.analytics.models.distribution_table_item_v1 import DistributionTableItemV1 as DistributionTableItemV1
+from wildberries_sdk.analytics.models.distribution_table_item_v1_feedback_count import DistributionTableItemV1FeedbackCount as DistributionTableItemV1FeedbackCount
+from wildberries_sdk.analytics.models.distribution_table_item_v1_feedback_rating import DistributionTableItemV1FeedbackRating as DistributionTableItemV1FeedbackRating
+from wildberries_sdk.analytics.models.distribution_table_item_v1_five_star import DistributionTableItemV1FiveStar as DistributionTableItemV1FiveStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_four_star import DistributionTableItemV1FourStar as DistributionTableItemV1FourStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_one_star import DistributionTableItemV1OneStar as DistributionTableItemV1OneStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_three_star import DistributionTableItemV1ThreeStar as DistributionTableItemV1ThreeStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_two_star import DistributionTableItemV1TwoStar as DistributionTableItemV1TwoStar
 from wildberries_sdk.analytics.models.error_object import ErrorObject as ErrorObject
 from wildberries_sdk.analytics.models.error_object400 import ErrorObject400 as ErrorObject400
 from wildberries_sdk.analytics.models.error_object403 import ErrorObject403 as ErrorObject403
@@ -294,7 +297,9 @@ from wildberries_sdk.analytics.models.item_orders_request import ItemOrdersReque
 from wildberries_sdk.analytics.models.item_orders_response import ItemOrdersResponse as ItemOrdersResponse
 from wildberries_sdk.analytics.models.item_orders_text_item import ItemOrdersTextItem as ItemOrdersTextItem
 from wildberries_sdk.analytics.models.item_rating_request import ItemRatingRequest as ItemRatingRequest
+from wildberries_sdk.analytics.models.item_rating_request_v1 import ItemRatingRequestV1 as ItemRatingRequestV1
 from wildberries_sdk.analytics.models.item_rating_response import ItemRatingResponse as ItemRatingResponse
+from wildberries_sdk.analytics.models.item_rating_response_v1 import ItemRatingResponseV1 as ItemRatingResponseV1
 from wildberries_sdk.analytics.models.item_search_texts_request import ItemSearchTextsRequest as ItemSearchTextsRequest
 from wildberries_sdk.analytics.models.item_search_texts_response import ItemSearchTextsResponse as ItemSearchTextsResponse
 from wildberries_sdk.analytics.models.item_stocks import ItemStocks as ItemStocks
@@ -330,6 +335,7 @@ from wildberries_sdk.analytics.models.position_info_average import PositionInfoA
 from wildberries_sdk.analytics.models.position_info_median import PositionInfoMedian as PositionInfoMedian
 from wildberries_sdk.analytics.models.post_v1_item_rating200_response import PostV1ItemRating200Response as PostV1ItemRating200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response as PostV1StocksReportWbWarehouses200Response
+from wildberries_sdk.analytics.models.post_v2_item_rating200_response import PostV2ItemRating200Response as PostV2ItemRating200Response
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_grouped_history200_response import PostV3SalesFunnelGroupedHistory200Response as PostV3SalesFunnelGroupedHistory200Response
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_products200_response import PostV3SalesFunnelProducts200Response as PostV3SalesFunnelProducts200Response
 from wildberries_sdk.analytics.models.post_v3_sales_funnel_products200_response_data import PostV3SalesFunnelProducts200ResponseData as PostV3SalesFunnelProducts200ResponseData
@@ -382,8 +388,6 @@ from wildberries_sdk.analytics.models.table_group_request import TableGroupReque
 from wildberries_sdk.analytics.models.table_group_request_st import TableGroupRequestSt as TableGroupRequestSt
 from wildberries_sdk.analytics.models.table_group_response import TableGroupResponse as TableGroupResponse
 from wildberries_sdk.analytics.models.table_group_response_st import TableGroupResponseSt as TableGroupResponseSt
-from wildberries_sdk.analytics.models.table_item_base_common import TableItemBaseCommon as TableItemBaseCommon
-from wildberries_sdk.analytics.models.table_item_base_common_feedback_rating import TableItemBaseCommonFeedbackRating as TableItemBaseCommonFeedbackRating
 from wildberries_sdk.analytics.models.table_item_float import TableItemFloat as TableItemFloat
 from wildberries_sdk.analytics.models.table_item_item import TableItemItem as TableItemItem
 from wildberries_sdk.analytics.models.table_item_item_all_of_price import TableItemItemAllOfPrice as TableItemItemAllOfPrice

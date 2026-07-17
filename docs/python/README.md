@@ -332,8 +332,9 @@ print(feedbacks)
 - `analytics.DefaultApi.api_v2_stocks_report_products_groups_post` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
 - `analytics.DefaultApi.api_v2_stocks_report_products_products_post` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
 - `analytics.DefaultApi.api_v2_stocks_report_products_sizes_post` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
-- `analytics.DefaultApi.post_v1_item_rating` — `POST /api/analytics/v1/item-rating` — Получить отчёт
+- `analytics.DefaultApi.post_v1_item_rating` — `POST /api/analytics/v1/item-rating` — (Deprecated) Получить отчёт
 - `analytics.DefaultApi.post_v1_stocks_report_wb_warehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
+- `analytics.DefaultApi.post_v2_item_rating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
 - `analytics.DefaultApi.post_v3_sales_funnel_grouped_history` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
 - `analytics.DefaultApi.post_v3_sales_funnel_products` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
 - `analytics.DefaultApi.post_v3_sales_funnel_products_history` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
@@ -343,8 +344,8 @@ print(feedbacks)
 - `reports.DefaultApi.api_v1_acceptance_report_tasks_task_id_download_get` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.api_v1_acceptance_report_tasks_task_id_status_get` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApi.api_v1_analytics_antifraud_details_get` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `reports.DefaultApi.api_v1_analytics_banned_products_blocked_get` — `GET /api/v1/analytics/banned-products/blocked` — Заблокированные карточки
-- `reports.DefaultApi.api_v1_analytics_banned_products_shadowed_get` — `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
+- `reports.DefaultApi.api_v1_analytics_banned_products_blocked_get` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
+- `reports.DefaultApi.api_v1_analytics_banned_products_shadowed_get` — `GET /api/v1/analytics/banned-products/shadowed` — (Deprecated) Скрытые из каталога
 - `reports.DefaultApi.api_v1_analytics_brand_share_brands_get` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApi.api_v1_analytics_brand_share_get` — `GET /api/v1/analytics/brand-share` — Получить отчёт
 - `reports.DefaultApi.api_v1_analytics_brand_share_parent_subjects_get` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда

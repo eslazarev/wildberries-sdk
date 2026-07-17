@@ -379,7 +379,7 @@ class ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner implements ModelInterf
     /**
      * Sets value
      *
-     * @param int $value Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+     * @param int $value Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
      *
      * @return self
      */

@@ -67,14 +67,15 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'tag_id' => 'int',
         'pinned_feedback' => 'bool',
         'rating' => 'float',
-        'feedback_rating' => '\Wildberries\Sdk\Analytics\Model\TableItemBaseCommonFeedbackRating',
-        'feedback_count' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFeedbackCount',
-        'five_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFiveStar',
-        'four_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFourStar',
-        'three_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsThreeStar',
-        'two_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsTwoStar',
-        'one_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsOneStar',
-        'disqualified' => 'int'
+        'feedback_rating' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FeedbackRating',
+        'feedback_count' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FeedbackCount',
+        'five_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FiveStar',
+        'four_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FourStar',
+        'three_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItemV1ThreeStar',
+        'two_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItemV1TwoStar',
+        'one_star' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItemV1OneStar',
+        'disqualified' => 'int',
+        'is_shadowed' => 'bool'
     ];
 
     /**
@@ -102,7 +103,8 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'three_star' => null,
         'two_star' => null,
         'one_star' => null,
-        'disqualified' => null
+        'disqualified' => null,
+        'is_shadowed' => null
     ];
 
     /**
@@ -128,7 +130,8 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'three_star' => false,
         'two_star' => false,
         'one_star' => false,
-        'disqualified' => false
+        'disqualified' => false,
+        'is_shadowed' => false
     ];
 
     /**
@@ -234,7 +237,8 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'three_star' => 'threeStar',
         'two_star' => 'twoStar',
         'one_star' => 'oneStar',
-        'disqualified' => 'disqualified'
+        'disqualified' => 'disqualified',
+        'is_shadowed' => 'isShadowed'
     ];
 
     /**
@@ -260,7 +264,8 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'three_star' => 'setThreeStar',
         'two_star' => 'setTwoStar',
         'one_star' => 'setOneStar',
-        'disqualified' => 'setDisqualified'
+        'disqualified' => 'setDisqualified',
+        'is_shadowed' => 'setIsShadowed'
     ];
 
     /**
@@ -286,7 +291,8 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         'three_star' => 'getThreeStar',
         'two_star' => 'getTwoStar',
         'one_star' => 'getOneStar',
-        'disqualified' => 'getDisqualified'
+        'disqualified' => 'getDisqualified',
+        'is_shadowed' => 'getIsShadowed'
     ];
 
     /**
@@ -364,6 +370,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('two_star', $data ?? [], null);
         $this->setIfExists('one_star', $data ?? [], null);
         $this->setIfExists('disqualified', $data ?? [], null);
+        $this->setIfExists('is_shadowed', $data ?? [], null);
     }
 
     /**
@@ -393,6 +400,63 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['nm_id'] === null) {
+            $invalidProperties[] = "'nm_id' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['vendor_code'] === null) {
+            $invalidProperties[] = "'vendor_code' can't be null";
+        }
+        if ($this->container['subject_id'] === null) {
+            $invalidProperties[] = "'subject_id' can't be null";
+        }
+        if ($this->container['subject_name'] === null) {
+            $invalidProperties[] = "'subject_name' can't be null";
+        }
+        if ($this->container['brand_name'] === null) {
+            $invalidProperties[] = "'brand_name' can't be null";
+        }
+        if ($this->container['tag_name'] === null) {
+            $invalidProperties[] = "'tag_name' can't be null";
+        }
+        if ($this->container['tag_id'] === null) {
+            $invalidProperties[] = "'tag_id' can't be null";
+        }
+        if ($this->container['pinned_feedback'] === null) {
+            $invalidProperties[] = "'pinned_feedback' can't be null";
+        }
+        if ($this->container['rating'] === null) {
+            $invalidProperties[] = "'rating' can't be null";
+        }
+        if ($this->container['feedback_rating'] === null) {
+            $invalidProperties[] = "'feedback_rating' can't be null";
+        }
+        if ($this->container['feedback_count'] === null) {
+            $invalidProperties[] = "'feedback_count' can't be null";
+        }
+        if ($this->container['five_star'] === null) {
+            $invalidProperties[] = "'five_star' can't be null";
+        }
+        if ($this->container['four_star'] === null) {
+            $invalidProperties[] = "'four_star' can't be null";
+        }
+        if ($this->container['three_star'] === null) {
+            $invalidProperties[] = "'three_star' can't be null";
+        }
+        if ($this->container['two_star'] === null) {
+            $invalidProperties[] = "'two_star' can't be null";
+        }
+        if ($this->container['one_star'] === null) {
+            $invalidProperties[] = "'one_star' can't be null";
+        }
+        if ($this->container['disqualified'] === null) {
+            $invalidProperties[] = "'disqualified' can't be null";
+        }
+        if ($this->container['is_shadowed'] === null) {
+            $invalidProperties[] = "'is_shadowed' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -411,7 +475,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets nm_id
      *
-     * @return int|null
+     * @return int
      */
     public function getNmId()
     {
@@ -421,7 +485,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets nm_id
      *
-     * @param int|null $nm_id Артикул WB
+     * @param int $nm_id Артикул WB
      *
      * @return self
      */
@@ -438,7 +502,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -448,7 +512,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets title
      *
-     * @param string|null $title Название товара
+     * @param string $title Название товара
      *
      * @return self
      */
@@ -465,7 +529,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets vendor_code
      *
-     * @return string|null
+     * @return string
      */
     public function getVendorCode()
     {
@@ -475,7 +539,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets vendor_code
      *
-     * @param string|null $vendor_code Артикул продавца
+     * @param string $vendor_code Артикул продавца
      *
      * @return self
      */
@@ -492,7 +556,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets subject_id
      *
-     * @return int|null
+     * @return int
      */
     public function getSubjectId()
     {
@@ -502,7 +566,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets subject_id
      *
-     * @param int|null $subject_id ID предмета
+     * @param int $subject_id ID предмета
      *
      * @return self
      */
@@ -519,7 +583,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets subject_name
      *
-     * @return string|null
+     * @return string
      */
     public function getSubjectName()
     {
@@ -529,7 +593,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets subject_name
      *
-     * @param string|null $subject_name Название предмета
+     * @param string $subject_name Название предмета
      *
      * @return self
      */
@@ -546,7 +610,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets brand_name
      *
-     * @return string|null
+     * @return string
      */
     public function getBrandName()
     {
@@ -556,7 +620,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets brand_name
      *
-     * @param string|null $brand_name Бренд
+     * @param string $brand_name Бренд
      *
      * @return self
      */
@@ -573,7 +637,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets tag_name
      *
-     * @return string|null
+     * @return string
      */
     public function getTagName()
     {
@@ -583,7 +647,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets tag_name
      *
-     * @param string|null $tag_name Название ярлыка
+     * @param string $tag_name Название ярлыка
      *
      * @return self
      */
@@ -600,7 +664,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets tag_id
      *
-     * @return int|null
+     * @return int
      */
     public function getTagId()
     {
@@ -610,7 +674,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets tag_id
      *
-     * @param int|null $tag_id ID ярлыка
+     * @param int $tag_id ID ярлыка
      *
      * @return self
      */
@@ -627,7 +691,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets pinned_feedback
      *
-     * @return bool|null
+     * @return bool
      */
     public function getPinnedFeedback()
     {
@@ -637,7 +701,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets pinned_feedback
      *
-     * @param bool|null $pinned_feedback Отзыв закреплён
+     * @param bool $pinned_feedback Отзыв закреплён
      *
      * @return self
      */
@@ -654,7 +718,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets rating
      *
-     * @return float|null
+     * @return float
      */
     public function getRating()
     {
@@ -664,7 +728,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets rating
      *
-     * @param float|null $rating Рейтинг карточки товара
+     * @param float $rating Рейтинг карточки товара
      *
      * @return self
      */
@@ -681,7 +745,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets feedback_rating
      *
-     * @return \Wildberries\Sdk\Analytics\Model\TableItemBaseCommonFeedbackRating|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FeedbackRating
      */
     public function getFeedbackRating()
     {
@@ -691,7 +755,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets feedback_rating
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableItemBaseCommonFeedbackRating|null $feedback_rating feedback_rating
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FeedbackRating $feedback_rating feedback_rating
      *
      * @return self
      */
@@ -708,7 +772,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets feedback_count
      *
-     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFeedbackCount|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FeedbackCount
      */
     public function getFeedbackCount()
     {
@@ -718,7 +782,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets feedback_count
      *
-     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFeedbackCount|null $feedback_count feedback_count
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FeedbackCount $feedback_count feedback_count
      *
      * @return self
      */
@@ -735,7 +799,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets five_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFiveStar|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FiveStar
      */
     public function getFiveStar()
     {
@@ -745,7 +809,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets five_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFiveStar|null $five_star five_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FiveStar $five_star five_star
      *
      * @return self
      */
@@ -762,7 +826,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets four_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFourStar|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FourStar
      */
     public function getFourStar()
     {
@@ -772,7 +836,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets four_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsFourStar|null $four_star four_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1FourStar $four_star four_star
      *
      * @return self
      */
@@ -789,7 +853,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets three_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsThreeStar|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1ThreeStar
      */
     public function getThreeStar()
     {
@@ -799,7 +863,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets three_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsThreeStar|null $three_star three_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1ThreeStar $three_star three_star
      *
      * @return self
      */
@@ -816,7 +880,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets two_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsTwoStar|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1TwoStar
      */
     public function getTwoStar()
     {
@@ -826,7 +890,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets two_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsTwoStar|null $two_star two_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1TwoStar $two_star two_star
      *
      * @return self
      */
@@ -843,7 +907,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets one_star
      *
-     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsOneStar|null
+     * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1OneStar
      */
     public function getOneStar()
     {
@@ -853,7 +917,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets one_star
      *
-     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableIndicatorsOneStar|null $one_star one_star
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItemV1OneStar $one_star one_star
      *
      * @return self
      */
@@ -870,7 +934,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets disqualified
      *
-     * @return int|null
+     * @return int
      */
     public function getDisqualified()
     {
@@ -880,7 +944,7 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets disqualified
      *
-     * @param int|null $disqualified Отзывы, исключённые из рейтинга
+     * @param int $disqualified Отзывы, исключённые из рейтинга
      *
      * @return self
      */
@@ -890,6 +954,33 @@ class DistributionTableItem implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable disqualified cannot be null');
         }
         $this->container['disqualified'] = $disqualified;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_shadowed
+     *
+     * @return bool
+     */
+    public function getIsShadowed()
+    {
+        return $this->container['is_shadowed'];
+    }
+
+    /**
+     * Sets is_shadowed
+     *
+     * @param bool $is_shadowed Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога
+     *
+     * @return self
+     */
+    public function setIsShadowed($is_shadowed)
+    {
+        if (is_null($is_shadowed)) {
+            throw new \InvalidArgumentException('non-nullable is_shadowed cannot be null');
+        }
+        $this->container['is_shadowed'] = $is_shadowed;
 
         return $this;
     }

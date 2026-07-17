@@ -19,9 +19,9 @@ var _ MappedNullable = &V0BidRecommendationReachMin{}
 
 // V0BidRecommendationReachMin Минимальный охват: 50-60% 
 type V0BidRecommendationReachMin struct {
-	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
-	// Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecksMin *int32 `json:"bidKopecksMin,omitempty"`
 }
 

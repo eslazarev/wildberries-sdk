@@ -29,9 +29,10 @@ class V2GetConfigResponse(BaseModel):
     """ # noqa: E501
     currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     currency_code: StrictInt = Field(description="Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="currencyCode")
-    cpm_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний", alias="cpmStep")
-    cpc_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC", alias="cpcStep")
-    __properties: ClassVar[List[str]] = ["currency", "currencyCode", "cpmStep", "cpcStep"]
+    cpm_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний", alias="cpmStep")
+    cpc_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC", alias="cpcStep")
+    min_top_up: StrictInt = Field(description="Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум ", alias="minTopUp")
+    __properties: ClassVar[List[str]] = ["currency", "currencyCode", "cpmStep", "cpcStep", "minTopUp"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +88,8 @@ class V2GetConfigResponse(BaseModel):
             "currency": obj.get("currency"),
             "currencyCode": obj.get("currencyCode"),
             "cpmStep": obj.get("cpmStep"),
-            "cpcStep": obj.get("cpcStep")
+            "cpcStep": obj.get("cpcStep"),
+            "minTopUp": obj.get("minTopUp")
         })
         return _obj
 

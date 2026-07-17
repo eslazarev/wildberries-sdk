@@ -28,7 +28,7 @@ class ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner(BaseModel):
     ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner
     """ # noqa: E501
     nm_id: StrictInt = Field(description="Артикул WB")
-    bid_kopecks: StrictInt = Field(description="Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    bid_kopecks: StrictInt = Field(description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     placement: StrictStr = Field(description="Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях ")
     __properties: ClassVar[List[str]] = ["nm_id", "bid_kopecks", "placement"]
 

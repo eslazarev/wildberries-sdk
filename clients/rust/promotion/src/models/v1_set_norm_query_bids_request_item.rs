@@ -22,7 +22,7 @@ pub struct V1SetNormQueryBidsRequestItem {
     /// Поисковый кластер
     #[serde(rename = "normQuery")]
     pub norm_query: String,
-    /// Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config) 
+    /// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config) 
     #[serde(rename = "bidMinorUnits")]
     pub bid_minor_units: i32,
 }

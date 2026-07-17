@@ -59,7 +59,8 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
      */
     protected static $openAPITypes = [
         'active' => 'string[]',
-        'excluded' => 'string[]'
+        'excluded' => 'string[]',
+        'archived' => 'string[]'
     ];
 
     /**
@@ -71,7 +72,8 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
      */
     protected static $openAPIFormats = [
         'active' => null,
-        'excluded' => null
+        'excluded' => null,
+        'archived' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
      */
     protected static array $openAPINullables = [
         'active' => true,
-        'excluded' => true
+        'excluded' => true,
+        'archived' => true
     ];
 
     /**
@@ -171,7 +174,8 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'active' => 'active',
-        'excluded' => 'excluded'
+        'excluded' => 'excluded',
+        'archived' => 'archived'
     ];
 
     /**
@@ -181,7 +185,8 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
      */
     protected static $setters = [
         'active' => 'setActive',
-        'excluded' => 'setExcluded'
+        'excluded' => 'setExcluded',
+        'archived' => 'setArchived'
     ];
 
     /**
@@ -191,7 +196,8 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
      */
     protected static $getters = [
         'active' => 'getActive',
-        'excluded' => 'getExcluded'
+        'excluded' => 'getExcluded',
+        'archived' => 'getArchived'
     ];
 
     /**
@@ -253,6 +259,7 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
     {
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('excluded', $data ?? [], null);
+        $this->setIfExists('archived', $data ?? [], null);
     }
 
     /**
@@ -361,6 +368,40 @@ class V0GetNormQueryListResponseItemNormQueries implements ModelInterface, Array
             }
         }
         $this->container['excluded'] = $excluded;
+
+        return $this;
+    }
+
+    /**
+     * Gets archived
+     *
+     * @return string[]|null
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param string[]|null $archived Архивные поисковые кластеры
+     *
+     * @return self
+     */
+    public function setArchived($archived)
+    {
+        if (is_null($archived)) {
+            array_push($this->openAPINullablesSetToNull, 'archived');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('archived', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['archived'] = $archived;
 
         return $this;
     }

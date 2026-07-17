@@ -2133,7 +2133,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Минимальные ставки для карточек товаров
      */
     async apiAdvertV1BidsMinPostRaw(requestParameters: ApiAdvertV1BidsMinPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiAdvertV1BidsMinPost200Response>> {
@@ -2144,7 +2144,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Минимальные ставки для карточек товаров
      */
     async apiAdvertV1BidsMinPost(requestParameters: ApiAdvertV1BidsMinPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiAdvertV1BidsMinPost200Response> {

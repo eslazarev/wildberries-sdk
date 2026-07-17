@@ -18,7 +18,7 @@ pub struct ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner {
     pub currency: String,
     #[serde(rename = "type")]
     pub r#type: models::PlacementType,
-    /// Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+    /// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
     #[serde(rename = "value")]
     pub value: i32,
 }

@@ -25,10 +25,12 @@ type V2GetConfigResponse struct {
 	Currency string `json:"currency"`
 	// Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	CurrencyCode int32 `json:"currencyCode"`
-	// Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
+	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
 	CpmStep int64 `json:"cpmStep"`
-	// Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
+	// Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
 	CpcStep int64 `json:"cpcStep"`
+	// Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум 
+	MinTopUp int64 `json:"minTopUp"`
 }
 
 type _V2GetConfigResponse V2GetConfigResponse
@@ -37,12 +39,13 @@ type _V2GetConfigResponse V2GetConfigResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2GetConfigResponse(currency string, currencyCode int32, cpmStep int64, cpcStep int64) *V2GetConfigResponse {
+func NewV2GetConfigResponse(currency string, currencyCode int32, cpmStep int64, cpcStep int64, minTopUp int64) *V2GetConfigResponse {
 	this := V2GetConfigResponse{}
 	this.Currency = currency
 	this.CurrencyCode = currencyCode
 	this.CpmStep = cpmStep
 	this.CpcStep = cpcStep
+	this.MinTopUp = minTopUp
 	return &this
 }
 
@@ -150,6 +153,30 @@ func (o *V2GetConfigResponse) SetCpcStep(v int64) {
 	o.CpcStep = v
 }
 
+// GetMinTopUp returns the MinTopUp field value
+func (o *V2GetConfigResponse) GetMinTopUp() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.MinTopUp
+}
+
+// GetMinTopUpOk returns a tuple with the MinTopUp field value
+// and a boolean to check if the value has been set.
+func (o *V2GetConfigResponse) GetMinTopUpOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MinTopUp, true
+}
+
+// SetMinTopUp sets field value
+func (o *V2GetConfigResponse) SetMinTopUp(v int64) {
+	o.MinTopUp = v
+}
+
 func (o V2GetConfigResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -164,6 +191,7 @@ func (o V2GetConfigResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["currencyCode"] = o.CurrencyCode
 	toSerialize["cpmStep"] = o.CpmStep
 	toSerialize["cpcStep"] = o.CpcStep
+	toSerialize["minTopUp"] = o.MinTopUp
 	return toSerialize, nil
 }
 
@@ -176,6 +204,7 @@ func (o *V2GetConfigResponse) UnmarshalJSON(data []byte) (err error) {
 		"currencyCode",
 		"cpmStep",
 		"cpcStep",
+		"minTopUp",
 	}
 
 	allProperties := make(map[string]interface{})

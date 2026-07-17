@@ -58,7 +58,7 @@ export interface ItemRatingResponse {
      * @type {Array<DistributionTableItem>}
      * @memberof ItemRatingResponse
      */
-    cards: Array<DistributionTableItem>;
+    items: Array<DistributionTableItem>;
 }
 
 /**
@@ -67,7 +67,7 @@ export interface ItemRatingResponse {
 export function instanceOfItemRatingResponse(value: object): value is ItemRatingResponse {
     if (!('sellerRating' in value) || value['sellerRating'] === undefined) return false;
     if (!('feedbackIncrease' in value) || value['feedbackIncrease'] === undefined) return false;
-    if (!('cards' in value) || value['cards'] === undefined) return false;
+    if (!('items' in value) || value['items'] === undefined) return false;
     return true;
 }
 
@@ -83,7 +83,7 @@ export function ItemRatingResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'sellerRating': TableItemFloatFromJSON(json['sellerRating']),
         'feedbackIncrease': FeedbacksIncreaseItemFromJSON(json['feedbackIncrease']),
-        'cards': ((json['cards'] as Array<any>).map(DistributionTableItemFromJSON)),
+        'items': ((json['items'] as Array<any>).map(DistributionTableItemFromJSON)),
     };
 }
 
@@ -100,7 +100,7 @@ export function ItemRatingResponseToJSONTyped(value?: ItemRatingResponse | null,
         
         'sellerRating': TableItemFloatToJSON(value['sellerRating']),
         'feedbackIncrease': FeedbacksIncreaseItemToJSON(value['feedbackIncrease']),
-        'cards': ((value['cards'] as Array<any>).map(DistributionTableItemToJSON)),
+        'items': ((value['items'] as Array<any>).map(DistributionTableItemToJSON)),
     };
 }
 

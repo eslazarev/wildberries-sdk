@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 /// V0BidRecommendationBaseBidTop2 : Топ-ставка 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V0BidRecommendationBaseBidTop2 {
-    /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
+    /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
     #[serde(rename = "bidKopecks", skip_serializing_if = "Option::is_none")]
     pub bid_kopecks: Option<i32>,
 }

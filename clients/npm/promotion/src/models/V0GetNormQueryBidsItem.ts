@@ -44,7 +44,7 @@ export interface V0GetNormQueryBidsItem {
      */
     bid: number;
     /**
-     * Текущая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
+     * Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
      * @type {number}
      * @memberof V0GetNormQueryBidsItem
      */

@@ -303,7 +303,7 @@ class V0BidRecommendationBaseBidTop2 implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets bid_kopecks
      *
-     * @param int|null $bid_kopecks Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
+     * @param int|null $bid_kopecks Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
      *
      * @return self
      */

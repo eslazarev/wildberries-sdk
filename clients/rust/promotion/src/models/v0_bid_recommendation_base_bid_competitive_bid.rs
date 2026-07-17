@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 /// V0BidRecommendationBaseBidCompetitiveBid : Конкурентная ставка — расчётная средняя ставка других продавцов, продающих аналогичные товары по похожей цене. У половины продавцов из расчёта ставка выше конкурентной, а другой половины — ниже 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V0BidRecommendationBaseBidCompetitiveBid {
-    /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "bidKopecks", skip_serializing_if = "Option::is_none")]
     pub bid_kopecks: Option<i32>,
 }

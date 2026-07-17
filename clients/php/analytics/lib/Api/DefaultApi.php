@@ -107,6 +107,9 @@ class DefaultApi
         'postV1StocksReportWbWarehouses' => [
             'application/json',
         ],
+        'postV2ItemRating' => [
+            'application/json',
+        ],
         'postV3SalesFunnelGroupedHistory' => [
             'application/json',
         ],
@@ -3764,7 +3767,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request item_rating_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequestV1 $item_rating_request_v1 item_rating_request_v1 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1ItemRating'] to see the possible values for this operation
@@ -3772,10 +3775,11 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Analytics\Model\PostV1ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
+     * @deprecated
      */
-    public function postV1ItemRating($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
+    public function postV1ItemRating($item_rating_request_v1, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
     {
-        list($response) = $this->postV1ItemRatingWithHttpInfo($item_rating_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->postV1ItemRatingWithHttpInfo($item_rating_request_v1, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -3788,7 +3792,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequestV1 $item_rating_request_v1 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1ItemRating'] to see the possible values for this operation
@@ -3796,10 +3800,11 @@ class DefaultApi
      * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Analytics\Model\PostV1ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
-    public function postV1ItemRatingWithHttpInfo($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
+    public function postV1ItemRatingWithHttpInfo($item_rating_request_v1, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
     {
-        $request = $this->postV1ItemRatingRequest($item_rating_request, $hostIndex, $variables, $contentType);
+        $request = $this->postV1ItemRatingRequest($item_rating_request_v1, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3949,17 +3954,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequestV1 $item_rating_request_v1 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1ItemRating'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
-    public function postV1ItemRatingAsync($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
+    public function postV1ItemRatingAsync($item_rating_request_v1, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
     {
-        return $this->postV1ItemRatingAsyncWithHttpInfo($item_rating_request, $hostIndex, $variables, $contentType)
+        return $this->postV1ItemRatingAsyncWithHttpInfo($item_rating_request_v1, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3976,18 +3982,19 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequestV1 $item_rating_request_v1 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1ItemRating'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
-    public function postV1ItemRatingAsyncWithHttpInfo($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
+    public function postV1ItemRatingAsyncWithHttpInfo($item_rating_request_v1, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
     {
         $returnType = '\Wildberries\Sdk\Analytics\Model\PostV1ItemRating200Response';
-        $request = $this->postV1ItemRatingRequest($item_rating_request, $hostIndex, $variables, $contentType);
+        $request = $this->postV1ItemRatingRequest($item_rating_request_v1, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4032,21 +4039,22 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequestV1 $item_rating_request_v1 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV1ItemRating'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
-    public function postV1ItemRatingRequest($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
+    public function postV1ItemRatingRequest($item_rating_request_v1, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1ItemRating'][0])
     {
 
-        // verify the required parameter 'item_rating_request' is set
-        if ($item_rating_request === null || (is_array($item_rating_request) && count($item_rating_request) === 0)) {
+        // verify the required parameter 'item_rating_request_v1' is set
+        if ($item_rating_request_v1 === null || (is_array($item_rating_request_v1) && count($item_rating_request_v1) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $item_rating_request when calling postV1ItemRating'
+                'Missing the required parameter $item_rating_request_v1 when calling postV1ItemRating'
             );
         }
 
@@ -4069,12 +4077,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($item_rating_request)) {
+        if (isset($item_rating_request_v1)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_rating_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_rating_request_v1));
             } else {
-                $httpBody = $item_rating_request;
+                $httpBody = $item_rating_request_v1;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4544,6 +4552,391 @@ class DefaultApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForpostV1StocksReportWbWarehouses(): array
+    {
+        return [
+            [
+                "url" => "https://seller-analytics-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV2ItemRating
+     *
+     * Получить отчёт
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request item_rating_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2ItemRating'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\Analytics\Model\PostV2ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
+     */
+    public function postV2ItemRating($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2ItemRating'][0])
+    {
+        list($response) = $this->postV2ItemRatingWithHttpInfo($item_rating_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV2ItemRatingWithHttpInfo
+     *
+     * Получить отчёт
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2ItemRating'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\Analytics\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\Analytics\Model\PostV2ItemRating200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV2ItemRatingWithHttpInfo($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2ItemRating'][0])
+    {
+        $request = $this->postV2ItemRatingRequest($item_rating_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV2ItemRating200Response',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject400',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject403',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\Analytics\Model\PostV2ItemRating200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV2ItemRating200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject400',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\ErrorObject403',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV2ItemRatingAsync
+     *
+     * Получить отчёт
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2ItemRating'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV2ItemRatingAsync($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2ItemRating'][0])
+    {
+        return $this->postV2ItemRatingAsyncWithHttpInfo($item_rating_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV2ItemRatingAsyncWithHttpInfo
+     *
+     * Получить отчёт
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2ItemRating'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV2ItemRatingAsyncWithHttpInfo($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2ItemRating'][0])
+    {
+        $returnType = '\Wildberries\Sdk\Analytics\Model\PostV2ItemRating200Response';
+        $request = $this->postV2ItemRatingRequest($item_rating_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV2ItemRating'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://seller-analytics-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\Analytics\Model\ItemRatingRequest $item_rating_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2ItemRating'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV2ItemRatingRequest($item_rating_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2ItemRating'][0])
+    {
+
+        // verify the required parameter 'item_rating_request' is set
+        if ($item_rating_request === null || (is_array($item_rating_request) && count($item_rating_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $item_rating_request when calling postV2ItemRating'
+            );
+        }
+
+
+        $resourcePath = '/api/analytics/v2/item-rating';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($item_rating_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_rating_request));
+            } else {
+                $httpBody = $item_rating_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV2ItemRating();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV2ItemRating
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV2ItemRating(): array
     {
         return [
             [

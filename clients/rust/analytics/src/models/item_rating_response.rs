@@ -19,17 +19,17 @@ pub struct ItemRatingResponse {
     #[serde(rename = "feedbackIncrease")]
     pub feedback_increase: Box<models::FeedbacksIncreaseItem>,
     /// Данные по товарам
-    #[serde(rename = "cards")]
-    pub cards: Vec<models::DistributionTableItem>,
+    #[serde(rename = "items")]
+    pub items: Vec<models::DistributionTableItem>,
 }
 
 impl ItemRatingResponse {
     /// Данные ответа
-    pub fn new(seller_rating: models::TableItemFloat, feedback_increase: models::FeedbacksIncreaseItem, cards: Vec<models::DistributionTableItem>) -> ItemRatingResponse {
+    pub fn new(seller_rating: models::TableItemFloat, feedback_increase: models::FeedbacksIncreaseItem, items: Vec<models::DistributionTableItem>) -> ItemRatingResponse {
         ItemRatingResponse {
             seller_rating: Box::new(seller_rating),
             feedback_increase: Box::new(feedback_increase),
-            cards,
+            items,
         }
     }
 }

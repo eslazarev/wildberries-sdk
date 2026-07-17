@@ -5206,7 +5206,7 @@ func (r ApiApiAdvertV1BidsMinPostRequest) Execute() (*ApiAdvertV1BidsMinPost200R
 /*
 ApiAdvertV1BidsMinPost Минимальные ставки для карточек товаров
 
-Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
+Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

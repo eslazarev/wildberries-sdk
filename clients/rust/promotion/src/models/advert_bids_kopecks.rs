@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// AdvertBidsKopecks : Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+/// AdvertBidsKopecks : Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AdvertBidsKopecks {
     /// Ставка в поиске
@@ -23,7 +23,7 @@ pub struct AdvertBidsKopecks {
 }
 
 impl AdvertBidsKopecks {
-    /// Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+    /// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
     pub fn new(search: i64, recommendations: i64) -> AdvertBidsKopecks {
         AdvertBidsKopecks {
             search,

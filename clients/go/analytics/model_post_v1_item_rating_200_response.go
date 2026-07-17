@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV1ItemRating200Response{}
 
 // PostV1ItemRating200Response struct for PostV1ItemRating200Response
 type PostV1ItemRating200Response struct {
-	Data ItemRatingResponse `json:"data"`
+	Data ItemRatingResponseV1 `json:"data"`
 }
 
 type _PostV1ItemRating200Response PostV1ItemRating200Response
@@ -30,7 +30,7 @@ type _PostV1ItemRating200Response PostV1ItemRating200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV1ItemRating200Response(data ItemRatingResponse) *PostV1ItemRating200Response {
+func NewPostV1ItemRating200Response(data ItemRatingResponseV1) *PostV1ItemRating200Response {
 	this := PostV1ItemRating200Response{}
 	this.Data = data
 	return &this
@@ -45,9 +45,9 @@ func NewPostV1ItemRating200ResponseWithDefaults() *PostV1ItemRating200Response {
 }
 
 // GetData returns the Data field value
-func (o *PostV1ItemRating200Response) GetData() ItemRatingResponse {
+func (o *PostV1ItemRating200Response) GetData() ItemRatingResponseV1 {
 	if o == nil {
-		var ret ItemRatingResponse
+		var ret ItemRatingResponseV1
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *PostV1ItemRating200Response) GetData() ItemRatingResponse {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *PostV1ItemRating200Response) GetDataOk() (*ItemRatingResponse, bool) {
+func (o *PostV1ItemRating200Response) GetDataOk() (*ItemRatingResponseV1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *PostV1ItemRating200Response) GetDataOk() (*ItemRatingResponse, bool) {
 }
 
 // SetData sets field value
-func (o *PostV1ItemRating200Response) SetData(v ItemRatingResponse) {
+func (o *PostV1ItemRating200Response) SetData(v ItemRatingResponseV1) {
 	o.Data = v
 }
 

@@ -13,55 +13,55 @@
  */
 
 import { mapValues } from '../runtime';
-import type { DistributionTableIndicatorsFourStar } from './DistributionTableIndicatorsFourStar';
+import type { DistributionTableItemV1FiveStar } from './DistributionTableItemV1FiveStar';
 import {
-    DistributionTableIndicatorsFourStarFromJSON,
-    DistributionTableIndicatorsFourStarFromJSONTyped,
-    DistributionTableIndicatorsFourStarToJSON,
-    DistributionTableIndicatorsFourStarToJSONTyped,
-} from './DistributionTableIndicatorsFourStar';
-import type { DistributionTableIndicatorsThreeStar } from './DistributionTableIndicatorsThreeStar';
+    DistributionTableItemV1FiveStarFromJSON,
+    DistributionTableItemV1FiveStarFromJSONTyped,
+    DistributionTableItemV1FiveStarToJSON,
+    DistributionTableItemV1FiveStarToJSONTyped,
+} from './DistributionTableItemV1FiveStar';
+import type { DistributionTableItemV1OneStar } from './DistributionTableItemV1OneStar';
 import {
-    DistributionTableIndicatorsThreeStarFromJSON,
-    DistributionTableIndicatorsThreeStarFromJSONTyped,
-    DistributionTableIndicatorsThreeStarToJSON,
-    DistributionTableIndicatorsThreeStarToJSONTyped,
-} from './DistributionTableIndicatorsThreeStar';
-import type { DistributionTableIndicatorsFeedbackCount } from './DistributionTableIndicatorsFeedbackCount';
+    DistributionTableItemV1OneStarFromJSON,
+    DistributionTableItemV1OneStarFromJSONTyped,
+    DistributionTableItemV1OneStarToJSON,
+    DistributionTableItemV1OneStarToJSONTyped,
+} from './DistributionTableItemV1OneStar';
+import type { DistributionTableItemV1FeedbackCount } from './DistributionTableItemV1FeedbackCount';
 import {
-    DistributionTableIndicatorsFeedbackCountFromJSON,
-    DistributionTableIndicatorsFeedbackCountFromJSONTyped,
-    DistributionTableIndicatorsFeedbackCountToJSON,
-    DistributionTableIndicatorsFeedbackCountToJSONTyped,
-} from './DistributionTableIndicatorsFeedbackCount';
-import type { TableItemBaseCommonFeedbackRating } from './TableItemBaseCommonFeedbackRating';
+    DistributionTableItemV1FeedbackCountFromJSON,
+    DistributionTableItemV1FeedbackCountFromJSONTyped,
+    DistributionTableItemV1FeedbackCountToJSON,
+    DistributionTableItemV1FeedbackCountToJSONTyped,
+} from './DistributionTableItemV1FeedbackCount';
+import type { DistributionTableItemV1FourStar } from './DistributionTableItemV1FourStar';
 import {
-    TableItemBaseCommonFeedbackRatingFromJSON,
-    TableItemBaseCommonFeedbackRatingFromJSONTyped,
-    TableItemBaseCommonFeedbackRatingToJSON,
-    TableItemBaseCommonFeedbackRatingToJSONTyped,
-} from './TableItemBaseCommonFeedbackRating';
-import type { DistributionTableIndicatorsTwoStar } from './DistributionTableIndicatorsTwoStar';
+    DistributionTableItemV1FourStarFromJSON,
+    DistributionTableItemV1FourStarFromJSONTyped,
+    DistributionTableItemV1FourStarToJSON,
+    DistributionTableItemV1FourStarToJSONTyped,
+} from './DistributionTableItemV1FourStar';
+import type { DistributionTableItemV1ThreeStar } from './DistributionTableItemV1ThreeStar';
 import {
-    DistributionTableIndicatorsTwoStarFromJSON,
-    DistributionTableIndicatorsTwoStarFromJSONTyped,
-    DistributionTableIndicatorsTwoStarToJSON,
-    DistributionTableIndicatorsTwoStarToJSONTyped,
-} from './DistributionTableIndicatorsTwoStar';
-import type { DistributionTableIndicatorsFiveStar } from './DistributionTableIndicatorsFiveStar';
+    DistributionTableItemV1ThreeStarFromJSON,
+    DistributionTableItemV1ThreeStarFromJSONTyped,
+    DistributionTableItemV1ThreeStarToJSON,
+    DistributionTableItemV1ThreeStarToJSONTyped,
+} from './DistributionTableItemV1ThreeStar';
+import type { DistributionTableItemV1TwoStar } from './DistributionTableItemV1TwoStar';
 import {
-    DistributionTableIndicatorsFiveStarFromJSON,
-    DistributionTableIndicatorsFiveStarFromJSONTyped,
-    DistributionTableIndicatorsFiveStarToJSON,
-    DistributionTableIndicatorsFiveStarToJSONTyped,
-} from './DistributionTableIndicatorsFiveStar';
-import type { DistributionTableIndicatorsOneStar } from './DistributionTableIndicatorsOneStar';
+    DistributionTableItemV1TwoStarFromJSON,
+    DistributionTableItemV1TwoStarFromJSONTyped,
+    DistributionTableItemV1TwoStarToJSON,
+    DistributionTableItemV1TwoStarToJSONTyped,
+} from './DistributionTableItemV1TwoStar';
+import type { DistributionTableItemV1FeedbackRating } from './DistributionTableItemV1FeedbackRating';
 import {
-    DistributionTableIndicatorsOneStarFromJSON,
-    DistributionTableIndicatorsOneStarFromJSONTyped,
-    DistributionTableIndicatorsOneStarToJSON,
-    DistributionTableIndicatorsOneStarToJSONTyped,
-} from './DistributionTableIndicatorsOneStar';
+    DistributionTableItemV1FeedbackRatingFromJSON,
+    DistributionTableItemV1FeedbackRatingFromJSONTyped,
+    DistributionTableItemV1FeedbackRatingToJSON,
+    DistributionTableItemV1FeedbackRatingToJSONTyped,
+} from './DistributionTableItemV1FeedbackRating';
 
 /**
  * 
@@ -74,115 +74,143 @@ export interface DistributionTableItem {
      * @type {number}
      * @memberof DistributionTableItem
      */
-    nmId?: number;
+    nmId: number;
     /**
      * Название товара
      * @type {string}
      * @memberof DistributionTableItem
      */
-    title?: string;
+    title: string;
     /**
      * Артикул продавца
      * @type {string}
      * @memberof DistributionTableItem
      */
-    vendorCode?: string;
+    vendorCode: string;
     /**
      * ID предмета
      * @type {number}
      * @memberof DistributionTableItem
      */
-    subjectId?: number;
+    subjectId: number;
     /**
      * Название предмета
      * @type {string}
      * @memberof DistributionTableItem
      */
-    subjectName?: string;
+    subjectName: string;
     /**
      * Бренд
      * @type {string}
      * @memberof DistributionTableItem
      */
-    brandName?: string;
+    brandName: string;
     /**
      * Название ярлыка
      * @type {string}
      * @memberof DistributionTableItem
      */
-    tagName?: string;
+    tagName: string;
     /**
      * ID ярлыка
      * @type {number}
      * @memberof DistributionTableItem
      */
-    tagId?: number;
+    tagId: number;
     /**
      * Отзыв закреплён
      * @type {boolean}
      * @memberof DistributionTableItem
      */
-    pinnedFeedback?: boolean;
+    pinnedFeedback: boolean;
     /**
      * Рейтинг карточки товара
      * @type {number}
      * @memberof DistributionTableItem
      */
-    rating?: number;
+    rating: number;
     /**
      * 
-     * @type {TableItemBaseCommonFeedbackRating}
+     * @type {DistributionTableItemV1FeedbackRating}
      * @memberof DistributionTableItem
      */
-    feedbackRating?: TableItemBaseCommonFeedbackRating;
+    feedbackRating: DistributionTableItemV1FeedbackRating;
     /**
      * 
-     * @type {DistributionTableIndicatorsFeedbackCount}
+     * @type {DistributionTableItemV1FeedbackCount}
      * @memberof DistributionTableItem
      */
-    feedbackCount?: DistributionTableIndicatorsFeedbackCount;
+    feedbackCount: DistributionTableItemV1FeedbackCount;
     /**
      * 
-     * @type {DistributionTableIndicatorsFiveStar}
+     * @type {DistributionTableItemV1FiveStar}
      * @memberof DistributionTableItem
      */
-    fiveStar?: DistributionTableIndicatorsFiveStar;
+    fiveStar: DistributionTableItemV1FiveStar;
     /**
      * 
-     * @type {DistributionTableIndicatorsFourStar}
+     * @type {DistributionTableItemV1FourStar}
      * @memberof DistributionTableItem
      */
-    fourStar?: DistributionTableIndicatorsFourStar;
+    fourStar: DistributionTableItemV1FourStar;
     /**
      * 
-     * @type {DistributionTableIndicatorsThreeStar}
+     * @type {DistributionTableItemV1ThreeStar}
      * @memberof DistributionTableItem
      */
-    threeStar?: DistributionTableIndicatorsThreeStar;
+    threeStar: DistributionTableItemV1ThreeStar;
     /**
      * 
-     * @type {DistributionTableIndicatorsTwoStar}
+     * @type {DistributionTableItemV1TwoStar}
      * @memberof DistributionTableItem
      */
-    twoStar?: DistributionTableIndicatorsTwoStar;
+    twoStar: DistributionTableItemV1TwoStar;
     /**
      * 
-     * @type {DistributionTableIndicatorsOneStar}
+     * @type {DistributionTableItemV1OneStar}
      * @memberof DistributionTableItem
      */
-    oneStar?: DistributionTableIndicatorsOneStar;
+    oneStar: DistributionTableItemV1OneStar;
     /**
      * Отзывы, исключённые из рейтинга
      * @type {number}
      * @memberof DistributionTableItem
      */
-    disqualified?: number;
+    disqualified: number;
+    /**
+     * Является ли товар скрытым из каталога:
+     *   - `true` — товар скрыт из каталога
+     *   - `false` — товар не скрыт из каталога
+     * 
+     * @type {boolean}
+     * @memberof DistributionTableItem
+     */
+    isShadowed: boolean;
 }
 
 /**
  * Check if a given object implements the DistributionTableItem interface.
  */
 export function instanceOfDistributionTableItem(value: object): value is DistributionTableItem {
+    if (!('nmId' in value) || value['nmId'] === undefined) return false;
+    if (!('title' in value) || value['title'] === undefined) return false;
+    if (!('vendorCode' in value) || value['vendorCode'] === undefined) return false;
+    if (!('subjectId' in value) || value['subjectId'] === undefined) return false;
+    if (!('subjectName' in value) || value['subjectName'] === undefined) return false;
+    if (!('brandName' in value) || value['brandName'] === undefined) return false;
+    if (!('tagName' in value) || value['tagName'] === undefined) return false;
+    if (!('tagId' in value) || value['tagId'] === undefined) return false;
+    if (!('pinnedFeedback' in value) || value['pinnedFeedback'] === undefined) return false;
+    if (!('rating' in value) || value['rating'] === undefined) return false;
+    if (!('feedbackRating' in value) || value['feedbackRating'] === undefined) return false;
+    if (!('feedbackCount' in value) || value['feedbackCount'] === undefined) return false;
+    if (!('fiveStar' in value) || value['fiveStar'] === undefined) return false;
+    if (!('fourStar' in value) || value['fourStar'] === undefined) return false;
+    if (!('threeStar' in value) || value['threeStar'] === undefined) return false;
+    if (!('twoStar' in value) || value['twoStar'] === undefined) return false;
+    if (!('oneStar' in value) || value['oneStar'] === undefined) return false;
+    if (!('disqualified' in value) || value['disqualified'] === undefined) return false;
+    if (!('isShadowed' in value) || value['isShadowed'] === undefined) return false;
     return true;
 }
 
@@ -196,24 +224,25 @@ export function DistributionTableItemFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'title': json['title'] == null ? undefined : json['title'],
-        'vendorCode': json['vendorCode'] == null ? undefined : json['vendorCode'],
-        'subjectId': json['subjectId'] == null ? undefined : json['subjectId'],
-        'subjectName': json['subjectName'] == null ? undefined : json['subjectName'],
-        'brandName': json['brandName'] == null ? undefined : json['brandName'],
-        'tagName': json['tagName'] == null ? undefined : json['tagName'],
-        'tagId': json['tagId'] == null ? undefined : json['tagId'],
-        'pinnedFeedback': json['pinnedFeedback'] == null ? undefined : json['pinnedFeedback'],
-        'rating': json['rating'] == null ? undefined : json['rating'],
-        'feedbackRating': json['feedbackRating'] == null ? undefined : TableItemBaseCommonFeedbackRatingFromJSON(json['feedbackRating']),
-        'feedbackCount': json['feedbackCount'] == null ? undefined : DistributionTableIndicatorsFeedbackCountFromJSON(json['feedbackCount']),
-        'fiveStar': json['fiveStar'] == null ? undefined : DistributionTableIndicatorsFiveStarFromJSON(json['fiveStar']),
-        'fourStar': json['fourStar'] == null ? undefined : DistributionTableIndicatorsFourStarFromJSON(json['fourStar']),
-        'threeStar': json['threeStar'] == null ? undefined : DistributionTableIndicatorsThreeStarFromJSON(json['threeStar']),
-        'twoStar': json['twoStar'] == null ? undefined : DistributionTableIndicatorsTwoStarFromJSON(json['twoStar']),
-        'oneStar': json['oneStar'] == null ? undefined : DistributionTableIndicatorsOneStarFromJSON(json['oneStar']),
-        'disqualified': json['disqualified'] == null ? undefined : json['disqualified'],
+        'nmId': json['nmId'],
+        'title': json['title'],
+        'vendorCode': json['vendorCode'],
+        'subjectId': json['subjectId'],
+        'subjectName': json['subjectName'],
+        'brandName': json['brandName'],
+        'tagName': json['tagName'],
+        'tagId': json['tagId'],
+        'pinnedFeedback': json['pinnedFeedback'],
+        'rating': json['rating'],
+        'feedbackRating': DistributionTableItemV1FeedbackRatingFromJSON(json['feedbackRating']),
+        'feedbackCount': DistributionTableItemV1FeedbackCountFromJSON(json['feedbackCount']),
+        'fiveStar': DistributionTableItemV1FiveStarFromJSON(json['fiveStar']),
+        'fourStar': DistributionTableItemV1FourStarFromJSON(json['fourStar']),
+        'threeStar': DistributionTableItemV1ThreeStarFromJSON(json['threeStar']),
+        'twoStar': DistributionTableItemV1TwoStarFromJSON(json['twoStar']),
+        'oneStar': DistributionTableItemV1OneStarFromJSON(json['oneStar']),
+        'disqualified': json['disqualified'],
+        'isShadowed': json['isShadowed'],
     };
 }
 
@@ -238,14 +267,15 @@ export function DistributionTableItemToJSONTyped(value?: DistributionTableItem |
         'tagId': value['tagId'],
         'pinnedFeedback': value['pinnedFeedback'],
         'rating': value['rating'],
-        'feedbackRating': TableItemBaseCommonFeedbackRatingToJSON(value['feedbackRating']),
-        'feedbackCount': DistributionTableIndicatorsFeedbackCountToJSON(value['feedbackCount']),
-        'fiveStar': DistributionTableIndicatorsFiveStarToJSON(value['fiveStar']),
-        'fourStar': DistributionTableIndicatorsFourStarToJSON(value['fourStar']),
-        'threeStar': DistributionTableIndicatorsThreeStarToJSON(value['threeStar']),
-        'twoStar': DistributionTableIndicatorsTwoStarToJSON(value['twoStar']),
-        'oneStar': DistributionTableIndicatorsOneStarToJSON(value['oneStar']),
+        'feedbackRating': DistributionTableItemV1FeedbackRatingToJSON(value['feedbackRating']),
+        'feedbackCount': DistributionTableItemV1FeedbackCountToJSON(value['feedbackCount']),
+        'fiveStar': DistributionTableItemV1FiveStarToJSON(value['fiveStar']),
+        'fourStar': DistributionTableItemV1FourStarToJSON(value['fourStar']),
+        'threeStar': DistributionTableItemV1ThreeStarToJSON(value['threeStar']),
+        'twoStar': DistributionTableItemV1TwoStarToJSON(value['twoStar']),
+        'oneStar': DistributionTableItemV1OneStarToJSON(value['oneStar']),
         'disqualified': value['disqualified'],
+        'isShadowed': value['isShadowed'],
     };
 }
 

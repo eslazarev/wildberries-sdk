@@ -32,8 +32,8 @@ class ItemRatingResponse(BaseModel):
     """ # noqa: E501
     seller_rating: TableItemFloat = Field(alias="sellerRating")
     feedback_increase: FeedbacksIncreaseItem = Field(alias="feedbackIncrease")
-    cards: List[DistributionTableItem] = Field(description="Данные по товарам")
-    __properties: ClassVar[List[str]] = ["sellerRating", "feedbackIncrease", "cards"]
+    items: List[DistributionTableItem] = Field(description="Данные по товарам")
+    __properties: ClassVar[List[str]] = ["sellerRating", "feedbackIncrease", "items"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -80,13 +80,13 @@ class ItemRatingResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of feedback_increase
         if self.feedback_increase:
             _dict['feedbackIncrease'] = self.feedback_increase.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in cards (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
-        if self.cards:
-            for _item_cards in self.cards:
-                if _item_cards:
-                    _items.append(_item_cards.to_dict())
-            _dict['cards'] = _items
+        if self.items:
+            for _item_items in self.items:
+                if _item_items:
+                    _items.append(_item_items.to_dict())
+            _dict['items'] = _items
         return _dict
 
     @classmethod
@@ -101,7 +101,7 @@ class ItemRatingResponse(BaseModel):
         _obj = cls.model_validate({
             "sellerRating": TableItemFloat.from_dict(obj["sellerRating"]) if obj.get("sellerRating") is not None else None,
             "feedbackIncrease": FeedbacksIncreaseItem.from_dict(obj["feedbackIncrease"]) if obj.get("feedbackIncrease") is not None else None,
-            "cards": [DistributionTableItem.from_dict(_item) for _item in obj["cards"]] if obj.get("cards") is not None else None
+            "items": [DistributionTableItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
         })
         return _obj
 

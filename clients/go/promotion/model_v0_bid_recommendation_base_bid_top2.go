@@ -19,7 +19,7 @@ var _ MappedNullable = &V0BidRecommendationBaseBidTop2{}
 
 // V0BidRecommendationBaseBidTop2 Топ-ставка 
 type V0BidRecommendationBaseBidTop2 struct {
-	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
+	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
 }
 

@@ -31,7 +31,7 @@ class V0GetNormQueryBidsItem(BaseModel):
     nm_id: StrictInt = Field(description="Артикул WB")
     norm_query: StrictStr = Field(description="Поисковый кластер")
     bid: StrictInt = Field(description="Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов")
-    bid_kopecks: StrictInt = Field(description="Текущая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов")
+    bid_kopecks: StrictInt = Field(description="Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов")
     currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "norm_query", "bid", "bid_kopecks", "currency"]
 

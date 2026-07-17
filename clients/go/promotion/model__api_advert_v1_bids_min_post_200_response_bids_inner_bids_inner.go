@@ -24,7 +24,7 @@ type ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner struct {
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency string `json:"currency"`
 	Type PlacementType `json:"type"`
-	// Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
 	Value int32 `json:"value"`
 }
 

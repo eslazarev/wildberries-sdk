@@ -318,6 +318,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `analytics.DefaultApiService.ApiV2StocksReportProductsSizesPost` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
 - `analytics.DefaultApiService.PostV1ItemRating` — `POST /api/analytics/v1/item-rating` — Получить отчёт
 - `analytics.DefaultApiService.PostV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
+- `analytics.DefaultApiService.PostV2ItemRating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
 - `analytics.DefaultApiService.PostV3SalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
 - `analytics.DefaultApiService.PostV3SalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
 - `analytics.DefaultApiService.PostV3SalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
@@ -331,7 +332,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `reports.DefaultApiService.ApiV1AcceptanceReportTasksTaskIdDownloadGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApiService.ApiV1AcceptanceReportTasksTaskIdStatusGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApiService.ApiV1AnalyticsAntifraudDetailsGet` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `reports.DefaultApiService.ApiV1AnalyticsBannedProductsBlockedGet` — `GET /api/v1/analytics/banned-products/blocked` — Заблокированные карточки
+- `reports.DefaultApiService.ApiV1AnalyticsBannedProductsBlockedGet` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
 - `reports.DefaultApiService.ApiV1AnalyticsBannedProductsShadowedGet` — `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
 - `reports.DefaultApiService.ApiV1AnalyticsBrandShareBrandsGet` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApiService.ApiV1AnalyticsBrandShareGet` — `GET /api/v1/analytics/brand-share` — Получить отчёт

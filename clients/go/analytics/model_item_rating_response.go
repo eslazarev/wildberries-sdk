@@ -24,7 +24,7 @@ type ItemRatingResponse struct {
 	SellerRating TableItemFloat `json:"sellerRating"`
 	FeedbackIncrease FeedbacksIncreaseItem `json:"feedbackIncrease"`
 	// Данные по товарам
-	Cards []DistributionTableItem `json:"cards"`
+	Items []DistributionTableItem `json:"items"`
 }
 
 type _ItemRatingResponse ItemRatingResponse
@@ -33,11 +33,11 @@ type _ItemRatingResponse ItemRatingResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemRatingResponse(sellerRating TableItemFloat, feedbackIncrease FeedbacksIncreaseItem, cards []DistributionTableItem) *ItemRatingResponse {
+func NewItemRatingResponse(sellerRating TableItemFloat, feedbackIncrease FeedbacksIncreaseItem, items []DistributionTableItem) *ItemRatingResponse {
 	this := ItemRatingResponse{}
 	this.SellerRating = sellerRating
 	this.FeedbackIncrease = feedbackIncrease
-	this.Cards = cards
+	this.Items = items
 	return &this
 }
 
@@ -97,28 +97,28 @@ func (o *ItemRatingResponse) SetFeedbackIncrease(v FeedbacksIncreaseItem) {
 	o.FeedbackIncrease = v
 }
 
-// GetCards returns the Cards field value
-func (o *ItemRatingResponse) GetCards() []DistributionTableItem {
+// GetItems returns the Items field value
+func (o *ItemRatingResponse) GetItems() []DistributionTableItem {
 	if o == nil {
 		var ret []DistributionTableItem
 		return ret
 	}
 
-	return o.Cards
+	return o.Items
 }
 
-// GetCardsOk returns a tuple with the Cards field value
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *ItemRatingResponse) GetCardsOk() ([]DistributionTableItem, bool) {
+func (o *ItemRatingResponse) GetItemsOk() ([]DistributionTableItem, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Cards, true
+	return o.Items, true
 }
 
-// SetCards sets field value
-func (o *ItemRatingResponse) SetCards(v []DistributionTableItem) {
-	o.Cards = v
+// SetItems sets field value
+func (o *ItemRatingResponse) SetItems(v []DistributionTableItem) {
+	o.Items = v
 }
 
 func (o ItemRatingResponse) MarshalJSON() ([]byte, error) {
@@ -133,7 +133,7 @@ func (o ItemRatingResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["sellerRating"] = o.SellerRating
 	toSerialize["feedbackIncrease"] = o.FeedbackIncrease
-	toSerialize["cards"] = o.Cards
+	toSerialize["items"] = o.Items
 	return toSerialize, nil
 }
 
@@ -144,7 +144,7 @@ func (o *ItemRatingResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"sellerRating",
 		"feedbackIncrease",
-		"cards",
+		"items",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -14,75 +14,79 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DistributionTableItem {
     /// Артикул WB
-    #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
-    pub nm_id: Option<i64>,
+    #[serde(rename = "nmId")]
+    pub nm_id: i64,
     /// Название товара
-    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
-    pub title: Option<String>,
+    #[serde(rename = "title")]
+    pub title: String,
     /// Артикул продавца
-    #[serde(rename = "vendorCode", skip_serializing_if = "Option::is_none")]
-    pub vendor_code: Option<String>,
+    #[serde(rename = "vendorCode")]
+    pub vendor_code: String,
     /// ID предмета
-    #[serde(rename = "subjectId", skip_serializing_if = "Option::is_none")]
-    pub subject_id: Option<i32>,
+    #[serde(rename = "subjectId")]
+    pub subject_id: i32,
     /// Название предмета
-    #[serde(rename = "subjectName", skip_serializing_if = "Option::is_none")]
-    pub subject_name: Option<String>,
+    #[serde(rename = "subjectName")]
+    pub subject_name: String,
     /// Бренд
-    #[serde(rename = "brandName", skip_serializing_if = "Option::is_none")]
-    pub brand_name: Option<String>,
+    #[serde(rename = "brandName")]
+    pub brand_name: String,
     /// Название ярлыка
-    #[serde(rename = "tagName", skip_serializing_if = "Option::is_none")]
-    pub tag_name: Option<String>,
+    #[serde(rename = "tagName")]
+    pub tag_name: String,
     /// ID ярлыка
-    #[serde(rename = "tagId", skip_serializing_if = "Option::is_none")]
-    pub tag_id: Option<i64>,
+    #[serde(rename = "tagId")]
+    pub tag_id: i64,
     /// Отзыв закреплён
-    #[serde(rename = "pinnedFeedback", skip_serializing_if = "Option::is_none")]
-    pub pinned_feedback: Option<bool>,
+    #[serde(rename = "pinnedFeedback")]
+    pub pinned_feedback: bool,
     /// Рейтинг карточки товара
-    #[serde(rename = "rating", skip_serializing_if = "Option::is_none")]
-    pub rating: Option<f64>,
-    #[serde(rename = "feedbackRating", skip_serializing_if = "Option::is_none")]
-    pub feedback_rating: Option<Box<models::TableItemBaseCommonFeedbackRating>>,
-    #[serde(rename = "feedbackCount", skip_serializing_if = "Option::is_none")]
-    pub feedback_count: Option<Box<models::DistributionTableIndicatorsFeedbackCount>>,
-    #[serde(rename = "fiveStar", skip_serializing_if = "Option::is_none")]
-    pub five_star: Option<Box<models::DistributionTableIndicatorsFiveStar>>,
-    #[serde(rename = "fourStar", skip_serializing_if = "Option::is_none")]
-    pub four_star: Option<Box<models::DistributionTableIndicatorsFourStar>>,
-    #[serde(rename = "threeStar", skip_serializing_if = "Option::is_none")]
-    pub three_star: Option<Box<models::DistributionTableIndicatorsThreeStar>>,
-    #[serde(rename = "twoStar", skip_serializing_if = "Option::is_none")]
-    pub two_star: Option<Box<models::DistributionTableIndicatorsTwoStar>>,
-    #[serde(rename = "oneStar", skip_serializing_if = "Option::is_none")]
-    pub one_star: Option<Box<models::DistributionTableIndicatorsOneStar>>,
+    #[serde(rename = "rating")]
+    pub rating: f64,
+    #[serde(rename = "feedbackRating")]
+    pub feedback_rating: Box<models::DistributionTableItemV1FeedbackRating>,
+    #[serde(rename = "feedbackCount")]
+    pub feedback_count: Box<models::DistributionTableItemV1FeedbackCount>,
+    #[serde(rename = "fiveStar")]
+    pub five_star: Box<models::DistributionTableItemV1FiveStar>,
+    #[serde(rename = "fourStar")]
+    pub four_star: Box<models::DistributionTableItemV1FourStar>,
+    #[serde(rename = "threeStar")]
+    pub three_star: Box<models::DistributionTableItemV1ThreeStar>,
+    #[serde(rename = "twoStar")]
+    pub two_star: Box<models::DistributionTableItemV1TwoStar>,
+    #[serde(rename = "oneStar")]
+    pub one_star: Box<models::DistributionTableItemV1OneStar>,
     /// Отзывы, исключённые из рейтинга
-    #[serde(rename = "disqualified", skip_serializing_if = "Option::is_none")]
-    pub disqualified: Option<i32>,
+    #[serde(rename = "disqualified")]
+    pub disqualified: i32,
+    /// Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога 
+    #[serde(rename = "isShadowed")]
+    pub is_shadowed: bool,
 }
 
 impl DistributionTableItem {
-    pub fn new() -> DistributionTableItem {
+    pub fn new(nm_id: i64, title: String, vendor_code: String, subject_id: i32, subject_name: String, brand_name: String, tag_name: String, tag_id: i64, pinned_feedback: bool, rating: f64, feedback_rating: models::DistributionTableItemV1FeedbackRating, feedback_count: models::DistributionTableItemV1FeedbackCount, five_star: models::DistributionTableItemV1FiveStar, four_star: models::DistributionTableItemV1FourStar, three_star: models::DistributionTableItemV1ThreeStar, two_star: models::DistributionTableItemV1TwoStar, one_star: models::DistributionTableItemV1OneStar, disqualified: i32, is_shadowed: bool) -> DistributionTableItem {
         DistributionTableItem {
-            nm_id: None,
-            title: None,
-            vendor_code: None,
-            subject_id: None,
-            subject_name: None,
-            brand_name: None,
-            tag_name: None,
-            tag_id: None,
-            pinned_feedback: None,
-            rating: None,
-            feedback_rating: None,
-            feedback_count: None,
-            five_star: None,
-            four_star: None,
-            three_star: None,
-            two_star: None,
-            one_star: None,
-            disqualified: None,
+            nm_id,
+            title,
+            vendor_code,
+            subject_id,
+            subject_name,
+            brand_name,
+            tag_name,
+            tag_id,
+            pinned_feedback,
+            rating,
+            feedback_rating: Box::new(feedback_rating),
+            feedback_count: Box::new(feedback_count),
+            five_star: Box::new(five_star),
+            four_star: Box::new(four_star),
+            three_star: Box::new(three_star),
+            two_star: Box::new(two_star),
+            one_star: Box::new(one_star),
+            disqualified,
+            is_shadowed,
         }
     }
 }

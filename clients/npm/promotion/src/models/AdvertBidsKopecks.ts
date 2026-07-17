@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+ * Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
  * 
  * @export
  * @interface AdvertBidsKopecks

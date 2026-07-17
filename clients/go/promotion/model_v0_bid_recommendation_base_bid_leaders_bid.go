@@ -19,7 +19,7 @@ var _ MappedNullable = &V0BidRecommendationBaseBidLeadersBid{}
 
 // V0BidRecommendationBaseBidLeadersBid Лидерская ставка — средняя ставка с которой товары занимают лидирующие позиции в вашей категории товаров 
 type V0BidRecommendationBaseBidLeadersBid struct {
-	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
 }
 

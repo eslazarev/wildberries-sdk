@@ -27,8 +27,8 @@ class V0BidRecommendationReachMedium(BaseModel):
     """
     Средний охват: 61-75% 
     """ # noqa: E501
-    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="bidKopecks")
-    bid_kopecks_min: Optional[StrictInt] = Field(default=None, description="Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="bidKopecksMin")
+    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="bidKopecks")
+    bid_kopecks_min: Optional[StrictInt] = Field(default=None, description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="bidKopecksMin")
     __properties: ClassVar[List[str]] = ["bidKopecks", "bidKopecksMin"]
 
     model_config = ConfigDict(

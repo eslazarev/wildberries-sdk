@@ -20,6 +20,9 @@ pub struct V0GetNormQueryListResponseItemNormQueries {
     /// Неактивные поисковые кластеры
     #[serde(rename = "excluded", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub excluded: Option<Option<Vec<String>>>,
+    /// Архивные поисковые кластеры
+    #[serde(rename = "archived", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub archived: Option<Option<Vec<String>>>,
 }
 
 impl V0GetNormQueryListResponseItemNormQueries {
@@ -28,6 +31,7 @@ impl V0GetNormQueryListResponseItemNormQueries {
         V0GetNormQueryListResponseItemNormQueries {
             active: None,
             excluded: None,
+            archived: None,
         }
     }
 }

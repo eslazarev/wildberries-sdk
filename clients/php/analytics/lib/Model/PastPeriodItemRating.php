@@ -50,7 +50,7 @@ class PastPeriodItemRating implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @var string
      */
-    protected static $openAPIModelName = 'pastPeriodItemRating';
+    protected static $openAPIModelName = 'PastPeriodItemRating';
 
     /**
      * Array of property to type mappings. Used for (de)serialization

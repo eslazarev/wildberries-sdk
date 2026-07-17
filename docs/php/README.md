@@ -335,6 +335,7 @@ var_dump($response);
 - `analytics.DefaultApi.apiV2StocksReportProductsSizesPost` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
 - `analytics.DefaultApi.postV1ItemRating` — `POST /api/analytics/v1/item-rating` — Получить отчёт
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
+- `analytics.DefaultApi.postV2ItemRating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
 - `analytics.DefaultApi.postV3SalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
 - `analytics.DefaultApi.postV3SalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
 - `analytics.DefaultApi.postV3SalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
@@ -345,7 +346,7 @@ var_dump($response);
 - `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdDownloadGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
 - `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdStatusGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApi.apiV1AnalyticsAntifraudDetailsGet` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `reports.DefaultApi.apiV1AnalyticsBannedProductsBlockedGet` — `GET /api/v1/analytics/banned-products/blocked` — Заблокированные карточки
+- `reports.DefaultApi.apiV1AnalyticsBannedProductsBlockedGet` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
 - `reports.DefaultApi.apiV1AnalyticsBannedProductsShadowedGet` — `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
 - `reports.DefaultApi.apiV1AnalyticsBrandShareBrandsGet` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApi.apiV1AnalyticsBrandShareGet` — `GET /api/v1/analytics/brand-share` — Получить отчёт

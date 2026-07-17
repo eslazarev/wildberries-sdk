@@ -29,7 +29,8 @@ class V0GetNormQueryListResponseItemNormQueries(BaseModel):
     """ # noqa: E501
     active: Optional[List[StrictStr]] = Field(default=None, description="Активные поисковые кластеры")
     excluded: Optional[List[StrictStr]] = Field(default=None, description="Неактивные поисковые кластеры")
-    __properties: ClassVar[List[str]] = ["active", "excluded"]
+    archived: Optional[List[StrictStr]] = Field(default=None, description="Архивные поисковые кластеры")
+    __properties: ClassVar[List[str]] = ["active", "excluded", "archived"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -80,6 +81,11 @@ class V0GetNormQueryListResponseItemNormQueries(BaseModel):
         if self.excluded is None and "excluded" in self.model_fields_set:
             _dict['excluded'] = None
 
+        # set to None if archived (nullable) is None
+        # and model_fields_set contains the field
+        if self.archived is None and "archived" in self.model_fields_set:
+            _dict['archived'] = None
+
         return _dict
 
     @classmethod
@@ -93,7 +99,8 @@ class V0GetNormQueryListResponseItemNormQueries(BaseModel):
 
         _obj = cls.model_validate({
             "active": obj.get("active"),
-            "excluded": obj.get("excluded")
+            "excluded": obj.get("excluded"),
+            "archived": obj.get("archived")
         })
         return _obj
 

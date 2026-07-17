@@ -19,7 +19,7 @@ import (
 // checks if the AdvertBidsKopecks type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AdvertBidsKopecks{}
 
-// AdvertBidsKopecks Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+// AdvertBidsKopecks Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
 type AdvertBidsKopecks struct {
 	// Ставка в поиске
 	Search int64 `json:"search"`

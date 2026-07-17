@@ -30,7 +30,7 @@ class V1SetNormQueryBidsRequestItem(BaseModel):
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     norm_query: StrictStr = Field(description="Поисковый кластер", alias="normQuery")
-    bid_minor_units: StrictInt = Field(description="Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config) ", alias="bidMinorUnits")
+    bid_minor_units: StrictInt = Field(description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config) ", alias="bidMinorUnits")
     __properties: ClassVar[List[str]] = ["advertId", "nmId", "normQuery", "bidMinorUnits"]
 
     model_config = ConfigDict(

@@ -60,7 +60,7 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'seller_rating' => '\Wildberries\Sdk\Analytics\Model\TableItemFloat',
         'feedback_increase' => '\Wildberries\Sdk\Analytics\Model\FeedbacksIncreaseItem',
-        'cards' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItem[]'
+        'items' => '\Wildberries\Sdk\Analytics\Model\DistributionTableItem[]'
     ];
 
     /**
@@ -73,7 +73,7 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'seller_rating' => null,
         'feedback_increase' => null,
-        'cards' => null
+        'items' => null
     ];
 
     /**
@@ -84,7 +84,7 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'seller_rating' => false,
         'feedback_increase' => false,
-        'cards' => false
+        'items' => false
     ];
 
     /**
@@ -175,7 +175,7 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'seller_rating' => 'sellerRating',
         'feedback_increase' => 'feedbackIncrease',
-        'cards' => 'cards'
+        'items' => 'items'
     ];
 
     /**
@@ -186,7 +186,7 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'seller_rating' => 'setSellerRating',
         'feedback_increase' => 'setFeedbackIncrease',
-        'cards' => 'setCards'
+        'items' => 'setItems'
     ];
 
     /**
@@ -197,7 +197,7 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'seller_rating' => 'getSellerRating',
         'feedback_increase' => 'getFeedbackIncrease',
-        'cards' => 'getCards'
+        'items' => 'getItems'
     ];
 
     /**
@@ -259,7 +259,7 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->setIfExists('seller_rating', $data ?? [], null);
         $this->setIfExists('feedback_increase', $data ?? [], null);
-        $this->setIfExists('cards', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -295,8 +295,8 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['feedback_increase'] === null) {
             $invalidProperties[] = "'feedback_increase' can't be null";
         }
-        if ($this->container['cards'] === null) {
-            $invalidProperties[] = "'cards' can't be null";
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
         }
         return $invalidProperties;
     }
@@ -368,28 +368,28 @@ class ItemRatingResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets cards
+     * Gets items
      *
      * @return \Wildberries\Sdk\Analytics\Model\DistributionTableItem[]
      */
-    public function getCards()
+    public function getItems()
     {
-        return $this->container['cards'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets cards
+     * Sets items
      *
-     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItem[] $cards Данные по товарам
+     * @param \Wildberries\Sdk\Analytics\Model\DistributionTableItem[] $items Данные по товарам
      *
      * @return self
      */
-    public function setCards($cards)
+    public function setItems($items)
     {
-        if (is_null($cards)) {
-            throw new \InvalidArgumentException('non-nullable cards cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['cards'] = $cards;
+        $this->container['items'] = $items;
 
         return $this;
     }

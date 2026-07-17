@@ -14,10 +14,10 @@ use serde::{Deserialize, Serialize};
 /// V0BidRecommendationReachMedium : Средний охват: 61-75% 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V0BidRecommendationReachMedium {
-    /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "bidKopecks", skip_serializing_if = "Option::is_none")]
     pub bid_kopecks: Option<i32>,
-    /// Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "bidKopecksMin", skip_serializing_if = "Option::is_none")]
     pub bid_kopecks_min: Option<i32>,
 }

@@ -1,7 +1,7 @@
 /*
 Отчёты
 
-<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
+<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
 
 API version: reports
 */
@@ -781,7 +781,7 @@ func (r ApiApiV1AnalyticsBannedProductsBlockedGetRequest) Execute() (*ApiV1Analy
 }
 
 /*
-ApiV1AnalyticsBannedProductsBlockedGet Заблокированные карточки
+ApiV1AnalyticsBannedProductsBlockedGet Получить отчёт
 
 Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
 
@@ -974,7 +974,7 @@ func (r ApiApiV1AnalyticsBannedProductsShadowedGetRequest) Execute() (*ApiV1Anal
 /*
 ApiV1AnalyticsBannedProductsShadowedGet Скрытые из каталога
 
-Метод возвращает список [товаров продавца, скрытых из каталога](https://seller.wildberries.ru/analytics-reports/banned-products/shadowed).
+Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -991,6 +991,8 @@ ApiV1AnalyticsBannedProductsShadowedGet Скрытые из каталога
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV1AnalyticsBannedProductsShadowedGetRequest
+
+Deprecated
 */
 func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGet(ctx context.Context) ApiApiV1AnalyticsBannedProductsShadowedGetRequest {
 	return ApiApiV1AnalyticsBannedProductsShadowedGetRequest{
@@ -1001,6 +1003,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGet(ctx context.
 
 // Execute executes the request
 //  @return ApiV1AnalyticsBannedProductsShadowedGet200Response
+// Deprecated
 func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r ApiApiV1AnalyticsBannedProductsShadowedGetRequest) (*ApiV1AnalyticsBannedProductsShadowedGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

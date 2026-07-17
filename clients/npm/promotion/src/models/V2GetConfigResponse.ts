@@ -32,17 +32,25 @@ export interface V2GetConfigResponse {
      */
     currencyCode: number;
     /**
-     * Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
+     * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
      * @type {number}
      * @memberof V2GetConfigResponse
      */
     cpmStep: number;
     /**
-     * Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
+     * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
      * @type {number}
      * @memberof V2GetConfigResponse
      */
     cpcStep: number;
+    /**
+     * Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+     *  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
+     * 
+     * @type {number}
+     * @memberof V2GetConfigResponse
+     */
+    minTopUp: number;
 }
 
 /**
@@ -53,6 +61,7 @@ export function instanceOfV2GetConfigResponse(value: object): value is V2GetConf
     if (!('currencyCode' in value) || value['currencyCode'] === undefined) return false;
     if (!('cpmStep' in value) || value['cpmStep'] === undefined) return false;
     if (!('cpcStep' in value) || value['cpcStep'] === undefined) return false;
+    if (!('minTopUp' in value) || value['minTopUp'] === undefined) return false;
     return true;
 }
 
@@ -70,6 +79,7 @@ export function V2GetConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
         'currencyCode': json['currencyCode'],
         'cpmStep': json['cpmStep'],
         'cpcStep': json['cpcStep'],
+        'minTopUp': json['minTopUp'],
     };
 }
 
@@ -88,6 +98,7 @@ export function V2GetConfigResponseToJSONTyped(value?: V2GetConfigResponse | nul
         'currencyCode': value['currencyCode'],
         'cpmStep': value['cpmStep'],
         'cpcStep': value['cpcStep'],
+        'minTopUp': value['minTopUp'],
     };
 }
 

@@ -60,7 +60,8 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency' => 'string',
         'currency_code' => 'int',
         'cpm_step' => 'int',
-        'cpc_step' => 'int'
+        'cpc_step' => 'int',
+        'min_top_up' => 'int'
     ];
 
     /**
@@ -74,7 +75,8 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency' => 'ISO 4217',
         'currency_code' => null,
         'cpm_step' => 'int64',
-        'cpc_step' => 'int64'
+        'cpc_step' => 'int64',
+        'min_top_up' => 'int64'
     ];
 
     /**
@@ -86,7 +88,8 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency' => false,
         'currency_code' => false,
         'cpm_step' => false,
-        'cpc_step' => false
+        'cpc_step' => false,
+        'min_top_up' => false
     ];
 
     /**
@@ -178,7 +181,8 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency' => 'currency',
         'currency_code' => 'currencyCode',
         'cpm_step' => 'cpmStep',
-        'cpc_step' => 'cpcStep'
+        'cpc_step' => 'cpcStep',
+        'min_top_up' => 'minTopUp'
     ];
 
     /**
@@ -190,7 +194,8 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency' => 'setCurrency',
         'currency_code' => 'setCurrencyCode',
         'cpm_step' => 'setCpmStep',
-        'cpc_step' => 'setCpcStep'
+        'cpc_step' => 'setCpcStep',
+        'min_top_up' => 'setMinTopUp'
     ];
 
     /**
@@ -202,7 +207,8 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency' => 'getCurrency',
         'currency_code' => 'getCurrencyCode',
         'cpm_step' => 'getCpmStep',
-        'cpc_step' => 'getCpcStep'
+        'cpc_step' => 'getCpcStep',
+        'min_top_up' => 'getMinTopUp'
     ];
 
     /**
@@ -266,6 +272,7 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('currency_code', $data ?? [], null);
         $this->setIfExists('cpm_step', $data ?? [], null);
         $this->setIfExists('cpc_step', $data ?? [], null);
+        $this->setIfExists('min_top_up', $data ?? [], null);
     }
 
     /**
@@ -306,6 +313,9 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ($this->container['cpc_step'] === null) {
             $invalidProperties[] = "'cpc_step' can't be null";
+        }
+        if ($this->container['min_top_up'] === null) {
+            $invalidProperties[] = "'min_top_up' can't be null";
         }
         return $invalidProperties;
     }
@@ -389,7 +399,7 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets cpm_step
      *
-     * @param int $cpm_step Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
+     * @param int $cpm_step Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
      *
      * @return self
      */
@@ -416,7 +426,7 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets cpc_step
      *
-     * @param int $cpc_step Шаг ставки в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
+     * @param int $cpc_step Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
      *
      * @return self
      */
@@ -426,6 +436,33 @@ class V2GetConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable cpc_step cannot be null');
         }
         $this->container['cpc_step'] = $cpc_step;
+
+        return $this;
+    }
+
+    /**
+     * Gets min_top_up
+     *
+     * @return int
+     */
+    public function getMinTopUp()
+    {
+        return $this->container['min_top_up'];
+    }
+
+    /**
+     * Sets min_top_up
+     *
+     * @param int $min_top_up Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум
+     *
+     * @return self
+     */
+    public function setMinTopUp($min_top_up)
+    {
+        if (is_null($min_top_up)) {
+            throw new \InvalidArgumentException('non-nullable min_top_up cannot be null');
+        }
+        $this->container['min_top_up'] = $min_top_up;
 
         return $this;
     }

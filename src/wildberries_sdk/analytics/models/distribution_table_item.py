@@ -18,14 +18,14 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from wildberries_sdk.analytics.models.distribution_table_indicators_feedback_count import DistributionTableIndicatorsFeedbackCount
-from wildberries_sdk.analytics.models.distribution_table_indicators_five_star import DistributionTableIndicatorsFiveStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_four_star import DistributionTableIndicatorsFourStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_one_star import DistributionTableIndicatorsOneStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_three_star import DistributionTableIndicatorsThreeStar
-from wildberries_sdk.analytics.models.distribution_table_indicators_two_star import DistributionTableIndicatorsTwoStar
-from wildberries_sdk.analytics.models.table_item_base_common_feedback_rating import TableItemBaseCommonFeedbackRating
+from typing import Any, ClassVar, Dict, List, Union
+from wildberries_sdk.analytics.models.distribution_table_item_v1_feedback_count import DistributionTableItemV1FeedbackCount
+from wildberries_sdk.analytics.models.distribution_table_item_v1_feedback_rating import DistributionTableItemV1FeedbackRating
+from wildberries_sdk.analytics.models.distribution_table_item_v1_five_star import DistributionTableItemV1FiveStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_four_star import DistributionTableItemV1FourStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_one_star import DistributionTableItemV1OneStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_three_star import DistributionTableItemV1ThreeStar
+from wildberries_sdk.analytics.models.distribution_table_item_v1_two_star import DistributionTableItemV1TwoStar
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -34,25 +34,26 @@ class DistributionTableItem(BaseModel):
     """
     DistributionTableItem
     """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId", json_schema_extra={"examples": [123456789]})
-    title: Optional[StrictStr] = Field(default=None, description="Название товара", json_schema_extra={"examples": ["iPh 17 512 ГБ Серебристый"]})
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode", json_schema_extra={"examples": ["wb3ha2668w"]})
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectId", json_schema_extra={"examples": [50]})
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName", json_schema_extra={"examples": ["Phones"]})
-    brand_name: Optional[StrictStr] = Field(default=None, description="Бренд", alias="brandName", json_schema_extra={"examples": ["Attlee"]})
-    tag_name: Optional[StrictStr] = Field(default=None, description="Название ярлыка", alias="tagName", json_schema_extra={"examples": ["Phones"]})
-    tag_id: Optional[StrictInt] = Field(default=None, description="ID ярлыка", alias="tagId", json_schema_extra={"examples": [65]})
-    pinned_feedback: Optional[StrictBool] = Field(default=None, description="Отзыв закреплён", alias="pinnedFeedback", json_schema_extra={"examples": [True]})
-    rating: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Рейтинг карточки товара", json_schema_extra={"examples": [10]})
-    feedback_rating: Optional[TableItemBaseCommonFeedbackRating] = Field(default=None, alias="feedbackRating")
-    feedback_count: Optional[DistributionTableIndicatorsFeedbackCount] = Field(default=None, alias="feedbackCount")
-    five_star: Optional[DistributionTableIndicatorsFiveStar] = Field(default=None, alias="fiveStar")
-    four_star: Optional[DistributionTableIndicatorsFourStar] = Field(default=None, alias="fourStar")
-    three_star: Optional[DistributionTableIndicatorsThreeStar] = Field(default=None, alias="threeStar")
-    two_star: Optional[DistributionTableIndicatorsTwoStar] = Field(default=None, alias="twoStar")
-    one_star: Optional[DistributionTableIndicatorsOneStar] = Field(default=None, alias="oneStar")
-    disqualified: Optional[StrictInt] = Field(default=None, description="Отзывы, исключённые из рейтинга", json_schema_extra={"examples": [7]})
-    __properties: ClassVar[List[str]] = ["nmId", "title", "vendorCode", "subjectId", "subjectName", "brandName", "tagName", "tagId", "pinnedFeedback", "rating", "feedbackRating", "feedbackCount", "fiveStar", "fourStar", "threeStar", "twoStar", "oneStar", "disqualified"]
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [123456789]})
+    title: StrictStr = Field(description="Название товара", json_schema_extra={"examples": ["iPh 17 512 ГБ Серебристый"]})
+    vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode", json_schema_extra={"examples": ["wb3ha2668w"]})
+    subject_id: StrictInt = Field(description="ID предмета", alias="subjectId", json_schema_extra={"examples": [50]})
+    subject_name: StrictStr = Field(description="Название предмета", alias="subjectName", json_schema_extra={"examples": ["Phones"]})
+    brand_name: StrictStr = Field(description="Бренд", alias="brandName", json_schema_extra={"examples": ["Attlee"]})
+    tag_name: StrictStr = Field(description="Название ярлыка", alias="tagName", json_schema_extra={"examples": ["Phones"]})
+    tag_id: StrictInt = Field(description="ID ярлыка", alias="tagId", json_schema_extra={"examples": [65]})
+    pinned_feedback: StrictBool = Field(description="Отзыв закреплён", alias="pinnedFeedback", json_schema_extra={"examples": [True]})
+    rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг карточки товара", json_schema_extra={"examples": [10]})
+    feedback_rating: DistributionTableItemV1FeedbackRating = Field(alias="feedbackRating")
+    feedback_count: DistributionTableItemV1FeedbackCount = Field(alias="feedbackCount")
+    five_star: DistributionTableItemV1FiveStar = Field(alias="fiveStar")
+    four_star: DistributionTableItemV1FourStar = Field(alias="fourStar")
+    three_star: DistributionTableItemV1ThreeStar = Field(alias="threeStar")
+    two_star: DistributionTableItemV1TwoStar = Field(alias="twoStar")
+    one_star: DistributionTableItemV1OneStar = Field(alias="oneStar")
+    disqualified: StrictInt = Field(description="Отзывы, исключённые из рейтинга", json_schema_extra={"examples": [7]})
+    is_shadowed: StrictBool = Field(description="Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога ", alias="isShadowed", json_schema_extra={"examples": [True]})
+    __properties: ClassVar[List[str]] = ["nmId", "title", "vendorCode", "subjectId", "subjectName", "brandName", "tagName", "tagId", "pinnedFeedback", "rating", "feedbackRating", "feedbackCount", "fiveStar", "fourStar", "threeStar", "twoStar", "oneStar", "disqualified", "isShadowed"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -136,14 +137,15 @@ class DistributionTableItem(BaseModel):
             "tagId": obj.get("tagId"),
             "pinnedFeedback": obj.get("pinnedFeedback"),
             "rating": obj.get("rating"),
-            "feedbackRating": TableItemBaseCommonFeedbackRating.from_dict(obj["feedbackRating"]) if obj.get("feedbackRating") is not None else None,
-            "feedbackCount": DistributionTableIndicatorsFeedbackCount.from_dict(obj["feedbackCount"]) if obj.get("feedbackCount") is not None else None,
-            "fiveStar": DistributionTableIndicatorsFiveStar.from_dict(obj["fiveStar"]) if obj.get("fiveStar") is not None else None,
-            "fourStar": DistributionTableIndicatorsFourStar.from_dict(obj["fourStar"]) if obj.get("fourStar") is not None else None,
-            "threeStar": DistributionTableIndicatorsThreeStar.from_dict(obj["threeStar"]) if obj.get("threeStar") is not None else None,
-            "twoStar": DistributionTableIndicatorsTwoStar.from_dict(obj["twoStar"]) if obj.get("twoStar") is not None else None,
-            "oneStar": DistributionTableIndicatorsOneStar.from_dict(obj["oneStar"]) if obj.get("oneStar") is not None else None,
-            "disqualified": obj.get("disqualified")
+            "feedbackRating": DistributionTableItemV1FeedbackRating.from_dict(obj["feedbackRating"]) if obj.get("feedbackRating") is not None else None,
+            "feedbackCount": DistributionTableItemV1FeedbackCount.from_dict(obj["feedbackCount"]) if obj.get("feedbackCount") is not None else None,
+            "fiveStar": DistributionTableItemV1FiveStar.from_dict(obj["fiveStar"]) if obj.get("fiveStar") is not None else None,
+            "fourStar": DistributionTableItemV1FourStar.from_dict(obj["fourStar"]) if obj.get("fourStar") is not None else None,
+            "threeStar": DistributionTableItemV1ThreeStar.from_dict(obj["threeStar"]) if obj.get("threeStar") is not None else None,
+            "twoStar": DistributionTableItemV1TwoStar.from_dict(obj["twoStar"]) if obj.get("twoStar") is not None else None,
+            "oneStar": DistributionTableItemV1OneStar.from_dict(obj["oneStar"]) if obj.get("oneStar") is not None else None,
+            "disqualified": obj.get("disqualified"),
+            "isShadowed": obj.get("isShadowed")
         })
         return _obj
 

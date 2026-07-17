@@ -147,6 +147,17 @@ pub enum PostV1StocksReportWbWarehousesError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`post_v2_item_rating`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2ItemRatingError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`post_v3_sales_funnel_grouped_history`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -598,10 +609,11 @@ pub async fn api_v2_stocks_report_products_sizes_post(configuration: &configurat
     }
 }
 
-///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
-pub async fn post_v1_item_rating(configuration: &configuration::Configuration, item_rating_request: models::ItemRatingRequest) -> Result<models::PostV1ItemRating200Response, Error<PostV1ItemRatingError>> {
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+#[deprecated]
+pub async fn post_v1_item_rating(configuration: &configuration::Configuration, item_rating_request_v1: models::ItemRatingRequestV1) -> Result<models::PostV1ItemRating200Response, Error<PostV1ItemRatingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_item_rating_request = item_rating_request;
+    let p_body_item_rating_request_v1 = item_rating_request_v1;
 
     let uri_str = format!("{}/api/analytics/v1/item-rating", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -617,7 +629,7 @@ pub async fn post_v1_item_rating(configuration: &configuration::Configuration, i
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_item_rating_request);
+    req_builder = req_builder.json(&p_body_item_rating_request_v1);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -686,6 +698,52 @@ pub async fn post_v1_stocks_report_wb_warehouses(configuration: &configuration::
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV1StocksReportWbWarehousesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+pub async fn post_v2_item_rating(configuration: &configuration::Configuration, item_rating_request: models::ItemRatingRequest) -> Result<models::PostV2ItemRating200Response, Error<PostV2ItemRatingError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_item_rating_request = item_rating_request;
+
+    let uri_str = format!("{}/api/analytics/v2/item-rating", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_item_rating_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2ItemRating200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2ItemRating200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2ItemRatingError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

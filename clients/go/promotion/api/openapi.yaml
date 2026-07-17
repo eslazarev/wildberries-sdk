@@ -303,7 +303,7 @@ paths:
   /api/advert/v1/bids/min:
     post:
       description: |
-        Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
+        Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2547,6 +2547,7 @@ paths:
                 cpmStep: 100000
                 currency: UZS
                 currencyCode: 860
+                minTopUp: 10000
               schema:
                 $ref: "#/components/schemas/V2GetConfigResponse"
           description: Успешно
@@ -4442,13 +4443,14 @@ paths:
                     - горы футболка для мужчин
                     - одежда для моря
                     - одежда на море
-                    - поло мужское
-                    - поло мужское летнее
                     - футболка дельфин
                     - футболка мужская с принтом светлая
                     - футболка поло
                     - футболка поло мужская
                     - футболка с воротником мужские
+                    archived:
+                    - поло мужское
+                    - поло мужское летнее
               schema:
                 $ref: "#/components/schemas/V0GetNormQueryListResponse"
           description: Успешно
@@ -5178,7 +5180,7 @@ components:
           type: string
         bidMinorUnits:
           description: |
-            Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
             Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config)
           type: integer
       required:
@@ -5311,6 +5313,7 @@ components:
         currencyCode: 0
         cpmStep: 6
         cpcStep: 1
+        minTopUp: 5
       properties:
         currency:
           description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
@@ -5320,15 +5323,21 @@ components:
           description: "Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         cpmStep:
-          description: "Шаг ставки в разменных единицах — 0,01 от базовой единицы\
-            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)\
-            \ для CPM-кампаний"
+          description: "Шаг ставки в разменных единицах — 0,01 от базовой валюты [а\
+            ккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-к\
+            ампаний"
           format: int64
           type: integer
         cpcStep:
-          description: "Шаг ставки в разменных единицах — 0,01 от базовой единицы\
-            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)\
-            \ для кампаний CPC"
+          description: "Шаг ставки в разменных единицах — 0,01 от базовой валюты [а\
+            ккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для к\
+            ампаний CPC"
+          format: int64
+          type: integer
+        minTopUp:
+          description: |
+            Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+             Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
           format: int64
           type: integer
       required:
@@ -5336,6 +5345,7 @@ components:
       - cpmStep
       - currency
       - currencyCode
+      - minTopUp
       type: object
     V0BidsRecommendationsResponse:
       example:
@@ -5411,7 +5421,7 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).\
+            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).\
             \ Если `0`, для данного предмета топ-ставка не используется"
           type: integer
       type: object
@@ -5424,7 +5434,7 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0BidRecommendationBaseBidLeadersBid:
@@ -5435,7 +5445,7 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0BidRecommendationNormQuery:
@@ -5470,11 +5480,11 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
+            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
           type: integer
         bidKopecksMin:
           description: "Минимальная ставка в разменных единицах — 0,01 от базовой\
-            \ единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
+            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
           type: integer
       type: object
     V0BidRecommendationReachMedium:
@@ -5486,11 +5496,11 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         bidKopecksMin:
           description: "Минимальная ставка в разменных единицах — 0,01 от базовой\
-            \ единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0BidRecommendationReachMin:
@@ -5502,11 +5512,11 @@ components:
       properties:
         bidKopecks:
           description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
-            й единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
         bidKopecksMin:
           description: "Минимальная ставка в разменных единицах — 0,01 от базовой\
-            \ единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+            \ валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           type: integer
       type: object
     V0GetNormQueryListRequest:
@@ -5560,6 +5570,9 @@ components:
             excluded:
             - excluded
             - excluded
+            archived:
+            - archived
+            - archived
         - advertId: 0
           nmId: 6
           normQueries:
@@ -5569,6 +5582,9 @@ components:
             excluded:
             - excluded
             - excluded
+            archived:
+            - archived
+            - archived
       properties:
         items:
           items:
@@ -5589,6 +5605,9 @@ components:
           excluded:
           - excluded
           - excluded
+          archived:
+          - archived
+          - archived
       properties:
         advertId:
           description: ID кампании
@@ -5610,6 +5629,9 @@ components:
         excluded:
         - excluded
         - excluded
+        archived:
+        - archived
+        - archived
       properties:
         active:
           description: Активные поисковые кластеры
@@ -5619,6 +5641,12 @@ components:
           type: array
         excluded:
           description: Неактивные поисковые кластеры
+          items:
+            type: string
+          nullable: true
+          type: array
+        archived:
+          description: Архивные поисковые кластеры
           items:
             type: string
           nullable: true
@@ -6299,8 +6327,8 @@ components:
             а](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов"
           type: integer
         bid_kopecks:
-          description: "Текущая ставка в разменных единицах — 0,01 от базовой един\
-            ицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)\
+          description: "Текущая ставка в разменных единицах — 0,01 от базовой валю\
+            ты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)\
             \ за тысячу показов"
           type: integer
         currency:
@@ -6631,7 +6659,7 @@ components:
       type: object
     AdvertBidsKopecks:
       description: |
-        Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+        Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
       example:
         search: 6
         recommendations: 1
@@ -7690,7 +7718,7 @@ components:
           $ref: "#/components/schemas/PlacementType"
         value:
           description: |
-            Минимальная ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+            Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           type: integer
       required:
       - currency
@@ -7898,8 +7926,8 @@ components:
           format: int64
           type: integer
         bid_kopecks:
-          description: "Ставка в разменных единицах — 0,01 от базовой единицы валю\
-            ты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Ставка в разменных единицах — 0,01 от базовой валюты [акка\
+            унта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: int64
           type: integer
         placement:
@@ -7956,8 +7984,8 @@ components:
           format: int64
           type: integer
         bid_kopecks:
-          description: "Ставка в разменных единицах — 0,01 от базовой единицы валю\
-            ты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+          description: "Ставка в разменных единицах — 0,01 от базовой валюты [акка\
+            унта продавца](https://cmp.wildberries.ru/campaigns/finances)"
           format: int64
           type: integer
         placement:

@@ -31,8 +31,10 @@ type ItemRatingRequest struct {
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
 	TagIds []int64 `json:"tagIds,omitempty"`
-	// Не учитывать товары без продаж
-	IsNotIncludeNMsWithoutSales *bool `json:"isNotIncludeNMsWithoutSales,omitempty"`
+	// Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры 
+	IsNotIncludeNmsWithoutSales *bool `json:"isNotIncludeNmsWithoutSales,omitempty"`
+	// Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры 
+	OnlyShadowedNms *bool `json:"onlyShadowedNms,omitempty"`
 	OrderBy OrderByItemRating `json:"orderBy"`
 	// Количество товаров в ответе
 	Limit *int32 `json:"limit,omitempty"`
@@ -49,8 +51,10 @@ type _ItemRatingRequest ItemRatingRequest
 func NewItemRatingRequest(currentPeriod PeriodItemRating, orderBy OrderByItemRating, offset int32) *ItemRatingRequest {
 	this := ItemRatingRequest{}
 	this.CurrentPeriod = currentPeriod
-	var isNotIncludeNMsWithoutSales bool = false
-	this.IsNotIncludeNMsWithoutSales = &isNotIncludeNMsWithoutSales
+	var isNotIncludeNmsWithoutSales bool = false
+	this.IsNotIncludeNmsWithoutSales = &isNotIncludeNmsWithoutSales
+	var onlyShadowedNms bool = false
+	this.OnlyShadowedNms = &onlyShadowedNms
 	this.OrderBy = orderBy
 	var limit int32 = 100
 	this.Limit = &limit
@@ -63,8 +67,10 @@ func NewItemRatingRequest(currentPeriod PeriodItemRating, orderBy OrderByItemRat
 // but it doesn't guarantee that properties required by API are set
 func NewItemRatingRequestWithDefaults() *ItemRatingRequest {
 	this := ItemRatingRequest{}
-	var isNotIncludeNMsWithoutSales bool = false
-	this.IsNotIncludeNMsWithoutSales = &isNotIncludeNMsWithoutSales
+	var isNotIncludeNmsWithoutSales bool = false
+	this.IsNotIncludeNmsWithoutSales = &isNotIncludeNmsWithoutSales
+	var onlyShadowedNms bool = false
+	this.OnlyShadowedNms = &onlyShadowedNms
 	var limit int32 = 100
 	this.Limit = &limit
 	return &this
@@ -254,36 +260,68 @@ func (o *ItemRatingRequest) SetTagIds(v []int64) {
 	o.TagIds = v
 }
 
-// GetIsNotIncludeNMsWithoutSales returns the IsNotIncludeNMsWithoutSales field value if set, zero value otherwise.
-func (o *ItemRatingRequest) GetIsNotIncludeNMsWithoutSales() bool {
-	if o == nil || IsNil(o.IsNotIncludeNMsWithoutSales) {
+// GetIsNotIncludeNmsWithoutSales returns the IsNotIncludeNmsWithoutSales field value if set, zero value otherwise.
+func (o *ItemRatingRequest) GetIsNotIncludeNmsWithoutSales() bool {
+	if o == nil || IsNil(o.IsNotIncludeNmsWithoutSales) {
 		var ret bool
 		return ret
 	}
-	return *o.IsNotIncludeNMsWithoutSales
+	return *o.IsNotIncludeNmsWithoutSales
 }
 
-// GetIsNotIncludeNMsWithoutSalesOk returns a tuple with the IsNotIncludeNMsWithoutSales field value if set, nil otherwise
+// GetIsNotIncludeNmsWithoutSalesOk returns a tuple with the IsNotIncludeNmsWithoutSales field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemRatingRequest) GetIsNotIncludeNMsWithoutSalesOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsNotIncludeNMsWithoutSales) {
+func (o *ItemRatingRequest) GetIsNotIncludeNmsWithoutSalesOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsNotIncludeNmsWithoutSales) {
 		return nil, false
 	}
-	return o.IsNotIncludeNMsWithoutSales, true
+	return o.IsNotIncludeNmsWithoutSales, true
 }
 
-// HasIsNotIncludeNMsWithoutSales returns a boolean if a field has been set.
-func (o *ItemRatingRequest) HasIsNotIncludeNMsWithoutSales() bool {
-	if o != nil && !IsNil(o.IsNotIncludeNMsWithoutSales) {
+// HasIsNotIncludeNmsWithoutSales returns a boolean if a field has been set.
+func (o *ItemRatingRequest) HasIsNotIncludeNmsWithoutSales() bool {
+	if o != nil && !IsNil(o.IsNotIncludeNmsWithoutSales) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsNotIncludeNMsWithoutSales gets a reference to the given bool and assigns it to the IsNotIncludeNMsWithoutSales field.
-func (o *ItemRatingRequest) SetIsNotIncludeNMsWithoutSales(v bool) {
-	o.IsNotIncludeNMsWithoutSales = &v
+// SetIsNotIncludeNmsWithoutSales gets a reference to the given bool and assigns it to the IsNotIncludeNmsWithoutSales field.
+func (o *ItemRatingRequest) SetIsNotIncludeNmsWithoutSales(v bool) {
+	o.IsNotIncludeNmsWithoutSales = &v
+}
+
+// GetOnlyShadowedNms returns the OnlyShadowedNms field value if set, zero value otherwise.
+func (o *ItemRatingRequest) GetOnlyShadowedNms() bool {
+	if o == nil || IsNil(o.OnlyShadowedNms) {
+		var ret bool
+		return ret
+	}
+	return *o.OnlyShadowedNms
+}
+
+// GetOnlyShadowedNmsOk returns a tuple with the OnlyShadowedNms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemRatingRequest) GetOnlyShadowedNmsOk() (*bool, bool) {
+	if o == nil || IsNil(o.OnlyShadowedNms) {
+		return nil, false
+	}
+	return o.OnlyShadowedNms, true
+}
+
+// HasOnlyShadowedNms returns a boolean if a field has been set.
+func (o *ItemRatingRequest) HasOnlyShadowedNms() bool {
+	if o != nil && !IsNil(o.OnlyShadowedNms) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnlyShadowedNms gets a reference to the given bool and assigns it to the OnlyShadowedNms field.
+func (o *ItemRatingRequest) SetOnlyShadowedNms(v bool) {
+	o.OnlyShadowedNms = &v
 }
 
 // GetOrderBy returns the OrderBy field value
@@ -392,8 +430,11 @@ func (o ItemRatingRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TagIds) {
 		toSerialize["tagIds"] = o.TagIds
 	}
-	if !IsNil(o.IsNotIncludeNMsWithoutSales) {
-		toSerialize["isNotIncludeNMsWithoutSales"] = o.IsNotIncludeNMsWithoutSales
+	if !IsNil(o.IsNotIncludeNmsWithoutSales) {
+		toSerialize["isNotIncludeNmsWithoutSales"] = o.IsNotIncludeNmsWithoutSales
+	}
+	if !IsNil(o.OnlyShadowedNms) {
+		toSerialize["onlyShadowedNms"] = o.OnlyShadowedNms
 	}
 	toSerialize["orderBy"] = o.OrderBy
 	if !IsNil(o.Limit) {

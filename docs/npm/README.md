@@ -322,6 +322,7 @@ main().catch(console.error);
 - `analytics.DefaultApi.apiV2StocksReportProductsSizesPost` — Данные по размерам
 - `analytics.DefaultApi.postV1ItemRating` — Получить отчёт
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — Остатки на складах WB
+- `analytics.DefaultApi.postV2ItemRating` — Получить отчёт
 - `analytics.DefaultApi.postV3SalesFunnelGroupedHistory` — Статистика групп карточек товаров по дням
 - `analytics.DefaultApi.postV3SalesFunnelProducts` — Статистика карточек товаров за период
 - `analytics.DefaultApi.postV3SalesFunnelProductsHistory` — Статистика карточек товаров по дням
@@ -332,7 +333,7 @@ main().catch(console.error);
 - `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdDownloadGet` — Получить отчёт
 - `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdStatusGet` — Проверить статус
 - `reports.DefaultApi.apiV1AnalyticsAntifraudDetailsGet` — Самовыкупы
-- `reports.DefaultApi.apiV1AnalyticsBannedProductsBlockedGet` — Заблокированные карточки
+- `reports.DefaultApi.apiV1AnalyticsBannedProductsBlockedGet` — Получить отчёт
 - `reports.DefaultApi.apiV1AnalyticsBannedProductsShadowedGet` — Скрытые из каталога
 - `reports.DefaultApi.apiV1AnalyticsBrandShareBrandsGet` — Бренды продавца
 - `reports.DefaultApi.apiV1AnalyticsBrandShareGet` — Получить отчёт

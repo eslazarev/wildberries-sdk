@@ -25,7 +25,7 @@ from pydantic_core import to_jsonable_python
 
 class AdvertBidsKopecks(BaseModel):
     """
-    Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+    Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
     """ # noqa: E501
     search: StrictInt = Field(description="Ставка в поиске")
     recommendations: StrictInt = Field(description="Ставка в рекомендациях")

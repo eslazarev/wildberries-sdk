@@ -114,6 +114,11 @@ import {
     ItemRatingRequestToJSON,
 } from '../models/ItemRatingRequest';
 import {
+    type ItemRatingRequestV1,
+    ItemRatingRequestV1FromJSON,
+    ItemRatingRequestV1ToJSON,
+} from '../models/ItemRatingRequestV1';
+import {
     type ItemSearchTextsRequest,
     ItemSearchTextsRequestFromJSON,
     ItemSearchTextsRequestToJSON,
@@ -138,6 +143,11 @@ import {
     PostV1StocksReportWbWarehouses200ResponseFromJSON,
     PostV1StocksReportWbWarehouses200ResponseToJSON,
 } from '../models/PostV1StocksReportWbWarehouses200Response';
+import {
+    type PostV2ItemRating200Response,
+    PostV2ItemRating200ResponseFromJSON,
+    PostV2ItemRating200ResponseToJSON,
+} from '../models/PostV2ItemRating200Response';
 import {
     type PostV3SalesFunnelGroupedHistory200Response,
     PostV3SalesFunnelGroupedHistory200ResponseFromJSON,
@@ -221,11 +231,15 @@ export interface ApiV2StocksReportProductsSizesPostRequest {
 }
 
 export interface PostV1ItemRatingRequest {
-    itemRatingRequest: ItemRatingRequest;
+    itemRatingRequestV1: ItemRatingRequestV1;
 }
 
 export interface PostV1StocksReportWbWarehousesRequest {
     inventoryRequest: InventoryRequest;
+}
+
+export interface PostV2ItemRatingRequest {
+    itemRatingRequest: ItemRatingRequest;
 }
 
 export interface PostV3SalesFunnelGroupedHistoryRequest {
@@ -724,12 +738,13 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      * Creates request options for postV1ItemRating without sending the request
+     * @deprecated
      */
     async postV1ItemRatingRequestOpts(requestParameters: PostV1ItemRatingRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['itemRatingRequest'] == null) {
+        if (requestParameters['itemRatingRequestV1'] == null) {
             throw new runtime.RequiredError(
-                'itemRatingRequest',
-                'Required parameter "itemRatingRequest" was null or undefined when calling postV1ItemRating().'
+                'itemRatingRequestV1',
+                'Required parameter "itemRatingRequestV1" was null or undefined when calling postV1ItemRating().'
             );
         }
 
@@ -751,13 +766,14 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ItemRatingRequestToJSON(requestParameters['itemRatingRequest']),
+            body: ItemRatingRequestV1ToJSON(requestParameters['itemRatingRequestV1']),
         };
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
      * Получить отчёт
+     * @deprecated
      */
     async postV1ItemRatingRaw(requestParameters: PostV1ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1ItemRating200Response>> {
         const requestOptions = await this.postV1ItemRatingRequestOpts(requestParameters);
@@ -767,8 +783,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
      * Получить отчёт
+     * @deprecated
      */
     async postV1ItemRating(requestParameters: PostV1ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1ItemRating200Response> {
         const response = await this.postV1ItemRatingRaw(requestParameters, initOverrides);
@@ -825,6 +842,59 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async postV1StocksReportWbWarehouses(requestParameters: PostV1StocksReportWbWarehousesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1StocksReportWbWarehouses200Response> {
         const response = await this.postV1StocksReportWbWarehousesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2ItemRating without sending the request
+     */
+    async postV2ItemRatingRequestOpts(requestParameters: PostV2ItemRatingRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['itemRatingRequest'] == null) {
+            throw new runtime.RequiredError(
+                'itemRatingRequest',
+                'Required parameter "itemRatingRequest" was null or undefined when calling postV2ItemRating().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/analytics/v2/item-rating`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ItemRatingRequestToJSON(requestParameters['itemRatingRequest']),
+        };
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+     * Получить отчёт
+     */
+    async postV2ItemRatingRaw(requestParameters: PostV2ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV2ItemRating200Response>> {
+        const requestOptions = await this.postV2ItemRatingRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV2ItemRating200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Метод формирует набор данных об оценках товаров. <br><br> Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
+     * Получить отчёт
+     */
+    async postV2ItemRating(requestParameters: PostV2ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV2ItemRating200Response> {
+        const response = await this.postV2ItemRatingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

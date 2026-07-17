@@ -16,7 +16,7 @@ pub struct ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner {
     /// Артикул WB
     #[serde(rename = "nm_id")]
     pub nm_id: i64,
-    /// Ставка в разменных единицах — 0,01 от базовой единицы валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    /// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     #[serde(rename = "bid_kopecks")]
     pub bid_kopecks: i64,
     /// Место размещения:   - `search` — в поиске (для кампаний с ручной ставкой)   - `recommendations`— в рекомендациях (для кампаний с ручной ставкой)   - `combined` — в поиске и рекомендациях (для кампаний с единой ставкой) 

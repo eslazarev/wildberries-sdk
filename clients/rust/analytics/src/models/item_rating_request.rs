@@ -30,9 +30,12 @@ pub struct ItemRatingRequest {
     /// Список ID ярлыков для фильтрации
     #[serde(rename = "tagIds", skip_serializing_if = "Option::is_none")]
     pub tag_ids: Option<Vec<i64>>,
-    /// Не учитывать товары без продаж
-    #[serde(rename = "isNotIncludeNMsWithoutSales", skip_serializing_if = "Option::is_none")]
+    /// Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры 
+    #[serde(rename = "isNotIncludeNmsWithoutSales", skip_serializing_if = "Option::is_none")]
     pub is_not_include_nms_without_sales: Option<bool>,
+    /// Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры 
+    #[serde(rename = "onlyShadowedNms", skip_serializing_if = "Option::is_none")]
+    pub only_shadowed_nms: Option<bool>,
     #[serde(rename = "orderBy")]
     pub order_by: Box<models::OrderByItemRating>,
     /// Количество товаров в ответе
@@ -54,6 +57,7 @@ impl ItemRatingRequest {
             brand_names: None,
             tag_ids: None,
             is_not_include_nms_without_sales: None,
+            only_shadowed_nms: None,
             order_by: Box::new(order_by),
             limit: None,
             offset,

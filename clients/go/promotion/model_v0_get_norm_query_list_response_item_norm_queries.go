@@ -23,6 +23,8 @@ type V0GetNormQueryListResponseItemNormQueries struct {
 	Active []string `json:"active,omitempty"`
 	// Неактивные поисковые кластеры
 	Excluded []string `json:"excluded,omitempty"`
+	// Архивные поисковые кластеры
+	Archived []string `json:"archived,omitempty"`
 }
 
 // NewV0GetNormQueryListResponseItemNormQueries instantiates a new V0GetNormQueryListResponseItemNormQueries object
@@ -108,6 +110,39 @@ func (o *V0GetNormQueryListResponseItemNormQueries) SetExcluded(v []string) {
 	o.Excluded = v
 }
 
+// GetArchived returns the Archived field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *V0GetNormQueryListResponseItemNormQueries) GetArchived() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Archived
+}
+
+// GetArchivedOk returns a tuple with the Archived field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V0GetNormQueryListResponseItemNormQueries) GetArchivedOk() ([]string, bool) {
+	if o == nil || IsNil(o.Archived) {
+		return nil, false
+	}
+	return o.Archived, true
+}
+
+// HasArchived returns a boolean if a field has been set.
+func (o *V0GetNormQueryListResponseItemNormQueries) HasArchived() bool {
+	if o != nil && !IsNil(o.Archived) {
+		return true
+	}
+
+	return false
+}
+
+// SetArchived gets a reference to the given []string and assigns it to the Archived field.
+func (o *V0GetNormQueryListResponseItemNormQueries) SetArchived(v []string) {
+	o.Archived = v
+}
+
 func (o V0GetNormQueryListResponseItemNormQueries) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -123,6 +158,9 @@ func (o V0GetNormQueryListResponseItemNormQueries) ToMap() (map[string]interface
 	}
 	if o.Excluded != nil {
 		toSerialize["excluded"] = o.Excluded
+	}
+	if o.Archived != nil {
+		toSerialize["archived"] = o.Archived
 	}
 	return toSerialize, nil
 }

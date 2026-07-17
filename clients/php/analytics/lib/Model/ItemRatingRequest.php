@@ -65,6 +65,7 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'brand_names' => 'string[]',
         'tag_ids' => 'int[]',
         'is_not_include_nms_without_sales' => 'bool',
+        'only_shadowed_nms' => 'bool',
         'order_by' => '\Wildberries\Sdk\Analytics\Model\OrderByItemRating',
         'limit' => 'int',
         'offset' => 'int'
@@ -85,6 +86,7 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'brand_names' => null,
         'tag_ids' => 'int64',
         'is_not_include_nms_without_sales' => null,
+        'only_shadowed_nms' => null,
         'order_by' => null,
         'limit' => 'uint32',
         'offset' => 'uint32'
@@ -103,6 +105,7 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'brand_names' => false,
         'tag_ids' => false,
         'is_not_include_nms_without_sales' => false,
+        'only_shadowed_nms' => false,
         'order_by' => false,
         'limit' => false,
         'offset' => false
@@ -200,7 +203,8 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'subject_ids' => 'subjectIds',
         'brand_names' => 'brandNames',
         'tag_ids' => 'tagIds',
-        'is_not_include_nms_without_sales' => 'isNotIncludeNMsWithoutSales',
+        'is_not_include_nms_without_sales' => 'isNotIncludeNmsWithoutSales',
+        'only_shadowed_nms' => 'onlyShadowedNms',
         'order_by' => 'orderBy',
         'limit' => 'limit',
         'offset' => 'offset'
@@ -219,6 +223,7 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'brand_names' => 'setBrandNames',
         'tag_ids' => 'setTagIds',
         'is_not_include_nms_without_sales' => 'setIsNotIncludeNmsWithoutSales',
+        'only_shadowed_nms' => 'setOnlyShadowedNms',
         'order_by' => 'setOrderBy',
         'limit' => 'setLimit',
         'offset' => 'setOffset'
@@ -237,6 +242,7 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'brand_names' => 'getBrandNames',
         'tag_ids' => 'getTagIds',
         'is_not_include_nms_without_sales' => 'getIsNotIncludeNmsWithoutSales',
+        'only_shadowed_nms' => 'getOnlyShadowedNms',
         'order_by' => 'getOrderBy',
         'limit' => 'getLimit',
         'offset' => 'getOffset'
@@ -306,6 +312,7 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('brand_names', $data ?? [], null);
         $this->setIfExists('tag_ids', $data ?? [], null);
         $this->setIfExists('is_not_include_nms_without_sales', $data ?? [], false);
+        $this->setIfExists('only_shadowed_nms', $data ?? [], false);
         $this->setIfExists('order_by', $data ?? [], null);
         $this->setIfExists('limit', $data ?? [], 100);
         $this->setIfExists('offset', $data ?? [], null);
@@ -569,7 +576,7 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets is_not_include_nms_without_sales
      *
-     * @param bool|null $is_not_include_nms_without_sales Не учитывать товары без продаж
+     * @param bool|null $is_not_include_nms_without_sales Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры
      *
      * @return self
      */
@@ -579,6 +586,33 @@ class ItemRatingRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable is_not_include_nms_without_sales cannot be null');
         }
         $this->container['is_not_include_nms_without_sales'] = $is_not_include_nms_without_sales;
+
+        return $this;
+    }
+
+    /**
+     * Gets only_shadowed_nms
+     *
+     * @return bool|null
+     */
+    public function getOnlyShadowedNms()
+    {
+        return $this->container['only_shadowed_nms'];
+    }
+
+    /**
+     * Sets only_shadowed_nms
+     *
+     * @param bool|null $only_shadowed_nms Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры
+     *
+     * @return self
+     */
+    public function setOnlyShadowedNms($only_shadowed_nms)
+    {
+        if (is_null($only_shadowed_nms)) {
+            throw new \InvalidArgumentException('non-nullable only_shadowed_nms cannot be null');
+        }
+        $this->container['only_shadowed_nms'] = $only_shadowed_nms;
 
         return $this;
     }

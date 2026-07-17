@@ -57,7 +57,7 @@ class PostV1ItemRating200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $openAPITypes = [
-        'data' => '\Wildberries\Sdk\Analytics\Model\ItemRatingResponse'
+        'data' => '\Wildberries\Sdk\Analytics\Model\ItemRatingResponseV1'
     ];
 
     /**
@@ -295,7 +295,7 @@ class PostV1ItemRating200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets data
      *
-     * @return \Wildberries\Sdk\Analytics\Model\ItemRatingResponse
+     * @return \Wildberries\Sdk\Analytics\Model\ItemRatingResponseV1
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class PostV1ItemRating200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets data
      *
-     * @param \Wildberries\Sdk\Analytics\Model\ItemRatingResponse $data data
+     * @param \Wildberries\Sdk\Analytics\Model\ItemRatingResponseV1 $data data
      *
      * @return self
      */
