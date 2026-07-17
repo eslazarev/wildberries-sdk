@@ -17,7 +17,7 @@ info:
       5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)
       6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)
       7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)
-      8. [Скрытых товарах](/openapi/reports#tag/Skrytye-tovary)
+      8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)
       9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
 
     </div>
@@ -41,7 +41,7 @@ tags:
     description: ''
   - name: Доля бренда в продажах
     description: ''
-  - name: Скрытые товары
+  - name: Заблокированные карточки
     description: ''
   - name: Отчёт о возвратах и перемещении товаров
     description: ''
@@ -1826,8 +1826,8 @@ paths:
       security:
         - HeaderApiKey: []
       tags:
-        - Скрытые товары
-      summary: Заблокированные карточки
+        - Заблокированные карточки
+      summary: Получить отчёт
       description: |
         Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
 
@@ -1947,15 +1947,16 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      deprecated: true
       x-readonly-method: true
       x-category: contentanalytics
       security:
         - HeaderApiKey: []
       tags:
-        - Скрытые товары
+        - Заблокированные карточки
       summary: Скрытые из каталога
       description: |
-        Метод возвращает список [товаров продавца, скрытых из каталога](https://seller.wildberries.ru/analytics-reports/banned-products/shadowed).
+        Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
