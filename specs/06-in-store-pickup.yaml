@@ -5,7 +5,7 @@ info:
   description: |
     <div class="api-block">
 
-    Управление [сборочными заданиями](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>
+    Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>
 
     Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя
 
@@ -17,6 +17,7 @@ security:
   - HeaderApiKey: []
 tags:
   - name: Сборочные задания Самовывоз
+    x-displayName: Сборочные задания Самовывоз
     description: ''
   - name: Идентификаторы маркировки Самовывоз
     x-displayName: Идентификаторы маркировки Самовывоз
@@ -31,13 +32,14 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV3ClickCollectOrdersNew
       x-readonly-method: true
       x-category: marketplace
       tags:
         - Сборочные задания Самовывоз
       summary: Получить список новых сборочных заданий
       description: |
-        Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz), которые есть у продавца на момент запроса.
+        Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
@@ -75,13 +77,14 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersStatusConfirm
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Сборочные задания Самовывоз
       summary: Перевести сборочные задания на сборку
       description: |
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new` — новый — в статус `confirm` — на сборке.
+        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -123,13 +126,14 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersStatusPrepare
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Сборочные задания Самовывоз
       summary: Сообщить, что сборочные задания готовы к выдаче
       description: |
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` — на сборке — в статус `prepare` — готово к выдаче.
+        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -171,6 +175,7 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersClient
       x-readonly-method: true
       x-category: marketplace
       tags:
@@ -231,6 +236,7 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersClientIdentity
       x-readonly-method: true
       x-category: marketplace
       tags:
@@ -307,13 +313,14 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersStatusReceive
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Сборочные задания Самовывоз
       summary: Сообщить, что заказы приняты покупателями
       description: |
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
+        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -355,13 +362,14 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersStatusReject
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Сборочные задания Самовывоз
       summary: Сообщить об отказе от заказов
       description: |
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.
+        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -403,12 +411,13 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersStatusInfo
       x-readonly-method: true
       x-category: marketplace
       tags:
         - Сборочные задания Самовывоз
       summary: Получить статусы сборочных заданий
-      description: "Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) по их ID.\n<br><br>\n`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.\n\nВозможные значения `supplierStatus`:\n| Статус   | Описание            | Как перевести сборочное задание в данный статус |\n| -------  | ---------           | --------------------------------------|\n| `new`      | **Новое сборочное задание** |\n| `confirm`  | **На сборке**  | \t[Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1confirm/post)\n| `prepare`  | **Готов к выдаче** | \t[Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1prepare/post)\n| `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1receive/post)\n| `reject`  | **Отказ покупателя при получении**    |  \t[Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1reject/post)\n| `cancel`   | **Отменено продавцом**    |  \t[Отменить сборочное задание](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1cancel/post)\n| `cancel_shelf_life` | **Отмена по истечении срока хранения**    |  \tПереводится автоматически по возникновению события\n\n<br><br>\n`wbStatus` — статус системы Wildberries.\n\nВозможные значения `wbStatus`:\n- `waiting` - сборочное задание в работе\n- `sold` - заказ получен покупателем\n- `canceled` - отмена сборочного задания\n- `canceled_by_client` - покупатель отменил заказ при получении\n- `declined_by_client` - покупатель отменил заказ в первый чаc\n<br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку\n- `defect` - отмена заказа по причине брака\n- `ready_for_pickup` - заказ готов к выдаче\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| <no value> | <no value> | <no value> | <no value> |\n\nОдин запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      description: "Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID.\n<br><br>\n`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.\n\nВозможные значения `supplierStatus`:\n| Статус   | Описание            | Как перевести сборочное задание в данный статус |\n| -------  | ---------           | --------------------------------------|\n| `new`      | **Новое сборочное задание** |\n| `confirm`  | **На сборке**  | \t[Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)\n| `prepare`  | **Готов к выдаче** | \t[Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)\n| `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive)\n| `reject`  | **Отказ покупателя при получении**    |  \t[Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)\n| `cancel`   | **Отменено продавцом**    |  \t[Отменить сборочное задание](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel)\n| `cancel_shelf_life` | **Отмена по истечении срока хранения**    |  \tПереводится автоматически по возникновению события\n\n<br><br>\n`wbStatus` — статус системы Wildberries.\n\nВозможные значения `wbStatus`:\n- `waiting` - сборочное задание в работе\n- `sold` - заказ получен покупателем\n- `canceled` - отмена сборочного задания\n- `canceled_by_client` - покупатель отменил заказ при получении\n- `declined_by_client` - покупатель отменил заказ в первый чаc\n<br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку\n- `defect` - отмена заказа по причине брака\n- `ready_for_pickup` - заказ готов к выдаче\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| <no value> | <no value> | <no value> | <no value> |\n\nОдин запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
       requestBody:
         content:
           application/json:
@@ -441,6 +450,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV3ClickCollectOrders
       x-readonly-method: true
       x-category: marketplace
       tags:
@@ -526,13 +536,14 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersStatusCancel
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Сборочные задания Самовывоз
       summary: Отменить сборочные задания
       description: |
-        Переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статусов](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.
+        Переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -567,20 +578,21 @@ paths:
           $ref: '#/components/responses/429'
   /api/marketplace/v3/click-collect/orders/meta/details:
     post:
+      operationId: postV3ClickCollectOrdersMetaDetails
       x-readonly-method: true
       x-category: marketplace
       tags:
         - Идентификаторы маркировки Самовывоз
       summary: Получить идентификаторы маркировки сборочных заданий
       description: |
-        Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) сборочных заданий и статусы их проверки.
+        Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) сборочных заданий и статусы их проверки.
 
-        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.<br>
+        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`.<br>
         Возможные идентификаторы маркировки:
-          - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)
-          - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)
-          - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)
-          - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)
+          - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+          - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+          - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+          - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
           - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
           - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
@@ -624,6 +636,7 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersMetaInfo
       x-readonly-method: true
       x-category: marketplace
       tags:
@@ -673,19 +686,20 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersMetaDelete
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Идентификаторы маркировки Самовывоз
       summary: Удалить идентификаторы маркировки сборочных заданий
       description: |
-        Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) для нескольких сборочных заданий.
+        Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) для нескольких сборочных заданий.
         <br><br>
         В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-          - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)
-          - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)
-          - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)
-          - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)
+          - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+          - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+          - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+          - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
           - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
         <div class="description_limit">
@@ -728,16 +742,17 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersMetaSgtin
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Идентификаторы маркировки Самовывоз
       summary: Закрепить коды маркировки Честного знака за сборочными заданиями
       description: |
-        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
-        Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`.
+        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных заданий.<br>
+        Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`.
         <br><br>
-        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).
+        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:
@@ -780,14 +795,15 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersMetaUin
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Идентификаторы маркировки Самовывоз
       summary: Закрепить УИН за сборочными заданиями
       description: |
-        Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может быть
-        только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post)
+        Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть
+        только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo)
         `confirm` и доставка которых осуществляется силами WB.
 
         <div class="description_limit">
@@ -831,15 +847,16 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersMetaImei
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Идентификаторы маркировки Самовывоз
       summary: Закрепить IMEI за сборочными заданиями
       description: |
-        Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может
+        Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может
         быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в
-        [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`, если их доставка осуществляется силами WB.
+        [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`, если их доставка осуществляется силами WB.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:
@@ -882,15 +899,16 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV3ClickCollectOrdersMetaGtin
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Идентификаторы маркировки Самовывоз
       summary: Закрепить GTIN за сборочными заданиями
       description: |
-        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных
+        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных
         заданий. У одного сборочного задания может быть только один GTIN.
-        Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` и
+        Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и
         доставка которых осуществляется силами WB.
 
         <div class="description_limit">
@@ -938,11 +956,11 @@ paths:
       summary: Закрепить за сборочными заданиями номера ДТ
       operationId: postV3ClickCollectOrdersMetaCustomsDeclaration
       description: |
-        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
 
         Добавлять номера ДТ можно только для сборочных заданий, которые:
-          - имеют признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get)
-          - находятся в [статусах](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` или `prepare`
+          - имеют признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
+          - находятся в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`
 
         У одного сборочного задания может быть только один номер ДТ.
 
@@ -2035,10 +2053,10 @@ components:
                       example: imei
                       description: |
                         Идентификатор маркировки:
-                          - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)
-                          - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)
-                          - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)
-                          - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)
+                          - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+                          - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+                          - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+                          - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
                           - `customsDeclaration` — [номер ДТ](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
                           - `originCountryCode` — [числовой код страны происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
                     value:

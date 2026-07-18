@@ -978,7 +978,6 @@ paths:
       summary: Завершение кампании
       description: |
         Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:
-          - `4` — готово к запуску
           - `9` — активна
           - `11` — пауза
 
@@ -4017,13 +4016,14 @@ paths:
                         - горы футболка для мужчин
                         - одежда для моря
                         - одежда на море
-                        - поло мужское
-                        - поло мужское летнее
                         - футболка дельфин
                         - футболка мужская с принтом светлая
                         - футболка поло
                         - футболка поло мужская
                         - футболка с воротником мужские
+                      archived:
+                        - поло мужское
+                        - поло мужское летнее
         '400':
           description: Неправильный запрос
           content:
@@ -4423,6 +4423,12 @@ components:
           items:
             type: string
           description: Неактивные поисковые кластеры
+        archived:
+          type: array
+          description: Архивные поисковые кластеры
+          nullable: true
+          items:
+            type: string
     V1GetNormQueryStatsRequest:
       type: object
       required:
