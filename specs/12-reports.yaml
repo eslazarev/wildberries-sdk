@@ -96,7 +96,6 @@ paths:
           in: query
           schema:
             type: string
-            format: date-time
           required: true
           description: |
             Дата и время последнего изменения по заказу. <br>
@@ -219,7 +218,6 @@ paths:
           in: query
           schema:
             type: string
-            format: date-time
           required: true
           description: |
             Дата и время последнего изменения по продаже/возврату. <br>

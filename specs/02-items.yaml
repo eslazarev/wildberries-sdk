@@ -6307,6 +6307,7 @@ components:
           $ref: '#/components/schemas/ItemStatus'
         errorText:
           type: string
+          nullable: true
           example: You can't change the item price. Item was added to the Sale due to high inventory
           description: "Текст ошибки. Например:\n  - `You can't change the item price. Item was added to the Sale due to high inventory` — ошибка возникает, если товар попал под распродажу по [индексу остатка](https://seller.wildberries.ru/instructions/ru/ru/material/A-1159).\n  - `The new price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой хотя бы в\_3 раза меньше старой. Вы можете изменить цену или скидку с помощью API либо вывести товар из\_карантина в\_[личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).\n"
     SellerTaskMetadata:

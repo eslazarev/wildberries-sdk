@@ -6,7 +6,7 @@ info:
     <div class="api-block">
 
     С помощью методов Заказы DBW (Доставка курьером WB) вы можете:
-      - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания
+      - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания
       - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий
 
     </div>
@@ -19,6 +19,7 @@ security:
   - HeaderApiKey: []
 tags:
   - name: Сборочные задания DBW
+    x-displayName: Сборочные задания DBW
     description: ''
   - name: Идентификаторы маркировки DBW
     x-displayName: Идентификаторы маркировки DBW
@@ -28,6 +29,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     get:
+      operationId: getV3DbwOrdersNew
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -36,7 +38,7 @@ paths:
         - Сборочные задания DBW
       summary: Получить список новых сборочных заданий
       description: |
-        Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), которые есть у продавца на момент запроса.
+        Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
@@ -79,6 +81,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     get:
+      operationId: getV3DbwOrders
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -87,7 +90,7 @@ paths:
         - Сборочные задания DBW
       summary: Получить информацию о завершенных сборочных заданиях
       description: |
-        Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW).
+        Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders).
         <br><br>
         Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
@@ -158,6 +161,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersDeliveryDate
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -219,6 +223,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersClient
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -283,6 +288,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersStatus
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -300,11 +306,11 @@ paths:
         | Статус   | Описание            | Как перевести сборочное задание в данный статус |
         | -------  | ---------           | --------------------------------------|
         | `new`      | **Новое сборочное задание** | |
-        | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1confirm/patch)
-        | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1status~1deliver/post) |
+        | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm)
+        | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver) |
         | `receive`  | **Получено покупателем**|  Переводится курьером
         | `reject`   | **Отказ покупателя при получении**| Переводится курьером
-        | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1cancel/patch)
+        | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel)
         | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |
 
         <br><br>
@@ -407,6 +413,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     patch:
+      operationId: patchV3DbwOrdersOrderIdConfirm
       x-readonly-method: false
       x-category: marketplace
       security:
@@ -415,7 +422,7 @@ paths:
         - Сборочные задания DBW
       summary: Перевести на сборку
       description: |
-        Метод переводит [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.
+        Метод переводит [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
@@ -468,6 +475,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersStickers
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -476,7 +484,7 @@ paths:
         - Сборочные задания DBW
       summary: Получить стикеры сборочных заданий
       description: |
-        Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):
+        Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew) в [статусах](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):
           - `confirm` — на сборке
           - `complete` — в доставке
 
@@ -616,13 +624,14 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersStatusDeliver
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Сборочные задания DBW
       summary: Перевести сборочные задания в доставку
       description: |
-        Метод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` в статус `complete` — в доставке.
+        Метод переводит [сборочные задания](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) из [статуса](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` в статус `complete` — в доставке.
 
         <div class="description_important">
         Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `"isError":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors`
@@ -694,6 +703,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersCourier
       x-readonly-method: true
       x-category: marketplace
       tags:
@@ -754,6 +764,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     patch:
+      operationId: patchV3DbwOrdersOrderIdCancel
       x-readonly-method: false
       x-category: marketplace
       security:
@@ -762,7 +773,7 @@ paths:
         - Сборочные задания DBW
       summary: Отменить сборочное задание
       description: |
-        Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) и переводит в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `cancel` — отменено продавцом.
+        Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов DBW:
@@ -819,6 +830,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersMetaDetails
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -827,15 +839,15 @@ paths:
         - Идентификаторы маркировки DBW
       summary: Получить идентификаторы маркировки сборочных заданий
       description: |
-        Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) и статусы их валидации.
+        Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их валидации.
         <br><br>
-        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get), поле `requiredMeta`.
+        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`.
         <br><br>
         Возможные идентификаторы маркировки:
-          - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
-          - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)
-          - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)
-          - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)
+          - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
+          - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)
+          - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)
+          - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
 
           <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
@@ -895,19 +907,20 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersMetaDelete
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Идентификаторы маркировки DBW
       summary: Удалить идентификаторы маркировки сборочных заданий
       description: |
-        Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) для переданного ключа.
+        Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) для переданного ключа.
         <br><br>
         В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-          - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
-          - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)
-          - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)
-          - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)
+          - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
+          - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)
+          - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)
+          - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)
 
         Можно передать только один ключ.
 
@@ -973,6 +986,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     get:
+      operationId: getV3DbwOrdersOrderIdMeta
       x-readonly-method: true
       x-category: marketplace
       security:
@@ -1034,16 +1048,17 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     post:
+      operationId: postV3DbwOrdersMetaSgtin
       x-readonly-method: false
       x-category: marketplace
       tags:
         - Идентификаторы маркировки DBW
       summary: Закрепить коды маркировки Честного знака за сборочными заданиями
       description: |
-        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
-        Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.
+        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) нескольких сборочных заданий.<br>
+        Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.
         <br><br>
-        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).
+        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
@@ -1107,6 +1122,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     put:
+      operationId: putV3DbwOrdersOrderIdMetaUin
       x-readonly-method: false
       x-category: marketplace
       security:
@@ -1115,11 +1131,11 @@ paths:
         - Идентификаторы маркировки DBW
       summary: Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
       description: |
-        Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный идентификационный номер.
+        Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный идентификационный номер.
         <br><br>
         У одного сборочного задания может быть только один УИН.
 
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
+        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1185,6 +1201,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     put:
+      operationId: putV3DbwOrdersOrderIdMetaImei
       x-readonly-method: false
       x-category: marketplace
       security:
@@ -1193,11 +1210,11 @@ paths:
         - Идентификаторы маркировки DBW
       summary: Закрепить за сборочным заданием IMEI
       description: |
-        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).
+        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
         <br><br>
         У одного сборочного задания может быть только один IMEI.
 
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
+        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1263,6 +1280,7 @@ paths:
     servers:
       - url: https://marketplace-api.wildberries.ru
     put:
+      operationId: putV3DbwOrdersOrderIdMetaGtin
       x-readonly-method: false
       x-category: marketplace
       security:
@@ -1271,11 +1289,11 @@ paths:
         - Идентификаторы маркировки DBW
       summary: Закрепить за сборочным заданием GTIN
       description: |
-        Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный ID товара в Беларуси.
+        Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный ID товара в Беларуси.
         <br><br>
         У одного сборочного задания может быть только один GTIN.
 
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
+        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -2056,7 +2074,7 @@ components:
           nullable: true
           example: 504658
         requiredMeta:
-          description: Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
+          description: Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
           type: array
           nullable: true
           items:
