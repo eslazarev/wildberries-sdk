@@ -1,7 +1,7 @@
 /*
  * Заказы DBW
  *
- * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
+ * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
  *
  * The version of the OpenAPI document: ordersdbw
  * 
@@ -15,545 +15,223 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_marketplace_v3_dbw_orders_client_post`]
+/// struct for typed errors of method [`get_v3_dbw_orders`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3DbwOrdersClientPostError {
-    Status400(models::ApiMarketplaceV3DbwOrdersClientPost400Response),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_dbw_orders_meta_delete_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3DbwOrdersMetaDeletePostError {
+pub enum GetV3DbwOrdersError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_marketplace_v3_dbw_orders_meta_details_post`]
+/// struct for typed errors of method [`get_v3_dbw_orders_new`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3DbwOrdersMetaDetailsPostError {
+pub enum GetV3DbwOrdersNewError {
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_dbw_orders_order_id_meta`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3DbwOrdersOrderIdMetaError {
+    Status400(models::Error),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_v3_dbw_orders_order_id_cancel`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchV3DbwOrdersOrderIdCancelError {
+    Status400(models::Error),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_v3_dbw_orders_order_id_confirm`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchV3DbwOrdersOrderIdConfirmError {
+    Status400(models::Error),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status404(models::Error),
+    Status409(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_dbw_orders_client`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3DbwOrdersClientError {
+    Status400(models::PostV3DbwOrdersClient400Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_dbw_orders_courier`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3DbwOrdersCourierError {
+    Status400(models::Error),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_dbw_orders_delivery_date`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3DbwOrdersDeliveryDateError {
+    Status400(models::Error),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_dbw_orders_meta_delete`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3DbwOrdersMetaDeleteError {
+    Status400(models::Error),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3DbwOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_dbw_orders_meta_details`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3DbwOrdersMetaDetailsError {
     Status400(models::ApiBatchError),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::ApiBatchError),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_marketplace_v3_dbw_orders_meta_sgtin_post`]
+/// struct for typed errors of method [`post_v3_dbw_orders_meta_sgtin`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3DbwOrdersMetaSgtinPostError {
+pub enum PostV3DbwOrdersMetaSgtinError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_marketplace_v3_dbw_orders_status_deliver_post`]
+/// struct for typed errors of method [`post_v3_dbw_orders_status`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3DbwOrdersStatusDeliverPostError {
+pub enum PostV3DbwOrdersStatusError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_dbw_orders_courier_post`]
+/// struct for typed errors of method [`post_v3_dbw_orders_status_deliver`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3DbwOrdersCourierPostError {
+pub enum PostV3DbwOrdersStatusDeliverError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_dbw_orders_delivery_date_post`]
+/// struct for typed errors of method [`post_v3_dbw_orders_stickers`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3DbwOrdersDeliveryDatePostError {
+pub enum PostV3DbwOrdersStickersError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_dbw_orders_get`]
+/// struct for typed errors of method [`put_v3_dbw_orders_order_id_meta_gtin`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3DbwOrdersGetError {
+pub enum PutV3DbwOrdersOrderIdMetaGtinError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_orders_new_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwOrdersNewGetError {
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_orders_order_id_cancel_patch`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwOrdersOrderIdCancelPatchError {
-    Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
     Status404(models::Error),
     Status409(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_dbw_orders_order_id_confirm_patch`]
+/// struct for typed errors of method [`put_v3_dbw_orders_order_id_meta_imei`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3DbwOrdersOrderIdConfirmPatchError {
+pub enum PutV3DbwOrdersOrderIdMetaImeiError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
     Status404(models::Error),
     Status409(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v3_dbw_orders_order_id_meta_get`]
+/// struct for typed errors of method [`put_v3_dbw_orders_order_id_meta_uin`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV3DbwOrdersOrderIdMetaGetError {
+pub enum PutV3DbwOrdersOrderIdMetaUinError {
     Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_orders_order_id_meta_gtin_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwOrdersOrderIdMetaGtinPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
+    Status401(models::GetV3DbwOrdersNew401Response),
+    Status402(models::GetV3DbwOrdersNew402Response),
     Status403(models::Error),
     Status404(models::Error),
     Status409(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_orders_order_id_meta_imei_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwOrdersOrderIdMetaImeiPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_orders_order_id_meta_uin_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwOrdersOrderIdMetaUinPutError {
-    Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status409(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_orders_status_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwOrdersStatusPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_dbw_orders_stickers_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3DbwOrdersStickersPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3DbwOrdersNewGet401Response),
-    Status402(models::ApiV3DbwOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3DbwOrdersNewGet401Response),
+    Status429(models::GetV3DbwOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_dbw_orders_client_post(configuration: &configuration::Configuration, orders_request_api: models::OrdersRequestApi) -> Result<models::ClientInfoResp, Error<ApiMarketplaceV3DbwOrdersClientPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_orders_request_api = orders_request_api;
-
-    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/client", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_orders_request_api);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientInfoResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientInfoResp`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3DbwOrdersClientPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) для переданного ключа. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)  Можно передать только один ключ.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_dbw_orders_meta_delete_post(configuration: &configuration::Configuration, api_orders_meta_dlete_request_v2: models::ApiOrdersMetaDleteRequestV2) -> Result<models::ApiMetaDeleteResponses, Error<ApiMarketplaceV3DbwOrdersMetaDeletePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_meta_dlete_request_v2 = api_orders_meta_dlete_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/meta/delete", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_meta_dlete_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaDeleteResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaDeleteResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3DbwOrdersMetaDeletePostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) и статусы их валидации. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get), поле `requiredMeta`. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_dbw_orders_meta_details_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaDetailsResponse, Error<ApiMarketplaceV3DbwOrdersMetaDetailsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/meta/details", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3DbwOrdersMetaDetailsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) нескольких сборочных заданий.<br> Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_dbw_orders_meta_sgtin_post(configuration: &configuration::Configuration, api_orders_sgtins_set_request: models::ApiOrdersSgtinsSetRequest) -> Result<models::ApiStatusSetResponses, Error<ApiMarketplaceV3DbwOrdersMetaSgtinPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_sgtins_set_request = api_orders_sgtins_set_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/meta/sgtin", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_sgtins_set_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3DbwOrdersMetaSgtinPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` в статус `complete` — в доставке.  <div class=\"description_important\"> Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `\"isError\":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors` </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_dbw_orders_status_deliver_post(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiStatusSetResponses, Error<ApiMarketplaceV3DbwOrdersStatusDeliverPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/status/deliver", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3DbwOrdersStatusDeliverPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_courier_post(configuration: &configuration::Configuration, orders_request_api: models::OrdersRequestApi) -> Result<models::OrderCourierInfoResp, Error<ApiV3DbwOrdersCourierPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_orders_request_api = orders_request_api;
-
-    let uri_str = format!("{}/api/v3/dbw/orders/courier", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_orders_request_api);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::OrderCourierInfoResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::OrderCourierInfoResp`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersCourierPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_delivery_date_post(configuration: &configuration::Configuration, delivery_dates_request: models::DeliveryDatesRequest) -> Result<models::DeliveryDatesInfoResp, Error<ApiV3DbwOrdersDeliveryDatePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_delivery_dates_request = delivery_dates_request;
-
-    let uri_str = format!("{}/api/v3/dbw/orders/delivery-date", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_delivery_dates_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeliveryDatesInfoResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeliveryDatesInfoResp`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersDeliveryDatePostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW). <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_get(configuration: &configuration::Configuration, limit: i32, next: i64, date_from: i32, date_to: i32) -> Result<models::ApiV3DbwOrdersGet200Response, Error<ApiV3DbwOrdersGetError>> {
+/// Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders). <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn get_v3_dbw_orders(configuration: &configuration::Configuration, limit: i32, next: i64, date_from: i32, date_to: i32) -> Result<models::GetV3DbwOrders200Response, Error<GetV3DbwOrdersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_limit = limit;
     let p_query_next = next;
@@ -594,18 +272,18 @@ pub async fn api_v3_dbw_orders_get(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3DbwOrdersGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3DbwOrdersGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3DbwOrders200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3DbwOrders200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3DbwOrdersError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_new_get(configuration: &configuration::Configuration, ) -> Result<models::ApiV3DbwOrdersNewGet200Response, Error<ApiV3DbwOrdersNewGetError>> {
+/// Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn get_v3_dbw_orders_new(configuration: &configuration::Configuration, ) -> Result<models::GetV3DbwOrdersNew200Response, Error<GetV3DbwOrdersNewError>> {
 
     let uri_str = format!("{}/api/v3/dbw/orders/new", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -637,87 +315,19 @@ pub async fn api_v3_dbw_orders_new_get(configuration: &configuration::Configurat
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3DbwOrdersNewGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3DbwOrdersNewGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3DbwOrdersNew200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3DbwOrdersNew200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersNewGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) и переводит в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>управление сборочными заданиями</li> </ul>    | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_order_id_cancel_patch(configuration: &configuration::Configuration, order_id: i64) -> Result<(), Error<ApiV3DbwOrdersOrderIdCancelPatchError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-
-    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/cancel", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersOrderIdCancelPatchError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод переводит [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_order_id_confirm_patch(configuration: &configuration::Configuration, order_id: i64) -> Result<(), Error<ApiV3DbwOrdersOrderIdConfirmPatchError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-
-    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/confirm", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersOrderIdConfirmPatchError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3DbwOrdersNewError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 #[deprecated]
-pub async fn api_v3_dbw_orders_order_id_meta_get(configuration: &configuration::Configuration, order_id: i64) -> Result<models::ApiV3DbwOrdersOrderIdMetaGet200Response, Error<ApiV3DbwOrdersOrderIdMetaGetError>> {
+pub async fn get_v3_dbw_orders_order_id_meta(configuration: &configuration::Configuration, order_id: i64) -> Result<models::GetV3DbwOrdersOrderIdMeta200Response, Error<GetV3DbwOrdersOrderIdMetaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;
 
@@ -751,24 +361,23 @@ pub async fn api_v3_dbw_orders_order_id_meta_get(configuration: &configuration::
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3DbwOrdersOrderIdMetaGet200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3DbwOrdersOrderIdMetaGet200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3DbwOrdersOrderIdMeta200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3DbwOrdersOrderIdMeta200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersOrderIdMetaGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3DbwOrdersOrderIdMetaError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный ID товара в Беларуси. <br><br> У одного сборочного задания может быть только один GTIN.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_order_id_meta_gtin_put(configuration: &configuration::Configuration, order_id: i64, api_v3_dbw_orders_order_id_meta_gtin_put_request: Option<models::ApiV3DbwOrdersOrderIdMetaGtinPutRequest>) -> Result<(), Error<ApiV3DbwOrdersOrderIdMetaGtinPutError>> {
+/// Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>управление сборочными заданиями</li> </ul>    | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn patch_v3_dbw_orders_order_id_cancel(configuration: &configuration::Configuration, order_id: i64) -> Result<(), Error<PatchV3DbwOrdersOrderIdCancelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;
-    let p_body_api_v3_dbw_orders_order_id_meta_gtin_put_request = api_v3_dbw_orders_order_id_meta_gtin_put_request;
 
-    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/meta/gtin", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/cancel", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -781,7 +390,6 @@ pub async fn api_v3_dbw_orders_order_id_meta_gtin_put(configuration: &configurat
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_dbw_orders_order_id_meta_gtin_put_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -792,19 +400,18 @@ pub async fn api_v3_dbw_orders_order_id_meta_gtin_put(configuration: &configurat
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersOrderIdMetaGtinPutError> = serde_json::from_str(&content).ok();
+        let entity: Option<PatchV3DbwOrdersOrderIdCancelError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post). <br><br> У одного сборочного задания может быть только один IMEI.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_order_id_meta_imei_put(configuration: &configuration::Configuration, order_id: i64, api_v3_dbw_orders_order_id_meta_imei_put_request: Option<models::ApiV3DbwOrdersOrderIdMetaImeiPutRequest>) -> Result<(), Error<ApiV3DbwOrdersOrderIdMetaImeiPutError>> {
+/// Метод переводит [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn patch_v3_dbw_orders_order_id_confirm(configuration: &configuration::Configuration, order_id: i64) -> Result<(), Error<PatchV3DbwOrdersOrderIdConfirmError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;
-    let p_body_api_v3_dbw_orders_order_id_meta_imei_put_request = api_v3_dbw_orders_order_id_meta_imei_put_request;
 
-    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/meta/imei", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/confirm", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -817,7 +424,6 @@ pub async fn api_v3_dbw_orders_order_id_meta_imei_put(configuration: &configurat
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_dbw_orders_order_id_meta_imei_put_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -828,53 +434,17 @@ pub async fn api_v3_dbw_orders_order_id_meta_imei_put(configuration: &configurat
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersOrderIdMetaImeiPutError> = serde_json::from_str(&content).ok();
+        let entity: Option<PatchV3DbwOrdersOrderIdConfirmError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный идентификационный номер. <br><br> У одного сборочного задания может быть только один УИН.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_order_id_meta_uin_put(configuration: &configuration::Configuration, order_id: i64, api_v3_dbw_orders_order_id_meta_uin_put_request: Option<models::ApiV3DbwOrdersOrderIdMetaUinPutRequest>) -> Result<(), Error<ApiV3DbwOrdersOrderIdMetaUinPutError>> {
+/// Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_client(configuration: &configuration::Configuration, orders_request_api: models::OrdersRequestApi) -> Result<models::ClientInfoResp, Error<PostV3DbwOrdersClientError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-    let p_body_api_v3_dbw_orders_order_id_meta_uin_put_request = api_v3_dbw_orders_order_id_meta_uin_put_request;
+    let p_body_orders_request_api = orders_request_api;
 
-    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/meta/uin", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_v3_dbw_orders_order_id_meta_uin_put_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersOrderIdMetaUinPutError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает статусы сборочных заданий по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1confirm/patch) | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1status~1deliver/post) | | `receive`  | **Получено покупателем**|  Переводится курьером | `reject`   | **Отказ покупателя при получении**| Переводится курьером | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1cancel/patch) | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `canceled_by_missed_call` — отмена заказа по причине недозвона - `postponed_delivery` — курьерская доставка отложена  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_status_post(configuration: &configuration::Configuration, api_v3_dbw_orders_status_post_request: Option<models::ApiV3DbwOrdersStatusPostRequest>) -> Result<models::ApiV3DbwOrdersStatusPost200Response, Error<ApiV3DbwOrdersStatusPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v3_dbw_orders_status_post_request = api_v3_dbw_orders_status_post_request;
-
-    let uri_str = format!("{}/api/v3/dbw/orders/status", configuration.base_path);
+    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/client", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -888,7 +458,7 @@ pub async fn api_v3_dbw_orders_status_post(configuration: &configuration::Config
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_dbw_orders_status_post_request);
+    req_builder = req_builder.json(&p_body_orders_request_api);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -905,23 +475,345 @@ pub async fn api_v3_dbw_orders_status_post(configuration: &configuration::Config
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3DbwOrdersStatusPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3DbwOrdersStatusPost200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientInfoResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientInfoResp`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersStatusPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<PostV3DbwOrdersClientError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):   - `confirm` — на сборке   - `complete` — в доставке  За один запрос можно получить максимум 100 стикеров.<br>  Доступные форматы стикеров:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_dbw_orders_stickers_post(configuration: &configuration::Configuration, r#type: &str, width: i32, height: i32, api_v3_dbw_orders_stickers_post_request: Option<models::ApiV3DbwOrdersStickersPostRequest>) -> Result<models::ApiV3DbwOrdersStickersPost200Response, Error<ApiV3DbwOrdersStickersPostError>> {
+/// Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_courier(configuration: &configuration::Configuration, orders_request_api: models::OrdersRequestApi) -> Result<models::OrderCourierInfoResp, Error<PostV3DbwOrdersCourierError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_orders_request_api = orders_request_api;
+
+    let uri_str = format!("{}/api/v3/dbw/orders/courier", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_orders_request_api);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::OrderCourierInfoResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::OrderCourierInfoResp`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3DbwOrdersCourierError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_delivery_date(configuration: &configuration::Configuration, delivery_dates_request: models::DeliveryDatesRequest) -> Result<models::DeliveryDatesInfoResp, Error<PostV3DbwOrdersDeliveryDateError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_delivery_dates_request = delivery_dates_request;
+
+    let uri_str = format!("{}/api/v3/dbw/orders/delivery-date", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_delivery_dates_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeliveryDatesInfoResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeliveryDatesInfoResp`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3DbwOrdersDeliveryDateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) для переданного ключа. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  Можно передать только один ключ.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_meta_delete(configuration: &configuration::Configuration, api_orders_meta_dlete_request_v2: models::ApiOrdersMetaDleteRequestV2) -> Result<models::ApiMetaDeleteResponses, Error<PostV3DbwOrdersMetaDeleteError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_meta_dlete_request_v2 = api_orders_meta_dlete_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/meta/delete", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_meta_dlete_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaDeleteResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaDeleteResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3DbwOrdersMetaDeleteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их валидации. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_meta_details(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaDetailsResponse, Error<PostV3DbwOrdersMetaDetailsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/meta/details", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3DbwOrdersMetaDetailsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) нескольких сборочных заданий.<br> Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_meta_sgtin(configuration: &configuration::Configuration, api_orders_sgtins_set_request: models::ApiOrdersSgtinsSetRequest) -> Result<models::ApiStatusSetResponses, Error<PostV3DbwOrdersMetaSgtinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_sgtins_set_request = api_orders_sgtins_set_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/meta/sgtin", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_sgtins_set_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3DbwOrdersMetaSgtinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает статусы сборочных заданий по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm) | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver) | | `receive`  | **Получено покупателем**|  Переводится курьером | `reject`   | **Отказ покупателя при получении**| Переводится курьером | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel) | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `canceled_by_missed_call` — отмена заказа по причине недозвона - `postponed_delivery` — курьерская доставка отложена  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_status(configuration: &configuration::Configuration, post_v3_dbw_orders_status_request: Option<models::PostV3DbwOrdersStatusRequest>) -> Result<models::PostV3DbwOrdersStatus200Response, Error<PostV3DbwOrdersStatusError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v3_dbw_orders_status_request = post_v3_dbw_orders_status_request;
+
+    let uri_str = format!("{}/api/v3/dbw/orders/status", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_post_v3_dbw_orders_status_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3DbwOrdersStatus200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3DbwOrdersStatus200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3DbwOrdersStatusError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод переводит [сборочные задания](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) из [статуса](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` в статус `complete` — в доставке.  <div class=\"description_important\"> Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `\"isError\":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors` </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_status_deliver(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiStatusSetResponses, Error<PostV3DbwOrdersStatusDeliverError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/dbw/orders/status/deliver", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3DbwOrdersStatusDeliverError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew) в [статусах](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):   - `confirm` — на сборке   - `complete` — в доставке  За один запрос можно получить максимум 100 стикеров.<br>  Доступные форматы стикеров:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbw_orders_stickers(configuration: &configuration::Configuration, r#type: &str, width: i32, height: i32, post_v3_dbw_orders_stickers_request: Option<models::PostV3DbwOrdersStickersRequest>) -> Result<models::PostV3DbwOrdersStickers200Response, Error<PostV3DbwOrdersStickersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_type = r#type;
     let p_query_width = width;
     let p_query_height = height;
-    let p_body_api_v3_dbw_orders_stickers_post_request = api_v3_dbw_orders_stickers_post_request;
+    let p_body_post_v3_dbw_orders_stickers_request = post_v3_dbw_orders_stickers_request;
 
     let uri_str = format!("{}/api/v3/dbw/orders/stickers", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -940,7 +832,7 @@ pub async fn api_v3_dbw_orders_stickers_post(configuration: &configuration::Conf
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_dbw_orders_stickers_post_request);
+    req_builder = req_builder.json(&p_body_post_v3_dbw_orders_stickers_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -957,12 +849,120 @@ pub async fn api_v3_dbw_orders_stickers_post(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV3DbwOrdersStickersPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV3DbwOrdersStickersPost200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV3DbwOrdersStickers200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV3DbwOrdersStickers200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3DbwOrdersStickersPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<PostV3DbwOrdersStickersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный ID товара в Беларуси. <br><br> У одного сборочного задания может быть только один GTIN.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn put_v3_dbw_orders_order_id_meta_gtin(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_gtin_request: Option<models::PutV3DbwOrdersOrderIdMetaGtinRequest>) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaGtinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_dbw_orders_order_id_meta_gtin_request = put_v3_dbw_orders_order_id_meta_gtin_request;
+
+    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/meta/gtin", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_dbw_orders_order_id_meta_gtin_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3DbwOrdersOrderIdMetaGtinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). <br><br> У одного сборочного задания может быть только один IMEI.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn put_v3_dbw_orders_order_id_meta_imei(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_imei_request: Option<models::PutV3DbwOrdersOrderIdMetaImeiRequest>) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaImeiError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_dbw_orders_order_id_meta_imei_request = put_v3_dbw_orders_order_id_meta_imei_request;
+
+    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/meta/imei", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_dbw_orders_order_id_meta_imei_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3DbwOrdersOrderIdMetaImeiError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный идентификационный номер. <br><br> У одного сборочного задания может быть только один УИН.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn put_v3_dbw_orders_order_id_meta_uin(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_uin_request: Option<models::PutV3DbwOrdersOrderIdMetaUinRequest>) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaUinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_order_id = order_id;
+    let p_body_put_v3_dbw_orders_order_id_meta_uin_request = put_v3_dbw_orders_order_id_meta_uin_request;
+
+    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/meta/uin", configuration.base_path, orderId=p_path_order_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_put_v3_dbw_orders_order_id_meta_uin_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutV3DbwOrdersOrderIdMetaUinError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

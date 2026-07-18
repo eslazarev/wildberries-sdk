@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы DBW
- * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
+ * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
  *
  * The version of the OpenAPI document: ordersdbw
  * 
@@ -48,7 +48,7 @@ export interface OrderNewDBW {
      */
     salePrice?: number | null;
     /**
-     * Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
+     * Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
      * @type {Array<string>}
      * @memberof OrderNewDBW
      */

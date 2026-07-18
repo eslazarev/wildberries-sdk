@@ -34,7 +34,7 @@ class AcquiringReportsDetailedRes(BaseModel):
     tin: StrictStr = Field(description="ИНН", json_schema_extra={"examples": ["010101010101"]})
     tax_registration_reason_code: StrictStr = Field(description="КПП", alias="taxRegistrationReasonCode", json_schema_extra={"examples": ["7701123301"]})
     sale_date: StrictStr = Field(description="Дата продажи", alias="saleDate", json_schema_extra={"examples": ["2026-03-21"]})
-    srid: StrictStr = Field(description="ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/Sborochnye-zadaniya-DBW), [DBS](./orders-dbs#tag/Sborochnye-zadaniya-DBS) и [Самовывоз](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) `srid` равен `rid` ", json_schema_extra={"examples": ["D0.r3f80c3eec6f845c6840128b4c19986f9.0.0"]})
+    srid: StrictStr = Field(description="ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid` ", json_schema_extra={"examples": ["D0.r3f80c3eec6f845c6840128b4c19986f9.0.0"]})
     doc_type_name: StrictStr = Field(description="Тип документа", alias="docTypeName", json_schema_extra={"examples": ["Продажа"]})
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId", json_schema_extra={"examples": [1234567]})
     retail_amount: StrictStr = Field(description="Вайлдберриз реализовал Товар (Пр)", alias="retailAmount", json_schema_extra={"examples": ["367"]})

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы DBS
- * <div class=\"description_important\">   Узнать больше о заказах DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы заказов DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
+ * <div class=\"description_important\">   Узнать больше о заказах DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/orders-dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы заказов DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: order
  * 
@@ -42,7 +42,7 @@ export interface OrderNewDBS {
      */
     salePrice?: number | null;
     /**
-     * Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
+     * Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
      * @type {Array<string>}
      * @memberof OrderNewDBS
      */

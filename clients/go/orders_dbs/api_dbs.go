@@ -1,7 +1,7 @@
 /*
 Заказы DBS
 
-<div class=\"description_important\">   Узнать больше о заказах DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы заказов DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
+<div class=\"description_important\">   Узнать больше о заказах DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/orders-dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы заказов DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
 
 API version: order
 */
@@ -22,3756 +22,7 @@ import (
 // DBSAPIService DBSAPI service
 type DBSAPIService service
 
-type ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest) Execute() (*ApiB2bClientInfoResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersB2bInfoPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersB2bInfoPost Информация о покупателе B2B
-
-Метод возвращает данные B2B-покупателей по ID сборочных заданий:
-  - ИНН
-  - КПП
-  - Наименование организации
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersB2bInfoPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiB2bClientInfoResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersB2bInfoPostExecute(r ApiApiMarketplaceV3DbsOrdersB2bInfoPostRequest) (*ApiB2bClientInfoResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiB2bClientInfoResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersB2bInfoPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/b2b/info"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.apiOrdersRequestV2 == nil {
-		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest *ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest(apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest {
-	r.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest = &apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost Закрепить за сборочными заданиями номера ДТ
-
-Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
-<br><br>
-
-Добавлять номера ДТ можно только для сборочных заданий в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `confirm` или `deliver`.
-
-У одного сборочного задания может быть только один ДТ.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/customs-declaration"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPostRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersMetaDeleteRequest *ApiOrdersMetaDeleteRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest) ApiOrdersMetaDeleteRequest(apiOrdersMetaDeleteRequest ApiOrdersMetaDeleteRequest) ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest {
-	r.apiOrdersMetaDeleteRequest = &apiOrdersMetaDeleteRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaDeletePostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaDeletePost Удалить идентификаторы маркировки сборочных заданий
-
-Метод удаляет значение указанных [идентификаторов маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) для нескольких сборочных заданий.
-<br><br>
-В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-  - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
-  - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
-  - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
-  - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
-  - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post)
-  - `originCountryCode` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode `
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaDeletePost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaDeletePostExecute(r ApiApiMarketplaceV3DbsOrdersMetaDeletePostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaDeletePost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/delete"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersMetaDeleteRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ApiError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest) Execute() (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaDetailsPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaDetailsPost Получить идентификаторы маркировки сборочных заданий
-
-Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) и статусы их валидации. <br>
-Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1new/get), поле `requiredMeta`.<br>
-Возможные идентификаторы маркировки:
-  - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
-  - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
-  - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
-  - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
-  - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post)
-  - `originCountryCode ` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
-
-Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.<br>
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaDetailsPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiOrdersMetaDetailsResponse
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaDetailsPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaDetailsPostRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersMetaDetailsResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaDetailsPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/details"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersGTINSetRequest *ApiOrdersGTINSetRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest) ApiOrdersGTINSetRequest(apiOrdersGTINSetRequest ApiOrdersGTINSetRequest) ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest {
-	r.apiOrdersGTINSetRequest = &apiOrdersGTINSetRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaGtinPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaGtinPost Закрепить GTIN за сборочными заданиями
-
-Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
-У одного сборочного задания может быть только один GTIN.
-Добавлять GTIN можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaGtinPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaGtinPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaGtinPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaGtinPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/gtin"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersGTINSetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ApiError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersIMEISetRequest *ApiOrdersIMEISetRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest) ApiOrdersIMEISetRequest(apiOrdersIMEISetRequest ApiOrdersIMEISetRequest) ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest {
-	r.apiOrdersIMEISetRequest = &apiOrdersIMEISetRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaImeiPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaImeiPost Закрепить IMEI за сборочными заданиями
-
-Метод обновляет IMEI в [идентификаторых маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
-У одного сборочного задания может быть только один IMEI.
-Добавлять IMEI можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaImeiPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaImeiPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaImeiPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaImeiPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/imei"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersIMEISetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ApiError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest) Execute() (*ApiOrdersMetaResponse, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaInfoPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaInfoPost Получить идентификаторы маркировки сборочных заданий
-
-Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest
-
-Deprecated
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaInfoPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiOrdersMetaResponse
-// Deprecated
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaInfoPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaInfoPostRequest) (*ApiOrdersMetaResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersMetaResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaInfoPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/info"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersSGTINsSetRequest *ApiOrdersSGTINsSetRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest) ApiOrdersSGTINsSetRequest(apiOrdersSGTINsSetRequest ApiOrdersSGTINsSetRequest) ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest {
-	r.apiOrdersSGTINsSetRequest = &apiOrdersSGTINsSetRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaSgtinPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaSgtinPost Закрепить коды маркировки Честного знака за сборочными заданиями
-
-Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
-Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` — на сборке.
-<br><br>
-Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов |
-| Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов |
-| Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов |
-| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaSgtinPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaSgtinPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaSgtinPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaSgtinPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/sgtin"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersSGTINsSetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersUINSetRequest *ApiOrdersUINSetRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest) ApiOrdersUINSetRequest(apiOrdersUINSetRequest ApiOrdersUINSetRequest) ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest {
-	r.apiOrdersUINSetRequest = &apiOrdersUINSetRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersMetaUinPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersMetaUinPost Закрепить УИН за сборочными заданиями
-
-Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).<br>
-У одного сборочного задания может быть только один УИН.
-Добавлять УИН можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaUinPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersMetaUinPostExecute(r ApiApiMarketplaceV3DbsOrdersMetaUinPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersMetaUinPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/uin"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersUINSetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ApiError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersStatusCancelPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersStatusCancelPost Отменить сборочные задания
-
-Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статусов](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `new` и `confirm` в статус `cancel` — отменено продавцом.
-Отменить сборочные задания в статусе `deliver` невозможно.
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusCancelPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusCancelPostExecute(r ApiApiMarketplaceV3DbsOrdersStatusCancelPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersStatusCancelPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/cancel"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersStatusConfirmPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersStatusConfirmPost Перевести сборочные задания на сборку
-
-Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `new` в статус `confirm` — на сборке.
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusConfirmPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusConfirmPostExecute(r ApiApiMarketplaceV3DbsOrdersStatusConfirmPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersStatusConfirmPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/confirm"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest) Execute() (*ApiStatusSetDeliverResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersStatusDeliverPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersStatusDeliverPost Перевести сборочные задания в доставку
-
-Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` в статус `deliver` — в доставке.
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusDeliverPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetDeliverResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusDeliverPostExecute(r ApiApiMarketplaceV3DbsOrdersStatusDeliverPostRequest) (*ApiStatusSetDeliverResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetDeliverResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersStatusDeliverPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/deliver"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest) Execute() (*ApiOrderStatusesV2, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersStatusInfoPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersStatusInfoPost Получить статусы сборочных заданий
-
-Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) по их ID.
-<br><br>
-`supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
-
-Возможные значения `supplierStatus`:
-| Статус   | Описание            | Как перевести сборочное задание в данный статус |
-| -------  | ---------           | --------------------------------------|
-| `new`      | **Новое сборочное задание** | |
-| `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1confirm/post)
-| `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1deliver/post)
-| `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1receive/post) <br>
-| `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1reject/post)
-| `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1cancel/post)
-| `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |
-
-<br><br>
-`wbStatus` — статус системы Wildberries.
-
-Возможные значения `wbStatus`:
-- `waiting` — сборочное задание в работе
-- `sold` — заказ получен покупателем
-- `canceled` — отмена сборочного задания
-- `canceled_by_client` — покупатель отменил заказ при получении
-- `declined_by_client` — покупатель отменил заказ в первый чаc
-<br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
-- `defect` — отмена заказа по причине брака
-- `ready_for_pickup` — заказ прибыл на ПВЗ
-- `canceled_by_missed_call` — отмена по причине недозвона
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusInfoPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiOrderStatusesV2
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusInfoPostExecute(r ApiApiMarketplaceV3DbsOrdersStatusInfoPostRequest) (*ApiOrderStatusesV2, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrderStatusesV2
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersStatusInfoPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/info"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersCodeRequest *ApiOrdersCodeRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest) ApiOrdersCodeRequest(apiOrdersCodeRequest ApiOrdersCodeRequest) ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest {
-	r.apiOrdersCodeRequest = &apiOrdersCodeRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest) Execute() (*ApiMarketplaceV3DbsOrdersStatusReceivePost200Response, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersStatusReceivePostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersStatusReceivePost Сообщить о получении заказов
-
-Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `deliver` в статус `receive` — получено покупателем.
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusReceivePost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest {
-	return ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiMarketplaceV3DbsOrdersStatusReceivePost200Response
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusReceivePostExecute(r ApiApiMarketplaceV3DbsOrdersStatusReceivePostRequest) (*ApiMarketplaceV3DbsOrdersStatusReceivePost200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiMarketplaceV3DbsOrdersStatusReceivePost200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersStatusReceivePost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/receive"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersCodeRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersCodeRequest *ApiOrdersCodeRequest
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest) ApiOrdersCodeRequest(apiOrdersCodeRequest ApiOrdersCodeRequest) ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest {
-	r.apiOrdersCodeRequest = &apiOrdersCodeRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersStatusRejectPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersStatusRejectPost Сообщить об отказе от заказов
-
-Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `deliver` в статус `reject` — отказ покупателя при получении.
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusRejectPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiStatusSetResponses
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStatusRejectPostExecute(r ApiApiMarketplaceV3DbsOrdersStatusRejectPostRequest) (*ApiStatusSetResponses, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersStatusRejectPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/reject"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersCodeRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiMarketplaceV3DbsOrdersStickersPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	type_ *string
-	width *int32
-	height *int32
-	apiMarketplaceV3DbsOrdersStickersPostRequest *ApiMarketplaceV3DbsOrdersStickersPostRequest
-}
-
-// Формат стикера
-func (r ApiApiMarketplaceV3DbsOrdersStickersPostRequest) Type_(type_ string) ApiApiMarketplaceV3DbsOrdersStickersPostRequest {
-	r.type_ = &type_
-	return r
-}
-
-// Ширина стикера
-func (r ApiApiMarketplaceV3DbsOrdersStickersPostRequest) Width(width int32) ApiApiMarketplaceV3DbsOrdersStickersPostRequest {
-	r.width = &width
-	return r
-}
-
-// Высота стикера
-func (r ApiApiMarketplaceV3DbsOrdersStickersPostRequest) Height(height int32) ApiApiMarketplaceV3DbsOrdersStickersPostRequest {
-	r.height = &height
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStickersPostRequest) ApiMarketplaceV3DbsOrdersStickersPostRequest(apiMarketplaceV3DbsOrdersStickersPostRequest ApiMarketplaceV3DbsOrdersStickersPostRequest) ApiApiMarketplaceV3DbsOrdersStickersPostRequest {
-	r.apiMarketplaceV3DbsOrdersStickersPostRequest = &apiMarketplaceV3DbsOrdersStickersPostRequest
-	return r
-}
-
-func (r ApiApiMarketplaceV3DbsOrdersStickersPostRequest) Execute() (*ApiMarketplaceV3DbsOrdersStickersPost200Response, *http.Response, error) {
-	return r.ApiService.ApiMarketplaceV3DbsOrdersStickersPostExecute(r)
-}
-
-/*
-ApiMarketplaceV3DbsOrdersStickersPost Получить стикеры для сборочных заданий с доставкой в ПВЗ
-
-
-<div class="description_token">
-    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-        <strong>Персональному</strong> токену, 
-        <strong>Сервисному</strong> токену, 
-        <strong>Базовому</strong> токену <strong>с секретом</strong>
-</div>
-
-Метод возвращает стикеры для сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):
-  - `confirm` — на сборке
-  - `deliver` — в доставке
-
-Получить стикеры можно только в размере 580x400 px в формате PDF.
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiMarketplaceV3DbsOrdersStickersPostRequest
-*/
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStickersPost(ctx context.Context) ApiApiMarketplaceV3DbsOrdersStickersPostRequest {
-	return ApiApiMarketplaceV3DbsOrdersStickersPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiMarketplaceV3DbsOrdersStickersPost200Response
-func (a *DBSAPIService) ApiMarketplaceV3DbsOrdersStickersPostExecute(r ApiApiMarketplaceV3DbsOrdersStickersPostRequest) (*ApiMarketplaceV3DbsOrdersStickersPost200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiMarketplaceV3DbsOrdersStickersPost200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiMarketplaceV3DbsOrdersStickersPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/stickers"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.type_ == nil {
-		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
-	}
-	if r.width == nil {
-		return localVarReturnValue, nil, reportError("width is required and must be specified")
-	}
-	if r.height == nil {
-		return localVarReturnValue, nil, reportError("height is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "width", r.width, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "height", r.height, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiMarketplaceV3DbsOrdersStickersPostRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV3DbsGroupsInfoPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrderGroupsRequest *ApiOrderGroupsRequest
-}
-
-func (r ApiApiV3DbsGroupsInfoPostRequest) ApiOrderGroupsRequest(apiOrderGroupsRequest ApiOrderGroupsRequest) ApiApiV3DbsGroupsInfoPostRequest {
-	r.apiOrderGroupsRequest = &apiOrderGroupsRequest
-	return r
-}
-
-func (r ApiApiV3DbsGroupsInfoPostRequest) Execute() ([]ApiOrderGroupInner, *http.Response, error) {
-	return r.ApiService.ApiV3DbsGroupsInfoPostExecute(r)
-}
-
-/*
-ApiV3DbsGroupsInfoPost Получить информацию о платной доставке
-
-Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV3DbsGroupsInfoPostRequest
-*/
-func (a *DBSAPIService) ApiV3DbsGroupsInfoPost(ctx context.Context) ApiApiV3DbsGroupsInfoPostRequest {
-	return ApiApiV3DbsGroupsInfoPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []ApiOrderGroupInner
-func (a *DBSAPIService) ApiV3DbsGroupsInfoPostExecute(r ApiApiV3DbsGroupsInfoPostRequest) ([]ApiOrderGroupInner, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ApiOrderGroupInner
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiV3DbsGroupsInfoPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v3/dbs/groups/info"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.apiOrderGroupsRequest == nil {
-		return localVarReturnValue, nil, reportError("apiOrderGroupsRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrderGroupsRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV3DbsOrdersClientPostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	ordersRequestAPI *OrdersRequestAPI
-}
-
-func (r ApiApiV3DbsOrdersClientPostRequest) OrdersRequestAPI(ordersRequestAPI OrdersRequestAPI) ApiApiV3DbsOrdersClientPostRequest {
-	r.ordersRequestAPI = &ordersRequestAPI
-	return r
-}
-
-func (r ApiApiV3DbsOrdersClientPostRequest) Execute() (*DbsOnlyClientInfoResp, *http.Response, error) {
-	return r.ApiService.ApiV3DbsOrdersClientPostExecute(r)
-}
-
-/*
-ApiV3DbsOrdersClientPost Информация о покупателе
-
-Метод возвращает информацию о покупателе по ID сборочных заданий.
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV3DbsOrdersClientPostRequest
-*/
-func (a *DBSAPIService) ApiV3DbsOrdersClientPost(ctx context.Context) ApiApiV3DbsOrdersClientPostRequest {
-	return ApiApiV3DbsOrdersClientPostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return DbsOnlyClientInfoResp
-func (a *DBSAPIService) ApiV3DbsOrdersClientPostExecute(r ApiApiV3DbsOrdersClientPostRequest) (*DbsOnlyClientInfoResp, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DbsOnlyClientInfoResp
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiV3DbsOrdersClientPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v3/dbs/orders/client"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.ordersRequestAPI == nil {
-		return localVarReturnValue, nil, reportError("ordersRequestAPI is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.ordersRequestAPI
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV3DbsOrdersDeliveryDatePostRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	deliveryDatesRequest *DeliveryDatesRequest
-}
-
-func (r ApiApiV3DbsOrdersDeliveryDatePostRequest) DeliveryDatesRequest(deliveryDatesRequest DeliveryDatesRequest) ApiApiV3DbsOrdersDeliveryDatePostRequest {
-	r.deliveryDatesRequest = &deliveryDatesRequest
-	return r
-}
-
-func (r ApiApiV3DbsOrdersDeliveryDatePostRequest) Execute() (*DeliveryDatesInfoResp, *http.Response, error) {
-	return r.ApiService.ApiV3DbsOrdersDeliveryDatePostExecute(r)
-}
-
-/*
-ApiV3DbsOrdersDeliveryDatePost Получить дату и время доставки
-
-Метод возвращает информацию о выбранных покупателем дате и времени доставки заказов.
-<br>
-
-<div class="description_limit">
-<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV3DbsOrdersDeliveryDatePostRequest
-*/
-func (a *DBSAPIService) ApiV3DbsOrdersDeliveryDatePost(ctx context.Context) ApiApiV3DbsOrdersDeliveryDatePostRequest {
-	return ApiApiV3DbsOrdersDeliveryDatePostRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return DeliveryDatesInfoResp
-func (a *DBSAPIService) ApiV3DbsOrdersDeliveryDatePostExecute(r ApiApiV3DbsOrdersDeliveryDatePostRequest) (*DeliveryDatesInfoResp, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryDatesInfoResp
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiV3DbsOrdersDeliveryDatePost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v3/dbs/orders/delivery-date"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.deliveryDatesRequest == nil {
-		return localVarReturnValue, nil, reportError("deliveryDatesRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.deliveryDatesRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV3DbsOrdersGetRequest struct {
+type ApiGetV3DbsOrdersRequest struct {
 	ctx context.Context
 	ApiService *DBSAPIService
 	limit *int32
@@ -3781,37 +32,37 @@ type ApiApiV3DbsOrdersGetRequest struct {
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
-func (r ApiApiV3DbsOrdersGetRequest) Limit(limit int32) ApiApiV3DbsOrdersGetRequest {
+func (r ApiGetV3DbsOrdersRequest) Limit(limit int32) ApiGetV3DbsOrdersRequest {
 	r.limit = &limit
 	return r
 }
 
 // Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе.
-func (r ApiApiV3DbsOrdersGetRequest) Next(next int64) ApiApiV3DbsOrdersGetRequest {
+func (r ApiGetV3DbsOrdersRequest) Next(next int64) ApiGetV3DbsOrdersRequest {
 	r.next = &next
 	return r
 }
 
 // Дата начала периода в формате Unix timestamp 
-func (r ApiApiV3DbsOrdersGetRequest) DateFrom(dateFrom int32) ApiApiV3DbsOrdersGetRequest {
+func (r ApiGetV3DbsOrdersRequest) DateFrom(dateFrom int32) ApiGetV3DbsOrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата конца периода в формате Unix timestamp
-func (r ApiApiV3DbsOrdersGetRequest) DateTo(dateTo int32) ApiApiV3DbsOrdersGetRequest {
+func (r ApiGetV3DbsOrdersRequest) DateTo(dateTo int32) ApiGetV3DbsOrdersRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiApiV3DbsOrdersGetRequest) Execute() (*ApiV3DbsOrdersGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV3DbsOrdersGetExecute(r)
+func (r ApiGetV3DbsOrdersRequest) Execute() (*GetV3DbsOrders200Response, *http.Response, error) {
+	return r.ApiService.GetV3DbsOrdersExecute(r)
 }
 
 /*
-ApiV3DbsOrdersGet Получить информацию о завершенных сборочных заданиях
+GetV3DbsOrders Получить информацию о завершенных сборочных заданиях
 
-Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) после продажи или отмены заказа.
+Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.
 <br><br>
 Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
@@ -3827,26 +78,26 @@ ApiV3DbsOrdersGet Получить информацию о завершенны�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV3DbsOrdersGetRequest
+ @return ApiGetV3DbsOrdersRequest
 */
-func (a *DBSAPIService) ApiV3DbsOrdersGet(ctx context.Context) ApiApiV3DbsOrdersGetRequest {
-	return ApiApiV3DbsOrdersGetRequest{
+func (a *DBSAPIService) GetV3DbsOrders(ctx context.Context) ApiGetV3DbsOrdersRequest {
+	return ApiGetV3DbsOrdersRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV3DbsOrdersGet200Response
-func (a *DBSAPIService) ApiV3DbsOrdersGetExecute(r ApiApiV3DbsOrdersGetRequest) (*ApiV3DbsOrdersGet200Response, *http.Response, error) {
+//  @return GetV3DbsOrders200Response
+func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV3DbsOrders200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV3DbsOrdersGet200Response
+		localVarReturnValue  *GetV3DbsOrders200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiV3DbsOrdersGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.GetV3DbsOrders")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3944,7 +195,7 @@ func (a *DBSAPIService) ApiV3DbsOrdersGetExecute(r ApiApiV3DbsOrdersGetRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
+			var v GetV3DbsOrdersNew401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3955,7 +206,7 @@ func (a *DBSAPIService) ApiV3DbsOrdersGetExecute(r ApiApiV3DbsOrdersGetRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
+			var v GetV3DbsOrdersNew402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3977,7 +228,7 @@ func (a *DBSAPIService) ApiV3DbsOrdersGetExecute(r ApiApiV3DbsOrdersGetRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
+			var v GetV3DbsOrdersNew401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4001,19 +252,19 @@ func (a *DBSAPIService) ApiV3DbsOrdersGetExecute(r ApiApiV3DbsOrdersGetRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV3DbsOrdersNewGetRequest struct {
+type ApiGetV3DbsOrdersNewRequest struct {
 	ctx context.Context
 	ApiService *DBSAPIService
 }
 
-func (r ApiApiV3DbsOrdersNewGetRequest) Execute() (*ApiV3DbsOrdersNewGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV3DbsOrdersNewGetExecute(r)
+func (r ApiGetV3DbsOrdersNewRequest) Execute() (*GetV3DbsOrdersNew200Response, *http.Response, error) {
+	return r.ApiService.GetV3DbsOrdersNewExecute(r)
 }
 
 /*
-ApiV3DbsOrdersNewGet Получить список новых сборочных заданий
+GetV3DbsOrdersNew Получить список новых сборочных заданий
 
-Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS), которые есть у продавца на момент запроса.
+Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
 
 <div class="description_limit">
 <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
@@ -4027,26 +278,26 @@ ApiV3DbsOrdersNewGet Получить список новых сборочных
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV3DbsOrdersNewGetRequest
+ @return ApiGetV3DbsOrdersNewRequest
 */
-func (a *DBSAPIService) ApiV3DbsOrdersNewGet(ctx context.Context) ApiApiV3DbsOrdersNewGetRequest {
-	return ApiApiV3DbsOrdersNewGetRequest{
+func (a *DBSAPIService) GetV3DbsOrdersNew(ctx context.Context) ApiGetV3DbsOrdersNewRequest {
+	return ApiGetV3DbsOrdersNewRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV3DbsOrdersNewGet200Response
-func (a *DBSAPIService) ApiV3DbsOrdersNewGetExecute(r ApiApiV3DbsOrdersNewGetRequest) (*ApiV3DbsOrdersNewGet200Response, *http.Response, error) {
+//  @return GetV3DbsOrdersNew200Response
+func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) (*GetV3DbsOrdersNew200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV3DbsOrdersNewGet200Response
+		localVarReturnValue  *GetV3DbsOrdersNew200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.ApiV3DbsOrdersNewGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.GetV3DbsOrdersNew")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4111,7 +362,7 @@ func (a *DBSAPIService) ApiV3DbsOrdersNewGetExecute(r ApiApiV3DbsOrdersNewGetReq
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV3DbsOrdersNewGet401Response
+			var v GetV3DbsOrdersNew401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4122,7 +373,7 @@ func (a *DBSAPIService) ApiV3DbsOrdersNewGetExecute(r ApiApiV3DbsOrdersNewGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV3DbsOrdersNewGet402Response
+			var v GetV3DbsOrdersNew402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4144,7 +395,3756 @@ func (a *DBSAPIService) ApiV3DbsOrdersNewGetExecute(r ApiApiV3DbsOrdersNewGetReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV3DbsOrdersNewGet401Response
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsGroupsInfoRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrderGroupsRequest *ApiOrderGroupsRequest
+}
+
+func (r ApiPostV3DbsGroupsInfoRequest) ApiOrderGroupsRequest(apiOrderGroupsRequest ApiOrderGroupsRequest) ApiPostV3DbsGroupsInfoRequest {
+	r.apiOrderGroupsRequest = &apiOrderGroupsRequest
+	return r
+}
+
+func (r ApiPostV3DbsGroupsInfoRequest) Execute() ([]ApiOrderGroupInner, *http.Response, error) {
+	return r.ApiService.PostV3DbsGroupsInfoExecute(r)
+}
+
+/*
+PostV3DbsGroupsInfo Получить информацию о платной доставке
+
+Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsGroupsInfoRequest
+*/
+func (a *DBSAPIService) PostV3DbsGroupsInfo(ctx context.Context) ApiPostV3DbsGroupsInfoRequest {
+	return ApiPostV3DbsGroupsInfoRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []ApiOrderGroupInner
+func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoRequest) ([]ApiOrderGroupInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ApiOrderGroupInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsGroupsInfo")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v3/dbs/groups/info"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.apiOrderGroupsRequest == nil {
+		return localVarReturnValue, nil, reportError("apiOrderGroupsRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrderGroupsRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersB2bInfoRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersRequestV2 *ApiOrdersRequestV2
+}
+
+func (r ApiPostV3DbsOrdersB2bInfoRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersB2bInfoRequest {
+	r.apiOrdersRequestV2 = &apiOrdersRequestV2
+	return r
+}
+
+func (r ApiPostV3DbsOrdersB2bInfoRequest) Execute() (*ApiB2bClientInfoResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersB2bInfoExecute(r)
+}
+
+/*
+PostV3DbsOrdersB2bInfo Информация о покупателе B2B
+
+Метод возвращает данные B2B-покупателей по ID сборочных заданий:
+  - ИНН
+  - КПП
+  - Наименование организации
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersB2bInfoRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersB2bInfo(ctx context.Context) ApiPostV3DbsOrdersB2bInfoRequest {
+	return ApiPostV3DbsOrdersB2bInfoRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiB2bClientInfoResponses
+func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInfoRequest) (*ApiB2bClientInfoResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiB2bClientInfoResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersB2bInfo")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/b2b/info"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.apiOrdersRequestV2 == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequestV2
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersClientRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	ordersRequestAPI *OrdersRequestAPI
+}
+
+func (r ApiPostV3DbsOrdersClientRequest) OrdersRequestAPI(ordersRequestAPI OrdersRequestAPI) ApiPostV3DbsOrdersClientRequest {
+	r.ordersRequestAPI = &ordersRequestAPI
+	return r
+}
+
+func (r ApiPostV3DbsOrdersClientRequest) Execute() (*DbsOnlyClientInfoResp, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersClientExecute(r)
+}
+
+/*
+PostV3DbsOrdersClient Информация о покупателе
+
+Метод возвращает информацию о покупателе по ID сборочных заданий.
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersClientRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersClient(ctx context.Context) ApiPostV3DbsOrdersClientRequest {
+	return ApiPostV3DbsOrdersClientRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return DbsOnlyClientInfoResp
+func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientRequest) (*DbsOnlyClientInfoResp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DbsOnlyClientInfoResp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersClient")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v3/dbs/orders/client"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.ordersRequestAPI == nil {
+		return localVarReturnValue, nil, reportError("ordersRequestAPI is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.ordersRequestAPI
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersDeliveryDateRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	deliveryDatesRequest *DeliveryDatesRequest
+}
+
+func (r ApiPostV3DbsOrdersDeliveryDateRequest) DeliveryDatesRequest(deliveryDatesRequest DeliveryDatesRequest) ApiPostV3DbsOrdersDeliveryDateRequest {
+	r.deliveryDatesRequest = &deliveryDatesRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersDeliveryDateRequest) Execute() (*DeliveryDatesInfoResp, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersDeliveryDateExecute(r)
+}
+
+/*
+PostV3DbsOrdersDeliveryDate Получить дату и время доставки
+
+Метод возвращает информацию о выбранных покупателем дате и времени доставки заказов.
+<br>
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersDeliveryDateRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersDeliveryDate(ctx context.Context) ApiPostV3DbsOrdersDeliveryDateRequest {
+	return ApiPostV3DbsOrdersDeliveryDateRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return DeliveryDatesInfoResp
+func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersDeliveryDateRequest) (*DeliveryDatesInfoResp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeliveryDatesInfoResp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersDeliveryDate")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v3/dbs/orders/delivery-date"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.deliveryDatesRequest == nil {
+		return localVarReturnValue, nil, reportError("deliveryDatesRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.deliveryDatesRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaCustomsDeclarationRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	postV3DbsOrdersMetaCustomsDeclarationRequest *PostV3DbsOrdersMetaCustomsDeclarationRequest
+}
+
+func (r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) PostV3DbsOrdersMetaCustomsDeclarationRequest(postV3DbsOrdersMetaCustomsDeclarationRequest PostV3DbsOrdersMetaCustomsDeclarationRequest) ApiPostV3DbsOrdersMetaCustomsDeclarationRequest {
+	r.postV3DbsOrdersMetaCustomsDeclarationRequest = &postV3DbsOrdersMetaCustomsDeclarationRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaCustomsDeclarationExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaCustomsDeclaration Закрепить за сборочными заданиями номера ДТ
+
+Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
+<br><br>
+
+Добавлять номера ДТ можно только для сборочных заданий в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.
+
+У одного сборочного задания может быть только один ДТ.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 500 запросов | 120 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3DbsOrdersMetaCustomsDeclarationRequest {
+	return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaCustomsDeclaration")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/customs-declaration"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postV3DbsOrdersMetaCustomsDeclarationRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaDeleteRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersMetaDeleteRequest *ApiOrdersMetaDeleteRequest
+}
+
+func (r ApiPostV3DbsOrdersMetaDeleteRequest) ApiOrdersMetaDeleteRequest(apiOrdersMetaDeleteRequest ApiOrdersMetaDeleteRequest) ApiPostV3DbsOrdersMetaDeleteRequest {
+	r.apiOrdersMetaDeleteRequest = &apiOrdersMetaDeleteRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaDeleteRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaDeleteExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
+
+Метод удаляет значение указанных [идентификаторов маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) для нескольких сборочных заданий.
+<br><br>
+В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
+  - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+  - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+  - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+  - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+  - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
+  - `originCountryCode` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode `
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 150 запросов | 400 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaDeleteRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaDelete(ctx context.Context) ApiPostV3DbsOrdersMetaDeleteRequest {
+	return ApiPostV3DbsOrdersMetaDeleteRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMetaDeleteRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaDelete")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/delete"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersMetaDeleteRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ApiError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaDetailsRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersRequestV2 *ApiOrdersRequestV2
+}
+
+func (r ApiPostV3DbsOrdersMetaDetailsRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersMetaDetailsRequest {
+	r.apiOrdersRequestV2 = &apiOrdersRequestV2
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaDetailsRequest) Execute() (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaDetailsExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
+
+Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) и статусы их валидации. <br>
+Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`.<br>
+Возможные идентификаторы маркировки:
+  - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+  - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+  - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+  - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+  - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
+  - `originCountryCode ` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+
+Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.<br>
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaDetailsRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaDetails(ctx context.Context) ApiPostV3DbsOrdersMetaDetailsRequest {
+	return ApiPostV3DbsOrdersMetaDetailsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiOrdersMetaDetailsResponse
+func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrdersMetaDetailsResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaDetails")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/details"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequestV2
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaGtinRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersGTINSetRequest *ApiOrdersGTINSetRequest
+}
+
+func (r ApiPostV3DbsOrdersMetaGtinRequest) ApiOrdersGTINSetRequest(apiOrdersGTINSetRequest ApiOrdersGTINSetRequest) ApiPostV3DbsOrdersMetaGtinRequest {
+	r.apiOrdersGTINSetRequest = &apiOrdersGTINSetRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaGtinRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaGtinExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными заданиями
+
+Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) нескольких сборочных заданий.<br>
+У одного сборочного задания может быть только один GTIN.
+Добавлять GTIN можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm`.<br>
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 500 запросов | 120 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaGtinRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaGtin(ctx context.Context) ApiPostV3DbsOrdersMetaGtinRequest {
+	return ApiPostV3DbsOrdersMetaGtinRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaGtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaGtin")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/gtin"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersGTINSetRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ApiError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaImeiRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersIMEISetRequest *ApiOrdersIMEISetRequest
+}
+
+func (r ApiPostV3DbsOrdersMetaImeiRequest) ApiOrdersIMEISetRequest(apiOrdersIMEISetRequest ApiOrdersIMEISetRequest) ApiPostV3DbsOrdersMetaImeiRequest {
+	r.apiOrdersIMEISetRequest = &apiOrdersIMEISetRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaImeiRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaImeiExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными заданиями
+
+Метод обновляет IMEI в [идентификаторых маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) нескольких сборочных заданий.<br>
+У одного сборочного задания может быть только один IMEI.
+Добавлять IMEI можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm`.<br>
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 500 запросов | 120 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaImeiRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaImei(ctx context.Context) ApiPostV3DbsOrdersMetaImeiRequest {
+	return ApiPostV3DbsOrdersMetaImeiRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaImeiRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaImei")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/imei"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersIMEISetRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ApiError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaInfoRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersRequestV2 *ApiOrdersRequestV2
+}
+
+func (r ApiPostV3DbsOrdersMetaInfoRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersMetaInfoRequest {
+	r.apiOrdersRequestV2 = &apiOrdersRequestV2
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaInfoRequest) Execute() (*ApiOrdersMetaResponse, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaInfoExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaInfo Получить идентификаторы маркировки сборочных заданий
+
+Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 150 запросов | 400 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaInfoRequest
+
+Deprecated
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaInfo(ctx context.Context) ApiPostV3DbsOrdersMetaInfoRequest {
+	return ApiPostV3DbsOrdersMetaInfoRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiOrdersMetaResponse
+// Deprecated
+func (a *DBSAPIService) PostV3DbsOrdersMetaInfoExecute(r ApiPostV3DbsOrdersMetaInfoRequest) (*ApiOrdersMetaResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrdersMetaResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaInfo")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/info"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequestV2
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaSgtinRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersSGTINsSetRequest *ApiOrdersSGTINsSetRequest
+}
+
+func (r ApiPostV3DbsOrdersMetaSgtinRequest) ApiOrdersSGTINsSetRequest(apiOrdersSGTINsSetRequest ApiOrdersSGTINsSetRequest) ApiPostV3DbsOrdersMetaSgtinRequest {
+	r.apiOrdersSGTINsSetRequest = &apiOrdersSGTINsSetRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaSgtinRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaSgtinExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
+
+Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) нескольких сборочных заданий.<br>
+Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` — на сборке.
+<br><br>
+Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов |
+| Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов |
+| Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов |
+| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaSgtinRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaSgtin(ctx context.Context) ApiPostV3DbsOrdersMetaSgtinRequest {
+	return ApiPostV3DbsOrdersMetaSgtinRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMetaSgtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaSgtin")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/sgtin"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersSGTINsSetRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersMetaUinRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersUINSetRequest *ApiOrdersUINSetRequest
+}
+
+func (r ApiPostV3DbsOrdersMetaUinRequest) ApiOrdersUINSetRequest(apiOrdersUINSetRequest ApiOrdersUINSetRequest) ApiPostV3DbsOrdersMetaUinRequest {
+	r.apiOrdersUINSetRequest = &apiOrdersUINSetRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersMetaUinRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersMetaUinExecute(r)
+}
+
+/*
+PostV3DbsOrdersMetaUin Закрепить УИН за сборочными заданиями
+
+Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br>
+У одного сборочного задания может быть только один УИН.
+Добавлять УИН можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 500 запросов | 120 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersMetaUinRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersMetaUin(ctx context.Context) ApiPostV3DbsOrdersMetaUinRequest {
+	return ApiPostV3DbsOrdersMetaUinRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUinRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaUin")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/uin"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersUINSetRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ApiError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersStatusCancelRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersRequestV2 *ApiOrdersRequestV2
+}
+
+func (r ApiPostV3DbsOrdersStatusCancelRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersStatusCancelRequest {
+	r.apiOrdersRequestV2 = &apiOrdersRequestV2
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStatusCancelRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersStatusCancelExecute(r)
+}
+
+/*
+PostV3DbsOrdersStatusCancel Отменить сборочные задания
+
+Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статусов](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом.
+Отменить сборочные задания в статусе `deliver` невозможно.
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersStatusCancelRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersStatusCancel(ctx context.Context) ApiPostV3DbsOrdersStatusCancelRequest {
+	return ApiPostV3DbsOrdersStatusCancelRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusCancel")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/cancel"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequestV2
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersStatusConfirmRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersRequestV2 *ApiOrdersRequestV2
+}
+
+func (r ApiPostV3DbsOrdersStatusConfirmRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersStatusConfirmRequest {
+	r.apiOrdersRequestV2 = &apiOrdersRequestV2
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStatusConfirmRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersStatusConfirmExecute(r)
+}
+
+/*
+PostV3DbsOrdersStatusConfirm Перевести сборочные задания на сборку
+
+Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersStatusConfirmRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersStatusConfirm(ctx context.Context) ApiPostV3DbsOrdersStatusConfirmRequest {
+	return ApiPostV3DbsOrdersStatusConfirmRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusConfirm")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/confirm"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequestV2
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersStatusDeliverRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersRequestV2 *ApiOrdersRequestV2
+}
+
+func (r ApiPostV3DbsOrdersStatusDeliverRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersStatusDeliverRequest {
+	r.apiOrdersRequestV2 = &apiOrdersRequestV2
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStatusDeliverRequest) Execute() (*ApiStatusSetDeliverResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersStatusDeliverExecute(r)
+}
+
+/*
+PostV3DbsOrdersStatusDeliver Перевести сборочные задания в доставку
+
+Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersStatusDeliverRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersStatusDeliver(ctx context.Context) ApiPostV3DbsOrdersStatusDeliverRequest {
+	return ApiPostV3DbsOrdersStatusDeliverRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetDeliverResponses
+func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrdersStatusDeliverRequest) (*ApiStatusSetDeliverResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetDeliverResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusDeliver")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/deliver"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequestV2
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersStatusInfoRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersRequestV2 *ApiOrdersRequestV2
+}
+
+func (r ApiPostV3DbsOrdersStatusInfoRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersStatusInfoRequest {
+	r.apiOrdersRequestV2 = &apiOrdersRequestV2
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStatusInfoRequest) Execute() (*ApiOrderStatusesV2, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersStatusInfoExecute(r)
+}
+
+/*
+PostV3DbsOrdersStatusInfo Получить статусы сборочных заданий
+
+Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) по их ID.
+<br><br>
+`supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
+
+Возможные значения `supplierStatus`:
+| Статус   | Описание            | Как перевести сборочное задание в данный статус |
+| -------  | ---------           | --------------------------------------|
+| `new`      | **Новое сборочное задание** | |
+| `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm)
+| `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver)
+| `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) <br>
+| `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject)
+| `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel)
+| `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |
+
+<br><br>
+`wbStatus` — статус системы Wildberries.
+
+Возможные значения `wbStatus`:
+- `waiting` — сборочное задание в работе
+- `sold` — заказ получен покупателем
+- `canceled` — отмена сборочного задания
+- `canceled_by_client` — покупатель отменил заказ при получении
+- `declined_by_client` — покупатель отменил заказ в первый чаc
+<br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
+- `defect` — отмена заказа по причине брака
+- `ready_for_pickup` — заказ прибыл на ПВЗ
+- `canceled_by_missed_call` — отмена по причине недозвона
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersStatusInfoRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersStatusInfo(ctx context.Context) ApiPostV3DbsOrdersStatusInfoRequest {
+	return ApiPostV3DbsOrdersStatusInfoRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiOrderStatusesV2
+func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrderStatusesV2
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusInfo")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/info"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequestV2
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersStatusReceiveRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersCodeRequest *ApiOrdersCodeRequest
+}
+
+func (r ApiPostV3DbsOrdersStatusReceiveRequest) ApiOrdersCodeRequest(apiOrdersCodeRequest ApiOrdersCodeRequest) ApiPostV3DbsOrdersStatusReceiveRequest {
+	r.apiOrdersCodeRequest = &apiOrdersCodeRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStatusReceiveRequest) Execute() (*PostV3DbsOrdersStatusReceive200Response, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersStatusReceiveExecute(r)
+}
+
+/*
+PostV3DbsOrdersStatusReceive Сообщить о получении заказов
+
+Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersStatusReceiveRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersStatusReceive(ctx context.Context) ApiPostV3DbsOrdersStatusReceiveRequest {
+	return ApiPostV3DbsOrdersStatusReceiveRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostV3DbsOrdersStatusReceive200Response
+func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrdersStatusReceiveRequest) (*PostV3DbsOrdersStatusReceive200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3DbsOrdersStatusReceive200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusReceive")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/receive"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersCodeRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersStatusRejectRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	apiOrdersCodeRequest *ApiOrdersCodeRequest
+}
+
+func (r ApiPostV3DbsOrdersStatusRejectRequest) ApiOrdersCodeRequest(apiOrdersCodeRequest ApiOrdersCodeRequest) ApiPostV3DbsOrdersStatusRejectRequest {
+	r.apiOrdersCodeRequest = &apiOrdersCodeRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStatusRejectRequest) Execute() (*ApiStatusSetResponses, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersStatusRejectExecute(r)
+}
+
+/*
+PostV3DbsOrdersStatusReject Сообщить об отказе от заказов
+
+Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 сек | 1 запрос | 1 сек | 10 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersStatusRejectRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersStatusReject(ctx context.Context) ApiPostV3DbsOrdersStatusRejectRequest {
+	return ApiPostV3DbsOrdersStatusRejectRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiStatusSetResponses
+func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersStatusRejectRequest) (*ApiStatusSetResponses, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiStatusSetResponses
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusReject")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/status/reject"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersCodeRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3DbsOrdersStickersRequest struct {
+	ctx context.Context
+	ApiService *DBSAPIService
+	type_ *string
+	width *int32
+	height *int32
+	postV3DbsOrdersStickersRequest *PostV3DbsOrdersStickersRequest
+}
+
+// Формат стикера
+func (r ApiPostV3DbsOrdersStickersRequest) Type_(type_ string) ApiPostV3DbsOrdersStickersRequest {
+	r.type_ = &type_
+	return r
+}
+
+// Ширина стикера
+func (r ApiPostV3DbsOrdersStickersRequest) Width(width int32) ApiPostV3DbsOrdersStickersRequest {
+	r.width = &width
+	return r
+}
+
+// Высота стикера
+func (r ApiPostV3DbsOrdersStickersRequest) Height(height int32) ApiPostV3DbsOrdersStickersRequest {
+	r.height = &height
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStickersRequest) PostV3DbsOrdersStickersRequest(postV3DbsOrdersStickersRequest PostV3DbsOrdersStickersRequest) ApiPostV3DbsOrdersStickersRequest {
+	r.postV3DbsOrdersStickersRequest = &postV3DbsOrdersStickersRequest
+	return r
+}
+
+func (r ApiPostV3DbsOrdersStickersRequest) Execute() (*PostV3DbsOrdersStickers200Response, *http.Response, error) {
+	return r.ApiService.PostV3DbsOrdersStickersExecute(r)
+}
+
+/*
+PostV3DbsOrdersStickers Получить стикеры для сборочных заданий с доставкой в ПВЗ
+
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену, 
+        <strong>Базовому</strong> токену <strong>с секретом</strong>
+</div>
+
+Метод возвращает стикеры для сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo):
+  - `confirm` — на сборке
+  - `deliver` — в доставке
+
+Получить стикеры можно только в размере 580x400 px в формате PDF.
+
+<div class="description_limit">
+<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3DbsOrdersStickersRequest
+*/
+func (a *DBSAPIService) PostV3DbsOrdersStickers(ctx context.Context) ApiPostV3DbsOrdersStickersRequest {
+	return ApiPostV3DbsOrdersStickersRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostV3DbsOrdersStickers200Response
+func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStickersRequest) (*PostV3DbsOrdersStickers200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostV3DbsOrdersStickers200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStickers")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/stickers"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.type_ == nil {
+		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
+	}
+	if r.width == nil {
+		return localVarReturnValue, nil, reportError("width is required and must be specified")
+	}
+	if r.height == nil {
+		return localVarReturnValue, nil, reportError("height is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "width", r.width, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "height", r.height, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postV3DbsOrdersStickersRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3DbsOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV3DbsOrdersNew402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3DbsOrdersNew401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы Самовывоз
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -21,10 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
     /**
      * Идентификатор маркировки:
-     *   - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)
-     *   - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)
-     *   - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)
-     *   - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)
+     *   - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+     *   - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+     *   - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+     *   - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
      *   - `customsDeclaration` — [номер ДТ](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
      *   - `originCountryCode` — [числовой код страны происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
      * 

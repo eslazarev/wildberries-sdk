@@ -1,7 +1,7 @@
 /*
 Заказы DBW
 
-<div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
+<div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
 
 API version: ordersdbw
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.128/go",
+		UserAgent:        "OpenAPI-Generator/0.1.129/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,103 +98,103 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DBWAPIService.ApiMarketplaceV3DbwOrdersClientPost": {
+			"DBWAPIService.GetV3DbwOrders": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiMarketplaceV3DbwOrdersMetaDeletePost": {
+			"DBWAPIService.GetV3DbwOrdersNew": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiMarketplaceV3DbwOrdersMetaDetailsPost": {
+			"DBWAPIService.GetV3DbwOrdersOrderIdMeta": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiMarketplaceV3DbwOrdersMetaSgtinPost": {
+			"DBWAPIService.PatchV3DbwOrdersOrderIdCancel": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiMarketplaceV3DbwOrdersStatusDeliverPost": {
+			"DBWAPIService.PatchV3DbwOrdersOrderIdConfirm": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersCourierPost": {
+			"DBWAPIService.PostV3DbwOrdersClient": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersDeliveryDatePost": {
+			"DBWAPIService.PostV3DbwOrdersCourier": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersGet": {
+			"DBWAPIService.PostV3DbwOrdersDeliveryDate": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersNewGet": {
+			"DBWAPIService.PostV3DbwOrdersMetaDelete": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersOrderIdCancelPatch": {
+			"DBWAPIService.PostV3DbwOrdersMetaDetails": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersOrderIdConfirmPatch": {
+			"DBWAPIService.PostV3DbwOrdersMetaSgtin": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersOrderIdMetaGet": {
+			"DBWAPIService.PostV3DbwOrdersStatus": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersOrderIdMetaGtinPut": {
+			"DBWAPIService.PostV3DbwOrdersStatusDeliver": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersOrderIdMetaImeiPut": {
+			"DBWAPIService.PostV3DbwOrdersStickers": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersOrderIdMetaUinPut": {
+			"DBWAPIService.PutV3DbwOrdersOrderIdMetaGtin": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersStatusPost": {
+			"DBWAPIService.PutV3DbwOrdersOrderIdMetaImei": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DBWAPIService.ApiV3DbwOrdersStickersPost": {
+			"DBWAPIService.PutV3DbwOrdersOrderIdMetaUin": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",

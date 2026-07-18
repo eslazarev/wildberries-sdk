@@ -2871,12 +2871,12 @@ func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdStatusGetExecute(r ApiApi
 type ApiApiV1SupplierOrdersGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	dateFrom *time.Time
+	dateFrom *string
 	flag *int32
 }
 
 // Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
-func (r ApiApiV1SupplierOrdersGetRequest) DateFrom(dateFrom time.Time) ApiApiV1SupplierOrdersGetRequest {
+func (r ApiApiV1SupplierOrdersGetRequest) DateFrom(dateFrom string) ApiApiV1SupplierOrdersGetRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
@@ -3080,12 +3080,12 @@ func (a *DefaultApiService) ApiV1SupplierOrdersGetExecute(r ApiApiV1SupplierOrde
 type ApiApiV1SupplierSalesGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	dateFrom *time.Time
+	dateFrom *string
 	flag *int32
 }
 
 // Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
-func (r ApiApiV1SupplierSalesGetRequest) DateFrom(dateFrom time.Time) ApiApiV1SupplierSalesGetRequest {
+func (r ApiApiV1SupplierSalesGetRequest) DateFrom(dateFrom string) ApiApiV1SupplierSalesGetRequest {
 	r.dateFrom = &dateFrom
 	return r
 }

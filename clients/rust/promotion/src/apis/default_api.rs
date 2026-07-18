@@ -928,7 +928,7 @@ pub async fn adv_v0_start_get(configuration: &configuration::Configuration, id: 
     }
 }
 
-/// Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:   - `4` — готово к запуску   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn adv_v0_stop_get(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<AdvV0StopGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_id = id;

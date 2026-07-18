@@ -1,7 +1,7 @@
 /*
  * Заказы DBS
  *
- * <div class=\"description_important\">   Узнать больше о заказах DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы заказов DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
+ * <div class=\"description_important\">   Узнать больше о заказах DBS можно в <a href=\"https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56\">справочном центре</a> </div>  <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/orders-dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>  Вы можете протестировать методы заказов DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: order
  * 
@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrderGroupsRequest {
-    /// Список значений `groupId`. Можно получить из [новых](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1new/get) и [завершенных](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders/get) сборочных заданий
+    /// Список значений `groupId`. Можно получить из [новых](./orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) и [завершенных](./orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders) сборочных заданий
     #[serde(rename = "groups", skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<String>>,
 }

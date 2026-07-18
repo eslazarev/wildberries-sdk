@@ -202,7 +202,7 @@ type SalesReportsDetailedRes struct {
 	B2bCustomerTin string `json:"b2bCustomerTin"`
 	// ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid` 
 	OrderUid string `json:"orderUid"`
-	// ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/Sborochnye-zadaniya-DBW), [DBS](./orders-dbs#tag/Sborochnye-zadaniya-DBS) и [Самовывоз](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) `srid` равен `rid` 
+	// ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid` 
 	Srid string `json:"srid"`
 }
 

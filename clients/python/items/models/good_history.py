@@ -93,6 +93,11 @@ class GoodHistory(BaseModel):
         if self.club_discount is None and "club_discount" in self.model_fields_set:
             _dict['clubDiscount'] = None
 
+        # set to None if error_text (nullable) is None
+        # and model_fields_set contains the field
+        if self.error_text is None and "error_text" in self.model_fields_set:
+            _dict['errorText'] = None
+
         return _dict
 
     @classmethod

@@ -2276,7 +2276,6 @@ func (r ApiAdvV0StopGetRequest) Execute() (*http.Response, error) {
 AdvV0StopGet Завершение кампании
 
 Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:
-  - `4` — готово к запуску
   - `9` — активна
   - `11` — пауза
 

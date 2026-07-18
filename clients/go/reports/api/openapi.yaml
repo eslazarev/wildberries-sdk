@@ -95,7 +95,6 @@ paths:
         name: dateFrom
         required: true
         schema:
-          format: date-time
           type: string
         style: form
       - description: |
@@ -270,7 +269,6 @@ paths:
         name: dateFrom
         required: true
         schema:
-          format: date-time
           type: string
         style: form
       - description: |

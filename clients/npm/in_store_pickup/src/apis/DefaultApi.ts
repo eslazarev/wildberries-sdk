@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы Самовывоз
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -124,90 +124,90 @@ import {
     ApiStatusSetResponsesToJSON,
 } from '../models/ApiStatusSetResponses';
 import {
-    type ApiV3ClickCollectOrdersNewGet401Response,
-    ApiV3ClickCollectOrdersNewGet401ResponseFromJSON,
-    ApiV3ClickCollectOrdersNewGet401ResponseToJSON,
-} from '../models/ApiV3ClickCollectOrdersNewGet401Response';
+    type GetV3ClickCollectOrdersNew401Response,
+    GetV3ClickCollectOrdersNew401ResponseFromJSON,
+    GetV3ClickCollectOrdersNew401ResponseToJSON,
+} from '../models/GetV3ClickCollectOrdersNew401Response';
 import {
-    type ApiV3ClickCollectOrdersNewGet402Response,
-    ApiV3ClickCollectOrdersNewGet402ResponseFromJSON,
-    ApiV3ClickCollectOrdersNewGet402ResponseToJSON,
-} from '../models/ApiV3ClickCollectOrdersNewGet402Response';
+    type GetV3ClickCollectOrdersNew402Response,
+    GetV3ClickCollectOrdersNew402ResponseFromJSON,
+    GetV3ClickCollectOrdersNew402ResponseToJSON,
+} from '../models/GetV3ClickCollectOrdersNew402Response';
 import {
     type PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
     PostV3ClickCollectOrdersMetaCustomsDeclarationRequestFromJSON,
     PostV3ClickCollectOrdersMetaCustomsDeclarationRequestToJSON,
 } from '../models/PostV3ClickCollectOrdersMetaCustomsDeclarationRequest';
 
-export interface ApiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest {
-    apiOrdersMetaDeleteRequest?: ApiOrdersMetaDeleteRequest;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersMetaDetailsPostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest {
-    apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest {
-    apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest {
-    apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersMetaUinPostRequest {
-    apiOrdersUINSetRequest: ApiOrdersUINSetRequest;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest {
-    apiOrdersRequestV2: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiV3ClickCollectOrdersClientIdentityPostRequest {
-    apiCheckIdentityRequest: ApiCheckIdentityRequest;
-}
-
-export interface ApiV3ClickCollectOrdersClientPostRequest {
-    apiOrdersRequest: ApiOrdersRequest;
-}
-
-export interface ApiV3ClickCollectOrdersGetRequest {
+export interface GetV3ClickCollectOrdersRequest {
     limit: number;
     next: number;
     dateFrom: number;
     dateTo: number;
 }
 
+export interface PostV3ClickCollectOrdersClientRequest {
+    apiOrdersRequest: ApiOrdersRequest;
+}
+
+export interface PostV3ClickCollectOrdersClientIdentityRequest {
+    apiCheckIdentityRequest: ApiCheckIdentityRequest;
+}
+
 export interface PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest {
     postV3ClickCollectOrdersMetaCustomsDeclarationRequest?: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest;
+}
+
+export interface PostV3ClickCollectOrdersMetaDeleteRequest {
+    apiOrdersMetaDeleteRequest?: ApiOrdersMetaDeleteRequest;
+}
+
+export interface PostV3ClickCollectOrdersMetaDetailsRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
+}
+
+export interface PostV3ClickCollectOrdersMetaGtinRequest {
+    apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest;
+}
+
+export interface PostV3ClickCollectOrdersMetaImeiRequest {
+    apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest;
+}
+
+export interface PostV3ClickCollectOrdersMetaInfoRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
+}
+
+export interface PostV3ClickCollectOrdersMetaSgtinRequest {
+    apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest;
+}
+
+export interface PostV3ClickCollectOrdersMetaUinRequest {
+    apiOrdersUINSetRequest: ApiOrdersUINSetRequest;
+}
+
+export interface PostV3ClickCollectOrdersStatusCancelRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
+}
+
+export interface PostV3ClickCollectOrdersStatusConfirmRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
+}
+
+export interface PostV3ClickCollectOrdersStatusInfoRequest {
+    apiOrdersRequestV2: ApiOrdersRequestV2;
+}
+
+export interface PostV3ClickCollectOrdersStatusPrepareRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
+}
+
+export interface PostV3ClickCollectOrdersStatusReceiveRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
+}
+
+export interface PostV3ClickCollectOrdersStatusRejectRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 /**
@@ -216,776 +216,34 @@ export interface PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest 
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersMetaDeletePost without sending the request
+     * Creates request options for getV3ClickCollectOrders without sending the request
      */
-    async apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/delete`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersMetaDeleteRequestToJSON(requestParameters['apiOrdersMetaDeleteRequest']),
-        };
-    }
-
-    /**
-     * Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) для нескольких сборочных заданий. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Удалить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaDeletePostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersMetaDeletePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) для нескольких сборочных заданий. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Удалить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaDeletePost(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaDeletePostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersMetaDeletePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersMetaDetailsPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaDetailsPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaDetailsPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/details`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) сборочных заданий и статусы их проверки.  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaDetailsPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaDetailsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaDetailsResponse>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersMetaDetailsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaDetailsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) сборочных заданий и статусы их проверки.  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaDetailsPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaDetailsPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersMetaDetailsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersMetaGtinPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersGTINSetRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersGTINSetRequest',
-                'Required parameter "apiOrdersGTINSetRequest" was null or undefined when calling apiMarketplaceV3ClickCollectOrdersMetaGtinPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/gtin`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersGTINSetRequestToJSON(requestParameters['apiOrdersGTINSetRequest']),
-        };
-    }
-
-    /**
-     * Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных заданий. У одного сборочного задания может быть только один GTIN. Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить GTIN за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaGtinPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersMetaGtinPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных заданий. У одного сборочного задания может быть только один GTIN. Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить GTIN за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaGtinPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaGtinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersMetaGtinPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersMetaImeiPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersIMEISetRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersIMEISetRequest',
-                'Required parameter "apiOrdersIMEISetRequest" was null or undefined when calling apiMarketplaceV3ClickCollectOrdersMetaImeiPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/imei`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersIMEISetRequestToJSON(requestParameters['apiOrdersIMEISetRequest']),
-        };
-    }
-
-    /**
-     * Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`, если их доставка осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить IMEI за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaImeiPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersMetaImeiPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`, если их доставка осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить IMEI за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaImeiPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaImeiPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersMetaImeiPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersMetaInfoPost without sending the request
-     * @deprecated
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/info`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     * @deprecated
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaInfoPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaResponse>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersMetaInfoPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     * @deprecated
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaInfoPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaInfoPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaResponse> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersMetaInfoPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersMetaSgtinPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersSGTINsSetRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersSGTINsSetRequest',
-                'Required parameter "apiOrdersSGTINsSetRequest" was null or undefined when calling apiMarketplaceV3ClickCollectOrdersMetaSgtinPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/sgtin`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersSGTINsSetRequestToJSON(requestParameters['apiOrdersSGTINsSetRequest']),
-        };
-    }
-
-    /**
-     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных заданий.<br> Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить коды маркировки Честного знака за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных заданий.<br> Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить коды маркировки Честного знака за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaSgtinPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaSgtinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersMetaSgtinPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersMetaUinPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaUinPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaUinPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersUINSetRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersUINSetRequest',
-                'Required parameter "apiOrdersUINSetRequest" was null or undefined when calling apiMarketplaceV3ClickCollectOrdersMetaUinPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/uin`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersUINSetRequestToJSON(requestParameters['apiOrdersUINSetRequest']),
-        };
-    }
-
-    /**
-     * Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может быть только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить УИН за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaUinPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaUinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersMetaUinPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может быть только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить УИН за сборочными заданиями
-     */
-    async apiMarketplaceV3ClickCollectOrdersMetaUinPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersMetaUinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersMetaUinPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersStatusCancelPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/status/cancel`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статусов](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Отменить сборочные задания
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusCancelPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersStatusCancelPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статусов](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Отменить сборочные задания
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusCancelPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusCancelPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersStatusCancelPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersStatusConfirmPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/status/confirm`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new` — новый — в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Перевести сборочные задания на сборку
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new` — новый — в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Перевести сборочные задания на сборку
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusConfirmPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusConfirmPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersStatusConfirmPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersStatusInfoPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersRequestV2'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersRequestV2',
-                'Required parameter "apiOrdersRequestV2" was null or undefined when calling apiMarketplaceV3ClickCollectOrdersStatusInfoPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/status/info`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | `confirm`  | **На сборке**  |  [Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1confirm/post) | `prepare`  | **Готов к выдаче** |  [Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1prepare/post) | `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1receive/post) | `reject`  | **Отказ покупателя при получении**    |   [Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1reject/post) | `cancel`   | **Отменено продавцом**    |   [Отменить сборочное задание](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1cancel/post) | `cancel_shelf_life` | **Отмена по истечении срока хранения**    |   Переводится автоматически по возникновению события  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` - сборочное задание в работе - `sold` - заказ получен покупателем - `canceled` - отмена сборочного задания - `canceled_by_client` - покупатель отменил заказ при получении - `declined_by_client` - покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` - отмена заказа по причине брака - `ready_for_pickup` - заказ готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить статусы сборочных заданий
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusInfoPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrderStatusesV2>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersStatusInfoPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrderStatusesV2FromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | `confirm`  | **На сборке**  |  [Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1confirm/post) | `prepare`  | **Готов к выдаче** |  [Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1prepare/post) | `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1receive/post) | `reject`  | **Отказ покупателя при получении**    |   [Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1reject/post) | `cancel`   | **Отменено продавцом**    |   [Отменить сборочное задание](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1cancel/post) | `cancel_shelf_life` | **Отмена по истечении срока хранения**    |   Переводится автоматически по возникновению события  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` - сборочное задание в работе - `sold` - заказ получен покупателем - `canceled` - отмена сборочного задания - `canceled_by_client` - покупатель отменил заказ при получении - `declined_by_client` - покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` - отмена заказа по причине брака - `ready_for_pickup` - заказ готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить статусы сборочных заданий
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusInfoPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusInfoPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrderStatusesV2> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersStatusInfoPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersStatusPreparePost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/status/prepare`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` — на сборке — в статус `prepare` — готово к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Сообщить, что сборочные задания готовы к выдаче
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusPreparePostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaDetailsResponse>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersStatusPreparePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaDetailsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` — на сборке — в статус `prepare` — готово к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Сообщить, что сборочные задания готовы к выдаче
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusPreparePost(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusPreparePostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaDetailsResponse> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersStatusPreparePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersStatusReceivePost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/status/receive`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Сообщить, что заказы приняты покупателями
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusReceivePostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersStatusReceivePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Сообщить, что заказы приняты покупателями
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusReceivePost(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusReceivePostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersStatusReceivePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3ClickCollectOrdersStatusRejectPost without sending the request
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequestOpts(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/status/reject`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Сообщить об отказе от заказов
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusRejectPostRaw(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3ClickCollectOrdersStatusRejectPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Сообщить об отказе от заказов
-     */
-    async apiMarketplaceV3ClickCollectOrdersStatusRejectPost(requestParameters: ApiMarketplaceV3ClickCollectOrdersStatusRejectPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
-        const response = await this.apiMarketplaceV3ClickCollectOrdersStatusRejectPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3ClickCollectOrdersClientIdentityPost without sending the request
-     */
-    async apiV3ClickCollectOrdersClientIdentityPostRequestOpts(requestParameters: ApiV3ClickCollectOrdersClientIdentityPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiCheckIdentityRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiCheckIdentityRequest',
-                'Required parameter "apiCheckIdentityRequest" was null or undefined when calling apiV3ClickCollectOrdersClientIdentityPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/click-collect/orders/client/identity`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiCheckIdentityRequestToJSON(requestParameters['apiCheckIdentityRequest']),
-        };
-    }
-
-    /**
-     * Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду. <br><br> Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Проверить, что заказ принадлежит покупателю
-     */
-    async apiV3ClickCollectOrdersClientIdentityPostRaw(requestParameters: ApiV3ClickCollectOrdersClientIdentityPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiCheckedIdentity>> {
-        const requestOptions = await this.apiV3ClickCollectOrdersClientIdentityPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiCheckedIdentityFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду. <br><br> Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Проверить, что заказ принадлежит покупателю
-     */
-    async apiV3ClickCollectOrdersClientIdentityPost(requestParameters: ApiV3ClickCollectOrdersClientIdentityPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiCheckedIdentity> {
-        const response = await this.apiV3ClickCollectOrdersClientIdentityPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3ClickCollectOrdersClientPost without sending the request
-     */
-    async apiV3ClickCollectOrdersClientPostRequestOpts(requestParameters: ApiV3ClickCollectOrdersClientPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersRequest',
-                'Required parameter "apiOrdersRequest" was null or undefined when calling apiV3ClickCollectOrdersClientPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/click-collect/orders/client`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestToJSON(requestParameters['apiOrdersRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о покупателе по ID сборочного задания. <br><br> Доступно только для сборочных заданий в статусах:   - `confirm` — на сборке   - `prepare` — готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Информация о покупателе
-     */
-    async apiV3ClickCollectOrdersClientPostRaw(requestParameters: ApiV3ClickCollectOrdersClientPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrderClientInfoResp>> {
-        const requestOptions = await this.apiV3ClickCollectOrdersClientPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrderClientInfoRespFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о покупателе по ID сборочного задания. <br><br> Доступно только для сборочных заданий в статусах:   - `confirm` — на сборке   - `prepare` — готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Информация о покупателе
-     */
-    async apiV3ClickCollectOrdersClientPost(requestParameters: ApiV3ClickCollectOrdersClientPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrderClientInfoResp> {
-        const response = await this.apiV3ClickCollectOrdersClientPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3ClickCollectOrdersGet without sending the request
-     */
-    async apiV3ClickCollectOrdersGetRequestOpts(requestParameters: ApiV3ClickCollectOrdersGetRequest): Promise<runtime.RequestOpts> {
+    async getV3ClickCollectOrdersRequestOpts(requestParameters: GetV3ClickCollectOrdersRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['limit'] == null) {
             throw new runtime.RequiredError(
                 'limit',
-                'Required parameter "limit" was null or undefined when calling apiV3ClickCollectOrdersGet().'
+                'Required parameter "limit" was null or undefined when calling getV3ClickCollectOrders().'
             );
         }
 
         if (requestParameters['next'] == null) {
             throw new runtime.RequiredError(
                 'next',
-                'Required parameter "next" was null or undefined when calling apiV3ClickCollectOrdersGet().'
+                'Required parameter "next" was null or undefined when calling getV3ClickCollectOrders().'
             );
         }
 
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV3ClickCollectOrdersGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV3ClickCollectOrders().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV3ClickCollectOrdersGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV3ClickCollectOrders().'
             );
         }
 
@@ -1028,8 +286,8 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить информацию о завершённых сборочных заданиях
      */
-    async apiV3ClickCollectOrdersGetRaw(requestParameters: ApiV3ClickCollectOrdersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrders>> {
-        const requestOptions = await this.apiV3ClickCollectOrdersGetRequestOpts(requestParameters);
+    async getV3ClickCollectOrdersRaw(requestParameters: GetV3ClickCollectOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrders>> {
+        const requestOptions = await this.getV3ClickCollectOrdersRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersFromJSON(jsonValue));
@@ -1039,15 +297,15 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить информацию о завершённых сборочных заданиях
      */
-    async apiV3ClickCollectOrdersGet(requestParameters: ApiV3ClickCollectOrdersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrders> {
-        const response = await this.apiV3ClickCollectOrdersGetRaw(requestParameters, initOverrides);
+    async getV3ClickCollectOrders(requestParameters: GetV3ClickCollectOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrders> {
+        const response = await this.getV3ClickCollectOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV3ClickCollectOrdersNewGet without sending the request
+     * Creates request options for getV3ClickCollectOrdersNew without sending the request
      */
-    async apiV3ClickCollectOrdersNewGetRequestOpts(): Promise<runtime.RequestOpts> {
+    async getV3ClickCollectOrdersNewRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1068,22 +326,128 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить список новых сборочных заданий
      */
-    async apiV3ClickCollectOrdersNewGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiNewOrders>> {
-        const requestOptions = await this.apiV3ClickCollectOrdersNewGetRequestOpts();
+    async getV3ClickCollectOrdersNewRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiNewOrders>> {
+        const requestOptions = await this.getV3ClickCollectOrdersNewRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiNewOrdersFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить список новых сборочных заданий
      */
-    async apiV3ClickCollectOrdersNewGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiNewOrders> {
-        const response = await this.apiV3ClickCollectOrdersNewGetRaw(initOverrides);
+    async getV3ClickCollectOrdersNew(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiNewOrders> {
+        const response = await this.getV3ClickCollectOrdersNewRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersClient without sending the request
+     */
+    async postV3ClickCollectOrdersClientRequestOpts(requestParameters: PostV3ClickCollectOrdersClientRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequest',
+                'Required parameter "apiOrdersRequest" was null or undefined when calling postV3ClickCollectOrdersClient().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/click-collect/orders/client`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestToJSON(requestParameters['apiOrdersRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о покупателе по ID сборочного задания. <br><br> Доступно только для сборочных заданий в статусах:   - `confirm` — на сборке   - `prepare` — готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Информация о покупателе
+     */
+    async postV3ClickCollectOrdersClientRaw(requestParameters: PostV3ClickCollectOrdersClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrderClientInfoResp>> {
+        const requestOptions = await this.postV3ClickCollectOrdersClientRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrderClientInfoRespFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает информацию о покупателе по ID сборочного задания. <br><br> Доступно только для сборочных заданий в статусах:   - `confirm` — на сборке   - `prepare` — готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Информация о покупателе
+     */
+    async postV3ClickCollectOrdersClient(requestParameters: PostV3ClickCollectOrdersClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrderClientInfoResp> {
+        const response = await this.postV3ClickCollectOrdersClientRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersClientIdentity without sending the request
+     */
+    async postV3ClickCollectOrdersClientIdentityRequestOpts(requestParameters: PostV3ClickCollectOrdersClientIdentityRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiCheckIdentityRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiCheckIdentityRequest',
+                'Required parameter "apiCheckIdentityRequest" was null or undefined when calling postV3ClickCollectOrdersClientIdentity().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/click-collect/orders/client/identity`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiCheckIdentityRequestToJSON(requestParameters['apiCheckIdentityRequest']),
+        };
+    }
+
+    /**
+     * Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду. <br><br> Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Проверить, что заказ принадлежит покупателю
+     */
+    async postV3ClickCollectOrdersClientIdentityRaw(requestParameters: PostV3ClickCollectOrdersClientIdentityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiCheckedIdentity>> {
+        const requestOptions = await this.postV3ClickCollectOrdersClientIdentityRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiCheckedIdentityFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду. <br><br> Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Проверить, что заказ принадлежит покупателю
+     */
+    async postV3ClickCollectOrdersClientIdentity(requestParameters: PostV3ClickCollectOrdersClientIdentityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiCheckedIdentity> {
+        const response = await this.postV3ClickCollectOrdersClientIdentityRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1114,7 +478,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).  Добавлять номера ДТ можно только для сборочных заданий, которые:   - имеют признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get)   - находятся в [статусах](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` или `prepare`  У одного сборочного задания может быть только один номер ДТ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).  Добавлять номера ДТ можно только для сборочных заданий, которые:   - имеют признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - находятся в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`  У одного сборочного задания может быть только один номер ДТ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить за сборочными заданиями номера ДТ
      */
     async postV3ClickCollectOrdersMetaCustomsDeclarationRaw(requestParameters: PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiCustomsDeclarationSetResponse>> {
@@ -1125,11 +489,647 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).  Добавлять номера ДТ можно только для сборочных заданий, которые:   - имеют признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get)   - находятся в [статусах](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` или `prepare`  У одного сборочного задания может быть только один номер ДТ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).  Добавлять номера ДТ можно только для сборочных заданий, которые:   - имеют признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - находятся в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`  У одного сборочного задания может быть только один номер ДТ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить за сборочными заданиями номера ДТ
      */
     async postV3ClickCollectOrdersMetaCustomsDeclaration(requestParameters: PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiCustomsDeclarationSetResponse> {
         const response = await this.postV3ClickCollectOrdersMetaCustomsDeclarationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersMetaDelete without sending the request
+     */
+    async postV3ClickCollectOrdersMetaDeleteRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaDeleteRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/delete`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersMetaDeleteRequestToJSON(requestParameters['apiOrdersMetaDeleteRequest']),
+        };
+    }
+
+    /**
+     * Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) для нескольких сборочных заданий. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Удалить идентификаторы маркировки сборочных заданий
+     */
+    async postV3ClickCollectOrdersMetaDeleteRaw(requestParameters: PostV3ClickCollectOrdersMetaDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersMetaDeleteRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) для нескольких сборочных заданий. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Удалить идентификаторы маркировки сборочных заданий
+     */
+    async postV3ClickCollectOrdersMetaDelete(requestParameters: PostV3ClickCollectOrdersMetaDeleteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersResponses> {
+        const response = await this.postV3ClickCollectOrdersMetaDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersMetaDetails without sending the request
+     */
+    async postV3ClickCollectOrdersMetaDetailsRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaDetailsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/details`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) сборочных заданий и статусы их проверки.  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить идентификаторы маркировки сборочных заданий
+     */
+    async postV3ClickCollectOrdersMetaDetailsRaw(requestParameters: PostV3ClickCollectOrdersMetaDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaDetailsResponse>> {
+        const requestOptions = await this.postV3ClickCollectOrdersMetaDetailsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaDetailsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) сборочных заданий и статусы их проверки.  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить идентификаторы маркировки сборочных заданий
+     */
+    async postV3ClickCollectOrdersMetaDetails(requestParameters: PostV3ClickCollectOrdersMetaDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
+        const response = await this.postV3ClickCollectOrdersMetaDetailsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersMetaGtin without sending the request
+     */
+    async postV3ClickCollectOrdersMetaGtinRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaGtinRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersGTINSetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersGTINSetRequest',
+                'Required parameter "apiOrdersGTINSetRequest" was null or undefined when calling postV3ClickCollectOrdersMetaGtin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/gtin`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersGTINSetRequestToJSON(requestParameters['apiOrdersGTINSetRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных заданий. У одного сборочного задания может быть только один GTIN. Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить GTIN за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaGtinRaw(requestParameters: PostV3ClickCollectOrdersMetaGtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersMetaGtinRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных заданий. У одного сборочного задания может быть только один GTIN. Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить GTIN за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaGtin(requestParameters: PostV3ClickCollectOrdersMetaGtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
+        const response = await this.postV3ClickCollectOrdersMetaGtinRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersMetaImei without sending the request
+     */
+    async postV3ClickCollectOrdersMetaImeiRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaImeiRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersIMEISetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersIMEISetRequest',
+                'Required parameter "apiOrdersIMEISetRequest" was null or undefined when calling postV3ClickCollectOrdersMetaImei().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/imei`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersIMEISetRequestToJSON(requestParameters['apiOrdersIMEISetRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`, если их доставка осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить IMEI за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaImeiRaw(requestParameters: PostV3ClickCollectOrdersMetaImeiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersMetaImeiRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`, если их доставка осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить IMEI за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaImei(requestParameters: PostV3ClickCollectOrdersMetaImeiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
+        const response = await this.postV3ClickCollectOrdersMetaImeiRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersMetaInfo without sending the request
+     * @deprecated
+     */
+    async postV3ClickCollectOrdersMetaInfoRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaInfoRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/info`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить идентификаторы маркировки сборочных заданий
+     * @deprecated
+     */
+    async postV3ClickCollectOrdersMetaInfoRaw(requestParameters: PostV3ClickCollectOrdersMetaInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaResponse>> {
+        const requestOptions = await this.postV3ClickCollectOrdersMetaInfoRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить идентификаторы маркировки сборочных заданий
+     * @deprecated
+     */
+    async postV3ClickCollectOrdersMetaInfo(requestParameters: PostV3ClickCollectOrdersMetaInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaResponse> {
+        const response = await this.postV3ClickCollectOrdersMetaInfoRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersMetaSgtin without sending the request
+     */
+    async postV3ClickCollectOrdersMetaSgtinRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaSgtinRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersSGTINsSetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersSGTINsSetRequest',
+                'Required parameter "apiOrdersSGTINsSetRequest" was null or undefined when calling postV3ClickCollectOrdersMetaSgtin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/sgtin`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersSGTINsSetRequestToJSON(requestParameters['apiOrdersSGTINsSetRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных заданий.<br> Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить коды маркировки Честного знака за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaSgtinRaw(requestParameters: PostV3ClickCollectOrdersMetaSgtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersMetaSgtinRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных заданий.<br> Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить коды маркировки Честного знака за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaSgtin(requestParameters: PostV3ClickCollectOrdersMetaSgtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
+        const response = await this.postV3ClickCollectOrdersMetaSgtinRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersMetaUin without sending the request
+     */
+    async postV3ClickCollectOrdersMetaUinRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaUinRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersUINSetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersUINSetRequest',
+                'Required parameter "apiOrdersUINSetRequest" was null or undefined when calling postV3ClickCollectOrdersMetaUin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/uin`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersUINSetRequestToJSON(requestParameters['apiOrdersUINSetRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить УИН за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaUinRaw(requestParameters: PostV3ClickCollectOrdersMetaUinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersMetaUinRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить УИН за сборочными заданиями
+     */
+    async postV3ClickCollectOrdersMetaUin(requestParameters: PostV3ClickCollectOrdersMetaUinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
+        const response = await this.postV3ClickCollectOrdersMetaUinRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersStatusCancel without sending the request
+     */
+    async postV3ClickCollectOrdersStatusCancelRequestOpts(requestParameters: PostV3ClickCollectOrdersStatusCancelRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/status/cancel`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Отменить сборочные задания
+     */
+    async postV3ClickCollectOrdersStatusCancelRaw(requestParameters: PostV3ClickCollectOrdersStatusCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersStatusCancelRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Отменить сборочные задания
+     */
+    async postV3ClickCollectOrdersStatusCancel(requestParameters: PostV3ClickCollectOrdersStatusCancelRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+        const response = await this.postV3ClickCollectOrdersStatusCancelRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersStatusConfirm without sending the request
+     */
+    async postV3ClickCollectOrdersStatusConfirmRequestOpts(requestParameters: PostV3ClickCollectOrdersStatusConfirmRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/status/confirm`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Перевести сборочные задания на сборку
+     */
+    async postV3ClickCollectOrdersStatusConfirmRaw(requestParameters: PostV3ClickCollectOrdersStatusConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersStatusConfirmRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Перевести сборочные задания на сборку
+     */
+    async postV3ClickCollectOrdersStatusConfirm(requestParameters: PostV3ClickCollectOrdersStatusConfirmRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+        const response = await this.postV3ClickCollectOrdersStatusConfirmRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersStatusInfo without sending the request
+     */
+    async postV3ClickCollectOrdersStatusInfoRequestOpts(requestParameters: PostV3ClickCollectOrdersStatusInfoRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3ClickCollectOrdersStatusInfo().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/status/info`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | `confirm`  | **На сборке**  |  [Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm) | `prepare`  | **Готов к выдаче** |  [Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare) | `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive) | `reject`  | **Отказ покупателя при получении**    |   [Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject) | `cancel`   | **Отменено продавцом**    |   [Отменить сборочное задание](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel) | `cancel_shelf_life` | **Отмена по истечении срока хранения**    |   Переводится автоматически по возникновению события  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` - сборочное задание в работе - `sold` - заказ получен покупателем - `canceled` - отмена сборочного задания - `canceled_by_client` - покупатель отменил заказ при получении - `declined_by_client` - покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` - отмена заказа по причине брака - `ready_for_pickup` - заказ готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить статусы сборочных заданий
+     */
+    async postV3ClickCollectOrdersStatusInfoRaw(requestParameters: PostV3ClickCollectOrdersStatusInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrderStatusesV2>> {
+        const requestOptions = await this.postV3ClickCollectOrdersStatusInfoRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrderStatusesV2FromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | `confirm`  | **На сборке**  |  [Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm) | `prepare`  | **Готов к выдаче** |  [Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare) | `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive) | `reject`  | **Отказ покупателя при получении**    |   [Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject) | `cancel`   | **Отменено продавцом**    |   [Отменить сборочное задание](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel) | `cancel_shelf_life` | **Отмена по истечении срока хранения**    |   Переводится автоматически по возникновению события  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` - сборочное задание в работе - `sold` - заказ получен покупателем - `canceled` - отмена сборочного задания - `canceled_by_client` - покупатель отменил заказ при получении - `declined_by_client` - покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` - отмена заказа по причине брака - `ready_for_pickup` - заказ готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить статусы сборочных заданий
+     */
+    async postV3ClickCollectOrdersStatusInfo(requestParameters: PostV3ClickCollectOrdersStatusInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrderStatusesV2> {
+        const response = await this.postV3ClickCollectOrdersStatusInfoRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersStatusPrepare without sending the request
+     */
+    async postV3ClickCollectOrdersStatusPrepareRequestOpts(requestParameters: PostV3ClickCollectOrdersStatusPrepareRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/status/prepare`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Сообщить, что сборочные задания готовы к выдаче
+     */
+    async postV3ClickCollectOrdersStatusPrepareRaw(requestParameters: PostV3ClickCollectOrdersStatusPrepareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaDetailsResponse>> {
+        const requestOptions = await this.postV3ClickCollectOrdersStatusPrepareRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaDetailsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Сообщить, что сборочные задания готовы к выдаче
+     */
+    async postV3ClickCollectOrdersStatusPrepare(requestParameters: PostV3ClickCollectOrdersStatusPrepareRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaDetailsResponse> {
+        const response = await this.postV3ClickCollectOrdersStatusPrepareRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersStatusReceive without sending the request
+     */
+    async postV3ClickCollectOrdersStatusReceiveRequestOpts(requestParameters: PostV3ClickCollectOrdersStatusReceiveRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/status/receive`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Сообщить, что заказы приняты покупателями
+     */
+    async postV3ClickCollectOrdersStatusReceiveRaw(requestParameters: PostV3ClickCollectOrdersStatusReceiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersStatusReceiveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Сообщить, что заказы приняты покупателями
+     */
+    async postV3ClickCollectOrdersStatusReceive(requestParameters: PostV3ClickCollectOrdersStatusReceiveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+        const response = await this.postV3ClickCollectOrdersStatusReceiveRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersStatusReject without sending the request
+     */
+    async postV3ClickCollectOrdersStatusRejectRequestOpts(requestParameters: PostV3ClickCollectOrdersStatusRejectRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/status/reject`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Сообщить об отказе от заказов
+     */
+    async postV3ClickCollectOrdersStatusRejectRaw(requestParameters: PostV3ClickCollectOrdersStatusRejectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
+        const requestOptions = await this.postV3ClickCollectOrdersStatusRejectRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Сообщить об отказе от заказов
+     */
+    async postV3ClickCollectOrdersStatusReject(requestParameters: PostV3ClickCollectOrdersStatusRejectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+        const response = await this.postV3ClickCollectOrdersStatusRejectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

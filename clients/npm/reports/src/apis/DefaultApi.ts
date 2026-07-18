@@ -214,12 +214,12 @@ export interface ApiV1PaidStorageTasksTaskIdStatusGetRequest {
 }
 
 export interface ApiV1SupplierOrdersGetRequest {
-    dateFrom: Date;
+    dateFrom: string;
     flag?: number;
 }
 
 export interface ApiV1SupplierSalesGetRequest {
-    dateFrom: Date;
+    dateFrom: string;
     flag?: number;
 }
 
@@ -1218,7 +1218,7 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
+            queryParameters['dateFrom'] = requestParameters['dateFrom'];
         }
 
         if (requestParameters['flag'] != null) {
@@ -1276,7 +1276,7 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
+            queryParameters['dateFrom'] = requestParameters['dateFrom'];
         }
 
         if (requestParameters['flag'] != null) {

@@ -655,7 +655,7 @@ class AcquiringReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets srid
      *
-     * @param string $srid ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/Sborochnye-zadaniya-DBW), [DBS](./orders-dbs#tag/Sborochnye-zadaniya-DBS) и [Самовывоз](./in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) `srid` равен `rid`
+     * @param string $srid ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
      *
      * @return self
      */

@@ -84,7 +84,7 @@ export interface GoodHistory {
      * @type {string}
      * @memberof GoodHistory
      */
-    errorText?: string;
+    errorText?: string | null;
 }
 
 /**
@@ -113,7 +113,7 @@ export function GoodHistoryFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'discount': json['discount'] == null ? undefined : json['discount'],
         'clubDiscount': json['clubDiscount'] === undefined ? undefined : json['clubDiscount'] === null ? null : json['clubDiscount'],
         'status': json['status'] == null ? undefined : json['status'],
-        'errorText': json['errorText'] == null ? undefined : json['errorText'],
+        'errorText': json['errorText'] === undefined ? undefined : json['errorText'] === null ? null : json['errorText'],
     };
 }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы DBW
- * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
+ * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
  *
  * The version of the OpenAPI document: ordersdbw
  * 
@@ -18,11 +18,6 @@ import {
     ApiBatchErrorFromJSON,
     ApiBatchErrorToJSON,
 } from '../models/ApiBatchError';
-import {
-    type ApiMarketplaceV3DbwOrdersClientPost400Response,
-    ApiMarketplaceV3DbwOrdersClientPost400ResponseFromJSON,
-    ApiMarketplaceV3DbwOrdersClientPost400ResponseToJSON,
-} from '../models/ApiMarketplaceV3DbwOrdersClientPost400Response';
 import {
     type ApiMetaDeleteResponses,
     ApiMetaDeleteResponsesFromJSON,
@@ -54,66 +49,6 @@ import {
     ApiStatusSetResponsesToJSON,
 } from '../models/ApiStatusSetResponses';
 import {
-    type ApiV3DbwOrdersGet200Response,
-    ApiV3DbwOrdersGet200ResponseFromJSON,
-    ApiV3DbwOrdersGet200ResponseToJSON,
-} from '../models/ApiV3DbwOrdersGet200Response';
-import {
-    type ApiV3DbwOrdersNewGet200Response,
-    ApiV3DbwOrdersNewGet200ResponseFromJSON,
-    ApiV3DbwOrdersNewGet200ResponseToJSON,
-} from '../models/ApiV3DbwOrdersNewGet200Response';
-import {
-    type ApiV3DbwOrdersNewGet401Response,
-    ApiV3DbwOrdersNewGet401ResponseFromJSON,
-    ApiV3DbwOrdersNewGet401ResponseToJSON,
-} from '../models/ApiV3DbwOrdersNewGet401Response';
-import {
-    type ApiV3DbwOrdersNewGet402Response,
-    ApiV3DbwOrdersNewGet402ResponseFromJSON,
-    ApiV3DbwOrdersNewGet402ResponseToJSON,
-} from '../models/ApiV3DbwOrdersNewGet402Response';
-import {
-    type ApiV3DbwOrdersOrderIdMetaGet200Response,
-    ApiV3DbwOrdersOrderIdMetaGet200ResponseFromJSON,
-    ApiV3DbwOrdersOrderIdMetaGet200ResponseToJSON,
-} from '../models/ApiV3DbwOrdersOrderIdMetaGet200Response';
-import {
-    type ApiV3DbwOrdersOrderIdMetaGtinPutRequest,
-    ApiV3DbwOrdersOrderIdMetaGtinPutRequestFromJSON,
-    ApiV3DbwOrdersOrderIdMetaGtinPutRequestToJSON,
-} from '../models/ApiV3DbwOrdersOrderIdMetaGtinPutRequest';
-import {
-    type ApiV3DbwOrdersOrderIdMetaImeiPutRequest,
-    ApiV3DbwOrdersOrderIdMetaImeiPutRequestFromJSON,
-    ApiV3DbwOrdersOrderIdMetaImeiPutRequestToJSON,
-} from '../models/ApiV3DbwOrdersOrderIdMetaImeiPutRequest';
-import {
-    type ApiV3DbwOrdersOrderIdMetaUinPutRequest,
-    ApiV3DbwOrdersOrderIdMetaUinPutRequestFromJSON,
-    ApiV3DbwOrdersOrderIdMetaUinPutRequestToJSON,
-} from '../models/ApiV3DbwOrdersOrderIdMetaUinPutRequest';
-import {
-    type ApiV3DbwOrdersStatusPost200Response,
-    ApiV3DbwOrdersStatusPost200ResponseFromJSON,
-    ApiV3DbwOrdersStatusPost200ResponseToJSON,
-} from '../models/ApiV3DbwOrdersStatusPost200Response';
-import {
-    type ApiV3DbwOrdersStatusPostRequest,
-    ApiV3DbwOrdersStatusPostRequestFromJSON,
-    ApiV3DbwOrdersStatusPostRequestToJSON,
-} from '../models/ApiV3DbwOrdersStatusPostRequest';
-import {
-    type ApiV3DbwOrdersStickersPost200Response,
-    ApiV3DbwOrdersStickersPost200ResponseFromJSON,
-    ApiV3DbwOrdersStickersPost200ResponseToJSON,
-} from '../models/ApiV3DbwOrdersStickersPost200Response';
-import {
-    type ApiV3DbwOrdersStickersPostRequest,
-    ApiV3DbwOrdersStickersPostRequestFromJSON,
-    ApiV3DbwOrdersStickersPostRequestToJSON,
-} from '../models/ApiV3DbwOrdersStickersPostRequest';
-import {
     type ClientInfoResp,
     ClientInfoRespFromJSON,
     ClientInfoRespToJSON,
@@ -129,6 +64,31 @@ import {
     DeliveryDatesRequestToJSON,
 } from '../models/DeliveryDatesRequest';
 import {
+    type GetV3DbwOrders200Response,
+    GetV3DbwOrders200ResponseFromJSON,
+    GetV3DbwOrders200ResponseToJSON,
+} from '../models/GetV3DbwOrders200Response';
+import {
+    type GetV3DbwOrdersNew200Response,
+    GetV3DbwOrdersNew200ResponseFromJSON,
+    GetV3DbwOrdersNew200ResponseToJSON,
+} from '../models/GetV3DbwOrdersNew200Response';
+import {
+    type GetV3DbwOrdersNew401Response,
+    GetV3DbwOrdersNew401ResponseFromJSON,
+    GetV3DbwOrdersNew401ResponseToJSON,
+} from '../models/GetV3DbwOrdersNew401Response';
+import {
+    type GetV3DbwOrdersNew402Response,
+    GetV3DbwOrdersNew402ResponseFromJSON,
+    GetV3DbwOrdersNew402ResponseToJSON,
+} from '../models/GetV3DbwOrdersNew402Response';
+import {
+    type GetV3DbwOrdersOrderIdMeta200Response,
+    GetV3DbwOrdersOrderIdMeta200ResponseFromJSON,
+    GetV3DbwOrdersOrderIdMeta200ResponseToJSON,
+} from '../models/GetV3DbwOrdersOrderIdMeta200Response';
+import {
     type OrderCourierInfoResp,
     OrderCourierInfoRespFromJSON,
     OrderCourierInfoRespToJSON,
@@ -138,78 +98,118 @@ import {
     OrdersRequestAPIFromJSON,
     OrdersRequestAPIToJSON,
 } from '../models/OrdersRequestAPI';
+import {
+    type PostV3DbwOrdersClient400Response,
+    PostV3DbwOrdersClient400ResponseFromJSON,
+    PostV3DbwOrdersClient400ResponseToJSON,
+} from '../models/PostV3DbwOrdersClient400Response';
+import {
+    type PostV3DbwOrdersStatus200Response,
+    PostV3DbwOrdersStatus200ResponseFromJSON,
+    PostV3DbwOrdersStatus200ResponseToJSON,
+} from '../models/PostV3DbwOrdersStatus200Response';
+import {
+    type PostV3DbwOrdersStatusRequest,
+    PostV3DbwOrdersStatusRequestFromJSON,
+    PostV3DbwOrdersStatusRequestToJSON,
+} from '../models/PostV3DbwOrdersStatusRequest';
+import {
+    type PostV3DbwOrdersStickers200Response,
+    PostV3DbwOrdersStickers200ResponseFromJSON,
+    PostV3DbwOrdersStickers200ResponseToJSON,
+} from '../models/PostV3DbwOrdersStickers200Response';
+import {
+    type PostV3DbwOrdersStickersRequest,
+    PostV3DbwOrdersStickersRequestFromJSON,
+    PostV3DbwOrdersStickersRequestToJSON,
+} from '../models/PostV3DbwOrdersStickersRequest';
+import {
+    type PutV3DbwOrdersOrderIdMetaGtinRequest,
+    PutV3DbwOrdersOrderIdMetaGtinRequestFromJSON,
+    PutV3DbwOrdersOrderIdMetaGtinRequestToJSON,
+} from '../models/PutV3DbwOrdersOrderIdMetaGtinRequest';
+import {
+    type PutV3DbwOrdersOrderIdMetaImeiRequest,
+    PutV3DbwOrdersOrderIdMetaImeiRequestFromJSON,
+    PutV3DbwOrdersOrderIdMetaImeiRequestToJSON,
+} from '../models/PutV3DbwOrdersOrderIdMetaImeiRequest';
+import {
+    type PutV3DbwOrdersOrderIdMetaUinRequest,
+    PutV3DbwOrdersOrderIdMetaUinRequestFromJSON,
+    PutV3DbwOrdersOrderIdMetaUinRequestToJSON,
+} from '../models/PutV3DbwOrdersOrderIdMetaUinRequest';
 
-export interface ApiMarketplaceV3DbwOrdersClientPostRequest {
-    ordersRequestAPI: OrdersRequestAPI;
-}
-
-export interface ApiMarketplaceV3DbwOrdersMetaDeletePostRequest {
-    apiOrdersMetaDleteRequestV2: ApiOrdersMetaDleteRequestV2;
-}
-
-export interface ApiMarketplaceV3DbwOrdersMetaDetailsPostRequest {
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
-}
-
-export interface ApiMarketplaceV3DbwOrdersMetaSgtinPostRequest {
-    apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest;
-}
-
-export interface ApiMarketplaceV3DbwOrdersStatusDeliverPostRequest {
-    apiOrdersRequestV2: ApiOrdersRequestV2;
-}
-
-export interface ApiV3DbwOrdersCourierPostRequest {
-    ordersRequestAPI: OrdersRequestAPI;
-}
-
-export interface ApiV3DbwOrdersDeliveryDatePostRequest {
-    deliveryDatesRequest: DeliveryDatesRequest;
-}
-
-export interface ApiV3DbwOrdersGetRequest {
+export interface GetV3DbwOrdersRequest {
     limit: number;
     next: number;
     dateFrom: number;
     dateTo: number;
 }
 
-export interface ApiV3DbwOrdersOrderIdCancelPatchRequest {
+export interface GetV3DbwOrdersOrderIdMetaRequest {
     orderId: number;
 }
 
-export interface ApiV3DbwOrdersOrderIdConfirmPatchRequest {
+export interface PatchV3DbwOrdersOrderIdCancelRequest {
     orderId: number;
 }
 
-export interface ApiV3DbwOrdersOrderIdMetaGetRequest {
+export interface PatchV3DbwOrdersOrderIdConfirmRequest {
     orderId: number;
 }
 
-export interface ApiV3DbwOrdersOrderIdMetaGtinPutOperationRequest {
+export interface PostV3DbwOrdersClientRequest {
+    ordersRequestAPI: OrdersRequestAPI;
+}
+
+export interface PostV3DbwOrdersCourierRequest {
+    ordersRequestAPI: OrdersRequestAPI;
+}
+
+export interface PostV3DbwOrdersDeliveryDateRequest {
+    deliveryDatesRequest: DeliveryDatesRequest;
+}
+
+export interface PostV3DbwOrdersMetaDeleteRequest {
+    apiOrdersMetaDleteRequestV2: ApiOrdersMetaDleteRequestV2;
+}
+
+export interface PostV3DbwOrdersMetaDetailsRequest {
+    apiOrdersRequestV2?: ApiOrdersRequestV2;
+}
+
+export interface PostV3DbwOrdersMetaSgtinRequest {
+    apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest;
+}
+
+export interface PostV3DbwOrdersStatusOperationRequest {
+    postV3DbwOrdersStatusRequest?: PostV3DbwOrdersStatusRequest;
+}
+
+export interface PostV3DbwOrdersStatusDeliverRequest {
+    apiOrdersRequestV2: ApiOrdersRequestV2;
+}
+
+export interface PostV3DbwOrdersStickersOperationRequest {
+    type: PostV3DbwOrdersStickersOperationTypeEnum;
+    width: PostV3DbwOrdersStickersOperationWidthEnum;
+    height: PostV3DbwOrdersStickersOperationHeightEnum;
+    postV3DbwOrdersStickersRequest?: PostV3DbwOrdersStickersRequest;
+}
+
+export interface PutV3DbwOrdersOrderIdMetaGtinOperationRequest {
     orderId: number;
-    apiV3DbwOrdersOrderIdMetaGtinPutRequest?: ApiV3DbwOrdersOrderIdMetaGtinPutRequest;
+    putV3DbwOrdersOrderIdMetaGtinRequest?: PutV3DbwOrdersOrderIdMetaGtinRequest;
 }
 
-export interface ApiV3DbwOrdersOrderIdMetaImeiPutOperationRequest {
+export interface PutV3DbwOrdersOrderIdMetaImeiOperationRequest {
     orderId: number;
-    apiV3DbwOrdersOrderIdMetaImeiPutRequest?: ApiV3DbwOrdersOrderIdMetaImeiPutRequest;
+    putV3DbwOrdersOrderIdMetaImeiRequest?: PutV3DbwOrdersOrderIdMetaImeiRequest;
 }
 
-export interface ApiV3DbwOrdersOrderIdMetaUinPutOperationRequest {
+export interface PutV3DbwOrdersOrderIdMetaUinOperationRequest {
     orderId: number;
-    apiV3DbwOrdersOrderIdMetaUinPutRequest?: ApiV3DbwOrdersOrderIdMetaUinPutRequest;
-}
-
-export interface ApiV3DbwOrdersStatusPostOperationRequest {
-    apiV3DbwOrdersStatusPostRequest?: ApiV3DbwOrdersStatusPostRequest;
-}
-
-export interface ApiV3DbwOrdersStickersPostOperationRequest {
-    type: ApiV3DbwOrdersStickersPostOperationTypeEnum;
-    width: ApiV3DbwOrdersStickersPostOperationWidthEnum;
-    height: ApiV3DbwOrdersStickersPostOperationHeightEnum;
-    apiV3DbwOrdersStickersPostRequest?: ApiV3DbwOrdersStickersPostRequest;
+    putV3DbwOrdersOrderIdMetaUinRequest?: PutV3DbwOrdersOrderIdMetaUinRequest;
 }
 
 /**
@@ -218,398 +218,34 @@ export interface ApiV3DbwOrdersStickersPostOperationRequest {
 export class DBWApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiMarketplaceV3DbwOrdersClientPost without sending the request
+     * Creates request options for getV3DbwOrders without sending the request
      */
-    async apiMarketplaceV3DbwOrdersClientPostRequestOpts(requestParameters: ApiMarketplaceV3DbwOrdersClientPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['ordersRequestAPI'] == null) {
-            throw new runtime.RequiredError(
-                'ordersRequestAPI',
-                'Required parameter "ordersRequestAPI" was null or undefined when calling apiMarketplaceV3DbwOrdersClientPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/dbw/orders/client`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: OrdersRequestAPIToJSON(requestParameters['ordersRequestAPI']),
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Информация о покупателе
-     */
-    async apiMarketplaceV3DbwOrdersClientPostRaw(requestParameters: ApiMarketplaceV3DbwOrdersClientPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfoResp>> {
-        const requestOptions = await this.apiMarketplaceV3DbwOrdersClientPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ClientInfoRespFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Информация о покупателе
-     */
-    async apiMarketplaceV3DbwOrdersClientPost(requestParameters: ApiMarketplaceV3DbwOrdersClientPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfoResp> {
-        const response = await this.apiMarketplaceV3DbwOrdersClientPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3DbwOrdersMetaDeletePost without sending the request
-     */
-    async apiMarketplaceV3DbwOrdersMetaDeletePostRequestOpts(requestParameters: ApiMarketplaceV3DbwOrdersMetaDeletePostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersMetaDleteRequestV2'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersMetaDleteRequestV2',
-                'Required parameter "apiOrdersMetaDleteRequestV2" was null or undefined when calling apiMarketplaceV3DbwOrdersMetaDeletePost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/dbw/orders/meta/delete`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersMetaDleteRequestV2ToJSON(requestParameters['apiOrdersMetaDleteRequestV2']),
-        };
-    }
-
-    /**
-     * Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) для переданного ключа. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)  Можно передать только один ключ.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Удалить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3DbwOrdersMetaDeletePostRaw(requestParameters: ApiMarketplaceV3DbwOrdersMetaDeletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaDeleteResponses>> {
-        const requestOptions = await this.apiMarketplaceV3DbwOrdersMetaDeletePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaDeleteResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) для переданного ключа. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)  Можно передать только один ключ.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Удалить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3DbwOrdersMetaDeletePost(requestParameters: ApiMarketplaceV3DbwOrdersMetaDeletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaDeleteResponses> {
-        const response = await this.apiMarketplaceV3DbwOrdersMetaDeletePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3DbwOrdersMetaDetailsPost without sending the request
-     */
-    async apiMarketplaceV3DbwOrdersMetaDetailsPostRequestOpts(requestParameters: ApiMarketplaceV3DbwOrdersMetaDetailsPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/dbw/orders/meta/details`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) и статусы их валидации. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get), поле `requiredMeta`. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3DbwOrdersMetaDetailsPostRaw(requestParameters: ApiMarketplaceV3DbwOrdersMetaDetailsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaDetailsResponse>> {
-        const requestOptions = await this.apiMarketplaceV3DbwOrdersMetaDetailsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaDetailsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) и статусы их валидации. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get), поле `requiredMeta`. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     */
-    async apiMarketplaceV3DbwOrdersMetaDetailsPost(requestParameters: ApiMarketplaceV3DbwOrdersMetaDetailsPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
-        const response = await this.apiMarketplaceV3DbwOrdersMetaDetailsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3DbwOrdersMetaSgtinPost without sending the request
-     */
-    async apiMarketplaceV3DbwOrdersMetaSgtinPostRequestOpts(requestParameters: ApiMarketplaceV3DbwOrdersMetaSgtinPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersSGTINsSetRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersSGTINsSetRequest',
-                'Required parameter "apiOrdersSGTINsSetRequest" was null or undefined when calling apiMarketplaceV3DbwOrdersMetaSgtinPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/dbw/orders/meta/sgtin`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersSGTINsSetRequestToJSON(requestParameters['apiOrdersSGTINsSetRequest']),
-        };
-    }
-
-    /**
-     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) нескольких сборочных заданий.<br> Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить коды маркировки Честного знака за сборочными заданиями
-     */
-    async apiMarketplaceV3DbwOrdersMetaSgtinPostRaw(requestParameters: ApiMarketplaceV3DbwOrdersMetaSgtinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3DbwOrdersMetaSgtinPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) нескольких сборочных заданий.<br> Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить коды маркировки Честного знака за сборочными заданиями
-     */
-    async apiMarketplaceV3DbwOrdersMetaSgtinPost(requestParameters: ApiMarketplaceV3DbwOrdersMetaSgtinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
-        const response = await this.apiMarketplaceV3DbwOrdersMetaSgtinPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiMarketplaceV3DbwOrdersStatusDeliverPost without sending the request
-     */
-    async apiMarketplaceV3DbwOrdersStatusDeliverPostRequestOpts(requestParameters: ApiMarketplaceV3DbwOrdersStatusDeliverPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiOrdersRequestV2'] == null) {
-            throw new runtime.RequiredError(
-                'apiOrdersRequestV2',
-                'Required parameter "apiOrdersRequestV2" was null or undefined when calling apiMarketplaceV3DbwOrdersStatusDeliverPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/dbw/orders/status/deliver`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` в статус `complete` — в доставке.  <div class=\"description_important\"> Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `\"isError\":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors` </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Перевести сборочные задания в доставку
-     */
-    async apiMarketplaceV3DbwOrdersStatusDeliverPostRaw(requestParameters: ApiMarketplaceV3DbwOrdersStatusDeliverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
-        const requestOptions = await this.apiMarketplaceV3DbwOrdersStatusDeliverPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get) из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` в статус `complete` — в доставке.  <div class=\"description_important\"> Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `\"isError\":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors` </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Перевести сборочные задания в доставку
-     */
-    async apiMarketplaceV3DbwOrdersStatusDeliverPost(requestParameters: ApiMarketplaceV3DbwOrdersStatusDeliverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
-        const response = await this.apiMarketplaceV3DbwOrdersStatusDeliverPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3DbwOrdersCourierPost without sending the request
-     */
-    async apiV3DbwOrdersCourierPostRequestOpts(requestParameters: ApiV3DbwOrdersCourierPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['ordersRequestAPI'] == null) {
-            throw new runtime.RequiredError(
-                'ordersRequestAPI',
-                'Required parameter "ordersRequestAPI" was null or undefined when calling apiV3DbwOrdersCourierPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/dbw/orders/courier`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: OrdersRequestAPIToJSON(requestParameters['ordersRequestAPI']),
-        };
-    }
-
-    /**
-     * Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Информация о курьере
-     */
-    async apiV3DbwOrdersCourierPostRaw(requestParameters: ApiV3DbwOrdersCourierPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderCourierInfoResp>> {
-        const requestOptions = await this.apiV3DbwOrdersCourierPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => OrderCourierInfoRespFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Информация о курьере
-     */
-    async apiV3DbwOrdersCourierPost(requestParameters: ApiV3DbwOrdersCourierPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderCourierInfoResp> {
-        const response = await this.apiV3DbwOrdersCourierPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3DbwOrdersDeliveryDatePost without sending the request
-     */
-    async apiV3DbwOrdersDeliveryDatePostRequestOpts(requestParameters: ApiV3DbwOrdersDeliveryDatePostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['deliveryDatesRequest'] == null) {
-            throw new runtime.RequiredError(
-                'deliveryDatesRequest',
-                'Required parameter "deliveryDatesRequest" was null or undefined when calling apiV3DbwOrdersDeliveryDatePost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/dbw/orders/delivery-date`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: DeliveryDatesRequestToJSON(requestParameters['deliveryDatesRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить дату и время доставки
-     */
-    async apiV3DbwOrdersDeliveryDatePostRaw(requestParameters: ApiV3DbwOrdersDeliveryDatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeliveryDatesInfoResp>> {
-        const requestOptions = await this.apiV3DbwOrdersDeliveryDatePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => DeliveryDatesInfoRespFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить дату и время доставки
-     */
-    async apiV3DbwOrdersDeliveryDatePost(requestParameters: ApiV3DbwOrdersDeliveryDatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeliveryDatesInfoResp> {
-        const response = await this.apiV3DbwOrdersDeliveryDatePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV3DbwOrdersGet without sending the request
-     */
-    async apiV3DbwOrdersGetRequestOpts(requestParameters: ApiV3DbwOrdersGetRequest): Promise<runtime.RequestOpts> {
+    async getV3DbwOrdersRequestOpts(requestParameters: GetV3DbwOrdersRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['limit'] == null) {
             throw new runtime.RequiredError(
                 'limit',
-                'Required parameter "limit" was null or undefined when calling apiV3DbwOrdersGet().'
+                'Required parameter "limit" was null or undefined when calling getV3DbwOrders().'
             );
         }
 
         if (requestParameters['next'] == null) {
             throw new runtime.RequiredError(
                 'next',
-                'Required parameter "next" was null or undefined when calling apiV3DbwOrdersGet().'
+                'Required parameter "next" was null or undefined when calling getV3DbwOrders().'
             );
         }
 
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV3DbwOrdersGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV3DbwOrders().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV3DbwOrdersGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV3DbwOrders().'
             );
         }
 
@@ -649,29 +285,29 @@ export class DBWApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW). <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders). <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить информацию о завершенных сборочных заданиях
      */
-    async apiV3DbwOrdersGetRaw(requestParameters: ApiV3DbwOrdersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3DbwOrdersGet200Response>> {
-        const requestOptions = await this.apiV3DbwOrdersGetRequestOpts(requestParameters);
+    async getV3DbwOrdersRaw(requestParameters: GetV3DbwOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV3DbwOrders200Response>> {
+        const requestOptions = await this.getV3DbwOrdersRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3DbwOrdersGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV3DbwOrders200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW). <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders). <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить информацию о завершенных сборочных заданиях
      */
-    async apiV3DbwOrdersGet(requestParameters: ApiV3DbwOrdersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3DbwOrdersGet200Response> {
-        const response = await this.apiV3DbwOrdersGetRaw(requestParameters, initOverrides);
+    async getV3DbwOrders(requestParameters: GetV3DbwOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3DbwOrders200Response> {
+        const response = await this.getV3DbwOrdersRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV3DbwOrdersNewGet without sending the request
+     * Creates request options for getV3DbwOrdersNew without sending the request
      */
-    async apiV3DbwOrdersNewGetRequestOpts(): Promise<runtime.RequestOpts> {
+    async getV3DbwOrdersNewRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -692,134 +328,34 @@ export class DBWApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить список новых сборочных заданий
      */
-    async apiV3DbwOrdersNewGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3DbwOrdersNewGet200Response>> {
-        const requestOptions = await this.apiV3DbwOrdersNewGetRequestOpts();
+    async getV3DbwOrdersNewRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV3DbwOrdersNew200Response>> {
+        const requestOptions = await this.getV3DbwOrdersNewRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3DbwOrdersNewGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV3DbwOrdersNew200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить список новых сборочных заданий
      */
-    async apiV3DbwOrdersNewGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3DbwOrdersNewGet200Response> {
-        const response = await this.apiV3DbwOrdersNewGetRaw(initOverrides);
+    async getV3DbwOrdersNew(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3DbwOrdersNew200Response> {
+        const response = await this.getV3DbwOrdersNewRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV3DbwOrdersOrderIdCancelPatch without sending the request
-     */
-    async apiV3DbwOrdersOrderIdCancelPatchRequestOpts(requestParameters: ApiV3DbwOrdersOrderIdCancelPatchRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['orderId'] == null) {
-            throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling apiV3DbwOrdersOrderIdCancelPatch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/dbw/orders/{orderId}/cancel`;
-        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
-
-        return {
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) и переводит в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>управление сборочными заданиями</li> </ul>    | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Отменить сборочное задание
-     */
-    async apiV3DbwOrdersOrderIdCancelPatchRaw(requestParameters: ApiV3DbwOrdersOrderIdCancelPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3DbwOrdersOrderIdCancelPatchRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) и переводит в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>управление сборочными заданиями</li> </ul>    | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Отменить сборочное задание
-     */
-    async apiV3DbwOrdersOrderIdCancelPatch(requestParameters: ApiV3DbwOrdersOrderIdCancelPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3DbwOrdersOrderIdCancelPatchRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for apiV3DbwOrdersOrderIdConfirmPatch without sending the request
-     */
-    async apiV3DbwOrdersOrderIdConfirmPatchRequestOpts(requestParameters: ApiV3DbwOrdersOrderIdConfirmPatchRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['orderId'] == null) {
-            throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling apiV3DbwOrdersOrderIdConfirmPatch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/dbw/orders/{orderId}/confirm`;
-        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
-
-        return {
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод переводит [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Перевести на сборку
-     */
-    async apiV3DbwOrdersOrderIdConfirmPatchRaw(requestParameters: ApiV3DbwOrdersOrderIdConfirmPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3DbwOrdersOrderIdConfirmPatchRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод переводит [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW) в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Перевести на сборку
-     */
-    async apiV3DbwOrdersOrderIdConfirmPatch(requestParameters: ApiV3DbwOrdersOrderIdConfirmPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3DbwOrdersOrderIdConfirmPatchRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for apiV3DbwOrdersOrderIdMetaGet without sending the request
+     * Creates request options for getV3DbwOrdersOrderIdMeta without sending the request
      * @deprecated
      */
-    async apiV3DbwOrdersOrderIdMetaGetRequestOpts(requestParameters: ApiV3DbwOrdersOrderIdMetaGetRequest): Promise<runtime.RequestOpts> {
+    async getV3DbwOrdersOrderIdMetaRequestOpts(requestParameters: GetV3DbwOrdersOrderIdMetaRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
                 'orderId',
-                'Required parameter "orderId" was null or undefined when calling apiV3DbwOrdersOrderIdMetaGet().'
+                'Required parameter "orderId" was null or undefined when calling getV3DbwOrdersOrderIdMeta().'
             );
         }
 
@@ -848,11 +384,11 @@ export class DBWApi extends runtime.BaseAPI {
      * Получить идентификаторы маркировки сборочного задания
      * @deprecated
      */
-    async apiV3DbwOrdersOrderIdMetaGetRaw(requestParameters: ApiV3DbwOrdersOrderIdMetaGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3DbwOrdersOrderIdMetaGet200Response>> {
-        const requestOptions = await this.apiV3DbwOrdersOrderIdMetaGetRequestOpts(requestParameters);
+    async getV3DbwOrdersOrderIdMetaRaw(requestParameters: GetV3DbwOrdersOrderIdMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV3DbwOrdersOrderIdMeta200Response>> {
+        const requestOptions = await this.getV3DbwOrdersOrderIdMetaRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3DbwOrdersOrderIdMetaGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV3DbwOrdersOrderIdMeta200ResponseFromJSON(jsonValue));
     }
 
     /**
@@ -860,19 +396,119 @@ export class DBWApi extends runtime.BaseAPI {
      * Получить идентификаторы маркировки сборочного задания
      * @deprecated
      */
-    async apiV3DbwOrdersOrderIdMetaGet(requestParameters: ApiV3DbwOrdersOrderIdMetaGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3DbwOrdersOrderIdMetaGet200Response> {
-        const response = await this.apiV3DbwOrdersOrderIdMetaGetRaw(requestParameters, initOverrides);
+    async getV3DbwOrdersOrderIdMeta(requestParameters: GetV3DbwOrdersOrderIdMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3DbwOrdersOrderIdMeta200Response> {
+        const response = await this.getV3DbwOrdersOrderIdMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV3DbwOrdersOrderIdMetaGtinPut without sending the request
+     * Creates request options for patchV3DbwOrdersOrderIdCancel without sending the request
      */
-    async apiV3DbwOrdersOrderIdMetaGtinPutRequestOpts(requestParameters: ApiV3DbwOrdersOrderIdMetaGtinPutOperationRequest): Promise<runtime.RequestOpts> {
+    async patchV3DbwOrdersOrderIdCancelRequestOpts(requestParameters: PatchV3DbwOrdersOrderIdCancelRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['orderId'] == null) {
             throw new runtime.RequiredError(
                 'orderId',
-                'Required parameter "orderId" was null or undefined when calling apiV3DbwOrdersOrderIdMetaGtinPut().'
+                'Required parameter "orderId" was null or undefined when calling patchV3DbwOrdersOrderIdCancel().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/dbw/orders/{orderId}/cancel`;
+        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+
+        return {
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>управление сборочными заданиями</li> </ul>    | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Отменить сборочное задание
+     */
+    async patchV3DbwOrdersOrderIdCancelRaw(requestParameters: PatchV3DbwOrdersOrderIdCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.patchV3DbwOrdersOrderIdCancelRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>управление сборочными заданиями</li> </ul>    | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Отменить сборочное задание
+     */
+    async patchV3DbwOrdersOrderIdCancel(requestParameters: PatchV3DbwOrdersOrderIdCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.patchV3DbwOrdersOrderIdCancelRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for patchV3DbwOrdersOrderIdConfirm without sending the request
+     */
+    async patchV3DbwOrdersOrderIdConfirmRequestOpts(requestParameters: PatchV3DbwOrdersOrderIdConfirmRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['orderId'] == null) {
+            throw new runtime.RequiredError(
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling patchV3DbwOrdersOrderIdConfirm().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/dbw/orders/{orderId}/confirm`;
+        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+
+        return {
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод переводит [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Перевести на сборку
+     */
+    async patchV3DbwOrdersOrderIdConfirmRaw(requestParameters: PatchV3DbwOrdersOrderIdConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.patchV3DbwOrdersOrderIdConfirmRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод переводит [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Перевести на сборку
+     */
+    async patchV3DbwOrdersOrderIdConfirm(requestParameters: PatchV3DbwOrdersOrderIdConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.patchV3DbwOrdersOrderIdConfirmRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for postV3DbwOrdersClient without sending the request
+     */
+    async postV3DbwOrdersClientRequestOpts(requestParameters: PostV3DbwOrdersClientRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['ordersRequestAPI'] == null) {
+            throw new runtime.RequiredError(
+                'ordersRequestAPI',
+                'Required parameter "ordersRequestAPI" was null or undefined when calling postV3DbwOrdersClient().'
             );
         }
 
@@ -887,45 +523,45 @@ export class DBWApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/api/v3/dbw/orders/{orderId}/meta/gtin`;
-        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+        let urlPath = `/api/marketplace/v3/dbw/orders/client`;
 
         return {
             path: urlPath,
-            method: 'PUT',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApiV3DbwOrdersOrderIdMetaGtinPutRequestToJSON(requestParameters['apiV3DbwOrdersOrderIdMetaGtinPutRequest']),
+            body: OrdersRequestAPIToJSON(requestParameters['ordersRequestAPI']),
         };
     }
 
     /**
-     * Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный ID товара в Беларуси. <br><br> У одного сборочного задания может быть только один GTIN.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить за сборочным заданием GTIN
+     * Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Информация о покупателе
      */
-    async apiV3DbwOrdersOrderIdMetaGtinPutRaw(requestParameters: ApiV3DbwOrdersOrderIdMetaGtinPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3DbwOrdersOrderIdMetaGtinPutRequestOpts(requestParameters);
+    async postV3DbwOrdersClientRaw(requestParameters: PostV3DbwOrdersClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClientInfoResp>> {
+        const requestOptions = await this.postV3DbwOrdersClientRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClientInfoRespFromJSON(jsonValue));
     }
 
     /**
-     * Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный ID товара в Беларуси. <br><br> У одного сборочного задания может быть только один GTIN.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить за сборочным заданием GTIN
+     * Метод возвращает информацию о покупателях по ID сборочных заданий.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Информация о покупателе
      */
-    async apiV3DbwOrdersOrderIdMetaGtinPut(requestParameters: ApiV3DbwOrdersOrderIdMetaGtinPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3DbwOrdersOrderIdMetaGtinPutRaw(requestParameters, initOverrides);
+    async postV3DbwOrdersClient(requestParameters: PostV3DbwOrdersClientRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClientInfoResp> {
+        const response = await this.postV3DbwOrdersClientRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
-     * Creates request options for apiV3DbwOrdersOrderIdMetaImeiPut without sending the request
+     * Creates request options for postV3DbwOrdersCourier without sending the request
      */
-    async apiV3DbwOrdersOrderIdMetaImeiPutRequestOpts(requestParameters: ApiV3DbwOrdersOrderIdMetaImeiPutOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['orderId'] == null) {
+    async postV3DbwOrdersCourierRequestOpts(requestParameters: PostV3DbwOrdersCourierRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['ordersRequestAPI'] == null) {
             throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling apiV3DbwOrdersOrderIdMetaImeiPut().'
+                'ordersRequestAPI',
+                'Required parameter "ordersRequestAPI" was null or undefined when calling postV3DbwOrdersCourier().'
             );
         }
 
@@ -940,45 +576,45 @@ export class DBWApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/api/v3/dbw/orders/{orderId}/meta/imei`;
-        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+        let urlPath = `/api/v3/dbw/orders/courier`;
 
         return {
             path: urlPath,
-            method: 'PUT',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApiV3DbwOrdersOrderIdMetaImeiPutRequestToJSON(requestParameters['apiV3DbwOrdersOrderIdMetaImeiPutRequest']),
+            body: OrdersRequestAPIToJSON(requestParameters['ordersRequestAPI']),
         };
     }
 
     /**
-     * Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post). <br><br> У одного сборочного задания может быть только один IMEI.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить за сборочным заданием IMEI
+     * Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Информация о курьере
      */
-    async apiV3DbwOrdersOrderIdMetaImeiPutRaw(requestParameters: ApiV3DbwOrdersOrderIdMetaImeiPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3DbwOrdersOrderIdMetaImeiPutRequestOpts(requestParameters);
+    async postV3DbwOrdersCourierRaw(requestParameters: PostV3DbwOrdersCourierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderCourierInfoResp>> {
+        const requestOptions = await this.postV3DbwOrdersCourierRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrderCourierInfoRespFromJSON(jsonValue));
     }
 
     /**
-     * Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post). <br><br> У одного сборочного задания может быть только один IMEI.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить за сборочным заданием IMEI
+     * Метод возвращает контактные данные и номер автомобиля курьера по ID сборочного задания. <br> Для сборочных заданий в статусах `confirm`, `complete`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Информация о курьере
      */
-    async apiV3DbwOrdersOrderIdMetaImeiPut(requestParameters: ApiV3DbwOrdersOrderIdMetaImeiPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3DbwOrdersOrderIdMetaImeiPutRaw(requestParameters, initOverrides);
+    async postV3DbwOrdersCourier(requestParameters: PostV3DbwOrdersCourierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderCourierInfoResp> {
+        const response = await this.postV3DbwOrdersCourierRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
-     * Creates request options for apiV3DbwOrdersOrderIdMetaUinPut without sending the request
+     * Creates request options for postV3DbwOrdersDeliveryDate without sending the request
      */
-    async apiV3DbwOrdersOrderIdMetaUinPutRequestOpts(requestParameters: ApiV3DbwOrdersOrderIdMetaUinPutOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['orderId'] == null) {
+    async postV3DbwOrdersDeliveryDateRequestOpts(requestParameters: PostV3DbwOrdersDeliveryDateRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['deliveryDatesRequest'] == null) {
             throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling apiV3DbwOrdersOrderIdMetaUinPut().'
+                'deliveryDatesRequest',
+                'Required parameter "deliveryDatesRequest" was null or undefined when calling postV3DbwOrdersDeliveryDate().'
             );
         }
 
@@ -993,41 +629,193 @@ export class DBWApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/api/v3/dbw/orders/{orderId}/meta/uin`;
-        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+        let urlPath = `/api/v3/dbw/orders/delivery-date`;
 
         return {
             path: urlPath,
-            method: 'PUT',
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApiV3DbwOrdersOrderIdMetaUinPutRequestToJSON(requestParameters['apiV3DbwOrdersOrderIdMetaUinPutRequest']),
+            body: DeliveryDatesRequestToJSON(requestParameters['deliveryDatesRequest']),
         };
     }
 
     /**
-     * Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный идентификационный номер. <br><br> У одного сборочного задания может быть только один УИН.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+     * Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить дату и время доставки
      */
-    async apiV3DbwOrdersOrderIdMetaUinPutRaw(requestParameters: ApiV3DbwOrdersOrderIdMetaUinPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.apiV3DbwOrdersOrderIdMetaUinPutRequestOpts(requestParameters);
+    async postV3DbwOrdersDeliveryDateRaw(requestParameters: PostV3DbwOrdersDeliveryDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeliveryDatesInfoResp>> {
+        const requestOptions = await this.postV3DbwOrdersDeliveryDateRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => DeliveryDatesInfoRespFromJSON(jsonValue));
     }
 
     /**
-     * Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный идентификационный номер. <br><br> У одного сборочного задания может быть только один УИН.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+     * Метод возвращает информацию о выбранных покупателем дате и времени доставки сборочных заданий. <br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить дату и время доставки
      */
-    async apiV3DbwOrdersOrderIdMetaUinPut(requestParameters: ApiV3DbwOrdersOrderIdMetaUinPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.apiV3DbwOrdersOrderIdMetaUinPutRaw(requestParameters, initOverrides);
+    async postV3DbwOrdersDeliveryDate(requestParameters: PostV3DbwOrdersDeliveryDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeliveryDatesInfoResp> {
+        const response = await this.postV3DbwOrdersDeliveryDateRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
-     * Creates request options for apiV3DbwOrdersStatusPost without sending the request
+     * Creates request options for postV3DbwOrdersMetaDelete without sending the request
      */
-    async apiV3DbwOrdersStatusPostRequestOpts(requestParameters: ApiV3DbwOrdersStatusPostOperationRequest): Promise<runtime.RequestOpts> {
+    async postV3DbwOrdersMetaDeleteRequestOpts(requestParameters: PostV3DbwOrdersMetaDeleteRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersMetaDleteRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersMetaDleteRequestV2',
+                'Required parameter "apiOrdersMetaDleteRequestV2" was null or undefined when calling postV3DbwOrdersMetaDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/dbw/orders/meta/delete`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersMetaDleteRequestV2ToJSON(requestParameters['apiOrdersMetaDleteRequestV2']),
+        };
+    }
+
+    /**
+     * Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) для переданного ключа. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  Можно передать только один ключ.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Удалить идентификаторы маркировки сборочных заданий
+     */
+    async postV3DbwOrdersMetaDeleteRaw(requestParameters: PostV3DbwOrdersMetaDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiMetaDeleteResponses>> {
+        const requestOptions = await this.postV3DbwOrdersMetaDeleteRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiMetaDeleteResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод удаляет значение указанных [идентификаторов маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) для переданного ключа. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  Можно передать только один ключ.    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Удалить идентификаторы маркировки сборочных заданий
+     */
+    async postV3DbwOrdersMetaDelete(requestParameters: PostV3DbwOrdersMetaDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaDeleteResponses> {
+        const response = await this.postV3DbwOrdersMetaDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3DbwOrdersMetaDetails without sending the request
+     */
+    async postV3DbwOrdersMetaDetailsRequestOpts(requestParameters: PostV3DbwOrdersMetaDetailsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/dbw/orders/meta/details`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их валидации. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить идентификаторы маркировки сборочных заданий
+     */
+    async postV3DbwOrdersMetaDetailsRaw(requestParameters: PostV3DbwOrdersMetaDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaDetailsResponse>> {
+        const requestOptions = await this.postV3DbwOrdersMetaDetailsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaDetailsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их валидации. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. <br><br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)    <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить идентификаторы маркировки сборочных заданий
+     */
+    async postV3DbwOrdersMetaDetails(requestParameters: PostV3DbwOrdersMetaDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
+        const response = await this.postV3DbwOrdersMetaDetailsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3DbwOrdersMetaSgtin without sending the request
+     */
+    async postV3DbwOrdersMetaSgtinRequestOpts(requestParameters: PostV3DbwOrdersMetaSgtinRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersSGTINsSetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersSGTINsSetRequest',
+                'Required parameter "apiOrdersSGTINsSetRequest" was null or undefined when calling postV3DbwOrdersMetaSgtin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/dbw/orders/meta/sgtin`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersSGTINsSetRequestToJSON(requestParameters['apiOrdersSGTINsSetRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) нескольких сборочных заданий.<br> Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить коды маркировки Честного знака за сборочными заданиями
+     */
+    async postV3DbwOrdersMetaSgtinRaw(requestParameters: PostV3DbwOrdersMetaSgtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
+        const requestOptions = await this.postV3DbwOrdersMetaSgtinRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) нескольких сборочных заданий.<br> Закрепить код маркировки можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` — на сборке. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить коды маркировки Честного знака за сборочными заданиями
+     */
+    async postV3DbwOrdersMetaSgtin(requestParameters: PostV3DbwOrdersMetaSgtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+        const response = await this.postV3DbwOrdersMetaSgtinRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3DbwOrdersStatus without sending the request
+     */
+    async postV3DbwOrdersStatusRequestOpts(requestParameters: PostV3DbwOrdersStatusOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1046,52 +834,105 @@ export class DBWApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApiV3DbwOrdersStatusPostRequestToJSON(requestParameters['apiV3DbwOrdersStatusPostRequest']),
+            body: PostV3DbwOrdersStatusRequestToJSON(requestParameters['postV3DbwOrdersStatusRequest']),
         };
     }
 
     /**
-     * Метод возвращает статусы сборочных заданий по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1confirm/patch) | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1status~1deliver/post) | | `receive`  | **Получено покупателем**|  Переводится курьером | `reject`   | **Отказ покупателя при получении**| Переводится курьером | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1cancel/patch) | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `canceled_by_missed_call` — отмена заказа по причине недозвона - `postponed_delivery` — курьерская доставка отложена  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает статусы сборочных заданий по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm) | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver) | | `receive`  | **Получено покупателем**|  Переводится курьером | `reject`   | **Отказ покупателя при получении**| Переводится курьером | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel) | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `canceled_by_missed_call` — отмена заказа по причине недозвона - `postponed_delivery` — курьерская доставка отложена  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить статусы сборочных заданий
      */
-    async apiV3DbwOrdersStatusPostRaw(requestParameters: ApiV3DbwOrdersStatusPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3DbwOrdersStatusPost200Response>> {
-        const requestOptions = await this.apiV3DbwOrdersStatusPostRequestOpts(requestParameters);
+    async postV3DbwOrdersStatusRaw(requestParameters: PostV3DbwOrdersStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3DbwOrdersStatus200Response>> {
+        const requestOptions = await this.postV3DbwOrdersStatusRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3DbwOrdersStatusPost200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV3DbwOrdersStatus200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает статусы сборочных заданий по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1confirm/patch) | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1status~1deliver/post) | | `receive`  | **Получено покупателем**|  Переводится курьером | `reject`   | **Отказ покупателя при получении**| Переводится курьером | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1cancel/patch) | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `canceled_by_missed_call` — отмена заказа по причине недозвона - `postponed_delivery` — курьерская доставка отложена  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает статусы сборочных заданий по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm) | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver) | | `receive`  | **Получено покупателем**|  Переводится курьером | `reject`   | **Отказ покупателя при получении**| Переводится курьером | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel) | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `canceled_by_missed_call` — отмена заказа по причине недозвона - `postponed_delivery` — курьерская доставка отложена  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить статусы сборочных заданий
      */
-    async apiV3DbwOrdersStatusPost(requestParameters: ApiV3DbwOrdersStatusPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3DbwOrdersStatusPost200Response> {
-        const response = await this.apiV3DbwOrdersStatusPostRaw(requestParameters, initOverrides);
+    async postV3DbwOrdersStatus(requestParameters: PostV3DbwOrdersStatusOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3DbwOrdersStatus200Response> {
+        const response = await this.postV3DbwOrdersStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV3DbwOrdersStickersPost without sending the request
+     * Creates request options for postV3DbwOrdersStatusDeliver without sending the request
      */
-    async apiV3DbwOrdersStickersPostRequestOpts(requestParameters: ApiV3DbwOrdersStickersPostOperationRequest): Promise<runtime.RequestOpts> {
+    async postV3DbwOrdersStatusDeliverRequestOpts(requestParameters: PostV3DbwOrdersStatusDeliverRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3DbwOrdersStatusDeliver().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/dbw/orders/status/deliver`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
+        };
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) из [статуса](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` в статус `complete` — в доставке.  <div class=\"description_important\"> Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `\"isError\":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors` </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Перевести сборочные задания в доставку
+     */
+    async postV3DbwOrdersStatusDeliverRaw(requestParameters: PostV3DbwOrdersStatusDeliverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
+        const requestOptions = await this.postV3DbwOrdersStatusDeliverRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiStatusSetResponsesFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод переводит [сборочные задания](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) из [статуса](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` в статус `complete` — в доставке.  <div class=\"description_important\"> Проверяйте ответ метода. Сборочные задания, переведённые в доставку, вернутся с признаком `\"isError\":false`. Для остальных сборочных заданий смотрите причину ошибки в массиве `errors` </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Перевести сборочные задания в доставку
+     */
+    async postV3DbwOrdersStatusDeliver(requestParameters: PostV3DbwOrdersStatusDeliverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+        const response = await this.postV3DbwOrdersStatusDeliverRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3DbwOrdersStickers without sending the request
+     */
+    async postV3DbwOrdersStickersRequestOpts(requestParameters: PostV3DbwOrdersStickersOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['type'] == null) {
             throw new runtime.RequiredError(
                 'type',
-                'Required parameter "type" was null or undefined when calling apiV3DbwOrdersStickersPost().'
+                'Required parameter "type" was null or undefined when calling postV3DbwOrdersStickers().'
             );
         }
 
         if (requestParameters['width'] == null) {
             throw new runtime.RequiredError(
                 'width',
-                'Required parameter "width" was null or undefined when calling apiV3DbwOrdersStickersPost().'
+                'Required parameter "width" was null or undefined when calling postV3DbwOrdersStickers().'
             );
         }
 
         if (requestParameters['height'] == null) {
             throw new runtime.RequiredError(
                 'height',
-                'Required parameter "height" was null or undefined when calling apiV3DbwOrdersStickersPost().'
+                'Required parameter "height" was null or undefined when calling postV3DbwOrdersStickers().'
             );
         }
 
@@ -1125,28 +966,187 @@ export class DBWApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApiV3DbwOrdersStickersPostRequestToJSON(requestParameters['apiV3DbwOrdersStickersPostRequest']),
+            body: PostV3DbwOrdersStickersRequestToJSON(requestParameters['postV3DbwOrdersStickersRequest']),
         };
     }
 
     /**
-     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):   - `confirm` — на сборке   - `complete` — в доставке  За один запрос можно получить максимум 100 стикеров.<br>  Доступные форматы стикеров:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew) в [статусах](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):   - `confirm` — на сборке   - `complete` — в доставке  За один запрос можно получить максимум 100 стикеров.<br>  Доступные форматы стикеров:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить стикеры сборочных заданий
      */
-    async apiV3DbwOrdersStickersPostRaw(requestParameters: ApiV3DbwOrdersStickersPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3DbwOrdersStickersPost200Response>> {
-        const requestOptions = await this.apiV3DbwOrdersStickersPostRequestOpts(requestParameters);
+    async postV3DbwOrdersStickersRaw(requestParameters: PostV3DbwOrdersStickersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3DbwOrdersStickers200Response>> {
+        const requestOptions = await this.postV3DbwOrdersStickersRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV3DbwOrdersStickersPost200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV3DbwOrdersStickers200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get) в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):   - `confirm` — на сборке   - `complete` — в доставке  За один запрос можно получить максимум 100 стикеров.<br>  Доступные форматы стикеров:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew) в [статусах](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):   - `confirm` — на сборке   - `complete` — в доставке  За один запрос можно получить максимум 100 стикеров.<br>  Доступные форматы стикеров:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить стикеры сборочных заданий
      */
-    async apiV3DbwOrdersStickersPost(requestParameters: ApiV3DbwOrdersStickersPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3DbwOrdersStickersPost200Response> {
-        const response = await this.apiV3DbwOrdersStickersPostRaw(requestParameters, initOverrides);
+    async postV3DbwOrdersStickers(requestParameters: PostV3DbwOrdersStickersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3DbwOrdersStickers200Response> {
+        const response = await this.postV3DbwOrdersStickersRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Creates request options for putV3DbwOrdersOrderIdMetaGtin without sending the request
+     */
+    async putV3DbwOrdersOrderIdMetaGtinRequestOpts(requestParameters: PutV3DbwOrdersOrderIdMetaGtinOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['orderId'] == null) {
+            throw new runtime.RequiredError(
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling putV3DbwOrdersOrderIdMetaGtin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/dbw/orders/{orderId}/meta/gtin`;
+        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutV3DbwOrdersOrderIdMetaGtinRequestToJSON(requestParameters['putV3DbwOrdersOrderIdMetaGtinRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный ID товара в Беларуси. <br><br> У одного сборочного задания может быть только один GTIN.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить за сборочным заданием GTIN
+     */
+    async putV3DbwOrdersOrderIdMetaGtinRaw(requestParameters: PutV3DbwOrdersOrderIdMetaGtinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV3DbwOrdersOrderIdMetaGtinRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный ID товара в Беларуси. <br><br> У одного сборочного задания может быть только один GTIN.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить за сборочным заданием GTIN
+     */
+    async putV3DbwOrdersOrderIdMetaGtin(requestParameters: PutV3DbwOrdersOrderIdMetaGtinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV3DbwOrdersOrderIdMetaGtinRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for putV3DbwOrdersOrderIdMetaImei without sending the request
+     */
+    async putV3DbwOrdersOrderIdMetaImeiRequestOpts(requestParameters: PutV3DbwOrdersOrderIdMetaImeiOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['orderId'] == null) {
+            throw new runtime.RequiredError(
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling putV3DbwOrdersOrderIdMetaImei().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/dbw/orders/{orderId}/meta/imei`;
+        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutV3DbwOrdersOrderIdMetaImeiRequestToJSON(requestParameters['putV3DbwOrdersOrderIdMetaImeiRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). <br><br> У одного сборочного задания может быть только один IMEI.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить за сборочным заданием IMEI
+     */
+    async putV3DbwOrdersOrderIdMetaImeiRaw(requestParameters: PutV3DbwOrdersOrderIdMetaImeiOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV3DbwOrdersOrderIdMetaImeiRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). <br><br> У одного сборочного задания может быть только один IMEI.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить за сборочным заданием IMEI
+     */
+    async putV3DbwOrdersOrderIdMetaImei(requestParameters: PutV3DbwOrdersOrderIdMetaImeiOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV3DbwOrdersOrderIdMetaImeiRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for putV3DbwOrdersOrderIdMetaUin without sending the request
+     */
+    async putV3DbwOrdersOrderIdMetaUinRequestOpts(requestParameters: PutV3DbwOrdersOrderIdMetaUinOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['orderId'] == null) {
+            throw new runtime.RequiredError(
+                'orderId',
+                'Required parameter "orderId" was null or undefined when calling putV3DbwOrdersOrderIdMetaUin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v3/dbw/orders/{orderId}/meta/uin`;
+        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutV3DbwOrdersOrderIdMetaUinRequestToJSON(requestParameters['putV3DbwOrdersOrderIdMetaUinRequest']),
+        };
+    }
+
+    /**
+     * Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный идентификационный номер. <br><br> У одного сборочного задания может быть только один УИН.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+     */
+    async putV3DbwOrdersOrderIdMetaUinRaw(requestParameters: PutV3DbwOrdersOrderIdMetaUinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV3DbwOrdersOrderIdMetaUinRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный идентификационный номер. <br><br> У одного сборочного задания может быть только один УИН.  Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+     */
+    async putV3DbwOrdersOrderIdMetaUin(requestParameters: PutV3DbwOrdersOrderIdMetaUinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV3DbwOrdersOrderIdMetaUinRaw(requestParameters, initOverrides);
     }
 
 }
@@ -1154,26 +1154,26 @@ export class DBWApi extends runtime.BaseAPI {
 /**
  * @export
  */
-export const ApiV3DbwOrdersStickersPostOperationTypeEnum = {
+export const PostV3DbwOrdersStickersOperationTypeEnum = {
     Svg: 'svg',
     Zplv: 'zplv',
     Zplh: 'zplh',
     Png: 'png'
 } as const;
-export type ApiV3DbwOrdersStickersPostOperationTypeEnum = typeof ApiV3DbwOrdersStickersPostOperationTypeEnum[keyof typeof ApiV3DbwOrdersStickersPostOperationTypeEnum];
+export type PostV3DbwOrdersStickersOperationTypeEnum = typeof PostV3DbwOrdersStickersOperationTypeEnum[keyof typeof PostV3DbwOrdersStickersOperationTypeEnum];
 /**
  * @export
  */
-export const ApiV3DbwOrdersStickersPostOperationWidthEnum = {
+export const PostV3DbwOrdersStickersOperationWidthEnum = {
     NUMBER_58: 58,
     NUMBER_40: 40
 } as const;
-export type ApiV3DbwOrdersStickersPostOperationWidthEnum = typeof ApiV3DbwOrdersStickersPostOperationWidthEnum[keyof typeof ApiV3DbwOrdersStickersPostOperationWidthEnum];
+export type PostV3DbwOrdersStickersOperationWidthEnum = typeof PostV3DbwOrdersStickersOperationWidthEnum[keyof typeof PostV3DbwOrdersStickersOperationWidthEnum];
 /**
  * @export
  */
-export const ApiV3DbwOrdersStickersPostOperationHeightEnum = {
+export const PostV3DbwOrdersStickersOperationHeightEnum = {
     NUMBER_40: 40,
     NUMBER_30: 30
 } as const;
-export type ApiV3DbwOrdersStickersPostOperationHeightEnum = typeof ApiV3DbwOrdersStickersPostOperationHeightEnum[keyof typeof ApiV3DbwOrdersStickersPostOperationHeightEnum];
+export type PostV3DbwOrdersStickersOperationHeightEnum = typeof PostV3DbwOrdersStickersOperationHeightEnum[keyof typeof PostV3DbwOrdersStickersOperationHeightEnum];

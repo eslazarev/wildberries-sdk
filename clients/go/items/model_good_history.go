@@ -38,7 +38,7 @@ type GoodHistory struct {
 	// Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились 
 	Status *int32 `json:"status,omitempty"`
 	// Текст ошибки. Например:   - `You can't change the item price. Item was added to the Sale due to high inventory` — ошибка возникает, если товар попал под распродажу по [индексу остатка](https://seller.wildberries.ru/instructions/ru/ru/material/A-1159).   - `The new price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой хотя бы в 3 раза меньше старой. Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 
-	ErrorText *string `json:"errorText,omitempty"`
+	ErrorText NullableString `json:"errorText,omitempty"`
 }
 
 // NewGoodHistory instantiates a new GoodHistory object
@@ -376,36 +376,46 @@ func (o *GoodHistory) SetStatus(v int32) {
 	o.Status = &v
 }
 
-// GetErrorText returns the ErrorText field value if set, zero value otherwise.
+// GetErrorText returns the ErrorText field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GoodHistory) GetErrorText() string {
-	if o == nil || IsNil(o.ErrorText) {
+	if o == nil || IsNil(o.ErrorText.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorText
+	return *o.ErrorText.Get()
 }
 
 // GetErrorTextOk returns a tuple with the ErrorText field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GoodHistory) GetErrorTextOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorText) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorText, true
+	return o.ErrorText.Get(), o.ErrorText.IsSet()
 }
 
 // HasErrorText returns a boolean if a field has been set.
 func (o *GoodHistory) HasErrorText() bool {
-	if o != nil && !IsNil(o.ErrorText) {
+	if o != nil && o.ErrorText.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetErrorText gets a reference to the given string and assigns it to the ErrorText field.
+// SetErrorText gets a reference to the given NullableString and assigns it to the ErrorText field.
 func (o *GoodHistory) SetErrorText(v string) {
-	o.ErrorText = &v
+	o.ErrorText.Set(&v)
+}
+// SetErrorTextNil sets the value for ErrorText to be an explicit nil
+func (o *GoodHistory) SetErrorTextNil() {
+	o.ErrorText.Set(nil)
+}
+
+// UnsetErrorText ensures that no value is present for ErrorText, not even an explicit nil
+func (o *GoodHistory) UnsetErrorText() {
+	o.ErrorText.Unset()
 }
 
 func (o GoodHistory) MarshalJSON() ([]byte, error) {
@@ -445,8 +455,8 @@ func (o GoodHistory) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !IsNil(o.ErrorText) {
-		toSerialize["errorText"] = o.ErrorText
+	if o.ErrorText.IsSet() {
+		toSerialize["errorText"] = o.ErrorText.Get()
 	}
 	return toSerialize, nil
 }

@@ -161,66 +161,66 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — Получить стикеры грузомест поставки
 
 ### orders_dbw (`orders_dbw`)
-- `orders_dbw.DBWApi.apiMarketplaceV3DbwOrdersClientPost` — Информация о покупателе
-- `orders_dbw.DBWApi.apiMarketplaceV3DbwOrdersMetaDeletePost` — Удалить идентификаторы маркировки сборочных заданий
-- `orders_dbw.DBWApi.apiMarketplaceV3DbwOrdersMetaDetailsPost` — Получить идентификаторы маркировки сборочных заданий
-- `orders_dbw.DBWApi.apiMarketplaceV3DbwOrdersMetaSgtinPost` — Закрепить коды маркировки Честного знака за сборочными заданиями
-- `orders_dbw.DBWApi.apiMarketplaceV3DbwOrdersStatusDeliverPost` — Перевести сборочные задания в доставку
-- `orders_dbw.DBWApi.apiV3DbwOrdersCourierPost` — Информация о курьере
-- `orders_dbw.DBWApi.apiV3DbwOrdersDeliveryDatePost` — Получить дату и время доставки
-- `orders_dbw.DBWApi.apiV3DbwOrdersGet` — Получить информацию о завершенных сборочных заданиях
-- `orders_dbw.DBWApi.apiV3DbwOrdersNewGet` — Получить список новых сборочных заданий
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdCancelPatch` — Отменить сборочное задание
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdConfirmPatch` — Перевести на сборку
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaGet` — Получить идентификаторы маркировки сборочного задания
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaGtinPut` — Закрепить за сборочным заданием GTIN
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaImeiPut` — Закрепить за сборочным заданием IMEI
-- `orders_dbw.DBWApi.apiV3DbwOrdersOrderIdMetaUinPut` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
-- `orders_dbw.DBWApi.apiV3DbwOrdersStatusPost` — Получить статусы сборочных заданий
-- `orders_dbw.DBWApi.apiV3DbwOrdersStickersPost` — Получить стикеры сборочных заданий
+- `orders_dbw.DBWApi.getV3DbwOrders` — Получить информацию о завершенных сборочных заданиях
+- `orders_dbw.DBWApi.getV3DbwOrdersNew` — Получить список новых сборочных заданий
+- `orders_dbw.DBWApi.getV3DbwOrdersOrderIdMeta` — Получить идентификаторы маркировки сборочного задания
+- `orders_dbw.DBWApi.patchV3DbwOrdersOrderIdCancel` — Отменить сборочное задание
+- `orders_dbw.DBWApi.patchV3DbwOrdersOrderIdConfirm` — Перевести на сборку
+- `orders_dbw.DBWApi.postV3DbwOrdersClient` — Информация о покупателе
+- `orders_dbw.DBWApi.postV3DbwOrdersCourier` — Информация о курьере
+- `orders_dbw.DBWApi.postV3DbwOrdersDeliveryDate` — Получить дату и время доставки
+- `orders_dbw.DBWApi.postV3DbwOrdersMetaDelete` — Удалить идентификаторы маркировки сборочных заданий
+- `orders_dbw.DBWApi.postV3DbwOrdersMetaDetails` — Получить идентификаторы маркировки сборочных заданий
+- `orders_dbw.DBWApi.postV3DbwOrdersMetaSgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
+- `orders_dbw.DBWApi.postV3DbwOrdersStatus` — Получить статусы сборочных заданий
+- `orders_dbw.DBWApi.postV3DbwOrdersStatusDeliver` — Перевести сборочные задания в доставку
+- `orders_dbw.DBWApi.postV3DbwOrdersStickers` — Получить стикеры сборочных заданий
+- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaGtin` — Закрепить за сборочным заданием GTIN
+- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaImei` — Закрепить за сборочным заданием IMEI
+- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaUin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
 
 ### orders_dbs (`orders_dbs`)
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersB2bInfoPost` — Информация о покупателе B2B
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaCustomsDeclarationPost` — Закрепить за сборочными заданиями номера ДТ
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDeletePost` — Удалить идентификаторы маркировки сборочных заданий
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaDetailsPost` — Получить идентификаторы маркировки сборочных заданий
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaGtinPost` — Закрепить GTIN за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaImeiPost` — Закрепить IMEI за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaInfoPost` — Получить идентификаторы маркировки сборочных заданий
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaSgtinPost` — Закрепить коды маркировки Честного знака за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersMetaUinPost` — Закрепить УИН за сборочными заданиями
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusCancelPost` — Отменить сборочные задания
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusConfirmPost` — Перевести сборочные задания на сборку
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusDeliverPost` — Перевести сборочные задания в доставку
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusInfoPost` — Получить статусы сборочных заданий
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusReceivePost` — Сообщить о получении заказов
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStatusRejectPost` — Сообщить об отказе от заказов
-- `orders_dbs.DBSApi.apiMarketplaceV3DbsOrdersStickersPost` — Получить стикеры для сборочных заданий с доставкой в ПВЗ
-- `orders_dbs.DBSApi.apiV3DbsGroupsInfoPost` — Получить информацию о платной доставке
-- `orders_dbs.DBSApi.apiV3DbsOrdersClientPost` — Информация о покупателе
-- `orders_dbs.DBSApi.apiV3DbsOrdersDeliveryDatePost` — Получить дату и время доставки
-- `orders_dbs.DBSApi.apiV3DbsOrdersGet` — Получить информацию о завершенных сборочных заданиях
-- `orders_dbs.DBSApi.apiV3DbsOrdersNewGet` — Получить список новых сборочных заданий
+- `orders_dbs.DBSApi.getV3DbsOrders` — Получить информацию о завершенных сборочных заданиях
+- `orders_dbs.DBSApi.getV3DbsOrdersNew` — Получить список новых сборочных заданий
+- `orders_dbs.DBSApi.postV3DbsGroupsInfo` — Получить информацию о платной доставке
+- `orders_dbs.DBSApi.postV3DbsOrdersB2bInfo` — Информация о покупателе B2B
+- `orders_dbs.DBSApi.postV3DbsOrdersClient` — Информация о покупателе
+- `orders_dbs.DBSApi.postV3DbsOrdersDeliveryDate` — Получить дату и время доставки
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaCustomsDeclaration` — Закрепить за сборочными заданиями номера ДТ
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaDelete` — Удалить идентификаторы маркировки сборочных заданий
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaDetails` — Получить идентификаторы маркировки сборочных заданий
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaGtin` — Закрепить GTIN за сборочными заданиями
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaImei` — Закрепить IMEI за сборочными заданиями
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaInfo` — Получить идентификаторы маркировки сборочных заданий
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaSgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaUin` — Закрепить УИН за сборочными заданиями
+- `orders_dbs.DBSApi.postV3DbsOrdersStatusCancel` — Отменить сборочные задания
+- `orders_dbs.DBSApi.postV3DbsOrdersStatusConfirm` — Перевести сборочные задания на сборку
+- `orders_dbs.DBSApi.postV3DbsOrdersStatusDeliver` — Перевести сборочные задания в доставку
+- `orders_dbs.DBSApi.postV3DbsOrdersStatusInfo` — Получить статусы сборочных заданий
+- `orders_dbs.DBSApi.postV3DbsOrdersStatusReceive` — Сообщить о получении заказов
+- `orders_dbs.DBSApi.postV3DbsOrdersStatusReject` — Сообщить об отказе от заказов
+- `orders_dbs.DBSApi.postV3DbsOrdersStickers` — Получить стикеры для сборочных заданий с доставкой в ПВЗ
 
 ### in_store_pickup (`in_store_pickup`)
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersMetaDeletePost` — Удалить идентификаторы маркировки сборочных заданий
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersMetaDetailsPost` — Получить идентификаторы маркировки сборочных заданий
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersMetaGtinPost` — Закрепить GTIN за сборочными заданиями
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersMetaImeiPost` — Закрепить IMEI за сборочными заданиями
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersMetaInfoPost` — Получить идентификаторы маркировки сборочных заданий
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersMetaSgtinPost` — Закрепить коды маркировки Честного знака за сборочными заданиями
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersMetaUinPost` — Закрепить УИН за сборочными заданиями
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersStatusCancelPost` — Отменить сборочные задания
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersStatusConfirmPost` — Перевести сборочные задания на сборку
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersStatusInfoPost` — Получить статусы сборочных заданий
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersStatusPreparePost` — Сообщить, что сборочные задания готовы к выдаче
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersStatusReceivePost` — Сообщить, что заказы приняты покупателями
-- `in_store_pickup.DefaultApi.apiMarketplaceV3ClickCollectOrdersStatusRejectPost` — Сообщить об отказе от заказов
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientIdentityPost` — Проверить, что заказ принадлежит покупателю
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersClientPost` — Информация о покупателе
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersGet` — Получить информацию о завершённых сборочных заданиях
-- `in_store_pickup.DefaultApi.apiV3ClickCollectOrdersNewGet` — Получить список новых сборочных заданий
+- `in_store_pickup.DefaultApi.getV3ClickCollectOrders` — Получить информацию о завершённых сборочных заданиях
+- `in_store_pickup.DefaultApi.getV3ClickCollectOrdersNew` — Получить список новых сборочных заданий
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersClient` — Информация о покупателе
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersClientIdentity` — Проверить, что заказ принадлежит покупателю
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration` — Закрепить за сборочными заданиями номера ДТ
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaDelete` — Удалить идентификаторы маркировки сборочных заданий
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaDetails` — Получить идентификаторы маркировки сборочных заданий
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaGtin` — Закрепить GTIN за сборочными заданиями
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaImei` — Закрепить IMEI за сборочными заданиями
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaInfo` — Получить идентификаторы маркировки сборочных заданий
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaSgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaUin` — Закрепить УИН за сборочными заданиями
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusCancel` — Отменить сборочные задания
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusConfirm` — Перевести сборочные задания на сборку
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusInfo` — Получить статусы сборочных заданий
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusPrepare` — Сообщить, что сборочные задания готовы к выдаче
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusReceive` — Сообщить, что заказы приняты покупателями
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusReject` — Сообщить об отказе от заказов
 
 ### orders_fbw (`orders_fbw`)
 - `orders_fbw.DefaultApi.getV1SuppliesId` — Детали поставки

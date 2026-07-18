@@ -4,7 +4,7 @@ info:
     <div class="api-block">
 
     С помощью методов Заказы DBW (Доставка курьером WB) вы можете:
-      - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW), управлять статусами и отменять сборочные задания
+      - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания
       - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий
 
     </div>
@@ -22,13 +22,14 @@ security:
 tags:
 - description: ""
   name: Сборочные задания DBW
+  x-displayName: Сборочные задания DBW
 - description: ""
   name: Идентификаторы маркировки DBW
   x-displayName: Идентификаторы маркировки DBW
 paths:
   /api/v3/dbw/orders/new:
     get:
-      description: "Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW),\
+      description: "Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders),\
         \ которые есть у продавца на момент запроса.\n\n<div class=\"description_limit\"\
         >\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Л\
         имит запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n\
@@ -37,12 +38,13 @@ paths:
         ий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- |\
         \ --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин зап\
         рос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: getV3DbwOrdersNew
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_200_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_200_response"
           description: Успешно
         "401":
           content:
@@ -58,7 +60,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -68,7 +70,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -92,7 +94,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -106,15 +108,16 @@ paths:
   /api/v3/dbw/orders:
     get:
       description: "Метод возвращает информацию о завершенных [сборочных заданиях\
-        ](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW).\n<br><br>\nМожно получ\
-        ить данные за заданный период, максимум 30 календарных дней одним запросом\
-        .\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        ](/openapi/orders-dbw#tag/dbwAssemblyOrders).\n<br><br>\nМожно получить да\
+        нные за заданный период, максимум 30 календарных дней одним запросом.\n\n\
+        <div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
         ние и удаление идентификаторов маркировки</li>\n    <li>методы сборочных з\
         аданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: getV3DbwOrders
       parameters:
       - description: Параметр пагинации. Устанавливает предельное количество возвращаемых
           данных
@@ -161,7 +164,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_get_200_response"
+                $ref: "#/components/schemas/getV3DbwOrders_200_response"
           description: Успешно
         "400":
           content:
@@ -186,7 +189,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -196,7 +199,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -220,7 +223,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -242,6 +245,7 @@ paths:
         ий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- |\
         \ --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин зап\
         рос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersDeliveryDate
       requestBody:
         content:
           application/json:
@@ -280,7 +284,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -290,7 +294,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -314,7 +318,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -335,6 +339,7 @@ paths:
         аданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersClient
       requestBody:
         content:
           application/json:
@@ -359,7 +364,7 @@ paths:
                 UploadDataLimit:
                   $ref: "#/components/examples/UploadDataLimit"
               schema:
-                $ref: "#/components/schemas/_api_marketplace_v3_dbw_orders_client_post_400_response"
+                $ref: "#/components/schemas/postV3DbwOrdersClient_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -375,7 +380,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -385,7 +390,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -409,7 +414,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -428,11 +433,11 @@ paths:
         \  | Описание            | Как перевести сборочное задание в данный статус\
         \ |\n| -------  | ---------           | --------------------------------------|\n\
         | `new`      | **Новое сборочное задание** | |\n| `confirm`  | **На сборке\
-        **      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1confirm/patch)\n\
-        | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1marketplace~1v3~1dbw~1orders~1status~1deliver/post)\
+        **      |  [Перевести сборочное задание на сборку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdConfirm)\n\
+        | `complete` | **В доставке**  | [Перевести сборочное задание в доставку](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatusDeliver)\
         \ |\n| `receive`  | **Получено покупателем**|  Переводится курьером\n| `reject`\
         \   | **Отказ покупателя при получении**| Переводится курьером\n| `cancel`\
-        \   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1{orderId}~1cancel/patch)\n\
+        \   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/patchV3DbwOrdersOrderIdCancel)\n\
         | `cancel_missed_call` | **Отмена по причине недозвона**<br> | Статус меня\
         ется автоматически |\n\n<br><br>\n`wbStatus` — статус системы Wildberries.\n\
         \nВозможные значения `wbStatus`:\n- `waiting` — сборочное задание в работе\
@@ -449,17 +454,18 @@ paths:
         аданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersStatus
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_dbw_orders_status_post_request"
+              $ref: "#/components/schemas/postV3DbwOrdersStatus_request"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_status_post_200_response"
+                $ref: "#/components/schemas/postV3DbwOrdersStatus_200_response"
           description: Успешно
         "400":
           content:
@@ -488,7 +494,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -498,7 +504,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -522,7 +528,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -535,8 +541,8 @@ paths:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/{orderId}/confirm:
     patch:
-      description: "Метод переводит [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW)\
-        \ в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post)\
+      description: "Метод переводит [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders)\
+        \ в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus)\
         \ `confirm` — на сборке.\n\n<div class=\"description_limit\">\n<a href=\"\
         /openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов\
         </a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n    <li>по\
@@ -545,6 +551,7 @@ paths:
         \ \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n\
         | 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин запрос с кодами от\
         ветов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: patchV3DbwOrdersOrderIdConfirm
       parameters:
       - description: ID сборочного задания
         explode: false
@@ -582,7 +589,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -592,7 +599,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -634,7 +641,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -647,8 +654,8 @@ paths:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/stickers:
     post:
-      description: "Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get)\
-        \ в [статусах](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post):\n\
+      description: "Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew)\
+        \ в [статусах](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus):\n\
         \  - `confirm` — на сборке\n  - `complete` — в доставке\n\nЗа один запрос\
         \ можно получить максимум 100 стикеров.<br>\n\nДоступные форматы стикеров\
         :\n  - SVG\n  - ZPLV (вертикальный)\n  - ZPLH (горизонтальный)\n  - PNG\n\n\
@@ -661,6 +668,7 @@ paths:
         ий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- |\
         \ --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин зап\
         рос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersStickers
       parameters:
       - description: Тип стикера
         explode: true
@@ -701,13 +709,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_dbw_orders_stickers_post_request"
+              $ref: "#/components/schemas/postV3DbwOrdersStickers_request"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_stickers_post_200_response"
+                $ref: "#/components/schemas/postV3DbwOrdersStickers_200_response"
           description: Успешно
         "400":
           content:
@@ -736,7 +744,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -746,7 +754,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -770,7 +778,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -783,8 +791,8 @@ paths:
     - url: https://marketplace-api.wildberries.ru
   /api/marketplace/v3/dbw/orders/status/deliver:
     post:
-      description: "Метод переводит [сборочные задания](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get)\
-        \ из [статуса](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post)\
+      description: "Метод переводит [сборочные задания](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders)\
+        \ из [статуса](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus)\
         \ `confirm` в статус `complete` — в доставке.\n\n<div class=\"description_important\"\
         >\nПроверяйте ответ метода. Сборочные задания, переведённые в доставку, ве\
         рнутся с признаком `\"isError\":false`. Для остальных сборочных заданий см\
@@ -796,6 +804,7 @@ paths:
         ий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- |\
         \ --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин зап\
         рос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersStatusDeliver
       requestBody:
         content:
           application/json:
@@ -850,7 +859,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -860,7 +869,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -884,7 +893,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       summary: Перевести сборочные задания в доставку
       tags:
@@ -904,6 +913,7 @@ paths:
         аданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersCourier
       requestBody:
         content:
           application/json:
@@ -944,7 +954,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -954,7 +964,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -978,7 +988,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       summary: Информация о курьере
       tags:
@@ -989,8 +999,8 @@ paths:
     - url: https://marketplace-api.wildberries.ru
   /api/v3/dbw/orders/{orderId}/cancel:
     patch:
-      description: "Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW)\
-        \ и переводит в [статус](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post)\
+      description: "Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders)\
+        \ и переводит в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus)\
         \ `cancel` — отменено продавцом.\n\n<div class=\"description_limit\">\n<a\
         \ href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит\
         \ запросов</a> на один аккаунт продавца для методов DBW:\n<ul>\n    <li>по\
@@ -1002,6 +1012,7 @@ paths:
         вый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов |\n| Базовый\
         \ | 1 ч | 10 запросов | 6 мин | 1 запрос |\n\nОдин запрос с кодами ответов\
         \ <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: patchV3DbwOrdersOrderIdCancel
       parameters:
       - description: ID сборочного задания
         explode: false
@@ -1039,7 +1050,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1049,7 +1060,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1091,7 +1102,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1105,15 +1116,15 @@ paths:
   /api/marketplace/v3/dbw/orders/meta/details:
     post:
       description: "Метод возвращает идентификаторы маркировки [сборочных заданий\
-        ](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders/get)\
-        \ и статусы их валидации.\n<br><br>\nПеречень идентификаторов маркировки,\
-        \ доступных для сборочного задания, можно получить в [списке новых сборочн\
-        ых заданий](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1new/get),\
+        ](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и ст\
+        атусы их валидации.\n<br><br>\nПеречень идентификаторов маркировки, доступ\
+        ных для сборочного задания, можно получить в [списке новых сборочных задан\
+        ий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew),\
         \ поле `requiredMeta`.\n<br><br>\nВозможные идентификаторы маркировки:\n \
-        \ - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n\
-        \  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)\n\
-        \  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1gtin/put)\n\
-        \  - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)\n\
+        \ - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\n\
+        \  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)\n\
+        \  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)\n\
+        \  - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)\n\
         \n  <div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
@@ -1121,6 +1132,7 @@ paths:
         аданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersMetaDetails
       requestBody:
         content:
           application/json:
@@ -1158,7 +1170,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1168,7 +1180,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1194,7 +1206,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1208,13 +1220,13 @@ paths:
   /api/marketplace/v3/dbw/orders/meta/delete:
     post:
       description: "Метод удаляет значение указанных [идентификаторов маркировки с\
-        борочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
+        борочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails)\
         \ для переданного ключа.\n<br><br>\nВ одном запросе можно удалить идентифи\
         каторы маркировки только одного типа. Укажите тип идентификаторов маркиров\
-        ки в запросе:\n  - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n\
-        \  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1uin/put)\n\
-        \  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\n\
-        \  - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1sgtin/post)\n\
+        ки в запросе:\n  - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\n\
+        \  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)\n\
+        \  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\n\
+        \  - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)\n\
         \nМожно передать только один ключ.\n\n  <div class=\"description_limit\">\n\
         <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лими\
         т запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n\
@@ -1223,6 +1235,7 @@ paths:
         ий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- |\
         \ --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин зап\
         рос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersMetaDelete
       requestBody:
         content:
           application/json:
@@ -1263,7 +1276,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1273,7 +1286,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1297,7 +1310,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       summary: Удалить идентификаторы маркировки сборочных заданий
       tags:
@@ -1317,6 +1330,7 @@ paths:
         аданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: getV3DbwOrdersOrderIdMeta
       parameters:
       - description: ID сборочного задания
         explode: false
@@ -1333,7 +1347,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders__orderId__meta_get_200_response"
+                $ref: "#/components/schemas/getV3DbwOrdersOrderIdMeta_200_response"
           description: Успешно
         "400":
           content:
@@ -1358,7 +1372,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1368,7 +1382,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1401,7 +1415,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1415,12 +1429,12 @@ paths:
   /api/marketplace/v3/dbw/orders/meta/sgtin:
     post:
       description: "Метод обновляет код маркировки [Честного знака](https://честны\
-        йзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
+        йзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails)\
         \ нескольких сборочных заданий.<br>\nЗакрепить код маркировки можно, тольк\
-        о если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post)\
-        \ есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post)\
+        о если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails)\
+        \ есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus)\
         \ `confirm` — на сборке.\n<br><br>\nПолучить загруженные маркировки можно\
-        \ в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).\n\
+        \ в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
@@ -1428,6 +1442,7 @@ paths:
         аданий</li>\n</ul> \n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbwOrdersMetaSgtin
       requestBody:
         content:
           application/json:
@@ -1478,7 +1493,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1488,7 +1503,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1512,7 +1527,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       summary: Закрепить коды маркировки Честного знака за сборочными заданиями
       tags:
@@ -1524,11 +1539,11 @@ paths:
   /api/v3/dbw/orders/{orderId}/meta/uin:
     put:
       description: |
-        Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный идентификационный номер.
+        Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный идентификационный номер.
         <br><br>
         У одного сборочного задания может быть только один УИН.
 
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
+        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1539,6 +1554,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: putV3DbwOrdersOrderIdMetaUin
       parameters:
       - description: ID сборочного задания
         explode: false
@@ -1554,7 +1570,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_dbw_orders__orderId__meta_uin_put_request"
+              $ref: "#/components/schemas/putV3DbwOrdersOrderIdMetaUin_request"
       responses:
         "204":
           description: Обновлено
@@ -1585,7 +1601,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1595,7 +1611,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1637,7 +1653,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1651,11 +1667,11 @@ paths:
   /api/v3/dbw/orders/{orderId}/meta/imei:
     put:
       description: |
-        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post).
+        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
         <br><br>
         У одного сборочного задания может быть только один IMEI.
 
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
+        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1666,6 +1682,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: putV3DbwOrdersOrderIdMetaImei
       parameters:
       - description: ID сборочного задания
         explode: false
@@ -1681,7 +1698,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_dbw_orders__orderId__meta_imei_put_request"
+              $ref: "#/components/schemas/putV3DbwOrdersOrderIdMetaImei_request"
       responses:
         "204":
           description: Обновлено
@@ -1712,7 +1729,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1722,7 +1739,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1764,7 +1781,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1778,11 +1795,11 @@ paths:
   /api/v3/dbw/orders/{orderId}/meta/gtin:
     put:
       description: |
-        Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbw~1orders~1meta~1details/post) — уникальный ID товара в Беларуси.
+        Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный ID товара в Беларуси.
         <br><br>
         У одного сборочного задания может быть только один GTIN.
 
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/Sborochnye-zadaniya-DBW/paths/~1api~1v3~1dbw~1orders~1status/post) `confirm`.
+        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1793,6 +1810,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: putV3DbwOrdersOrderIdMetaGtin
       parameters:
       - description: ID сборочного задания
         explode: false
@@ -1808,7 +1826,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v3_dbw_orders__orderId__meta_gtin_put_request"
+              $ref: "#/components/schemas/putV3DbwOrdersOrderIdMetaGtin_request"
       responses:
         "204":
           description: Обновлено
@@ -1839,7 +1857,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1849,7 +1867,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1891,7 +1909,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1990,7 +2008,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+            $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
       description: Не авторизован
     "402":
       content:
@@ -2000,7 +2018,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_402_response"
+            $ref: "#/components/schemas/getV3DbwOrdersNew_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -2015,7 +2033,7 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v3_dbw_orders_new_get_401_response"
+            $ref: "#/components/schemas/getV3DbwOrdersNew_401_response"
       description: Слишком много запросов
     NotFound:
       content:
@@ -2533,7 +2551,7 @@ components:
           type: integer
         requiredMeta:
           description: "Список идентификаторов маркировки, доступных для сборочног\
-            о задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/paths/~1api~1v3~1dbw~1orders~1%7BorderId%7D~1meta~1imei/put)\
+            о задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\
             \ обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)\
             \ `Смартфоны`, `\"subjectId\":515`"
           example:
@@ -2870,7 +2888,7 @@ components:
         sgtin:
           $ref: "#/components/schemas/Meta_sgtin"
       type: object
-    _api_v3_dbw_orders_new_get_200_response:
+    getV3DbwOrdersNew_200_response:
       example:
         orders:
         - address:
@@ -2942,7 +2960,7 @@ components:
           nullable: false
           type: array
       type: object
-    _api_v3_dbw_orders_new_get_401_response:
+    getV3DbwOrdersNew_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -2970,7 +2988,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v3_dbw_orders_new_get_402_response:
+    getV3DbwOrdersNew_402_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -2980,7 +2998,7 @@ components:
             алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
-    _api_v3_dbw_orders_get_200_response:
+    getV3DbwOrders_200_response:
       example:
         next: 13833711
         orders:
@@ -3053,7 +3071,7 @@ components:
           nullable: false
           type: array
       type: object
-    _api_marketplace_v3_dbw_orders_client_post_400_response:
+    postV3DbwOrdersClient_400_response:
       allOf:
       - $ref: "#/components/schemas/Error"
       - $ref: "#/components/schemas/api.BatchError"
@@ -3065,7 +3083,7 @@ components:
         origin: dbs-public-api
         requestId: f1787bd2d1fdс35d6f537316514у4a05
         title: IncorrectRequest
-    _api_v3_dbw_orders_status_post_request:
+    postV3DbwOrdersStatus_request:
       properties:
         orders:
           description: Список ID сборочных заданий
@@ -3079,7 +3097,7 @@ components:
       required:
       - orders
       type: object
-    _api_v3_dbw_orders_status_post_200_response_orders_inner:
+    postV3DbwOrdersStatus_200_response_orders_inner:
       example:
         id: 5632423
         supplierStatus: new
@@ -3101,7 +3119,7 @@ components:
           nullable: false
           type: string
       type: object
-    _api_v3_dbw_orders_status_post_200_response:
+    postV3DbwOrdersStatus_200_response:
       example:
         orders:
         - id: 5632423
@@ -3113,11 +3131,11 @@ components:
       properties:
         orders:
           items:
-            $ref: "#/components/schemas/_api_v3_dbw_orders_status_post_200_response_orders_inner"
+            $ref: "#/components/schemas/postV3DbwOrdersStatus_200_response_orders_inner"
           nullable: false
           type: array
       type: object
-    _api_v3_dbw_orders_stickers_post_request:
+    postV3DbwOrdersStickers_request:
       properties:
         orders:
           description: Список ID сборочных заданий
@@ -3129,7 +3147,7 @@ components:
           minItems: 1
           type: array
       type: object
-    _api_v3_dbw_orders_stickers_post_200_response_stickers_inner:
+    postV3DbwOrdersStickers_200_response_stickers_inner:
       example:
         orderId: 5346346
         partA: "231648"
@@ -3165,7 +3183,7 @@ components:
           nullable: false
           type: string
       type: object
-    _api_v3_dbw_orders_stickers_post_200_response:
+    postV3DbwOrdersStickers_200_response:
       example:
         stickers:
         - orderId: 5346346
@@ -3181,11 +3199,11 @@ components:
       properties:
         stickers:
           items:
-            $ref: "#/components/schemas/_api_v3_dbw_orders_stickers_post_200_response_stickers_inner"
+            $ref: "#/components/schemas/postV3DbwOrdersStickers_200_response_stickers_inner"
           nullable: false
           type: array
       type: object
-    _api_v3_dbw_orders__orderId__meta_get_200_response:
+    getV3DbwOrdersOrderIdMeta_200_response:
       example:
         meta:
           imei:
@@ -3202,7 +3220,7 @@ components:
         meta:
           $ref: "#/components/schemas/Meta"
       type: object
-    _api_v3_dbw_orders__orderId__meta_uin_put_request:
+    putV3DbwOrdersOrderIdMetaUin_request:
       properties:
         uin:
           description: УИН
@@ -3213,7 +3231,7 @@ components:
       required:
       - uin
       type: object
-    _api_v3_dbw_orders__orderId__meta_imei_put_request:
+    putV3DbwOrdersOrderIdMetaImei_request:
       properties:
         imei:
           description: IMEI
@@ -3224,7 +3242,7 @@ components:
       required:
       - imei
       type: object
-    _api_v3_dbw_orders__orderId__meta_gtin_put_request:
+    putV3DbwOrdersOrderIdMetaGtin_request:
       properties:
         gtin:
           description: GTIN

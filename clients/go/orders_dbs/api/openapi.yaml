@@ -7,7 +7,7 @@ info:
 
     <div class="api-block">
 
-    Управление [сборочными заданиями](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>
+    Управление [сборочными заданиями](/openapi/orders-dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers) заказов DBS (Delivery by Seller).<br><br>
 
     Вы можете протестировать методы заказов DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-DBS) для эмуляции действий пользователя
 
@@ -22,6 +22,7 @@ security:
 tags:
 - description: ""
   name: Сборочные задания DBS
+  x-displayName: Сборочные задания DBS
 - description: ""
   name: Идентификаторы маркировки DBS
   x-displayName: Идентификаторы маркировки DBS
@@ -29,7 +30,7 @@ paths:
   /api/v3/dbs/orders/new:
     get:
       description: |
-        Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS), которые есть у продавца на момент запроса.
+        Метод возвращает список всех новых [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
 
         <div class="description_limit">
         <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:
@@ -40,12 +41,13 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: getV3DbsOrdersNew
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_200_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_200_response"
           description: Успешно
         "401":
           content:
@@ -61,7 +63,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -71,7 +73,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -95,7 +97,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -114,7 +116,7 @@ paths:
   /api/v3/dbs/orders:
     get:
       description: |
-        Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) после продажи или отмены заказа.
+        Метод возвращает информацию о завершенных [сборочных заданиях](/openapi/orders-dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.
         <br><br>
         Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
@@ -127,6 +129,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: getV3DbsOrders
       parameters:
       - description: Параметр пагинации. Устанавливает предельное количество возвращаемых
           данных.
@@ -173,7 +176,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_get_200_response"
+                $ref: "#/components/schemas/getV3DbsOrders_200_response"
           description: Успешно
         "400":
           content:
@@ -198,7 +201,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -208,7 +211,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -232,7 +235,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -262,6 +265,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsGroupsInfo
       requestBody:
         content:
           application/json:
@@ -298,7 +302,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -308,7 +312,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -332,7 +336,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       summary: Получить информацию о платной доставке
       tags:
@@ -360,6 +364,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersClient
       requestBody:
         content:
           application/json:
@@ -400,7 +405,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -410,7 +415,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -443,7 +448,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -476,6 +481,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersB2bInfo
       requestBody:
         content:
           application/json:
@@ -509,7 +515,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -519,7 +525,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -545,7 +551,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -571,6 +577,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersDeliveryDate
       requestBody:
         content:
           application/json:
@@ -609,7 +616,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -619,7 +626,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -643,7 +650,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -662,7 +669,7 @@ paths:
   /api/marketplace/v3/dbs/orders/status/info:
     post:
       description: |
-        Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) по их ID.
+        Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) по их ID.
         <br><br>
         `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
 
@@ -670,11 +677,11 @@ paths:
         | Статус   | Описание            | Как перевести сборочное задание в данный статус |
         | -------  | ---------           | --------------------------------------|
         | `new`      | **Новое сборочное задание** | |
-        | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1confirm/post)
-        | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1deliver/post)
-        | `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1receive/post) <br>
-        | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1reject/post)
-        | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1cancel/post)
+        | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm)
+        | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver)
+        | `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) <br>
+        | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject)
+        | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel)
         | `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |
 
         <br><br>
@@ -700,6 +707,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersStatusInfo
       requestBody:
         content:
           application/json:
@@ -737,7 +745,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -747,7 +755,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -779,7 +787,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -798,7 +806,7 @@ paths:
   /api/marketplace/v3/dbs/orders/status/cancel:
     post:
       description: |
-        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статусов](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `new` и `confirm` в статус `cancel` — отменено продавцом.
+        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статусов](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом.
         Отменить сборочные задания в статусе `deliver` невозможно.
 
         <div class="description_limit">
@@ -810,6 +818,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersStatusCancel
       requestBody:
         content:
           application/json:
@@ -847,7 +856,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -857,7 +866,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -883,7 +892,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -902,7 +911,7 @@ paths:
   /api/marketplace/v3/dbs/orders/status/confirm:
     post:
       description: |
-        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `new` в статус `confirm` — на сборке.
+        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
 
         <div class="description_limit">
         <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
@@ -913,6 +922,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersStatusConfirm
       requestBody:
         content:
           application/json:
@@ -950,7 +960,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -960,7 +970,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -986,7 +996,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1008,7 +1018,7 @@ paths:
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену, \n        <strong>Базовому</strong>\
         \ токену <strong>с секретом</strong>\n</div>\n\nМетод возвращает стикеры д\
-        ля сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post):\n\
+        ля сборочных заданий с доставкой в ПВЗ в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo):\n\
         \  - `confirm` — на сборке\n  - `deliver` — в доставке\n\nПолучить стикеры\
         \ можно только в размере 580x400 px в формате PDF.\n\n<div class=\"description_limit\"\
         >\n<a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Л\
@@ -1016,6 +1026,7 @@ paths:
         аданий DBS</strong>:\n\n| Период | Лимит | Интервал | Всплеск |\n| --- | ---\
         \ | --- | --- |\n| 1 мин | 300 запросов | 200 мс | 20 запросов |\n\nОдин з\
         апрос с кодами ответов <code>4XX</code> учитывается как 10 запросов\n</div>\n"
+      operationId: postV3DbsOrdersStickers
       parameters:
       - description: Формат стикера
         explode: true
@@ -1051,13 +1062,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_stickers_post_request"
+              $ref: "#/components/schemas/postV3DbsOrdersStickers_request"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_stickers_post_200_response"
+                $ref: "#/components/schemas/postV3DbsOrdersStickers_200_response"
           description: Успешно
         "400":
           content:
@@ -1084,7 +1095,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1094,7 +1105,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1121,7 +1132,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1139,7 +1150,7 @@ paths:
   /api/marketplace/v3/dbs/orders/status/deliver:
     post:
       description: |
-        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` в статус `deliver` — в доставке.
+        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
 
         <div class="description_limit">
         <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
@@ -1150,6 +1161,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersStatusDeliver
       requestBody:
         content:
           application/json:
@@ -1187,7 +1199,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1197,7 +1209,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1223,7 +1235,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1242,7 +1254,7 @@ paths:
   /api/marketplace/v3/dbs/orders/status/receive:
     post:
       description: |
-        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `deliver` в статус `receive` — получено покупателем.
+        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
 
         <div class="description_limit">
         <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
@@ -1253,6 +1265,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersStatusReceive
       requestBody:
         content:
           application/json:
@@ -1263,7 +1276,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_status_receive_post_200_response"
+                $ref: "#/components/schemas/postV3DbsOrdersStatusReceive_200_response"
           description: Успешно
         "400":
           content:
@@ -1290,7 +1303,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1300,7 +1313,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1326,7 +1339,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1345,7 +1358,7 @@ paths:
   /api/marketplace/v3/dbs/orders/status/reject:
     post:
       description: |
-        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) из [статуса](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `deliver` в статус `reject` — отказ покупателя при получении.
+        Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
 
         <div class="description_limit">
         <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:
@@ -1356,6 +1369,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersStatusReject
       requestBody:
         content:
           application/json:
@@ -1393,7 +1407,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1403,7 +1417,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1429,7 +1443,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1448,15 +1462,15 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/details:
     post:
       description: |
-        Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS) и статусы их валидации. <br>
-        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1new/get), поле `requiredMeta`.<br>
+        Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) и статусы их валидации. <br>
+        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`.<br>
         Возможные идентификаторы маркировки:
-          - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
-          - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
-          - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
-          - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
-          - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post)
-          - `originCountryCode ` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+          - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+          - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+          - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+          - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+          - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
+          - `originCountryCode ` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
         Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.<br>
         <div class="description_limit">
@@ -1468,6 +1482,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaDetails
       requestBody:
         content:
           application/json:
@@ -1505,7 +1520,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1515,7 +1530,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1541,7 +1556,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1567,6 +1582,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaInfo
       requestBody:
         content:
           application/json:
@@ -1604,7 +1620,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1614,7 +1630,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1640,7 +1656,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1659,15 +1675,15 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/delete:
     post:
       description: |
-        Метод удаляет значение указанных [идентификаторов маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) для нескольких сборочных заданий.
+        Метод удаляет значение указанных [идентификаторов маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) для нескольких сборочных заданий.
         <br><br>
         В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-          - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
-          - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
-          - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
-          - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
-          - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post)
-          - `originCountryCode` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode `
+          - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+          - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+          - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+          - `sgtin` — [код маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+          - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
+          - `originCountryCode` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode `
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
@@ -1678,6 +1694,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaDelete
       requestBody:
         content:
           application/json:
@@ -1715,7 +1732,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1725,7 +1742,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1757,7 +1774,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1776,10 +1793,10 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/sgtin:
     post:
       description: |
-        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
-        Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm` — на сборке.
+        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) нескольких сборочных заданий.<br>
+        Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` — на сборке.
         <br><br>
-        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
+        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
@@ -1794,6 +1811,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaSgtin
       requestBody:
         content:
           application/json:
@@ -1831,7 +1849,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1841,7 +1859,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1867,7 +1885,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1886,9 +1904,9 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/uin:
     post:
       description: |
-        Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).<br>
+        Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br>
         У одного сборочного задания может быть только один УИН.
-        Добавлять УИН можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.
+        Добавлять УИН можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
@@ -1899,6 +1917,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaUin
       requestBody:
         content:
           application/json:
@@ -1936,7 +1955,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1946,7 +1965,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1978,7 +1997,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1997,9 +2016,9 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/imei:
     post:
       description: |
-        Метод обновляет IMEI в [идентификаторых маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
+        Метод обновляет IMEI в [идентификаторых маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) нескольких сборочных заданий.<br>
         У одного сборочного задания может быть только один IMEI.
-        Добавлять IMEI можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
+        Добавлять IMEI можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm`.<br>
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
@@ -2010,6 +2029,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaImei
       requestBody:
         content:
           application/json:
@@ -2047,7 +2067,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2057,7 +2077,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2089,7 +2109,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2108,9 +2128,9 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/gtin:
     post:
       description: |
-        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post) нескольких сборочных заданий.<br>
+        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) нескольких сборочных заданий.<br>
         У одного сборочного задания может быть только один GTIN.
-        Добавлять GTIN можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1marketplace~1v3~1dbs~1orders~1status~1info/post) `confirm`.<br>
+        Добавлять GTIN можно только для сборочных заданий, которые доставляются WB и находятся в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm`.<br>
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
@@ -2121,6 +2141,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaGtin
       requestBody:
         content:
           application/json:
@@ -2158,7 +2179,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2168,7 +2189,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2200,7 +2221,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2219,10 +2240,10 @@ paths:
   /api/marketplace/v3/dbs/orders/meta/customs-declaration:
     post:
       description: |
-        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1details/post).
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
         <br><br>
 
-        Добавлять номера ДТ можно только для сборочных заданий в [статусах](/openapi/orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1status/post) `confirm` или `deliver`.
+        Добавлять номера ДТ можно только для сборочных заданий в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.
 
         У одного сборочного задания может быть только один ДТ.
 
@@ -2235,11 +2256,12 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
+      operationId: postV3DbsOrdersMetaCustomsDeclaration
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request"
+              $ref: "#/components/schemas/postV3DbsOrdersMetaCustomsDeclaration_request"
       responses:
         "200":
           content:
@@ -2272,7 +2294,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2282,7 +2304,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2324,7 +2346,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+                $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2413,7 +2435,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+            $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
       description: Не авторизован
     "402":
       content:
@@ -2423,7 +2445,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_402_response"
+            $ref: "#/components/schemas/getV3DbsOrdersNew_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -2438,7 +2460,7 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v3_dbs_orders_new_get_401_response"
+            $ref: "#/components/schemas/getV3DbsOrdersNew_401_response"
       description: Слишком много запросов
     NotFound:
       content:
@@ -2466,8 +2488,8 @@ components:
         - 5a8f4523-4cf2-5691-9682-5a7fd33afd73
       properties:
         groups:
-          description: "Список значений `groupId`. Можно получить из [новых](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders~1new/get)\
-            \ и [завершенных](./orders-dbs#tag/Sborochnye-zadaniya-DBS/paths/~1api~1v3~1dbs~1orders/get)\
+          description: "Список значений `groupId`. Можно получить из [новых](./orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)\
+            \ и [завершенных](./orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)\
             \ сборочных заданий"
           items:
             type: string
@@ -2576,7 +2598,7 @@ components:
           type: integer
         requiredMeta:
           description: "Список идентификаторов маркировки, доступных для сборочног\
-            о задания. [Указывать IMEI](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)\
+            о задания. [Указывать IMEI](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)\
             \ обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)\
             \ `Смартфоны`, `\"subjectId\":515`"
           example:
@@ -3626,7 +3648,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v3_dbs_orders_new_get_200_response:
+    getV3DbsOrdersNew_200_response:
       example:
         orders:
         - salePrice: 504658
@@ -3706,7 +3728,7 @@ components:
           nullable: false
           type: array
       type: object
-    _api_v3_dbs_orders_new_get_401_response:
+    getV3DbsOrdersNew_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -3734,7 +3756,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v3_dbs_orders_new_get_402_response:
+    getV3DbsOrdersNew_402_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -3744,7 +3766,7 @@ components:
             алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
-    _api_v3_dbs_orders_get_200_response:
+    getV3DbsOrders_200_response:
       example:
         next: 13833711
         orders:
@@ -3827,7 +3849,7 @@ components:
           nullable: false
           type: array
       type: object
-    _api_marketplace_v3_dbs_orders_stickers_post_request:
+    postV3DbsOrdersStickers_request:
       properties:
         orders:
           description: Список ID сборочных заданий
@@ -3841,7 +3863,7 @@ components:
       required:
       - orders
       type: object
-    _api_marketplace_v3_dbs_orders_stickers_post_200_response_stickers_inner:
+    postV3DbsOrdersStickers_200_response_stickers_inner:
       example:
         orderId: 5346346
         partA: "231648"
@@ -3882,7 +3904,7 @@ components:
       - partA
       - partB
       type: object
-    _api_marketplace_v3_dbs_orders_stickers_post_200_response:
+    postV3DbsOrdersStickers_200_response:
       example:
         stickers:
         - orderId: 5346346
@@ -3899,11 +3921,11 @@ components:
         stickers:
           description: Стикеры
           items:
-            $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_stickers_post_200_response_stickers_inner"
+            $ref: "#/components/schemas/postV3DbsOrdersStickers_200_response_stickers_inner"
           nullable: false
           type: array
       type: object
-    _api_marketplace_v3_dbs_orders_status_receive_post_200_response_results_inner_errors_inner:
+    postV3DbsOrdersStatusReceive_200_response_results_inner_errors_inner:
       properties:
         code:
           description: Код ошибки
@@ -3913,16 +3935,16 @@ components:
           description: |
             - `NotFound` — сборочное задание не найдено
             - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
-            - `SGTINIsNotFilled` — обязательный [код маркировки](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post) не указан
+            - `SGTINIsNotFilled` — обязательный [код маркировки](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin) не указан
           example: NotFound
           type: string
       type: object
-    _api_marketplace_v3_dbs_orders_status_receive_post_200_response_results_inner:
+    postV3DbsOrdersStatusReceive_200_response_results_inner:
       properties:
         errors:
           description: Детали ошибки
           items:
-            $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_status_receive_post_200_response_results_inner_errors_inner"
+            $ref: "#/components/schemas/postV3DbsOrdersStatusReceive_200_response_results_inner_errors_inner"
           type: array
         isError:
           description: Есть ли ошибки
@@ -3933,7 +3955,7 @@ components:
           example: 123456
           type: integer
       type: object
-    _api_marketplace_v3_dbs_orders_status_receive_post_200_response:
+    postV3DbsOrdersStatusReceive_200_response:
       example:
         requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
         results:
@@ -3951,10 +3973,10 @@ components:
           type: string
         results:
           items:
-            $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_status_receive_post_200_response_results_inner"
+            $ref: "#/components/schemas/postV3DbsOrdersStatusReceive_200_response_results_inner"
           type: array
       type: object
-    _api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request_orders_inner:
+    postV3DbsOrdersMetaCustomsDeclaration_request_orders_inner:
       properties:
         customsDeclaration:
           description: Номер ДТ
@@ -3976,11 +3998,11 @@ components:
       - orderId
       - originCountryCode
       type: object
-    _api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request:
+    postV3DbsOrdersMetaCustomsDeclaration_request:
       properties:
         orders:
           items:
-            $ref: "#/components/schemas/_api_marketplace_v3_dbs_orders_meta_customs_declaration_post_request_orders_inner"
+            $ref: "#/components/schemas/postV3DbsOrdersMetaCustomsDeclaration_request_orders_inner"
           maxItems: 1000
           type: array
       type: object
@@ -4162,12 +4184,12 @@ components:
         key:
           description: |
             Идентификатор маркировки:
-              - `imei` — [IMEI](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1imei/post)
-              - `uin` — [УИН](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1uin/post)
-              - `gtin` — [GTIN](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1gtin/post)
-              - `sgtin` — [код маркировки](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1sgtin/post)
-              - `customsDeclaration` — [номер ДТ](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post)
-              - `originCountryCode ` — [числовой код страны происхождения](./orders-dbs#tag/dbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1dbs~1orders~1meta~1customs-declaration/post) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post)
+              - `imei` — [IMEI](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+              - `uin` — [УИН](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+              - `gtin` — [GTIN](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+              - `sgtin` — [код маркировки](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+              - `customsDeclaration` — [номер ДТ](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
+              - `originCountryCode ` — [числовой код страны происхождения](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post)
           example: sgtin
           type: string
         value:

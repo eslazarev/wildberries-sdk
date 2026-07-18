@@ -104,7 +104,7 @@ class GoodHistory implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount' => false,
         'club_discount' => true,
         'status' => false,
-        'error_text' => false
+        'error_text' => true
     ];
 
     /**
@@ -636,7 +636,14 @@ class GoodHistory implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setErrorText($error_text)
     {
         if (is_null($error_text)) {
-            throw new \InvalidArgumentException('non-nullable error_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'error_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('error_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['error_text'] = $error_text;
 

@@ -1,7 +1,7 @@
 /*
 Заказы Самовывоз
 
-<div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+<div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
 
 API version: instorepickup
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.128/go",
+		UserAgent:        "OpenAPI-Generator/0.1.129/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,7 +98,7 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersMetaDeletePost": {
+			"DefaultApiService.GetV3ClickCollectOrders": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -108,7 +108,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersMetaGtinPost": {
+			"DefaultApiService.GetV3ClickCollectOrdersNew": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -118,7 +118,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersMetaImeiPost": {
+			"DefaultApiService.PostV3ClickCollectOrdersClient": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -128,127 +128,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersMetaInfoPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersMetaSgtinPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersMetaUinPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersStatusCancelPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersStatusConfirmPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersStatusInfoPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersStatusPreparePost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersStatusReceivePost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiMarketplaceV3ClickCollectOrdersStatusRejectPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV3ClickCollectOrdersClientIdentityPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV3ClickCollectOrdersClientPost": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV3ClickCollectOrdersGet": {
-				{
-					URL: "https://marketplace-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://marketplace-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV3ClickCollectOrdersNewGet": {
+			"DefaultApiService.PostV3ClickCollectOrdersClientIdentity": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -262,6 +142,126 @@ func NewConfiguration() *Configuration {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersMetaDelete": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersMetaGtin": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersMetaImei": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersMetaInfo": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersMetaSgtin": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersMetaUin": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersStatusCancel": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersStatusConfirm": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersStatusInfo": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersStatusPrepare": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersStatusReceive": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersStatusReject": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://marketplace-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
 		},

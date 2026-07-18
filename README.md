@@ -182,66 +182,66 @@ SDK выпускается с security-first процессом:
 - `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
 
 ### Заказы DBW (`04-orders-dbw.yaml`)
-- `POST /api/marketplace/v3/dbw/orders/client` — Информация о покупателе
-- `POST /api/marketplace/v3/dbw/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/dbw/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/dbw/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
-- `POST /api/marketplace/v3/dbw/orders/status/deliver` — Перевести сборочные задания в доставку
-- `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
-- `POST /api/v3/dbw/orders/courier` — Информация о курьере
-- `POST /api/v3/dbw/orders/delivery-date` — Получить дату и время доставки
-- `GET /api/v3/dbw/orders/new` — Получить список новых сборочных заданий
-- `POST /api/v3/dbw/orders/status` — Получить статусы сборочных заданий
-- `POST /api/v3/dbw/orders/stickers` — Получить стикеры сборочных заданий
-- `PATCH /api/v3/dbw/orders/{orderId}/cancel` — Отменить сборочное задание
-- `PATCH /api/v3/dbw/orders/{orderId}/confirm` — Перевести на сборку
-- `GET /api/v3/dbw/orders/{orderId}/meta` — Получить идентификаторы маркировки сборочного задания
-- `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+- `POST /api/marketplace/v3/dbw/orders/client` — Информация о покупателе (postV3DbwOrdersClient)
+- `POST /api/marketplace/v3/dbw/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий (postV3DbwOrdersMetaDelete)
+- `POST /api/marketplace/v3/dbw/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3DbwOrdersMetaDetails)
+- `POST /api/marketplace/v3/dbw/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями (postV3DbwOrdersMetaSgtin)
+- `POST /api/marketplace/v3/dbw/orders/status/deliver` — Перевести сборочные задания в доставку (postV3DbwOrdersStatusDeliver)
+- `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях (getV3DbwOrders)
+- `POST /api/v3/dbw/orders/courier` — Информация о курьере (postV3DbwOrdersCourier)
+- `POST /api/v3/dbw/orders/delivery-date` — Получить дату и время доставки (postV3DbwOrdersDeliveryDate)
+- `GET /api/v3/dbw/orders/new` — Получить список новых сборочных заданий (getV3DbwOrdersNew)
+- `POST /api/v3/dbw/orders/status` — Получить статусы сборочных заданий (postV3DbwOrdersStatus)
+- `POST /api/v3/dbw/orders/stickers` — Получить стикеры сборочных заданий (postV3DbwOrdersStickers)
+- `PATCH /api/v3/dbw/orders/{orderId}/cancel` — Отменить сборочное задание (patchV3DbwOrdersOrderIdCancel)
+- `PATCH /api/v3/dbw/orders/{orderId}/confirm` — Перевести на сборку (patchV3DbwOrdersOrderIdConfirm)
+- `GET /api/v3/dbw/orders/{orderId}/meta` — Получить идентификаторы маркировки сборочного задания (getV3DbwOrdersOrderIdMeta)
+- `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN (putV3DbwOrdersOrderIdMetaGtin)
+- `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI (putV3DbwOrdersOrderIdMetaImei)
+- `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер) (putV3DbwOrdersOrderIdMetaUin)
 
 ### Заказы DBS (`05-orders-dbs.yaml`)
-- `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B
-- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
-- `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
-- `POST /api/marketplace/v3/dbs/orders/meta/imei` — Закрепить IMEI за сборочными заданиями
-- `POST /api/marketplace/v3/dbs/orders/meta/info` — Получить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/dbs/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
-- `POST /api/marketplace/v3/dbs/orders/meta/uin` — Закрепить УИН за сборочными заданиями
-- `POST /api/marketplace/v3/dbs/orders/status/cancel` — Отменить сборочные задания
-- `POST /api/marketplace/v3/dbs/orders/status/confirm` — Перевести сборочные задания на сборку
-- `POST /api/marketplace/v3/dbs/orders/status/deliver` — Перевести сборочные задания в доставку
-- `POST /api/marketplace/v3/dbs/orders/status/info` — Получить статусы сборочных заданий
-- `POST /api/marketplace/v3/dbs/orders/status/receive` — Сообщить о получении заказов
-- `POST /api/marketplace/v3/dbs/orders/status/reject` — Сообщить об отказе от заказов
-- `POST /api/marketplace/v3/dbs/orders/stickers` — Получить стикеры для сборочных заданий с доставкой в ПВЗ
-- `POST /api/v3/dbs/groups/info` — Получить информацию о платной доставке
-- `GET /api/v3/dbs/orders` — Получить информацию о завершенных сборочных заданиях
-- `POST /api/v3/dbs/orders/client` — Информация о покупателе
-- `POST /api/v3/dbs/orders/delivery-date` — Получить дату и время доставки
-- `GET /api/v3/dbs/orders/new` — Получить список новых сборочных заданий
+- `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B (postV3DbsOrdersB2bInfo)
+- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ (postV3DbsOrdersMetaCustomsDeclaration)
+- `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaDelete)
+- `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaDetails)
+- `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями (postV3DbsOrdersMetaGtin)
+- `POST /api/marketplace/v3/dbs/orders/meta/imei` — Закрепить IMEI за сборочными заданиями (postV3DbsOrdersMetaImei)
+- `POST /api/marketplace/v3/dbs/orders/meta/info` — Получить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaInfo)
+- `POST /api/marketplace/v3/dbs/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями (postV3DbsOrdersMetaSgtin)
+- `POST /api/marketplace/v3/dbs/orders/meta/uin` — Закрепить УИН за сборочными заданиями (postV3DbsOrdersMetaUin)
+- `POST /api/marketplace/v3/dbs/orders/status/cancel` — Отменить сборочные задания (postV3DbsOrdersStatusCancel)
+- `POST /api/marketplace/v3/dbs/orders/status/confirm` — Перевести сборочные задания на сборку (postV3DbsOrdersStatusConfirm)
+- `POST /api/marketplace/v3/dbs/orders/status/deliver` — Перевести сборочные задания в доставку (postV3DbsOrdersStatusDeliver)
+- `POST /api/marketplace/v3/dbs/orders/status/info` — Получить статусы сборочных заданий (postV3DbsOrdersStatusInfo)
+- `POST /api/marketplace/v3/dbs/orders/status/receive` — Сообщить о получении заказов (postV3DbsOrdersStatusReceive)
+- `POST /api/marketplace/v3/dbs/orders/status/reject` — Сообщить об отказе от заказов (postV3DbsOrdersStatusReject)
+- `POST /api/marketplace/v3/dbs/orders/stickers` — Получить стикеры для сборочных заданий с доставкой в ПВЗ (postV3DbsOrdersStickers)
+- `POST /api/v3/dbs/groups/info` — Получить информацию о платной доставке (postV3DbsGroupsInfo)
+- `GET /api/v3/dbs/orders` — Получить информацию о завершенных сборочных заданиях (getV3DbsOrders)
+- `POST /api/v3/dbs/orders/client` — Информация о покупателе (postV3DbsOrdersClient)
+- `POST /api/v3/dbs/orders/delivery-date` — Получить дату и время доставки (postV3DbsOrdersDeliveryDate)
+- `GET /api/v3/dbs/orders/new` — Получить список новых сборочных заданий (getV3DbsOrdersNew)
 
 ### Заказы Самовывоз (`06-in-store-pickup.yaml`)
 - `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ (postV3ClickCollectOrdersMetaCustomsDeclaration)
-- `POST /api/marketplace/v3/click-collect/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/click-collect/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/click-collect/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
-- `POST /api/marketplace/v3/click-collect/orders/meta/imei` — Закрепить IMEI за сборочными заданиями
-- `POST /api/marketplace/v3/click-collect/orders/meta/info` — Получить идентификаторы маркировки сборочных заданий
-- `POST /api/marketplace/v3/click-collect/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
-- `POST /api/marketplace/v3/click-collect/orders/meta/uin` — Закрепить УИН за сборочными заданиями
-- `POST /api/marketplace/v3/click-collect/orders/status/cancel` — Отменить сборочные задания
-- `POST /api/marketplace/v3/click-collect/orders/status/confirm` — Перевести сборочные задания на сборку
-- `POST /api/marketplace/v3/click-collect/orders/status/info` — Получить статусы сборочных заданий
-- `POST /api/marketplace/v3/click-collect/orders/status/prepare` — Сообщить, что сборочные задания готовы к выдаче
-- `POST /api/marketplace/v3/click-collect/orders/status/receive` — Сообщить, что заказы приняты покупателями
-- `POST /api/marketplace/v3/click-collect/orders/status/reject` — Сообщить об отказе от заказов
-- `GET /api/v3/click-collect/orders` — Получить информацию о завершённых сборочных заданиях
-- `POST /api/v3/click-collect/orders/client` — Информация о покупателе
-- `POST /api/v3/click-collect/orders/client/identity` — Проверить, что заказ принадлежит покупателю
-- `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
+- `POST /api/marketplace/v3/click-collect/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaDelete)
+- `POST /api/marketplace/v3/click-collect/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaDetails)
+- `POST /api/marketplace/v3/click-collect/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями (postV3ClickCollectOrdersMetaGtin)
+- `POST /api/marketplace/v3/click-collect/orders/meta/imei` — Закрепить IMEI за сборочными заданиями (postV3ClickCollectOrdersMetaImei)
+- `POST /api/marketplace/v3/click-collect/orders/meta/info` — Получить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaInfo)
+- `POST /api/marketplace/v3/click-collect/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями (postV3ClickCollectOrdersMetaSgtin)
+- `POST /api/marketplace/v3/click-collect/orders/meta/uin` — Закрепить УИН за сборочными заданиями (postV3ClickCollectOrdersMetaUin)
+- `POST /api/marketplace/v3/click-collect/orders/status/cancel` — Отменить сборочные задания (postV3ClickCollectOrdersStatusCancel)
+- `POST /api/marketplace/v3/click-collect/orders/status/confirm` — Перевести сборочные задания на сборку (postV3ClickCollectOrdersStatusConfirm)
+- `POST /api/marketplace/v3/click-collect/orders/status/info` — Получить статусы сборочных заданий (postV3ClickCollectOrdersStatusInfo)
+- `POST /api/marketplace/v3/click-collect/orders/status/prepare` — Сообщить, что сборочные задания готовы к выдаче (postV3ClickCollectOrdersStatusPrepare)
+- `POST /api/marketplace/v3/click-collect/orders/status/receive` — Сообщить, что заказы приняты покупателями (postV3ClickCollectOrdersStatusReceive)
+- `POST /api/marketplace/v3/click-collect/orders/status/reject` — Сообщить об отказе от заказов (postV3ClickCollectOrdersStatusReject)
+- `GET /api/v3/click-collect/orders` — Получить информацию о завершённых сборочных заданиях (getV3ClickCollectOrders)
+- `POST /api/v3/click-collect/orders/client` — Информация о покупателе (postV3ClickCollectOrdersClient)
+- `POST /api/v3/click-collect/orders/client/identity` — Проверить, что заказ принадлежит покупателю (postV3ClickCollectOrdersClientIdentity)
+- `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий (getV3ClickCollectOrdersNew)
 
 ### Поставки FBW (`07-orders-fbw.yaml`)
 - `POST /api/v1/acceptance/options` — Опции приёмки (postV1AcceptanceOptions)

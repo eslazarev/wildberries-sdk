@@ -41,8 +41,8 @@ pub struct GoodHistory {
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<i32>,
     /// Текст ошибки. Например:   - `You can't change the item price. Item was added to the Sale due to high inventory` — ошибка возникает, если товар попал под распродажу по [индексу остатка](https://seller.wildberries.ru/instructions/ru/ru/material/A-1159).   - `The new price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой хотя бы в 3 раза меньше старой. Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 
-    #[serde(rename = "errorText", skip_serializing_if = "Option::is_none")]
-    pub error_text: Option<String>,
+    #[serde(rename = "errorText", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub error_text: Option<Option<String>>,
 }
 
 impl GoodHistory {

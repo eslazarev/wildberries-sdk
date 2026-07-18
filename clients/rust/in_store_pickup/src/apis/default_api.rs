@@ -1,7 +1,7 @@
 /*
  * Заказы Самовывоз
  *
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -15,207 +15,52 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_meta_delete_post`]
+/// struct for typed errors of method [`get_v3_click_collect_orders`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersMetaDeletePostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_meta_details_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersMetaDetailsPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_meta_gtin_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersMetaGtinPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_meta_imei_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersMetaImeiPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_meta_info_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersMetaInfoPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_meta_sgtin_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersMetaSgtinPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_meta_uin_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersMetaUinPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_status_cancel_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersStatusCancelPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_status_confirm_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersStatusConfirmPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_status_info_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersStatusInfoPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_status_prepare_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersStatusPreparePostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_status_receive_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersStatusReceivePostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_marketplace_v3_click_collect_orders_status_reject_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiMarketplaceV3ClickCollectOrdersStatusRejectPostError {
-    Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_click_collect_orders_client_identity_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3ClickCollectOrdersClientIdentityPostError {
+pub enum GetV3ClickCollectOrdersError {
     Status400(models::Error),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v3_click_collect_orders_new`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV3ClickCollectOrdersNewError {
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_client`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersClientError {
+    Status400(models::Error),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_client_identity`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersClientIdentityError {
+    Status400(models::Error),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
     Status403(models::Error),
     Status404(models::ApiError),
     Status409(models::ApiError),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_click_collect_orders_client_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3ClickCollectOrdersClientPostError {
-    Status400(models::Error),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_click_collect_orders_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3ClickCollectOrdersGetError {
-    Status400(models::Error),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v3_click_collect_orders_new_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV3ClickCollectOrdersNewGetError {
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
-    Status402(models::ApiV3ClickCollectOrdersNewGet402Response),
-    Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -224,706 +69,170 @@ pub enum ApiV3ClickCollectOrdersNewGetError {
 #[serde(untagged)]
 pub enum PostV3ClickCollectOrdersMetaCustomsDeclarationError {
     Status400(models::ApiBatchError),
-    Status401(models::ApiV3ClickCollectOrdersNewGet401Response),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
     Status403(models::Error),
-    Status429(models::ApiV3ClickCollectOrdersNewGet401Response),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_meta_delete`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersMetaDeleteError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_meta_details`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersMetaDetailsError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_meta_gtin`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersMetaGtinError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_meta_imei`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersMetaImeiError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_meta_info`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersMetaInfoError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_meta_sgtin`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersMetaSgtinError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_meta_uin`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersMetaUinError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::Error),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_status_cancel`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersStatusCancelError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_status_confirm`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersStatusConfirmError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_status_info`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersStatusInfoError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_status_prepare`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersStatusPrepareError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_status_receive`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersStatusReceiveError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_status_reject`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersStatusRejectError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status402(models::GetV3ClickCollectOrdersNew402Response),
+    Status403(models::ApiBatchError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) для нескольких сборочных заданий. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_meta_delete_post(configuration: &configuration::Configuration, api_orders_meta_delete_request: Option<models::ApiOrdersMetaDeleteRequest>) -> Result<models::ApiOrdersResponses, Error<ApiMarketplaceV3ClickCollectOrdersMetaDeletePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_meta_delete_request = api_orders_meta_delete_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/delete", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_meta_delete_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersMetaDeletePostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) сборочных заданий и статусы их проверки.  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get), поле `requiredMeta`.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1imei/post)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1uin/post)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1gtin/post)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1sgtin/post)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_meta_details_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaDetailsResponse, Error<ApiMarketplaceV3ClickCollectOrdersMetaDetailsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/details", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersMetaDetailsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных заданий. У одного сборочного задания может быть только один GTIN. Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_meta_gtin_post(configuration: &configuration::Configuration, api_orders_gtin_set_request: models::ApiOrdersGtinSetRequest) -> Result<models::ApiMetaSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersMetaGtinPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_gtin_set_request = api_orders_gtin_set_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/gtin", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_gtin_set_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersMetaGtinPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`, если их доставка осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_meta_imei_post(configuration: &configuration::Configuration, api_orders_imei_set_request: models::ApiOrdersImeiSetRequest) -> Result<models::ApiMetaSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersMetaImeiPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_imei_set_request = api_orders_imei_set_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/imei", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_imei_set_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersMetaImeiPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-#[deprecated]
-pub async fn api_marketplace_v3_click_collect_orders_meta_info_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaResponse, Error<ApiMarketplaceV3ClickCollectOrdersMetaInfoPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/info", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersMetaResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersMetaResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersMetaInfoPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) нескольких сборочных заданий.<br> Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_meta_sgtin_post(configuration: &configuration::Configuration, api_orders_sgtins_set_request: models::ApiOrdersSgtinsSetRequest) -> Result<models::ApiMetaSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersMetaSgtinPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_sgtins_set_request = api_orders_sgtins_set_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/sgtin", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_sgtins_set_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersMetaSgtinPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post). У одного сборочного задания может быть только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_meta_uin_post(configuration: &configuration::Configuration, api_orders_uin_set_request: models::ApiOrdersUinSetRequest) -> Result<models::ApiMetaSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersMetaUinPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_uin_set_request = api_orders_uin_set_request;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/uin", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_uin_set_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersMetaUinPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статусов](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_status_cancel_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersStatusCancelPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/cancel", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersStatusCancelPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `new` — новый — в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_status_confirm_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersStatusConfirmPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/confirm", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersStatusConfirmPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | `confirm`  | **На сборке**  |  [Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1confirm/post) | `prepare`  | **Готов к выдаче** |  [Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1prepare/post) | `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1receive/post) | `reject`  | **Отказ покупателя при получении**    |   [Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1reject/post) | `cancel`   | **Отменено продавцом**    |   [Отменить сборочное задание](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1cancel/post) | `cancel_shelf_life` | **Отмена по истечении срока хранения**    |   Переводится автоматически по возникновению события  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` - сборочное задание в работе - `sold` - заказ получен покупателем - `canceled` - отмена сборочного задания - `canceled_by_client` - покупатель отменил заказ при получении - `declined_by_client` - покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` - отмена заказа по причине брака - `ready_for_pickup` - заказ готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_status_info_post(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiOrderStatusesV2, Error<ApiMarketplaceV3ClickCollectOrdersStatusInfoPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/info", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrderStatusesV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrderStatusesV2`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersStatusInfoPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` — на сборке — в статус `prepare` — готово к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_status_prepare_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiMetaDetailsResponse, Error<ApiMarketplaceV3ClickCollectOrdersStatusPreparePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/prepare", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaDetailsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaDetailsResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersStatusPreparePostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_status_receive_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersStatusReceivePostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/receive", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersStatusReceivePostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz) из [статуса](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_marketplace_v3_click_collect_orders_status_reject_post(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<ApiMarketplaceV3ClickCollectOrdersStatusRejectPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/reject", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiMarketplaceV3ClickCollectOrdersStatusRejectPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду. <br><br> Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_click_collect_orders_client_identity_post(configuration: &configuration::Configuration, api_check_identity_request: models::ApiCheckIdentityRequest) -> Result<models::ApiCheckedIdentity, Error<ApiV3ClickCollectOrdersClientIdentityPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_check_identity_request = api_check_identity_request;
-
-    let uri_str = format!("{}/api/v3/click-collect/orders/client/identity", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_check_identity_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCheckedIdentity`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCheckedIdentity`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3ClickCollectOrdersClientIdentityPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает информацию о покупателе по ID сборочного задания. <br><br> Доступно только для сборочных заданий в статусах:   - `confirm` — на сборке   - `prepare` — готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_click_collect_orders_client_post(configuration: &configuration::Configuration, api_orders_request: models::ApiOrdersRequest) -> Result<models::ApiOrderClientInfoResp, Error<ApiV3ClickCollectOrdersClientPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request = api_orders_request;
-
-    let uri_str = format!("{}/api/v3/click-collect/orders/client", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrderClientInfoResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrderClientInfoResp`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV3ClickCollectOrdersClientPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 /// Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_click_collect_orders_get(configuration: &configuration::Configuration, limit: i32, next: i32, date_from: i32, date_to: i32) -> Result<models::ApiOrders, Error<ApiV3ClickCollectOrdersGetError>> {
+pub async fn get_v3_click_collect_orders(configuration: &configuration::Configuration, limit: i32, next: i32, date_from: i32, date_to: i32) -> Result<models::ApiOrders, Error<GetV3ClickCollectOrdersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_limit = limit;
     let p_query_next = next;
@@ -969,13 +278,13 @@ pub async fn api_v3_click_collect_orders_get(configuration: &configuration::Conf
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3ClickCollectOrdersGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3ClickCollectOrdersError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_click_collect_orders_new_get(configuration: &configuration::Configuration, ) -> Result<models::ApiNewOrders, Error<ApiV3ClickCollectOrdersNewGetError>> {
+/// Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn get_v3_click_collect_orders_new(configuration: &configuration::Configuration, ) -> Result<models::ApiNewOrders, Error<GetV3ClickCollectOrdersNewError>> {
 
     let uri_str = format!("{}/api/v3/click-collect/orders/new", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1012,12 +321,104 @@ pub async fn api_v3_click_collect_orders_new_get(configuration: &configuration::
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV3ClickCollectOrdersNewGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV3ClickCollectOrdersNewError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/paths/~1api~1marketplace~1v3~1click-collect~1orders~1meta~1details/post).  Добавлять номера ДТ можно только для сборочных заданий, которые:   - имеют признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1v3~1click-collect~1orders~1new/get)   - находятся в [статусах](/openapi/in-store-pickup#tag/Sborochnye-zadaniya-Samovyvoz/paths/~1api~1marketplace~1v3~1click-collect~1orders~1status~1info/post) `confirm` или `prepare`  У одного сборочного задания может быть только один номер ДТ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод возвращает информацию о покупателе по ID сборочного задания. <br><br> Доступно только для сборочных заданий в статусах:   - `confirm` — на сборке   - `prepare` — готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_client(configuration: &configuration::Configuration, api_orders_request: models::ApiOrdersRequest) -> Result<models::ApiOrderClientInfoResp, Error<PostV3ClickCollectOrdersClientError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request = api_orders_request;
+
+    let uri_str = format!("{}/api/v3/click-collect/orders/client", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrderClientInfoResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrderClientInfoResp`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersClientError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду. <br><br> Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_client_identity(configuration: &configuration::Configuration, api_check_identity_request: models::ApiCheckIdentityRequest) -> Result<models::ApiCheckedIdentity, Error<PostV3ClickCollectOrdersClientIdentityError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_check_identity_request = api_check_identity_request;
+
+    let uri_str = format!("{}/api/v3/click-collect/orders/client/identity", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_check_identity_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCheckedIdentity`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCheckedIdentity`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersClientIdentityError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).  Добавлять номера ДТ можно только для сборочных заданий, которые:   - имеют признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - находятся в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`  У одного сборочного задания может быть только один номер ДТ.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn post_v3_click_collect_orders_meta_customs_declaration(configuration: &configuration::Configuration, post_v3_click_collect_orders_meta_customs_declaration_request: Option<models::PostV3ClickCollectOrdersMetaCustomsDeclarationRequest>) -> Result<models::ApiCustomsDeclarationSetResponse, Error<PostV3ClickCollectOrdersMetaCustomsDeclarationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_post_v3_click_collect_orders_meta_customs_declaration_request = post_v3_click_collect_orders_meta_customs_declaration_request;
@@ -1059,6 +460,605 @@ pub async fn post_v3_click_collect_orders_meta_customs_declaration(configuration
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV3ClickCollectOrdersMetaCustomsDeclarationError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод удаляет значения указанных [идентификаторов маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) для нескольких сборочных заданий. <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). Удаление номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_meta_delete(configuration: &configuration::Configuration, api_orders_meta_delete_request: Option<models::ApiOrdersMetaDeleteRequest>) -> Result<models::ApiOrdersResponses, Error<PostV3ClickCollectOrdersMetaDeleteError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_meta_delete_request = api_orders_meta_delete_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/delete", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_meta_delete_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersMetaDeleteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает [идентификаторы маркировки](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) сборочных заданий и статусы их проверки.  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  Если ответ вернулся с пустой структурой `meta`, значит у сборочного задания нет идентификаторов маркировки и добавить их нельзя.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_meta_details(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaDetailsResponse, Error<PostV3ClickCollectOrdersMetaDetailsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/details", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersMetaDetailsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersMetaDetailsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных заданий. У одного сборочного задания может быть только один GTIN. Добавлять GTIN можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_meta_gtin(configuration: &configuration::Configuration, api_orders_gtin_set_request: models::ApiOrdersGtinSetRequest) -> Result<models::ApiMetaSetResponses, Error<PostV3ClickCollectOrdersMetaGtinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_gtin_set_request = api_orders_gtin_set_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/gtin", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_gtin_set_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersMetaGtinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один IMEI. Добавлять IMEI можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`, если их доставка осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_meta_imei(configuration: &configuration::Configuration, api_orders_imei_set_request: models::ApiOrdersImeiSetRequest) -> Result<models::ApiMetaSetResponses, Error<PostV3ClickCollectOrdersMetaImeiError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_imei_set_request = api_orders_imei_set_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/imei", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_imei_set_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersMetaImeiError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+#[deprecated]
+pub async fn post_v3_click_collect_orders_meta_info(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaResponse, Error<PostV3ClickCollectOrdersMetaInfoError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/info", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersMetaResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersMetaResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersMetaInfoError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) нескольких сборочных заданий.<br> Закрепить код маркировки Честного знака можно, только если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_meta_sgtin(configuration: &configuration::Configuration, api_orders_sgtins_set_request: models::ApiOrdersSgtinsSetRequest) -> Result<models::ApiMetaSetResponses, Error<PostV3ClickCollectOrdersMetaSgtinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_sgtins_set_request = api_orders_sgtins_set_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/sgtin", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_sgtins_set_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersMetaSgtinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН. Добавлять УИН можно только для сборочных заданий в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и доставка которых осуществляется силами WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_meta_uin(configuration: &configuration::Configuration, api_orders_uin_set_request: models::ApiOrdersUinSetRequest) -> Result<models::ApiMetaSetResponses, Error<PostV3ClickCollectOrdersMetaUinError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_uin_set_request = api_orders_uin_set_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/meta/uin", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_uin_set_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersMetaUinError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_status_cancel(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<PostV3ClickCollectOrdersStatusCancelError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/cancel", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersStatusCancelError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_status_confirm(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<PostV3ClickCollectOrdersStatusConfirmError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/confirm", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersStatusConfirmError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | `confirm`  | **На сборке**  |  [Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm) | `prepare`  | **Готов к выдаче** |  [Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare) | `receive`  | **Получено покупателем**   | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive) | `reject`  | **Отказ покупателя при получении**    |   [Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject) | `cancel`   | **Отменено продавцом**    |   [Отменить сборочное задание](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel) | `cancel_shelf_life` | **Отмена по истечении срока хранения**    |   Переводится автоматически по возникновению события  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` - сборочное задание в работе - `sold` - заказ получен покупателем - `canceled` - отмена сборочного задания - `canceled_by_client` - покупатель отменил заказ при получении - `declined_by_client` - покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - `defect` - отмена заказа по причине брака - `ready_for_pickup` - заказ готов к выдаче  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_status_info(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiOrderStatusesV2, Error<PostV3ClickCollectOrdersStatusInfoError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/info", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrderStatusesV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrderStatusesV2`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersStatusInfoError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_status_prepare(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiMetaDetailsResponse, Error<PostV3ClickCollectOrdersStatusPrepareError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/prepare", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMetaDetailsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMetaDetailsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersStatusPrepareError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_status_receive(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<PostV3ClickCollectOrdersStatusReceiveError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/receive", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersStatusReceiveError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | <no value> | <no value> | <no value> | <no value> |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_status_reject(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<PostV3ClickCollectOrdersStatusRejectError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request_v2 = api_orders_request_v2;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/status/reject", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request_v2);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiStatusSetResponses`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiStatusSetResponses`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersStatusRejectError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
