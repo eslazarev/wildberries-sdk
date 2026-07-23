@@ -136,7 +136,26 @@ func (dst *AdvV1StatsPost200ResponseInner) UnmarshalJSON(data []byte) error {
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner)")
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(AdvV1StatsPost200ResponseInner)")
+        }
 	}
 }
 

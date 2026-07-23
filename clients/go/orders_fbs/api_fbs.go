@@ -277,10 +277,9 @@ func (r ApiApiMarketplaceV3OrdersMetaPostRequest) Execute() (*V3OrdersMetaAPI, *
 /*
 ApiMarketplaceV3OrdersMetaPost Получить идентификаторы маркировки сборочных заданий
 
-Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по списку их ID.
+Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и статусы их проверки.
 <br><br>
-Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`.
-<br><br>
+Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br>
 Возможные идентификаторы маркировки:
   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)
   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)
@@ -288,8 +287,6 @@ ApiMarketplaceV3OrdersMetaPost Получить идентификаторы м�
   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)
   - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1expiration/put)
   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)
-
-Если в ответе не вернулись какие-либо из объектов идентификаторов маркировки, значит, у сборочного задания не может быть таких идентификаторов маркировки — и добавить их нельзя.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:
@@ -485,12 +482,11 @@ func (r ApiApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) Execut
 }
 
 /*
-ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut Закрепить за сборочным заданием номер ДТ
+ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut Закрепить номер ДТ за сборочным заданием
 
-Метод обновляет номер декларации на товары (ДТ) в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
-<br>
-У одного сборочного задания может быть только один номер ДТ. Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.
-Добавлять номер ДТ можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete`
+Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br>
+Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.<br>
+Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2113,14 +2109,11 @@ func (r ApiApiV3OrdersOrderIdMetaExpirationPutRequest) Execute() (*http.Response
 /*
 ApiV3OrdersOrderIdMetaExpirationPut Закрепить за сборочным заданием срок годности товара
 
-Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) срок годности товара. Товар годен до указанной даты.
-<br>
-Добавить срок годности можно только для заказов, которые доставляются WB и находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
-<br>
-<br>
-Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
-Чтобы изменить срок годности, отправьте запрос с новой датой.
-Удалить срок годности сборочного задания невозможно.
+Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) срок годности товара. Товар годен до указанной даты. <br>
+Закрепить срок годности можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `expiration`.
+<br><br>
+Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).<br>
+Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2319,13 +2312,11 @@ func (r ApiApiV3OrdersOrderIdMetaGtinPutRequest) Execute() (*http.Response, erro
 }
 
 /*
-ApiV3OrdersOrderIdMetaGtinPut Закрепить за сборочным заданием GTIN
+ApiV3OrdersOrderIdMetaGtinPut Закрепить GTIN за сборочным заданием
 
-Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) — уникальный ID товара в Беларуси.
-<br><br>
-У одного сборочного задания может быть только один GTIN.
-
-Добавлять маркировку можно только для заказов, которые доставляются WB и находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
+У одного сборочного задания может быть только один GTIN.<br>
+ Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `gtin`.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2513,13 +2504,11 @@ func (r ApiApiV3OrdersOrderIdMetaImeiPutRequest) Execute() (*http.Response, erro
 }
 
 /*
-ApiV3OrdersOrderIdMetaImeiPut Закрепить за сборочным заданием IMEI
+ApiV3OrdersOrderIdMetaImeiPut Закрепить IMEI за сборочным заданием
 
-Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
-<br><br>
-У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.
-<br><br>
-Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).<br>
+У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br>
+Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `imei`.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2707,11 +2696,11 @@ func (r ApiApiV3OrdersOrderIdMetaSgtinPutRequest) Execute() (*http.Response, err
 }
 
 /*
-ApiV3OrdersOrderIdMetaSgtinPut Закрепить за сборочным заданием код маркировки Честного знака
+ApiV3OrdersOrderIdMetaSgtinPut Закрепить код маркировки Честного знака за сборочным заданием
 
-Метод позволяет закрепить за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) код маркировки [Честного знака](https://честныйзнак.рф).
-<br><br>
-Закрепить код маркировки Честного знака можно только если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get).
+<br>
+Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `sgtin`.
 <br><br>
 Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
 
@@ -2912,13 +2901,11 @@ func (r ApiApiV3OrdersOrderIdMetaUinPutRequest) Execute() (*http.Response, error
 }
 
 /*
-ApiV3OrdersOrderIdMetaUinPut Закрепить за сборочным заданием УИН
+ApiV3OrdersOrderIdMetaUinPut Закрепить УИН за сборочным заданием
 
-Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) — уникальный идентификационный номер.
-<br><br>
-У одного сборочного задания может быть только один УИН.
-
-Добавлять маркировку можно только для заказов, которые доставляются WB и находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
+У одного сборочного задания может быть только один УИН.<br>
+Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `uin`.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -5433,7 +5420,7 @@ ApiV3SuppliesSupplyIdBarcodeGet Получить QR-код поставки
   - ZPLH (горизонтальный)
   - PNG
 
-QR-код поставки можно получить только если поставка [передана в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch).
+QR-код поставки можно получить, только если поставка [передана в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch).
 <br><br>
 Размер — 580x400 px.
 
@@ -5840,7 +5827,7 @@ ApiV3SuppliesSupplyIdDeliverPatch Передать поставку в дост�
 <br><br>
 Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется.
 <br><br>
-Передать поставку в доставку можно только если в ней:
+Передать поставку в доставку можно, только если в ней:
   - есть хотя бы одно сборочное задание
   - для всех сборочных заданий указана обязательная маркировка
   - маркировка всех сборочных заданий прошла валидацию

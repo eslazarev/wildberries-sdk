@@ -126,7 +126,7 @@ main().catch(console.error);
 ### orders_fbs (`orders_fbs`)
 - `orders_fbs.FBSApi.apiMarketplaceV3FbsOrdersArchiveGet` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSApi.apiMarketplaceV3OrdersMetaPost` — Получить идентификаторы маркировки сборочных заданий
-- `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — Закрепить за сборочным заданием номер ДТ
+- `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — Закрепить номер ДТ за сборочным заданием
 - `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrderIdsGet` — Получить ID сборочных заданий поставки
 - `orders_fbs.FBSApi.apiMarketplaceV3SuppliesSupplyIdOrdersPatch` — Добавить сборочные задания к поставке
 - `orders_fbs.FBSApi.apiV3OrdersClientPost` — Заказы с информацией по клиенту
@@ -135,10 +135,10 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.apiV3OrdersOrderIdCancelPatch` — Отменить сборочное задание
 - `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaDelete` — Удалить идентификаторы маркировки сборочного задания
 - `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaExpirationPut` — Закрепить за сборочным заданием срок годности товара
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaGtinPut` — Закрепить за сборочным заданием GTIN
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaImeiPut` — Закрепить за сборочным заданием IMEI
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaSgtinPut` — Закрепить за сборочным заданием код маркировки Честного знака
-- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaUinPut` — Закрепить за сборочным заданием УИН
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaGtinPut` — Закрепить GTIN за сборочным заданием
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaImeiPut` — Закрепить IMEI за сборочным заданием
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaSgtinPut` — Закрепить код маркировки Честного знака за сборочным заданием
+- `orders_fbs.FBSApi.apiV3OrdersOrderIdMetaUinPut` — Закрепить УИН за сборочным заданием
 - `orders_fbs.FBSApi.apiV3OrdersStatusHistoryPost` — История статусов для сборочных заданий трансграничных поставок
 - `orders_fbs.FBSApi.apiV3OrdersStatusPost` — Получить статусы сборочных заданий
 - `orders_fbs.FBSApi.apiV3OrdersStickersCrossBorderPost` — Получить стикеры сборочных заданий трансграничных поставок
@@ -175,9 +175,9 @@ main().catch(console.error);
 - `orders_dbw.DBWApi.postV3DbwOrdersStatus` — Получить статусы сборочных заданий
 - `orders_dbw.DBWApi.postV3DbwOrdersStatusDeliver` — Перевести сборочные задания в доставку
 - `orders_dbw.DBWApi.postV3DbwOrdersStickers` — Получить стикеры сборочных заданий
-- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaGtin` — Закрепить за сборочным заданием GTIN
-- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaImei` — Закрепить за сборочным заданием IMEI
-- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaUin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaGtin` — Закрепить GTIN за сборочным заданием
+- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaImei` — Закрепить IMEI за сборочным заданием
+- `orders_dbw.DBWApi.putV3DbwOrdersOrderIdMetaUin` — Закрепить УИН за сборочным заданием
 
 ### orders_dbs (`orders_dbs`)
 - `orders_dbs.DBSApi.getV3DbsOrders` — Получить информацию о завершенных сборочных заданиях
@@ -186,7 +186,7 @@ main().catch(console.error);
 - `orders_dbs.DBSApi.postV3DbsOrdersB2bInfo` — Информация о покупателе B2B
 - `orders_dbs.DBSApi.postV3DbsOrdersClient` — Информация о покупателе
 - `orders_dbs.DBSApi.postV3DbsOrdersDeliveryDate` — Получить дату и время доставки
-- `orders_dbs.DBSApi.postV3DbsOrdersMetaCustomsDeclaration` — Закрепить за сборочными заданиями номера ДТ
+- `orders_dbs.DBSApi.postV3DbsOrdersMetaCustomsDeclaration` — Закрепить номера ДТ за сборочными заданиями
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaDelete` — Удалить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaDetails` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaGtin` — Закрепить GTIN за сборочными заданиями
@@ -207,7 +207,7 @@ main().catch(console.error);
 - `in_store_pickup.DefaultApi.getV3ClickCollectOrdersNew` — Получить список новых сборочных заданий
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersClient` — Информация о покупателе
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersClientIdentity` — Проверить, что заказ принадлежит покупателю
-- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration` — Закрепить за сборочными заданиями номера ДТ
+- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaCustomsDeclaration` — Закрепить номера ДТ за сборочными заданиями
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaDelete` — Удалить идентификаторы маркировки сборочных заданий
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaDetails` — Получить идентификаторы маркировки сборочных заданий
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaGtin` — Закрепить GTIN за сборочными заданиями

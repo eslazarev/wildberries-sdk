@@ -147,7 +147,7 @@ SDK выпускается с security-first процессом:
 ### Заказы FBS (`03-orders-fbs.yaml`)
 - `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
-- `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить за сборочным заданием номер ДТ
+- `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
 - `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
 - `GET /api/v3/orders` — Получить информацию о сборочных заданиях
@@ -160,10 +160,10 @@ SDK выпускается с security-first процессом:
 - `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
 - `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
-- `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки Честного знака
-- `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН
+- `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
+- `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
+- `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием
+- `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
 - `GET /api/v3/passes` — Получить список пропусков
 - `POST /api/v3/passes` — Создать пропуск
 - `GET /api/v3/passes/offices` — Получить список складов, для которых требуется пропуск
@@ -196,13 +196,13 @@ SDK выпускается с security-first процессом:
 - `PATCH /api/v3/dbw/orders/{orderId}/cancel` — Отменить сборочное задание (patchV3DbwOrdersOrderIdCancel)
 - `PATCH /api/v3/dbw/orders/{orderId}/confirm` — Перевести на сборку (patchV3DbwOrdersOrderIdConfirm)
 - `GET /api/v3/dbw/orders/{orderId}/meta` — Получить идентификаторы маркировки сборочного задания (getV3DbwOrdersOrderIdMeta)
-- `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN (putV3DbwOrdersOrderIdMetaGtin)
-- `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI (putV3DbwOrdersOrderIdMetaImei)
-- `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер) (putV3DbwOrdersOrderIdMetaUin)
+- `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием (putV3DbwOrdersOrderIdMetaGtin)
+- `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием (putV3DbwOrdersOrderIdMetaImei)
+- `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием (putV3DbwOrdersOrderIdMetaUin)
 
 ### Заказы DBS (`05-orders-dbs.yaml`)
 - `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B (postV3DbsOrdersB2bInfo)
-- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ (postV3DbsOrdersMetaCustomsDeclaration)
+- `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить номера ДТ за сборочными заданиями (postV3DbsOrdersMetaCustomsDeclaration)
 - `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaDelete)
 - `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaDetails)
 - `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями (postV3DbsOrdersMetaGtin)
@@ -224,7 +224,7 @@ SDK выпускается с security-first процессом:
 - `GET /api/v3/dbs/orders/new` — Получить список новых сборочных заданий (getV3DbsOrdersNew)
 
 ### Заказы Самовывоз (`06-in-store-pickup.yaml`)
-- `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ (postV3ClickCollectOrdersMetaCustomsDeclaration)
+- `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить номера ДТ за сборочными заданиями (postV3ClickCollectOrdersMetaCustomsDeclaration)
 - `POST /api/marketplace/v3/click-collect/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaDelete)
 - `POST /api/marketplace/v3/click-collect/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaDetails)
 - `POST /api/marketplace/v3/click-collect/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями (postV3ClickCollectOrdersMetaGtin)

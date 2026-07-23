@@ -84,7 +84,16 @@ func (dst *ApiV2NmReportDownloadsPost429Response) UnmarshalJSON(data []byte) err
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPost429Response)")
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPost429Response): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPost429Response)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPost429Response): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPost429Response)")
+        }
 	}
 }
 

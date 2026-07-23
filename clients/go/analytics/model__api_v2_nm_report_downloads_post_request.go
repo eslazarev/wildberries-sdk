@@ -214,7 +214,41 @@ func (dst *ApiV2NmReportDownloadsPostRequest) UnmarshalJSON(data []byte) error {
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        }
+        if err != nil {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest): %v", err)
+        } else {
+            return fmt.Errorf("data failed to match schemas in oneOf(ApiV2NmReportDownloadsPostRequest)")
+        }
 	}
 }
 

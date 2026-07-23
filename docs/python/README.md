@@ -138,7 +138,7 @@ print(feedbacks)
 ### orders_fbs (`orders_fbs`)
 - `orders_fbs.DefaultApi.api_marketplace_v3_fbs_orders_archive_get` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.DefaultApi.api_marketplace_v3_orders_meta_post` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
-- `orders_fbs.DefaultApi.api_marketplace_v3_orders_order_id_meta_customs_declaration_put` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить за сборочным заданием номер ДТ
+- `orders_fbs.DefaultApi.api_marketplace_v3_orders_order_id_meta_customs_declaration_put` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `orders_fbs.DefaultApi.api_marketplace_v3_supplies_supply_id_order_ids_get` — `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
 - `orders_fbs.DefaultApi.api_marketplace_v3_supplies_supply_id_orders_patch` — `PATCH /api/marketplace/v3/supplies/{supplyId}/orders` — Добавить сборочные задания к поставке
 - `orders_fbs.DefaultApi.api_v3_orders_client_post` — `POST /api/v3/orders/client` — Заказы с информацией по клиенту
@@ -147,10 +147,10 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.api_v3_orders_order_id_cancel_patch` — `PATCH /api/v3/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_delete` — `DELETE /api/v3/orders/{orderId}/meta` — Удалить идентификаторы маркировки сборочного задания
 - `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_expiration_put` — `PUT /api/v3/orders/{orderId}/meta/expiration` — Закрепить за сборочным заданием срок годности товара
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_gtin_put` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_imei_put` — `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_sgtin_put` — `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить за сборочным заданием код маркировки Честного знака
-- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_uin_put` — `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН
+- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_gtin_put` — `PUT /api/v3/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
+- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_imei_put` — `PUT /api/v3/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
+- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_sgtin_put` — `PUT /api/v3/orders/{orderId}/meta/sgtin` — Закрепить код маркировки Честного знака за сборочным заданием
+- `orders_fbs.DefaultApi.api_v3_orders_order_id_meta_uin_put` — `PUT /api/v3/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
 - `orders_fbs.DefaultApi.api_v3_orders_status_history_post` — `POST /api/v3/orders/status/history` — История статусов для сборочных заданий трансграничных поставок
 - `orders_fbs.DefaultApi.api_v3_orders_status_post` — `POST /api/v3/orders/status` — Получить статусы сборочных заданий
 - `orders_fbs.DefaultApi.api_v3_orders_stickers_cross_border_post` — `POST /api/v3/orders/stickers/cross-border` — Получить стикеры сборочных заданий трансграничных поставок
@@ -187,9 +187,9 @@ print(feedbacks)
 - `orders_dbw.DefaultApi.post_v3_dbw_orders_status` — `POST /api/v3/dbw/orders/status` — Получить статусы сборочных заданий
 - `orders_dbw.DefaultApi.post_v3_dbw_orders_status_deliver` — `POST /api/marketplace/v3/dbw/orders/status/deliver` — Перевести сборочные задания в доставку
 - `orders_dbw.DefaultApi.post_v3_dbw_orders_stickers` — `POST /api/v3/dbw/orders/stickers` — Получить стикеры сборочных заданий
-- `orders_dbw.DefaultApi.put_v3_dbw_orders_order_id_meta_gtin` — `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить за сборочным заданием GTIN
-- `orders_dbw.DefaultApi.put_v3_dbw_orders_order_id_meta_imei` — `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить за сборочным заданием IMEI
-- `orders_dbw.DefaultApi.put_v3_dbw_orders_order_id_meta_uin` — `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+- `orders_dbw.DefaultApi.put_v3_dbw_orders_order_id_meta_gtin` — `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием
+- `orders_dbw.DefaultApi.put_v3_dbw_orders_order_id_meta_imei` — `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием
+- `orders_dbw.DefaultApi.put_v3_dbw_orders_order_id_meta_uin` — `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием
 
 ### orders_dbs (`orders_dbs`)
 - `orders_dbs.DefaultApi.get_v3_dbs_orders` — `GET /api/v3/dbs/orders` — Получить информацию о завершенных сборочных заданиях
@@ -198,7 +198,7 @@ print(feedbacks)
 - `orders_dbs.DefaultApi.post_v3_dbs_orders_b2b_info` — `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B
 - `orders_dbs.DefaultApi.post_v3_dbs_orders_client` — `POST /api/v3/dbs/orders/client` — Информация о покупателе
 - `orders_dbs.DefaultApi.post_v3_dbs_orders_delivery_date` — `POST /api/v3/dbs/orders/delivery-date` — Получить дату и время доставки
-- `orders_dbs.DefaultApi.post_v3_dbs_orders_meta_customs_declaration` — `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
+- `orders_dbs.DefaultApi.post_v3_dbs_orders_meta_customs_declaration` — `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить номера ДТ за сборочными заданиями
 - `orders_dbs.DefaultApi.post_v3_dbs_orders_meta_delete` — `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DefaultApi.post_v3_dbs_orders_meta_details` — `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DefaultApi.post_v3_dbs_orders_meta_gtin` — `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
@@ -219,7 +219,7 @@ print(feedbacks)
 - `in_store_pickup.DefaultApi.get_v3_click_collect_orders_new` — `GET /api/v3/click-collect/orders/new` — Получить список новых сборочных заданий
 - `in_store_pickup.DefaultApi.post_v3_click_collect_orders_client` — `POST /api/v3/click-collect/orders/client` — Информация о покупателе
 - `in_store_pickup.DefaultApi.post_v3_click_collect_orders_client_identity` — `POST /api/v3/click-collect/orders/client/identity` — Проверить, что заказ принадлежит покупателю
-- `in_store_pickup.DefaultApi.post_v3_click_collect_orders_meta_customs_declaration` — `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить за сборочными заданиями номера ДТ
+- `in_store_pickup.DefaultApi.post_v3_click_collect_orders_meta_customs_declaration` — `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить номера ДТ за сборочными заданиями
 - `in_store_pickup.DefaultApi.post_v3_click_collect_orders_meta_delete` — `POST /api/marketplace/v3/click-collect/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий
 - `in_store_pickup.DefaultApi.post_v3_click_collect_orders_meta_details` — `POST /api/marketplace/v3/click-collect/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
 - `in_store_pickup.DefaultApi.post_v3_click_collect_orders_meta_gtin` — `POST /api/marketplace/v3/click-collect/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями

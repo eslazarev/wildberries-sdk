@@ -1117,15 +1117,17 @@ paths:
     post:
       description: "Метод возвращает идентификаторы маркировки [сборочных заданий\
         ](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и ст\
-        атусы их валидации.\n<br><br>\nПеречень идентификаторов маркировки, доступ\
-        ных для сборочного задания, можно получить в [списке новых сборочных задан\
-        ий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew),\
-        \ поле `requiredMeta`.\n<br><br>\nВозможные идентификаторы маркировки:\n \
-        \ - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\n\
+        атусы их проверки.\n<br><br>\nПеречень идентификаторов маркировки, доступн\
+        ых для сборочного задания, можно получить в [списке новых сборочных задани\
+        й](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew),\
+        \ поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо иде\
+        нтификатор маркировки, значит, у сборочного задания не может быть этого ид\
+        ентификатора — и добавить его нельзя.<br>\nВозможные идентификаторы маркир\
+        овки:\n  - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\n\
         \  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)\n\
         \  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)\n\
         \  - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)\n\
-        \n  <div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+        \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
         ние и удаление идентификаторов маркировки</li>\n    <li>методы сборочных з\
@@ -1226,7 +1228,7 @@ paths:
         ки в запросе:\n  - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\n\
         \  - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)\n\
         \  - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)\n\
-        \  - `sgtin` — [код маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)\n\
+        \  - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)\n\
         \nМожно передать только один ключ.\n\n  <div class=\"description_limit\">\n\
         <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лими\
         т запросов</a> на один аккаунт продавца для следующих методов DBW:\n<ul>\n\
@@ -1429,12 +1431,11 @@ paths:
   /api/marketplace/v3/dbw/orders/meta/sgtin:
     post:
       description: "Метод обновляет код маркировки [Честного знака](https://честны\
-        йзнак.рф/) в [идентификаторах маркировки](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails)\
-        \ нескольких сборочных заданий.<br>\nЗакрепить код маркировки можно, тольк\
-        о если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails)\
-        \ есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus)\
-        \ `confirm` — на сборке.\n<br><br>\nПолучить загруженные маркировки можно\
-        \ в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).\n\
+        йзнак.рф/) в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).<br>\n\
+        Закрепить код маркировки можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus)\
+        \ `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails)\
+        \ есть поле `sgtin`.\n<br><br>\nПолучить загруженные маркировки можно в [и\
+        дентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).\n\
         \n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:\n\
         <ul>\n    <li>получение и обновление списка контактов</li>\n    <li>получе\
@@ -1539,11 +1540,8 @@ paths:
   /api/v3/dbw/orders/{orderId}/meta/uin:
     put:
       description: |
-        Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный идентификационный номер.
-        <br><br>
-        У одного сборочного задания может быть только один УИН.
-
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
+        Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один УИН. <br>
+        Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `uin`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1657,7 +1655,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием УИН (уникальный идентификационный номер)
+      summary: Закрепить УИН за сборочным заданием
       tags:
       - Идентификаторы маркировки DBW
       x-readonly-method: false
@@ -1667,11 +1665,9 @@ paths:
   /api/v3/dbw/orders/{orderId}/meta/imei:
     put:
       description: |
-        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails).
-        <br><br>
-        У одного сборочного задания может быть только один IMEI.
-
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
+        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). <br>
+        У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br>
+        Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `imei`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1785,7 +1781,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием IMEI
+      summary: Закрепить IMEI за сборочным заданием
       tags:
       - Идентификаторы маркировки DBW
       x-readonly-method: false
@@ -1795,11 +1791,9 @@ paths:
   /api/v3/dbw/orders/{orderId}/meta/gtin:
     put:
       description: |
-        Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) — уникальный ID товара в Беларуси.
+        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один GTIN. <br>
+        Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `gtin`.
         <br><br>
-        У одного сборочного задания может быть только один GTIN.
-
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:
@@ -1913,7 +1907,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием GTIN
+      summary: Закрепить GTIN за сборочным заданием
       tags:
       - Идентификаторы маркировки DBW
       x-readonly-method: false

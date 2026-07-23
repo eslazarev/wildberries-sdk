@@ -1279,10 +1279,9 @@ paths:
   /api/marketplace/v3/orders/meta:
     post:
       description: |
-        Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) по списку их ID.
+        Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и статусы их проверки.
         <br><br>
-        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`.
-        <br><br>
+        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br>
         Возможные идентификаторы маркировки:
           - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)
           - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)
@@ -1290,8 +1289,6 @@ paths:
           - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)
           - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1expiration/put)
           - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)
-
-        Если в ответе не вернулись какие-либо из объектов идентификаторов маркировки, значит, у сборочного задания не может быть таких идентификаторов маркировки — и добавить их нельзя.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:
@@ -1538,9 +1535,9 @@ paths:
   /api/v3/orders/{orderId}/meta/sgtin:
     put:
       description: |
-        Метод позволяет закрепить за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) код маркировки [Честного знака](https://честныйзнак.рф).
-        <br><br>
-        Закрепить код маркировки Честного знака можно только если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `sgtin`, а сборочное задание находится в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get).
+        <br>
+        Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `sgtin`.
         <br><br>
         Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
 
@@ -1635,6 +1632,8 @@ paths:
               examples:
                 FailedToUpdateMeta:
                   $ref: "#/components/examples/FailedToUpdateMeta"
+                MetaKeyNotRequired:
+                  $ref: "#/components/examples/MetaKeyNotRequired"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Ошибка добавления маркировки
@@ -1655,7 +1654,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием код маркировки Честного знака
+      summary: Закрепить код маркировки Честного знака за сборочным заданием
       tags:
       - Идентификаторы маркировки FBS
       x-readonly-method: false
@@ -1670,11 +1669,9 @@ paths:
   /api/v3/orders/{orderId}/meta/uin:
     put:
       description: |
-        Метод обновляет УИН в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) — уникальный идентификационный номер.
-        <br><br>
-        У одного сборочного задания может быть только один УИН.
-
-        Добавлять маркировку можно только для заказов, которые доставляются WB и находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+        Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
+        У одного сборочного задания может быть только один УИН.<br>
+        Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `uin`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -1758,6 +1755,8 @@ paths:
               examples:
                 FailedToUpdateMeta:
                   $ref: "#/components/examples/FailedToUpdateMeta"
+                MetaKeyNotRequired:
+                  $ref: "#/components/examples/MetaKeyNotRequired"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Ошибка обновления идентификаторов маркировки
@@ -1778,7 +1777,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием УИН
+      summary: Закрепить УИН за сборочным заданием
       tags:
       - Идентификаторы маркировки FBS
       x-readonly-method: false
@@ -1793,11 +1792,9 @@ paths:
   /api/v3/orders/{orderId}/meta/imei:
     put:
       description: |
-        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
-        <br><br>
-        У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.
-        <br><br>
-        Добавлять маркировку можно только для заказов, которые находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+        Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).<br>
+        У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br>
+        Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `imei`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -1881,6 +1878,8 @@ paths:
               examples:
                 FailedToUpdateMeta:
                   $ref: "#/components/examples/FailedToUpdateMeta"
+                MetaKeyNotRequired:
+                  $ref: "#/components/examples/MetaKeyNotRequired"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Ошибка обновления идентификаторов маркировки
@@ -1901,7 +1900,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием IMEI
+      summary: Закрепить IMEI за сборочным заданием
       tags:
       - Идентификаторы маркировки FBS
       x-readonly-method: false
@@ -1916,11 +1915,9 @@ paths:
   /api/v3/orders/{orderId}/meta/gtin:
     put:
       description: |
-        Метод обновляет GTIN в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) — уникальный ID товара в Беларуси.
-        <br><br>
-        У одного сборочного задания может быть только один GTIN.
-
-        Добавлять маркировку можно только для заказов, которые доставляются WB и находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
+        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
+        У одного сборочного задания может быть только один GTIN.<br>
+         Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `gtin`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2004,6 +2001,8 @@ paths:
               examples:
                 FailedToUpdateMeta:
                   $ref: "#/components/examples/FailedToUpdateMeta"
+                MetaKeyNotRequired:
+                  $ref: "#/components/examples/MetaKeyNotRequired"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Ошибка обновления идентификаторов маркировки
@@ -2024,7 +2023,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием GTIN
+      summary: Закрепить GTIN за сборочным заданием
       tags:
       - Идентификаторы маркировки FBS
       x-readonly-method: false
@@ -2039,14 +2038,11 @@ paths:
   /api/v3/orders/{orderId}/meta/expiration:
     put:
       description: |
-        Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) срок годности товара. Товар годен до указанной даты.
-        <br>
-        Добавить срок годности можно только для заказов, которые доставляются WB и находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm`.
-        <br>
-        <br>
-        Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
-        Чтобы изменить срок годности, отправьте запрос с новой датой.
-        Удалить срок годности сборочного задания невозможно.
+        Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) срок годности товара. Товар годен до указанной даты. <br>
+        Закрепить срок годности можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `expiration`.
+        <br><br>
+        Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).<br>
+        Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2141,6 +2137,8 @@ paths:
               examples:
                 FailedToUpdateMeta:
                   $ref: "#/components/examples/FailedToUpdateMeta"
+                MetaKeyNotRequired:
+                  $ref: "#/components/examples/MetaKeyNotRequired"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Ошибка добавления срока годности
@@ -2176,10 +2174,9 @@ paths:
   /api/marketplace/v3/orders/{orderId}/meta/customs-declaration:
     put:
       description: |
-        Метод обновляет номер декларации на товары (ДТ) в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post).
-        <br>
-        У одного сборочного задания может быть только один номер ДТ. Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.
-        Добавлять номер ДТ можно только для сборочных заданий, которые находятся в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete`
+        Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br>
+        Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.<br>
+        Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2272,6 +2269,8 @@ paths:
               examples:
                 FailedToUpdateMeta:
                   $ref: "#/components/examples/FailedToUpdateMeta"
+                MetaKeyNotRequired:
+                  $ref: "#/components/examples/MetaKeyNotRequired"
               schema:
                 $ref: "#/components/schemas/Error"
           description: Ошибка обновления номера ДТ
@@ -2292,7 +2291,7 @@ paths:
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
-      summary: Закрепить за сборочным заданием номер ДТ
+      summary: Закрепить номер ДТ за сборочным заданием
       tags:
       - Идентификаторы маркировки FBS
       x-readonly-method: false
@@ -3343,7 +3342,7 @@ paths:
         <br><br>
         Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется.
         <br><br>
-        Передать поставку в доставку можно только если в ней:
+        Передать поставку в доставку можно, только если в ней:
           - есть хотя бы одно сборочное задание
           - для всех сборочных заданий указана обязательная маркировка
           - маркировка всех сборочных заданий прошла валидацию
@@ -3474,7 +3473,7 @@ paths:
           - ZPLH (горизонтальный)
           - PNG
 
-        QR-код поставки можно получить только если поставка [передана в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch).
+        QR-код поставки можно получить, только если поставка [передана в доставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1deliver/patch).
         <br><br>
         Размер — 580x400 px.
 
@@ -4240,6 +4239,13 @@ components:
       value:
         code: IncorrectParameter
         message: Передан некорректный параметр
+    MetaKeyNotRequired:
+      description: Указанный идентификатор маркировки недопустим для этого сборочного
+        задания. Вы можете закрепить за сборочным заданием только доступные для него
+        идентификаторы маркировки.
+      value:
+        code: MetaKeyNotRequired
+        message: Order doesn't require ID
     FailedToUpdateMeta:
       value:
         code: FailedToUpdateMeta
@@ -6901,7 +6907,7 @@ components:
         decision:
           description: |
             [Статусы проверки идентификаторов маркировки](/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs). <br><br>
-            Статусы проверки`imei`, с которыми поставку можно перевести в доставку:
+            Статусы проверки `imei`, с которыми поставку можно перевести в доставку:
               - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
               - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна
               - `deadlineExceeded` — Проверка маркировки не завершена и будет продолжена. Проверка может завершиться и успешно, и неуспешно
@@ -6909,21 +6915,21 @@ components:
               - `imeiSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Проверка пройдена
 
             <br><br>
-            Статусы проверки`imei`, с которыми поставку нельзя перевести в доставку:
+            Статусы проверки `imei`, с которыми поставку нельзя перевести в доставку:
               - `required` — Маркировка обязательна и не закреплена за сборочным заданием. Проверка не пройдена
               - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки
               - `imeiInvalidFormat` — Указан неверный формат маркировки. Проверка не пройдена
               - `imeiAlreadySold` — Товар с этим IMEI уже продан. Проверка не пройдена
 
             <br><br>
-            Статусы проверки`uin`, с которыми поставку можно перевести в доставку:
+            Статусы проверки `uin`, с которыми поставку можно перевести в доставку:
               - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
               - `deadlineExceeded` — Проверка маркировки не завершена и будет продолжена. Проверка может завершиться и успешно, и неуспешно
               - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна
               - `uinMaySell` — Товар допущен к продаже. Проверка пройдена
 
             <br><br>
-            Статусы проверки`uin`, с которыми поставку нельзя перевести в доставку:
+            Статусы проверки `uin`, с которыми поставку нельзя перевести в доставку:
               - `required` — Маркировка обязательна и не закреплена за сборочным заданием. Проверка не пройдена
               - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки
               - `uinBadStatus` — Некорректный статус партии. Проверка не пройдена
