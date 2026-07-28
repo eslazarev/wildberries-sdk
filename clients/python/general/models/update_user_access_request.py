@@ -74,8 +74,7 @@ class UpdateUserAccessRequest(BaseModel):
         _items = []
         if self.users_accesses:
             for _item_users_accesses in self.users_accesses:
-                if _item_users_accesses:
-                    _items.append(_item_users_accesses.to_dict())
+                _items.append(_item_users_accesses.to_dict() if _item_users_accesses is not None else None)
             _dict['usersAccesses'] = _items
         return _dict
 

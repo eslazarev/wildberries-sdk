@@ -76,8 +76,7 @@ class BrandsResponse(BaseModel):
         _items = []
         if self.brands:
             for _item_brands in self.brands:
-                if _item_brands:
-                    _items.append(_item_brands.to_dict())
+                _items.append(_item_brands.to_dict() if _item_brands is not None else None)
             _dict['brands'] = _items
         return _dict
 

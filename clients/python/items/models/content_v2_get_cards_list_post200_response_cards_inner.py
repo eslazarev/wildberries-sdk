@@ -98,8 +98,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner(BaseModel):
         _items = []
         if self.photos:
             for _item_photos in self.photos:
-                if _item_photos:
-                    _items.append(_item_photos.to_dict())
+                _items.append(_item_photos.to_dict() if _item_photos is not None else None)
             _dict['photos'] = _items
         # override the default output from pydantic by calling `to_dict()` of wholesale
         if self.wholesale:
@@ -111,22 +110,19 @@ class ContentV2GetCardsListPost200ResponseCardsInner(BaseModel):
         _items = []
         if self.characteristics:
             for _item_characteristics in self.characteristics:
-                if _item_characteristics:
-                    _items.append(_item_characteristics.to_dict())
+                _items.append(_item_characteristics.to_dict() if _item_characteristics is not None else None)
             _dict['characteristics'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in sizes (list)
         _items = []
         if self.sizes:
             for _item_sizes in self.sizes:
-                if _item_sizes:
-                    _items.append(_item_sizes.to_dict())
+                _items.append(_item_sizes.to_dict() if _item_sizes is not None else None)
             _dict['sizes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
         _items = []
         if self.tags:
             for _item_tags in self.tags:
-                if _item_tags:
-                    _items.append(_item_tags.to_dict())
+                _items.append(_item_tags.to_dict() if _item_tags is not None else None)
             _dict['tags'] = _items
         return _dict
 

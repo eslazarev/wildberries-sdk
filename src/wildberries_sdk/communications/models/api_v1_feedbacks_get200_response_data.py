@@ -76,8 +76,7 @@ class ApiV1FeedbacksGet200ResponseData(BaseModel):
         _items = []
         if self.feedbacks:
             for _item_feedbacks in self.feedbacks:
-                if _item_feedbacks:
-                    _items.append(_item_feedbacks.to_dict())
+                _items.append(_item_feedbacks.to_dict() if _item_feedbacks is not None else None)
             _dict['feedbacks'] = _items
         return _dict
 

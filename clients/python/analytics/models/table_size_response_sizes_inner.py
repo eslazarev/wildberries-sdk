@@ -78,8 +78,7 @@ class TableSizeResponseSizesInner(BaseModel):
         _items = []
         if self.offices:
             for _item_offices in self.offices:
-                if _item_offices:
-                    _items.append(_item_offices.to_dict())
+                _items.append(_item_offices.to_dict() if _item_offices is not None else None)
             _dict['offices'] = _items
         # override the default output from pydantic by calling `to_dict()` of metrics
         if self.metrics:

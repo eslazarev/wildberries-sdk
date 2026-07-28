@@ -112,8 +112,7 @@ class ApiV1FeedbackGet200ResponseData(BaseModel):
         _items = []
         if self.photo_links:
             for _item_photo_links in self.photo_links:
-                if _item_photo_links:
-                    _items.append(_item_photo_links.to_dict())
+                _items.append(_item_photo_links.to_dict() if _item_photo_links is not None else None)
             _dict['photoLinks'] = _items
         # override the default output from pydantic by calling `to_dict()` of video
         if self.video:

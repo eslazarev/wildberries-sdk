@@ -81,15 +81,13 @@ class ModelsErrorTableListPublicRespV2Item(BaseModel):
         _field_dict = {}
         if self.subjects:
             for _key_subjects in self.subjects:
-                if self.subjects[_key_subjects]:
-                    _field_dict[_key_subjects] = self.subjects[_key_subjects].to_dict()
+                _field_dict[_key_subjects] = self.subjects[_key_subjects].to_dict() if self.subjects[_key_subjects] is not None else None
             _dict['subjects'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of each value in brands (dict)
         _field_dict = {}
         if self.brands:
             for _key_brands in self.brands:
-                if self.brands[_key_brands]:
-                    _field_dict[_key_brands] = self.brands[_key_brands].to_dict()
+                _field_dict[_key_brands] = self.brands[_key_brands].to_dict() if self.brands[_key_brands] is not None else None
             _dict['brands'] = _field_dict
         return _dict
 

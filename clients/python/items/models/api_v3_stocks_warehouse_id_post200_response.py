@@ -74,8 +74,7 @@ class ApiV3StocksWarehouseIdPost200Response(BaseModel):
         _items = []
         if self.stocks:
             for _item_stocks in self.stocks:
-                if _item_stocks:
-                    _items.append(_item_stocks.to_dict())
+                _items.append(_item_stocks.to_dict() if _item_stocks is not None else None)
             _dict['stocks'] = _items
         return _dict
 

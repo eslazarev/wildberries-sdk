@@ -90,8 +90,7 @@ class ContentV2GetCardsTrashPost200ResponseCardsInner(BaseModel):
         _items = []
         if self.photos:
             for _item_photos in self.photos:
-                if _item_photos:
-                    _items.append(_item_photos.to_dict())
+                _items.append(_item_photos.to_dict() if _item_photos is not None else None)
             _dict['photos'] = _items
         # override the default output from pydantic by calling `to_dict()` of wholesale
         if self.wholesale:
@@ -100,8 +99,7 @@ class ContentV2GetCardsTrashPost200ResponseCardsInner(BaseModel):
         _items = []
         if self.sizes:
             for _item_sizes in self.sizes:
-                if _item_sizes:
-                    _items.append(_item_sizes.to_dict())
+                _items.append(_item_sizes.to_dict() if _item_sizes is not None else None)
             _dict['sizes'] = _items
         # override the default output from pydantic by calling `to_dict()` of dimensions
         if self.dimensions:
@@ -110,8 +108,7 @@ class ContentV2GetCardsTrashPost200ResponseCardsInner(BaseModel):
         _items = []
         if self.characteristics:
             for _item_characteristics in self.characteristics:
-                if _item_characteristics:
-                    _items.append(_item_characteristics.to_dict())
+                _items.append(_item_characteristics.to_dict() if _item_characteristics is not None else None)
             _dict['characteristics'] = _items
         # set to None if characteristics (nullable) is None
         # and model_fields_set contains the field

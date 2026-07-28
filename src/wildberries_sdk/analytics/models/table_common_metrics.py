@@ -94,8 +94,7 @@ class TableCommonMetrics(BaseModel):
         _items = []
         if self.avg_orders_by_month:
             for _item_avg_orders_by_month in self.avg_orders_by_month:
-                if _item_avg_orders_by_month:
-                    _items.append(_item_avg_orders_by_month.to_dict())
+                _items.append(_item_avg_orders_by_month.to_dict() if _item_avg_orders_by_month is not None else None)
             _dict['avgOrdersByMonth'] = _items
         # override the default output from pydantic by calling `to_dict()` of sale_rate
         if self.sale_rate:

@@ -93,8 +93,7 @@ class DaysV3InnerAppsInner(BaseModel):
         _items = []
         if self.nms:
             for _item_nms in self.nms:
-                if _item_nms:
-                    _items.append(_item_nms.to_dict())
+                _items.append(_item_nms.to_dict() if _item_nms is not None else None)
             _dict['nms'] = _items
         return _dict
 

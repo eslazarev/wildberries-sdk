@@ -76,15 +76,13 @@ class V1SetNormQueryBidsResponse(BaseModel):
         _items = []
         if self.success:
             for _item_success in self.success:
-                if _item_success:
-                    _items.append(_item_success.to_dict())
+                _items.append(_item_success.to_dict() if _item_success is not None else None)
             _dict['success'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in failed (list)
         _items = []
         if self.failed:
             for _item_failed in self.failed:
-                if _item_failed:
-                    _items.append(_item_failed.to_dict())
+                _items.append(_item_failed.to_dict() if _item_failed is not None else None)
             _dict['failed'] = _items
         return _dict
 

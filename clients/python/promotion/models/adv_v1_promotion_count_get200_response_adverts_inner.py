@@ -77,8 +77,7 @@ class AdvV1PromotionCountGet200ResponseAdvertsInner(BaseModel):
         _items = []
         if self.advert_list:
             for _item_advert_list in self.advert_list:
-                if _item_advert_list:
-                    _items.append(_item_advert_list.to_dict())
+                _items.append(_item_advert_list.to_dict() if _item_advert_list is not None else None)
             _dict['advert_list'] = _items
         return _dict
 

@@ -77,8 +77,7 @@ class ModelsWarehousesPalletRates(BaseModel):
         _items = []
         if self.warehouse_list:
             for _item_warehouse_list in self.warehouse_list:
-                if _item_warehouse_list:
-                    _items.append(_item_warehouse_list.to_dict())
+                _items.append(_item_warehouse_list.to_dict() if _item_warehouse_list is not None else None)
             _dict['warehouseList'] = _items
         # set to None if warehouse_list (nullable) is None
         # and model_fields_set contains the field

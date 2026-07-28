@@ -78,8 +78,7 @@ class AdvV1BalanceGet200Response(BaseModel):
         _items = []
         if self.cashbacks:
             for _item_cashbacks in self.cashbacks:
-                if _item_cashbacks:
-                    _items.append(_item_cashbacks.to_dict())
+                _items.append(_item_cashbacks.to_dict() if _item_cashbacks is not None else None)
             _dict['cashbacks'] = _items
         return _dict
 

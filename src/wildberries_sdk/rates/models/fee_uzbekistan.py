@@ -74,8 +74,7 @@ class FeeUzbekistan(BaseModel):
         _items = []
         if self.report:
             for _item_report in self.report:
-                if _item_report:
-                    _items.append(_item_report.to_dict())
+                _items.append(_item_report.to_dict() if _item_report is not None else None)
             _dict['report'] = _items
         return _dict
 

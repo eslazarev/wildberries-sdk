@@ -77,8 +77,7 @@ class ApiV3OrdersStatusHistoryPost200ResponseOrdersInner(BaseModel):
         _items = []
         if self.statuses:
             for _item_statuses in self.statuses:
-                if _item_statuses:
-                    _items.append(_item_statuses.to_dict())
+                _items.append(_item_statuses.to_dict() if _item_statuses is not None else None)
             _dict['statuses'] = _items
         return _dict
 

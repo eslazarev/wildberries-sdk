@@ -74,8 +74,7 @@ class ApiV3DbwWarehousesWarehouseIdContactsGet200Response(BaseModel):
         _items = []
         if self.contacts:
             for _item_contacts in self.contacts:
-                if _item_contacts:
-                    _items.append(_item_contacts.to_dict())
+                _items.append(_item_contacts.to_dict() if _item_contacts is not None else None)
             _dict['contacts'] = _items
         return _dict
 

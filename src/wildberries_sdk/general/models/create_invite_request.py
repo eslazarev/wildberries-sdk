@@ -76,8 +76,7 @@ class CreateInviteRequest(BaseModel):
         _items = []
         if self.access:
             for _item_access in self.access:
-                if _item_access:
-                    _items.append(_item_access.to_dict())
+                _items.append(_item_access.to_dict() if _item_access is not None else None)
             _dict['access'] = _items
         # override the default output from pydantic by calling `to_dict()` of invite
         if self.invite:

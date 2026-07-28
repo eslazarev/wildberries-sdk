@@ -76,8 +76,7 @@ class ModelsSuppliesFiltersRequest(BaseModel):
         _items = []
         if self.dates:
             for _item_dates in self.dates:
-                if _item_dates:
-                    _items.append(_item_dates.to_dict())
+                _items.append(_item_dates.to_dict() if _item_dates is not None else None)
             _dict['dates'] = _items
         return _dict
 

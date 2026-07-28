@@ -74,8 +74,7 @@ class ApiV3OrdersNewGet200Response(BaseModel):
         _items = []
         if self.orders:
             for _item_orders in self.orders:
-                if _item_orders:
-                    _items.append(_item_orders.to_dict())
+                _items.append(_item_orders.to_dict() if _item_orders is not None else None)
             _dict['orders'] = _items
         return _dict
 

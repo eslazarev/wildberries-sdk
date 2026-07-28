@@ -99,8 +99,7 @@ class AdvV1AdvertGet200ResponseItemsInner(BaseModel):
         _items = []
         if self.show_hours:
             for _item_show_hours in self.show_hours:
-                if _item_show_hours:
-                    _items.append(_item_show_hours.to_dict())
+                _items.append(_item_show_hours.to_dict() if _item_show_hours is not None else None)
             _dict['show_hours'] = _items
         return _dict
 

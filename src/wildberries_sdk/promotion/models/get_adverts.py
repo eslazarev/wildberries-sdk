@@ -74,8 +74,7 @@ class GetAdverts(BaseModel):
         _items = []
         if self.adverts:
             for _item_adverts in self.adverts:
-                if _item_adverts:
-                    _items.append(_item_adverts.to_dict())
+                _items.append(_item_adverts.to_dict() if _item_adverts is not None else None)
             _dict['adverts'] = _items
         return _dict
 

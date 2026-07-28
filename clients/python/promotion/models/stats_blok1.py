@@ -95,8 +95,7 @@ class StatsBlok1(BaseModel):
         _items = []
         if self.daily_stats:
             for _item_daily_stats in self.daily_stats:
-                if _item_daily_stats:
-                    _items.append(_item_daily_stats.to_dict())
+                _items.append(_item_daily_stats.to_dict() if _item_daily_stats is not None else None)
             _dict['daily_stats'] = _items
         return _dict
 

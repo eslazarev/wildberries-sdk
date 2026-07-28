@@ -74,8 +74,7 @@ class ApiV1AnalyticsAntifraudDetailsGet200Response(BaseModel):
         _items = []
         if self.details:
             for _item_details in self.details:
-                if _item_details:
-                    _items.append(_item_details.to_dict())
+                _items.append(_item_details.to_dict() if _item_details is not None else None)
             _dict['details'] = _items
         return _dict
 

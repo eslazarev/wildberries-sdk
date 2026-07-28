@@ -76,8 +76,7 @@ class SetRecomReqRecListInner(BaseModel):
         _items = []
         if self.recommendations:
             for _item_recommendations in self.recommendations:
-                if _item_recommendations:
-                    _items.append(_item_recommendations.to_dict())
+                _items.append(_item_recommendations.to_dict() if _item_recommendations is not None else None)
             _dict['recommendations'] = _items
         return _dict
 

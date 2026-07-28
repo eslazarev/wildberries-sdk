@@ -89,15 +89,13 @@ class FullStatsItem(BaseModel):
         _items = []
         if self.booster_stats:
             for _item_booster_stats in self.booster_stats:
-                if _item_booster_stats:
-                    _items.append(_item_booster_stats.to_dict())
+                _items.append(_item_booster_stats.to_dict() if _item_booster_stats is not None else None)
             _dict['boosterStats'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in days (list)
         _items = []
         if self.days:
             for _item_days in self.days:
-                if _item_days:
-                    _items.append(_item_days.to_dict())
+                _items.append(_item_days.to_dict() if _item_days is not None else None)
             _dict['days'] = _items
         return _dict
 

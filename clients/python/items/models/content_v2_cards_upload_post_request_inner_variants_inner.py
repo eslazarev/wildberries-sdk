@@ -92,15 +92,13 @@ class ContentV2CardsUploadPostRequestInnerVariantsInner(BaseModel):
         _items = []
         if self.sizes:
             for _item_sizes in self.sizes:
-                if _item_sizes:
-                    _items.append(_item_sizes.to_dict())
+                _items.append(_item_sizes.to_dict() if _item_sizes is not None else None)
             _dict['sizes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in characteristics (list)
         _items = []
         if self.characteristics:
             for _item_characteristics in self.characteristics:
-                if _item_characteristics:
-                    _items.append(_item_characteristics.to_dict())
+                _items.append(_item_characteristics.to_dict() if _item_characteristics is not None else None)
             _dict['characteristics'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class ApiV3SuppliesGet200Response(BaseModel):
         _items = []
         if self.supplies:
             for _item_supplies in self.supplies:
-                if _item_supplies:
-                    _items.append(_item_supplies.to_dict())
+                _items.append(_item_supplies.to_dict() if _item_supplies is not None else None)
             _dict['supplies'] = _items
         return _dict
 

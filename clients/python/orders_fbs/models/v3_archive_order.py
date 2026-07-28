@@ -99,8 +99,7 @@ class V3ArchiveOrder(BaseModel):
         _items = []
         if self.meta_details:
             for _item_meta_details in self.meta_details:
-                if _item_meta_details:
-                    _items.append(_item_meta_details.to_dict())
+                _items.append(_item_meta_details.to_dict() if _item_meta_details is not None else None)
             _dict['metaDetails'] = _items
         # override the default output from pydantic by calling `to_dict()` of options
         if self.options:

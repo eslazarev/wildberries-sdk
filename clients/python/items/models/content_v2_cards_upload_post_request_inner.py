@@ -75,8 +75,7 @@ class ContentV2CardsUploadPostRequestInner(BaseModel):
         _items = []
         if self.variants:
             for _item_variants in self.variants:
-                if _item_variants:
-                    _items.append(_item_variants.to_dict())
+                _items.append(_item_variants.to_dict() if _item_variants is not None else None)
             _dict['variants'] = _items
         return _dict
 

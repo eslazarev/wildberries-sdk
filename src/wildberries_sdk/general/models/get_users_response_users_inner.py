@@ -97,8 +97,7 @@ class GetUsersResponseUsersInner(BaseModel):
         _items = []
         if self.access:
             for _item_access in self.access:
-                if _item_access:
-                    _items.append(_item_access.to_dict())
+                _items.append(_item_access.to_dict() if _item_access is not None else None)
             _dict['access'] = _items
         # set to None if invitee_info (nullable) is None
         # and model_fields_set contains the field

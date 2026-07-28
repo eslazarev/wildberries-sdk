@@ -74,8 +74,7 @@ class ApiV3SuppliesSupplyIdTrbxGet200Response(BaseModel):
         _items = []
         if self.trbxes:
             for _item_trbxes in self.trbxes:
-                if _item_trbxes:
-                    _items.append(_item_trbxes.to_dict())
+                _items.append(_item_trbxes.to_dict() if _item_trbxes is not None else None)
             _dict['trbxes'] = _items
         return _dict
 

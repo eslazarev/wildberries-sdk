@@ -76,8 +76,7 @@ class ModelsBox(BaseModel):
         _items = []
         if self.barcodes:
             for _item_barcodes in self.barcodes:
-                if _item_barcodes:
-                    _items.append(_item_barcodes.to_dict())
+                _items.append(_item_barcodes.to_dict() if _item_barcodes is not None else None)
             _dict['barcodes'] = _items
         return _dict
 

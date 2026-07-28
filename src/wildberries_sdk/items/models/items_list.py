@@ -83,15 +83,13 @@ class ItemsList(BaseModel):
         _items = []
         if self.sizes:
             for _item_sizes in self.sizes:
-                if _item_sizes:
-                    _items.append(_item_sizes.to_dict())
+                _items.append(_item_sizes.to_dict() if _item_sizes is not None else None)
             _dict['sizes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in wholesale_discount_threshold (list)
         _items = []
         if self.wholesale_discount_threshold:
             for _item_wholesale_discount_threshold in self.wholesale_discount_threshold:
-                if _item_wholesale_discount_threshold:
-                    _items.append(_item_wholesale_discount_threshold.to_dict())
+                _items.append(_item_wholesale_discount_threshold.to_dict() if _item_wholesale_discount_threshold is not None else None)
             _dict['wholesaleDiscountThreshold'] = _items
         return _dict
 

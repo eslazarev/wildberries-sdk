@@ -76,8 +76,7 @@ class PostV1UploadTaskB2bWholesale200Response(BaseModel):
         _items = []
         if self.results:
             for _item_results in self.results:
-                if _item_results:
-                    _items.append(_item_results.to_dict())
+                _items.append(_item_results.to_dict() if _item_results is not None else None)
             _dict['results'] = _items
         return _dict
 

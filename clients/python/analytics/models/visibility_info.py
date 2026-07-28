@@ -86,22 +86,19 @@ class VisibilityInfo(BaseModel):
         _items = []
         if self.by_day:
             for _item_by_day in self.by_day:
-                if _item_by_day:
-                    _items.append(_item_by_day.to_dict())
+                _items.append(_item_by_day.to_dict() if _item_by_day is not None else None)
             _dict['byDay'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in by_week (list)
         _items = []
         if self.by_week:
             for _item_by_week in self.by_week:
-                if _item_by_week:
-                    _items.append(_item_by_week.to_dict())
+                _items.append(_item_by_week.to_dict() if _item_by_week is not None else None)
             _dict['byWeek'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in by_month (list)
         _items = []
         if self.by_month:
             for _item_by_month in self.by_month:
-                if _item_by_month:
-                    _items.append(_item_by_month.to_dict())
+                _items.append(_item_by_month.to_dict() if _item_by_month is not None else None)
             _dict['byMonth'] = _items
         return _dict
 

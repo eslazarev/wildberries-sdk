@@ -75,8 +75,7 @@ class AdvV1PromotionCountGet200Response(BaseModel):
         _items = []
         if self.adverts:
             for _item_adverts in self.adverts:
-                if _item_adverts:
-                    _items.append(_item_adverts.to_dict())
+                _items.append(_item_adverts.to_dict() if _item_adverts is not None else None)
             _dict['adverts'] = _items
         # set to None if adverts (nullable) is None
         # and model_fields_set contains the field

@@ -75,8 +75,7 @@ class TableGroupResponseSt(BaseModel):
         _items = []
         if self.groups:
             for _item_groups in self.groups:
-                if _item_groups:
-                    _items.append(_item_groups.to_dict())
+                _items.append(_item_groups.to_dict() if _item_groups is not None else None)
             _dict['groups'] = _items
         return _dict
 

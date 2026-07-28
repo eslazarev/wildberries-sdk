@@ -75,8 +75,7 @@ class RequestDownload(BaseModel):
         _items = []
         if self.params:
             for _item_params in self.params:
-                if _item_params:
-                    _items.append(_item_params.to_dict())
+                _items.append(_item_params.to_dict() if _item_params is not None else None)
             _dict['params'] = _items
         return _dict
 

@@ -79,8 +79,7 @@ class EventsResult(BaseModel):
         _items = []
         if self.events:
             for _item_events in self.events:
-                if _item_events:
-                    _items.append(_item_events.to_dict())
+                _items.append(_item_events.to_dict() if _item_events is not None else None)
             _dict['events'] = _items
         return _dict
 

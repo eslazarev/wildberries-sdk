@@ -81,8 +81,7 @@ class V0BidsRecommendationsResponse(BaseModel):
         _items = []
         if self.norm_queries:
             for _item_norm_queries in self.norm_queries:
-                if _item_norm_queries:
-                    _items.append(_item_norm_queries.to_dict())
+                _items.append(_item_norm_queries.to_dict() if _item_norm_queries is not None else None)
             _dict['normQueries'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class DailyStats2InnerAppTypeStatsInner(BaseModel):
         _items = []
         if self.stats:
             for _item_stats in self.stats:
-                if _item_stats:
-                    _items.append(_item_stats.to_dict())
+                _items.append(_item_stats.to_dict() if _item_stats is not None else None)
             _dict['stats'] = _items
         return _dict
 

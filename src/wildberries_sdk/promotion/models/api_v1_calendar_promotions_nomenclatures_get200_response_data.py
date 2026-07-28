@@ -74,8 +74,7 @@ class ApiV1CalendarPromotionsNomenclaturesGet200ResponseData(BaseModel):
         _items = []
         if self.nomenclatures:
             for _item_nomenclatures in self.nomenclatures:
-                if _item_nomenclatures:
-                    _items.append(_item_nomenclatures.to_dict())
+                _items.append(_item_nomenclatures.to_dict() if _item_nomenclatures is not None else None)
             _dict['nomenclatures'] = _items
         return _dict
 

@@ -76,15 +76,13 @@ class ItemOrdersResponse(BaseModel):
         _items = []
         if self.total:
             for _item_total in self.total:
-                if _item_total:
-                    _items.append(_item_total.to_dict())
+                _items.append(_item_total.to_dict() if _item_total is not None else None)
             _dict['total'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
             for _item_items in self.items:
-                if _item_items:
-                    _items.append(_item_items.to_dict())
+                _items.append(_item_items.to_dict() if _item_items is not None else None)
             _dict['items'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class ApiAdvertV1BidsPatch200ResponseBidsInner(BaseModel):
         _items = []
         if self.nm_bids:
             for _item_nm_bids in self.nm_bids:
-                if _item_nm_bids:
-                    _items.append(_item_nm_bids.to_dict())
+                _items.append(_item_nm_bids.to_dict() if _item_nm_bids is not None else None)
             _dict['nm_bids'] = _items
         return _dict
 

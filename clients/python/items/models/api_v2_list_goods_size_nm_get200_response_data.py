@@ -74,8 +74,7 @@ class ApiV2ListGoodsSizeNmGet200ResponseData(BaseModel):
         _items = []
         if self.list_goods:
             for _item_list_goods in self.list_goods:
-                if _item_list_goods:
-                    _items.append(_item_list_goods.to_dict())
+                _items.append(_item_list_goods.to_dict() if _item_list_goods is not None else None)
             _dict['listGoods'] = _items
         # set to None if list_goods (nullable) is None
         # and model_fields_set contains the field

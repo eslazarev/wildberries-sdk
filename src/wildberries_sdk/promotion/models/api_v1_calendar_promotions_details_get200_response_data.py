@@ -74,8 +74,7 @@ class ApiV1CalendarPromotionsDetailsGet200ResponseData(BaseModel):
         _items = []
         if self.promotions:
             for _item_promotions in self.promotions:
-                if _item_promotions:
-                    _items.append(_item_promotions.to_dict())
+                _items.append(_item_promotions.to_dict() if _item_promotions is not None else None)
             _dict['promotions'] = _items
         return _dict
 

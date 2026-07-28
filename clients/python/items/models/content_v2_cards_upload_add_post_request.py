@@ -75,8 +75,7 @@ class ContentV2CardsUploadAddPostRequest(BaseModel):
         _items = []
         if self.cards_to_add:
             for _item_cards_to_add in self.cards_to_add:
-                if _item_cards_to_add:
-                    _items.append(_item_cards_to_add.to_dict())
+                _items.append(_item_cards_to_add.to_dict() if _item_cards_to_add is not None else None)
             _dict['cardsToAdd'] = _items
         return _dict
 

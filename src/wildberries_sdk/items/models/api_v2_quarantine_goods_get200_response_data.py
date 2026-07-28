@@ -74,8 +74,7 @@ class ApiV2QuarantineGoodsGet200ResponseData(BaseModel):
         _items = []
         if self.quarantine_goods:
             for _item_quarantine_goods in self.quarantine_goods:
-                if _item_quarantine_goods:
-                    _items.append(_item_quarantine_goods.to_dict())
+                _items.append(_item_quarantine_goods.to_dict() if _item_quarantine_goods is not None else None)
             _dict['quarantineGoods'] = _items
         return _dict
 

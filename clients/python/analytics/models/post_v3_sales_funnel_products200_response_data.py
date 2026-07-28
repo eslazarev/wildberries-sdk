@@ -75,8 +75,7 @@ class PostV3SalesFunnelProducts200ResponseData(BaseModel):
         _items = []
         if self.products:
             for _item_products in self.products:
-                if _item_products:
-                    _items.append(_item_products.to_dict())
+                _items.append(_item_products.to_dict() if _item_products is not None else None)
             _dict['products'] = _items
         return _dict
 

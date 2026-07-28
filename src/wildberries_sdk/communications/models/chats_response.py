@@ -75,8 +75,7 @@ class ChatsResponse(BaseModel):
         _items = []
         if self.result:
             for _item_result in self.result:
-                if _item_result:
-                    _items.append(_item_result.to_dict())
+                _items.append(_item_result.to_dict() if _item_result is not None else None)
             _dict['result'] = _items
         # set to None if errors (nullable) is None
         # and model_fields_set contains the field

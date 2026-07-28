@@ -74,8 +74,7 @@ class ApiOrdersMetaResponse(BaseModel):
         _items = []
         if self.meta:
             for _item_meta in self.meta:
-                if _item_meta:
-                    _items.append(_item_meta.to_dict())
+                _items.append(_item_meta.to_dict() if _item_meta is not None else None)
             _dict['meta'] = _items
         return _dict
 

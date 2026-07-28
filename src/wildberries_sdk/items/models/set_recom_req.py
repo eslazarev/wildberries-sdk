@@ -76,8 +76,7 @@ class SetRecomReq(BaseModel):
         _items = []
         if self.rec_list:
             for _item_rec_list in self.rec_list:
-                if _item_rec_list:
-                    _items.append(_item_rec_list.to_dict())
+                _items.append(_item_rec_list.to_dict() if _item_rec_list is not None else None)
             _dict['recList'] = _items
         return _dict
 

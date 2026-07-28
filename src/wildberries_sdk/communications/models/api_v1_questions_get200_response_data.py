@@ -76,8 +76,7 @@ class ApiV1QuestionsGet200ResponseData(BaseModel):
         _items = []
         if self.questions:
             for _item_questions in self.questions:
-                if _item_questions:
-                    _items.append(_item_questions.to_dict())
+                _items.append(_item_questions.to_dict() if _item_questions is not None else None)
             _dict['questions'] = _items
         return _dict
 

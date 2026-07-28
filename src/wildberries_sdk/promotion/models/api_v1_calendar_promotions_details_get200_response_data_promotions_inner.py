@@ -97,8 +97,7 @@ class ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner(BaseModel)
         _items = []
         if self.ranging:
             for _item_ranging in self.ranging:
-                if _item_ranging:
-                    _items.append(_item_ranging.to_dict())
+                _items.append(_item_ranging.to_dict() if _item_ranging is not None else None)
             _dict['ranging'] = _items
         return _dict
 

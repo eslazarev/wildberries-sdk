@@ -79,8 +79,7 @@ class ModelsTransitTariff(BaseModel):
         _items = []
         if self.box_tariff:
             for _item_box_tariff in self.box_tariff:
-                if _item_box_tariff:
-                    _items.append(_item_box_tariff.to_dict())
+                _items.append(_item_box_tariff.to_dict() if _item_box_tariff is not None else None)
             _dict['boxTariff'] = _items
         # set to None if box_tariff (nullable) is None
         # and model_fields_set contains the field

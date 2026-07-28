@@ -81,8 +81,7 @@ class ModelsOptionsResultModelResultInner(BaseModel):
         _items = []
         if self.warehouses:
             for _item_warehouses in self.warehouses:
-                if _item_warehouses:
-                    _items.append(_item_warehouses.to_dict())
+                _items.append(_item_warehouses.to_dict() if _item_warehouses is not None else None)
             _dict['warehouses'] = _items
         # set to None if warehouses (nullable) is None
         # and model_fields_set contains the field

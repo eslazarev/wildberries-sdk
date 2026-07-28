@@ -75,8 +75,7 @@ class ApiV3SuppliesSupplyIdTrbxStickersPost200Response(BaseModel):
         _items = []
         if self.stickers:
             for _item_stickers in self.stickers:
-                if _item_stickers:
-                    _items.append(_item_stickers.to_dict())
+                _items.append(_item_stickers.to_dict() if _item_stickers is not None else None)
             _dict['stickers'] = _items
         return _dict
 

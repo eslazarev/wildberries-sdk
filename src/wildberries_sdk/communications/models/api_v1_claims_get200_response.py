@@ -75,8 +75,7 @@ class ApiV1ClaimsGet200Response(BaseModel):
         _items = []
         if self.claims:
             for _item_claims in self.claims:
-                if _item_claims:
-                    _items.append(_item_claims.to_dict())
+                _items.append(_item_claims.to_dict() if _item_claims is not None else None)
             _dict['claims'] = _items
         return _dict
 

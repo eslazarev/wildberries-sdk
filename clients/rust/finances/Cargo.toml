@@ -1,6 +1,6 @@
 [package]
 name = "wildberries_sdk_finances"
-version = "0.1.130"
+version = "0.1.131"
 authors = ["Evgenii Lazarev <elazarev@gmail.com>"]
 description = "Wildberries OpenAPI client (generated)."
 repository = "https://github.com/eslazarev/wildberries-sdk"

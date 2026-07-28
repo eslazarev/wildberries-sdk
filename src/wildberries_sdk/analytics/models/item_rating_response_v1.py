@@ -84,8 +84,7 @@ class ItemRatingResponseV1(BaseModel):
         _items = []
         if self.cards:
             for _item_cards in self.cards:
-                if _item_cards:
-                    _items.append(_item_cards.to_dict())
+                _items.append(_item_cards.to_dict() if _item_cards is not None else None)
             _dict['cards'] = _items
         return _dict
 

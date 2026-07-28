@@ -75,8 +75,7 @@ class B2BWholesaleInner(BaseModel):
         _items = []
         if self.wholesale_discount_threshold:
             for _item_wholesale_discount_threshold in self.wholesale_discount_threshold:
-                if _item_wholesale_discount_threshold:
-                    _items.append(_item_wholesale_discount_threshold.to_dict())
+                _items.append(_item_wholesale_discount_threshold.to_dict() if _item_wholesale_discount_threshold is not None else None)
             _dict['wholesaleDiscountThreshold'] = _items
         return _dict
 

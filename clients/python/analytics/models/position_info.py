@@ -86,8 +86,7 @@ class PositionInfo(BaseModel):
         _items = []
         if self.chart_items:
             for _item_chart_items in self.chart_items:
-                if _item_chart_items:
-                    _items.append(_item_chart_items.to_dict())
+                _items.append(_item_chart_items.to_dict() if _item_chart_items is not None else None)
             _dict['chartItems'] = _items
         # override the default output from pydantic by calling `to_dict()` of clusters
         if self.clusters:

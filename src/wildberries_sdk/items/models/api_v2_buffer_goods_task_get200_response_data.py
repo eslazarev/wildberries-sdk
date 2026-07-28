@@ -75,8 +75,7 @@ class ApiV2BufferGoodsTaskGet200ResponseData(BaseModel):
         _items = []
         if self.buffer_goods:
             for _item_buffer_goods in self.buffer_goods:
-                if _item_buffer_goods:
-                    _items.append(_item_buffer_goods.to_dict())
+                _items.append(_item_buffer_goods.to_dict() if _item_buffer_goods is not None else None)
             _dict['bufferGoods'] = _items
         # set to None if upload_id (nullable) is None
         # and model_fields_set contains the field

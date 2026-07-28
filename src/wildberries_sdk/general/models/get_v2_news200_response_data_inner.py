@@ -79,8 +79,7 @@ class GetV2News200ResponseDataInner(BaseModel):
         _items = []
         if self.types:
             for _item_types in self.types:
-                if _item_types:
-                    _items.append(_item_types.to_dict())
+                _items.append(_item_types.to_dict() if _item_types is not None else None)
             _dict['types'] = _items
         return _dict
 

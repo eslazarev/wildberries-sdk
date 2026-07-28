@@ -76,8 +76,7 @@ class ItemOrdersTextItem(BaseModel):
         _items = []
         if self.date_items:
             for _item_date_items in self.date_items:
-                if _item_date_items:
-                    _items.append(_item_date_items.to_dict())
+                _items.append(_item_date_items.to_dict() if _item_date_items is not None else None)
             _dict['dateItems'] = _items
         return _dict
 
