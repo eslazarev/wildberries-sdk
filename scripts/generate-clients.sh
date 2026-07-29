@@ -148,6 +148,36 @@ to_pascal_case() {
   }'
 }
 
+# openapi-generator never deletes files it no longer produces. When a schema is
+# renamed (e.g. 409SupplyDeliverError -> Model409SupplyDeliverError via the
+# digit-name sanitizer), the old model file lingers next to the new one, which
+# breaks the build (invalid identifiers, or "redeclared in this block"). The
+# Python path sidesteps this with a full `rm -rf` before generation, but the
+# other languages generate in place to preserve non-generated tracked files
+# (notably Go's go.sum, plus Cargo.toml/composer.json/package.json). So purge
+# only the always-regenerated model/api sources here; everything removed is
+# recreated by the generator in the same run.
+purge_regenerated_sources() {
+  local generator="$1"
+  local dir="$2"
+  [[ -d "${dir}" ]] || return 0
+
+  case "${generator}" in
+    go)
+      rm -f "${dir}"/model_*.go "${dir}"/api_*.go
+      ;;
+    php)
+      rm -f "${dir}"/lib/Model/*.php "${dir}"/lib/Api/*.php
+      ;;
+    rust)
+      rm -f "${dir}"/src/models/*.rs "${dir}"/src/apis/*.rs
+      ;;
+    typescript*|javascript*)
+      rm -f "${dir}"/src/models/*.ts "${dir}"/src/apis/*.ts
+      ;;
+  esac
+}
+
 cleanup_output_dir() {
   local dir="$1"
   local files=(
@@ -1147,6 +1177,9 @@ for lang in "${langs[@]}"; do
     fi
 
     echo "Generating ${name} for ${filename}"
+    if [[ "${generator}" != "python" ]]; then
+      purge_regenerated_sources "${generator}" "${out_path}"
+    fi
     if [[ "${generator}" == "python" ]]; then
       rm -rf "${out_path}"
       tmp_dir="${ROOT_DIR}/.tmp-python-specs"
