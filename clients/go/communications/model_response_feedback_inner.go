@@ -833,7 +833,7 @@ func (o *ResponseFeedbackInner) SetBables(v []string) {
 // GetLastOrderShkId returns the LastOrderShkId field value if set, zero value otherwise.
 func (o *ResponseFeedbackInner) GetLastOrderShkId() int64 {
 	if o == nil || IsNil(o.LastOrderShkId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LastOrderShkId

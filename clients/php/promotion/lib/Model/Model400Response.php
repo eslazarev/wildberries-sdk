@@ -49,7 +49,7 @@ class Model400Response implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = '400Response';
+    protected static $openAPIModelName = 'Model400Response';
 
     /**
      * Array of property to type mappings. Used for (de)serialization

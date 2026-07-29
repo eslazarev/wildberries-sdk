@@ -909,7 +909,7 @@ paths:
                 LowBudget:
                   $ref: "#/components/examples/LowBudget"
               schema:
-                $ref: "#/components/schemas/400Response"
+                $ref: "#/components/schemas/Model400Response"
           description: Неправильный запрос
         "401":
           content:
@@ -1003,7 +1003,7 @@ paths:
                 AdvertNotFound:
                   $ref: "#/components/examples/AdvertNotFound"
               schema:
-                $ref: "#/components/schemas/400Response"
+                $ref: "#/components/schemas/Model400Response"
           description: Неправильный запрос
         "401":
           content:
@@ -1099,7 +1099,7 @@ paths:
                 AdvertNotFound:
                   $ref: "#/components/examples/AdvertNotFound"
               schema:
-                $ref: "#/components/schemas/400Response"
+                $ref: "#/components/schemas/Model400Response"
           description: Неправильный запрос
         "401":
           content:
@@ -5897,7 +5897,7 @@ components:
           format: double
           type: number
       type: object
-    "400Response":
+    Model400Response:
       example:
         error: error
       properties:

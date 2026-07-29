@@ -3433,7 +3433,7 @@ paths:
                 MetaValidationFail:
                   $ref: "#/components/examples/MetaValidationFail"
               schema:
-                $ref: "#/components/schemas/409SupplyDeliverError"
+                $ref: "#/components/schemas/Model409SupplyDeliverError"
           description: Ошибка закрытия поставки
         "429":
           content:
@@ -4806,7 +4806,7 @@ components:
       - detail
       - title
       type: object
-    "409SupplyDeliverError":
+    Model409SupplyDeliverError:
       example:
         code: code
         message: message
@@ -4839,7 +4839,7 @@ components:
           nullable: false
           type: string
         data:
-          $ref: "#/components/schemas/_409SupplyDeliverError_data"
+          $ref: "#/components/schemas/Model409SupplyDeliverError_data"
       type: object
     Next:
       description: "Параметр пагинации. Содержит значение, которое необходимо указ\
@@ -6742,7 +6742,7 @@ components:
         value:
           description: "Значение параметра, где произошла ошибка"
       type: object
-    _409SupplyDeliverError_data_orders_inner_metaDetails_inner:
+    Model409SupplyDeliverError_data_orders_inner_metaDetails_inner:
       example:
         key: key
         value: value
@@ -6800,7 +6800,7 @@ components:
               - `required` — Маркировка обязательна и не закреплена за сборочным заданием
           type: string
       type: object
-    _409SupplyDeliverError_data_orders_inner:
+    Model409SupplyDeliverError_data_orders_inner:
       example:
         id: 0
         metaDetails:
@@ -6817,10 +6817,10 @@ components:
         metaDetails:
           description: Информация об ошибках
           items:
-            $ref: "#/components/schemas/_409SupplyDeliverError_data_orders_inner_metaDetails_inner"
+            $ref: "#/components/schemas/Model409SupplyDeliverError_data_orders_inner_metaDetails_inner"
           type: array
       type: object
-    _409SupplyDeliverError_data:
+    Model409SupplyDeliverError_data:
       description: Дополнительные данные ошибки
       example:
         orders:
@@ -6846,7 +6846,7 @@ components:
           description: "Сборочные задания, идентификаторы маркировки которых не пр\
             ошли или ещё не завершили проверку"
           items:
-            $ref: "#/components/schemas/_409SupplyDeliverError_data_orders_inner"
+            $ref: "#/components/schemas/Model409SupplyDeliverError_data_orders_inner"
           type: array
       type: object
     Order_address:

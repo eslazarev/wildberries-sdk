@@ -456,7 +456,7 @@ paths:
                 requestId: 8bbd7db59522d09926dd059892dbeff0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -648,7 +648,7 @@ paths:
                 requestId: 6a6c2fba81f08e58670a7dab835ff0d7
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -748,7 +748,7 @@ paths:
                 requestId: 52dd27a91a1a643feae7201b206462df
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -775,7 +775,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Не найдено
         "429":
           content:
@@ -869,7 +869,7 @@ paths:
                 requestId: 44bac63ab29c46cb2d49392e6604c1a0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -906,7 +906,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Не найдено
         "429":
           content:
@@ -1406,7 +1406,7 @@ paths:
                 IncorrectDate:
                   $ref: "#/components/examples/IncorrectDate"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1537,7 +1537,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1655,7 +1655,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1755,7 +1755,7 @@ paths:
                 requestId: 44bac63ab29c46cb2d49392e6604c1a0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1782,7 +1782,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Не найдено
         "429":
           content:
@@ -1857,7 +1857,7 @@ paths:
                 requestId: 52dd27a91a1a643feae7201b206462df
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -1894,7 +1894,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Не найдено
         "429":
           content:
@@ -1996,7 +1996,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2096,7 +2096,7 @@ paths:
                 requestId: 52dd27a91a1a643feae7201b206462df
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2123,7 +2123,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Не найдено
         "429":
           content:
@@ -2220,7 +2220,7 @@ paths:
                 requestId: 44bac63ab29c46cb2d49392e6604c1a0
                 title: Bad Request
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2257,7 +2257,7 @@ paths:
                 requestId: c777731fc180f215a49c9896c2f1200d
                 title: Not Found
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Не найдено
         "429":
           content:
@@ -2346,7 +2346,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2577,7 +2577,7 @@ paths:
                 MissingBrand:
                   $ref: "#/components/examples/MissingBrand"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -2734,7 +2734,7 @@ paths:
                 MissingBrand:
                   $ref: "#/components/examples/MissingBrand"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -3094,7 +3094,7 @@ paths:
                 DateRanges:
                   $ref: "#/components/examples/DateRanges"
               schema:
-                $ref: "#/components/schemas/4xxResponse"
+                $ref: "#/components/schemas/Model4xxResponse"
           description: Неправильный запрос
         "401":
           content:
@@ -4174,7 +4174,7 @@ components:
           description: ID задания на генерацию
           type: string
       type: object
-    "4xxResponse":
+    Model4xxResponse:
       example:
         detail: detail
         origin: origin

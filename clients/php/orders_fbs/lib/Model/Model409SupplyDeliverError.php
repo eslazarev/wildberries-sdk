@@ -49,7 +49,7 @@ class Model409SupplyDeliverError implements ModelInterface, ArrayAccess, \JsonSe
      *
      * @var string
      */
-    protected static $openAPIModelName = '409SupplyDeliverError';
+    protected static $openAPIModelName = 'Model409SupplyDeliverError';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
