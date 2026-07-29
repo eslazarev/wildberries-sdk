@@ -22,6 +22,9 @@ cleanup_tmp_specs() {
   if [[ -d "${ROOT_DIR}/.tmp-python-specs" ]]; then
     rmdir "${ROOT_DIR}/.tmp-python-specs" 2>/dev/null || true
   fi
+  if [[ -d "${ROOT_DIR}/.tmp-sanitized-specs" ]]; then
+    rmdir "${ROOT_DIR}/.tmp-sanitized-specs" 2>/dev/null || true
+  fi
 }
 trap cleanup_tmp_specs EXIT
 
@@ -252,8 +255,8 @@ for path in root.rglob("*.go"):
         new_text = new_text.replace(old, new)
 
     new_text = re.sub(
-        r"(func \\(o \\*[^)]+\\) GetLastOrderShkId\\(\\) int64 \\{.*?)(var ret )int32",
-        r"\\1\\2int64",
+        r"(func \(o \*[^)]+\) GetLastOrderShkId\(\) int64 \{.*?)(var ret )int32",
+        r"\g<1>\g<2>int64",
         new_text,
         flags=re.S,
     )
@@ -924,6 +927,73 @@ Path(sys.argv[2]).write_text("\n".join(out_lines) + "\n", encoding="utf-8")
 PY
 }
 
+sanitize_digit_schema_names() {
+  local input="$1"
+  local output="$2"
+
+  python3 - "${input}" "${output}" <<'PY'
+import re
+import shutil
+import sys
+
+src, dst = sys.argv[1], sys.argv[2]
+with open(src, encoding="utf-8") as f:
+    text = f.read()
+
+# Collect schema names under components.schemas (keys at indent 4).
+all_names = set()
+digit_names = []
+in_components = False
+in_schemas = False
+for line in text.split("\n"):
+    stripped = line.strip()
+    if not stripped:
+        continue
+    indent = len(line) - len(line.lstrip())
+    if re.match(r"^components:\s*$", line):
+        in_components = True
+        in_schemas = False
+        continue
+    if in_components and indent == 0:
+        in_components = False
+        in_schemas = False
+    elif in_components and indent == 2:
+        in_schemas = bool(re.match(r"^\s*schemas:\s*$", line))
+    elif in_components and in_schemas and indent == 4:
+        m = re.match(r"^    ([^\s:]+):\s*$", line)
+        if m:
+            all_names.add(m.group(1))
+            if m.group(1)[0].isdigit():
+                digit_names.append(m.group(1))
+
+if not digit_names:
+    shutil.copyfile(src, dst)
+    sys.exit(0)
+
+for name in digit_names:
+    new_name = f"Model{name}"
+    if new_name in all_names:
+        print(f"Warning: cannot rename schema {name}: {new_name} already exists", file=sys.stderr)
+        continue
+    text = re.sub(
+        rf"^    {re.escape(name)}:\s*$",
+        f"    {new_name}:",
+        text,
+        count=1,
+        flags=re.M,
+    )
+    text = re.sub(
+        rf"(#/components/schemas/){re.escape(name)}(['\"\s])",
+        rf"\g<1>{new_name}\g<2>",
+        text,
+    )
+    print(f"Renamed digit-leading schema: {name} -> {new_name}", file=sys.stderr)
+
+with open(dst, "w", encoding="utf-8") as f:
+    f.write(text)
+PY
+}
+
 to_container_path() {
   local path="$1"
   if [[ "${path}" != "${ROOT_DIR}/"* ]]; then
@@ -987,6 +1057,22 @@ for spec in "${specs[@]}"; do
     fi
   fi
 done
+
+# Schema names starting with a digit (e.g. 409SupplyDeliverError) break the Go
+# and PHP generators: the top-level model gets a Model prefix, but inline
+# sub-schemas keep the digit-leading name and produce invalid identifiers.
+# Renaming to Model<name> in the spec matches what the generators already emit
+# for the top-level model, so no public API changes in any language.
+sanitized_dir="${ROOT_DIR}/.tmp-sanitized-specs"
+mkdir -p "${sanitized_dir}"
+sanitized_inputs=()
+for input in "${inputs[@]}"; do
+  sanitized="${sanitized_dir}/$(basename "${input}")"
+  sanitize_digit_schema_names "${input}" "${sanitized}"
+  TMP_SPECS+=("${sanitized}")
+  sanitized_inputs+=("${sanitized}")
+done
+inputs=("${sanitized_inputs[@]}")
 
 langs=()
 while IFS= read -r lang; do
