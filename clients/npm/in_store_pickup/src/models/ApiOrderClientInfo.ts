@@ -24,26 +24,18 @@ export interface ApiOrderClientInfo {
      * этот номер и введите добавочный код. Данный номер не является прямым
      * номером покупателя
      * 
-     * @type {string}
-     * @memberof ApiOrderClientInfo
      */
     phone?: string;
     /**
      * Имя покупателя
-     * @type {string}
-     * @memberof ApiOrderClientInfo
      */
     firstName?: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiOrderClientInfo
      */
     orderID?: number;
     /**
      * Добавочный код
-     * @type {number}
-     * @memberof ApiOrderClientInfo
      */
     phoneCode?: number;
 }

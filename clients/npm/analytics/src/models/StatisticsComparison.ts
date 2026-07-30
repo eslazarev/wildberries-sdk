@@ -43,98 +43,66 @@ import {
 export interface StatisticsComparison {
     /**
      * Динамика переходов в карточку товара
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     openCountDynamic: number;
     /**
      * Динамика добавлений в корзину
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     cartCountDynamic: number;
     /**
      * Динамика количества заказов
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     orderCountDynamic: number;
     /**
      * Динамика суммы заказов
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     orderSumDynamic: number;
     /**
      * Динамика выкупов
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     buyoutCountDynamic: number;
     /**
      * Динамика суммы выкупов
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     buyoutSumDynamic: number;
     /**
      * Динамика отмен и возвратов товаров
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     cancelCountDynamic: number;
     /**
      * Динамика сумм отмен и возвратов товаров
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     cancelSumDynamic: number;
     /**
      * Динамика среднего количества заказов в день
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     avgOrdersCountPerDayDynamic: number;
     /**
      * Динамика средней цены на товары. Учитываются скидки для акций
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     avgPriceDynamic: number;
     /**
      * Динамика доли в выручке
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     shareOrderPercentDynamic: number;
     /**
      * Динамика добавлений товара в избранное
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     addToWishlistDynamic: number;
     /**
      * 
-     * @type {ComparisonTimeToReadyDynamic}
-     * @memberof StatisticsComparison
      */
     timeToReadyDynamic: ComparisonTimeToReadyDynamic;
     /**
      * Динамика локальных заказов в рамках одного региона
-     * @type {number}
-     * @memberof StatisticsComparison
      */
     localizationPercentDynamic: number;
     /**
      * 
-     * @type {ComparisonWbClubDynamic}
-     * @memberof StatisticsComparison
      */
     wbClubDynamic: ComparisonWbClubDynamic;
     /**
      * 
-     * @type {StatisticConversions}
-     * @memberof StatisticsComparison
      */
     conversions: StatisticConversions;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface DeliveryDatesRequest {
     /**
      * Список ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof DeliveryDatesRequest
      */
     orders?: Array<number>;
 }

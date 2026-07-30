@@ -29,8 +29,6 @@ import {
 export interface ApiV3SuppliesSupplyIdTrbxStickersPost200Response {
     /**
      * 
-     * @type {Array<TrbxStickers>}
-     * @memberof ApiV3SuppliesSupplyIdTrbxStickersPost200Response
      */
     stickers?: Array<TrbxStickers>;
 }

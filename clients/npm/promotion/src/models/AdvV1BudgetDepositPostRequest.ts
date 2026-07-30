@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface AdvV1BudgetDepositPostRequest {
     /**
      * Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof AdvV1BudgetDepositPostRequest
      */
     sum?: number;
     /**
@@ -39,8 +37,6 @@ export interface AdvV1BudgetDepositPostRequest {
      *   - `0` — счёт
      *   - `1` — баланс
      * 
-     * @type {number}
-     * @memberof AdvV1BudgetDepositPostRequest
      */
     cashbackSum?: number;
     /**
@@ -48,8 +44,6 @@ export interface AdvV1BudgetDepositPostRequest {
      * <br>
      * Если вы указали `cashback_sum`, параметр `cashback_percent` становится обязательным
      * 
-     * @type {number}
-     * @memberof AdvV1BudgetDepositPostRequest
      */
     cashbackPercent?: number;
     /**
@@ -58,14 +52,10 @@ export interface AdvV1BudgetDepositPostRequest {
      * - `1` — Баланс
      * - `3` — Бонусы
      * 
-     * @type {number}
-     * @memberof AdvV1BudgetDepositPostRequest
      */
     type?: number;
     /**
      * Флаг возврата ответа (`true` — в ответе вернется обновлённый размер бюджета кампании, `false` или не указать параметр вообще — не вернётся.)
-     * @type {boolean}
-     * @memberof AdvV1BudgetDepositPostRequest
      */
     _return?: boolean;
 }

@@ -29,8 +29,6 @@ import {
 export interface OpenapiSellerLimitsResponse {
     /**
      * 
-     * @type {OpenapiSellerLimitsResponseData}
-     * @memberof OpenapiSellerLimitsResponse
      */
     data?: OpenapiSellerLimitsResponseData;
 }

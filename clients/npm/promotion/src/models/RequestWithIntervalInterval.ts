@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface RequestWithIntervalInterval {
     /**
      * Начало запрашиваемого периода
-     * @type {Date}
-     * @memberof RequestWithIntervalInterval
      */
     begin?: Date;
     /**
      * Конец запрашиваемого периода
-     * @type {Date}
-     * @memberof RequestWithIntervalInterval
      */
     end?: Date;
 }

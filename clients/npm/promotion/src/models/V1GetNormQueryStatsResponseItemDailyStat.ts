@@ -29,14 +29,10 @@ import {
 export interface V1GetNormQueryStatsResponseItemDailyStat {
     /**
      * Дата
-     * @type {Date}
-     * @memberof V1GetNormQueryStatsResponseItemDailyStat
      */
     date: Date;
     /**
      * 
-     * @type {V1GetNormQueryStatsResponseItemStat}
-     * @memberof V1GetNormQueryStatsResponseItemDailyStat
      */
     stat?: V1GetNormQueryStatsResponseItemStat;
 }

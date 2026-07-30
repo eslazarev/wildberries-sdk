@@ -29,8 +29,6 @@ import {
 export interface GetList {
     /**
      * 
-     * @type {GetListData}
-     * @memberof GetList
      */
     data?: GetListData;
 }

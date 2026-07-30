@@ -27,8 +27,6 @@ export interface ApiV3OrdersOrderIdMetaSgtinPutRequest {
      * 
      *   GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\u001D`
      * 
-     * @type {Array<string>}
-     * @memberof ApiV3OrdersOrderIdMetaSgtinPutRequest
      */
     sgtins?: Array<string>;
 }

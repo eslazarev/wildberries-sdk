@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface MetaImei {
     /**
      * 
-     * @type {string}
-     * @memberof MetaImei
      */
     value?: string | null;
 }

@@ -53,38 +53,26 @@ export interface GetAdvertsAdvertsInner {
      *   - `unified` — единая ставка
      *   - `manual` — ручная ставка
      * 
-     * @type {string}
-     * @memberof GetAdvertsAdvertsInner
      */
     bidType: string;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof GetAdvertsAdvertsInner
      */
     currency?: string;
     /**
      * ID кампании
-     * @type {number}
-     * @memberof GetAdvertsAdvertsInner
      */
     id: number;
     /**
      * Настройки товаров
-     * @type {Array<AdvertNMsSettings>}
-     * @memberof GetAdvertsAdvertsInner
      */
     nmSettings: Array<AdvertNMsSettings> | null;
     /**
      * 
-     * @type {AdvertSettings}
-     * @memberof GetAdvertsAdvertsInner
      */
     settings: AdvertSettings;
     /**
      * 
-     * @type {GetAdvertsAdvertsInnerRestrictions}
-     * @memberof GetAdvertsAdvertsInner
      */
     restrictions: GetAdvertsAdvertsInnerRestrictions;
     /**
@@ -96,14 +84,10 @@ export interface GetAdvertsAdvertsInner {
      * - `9` — активна
      * - `11` — на паузе
      * 
-     * @type {GetAdvertsAdvertsInnerStatusEnum}
-     * @memberof GetAdvertsAdvertsInner
      */
     status: GetAdvertsAdvertsInnerStatusEnum;
     /**
      * 
-     * @type {Timestamps}
-     * @memberof GetAdvertsAdvertsInner
      */
     timestamps: Timestamps;
 }

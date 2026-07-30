@@ -36,26 +36,18 @@ import {
 export interface ApiB2bClientInfoResponse {
     /**
      * 
-     * @type {ApiB2bClientInfo}
-     * @memberof ApiB2bClientInfoResponse
      */
     data?: ApiB2bClientInfo;
     /**
      * Детали ошибки
-     * @type {Array<ApiB2bClientInfoResponseErrorsInner>}
-     * @memberof ApiB2bClientInfoResponse
      */
     errors?: Array<ApiB2bClientInfoResponseErrorsInner>;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof ApiB2bClientInfoResponse
      */
     isError: boolean;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiB2bClientInfoResponse
      */
     orderId: number;
 }

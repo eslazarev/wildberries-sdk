@@ -29,8 +29,6 @@ import {
 export interface ApiV2StocksReportProductsProductsPost200Response {
     /**
      * 
-     * @type {TableItemResponse}
-     * @memberof ApiV2StocksReportProductsProductsPost200Response
      */
     data: TableItemResponse;
 }

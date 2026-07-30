@@ -29,20 +29,14 @@ import {
 export interface ItemOrdersTextItem {
     /**
      * Текст поискового запроса
-     * @type {string}
-     * @memberof ItemOrdersTextItem
      */
     text: string;
     /**
      * Количество обращений с поисковым запросом
-     * @type {number}
-     * @memberof ItemOrdersTextItem
      */
     frequency: number;
     /**
      * Статистика по датам
-     * @type {Array<ItemOrdersMetrics>}
-     * @memberof ItemOrdersTextItem
      */
     dateItems: Array<ItemOrdersMetrics>;
 }

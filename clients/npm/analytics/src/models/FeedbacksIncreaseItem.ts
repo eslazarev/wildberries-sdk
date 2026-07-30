@@ -57,50 +57,34 @@ import {
 export interface FeedbacksIncreaseItem {
     /**
      * Прирост оценок за период
-     * @type {number}
-     * @memberof FeedbacksIncreaseItem
      */
     current: number;
     /**
      * Всего оценок
-     * @type {number}
-     * @memberof FeedbacksIncreaseItem
      */
     total: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof FeedbacksIncreaseItem
      */
     dynamics: number;
     /**
      * 
-     * @type {FeedbacksIncreaseItemFiveStar}
-     * @memberof FeedbacksIncreaseItem
      */
     fiveStar: FeedbacksIncreaseItemFiveStar;
     /**
      * 
-     * @type {FeedbacksIncreaseItemFourStar}
-     * @memberof FeedbacksIncreaseItem
      */
     fourStar: FeedbacksIncreaseItemFourStar;
     /**
      * 
-     * @type {FeedbacksIncreaseItemThreeStar}
-     * @memberof FeedbacksIncreaseItem
      */
     threeStar: FeedbacksIncreaseItemThreeStar;
     /**
      * 
-     * @type {FeedbacksIncreaseItemTwoStar}
-     * @memberof FeedbacksIncreaseItem
      */
     twoStar: FeedbacksIncreaseItemTwoStar;
     /**
      * 
-     * @type {FeedbacksIncreaseItemOneStar}
-     * @memberof FeedbacksIncreaseItem
      */
     oneStar: FeedbacksIncreaseItemOneStar;
 }

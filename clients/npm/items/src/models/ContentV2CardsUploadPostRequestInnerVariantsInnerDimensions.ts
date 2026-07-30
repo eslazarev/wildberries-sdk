@@ -25,26 +25,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions {
     /**
      * Длина, см
-     * @type {number}
-     * @memberof ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
      */
     length?: number;
     /**
      * Ширина, см
-     * @type {number}
-     * @memberof ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
      */
     width?: number;
     /**
      * Высота, см
-     * @type {number}
-     * @memberof ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
      */
     height?: number;
     /**
      * Вес, кг<br>Количество знаков после запятой <=3
-     * @type {number}
-     * @memberof ContentV2CardsUploadPostRequestInnerVariantsInnerDimensions
      */
     weightBrutto?: number;
 }

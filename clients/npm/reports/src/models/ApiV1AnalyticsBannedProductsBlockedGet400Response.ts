@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsBannedProductsBlockedGet400Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet400Response
      */
     title?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet400Response
      */
     status?: number;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet400Response
      */
     detail?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet400Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet400Response
      */
     origin?: string;
 }

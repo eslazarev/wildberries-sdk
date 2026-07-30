@@ -25,20 +25,14 @@ export interface ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      *   - `calculateProducts` — продвижение получат любые товара продавца, предложенные к участию в акции
      *   - `allProducts` — продвижение получат все товары продавца
      * 
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInner
      */
     condition?: string;
     /**
      * Количество товаров продавца для перехода на следующий уровень ранжирования, %
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInner
      */
     participationRate?: number;
     /**
      * Текущий уровень поднятия в поиске, %
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInner
      */
     boost?: number;
 }

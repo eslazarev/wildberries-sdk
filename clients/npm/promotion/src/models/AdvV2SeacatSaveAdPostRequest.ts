@@ -21,15 +21,11 @@ import { mapValues } from '../runtime';
 export interface AdvV2SeacatSaveAdPostRequest {
     /**
      * Название кампании
-     * @type {string}
-     * @memberof AdvV2SeacatSaveAdPostRequest
      */
     name: string;
     /**
      * Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/Sozdanie-kampanij/paths/~1adv~1v2~1supplier~1nms/post). Максимум 50 товаров (`nm`)
      * 
-     * @type {Array<number>}
-     * @memberof AdvV2SeacatSaveAdPostRequest
      */
     nms?: Array<number>;
     /**
@@ -37,8 +33,6 @@ export interface AdvV2SeacatSaveAdPostRequest {
      *   - `manual` — ручная
      *   - `unified` — единая
      * 
-     * @type {AdvV2SeacatSaveAdPostRequestBidTypeEnum}
-     * @memberof AdvV2SeacatSaveAdPostRequest
      */
     bidType?: AdvV2SeacatSaveAdPostRequestBidTypeEnum;
     /**
@@ -46,8 +40,6 @@ export interface AdvV2SeacatSaveAdPostRequest {
      * - `cpm` — за показы
      * - `cpc` — за клик. При создании с этим типом оплаты в кампании автоматически устанавливается минимальная ставка
      * 
-     * @type {AdvV2SeacatSaveAdPostRequestPaymentTypeEnum}
-     * @memberof AdvV2SeacatSaveAdPostRequest
      */
     paymentType?: AdvV2SeacatSaveAdPostRequestPaymentTypeEnum;
     /**
@@ -57,8 +49,6 @@ export interface AdvV2SeacatSaveAdPostRequest {
      * 
      * Укажите только для кампании с ручной ставкой
      * 
-     * @type {Array<AdvV2SeacatSaveAdPostRequestPlacementTypesEnum>}
-     * @memberof AdvV2SeacatSaveAdPostRequest
      */
     placementTypes?: Array<AdvV2SeacatSaveAdPostRequestPlacementTypesEnum>;
 }

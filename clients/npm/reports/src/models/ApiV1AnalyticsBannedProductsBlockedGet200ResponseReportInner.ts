@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner {
     /**
      * Бренд
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner
      */
     brand?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner
      */
     nmId?: number;
     /**
      * Наименование товара
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner
      */
     title?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner
      */
     vendorCode?: string;
     /**
      * Причина блокировки
-     * @type {string}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner
      */
     reason?: string;
 }

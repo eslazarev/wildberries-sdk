@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface GetPing401Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof GetPing401Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof GetPing401Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof GetPing401Response
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof GetPing401Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof GetPing401Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof GetPing401Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof GetPing401Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof GetPing401Response
      */
     timestamp?: Date;
 }

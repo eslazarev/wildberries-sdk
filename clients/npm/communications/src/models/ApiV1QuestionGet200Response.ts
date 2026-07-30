@@ -29,26 +29,18 @@ import {
 export interface ApiV1QuestionGet200Response {
     /**
      * 
-     * @type {ApiV1QuestionGet200ResponseData}
-     * @memberof ApiV1QuestionGet200Response
      */
     data?: ApiV1QuestionGet200ResponseData;
     /**
      * Есть ли ошибка
-     * @type {boolean}
-     * @memberof ApiV1QuestionGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ApiV1QuestionGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {Array<string>}
-     * @memberof ApiV1QuestionGet200Response
      */
     additionalErrors?: Array<string> | null;
 }

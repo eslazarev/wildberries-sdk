@@ -29,8 +29,6 @@ import {
 export interface PostV3SalesFunnelProducts200Response {
     /**
      * 
-     * @type {PostV3SalesFunnelProducts200ResponseData}
-     * @memberof PostV3SalesFunnelProducts200Response
      */
     data: PostV3SalesFunnelProducts200ResponseData;
 }

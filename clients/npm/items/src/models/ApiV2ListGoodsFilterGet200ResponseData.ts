@@ -29,8 +29,6 @@ import {
 export interface ApiV2ListGoodsFilterGet200ResponseData {
     /**
      * Информация о товарах
-     * @type {Array<ItemsList>}
-     * @memberof ApiV2ListGoodsFilterGet200ResponseData
      */
     listGoods: Array<ItemsList>;
 }

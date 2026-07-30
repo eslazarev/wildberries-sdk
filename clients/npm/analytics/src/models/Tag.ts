@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface Tag {
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof Tag
      */
     id: number;
     /**
      * Название ярлыка
-     * @type {string}
-     * @memberof Tag
      */
     name: string;
 }

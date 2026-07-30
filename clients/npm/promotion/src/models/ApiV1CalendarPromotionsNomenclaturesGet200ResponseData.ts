@@ -29,8 +29,6 @@ import {
 export interface ApiV1CalendarPromotionsNomenclaturesGet200ResponseData {
     /**
      * Список товаров
-     * @type {Array<PromoItemsList>}
-     * @memberof ApiV1CalendarPromotionsNomenclaturesGet200ResponseData
      */
     nomenclatures?: Array<PromoItemsList>;
 }

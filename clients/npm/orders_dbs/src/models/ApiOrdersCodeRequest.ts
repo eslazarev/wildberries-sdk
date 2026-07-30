@@ -29,8 +29,6 @@ import {
 export interface ApiOrdersCodeRequest {
     /**
      * 
-     * @type {Array<ApiOrderCodeRequest>}
-     * @memberof ApiOrdersCodeRequest
      */
     orders: Array<ApiOrderCodeRequest>;
 }

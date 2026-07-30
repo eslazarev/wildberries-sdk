@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TrbxStickers {
     /**
      * Закодированное значение стикера
-     * @type {string}
-     * @memberof TrbxStickers
      */
     barcode?: string;
     /**
      * Полное представление стикера в заданном формате (кодировка base64)
-     * @type {string}
-     * @memberof TrbxStickers
      */
     file?: string;
 }

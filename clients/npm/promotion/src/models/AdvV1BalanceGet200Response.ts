@@ -29,32 +29,22 @@ import {
 export interface AdvV1BalanceGet200Response {
     /**
      * Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof AdvV1BalanceGet200Response
      */
     balance?: number;
     /**
      * Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof AdvV1BalanceGet200Response
      */
     net?: number;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof AdvV1BalanceGet200Response
      */
     currency?: string;
     /**
      * Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof AdvV1BalanceGet200Response
      */
     bonus?: number;
     /**
      * Промо-бонусы
-     * @type {Array<AdvV1BalanceGet200ResponseCashbacksInner>}
-     * @memberof AdvV1BalanceGet200Response
      */
     cashbacks?: Array<AdvV1BalanceGet200ResponseCashbacksInner>;
 }

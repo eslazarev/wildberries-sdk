@@ -36,14 +36,10 @@ import {
 export interface TableOrderBy {
     /**
      * 
-     * @type {TableGroupField}
-     * @memberof TableOrderBy
      */
     field: TableGroupField;
     /**
      * 
-     * @type {OrderByMode}
-     * @memberof TableOrderBy
      */
     mode: OrderByMode;
 }

@@ -32,26 +32,18 @@ export interface AdvV1PromotionCountGet200ResponseAdvertsInner {
      *   - `8` — кампания с единой ставкой (**устаревший тип**)
      *   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get), поле `bid_type`
      * 
-     * @type {number}
-     * @memberof AdvV1PromotionCountGet200ResponseAdvertsInner
      */
     type?: number;
     /**
      * Статус кампании
-     * @type {number}
-     * @memberof AdvV1PromotionCountGet200ResponseAdvertsInner
      */
     status?: number;
     /**
      * Количество кампаний
-     * @type {number}
-     * @memberof AdvV1PromotionCountGet200ResponseAdvertsInner
      */
     count?: number;
     /**
      * Список кампаний
-     * @type {Array<AdvV1PromotionCountGet200ResponseAdvertsInnerAdvertListInner>}
-     * @memberof AdvV1PromotionCountGet200ResponseAdvertsInner
      */
     advertList?: Array<AdvV1PromotionCountGet200ResponseAdvertsInnerAdvertListInner>;
 }

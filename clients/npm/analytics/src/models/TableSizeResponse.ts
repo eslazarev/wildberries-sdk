@@ -36,20 +36,14 @@ import {
 export interface TableSizeResponse {
     /**
      * Множество данных по складам
-     * @type {Array<TableOfficeItem>}
-     * @memberof TableSizeResponse
      */
     offices?: Array<TableOfficeItem>;
     /**
      * Множество данных по размерам товара
-     * @type {Array<TableSizeResponseSizesInner>}
-     * @memberof TableSizeResponse
      */
     sizes?: Array<TableSizeResponseSizesInner>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof TableSizeResponse
      */
     currency: string;
 }

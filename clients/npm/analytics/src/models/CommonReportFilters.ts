@@ -43,44 +43,30 @@ import {
 export interface CommonReportFilters {
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof CommonReportFilters
      */
     nmIDs?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof CommonReportFilters
      */
     subjectIDs?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof CommonReportFilters
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof CommonReportFilters
      */
     tagIDs?: Array<number>;
     /**
      * 
-     * @type {PeriodInv}
-     * @memberof CommonReportFilters
      */
     currentPeriod: PeriodInv;
     /**
      * 
-     * @type {StockType}
-     * @memberof CommonReportFilters
      */
     stockType: StockType;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof CommonReportFilters
      */
     skipDeletedNm: boolean;
     /**
@@ -92,14 +78,10 @@ export interface CommonReportFilters {
      *   - `nonLiquid` — Неликвид
      *   - `invalidData` — Не рассчитано
      * 
-     * @type {Array<CommonReportFiltersAvailabilityFiltersEnum>}
-     * @memberof CommonReportFilters
      */
     availabilityFilters: Array<CommonReportFiltersAvailabilityFiltersEnum>;
     /**
      * 
-     * @type {TableOrderBy}
-     * @memberof CommonReportFilters
      */
     orderBy: TableOrderBy;
 }

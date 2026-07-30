@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3SuppliesSupplyIdTrbxStickersPostRequest {
     /**
      * Список ID грузомест, по которым необходимо вернуть стикеры
-     * @type {Array<string>}
-     * @memberof ApiV3SuppliesSupplyIdTrbxStickersPostRequest
      */
     trbxIds: Array<string>;
 }

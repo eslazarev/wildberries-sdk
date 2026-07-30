@@ -29,26 +29,18 @@ import {
 export interface ContentV2DirectoryTnvedGet200Response {
     /**
      * Данные
-     * @type {Array<ContentV2DirectoryTnvedGet200ResponseDataInner>}
-     * @memberof ContentV2DirectoryTnvedGet200Response
      */
     data?: Array<ContentV2DirectoryTnvedGet200ResponseDataInner>;
     /**
      * Флаг наличия ошибки
-     * @type {boolean}
-     * @memberof ContentV2DirectoryTnvedGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryTnvedGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryTnvedGet200Response
      */
     additionalErrors?: string | null;
 }

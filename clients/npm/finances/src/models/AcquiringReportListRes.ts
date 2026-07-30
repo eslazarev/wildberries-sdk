@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface AcquiringReportListRes {
     /**
      * ID отчёта
-     * @type {number}
-     * @memberof AcquiringReportListRes
      */
     reportId: number;
     /**
      * Наименование продавца
-     * @type {string}
-     * @memberof AcquiringReportListRes
      */
     sellerFinanceName: string;
     /**
      * Дата начала отчётного периода
-     * @type {Date}
-     * @memberof AcquiringReportListRes
      */
     dateFrom: Date;
     /**
      * Дата конца отчётного периода
-     * @type {Date}
-     * @memberof AcquiringReportListRes
      */
     dateTo: Date;
     /**
      * Дата формирования отчёта
-     * @type {Date}
-     * @memberof AcquiringReportListRes
      */
     createDate: Date;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof AcquiringReportListRes
      */
     currency: string;
     /**
      * Сумма издержек по эквайрингу
-     * @type {string}
-     * @memberof AcquiringReportListRes
      */
     acquiringFeeSum: string;
     /**
      * В том числе НДС
-     * @type {string}
-     * @memberof AcquiringReportListRes
      */
     acquiringFeeVatSum: string;
 }

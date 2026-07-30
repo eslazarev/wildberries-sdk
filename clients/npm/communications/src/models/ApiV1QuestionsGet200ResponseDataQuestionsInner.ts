@@ -36,20 +36,14 @@ import {
 export interface ApiV1QuestionsGet200ResponseDataQuestionsInner {
     /**
      * id вопроса
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     id?: string;
     /**
      * Текст вопроса
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     text?: string;
     /**
      * Дата и время создания вопроса
-     * @type {Date}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     createdDate?: Date;
     /**
@@ -58,34 +52,24 @@ export interface ApiV1QuestionsGet200ResponseDataQuestionsInner {
      *   - `wbRu` — ответ предоставлен, вопрос отображается на сайте покупателей
      *   - `suppliersPortalSynch` - новый вопрос
      * 
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     state?: string;
     /**
      * 
-     * @type {ApiV1QuestionsGet200ResponseDataQuestionsInnerAnswer}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     answer?: ApiV1QuestionsGet200ResponseDataQuestionsInnerAnswer | null;
     /**
      * 
-     * @type {ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     productDetails?: ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails;
     /**
      * Просмотрен ли вопрос
-     * @type {boolean}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     wasViewed?: boolean;
     /**
      * Признак подозрительного вопроса.<br>
      * Если `true`, то вопрос опубликован, но на портале продавцов вы увидите баннер **Сообщение подозрительное**
      * 
-     * @type {boolean}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInner
      */
     isWarned?: boolean;
 }

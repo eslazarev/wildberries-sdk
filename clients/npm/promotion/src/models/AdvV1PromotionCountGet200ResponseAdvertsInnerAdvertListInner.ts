@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AdvV1PromotionCountGet200ResponseAdvertsInnerAdvertListInner {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof AdvV1PromotionCountGet200ResponseAdvertsInnerAdvertListInner
      */
     advertId?: number;
     /**
      * Дата и время последнего изменения кампании
-     * @type {Date}
-     * @memberof AdvV1PromotionCountGet200ResponseAdvertsInnerAdvertListInner
      */
     changeTime?: Date;
 }

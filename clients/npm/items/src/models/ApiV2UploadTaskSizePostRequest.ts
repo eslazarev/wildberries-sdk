@@ -32,8 +32,6 @@ export interface ApiV2UploadTaskSizePostRequest {
      * <br><br>
      * Для товаров с поразмерной установкой цен [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) не применяется
      * 
-     * @type {Array<SizeGoodReq>}
-     * @memberof ApiV2UploadTaskSizePostRequest
      */
     data: Array<SizeGoodReq>;
 }

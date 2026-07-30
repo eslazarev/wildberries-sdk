@@ -34,8 +34,6 @@ export interface ApiV2UploadTaskPostRequest {
      * <br><br>
      * Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine)
      * 
-     * @type {Array<Good>}
-     * @memberof ApiV2UploadTaskPostRequest
      */
     data: Array<Good>;
 }

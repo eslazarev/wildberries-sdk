@@ -29,8 +29,6 @@ import {
 export interface ApiV2StocksReportProductsGroupsPost200Response {
     /**
      * 
-     * @type {TableGroupResponseSt}
-     * @memberof ApiV2StocksReportProductsGroupsPost200Response
      */
     data: TableGroupResponseSt;
 }

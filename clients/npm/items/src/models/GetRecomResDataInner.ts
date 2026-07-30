@@ -21,74 +21,50 @@ import { mapValues } from '../runtime';
 export interface GetRecomResDataInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof GetRecomResDataInner
      */
     nmId: number;
     /**
      * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @type {number}
-     * @memberof GetRecomResDataInner
      */
     imtId: number;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof GetRecomResDataInner
      */
     vendorCode: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof GetRecomResDataInner
      */
     brandName: string;
     /**
      * Дата и время последнего обновления рекомендаций
-     * @type {Date}
-     * @memberof GetRecomResDataInner
      */
     updatedAt?: Date | null;
     /**
      * Количество изображений в карточке товара
-     * @type {number}
-     * @memberof GetRecomResDataInner
      */
     picsCount: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof GetRecomResDataInner
      */
     title: string;
     /**
      * Предмет
-     * @type {string}
-     * @memberof GetRecomResDataInner
      */
     subjectName: string;
     /**
      * URL основного изображения в карточке товара
-     * @type {string}
-     * @memberof GetRecomResDataInner
      */
     pic: string;
     /**
      * Количество рекомендуемых товаров
-     * @type {number}
-     * @memberof GetRecomResDataInner
      */
     recomCount: number;
     /**
      * Список URL основных изображений рекомендуемых товаров
-     * @type {Array<string>}
-     * @memberof GetRecomResDataInner
      */
     recomPics: Array<string>;
     /**
      * Список `nmId` рекомендуемых товаров
-     * @type {Array<number>}
-     * @memberof GetRecomResDataInner
      */
     recomNms: Array<number>;
 }

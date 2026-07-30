@@ -29,14 +29,10 @@ import {
 export interface MessageResponse {
     /**
      * Ошибки загрузки файлов, если есть
-     * @type {Array<string>}
-     * @memberof MessageResponse
      */
     errors?: Array<string>;
     /**
      * 
-     * @type {MessageResponseResult}
-     * @memberof MessageResponse
      */
     result?: MessageResponseResult;
 }

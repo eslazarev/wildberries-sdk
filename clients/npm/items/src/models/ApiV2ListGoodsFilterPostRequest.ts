@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV2ListGoodsFilterPostRequest {
     /**
      * Артикулы WB для поиска товара
-     * @type {Array<number>}
-     * @memberof ApiV2ListGoodsFilterPostRequest
      */
     nmList: Array<number>;
 }

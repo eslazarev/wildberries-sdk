@@ -47,20 +47,14 @@ import {
 export interface SearchReportPositionClusters {
     /**
      * 
-     * @type {SearchReportPositionClustersFirstHundred}
-     * @memberof SearchReportPositionClusters
      */
     firstHundred: SearchReportPositionClustersFirstHundred;
     /**
      * 
-     * @type {SearchReportPositionClustersSecondHundred}
-     * @memberof SearchReportPositionClusters
      */
     secondHundred: SearchReportPositionClustersSecondHundred;
     /**
      * 
-     * @type {SearchReportPositionClustersBelow}
-     * @memberof SearchReportPositionClusters
      */
     below: SearchReportPositionClustersBelow;
 }

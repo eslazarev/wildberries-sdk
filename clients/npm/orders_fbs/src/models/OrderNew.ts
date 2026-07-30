@@ -36,84 +36,60 @@ import {
 export interface OrderNew {
     /**
      * 
-     * @type {OrderAddress}
-     * @memberof OrderNew
      */
     address?: OrderAddress | null;
     /**
      * Планируемая дата доставки заказа покупателю.<br>
      * Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
      * 
-     * @type {string}
-     * @memberof OrderNew
      */
     ddate?: string;
     /**
      * Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. <br>
      * Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
      * 
-     * @type {string}
-     * @memberof OrderNew
      */
     sellerDate?: string | null;
     /**
      * Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
      * 
-     * @type {number}
-     * @memberof OrderNew
      */
     salePrice?: number | null;
     /**
      * Список идентификаторов маркировки, которые [необходимо добавить](/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
      * 
-     * @type {Array<string>}
-     * @memberof OrderNew
      */
     requiredMeta?: Array<string> | null;
     /**
      * Список идентификаторов маркировки, которые [можно добавить](/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание.<br>
      * Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
      * 
-     * @type {Array<string>}
-     * @memberof OrderNew
      */
     optionalMeta?: Array<string> | null;
     /**
      * Тип доставки:
      * - `fbs` — доставка на склад Wildberries (FBS)
      * 
-     * @type {OrderNewDeliveryTypeEnum}
-     * @memberof OrderNew
      */
     deliveryType?: OrderNewDeliveryTypeEnum;
     /**
      * Комментарий покупателя
-     * @type {string}
-     * @memberof OrderNew
      */
     comment?: string;
     /**
      * Цена приёмки в копейках. Отображается после фактической приёмки заказа. Для данного метода всегда будет возвращаться `null`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNew
      */
     scanPrice?: number | null;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-     * @type {string}
-     * @memberof OrderNew
      */
     orderUid?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof OrderNew
      */
     article?: string;
     /**
      * Код цвета (только для колеруемых товаров)
-     * @type {string}
-     * @memberof OrderNew
      */
     colorCode?: string;
     /**
@@ -128,93 +104,63 @@ export interface OrderNew {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {string}
-     * @memberof OrderNew
      */
     rid?: string;
     /**
      * Дата создания сборочного задания (RFC3339)
-     * @type {Date}
-     * @memberof OrderNew
      */
     createdAt?: Date;
     /**
      * Список офисов, куда следует привезти товар
-     * @type {Array<string>}
-     * @memberof OrderNew
      */
     offices?: Array<string> | null;
     /**
      * Список баркодов
-     * @type {Array<string>}
-     * @memberof OrderNew
      */
     skus?: Array<string>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof OrderNew
      */
     id?: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
-     * @type {number}
-     * @memberof OrderNew
      */
     warehouseId?: number;
     /**
      * ID склада WB, к которому привязан склад продавца
-     * @type {number}
-     * @memberof OrderNew
      */
     officeId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof OrderNew
      */
     nmId?: number;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof OrderNew
      */
     chrtId?: number;
     /**
      * Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях
      * 
-     * @type {number}
-     * @memberof OrderNew
      */
     price?: number;
     /**
      * Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNew
      */
     finalPrice?: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNew
      */
     convertedPrice?: number;
     /**
      * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNew
      */
     convertedFinalPrice?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof OrderNew
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof OrderNew
      */
     convertedCurrencyCode?: number;
     /**
@@ -223,8 +169,6 @@ export interface OrderNew {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {OrderNewCargoTypeEnum}
-     * @memberof OrderNew
      */
     cargoType?: OrderNewCargoTypeEnum;
     /**
@@ -232,8 +176,6 @@ export interface OrderNew {
      *   - `0` — внутренняя поставка
      *   - `1` — трансграничная поставка
      * 
-     * @type {OrderNewCrossBorderTypeEnum}
-     * @memberof OrderNew
      */
     crossBorderType?: OrderNewCrossBorderTypeEnum;
     /**
@@ -241,8 +183,6 @@ export interface OrderNew {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
-     * @type {boolean}
-     * @memberof OrderNew
      */
     isZeroOrder?: boolean;
     /**
@@ -250,14 +190,10 @@ export interface OrderNew {
      *   - `false` — нет
      *   - `true` — да
      * 
-     * @type {boolean}
-     * @memberof OrderNew
      */
     isPickupPointShipmentAllowed?: boolean;
     /**
      * 
-     * @type {OrderOptions}
-     * @memberof OrderNew
      */
     options?: OrderOptions;
 }

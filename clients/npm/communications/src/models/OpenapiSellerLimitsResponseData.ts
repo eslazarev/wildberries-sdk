@@ -29,14 +29,10 @@ import {
 export interface OpenapiSellerLimitsResponseData {
     /**
      * Лимиты по подписке
-     * @type {OpenapiSellerLimit}
-     * @memberof OpenapiSellerLimitsResponseData
      */
     subscription?: OpenapiSellerLimit | null;
     /**
      * Лимиты по тарифной опции
-     * @type {OpenapiSellerLimit}
-     * @memberof OpenapiSellerLimitsResponseData
      */
     tariff?: OpenapiSellerLimit | null;
 }

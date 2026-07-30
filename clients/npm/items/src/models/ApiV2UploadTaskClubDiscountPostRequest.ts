@@ -30,8 +30,6 @@ export interface ApiV2UploadTaskClubDiscountPostRequest {
     /**
      * Товары и скидки WB Клуба для них. Максимум 1 000 товаров.
      * 
-     * @type {Array<ClubDiscReq>}
-     * @memberof ApiV2UploadTaskClubDiscountPostRequest
      */
     data: Array<ClubDiscReq>;
 }

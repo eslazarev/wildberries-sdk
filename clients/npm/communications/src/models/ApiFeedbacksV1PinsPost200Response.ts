@@ -29,8 +29,6 @@ import {
 export interface ApiFeedbacksV1PinsPost200Response {
     /**
      * 
-     * @type {Array<OpenapiPinReviewItemResultDataInner>}
-     * @memberof ApiFeedbacksV1PinsPost200Response
      */
     data: Array<OpenapiPinReviewItemResultDataInner>;
 }

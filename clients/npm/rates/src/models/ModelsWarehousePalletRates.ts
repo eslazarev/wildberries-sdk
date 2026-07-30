@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface ModelsWarehousePalletRates {
     /**
      * Коэффициент доставки, %. На него умножается стоимость доставки. Во всех тарифах этот коэффициент уже учтён
-     * @type {string}
-     * @memberof ModelsWarehousePalletRates
      */
     palletDeliveryExpr?: string;
     /**
      * Доставка 1 литра, ₽
-     * @type {string}
-     * @memberof ModelsWarehousePalletRates
      */
     palletDeliveryValueBase?: string;
     /**
      * Доставка каждого дополнительного литра, ₽
-     * @type {string}
-     * @memberof ModelsWarehousePalletRates
      */
     palletDeliveryValueLiter?: string;
     /**
      * Коэффициент хранения, %. На него умножается стоимость хранения. Во всех тарифах этот коэффициент уже учтён
-     * @type {string}
-     * @memberof ModelsWarehousePalletRates
      */
     palletStorageExpr?: string;
     /**
      * Хранение 1 монопаллеты, ₽
-     * @type {string}
-     * @memberof ModelsWarehousePalletRates
      */
     palletStorageValueExpr?: string;
     /**
      * Название склада
-     * @type {string}
-     * @memberof ModelsWarehousePalletRates
      */
     warehouseName?: string;
 }

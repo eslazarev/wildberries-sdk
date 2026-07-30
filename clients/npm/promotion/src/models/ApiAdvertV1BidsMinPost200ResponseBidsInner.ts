@@ -29,14 +29,10 @@ import {
 export interface ApiAdvertV1BidsMinPost200ResponseBidsInner {
     /**
      * Список ставок по местам размещения
-     * @type {Array<ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner>}
-     * @memberof ApiAdvertV1BidsMinPost200ResponseBidsInner
      */
     bids: Array<ApiAdvertV1BidsMinPost200ResponseBidsInnerBidsInner>;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiAdvertV1BidsMinPost200ResponseBidsInner
      */
     nmId: number;
 }

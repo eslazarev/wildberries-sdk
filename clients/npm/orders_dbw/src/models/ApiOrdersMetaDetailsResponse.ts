@@ -29,14 +29,10 @@ import {
 export interface ApiOrdersMetaDetailsResponse {
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponse
      */
     requestId: string;
     /**
      * Идентификаторы маркировки сборочных заданий и статусы их валидации
-     * @type {Array<ApiOrdersMetaDetailsResponseOrdersInner>}
-     * @memberof ApiOrdersMetaDetailsResponse
      */
     orders?: Array<ApiOrdersMetaDetailsResponseOrdersInner>;
 }

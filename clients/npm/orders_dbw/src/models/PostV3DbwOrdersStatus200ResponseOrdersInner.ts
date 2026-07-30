@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface PostV3DbwOrdersStatus200ResponseOrdersInner {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof PostV3DbwOrdersStatus200ResponseOrdersInner
      */
     id?: number;
     /**
      * Статус сборочного задания, установленный продавцом
-     * @type {string}
-     * @memberof PostV3DbwOrdersStatus200ResponseOrdersInner
      */
     supplierStatus?: string;
     /**
      * Статус сборочного задания в системе Wildberries
-     * @type {string}
-     * @memberof PostV3DbwOrdersStatus200ResponseOrdersInner
      */
     wbStatus?: string;
 }

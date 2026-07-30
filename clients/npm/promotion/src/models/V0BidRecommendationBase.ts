@@ -43,20 +43,14 @@ import {
 export interface V0BidRecommendationBase {
     /**
      * 
-     * @type {V0BidRecommendationBaseBidCompetitiveBid}
-     * @memberof V0BidRecommendationBase
      */
     competitiveBid?: V0BidRecommendationBaseBidCompetitiveBid;
     /**
      * 
-     * @type {V0BidRecommendationBaseBidLeadersBid}
-     * @memberof V0BidRecommendationBase
      */
     leadersBid?: V0BidRecommendationBaseBidLeadersBid;
     /**
      * 
-     * @type {V0BidRecommendationBaseBidTop2}
-     * @memberof V0BidRecommendationBase
      */
     top2?: V0BidRecommendationBaseBidTop2;
 }

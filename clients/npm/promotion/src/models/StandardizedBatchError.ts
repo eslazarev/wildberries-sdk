@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface StandardizedBatchError {
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof StandardizedBatchError
      */
     detail: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof StandardizedBatchError
      */
     origin: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof StandardizedBatchError
      */
     requestId: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof StandardizedBatchError
      */
     status: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof StandardizedBatchError
      */
     title: string;
 }

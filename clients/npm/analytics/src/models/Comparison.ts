@@ -43,98 +43,66 @@ import {
 export interface Comparison {
     /**
      * Динамика переходов в карточку товара
-     * @type {number}
-     * @memberof Comparison
      */
     openCountDynamic: number;
     /**
      * Динамика добавлений в корзину
-     * @type {number}
-     * @memberof Comparison
      */
     cartCountDynamic: number;
     /**
      * Динамика количества заказов
-     * @type {number}
-     * @memberof Comparison
      */
     orderCountDynamic: number;
     /**
      * Динамика суммы заказов
-     * @type {number}
-     * @memberof Comparison
      */
     orderSumDynamic: number;
     /**
      * Динамика выкупов
-     * @type {number}
-     * @memberof Comparison
      */
     buyoutCountDynamic: number;
     /**
      * Динамика суммы выкупов
-     * @type {number}
-     * @memberof Comparison
      */
     buyoutSumDynamic: number;
     /**
      * Динамика отмен и возвратов товаров
-     * @type {number}
-     * @memberof Comparison
      */
     cancelCountDynamic: number;
     /**
      * Динамика сумм отмен и возвратов товаров
-     * @type {number}
-     * @memberof Comparison
      */
     cancelSumDynamic: number;
     /**
      * Динамика среднего количества заказов в день
-     * @type {number}
-     * @memberof Comparison
      */
     avgOrdersCountPerDayDynamic: number;
     /**
      * Динамика средней цены на товары. Учитываются скидки для акций
-     * @type {number}
-     * @memberof Comparison
      */
     avgPriceDynamic: number;
     /**
      * Динамика доли в выручке
-     * @type {number}
-     * @memberof Comparison
      */
     shareOrderPercentDynamic: number;
     /**
      * Динамика добавлений товара в избранное
-     * @type {number}
-     * @memberof Comparison
      */
     addToWishlistDynamic: number;
     /**
      * 
-     * @type {ComparisonTimeToReadyDynamic}
-     * @memberof Comparison
      */
     timeToReadyDynamic: ComparisonTimeToReadyDynamic;
     /**
      * Динамика локальных заказов в рамках одного региона
-     * @type {number}
-     * @memberof Comparison
      */
     localizationPercentDynamic: number;
     /**
      * 
-     * @type {ComparisonWbClubDynamic}
-     * @memberof Comparison
      */
     wbClubDynamic: ComparisonWbClubDynamic;
     /**
      * 
-     * @type {StatisticConversions}
-     * @memberof Comparison
      */
     conversions: StatisticConversions;
 }

@@ -21,34 +21,24 @@ import { mapValues } from '../runtime';
 export interface V2GetConfigResponse {
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof V2GetConfigResponse
      */
     currency: string;
     /**
      * Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof V2GetConfigResponse
      */
     currencyCode: number;
     /**
      * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний
-     * @type {number}
-     * @memberof V2GetConfigResponse
      */
     cpmStep: number;
     /**
      * Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC
-     * @type {number}
-     * @memberof V2GetConfigResponse
      */
     cpcStep: number;
     /**
      * Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
      *  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
      * 
-     * @type {number}
-     * @memberof V2GetConfigResponse
      */
     minTopUp: number;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface V3GetMetaMultiRequest {
     /**
      * 
-     * @type {Array<number>}
-     * @memberof V3GetMetaMultiRequest
      */
     orders: Array<number>;
 }

@@ -29,8 +29,6 @@ import {
 export interface UpdateUserAccessRequest {
     /**
      * Настройки доступа для пользователя
-     * @type {Array<UserAccess>}
-     * @memberof UpdateUserAccessRequest
      */
     usersAccesses: Array<UserAccess>;
 }

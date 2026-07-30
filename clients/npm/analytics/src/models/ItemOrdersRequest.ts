@@ -29,21 +29,15 @@ import {
 export interface ItemOrdersRequest {
     /**
      * 
-     * @type {PeriodOrdersRequest}
-     * @memberof ItemOrdersRequest
      */
     period: PeriodOrdersRequest;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ItemOrdersRequest
      */
     nmId: number;
     /**
      * Поисковые запросы. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100
      * 
-     * @type {Array<string>}
-     * @memberof ItemOrdersRequest
      */
     searchTexts: Array<string>;
 }

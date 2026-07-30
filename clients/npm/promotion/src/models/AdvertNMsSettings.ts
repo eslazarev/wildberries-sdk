@@ -36,20 +36,14 @@ import {
 export interface AdvertNMsSettings {
     /**
      * 
-     * @type {AdvertBidsKopecks}
-     * @memberof AdvertNMsSettings
      */
     bidsKopecks: AdvertBidsKopecks;
     /**
      * 
-     * @type {AdvertSubcategory}
-     * @memberof AdvertNMsSettings
      */
     subject: AdvertSubcategory;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof AdvertNMsSettings
      */
     nmId: number;
 }

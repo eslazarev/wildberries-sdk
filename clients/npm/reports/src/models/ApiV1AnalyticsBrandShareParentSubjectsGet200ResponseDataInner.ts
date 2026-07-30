@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseDataInner {
     /**
      * ID родительской категории
-     * @type {number}
-     * @memberof ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseDataInner
      */
     parentId?: number;
     /**
      * Название родительской категории
-     * @type {string}
-     * @memberof ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseDataInner
      */
     parentName?: string;
 }

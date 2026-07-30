@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1SupplierOrdersGet402Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ApiV1SupplierOrdersGet402Response
      */
     title?: string;
     /**
      * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
-     * @type {string}
-     * @memberof ApiV1SupplierOrdersGet402Response
      */
     detail?: string;
 }

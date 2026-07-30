@@ -40,44 +40,30 @@ import {
 export interface TableGroupItem {
     /**
      * Название предмета
-     * @type {string}
-     * @memberof TableGroupItem
      */
     subjectName?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof TableGroupItem
      */
     subjectId?: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof TableGroupItem
      */
     brandName?: string;
     /**
      * Название ярлыка
-     * @type {string}
-     * @memberof TableGroupItem
      */
     tagName?: string;
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof TableGroupItem
      */
     tagId?: number;
     /**
      * 
-     * @type {TableGroupItemMetrics}
-     * @memberof TableGroupItem
      */
     metrics: TableGroupItemMetrics;
     /**
      * Массив товаров группы
-     * @type {Array<TableItemItem>}
-     * @memberof TableGroupItem
      */
     items: Array<TableItemItem>;
 }

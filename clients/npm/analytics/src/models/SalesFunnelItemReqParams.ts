@@ -22,45 +22,31 @@ export interface SalesFunnelItemReqParams {
     /**
      * Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
      * 
-     * @type {Array<number>}
-     * @memberof SalesFunnelItemReqParams
      */
     nmIDs?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof SalesFunnelItemReqParams
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof SalesFunnelItemReqParams
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof SalesFunnelItemReqParams
      */
     tagIds?: Array<number>;
     /**
      * Начало периода
-     * @type {Date}
-     * @memberof SalesFunnelItemReqParams
      */
     startDate: Date;
     /**
      * Конец периода
-     * @type {Date}
-     * @memberof SalesFunnelItemReqParams
      */
     endDate: Date;
     /**
      * Временная зона, по умолчанию Europe/Moscow
      * 
-     * @type {string}
-     * @memberof SalesFunnelItemReqParams
      */
     timezone?: string;
     /**
@@ -70,14 +56,10 @@ export interface SalesFunnelItemReqParams {
      *   * `week` — по неделям
      *   * `month` — по месяцам
      * 
-     * @type {SalesFunnelItemReqParamsAggregationLevelEnum}
-     * @memberof SalesFunnelItemReqParams
      */
     aggregationLevel?: SalesFunnelItemReqParamsAggregationLevelEnum;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof SalesFunnelItemReqParams
      */
     skipDeletedNm?: boolean;
 }

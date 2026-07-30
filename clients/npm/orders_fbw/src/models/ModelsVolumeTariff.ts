@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ModelsVolumeTariff {
     /**
      * Объём поставки от, литры
-     * @type {number}
-     * @memberof ModelsVolumeTariff
      */
     from?: number;
     /**
      * Объём поставки до, литры
-     * @type {number}
-     * @memberof ModelsVolumeTariff
      */
     to?: number;
     /**
      * Тариф, ₽ за литр
-     * @type {number}
-     * @memberof ModelsVolumeTariff
      */
     value?: number;
 }

@@ -29,8 +29,6 @@ import {
 export interface ContentV2GetCardsTrashPostRequest {
     /**
      * 
-     * @type {ContentV2GetCardsTrashPostRequestSettings}
-     * @memberof ContentV2GetCardsTrashPostRequest
      */
     settings?: ContentV2GetCardsTrashPostRequestSettings;
 }

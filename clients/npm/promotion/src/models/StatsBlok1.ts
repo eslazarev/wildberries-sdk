@@ -29,20 +29,14 @@ import {
 export interface StatsBlok1 {
     /**
      * ID баннера
-     * @type {number}
-     * @memberof StatsBlok1
      */
     itemId?: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof StatsBlok1
      */
     itemName?: string;
     /**
      * Название категории
-     * @type {string}
-     * @memberof StatsBlok1
      */
     categoryName?: string;
     /**
@@ -50,112 +44,76 @@ export interface StatsBlok1 {
      *   - `1` — размещение по дням
      *   - `2` — размещение по просмотрам
      * 
-     * @type {number}
-     * @memberof StatsBlok1
      */
     advertType?: number;
     /**
      * Место на странице
-     * @type {number}
-     * @memberof StatsBlok1
      */
     place?: number;
     /**
      * Количество просмотров
-     * @type {number}
-     * @memberof StatsBlok1
      */
     views?: number;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof StatsBlok1
      */
     clicks?: number;
     /**
      * CR(conversion rate) — это отношение количества заказов к общему количеству посещений медиакампании
      * 
-     * @type {number}
-     * @memberof StatsBlok1
      */
     cr?: number;
     /**
      * CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
      * 
-     * @type {number}
-     * @memberof StatsBlok1
      */
     ctr?: number;
     /**
      * Время начала размещения
-     * @type {Date}
-     * @memberof StatsBlok1
      */
     dateFrom?: Date;
     /**
      * Время завершения размещения
-     * @type {Date}
-     * @memberof StatsBlok1
      */
     dateTo?: Date;
     /**
      * Родительская категория предмета
-     * @type {string}
-     * @memberof StatsBlok1
      */
     subjectName?: string;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof StatsBlok1
      */
     atbs?: number;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof StatsBlok1
      */
     orders?: number;
     /**
      * Стоимость размещения
-     * @type {number}
-     * @memberof StatsBlok1
      */
     price?: number;
     /**
      * (cost per click) — цена клика по продвигаемому товару
-     * @type {number}
-     * @memberof StatsBlok1
      */
     cpc?: number;
     /**
      * Статус медиакампании
-     * @type {number}
-     * @memberof StatsBlok1
      */
     status?: number;
     /**
      * 
-     * @type {Array<DailyStats1Inner>}
-     * @memberof StatsBlok1
      */
     dailyStats?: Array<DailyStats1Inner>;
     /**
      * Стоимость размещения баннера
-     * @type {number}
-     * @memberof StatsBlok1
      */
     expenses?: number;
     /**
      * Отношение количества добавлений в корзину к количеству кликов
-     * @type {number}
-     * @memberof StatsBlok1
      */
     cr1?: number;
     /**
      * Отношение количества заказов к количеству добавлений в корзину
-     * @type {number}
-     * @memberof StatsBlok1
      */
     cr2?: number;
 }

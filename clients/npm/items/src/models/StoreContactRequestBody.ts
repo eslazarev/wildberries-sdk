@@ -29,8 +29,6 @@ import {
 export interface StoreContactRequestBody {
     /**
      * 
-     * @type {Array<StoreContactRequestBodyContactsInner>}
-     * @memberof StoreContactRequestBody
      */
     contacts?: Array<StoreContactRequestBodyContactsInner>;
 }

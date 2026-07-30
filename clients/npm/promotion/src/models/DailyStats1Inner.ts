@@ -29,14 +29,10 @@ import {
 export interface DailyStats1Inner {
     /**
      * Дата
-     * @type {Date}
-     * @memberof DailyStats1Inner
      */
     date?: Date;
     /**
      * Статистика по платформам
-     * @type {Array<DailyStats1InnerAppTypeStatsInner>}
-     * @memberof DailyStats1Inner
      */
     appTypeStats?: Array<DailyStats1InnerAppTypeStatsInner>;
 }

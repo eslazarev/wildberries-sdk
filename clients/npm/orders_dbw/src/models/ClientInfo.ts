@@ -23,8 +23,6 @@ export interface ClientInfo {
      * Подменный номер для связи с покупателем. <br>
      * Пустое значение `""` указывает, что номер ещё не назначен
      * 
-     * @type {string}
-     * @memberof ClientInfo
      */
     replacementPhone?: string;
     /**
@@ -32,20 +30,14 @@ export interface ClientInfo {
      *   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`
      *   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду
      * 
-     * @type {string}
-     * @memberof ClientInfo
      */
     phone?: string;
     /**
      * Имя покупателя
-     * @type {string}
-     * @memberof ClientInfo
      */
     firstName?: string;
     /**
      * Полное имя покупателя, используется для оформления документов
-     * @type {string}
-     * @memberof ClientInfo
      */
     fullName?: string;
     /**
@@ -53,8 +45,6 @@ export interface ClientInfo {
      * Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. <br>
      * Пустое значение означает, что номер не указан
      * 
-     * @type {Array<string>}
-     * @memberof ClientInfo
      */
     additionalPhones?: Array<string>;
     /**
@@ -62,14 +52,10 @@ export interface ClientInfo {
      * Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br>
      * Пустое значение указывает, коды ещё не назначены
      * 
-     * @type {Array<number>}
-     * @memberof ClientInfo
      */
     additionalPhoneCodes?: Array<number>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ClientInfo
      */
     orderId?: number;
     /**
@@ -77,8 +63,6 @@ export interface ClientInfo {
      * Используйте, чтобы связаться с покупателем по номеру из `phone`.<br>
      * Если код не указан, вы можете связаться с покупателем без кода
      * 
-     * @type {number}
-     * @memberof ClientInfo
      */
     phoneCode?: number;
 }

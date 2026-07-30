@@ -29,14 +29,10 @@ import {
 export interface OrderCourierInfo {
     /**
      * Информация о курьере
-     * @type {CourierInfo}
-     * @memberof OrderCourierInfo
      */
     courierInfo?: CourierInfo;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof OrderCourierInfo
      */
     orderID?: number;
 }

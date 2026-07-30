@@ -36,20 +36,14 @@ import {
 export interface ItemHistoryResponseInner {
     /**
      * 
-     * @type {ItemHistoryResponseInnerProduct}
-     * @memberof ItemHistoryResponseInner
      */
     product: ItemHistoryResponseInnerProduct;
     /**
      * Статистика за период
-     * @type {Array<History>}
-     * @memberof ItemHistoryResponseInner
      */
     history: Array<History>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof ItemHistoryResponseInner
      */
     currency: string;
 }

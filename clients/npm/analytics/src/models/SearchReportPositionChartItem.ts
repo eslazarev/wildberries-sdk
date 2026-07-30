@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface SearchReportPositionChartItem {
     /**
      * Дата
-     * @type {string}
-     * @memberof SearchReportPositionChartItem
      */
     dt: string;
     /**
      * Средняя позиция товара в результатах поиска
-     * @type {number}
-     * @memberof SearchReportPositionChartItem
      */
     average: number;
     /**
      * Медианная позиция товара в результатах поиска
-     * @type {number}
-     * @memberof SearchReportPositionChartItem
      */
     median: number;
 }

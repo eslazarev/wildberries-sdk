@@ -32,20 +32,14 @@ export interface AdvertSettings {
      * - `cpm` — за показы
      * - `cpc` — за клик
      * 
-     * @type {string}
-     * @memberof AdvertSettings
      */
     paymentType: string;
     /**
      * Название кампании
-     * @type {string}
-     * @memberof AdvertSettings
      */
     name: string;
     /**
      * 
-     * @type {AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements}
-     * @memberof AdvertSettings
      */
     placements: AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements;
 }

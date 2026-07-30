@@ -29,8 +29,6 @@ import {
 export interface ApiOrdersGTINSetRequest {
     /**
      * 
-     * @type {Array<ApiGTIN>}
-     * @memberof ApiOrdersGTINSetRequest
      */
     orders: Array<ApiGTIN>;
 }

@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ApiV1QuestionsPatch200Response {
     /**
      * 
-     * @type {object}
-     * @memberof ApiV1QuestionsPatch200Response
      */
     data?: object | null;
     /**
      * Есть ли ошибка
-     * @type {boolean}
-     * @memberof ApiV1QuestionsPatch200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ApiV1QuestionsPatch200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {Array<string>}
-     * @memberof ApiV1QuestionsPatch200Response
      */
     additionalErrors?: Array<string> | null;
 }

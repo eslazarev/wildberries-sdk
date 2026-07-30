@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2DirectoryKindsGet200Response {
     /**
      * Массив значений для хар-ки Пол
-     * @type {Array<string>}
-     * @memberof ContentV2DirectoryKindsGet200Response
      */
     data?: Array<string>;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2DirectoryKindsGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryKindsGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryKindsGet200Response
      */
     additionalErrors?: string | null;
 }

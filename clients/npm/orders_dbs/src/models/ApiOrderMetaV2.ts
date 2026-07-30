@@ -31,44 +31,30 @@ export interface ApiOrderMetaV2 {
      * Сообщение об ошибке. <br>
      * Если `error: not found`, сборочное задание не найдено
      * 
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     error?: string;
     /**
      * GTIN
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     gtin?: string;
     /**
      * IMEI
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     imei?: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiOrderMetaV2
      */
     orderId?: number;
     /**
      * Код маркировки Честного знака
-     * @type {Array<string>}
-     * @memberof ApiOrderMetaV2
      */
     sgtin?: Array<string>;
     /**
      * УИН
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     uin?: string;
     /**
      * 
-     * @type {ApiOrderMetaV2CustomsDeclaration}
-     * @memberof ApiOrderMetaV2
      */
     customsDeclaration?: ApiOrderMetaV2CustomsDeclaration;
 }

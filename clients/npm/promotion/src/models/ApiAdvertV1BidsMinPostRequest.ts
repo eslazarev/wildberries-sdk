@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiAdvertV1BidsMinPostRequest {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof ApiAdvertV1BidsMinPostRequest
      */
     advertId: number;
     /**
      * Список артикулов WB
-     * @type {Array<number>}
-     * @memberof ApiAdvertV1BidsMinPostRequest
      */
     nmIds: Array<number>;
     /**
@@ -36,8 +32,6 @@ export interface ApiAdvertV1BidsMinPostRequest {
      *       - `cpm` — за показы
      *       - `cpc` — за клик
      * 
-     * @type {ApiAdvertV1BidsMinPostRequestPaymentTypeEnum}
-     * @memberof ApiAdvertV1BidsMinPostRequest
      */
     paymentType: ApiAdvertV1BidsMinPostRequestPaymentTypeEnum;
     /**
@@ -46,8 +40,6 @@ export interface ApiAdvertV1BidsMinPostRequest {
      *   - `recommendation` — рекомендации
      *   - `combined` — поиск и рекомендации
      * 
-     * @type {Array<ApiAdvertV1BidsMinPostRequestPlacementTypesEnum>}
-     * @memberof ApiAdvertV1BidsMinPostRequest
      */
     placementTypes: Array<ApiAdvertV1BidsMinPostRequestPlacementTypesEnum>;
 }

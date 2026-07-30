@@ -21,39 +21,27 @@ import { mapValues } from '../runtime';
 export interface SalesFunnelGroupReqParams {
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof SalesFunnelGroupReqParams
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof SalesFunnelGroupReqParams
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof SalesFunnelGroupReqParams
      */
     tagIds?: Array<number>;
     /**
      * Начало периода
-     * @type {Date}
-     * @memberof SalesFunnelGroupReqParams
      */
     startDate: Date;
     /**
      * Конец периода
-     * @type {Date}
-     * @memberof SalesFunnelGroupReqParams
      */
     endDate: Date;
     /**
      * Временная зона, по умолчанию Europe/Moscow
      * 
-     * @type {string}
-     * @memberof SalesFunnelGroupReqParams
      */
     timezone?: string;
     /**
@@ -63,14 +51,10 @@ export interface SalesFunnelGroupReqParams {
      *   * `week` — по неделям
      *   * `month` — по месяцам
      * 
-     * @type {string}
-     * @memberof SalesFunnelGroupReqParams
      */
     aggregationLevel?: string;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof SalesFunnelGroupReqParams
      */
     skipDeletedNm?: boolean;
 }

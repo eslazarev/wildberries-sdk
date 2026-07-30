@@ -29,14 +29,10 @@ import {
 export interface EventMessage {
     /**
      * 
-     * @type {EventAttachments}
-     * @memberof EventMessage
      */
     attachments?: EventAttachments;
     /**
      * Текст сообщения
-     * @type {string}
-     * @memberof EventMessage
      */
     text?: string;
 }

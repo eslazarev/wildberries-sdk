@@ -29,14 +29,10 @@ import {
 export interface AdvV0AuctionNmsPatchRequestNmsInner {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof AdvV0AuctionNmsPatchRequestNmsInner
      */
     advertId: number;
     /**
      * 
-     * @type {AdvV0AuctionNmsPatchRequestNmsInnerNms}
-     * @memberof AdvV0AuctionNmsPatchRequestNmsInner
      */
     nms: AdvV0AuctionNmsPatchRequestNmsInnerNms;
 }

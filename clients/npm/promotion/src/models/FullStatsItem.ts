@@ -36,92 +36,62 @@ import {
 export interface FullStatsItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof FullStatsItem
      */
     advertId: number;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof FullStatsItem
      */
     atbs: number;
     /**
      * Статистика по средней позиции товара (для кампаний с единой ставкой)
-     * @type {Array<BoosterStatsV3Inner>}
-     * @memberof FullStatsItem
      */
     boosterStats?: Array<BoosterStatsV3Inner>;
     /**
      * Отмены, шт.
-     * @type {number}
-     * @memberof FullStatsItem
      */
     canceled: number;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof FullStatsItem
      */
     clicks: number;
     /**
      * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof FullStatsItem
      */
     cpc: number;
     /**
      * CR (conversion rate) — отношение количества заказов к общему количеству кликов
-     * @type {number}
-     * @memberof FullStatsItem
      */
     cr: number;
     /**
      * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
-     * @type {number}
-     * @memberof FullStatsItem
      */
     ctr: number;
     /**
      * Статистка по дням
-     * @type {Array<DaysV3Inner>}
-     * @memberof FullStatsItem
      */
     days: Array<DaysV3Inner>;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof FullStatsItem
      */
     orders: number;
     /**
      * Количество заказанных товаров, шт.
-     * @type {number}
-     * @memberof FullStatsItem
      */
     shks: number;
     /**
      * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof FullStatsItem
      */
     sum: number;
     /**
      * Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof FullStatsItem
      */
     sumPrice: number;
     /**
      * Количество просмотров
-     * @type {number}
-     * @memberof FullStatsItem
      */
     views: number;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof FullStatsItem
      */
     currency: string;
 }

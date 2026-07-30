@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface Response400SetRecom {
     /**
      * ID запроса
-     * @type {string}
-     * @memberof Response400SetRecom
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response400SetRecom
      */
     origin: string;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof Response400SetRecom
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof Response400SetRecom
      */
     detail: string;
 }

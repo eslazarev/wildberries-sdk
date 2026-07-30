@@ -28,14 +28,10 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
      *   - `customsDeclaration` — [номер ДТ](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
      *   - `originCountryCode` — [числовой код страны происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
      * 
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     key: string;
     /**
      * Значение идентификатора маркировки
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     value?: string | null;
     /**
@@ -81,8 +77,6 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
      *   - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна. Проверка пройдена
      *   - `required` — Маркировка обязательна и не закреплена за сборочным заданием. Проверка не пройдена
      * 
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     decision: string;
 }

@@ -40,8 +40,19 @@ import {
 } from '../models/Model4xxResponse';
 
 export interface ApiV1AnalyticsExciseReportPostRequest {
+    /**
+     * Начало отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Конец отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateTo: string;
+    /**
+     * 
+     */
     exciseReportRequest?: ExciseReportRequest;
 }
 

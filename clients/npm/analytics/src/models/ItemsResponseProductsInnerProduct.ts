@@ -36,62 +36,42 @@ import {
 export interface ItemsResponseProductsInnerProduct {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     nmId: number;
     /**
      * Название карточки товара
-     * @type {string}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     title: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     vendorCode: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     brandName: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     subjectId: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     subjectName: string;
     /**
      * Ярлыки
-     * @type {Array<Tag>}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     tags: Array<Tag>;
     /**
      * Оценка карточки
-     * @type {number}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     productRating: number;
     /**
      * Оценка пользователей
-     * @type {number}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     feedbackRating: number;
     /**
      * 
-     * @type {ItemStocks}
-     * @memberof ItemsResponseProductsInnerProduct
      */
     stocks: ItemStocks;
 }

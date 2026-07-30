@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface NmReportRetryReportResponse {
     /**
      * Уведомление, что началась повторная генерация отчёта
-     * @type {string}
-     * @memberof NmReportRetryReportResponse
      */
     data: string;
 }

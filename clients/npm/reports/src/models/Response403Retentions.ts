@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface Response403Retentions {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof Response403Retentions
      */
     title?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof Response403Retentions
      */
     status?: number;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof Response403Retentions
      */
     detail?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof Response403Retentions
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response403Retentions
      */
     origin?: string;
 }

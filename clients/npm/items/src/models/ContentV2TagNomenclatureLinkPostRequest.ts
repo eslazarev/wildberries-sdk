@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ContentV2TagNomenclatureLinkPostRequest {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ContentV2TagNomenclatureLinkPostRequest
      */
     nmID?: number;
     /**
@@ -30,8 +28,6 @@ export interface ContentV2TagNomenclatureLinkPostRequest {
      * Что бы снять ярлыки с карточки товара, необходимо передать пустой массив.<br>
      * Чтобы добавить ярлыки к уже имеющимся в карточке товара, необходимо в запросе передать новые ярлыки и ярлыки, которые уже есть в карточке товара.
      * 
-     * @type {Array<number>}
-     * @memberof ContentV2TagNomenclatureLinkPostRequest
      */
     tagsIDs?: Array<number>;
 }

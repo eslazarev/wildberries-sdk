@@ -24,8 +24,6 @@ export interface SubscriptionsJamInfo {
      *   - `active` — активна
      *   - `inactive` — истекла или отменена
      * 
-     * @type {SubscriptionsJamInfoStateEnum}
-     * @memberof SubscriptionsJamInfo
      */
     state: SubscriptionsJamInfoStateEnum;
     /**
@@ -33,8 +31,6 @@ export interface SubscriptionsJamInfo {
      *   - `constructor` — покупка через раздел **Конструктор тарифов**
      *   - `jam` — покупка через раздел **Подписка «Джем»**
      * 
-     * @type {SubscriptionsJamInfoActivationSourceEnum}
-     * @memberof SubscriptionsJamInfo
      */
     activationSource: SubscriptionsJamInfoActivationSourceEnum;
     /**
@@ -43,20 +39,14 @@ export interface SubscriptionsJamInfo {
      *   - `advanced`
      *   - `premium`
      * 
-     * @type {SubscriptionsJamInfoLevelEnum}
-     * @memberof SubscriptionsJamInfo
      */
     level: SubscriptionsJamInfoLevelEnum;
     /**
      * Дата и время первой активации подписки. Не меняется при продлении или повторной активации
-     * @type {Date}
-     * @memberof SubscriptionsJamInfo
      */
     since: Date;
     /**
      * Дата и время окончания подписки
-     * @type {Date}
-     * @memberof SubscriptionsJamInfo
      */
     till: Date;
 }

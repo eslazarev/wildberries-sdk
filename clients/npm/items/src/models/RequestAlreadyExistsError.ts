@@ -29,20 +29,14 @@ import {
 export interface RequestAlreadyExistsError {
     /**
      * 
-     * @type {RequestAlreadyExistsErrorData}
-     * @memberof RequestAlreadyExistsError
      */
     data?: RequestAlreadyExistsErrorData;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof RequestAlreadyExistsError
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof RequestAlreadyExistsError
      */
     errorText?: string;
 }

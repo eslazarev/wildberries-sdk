@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PositionInfoMedian {
     /**
      * Текущая медианная позиция товара
-     * @type {number}
-     * @memberof PositionInfoMedian
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof PositionInfoMedian
      */
     dynamics?: number;
 }

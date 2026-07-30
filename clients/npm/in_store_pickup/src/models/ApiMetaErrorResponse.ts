@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiMetaErrorResponse {
     /**
      * Код ошибки
-     * @type {number}
-     * @memberof ApiMetaErrorResponse
      */
     code: number;
     /**
@@ -30,8 +28,6 @@ export interface ApiMetaErrorResponse {
      * - `IncorrectRequestBody` — неправильный запрос
      * - `IncorrectRequest` — передан некорректный параметр
      * 
-     * @type {string}
-     * @memberof ApiMetaErrorResponse
      */
     detail: string;
 }

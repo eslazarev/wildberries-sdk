@@ -29,20 +29,14 @@ import {
 export interface ApiMetaDeleteResponsesResultsInner {
     /**
      * Детали ошибки
-     * @type {Array<ApiMetaDeleteResponsesResultsInnerErrorsInner>}
-     * @memberof ApiMetaDeleteResponsesResultsInner
      */
     errors?: Array<ApiMetaDeleteResponsesResultsInnerErrorsInner>;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof ApiMetaDeleteResponsesResultsInner
      */
     isError: boolean;
     /**
      * ID сборочного задания с успешно обновлёнными данными
-     * @type {number}
-     * @memberof ApiMetaDeleteResponsesResultsInner
      */
     orderId: number;
 }

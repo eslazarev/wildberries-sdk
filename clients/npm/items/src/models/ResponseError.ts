@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ResponseError {
     /**
      * Данные ошибки
-     * @type {object}
-     * @memberof ResponseError
      */
     data?: object | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ResponseError
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ResponseError
      */
     errorText?: string;
 }

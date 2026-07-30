@@ -50,26 +50,18 @@ import {
 export interface Meta {
     /**
      * 
-     * @type {MetaImei}
-     * @memberof Meta
      */
     imei?: MetaImei;
     /**
      * 
-     * @type {MetaUin}
-     * @memberof Meta
      */
     uin?: MetaUin;
     /**
      * 
-     * @type {MetaGtin}
-     * @memberof Meta
      */
     gtin?: MetaGtin;
     /**
      * 
-     * @type {MetaSgtin}
-     * @memberof Meta
      */
     sgtin?: MetaSgtin;
 }

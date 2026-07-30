@@ -26,8 +26,6 @@ export interface AcquiringReportListReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof AcquiringReportListReq
      */
     dateFrom: string;
     /**
@@ -37,20 +35,14 @@ export interface AcquiringReportListReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof AcquiringReportListReq
      */
     dateTo: string;
     /**
      * Количество отчётов в ответе
-     * @type {number}
-     * @memberof AcquiringReportListReq
      */
     limit?: number;
     /**
      * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-     * @type {number}
-     * @memberof AcquiringReportListReq
      */
     offset?: number;
 }

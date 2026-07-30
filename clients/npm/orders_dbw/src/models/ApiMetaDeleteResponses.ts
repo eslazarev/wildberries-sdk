@@ -29,14 +29,10 @@ import {
 export interface ApiMetaDeleteResponses {
     /**
      * Уникальный ID запроса. Отображается для ответов с ошибками
-     * @type {string}
-     * @memberof ApiMetaDeleteResponses
      */
     requestId?: string;
     /**
      * 
-     * @type {Array<ApiMetaDeleteResponsesResultsInner>}
-     * @memberof ApiMetaDeleteResponses
      */
     results: Array<ApiMetaDeleteResponsesResultsInner>;
 }

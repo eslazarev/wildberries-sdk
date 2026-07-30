@@ -46,44 +46,30 @@ import {
 export interface TableDetailsRequest {
     /**
      * 
-     * @type {Period}
-     * @memberof TableDetailsRequest
      */
     currentPeriod: Period;
     /**
      * 
-     * @type {PastPeriod}
-     * @memberof TableDetailsRequest
      */
     pastPeriod?: PastPeriod;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof TableDetailsRequest
      */
     subjectId?: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof TableDetailsRequest
      */
     brandName?: string;
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof TableDetailsRequest
      */
     tagId?: number;
     /**
      * Список артикулов WB
-     * @type {Array<number>}
-     * @memberof TableDetailsRequest
      */
     nmIds?: Array<number>;
     /**
      * 
-     * @type {OrderByMainAndDetails}
-     * @memberof TableDetailsRequest
      */
     orderBy: OrderByMainAndDetails;
     /**
@@ -93,32 +79,22 @@ export interface TableDetailsRequest {
      *   - `secondHundred` — от 101 до 200
      *   - `below` — от 201 и ниже
      * 
-     * @type {TableDetailsRequestPositionClusterEnum}
-     * @memberof TableDetailsRequest
      */
     positionCluster: TableDetailsRequestPositionClusterEnum;
     /**
      * Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
-     * @type {boolean}
-     * @memberof TableDetailsRequest
      */
     includeSubstitutedSKUs?: boolean;
     /**
      * Показать данные по поисковым запросам без учёта подменного артикула
-     * @type {boolean}
-     * @memberof TableDetailsRequest
      */
     includeSearchTexts?: boolean;
     /**
      * Количество товаров в ответе
-     * @type {number}
-     * @memberof TableDetailsRequest
      */
     limit: number;
     /**
      * После какого элемента выдавать данные
-     * @type {number}
-     * @memberof TableDetailsRequest
      */
     offset: number;
 }

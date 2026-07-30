@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ApiV1QuestionsGet200ResponseDataQuestionsInnerAnswer {
     /**
      * Текст ответа
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerAnswer
      */
     text?: string;
     /**
      * Можно ли отредактировать ответ (`false` - нельзя, `true` - можно)
-     * @type {boolean}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerAnswer
      */
     editable?: boolean;
     /**
      * Дата и время создания ответа
-     * @type {Date}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerAnswer
      */
     createDate?: Date;
 }

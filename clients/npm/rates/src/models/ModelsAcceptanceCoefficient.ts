@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ModelsAcceptanceCoefficient {
     /**
      * Дата начала действия коэффициента
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     date?: string;
     /**
@@ -31,20 +29,14 @@ export interface ModelsAcceptanceCoefficient {
      *   - `0` — бесплатная приёмка
      *   - от `1` — множитель стоимости приёмки
      * 
-     * @type {number}
-     * @memberof ModelsAcceptanceCoefficient
      */
     coefficient?: number;
     /**
      * ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
-     * @type {number}
-     * @memberof ModelsAcceptanceCoefficient
      */
     warehouseID?: number;
     /**
      * Название склада
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     warehouseName?: string;
     /**
@@ -53,8 +45,6 @@ export interface ModelsAcceptanceCoefficient {
      *  - `true` — приёмка доступна
      *  - `false` — приёмка не доступна
      * 
-     * @type {boolean}
-     * @memberof ModelsAcceptanceCoefficient
      */
     allowUnload?: boolean;
     /**
@@ -64,32 +54,22 @@ export interface ModelsAcceptanceCoefficient {
      *   - `6` — Суперсейф
      * <br>Для типа поставки **QR-поставка с коробами** поле не возвращается
      * 
-     * @type {number}
-     * @memberof ModelsAcceptanceCoefficient
      */
     boxTypeID?: number;
     /**
      * Коэффициент хранения
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     storageCoef?: string | null;
     /**
      * Коэффициент логистики
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     deliveryCoef?: string | null;
     /**
      * Стоимость логистики первого литра
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     deliveryBaseLiter?: string | null;
     /**
      * Стоимость логистики каждого следующего литра
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     deliveryAdditionalLiter?: string | null;
     /**
@@ -97,8 +77,6 @@ export interface ModelsAcceptanceCoefficient {
      *   - для паллет — стоимость за одну паллету
      *   - для коробов — стоимость хранения за первый литр
      * 
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     storageBaseLiter?: string | null;
     /**
@@ -106,8 +84,6 @@ export interface ModelsAcceptanceCoefficient {
      *   - для паллет — всегда будет `null`, т.к. стоимость хранения за единицу паллеты определяется в `StorageBaseLiter`
      *   - для коробов — стоимость хранения за каждый последующий литр
      * 
-     * @type {string}
-     * @memberof ModelsAcceptanceCoefficient
      */
     storageAdditionalLiter?: string | null;
     /**
@@ -116,8 +92,6 @@ export interface ModelsAcceptanceCoefficient {
      *  - `true` — сортировочный центр (СЦ)
      *  - `false` — обычный
      * 
-     * @type {boolean}
-     * @memberof ModelsAcceptanceCoefficient
      */
     isSortingCenter?: boolean;
 }

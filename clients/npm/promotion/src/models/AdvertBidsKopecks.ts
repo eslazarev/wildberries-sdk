@@ -22,14 +22,10 @@ import { mapValues } from '../runtime';
 export interface AdvertBidsKopecks {
     /**
      * Ставка в поиске
-     * @type {number}
-     * @memberof AdvertBidsKopecks
      */
     search: number;
     /**
      * Ставка в рекомендациях
-     * @type {number}
-     * @memberof AdvertBidsKopecks
      */
     recommendations: number;
 }

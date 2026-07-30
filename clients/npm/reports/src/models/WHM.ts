@@ -29,8 +29,6 @@ import {
 export interface WHM {
     /**
      * 
-     * @type {WHMData}
-     * @memberof WHM
      */
     data: WHMData;
 }

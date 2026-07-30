@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface Response429Download {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof Response429Download
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof Response429Download
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof Response429Download
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof Response429Download
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response429Download
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof Response429Download
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof Response429Download
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof Response429Download
      */
     timestamp?: Date;
 }

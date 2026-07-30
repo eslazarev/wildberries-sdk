@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner
      */
     nmId: number;
     /**
      * Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner
      */
     bidKopecks: number;
     /**
@@ -36,8 +32,6 @@ export interface ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner {
      *   - `search` — в поиске
      *   - `recommendations`— в рекомендациях
      * 
-     * @type {string}
-     * @memberof ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner
      */
     placement: string;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface V3ArchiveOrderStatus {
     /**
      * Статус сборочного задания, установленный продавцом
-     * @type {string}
-     * @memberof V3ArchiveOrderStatus
      */
     supplierStatus: string;
     /**
      * Статус сборочного задания в системе Wildberries
-     * @type {string}
-     * @memberof V3ArchiveOrderStatus
      */
     wbStatus: string;
 }

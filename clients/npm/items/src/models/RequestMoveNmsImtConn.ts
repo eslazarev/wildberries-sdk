@@ -21,15 +21,11 @@ import { mapValues } from '../runtime';
 export interface RequestMoveNmsImtConn {
     /**
      * Существующий `imtID`, под которым необходимо [объединить](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров
-     * @type {number}
-     * @memberof RequestMoveNmsImtConn
      */
     targetIMT: number;
     /**
      * `nmID`, которые необходимо объединить
      * 
-     * @type {Array<number>}
-     * @memberof RequestMoveNmsImtConn
      */
     nmIDs: Array<number>;
 }

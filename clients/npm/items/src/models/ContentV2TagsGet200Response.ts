@@ -29,26 +29,18 @@ import {
 export interface ContentV2TagsGet200Response {
     /**
      * 
-     * @type {ContentV2TagsGet200ResponseData}
-     * @memberof ContentV2TagsGet200Response
      */
     data?: ContentV2TagsGet200ResponseData;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2TagsGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2TagsGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2TagsGet200Response
      */
     additionalErrors?: string | null;
 }

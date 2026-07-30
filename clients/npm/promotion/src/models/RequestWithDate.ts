@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface RequestWithDate {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof RequestWithDate
      */
     id: number;
     /**
      * Даты, за которые нужно получить информацию
-     * @type {Array<Date>}
-     * @memberof RequestWithDate
      */
     dates: Array<Date>;
 }

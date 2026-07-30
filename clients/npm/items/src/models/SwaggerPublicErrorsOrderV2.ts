@@ -23,8 +23,6 @@ export interface SwaggerPublicErrorsOrderV2 {
      * - `false` — сортировка по убыванию
      * - `true` — сортировка по возрастанию
      * 
-     * @type {boolean}
-     * @memberof SwaggerPublicErrorsOrderV2
      */
     ascending?: boolean;
 }

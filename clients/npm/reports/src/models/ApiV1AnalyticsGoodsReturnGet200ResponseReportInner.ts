@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsGoodsReturnGet200ResponseReportInner {
     /**
      * Баркод
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     barcode?: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     brand?: string;
     /**
      * Дата и время выдачи возврата продавцу
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     completedDt?: string | null;
     /**
      * Адрес ПВЗ выдачи возврата
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     dstOfficeAddress?: string;
     /**
      * ID ПВЗ выдачи возврата
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     dstOfficeId?: number;
     /**
      * Дата и время истечения срока хранения возврата
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     expiredDt?: string | null;
     /**
@@ -61,80 +49,54 @@ export interface ApiV1AnalyticsGoodsReturnGet200ResponseReportInner {
      *   * `0` — архивный
      *   * `1` — активный
      * 
-     * @type {ApiV1AnalyticsGoodsReturnGet200ResponseReportInnerIsStatusActiveEnum}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     isStatusActive?: ApiV1AnalyticsGoodsReturnGet200ResponseReportInnerIsStatusActiveEnum;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     nmId?: number;
     /**
      * Дата заказа на возврат
-     * @type {Date}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     orderDt?: Date;
     /**
      * Номер сборочного задания
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     orderId?: number;
     /**
      * Дата и время готовности возврата к выдаче
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     readyToReturnDt?: string | null;
     /**
      * Причина возврата
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     reason?: string;
     /**
      * Тип возврата
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     returnType?: string;
     /**
      * Штрихкод
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     shkId?: number;
     /**
      * Уникальный ID заказа на возврат
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     srid?: string;
     /**
      * Статус возврата
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     status?: string;
     /**
      * Стикер заказа на возврат
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     stickerId?: string;
     /**
      * Предмет
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     subjectName?: string;
     /**
      * Размер
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200ResponseReportInner
      */
     techSize?: string;
 }

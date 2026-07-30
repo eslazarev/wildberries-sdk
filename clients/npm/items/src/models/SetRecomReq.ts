@@ -29,8 +29,6 @@ import {
 export interface SetRecomReq {
     /**
      * Список рекомендаций для товаров
-     * @type {Array<SetRecomReqRecListInner>}
-     * @memberof SetRecomReq
      */
     recList: Array<SetRecomReqRecListInner>;
     /**
@@ -38,8 +36,6 @@ export interface SetRecomReq {
      *   - `false` — добавить новые рекомендации к существующим
      *   - `true` — заменить существующие рекомендации новыми
      * 
-     * @type {boolean}
-     * @memberof SetRecomReq
      */
     replace?: boolean;
 }

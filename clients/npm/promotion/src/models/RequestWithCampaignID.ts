@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface RequestWithCampaignID {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof RequestWithCampaignID
      */
     id: number;
 }

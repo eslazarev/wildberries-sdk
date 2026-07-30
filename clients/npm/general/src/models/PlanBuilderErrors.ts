@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface PlanBuilderErrors {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PlanBuilderErrors
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof PlanBuilderErrors
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof PlanBuilderErrors
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof PlanBuilderErrors
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof PlanBuilderErrors
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof PlanBuilderErrors
      */
     status?: number;
     /**
      * Ошибки запроса с указанием параметров и деталей ошибок
-     * @type {Array<string>}
-     * @memberof PlanBuilderErrors
      */
     errors?: Array<string>;
 }

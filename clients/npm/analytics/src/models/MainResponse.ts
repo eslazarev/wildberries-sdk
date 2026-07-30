@@ -50,33 +50,23 @@ import {
 export interface MainResponse {
     /**
      * 
-     * @type {CommonInfo}
-     * @memberof MainResponse
      */
     commonInfo: CommonInfo;
     /**
      * 
-     * @type {PositionInfo}
-     * @memberof MainResponse
      */
     positionInfo: PositionInfo;
     /**
      * 
-     * @type {VisibilityInfo}
-     * @memberof MainResponse
      */
     visibilityInfo: VisibilityInfo;
     /**
      * Список элементов таблицы
      * 
-     * @type {Array<TableGroupItem>}
-     * @memberof MainResponse
      */
     groups?: Array<TableGroupItem>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof MainResponse
      */
     currency: string;
 }

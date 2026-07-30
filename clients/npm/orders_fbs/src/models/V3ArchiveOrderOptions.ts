@@ -24,8 +24,6 @@ export interface V3ArchiveOrderOptions {
      *   - `false` — не B2B-продажа
      *   - `true` — B2B-продажа
      * 
-     * @type {boolean}
-     * @memberof V3ArchiveOrderOptions
      */
     isB2B?: boolean;
 }

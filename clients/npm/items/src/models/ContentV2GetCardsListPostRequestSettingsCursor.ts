@@ -22,20 +22,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsListPostRequestSettingsCursor {
     /**
      * Сколько карточек товаров выдать в ответе
-     * @type {number}
-     * @memberof ContentV2GetCardsListPostRequestSettingsCursor
      */
     limit?: number;
     /**
      * Дата и время изменения
-     * @type {string}
-     * @memberof ContentV2GetCardsListPostRequestSettingsCursor
      */
     updatedAt?: string | null;
     /**
      * Артикул WB, с которого надо запрашивать следующий список карточек товаров
-     * @type {number}
-     * @memberof ContentV2GetCardsListPostRequestSettingsCursor
      */
     nmID?: number;
 }

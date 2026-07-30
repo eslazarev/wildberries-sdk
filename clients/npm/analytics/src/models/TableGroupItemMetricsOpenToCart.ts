@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableGroupItemMetricsOpenToCart {
     /**
      * Текущая конверсия
-     * @type {number}
-     * @memberof TableGroupItemMetricsOpenToCart
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableGroupItemMetricsOpenToCart
      */
     dynamics?: number;
 }

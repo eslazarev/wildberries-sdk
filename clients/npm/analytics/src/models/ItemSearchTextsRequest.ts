@@ -53,20 +53,14 @@ import {
 export interface ItemSearchTextsRequest {
     /**
      * 
-     * @type {Period}
-     * @memberof ItemSearchTextsRequest
      */
     currentPeriod: Period;
     /**
      * 
-     * @type {PastPeriod}
-     * @memberof ItemSearchTextsRequest
      */
     pastPeriod?: PastPeriod;
     /**
      * Список артикулов WB
-     * @type {Array<number>}
-     * @memberof ItemSearchTextsRequest
      */
     nmIds: Array<number>;
     /**
@@ -77,32 +71,22 @@ export interface ItemSearchTextsRequest {
      *   - `orders` — заказали товаров
      *   - `cartToOrder` — конверсия в заказ
      * 
-     * @type {ItemSearchTextsRequestTopOrderByEnum}
-     * @memberof ItemSearchTextsRequest
      */
     topOrderBy: ItemSearchTextsRequestTopOrderByEnum;
     /**
      * Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
-     * @type {boolean}
-     * @memberof ItemSearchTextsRequest
      */
     includeSubstitutedSKUs?: boolean;
     /**
      * Показать данные по поисковым запросам без учёта подменного артикула
-     * @type {boolean}
-     * @memberof ItemSearchTextsRequest
      */
     includeSearchTexts?: boolean;
     /**
      * 
-     * @type {OrderByGrTe}
-     * @memberof ItemSearchTextsRequest
      */
     orderBy: OrderByGrTe;
     /**
      * 
-     * @type {TextLimit}
-     * @memberof ItemSearchTextsRequest
      */
     limit: TextLimit;
 }

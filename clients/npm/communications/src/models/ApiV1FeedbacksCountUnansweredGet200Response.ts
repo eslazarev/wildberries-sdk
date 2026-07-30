@@ -29,26 +29,18 @@ import {
 export interface ApiV1FeedbacksCountUnansweredGet200Response {
     /**
      * 
-     * @type {ApiV1FeedbacksCountUnansweredGet200ResponseData}
-     * @memberof ApiV1FeedbacksCountUnansweredGet200Response
      */
     data?: ApiV1FeedbacksCountUnansweredGet200ResponseData;
     /**
      * Есть ли ошибка
-     * @type {boolean}
-     * @memberof ApiV1FeedbacksCountUnansweredGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ApiV1FeedbacksCountUnansweredGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {Array<string>}
-     * @memberof ApiV1FeedbacksCountUnansweredGet200Response
      */
     additionalErrors?: Array<string> | null;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface Model400Response {
     /**
      * 
-     * @type {string}
-     * @memberof Model400Response
      */
     error?: string;
 }

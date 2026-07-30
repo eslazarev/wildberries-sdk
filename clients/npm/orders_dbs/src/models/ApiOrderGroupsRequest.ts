@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiOrderGroupsRequest {
     /**
      * Список значений `groupId`. Можно получить из [новых](./orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) и [завершенных](./orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders) сборочных заданий
-     * @type {Array<string>}
-     * @memberof ApiOrderGroupsRequest
      */
     groups?: Array<string>;
 }

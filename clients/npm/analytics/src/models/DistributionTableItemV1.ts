@@ -71,110 +71,74 @@ import {
 export interface DistributionTableItemV1 {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof DistributionTableItemV1
      */
     nmId?: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof DistributionTableItemV1
      */
     title?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof DistributionTableItemV1
      */
     vendorCode?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof DistributionTableItemV1
      */
     subjectId?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof DistributionTableItemV1
      */
     subjectName?: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof DistributionTableItemV1
      */
     brandName?: string;
     /**
      * Название ярлыка
-     * @type {string}
-     * @memberof DistributionTableItemV1
      */
     tagName?: string;
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof DistributionTableItemV1
      */
     tagId?: number;
     /**
      * Отзыв закреплён
-     * @type {boolean}
-     * @memberof DistributionTableItemV1
      */
     pinnedFeedback?: boolean;
     /**
      * Рейтинг карточки товара
-     * @type {number}
-     * @memberof DistributionTableItemV1
      */
     rating?: number;
     /**
      * 
-     * @type {DistributionTableItemV1FeedbackRating}
-     * @memberof DistributionTableItemV1
      */
     feedbackRating?: DistributionTableItemV1FeedbackRating;
     /**
      * 
-     * @type {DistributionTableItemV1FeedbackCount}
-     * @memberof DistributionTableItemV1
      */
     feedbackCount?: DistributionTableItemV1FeedbackCount;
     /**
      * 
-     * @type {DistributionTableItemV1FiveStar}
-     * @memberof DistributionTableItemV1
      */
     fiveStar?: DistributionTableItemV1FiveStar;
     /**
      * 
-     * @type {DistributionTableItemV1FourStar}
-     * @memberof DistributionTableItemV1
      */
     fourStar?: DistributionTableItemV1FourStar;
     /**
      * 
-     * @type {DistributionTableItemV1ThreeStar}
-     * @memberof DistributionTableItemV1
      */
     threeStar?: DistributionTableItemV1ThreeStar;
     /**
      * 
-     * @type {DistributionTableItemV1TwoStar}
-     * @memberof DistributionTableItemV1
      */
     twoStar?: DistributionTableItemV1TwoStar;
     /**
      * 
-     * @type {DistributionTableItemV1OneStar}
-     * @memberof DistributionTableItemV1
      */
     oneStar?: DistributionTableItemV1OneStar;
     /**
      * Отзывы, исключённые из рейтинга
-     * @type {number}
-     * @memberof DistributionTableItemV1
      */
     disqualified?: number;
 }

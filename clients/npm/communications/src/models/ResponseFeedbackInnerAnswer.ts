@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ResponseFeedbackInnerAnswer {
     /**
      * Текст ответа
-     * @type {string}
-     * @memberof ResponseFeedbackInnerAnswer
      */
     text?: string;
     /**
@@ -32,8 +30,6 @@ export interface ResponseFeedbackInnerAnswer {
      *   - `reviewRequired` — ответ проходит проверку
      *   - `rejected` — ответ отклонён
      * 
-     * @type {string}
-     * @memberof ResponseFeedbackInnerAnswer
      */
     state?: string;
     /**
@@ -41,8 +37,6 @@ export interface ResponseFeedbackInnerAnswer {
      *   - `false` — нет
      *   - `true` — да
      * 
-     * @type {boolean}
-     * @memberof ResponseFeedbackInnerAnswer
      */
     editable?: boolean;
 }

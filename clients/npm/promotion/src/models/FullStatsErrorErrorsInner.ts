@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface FullStatsErrorErrorsInner {
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof FullStatsErrorErrorsInner
      */
     detail?: string;
     /**
      * Параметр с ошибкой
-     * @type {string}
-     * @memberof FullStatsErrorErrorsInner
      */
     field?: string;
 }

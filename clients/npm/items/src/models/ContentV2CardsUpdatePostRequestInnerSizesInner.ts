@@ -24,34 +24,24 @@ export interface ContentV2CardsUpdatePostRequestInnerSizesInner {
      * Обязателен к заполнению для существующих размеров<br>
      * Для добавляемых размеров не указывается
      * 
-     * @type {number}
-     * @memberof ContentV2CardsUpdatePostRequestInnerSizesInner
      */
     chrtID?: number;
     /**
      * Размер товара (например, XL, S, 45)
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePostRequestInnerSizesInner
      */
     techSize?: string;
     /**
      * Российский размер товара
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePostRequestInnerSizesInner
      */
     wbSize?: string;
     /**
      * Цена товара, ₽<br>
      * Указывается при добавлении размера
      * 
-     * @type {number}
-     * @memberof ContentV2CardsUpdatePostRequestInnerSizesInner
      */
     price?: number;
     /**
      * Баркоды
-     * @type {Array<string>}
-     * @memberof ContentV2CardsUpdatePostRequestInnerSizesInner
      */
     skus?: Array<string>;
 }

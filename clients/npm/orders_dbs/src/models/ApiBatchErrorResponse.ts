@@ -25,8 +25,6 @@ export interface ApiBatchErrorResponse {
      *   - `409`
      *   - `400`
      * 
-     * @type {number}
-     * @memberof ApiBatchErrorResponse
      */
     code?: number;
     /**
@@ -36,8 +34,6 @@ export interface ApiBatchErrorResponse {
      * - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `"isB2b":true`
      * - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
      * 
-     * @type {string}
-     * @memberof ApiBatchErrorResponse
      */
     detail?: string;
 }

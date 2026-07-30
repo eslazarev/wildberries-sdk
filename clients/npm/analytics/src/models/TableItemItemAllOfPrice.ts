@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableItemItemAllOfPrice {
     /**
      * Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-     * @type {number}
-     * @memberof TableItemItemAllOfPrice
      */
     minPrice: number;
     /**
      * Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)
-     * @type {number}
-     * @memberof TableItemItemAllOfPrice
      */
     maxPrice: number;
 }

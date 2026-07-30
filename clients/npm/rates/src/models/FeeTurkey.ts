@@ -29,8 +29,6 @@ import {
 export interface FeeTurkey {
     /**
      * Список комиссий
-     * @type {Array<FeeTurkeyReportInner>}
-     * @memberof FeeTurkey
      */
     report?: Array<FeeTurkeyReportInner>;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface StatisticTimeToReady {
     /**
      * Дни
-     * @type {number}
-     * @memberof StatisticTimeToReady
      */
     days: number;
     /**
      * Часы
-     * @type {number}
-     * @memberof StatisticTimeToReady
      */
     hours: number;
     /**
      * Минуты
-     * @type {number}
-     * @memberof StatisticTimeToReady
      */
     mins: number;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV1QuestionsPatchRequestOneOf1Answer {
     /**
      * Текст ответа
-     * @type {string}
-     * @memberof ApiV1QuestionsPatchRequestOneOf1Answer
      */
     text: string;
 }

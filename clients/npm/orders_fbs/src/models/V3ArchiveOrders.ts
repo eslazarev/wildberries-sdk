@@ -29,14 +29,10 @@ import {
 export interface V3ArchiveOrders {
     /**
      * Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-     * @type {number}
-     * @memberof V3ArchiveOrders
      */
     next: number | null;
     /**
      * Архивные сборочные задания
-     * @type {Array<V3ArchiveOrder>}
-     * @memberof V3ArchiveOrders
      */
     orders: Array<V3ArchiveOrder>;
 }

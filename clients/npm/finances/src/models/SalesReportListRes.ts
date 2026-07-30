@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface SalesReportListRes {
     /**
      * ID отчёта
-     * @type {number}
-     * @memberof SalesReportListRes
      */
     reportId: number;
     /**
      * Наименование продавца
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     sellerFinanceName: string;
     /**
      * Дата начала отчётного периода
-     * @type {Date}
-     * @memberof SalesReportListRes
      */
     dateFrom: Date;
     /**
      * Дата конца отчётного периода
-     * @type {Date}
-     * @memberof SalesReportListRes
      */
     dateTo: Date;
     /**
      * Дата формирования отчёта
-     * @type {Date}
-     * @memberof SalesReportListRes
      */
     createDate: Date;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     currency: string;
     /**
@@ -61,92 +49,62 @@ export interface SalesReportListRes {
      *   - `2` — по выкупам
      *   - `3` — по выкупам для Грузии
      * 
-     * @type {SalesReportListResReportTypeEnum}
-     * @memberof SalesReportListRes
      */
     reportType: SalesReportListResReportTypeEnum;
     /**
      * Продажа
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     retailAmountSum: string;
     /**
      * К перечислению за товар
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     forPaySum: string;
     /**
      * Согласованная скидка, %
-     * @type {number}
-     * @memberof SalesReportListRes
      */
     avgSalePercent: number;
     /**
      * Стоимость логистики
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     deliveryServiceSum: string;
     /**
      * Стоимость хранения
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     paidStorageSum: string;
     /**
      * Стоимость операций при приёмке
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     paidAcceptanceSum: string;
     /**
      * Прочие удержания и выплаты
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     deductionSum: string;
     /**
      * Общая сумма штрафов
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     penaltySum: string;
     /**
      * Корректировка Вознаграждения Вайлдберриз (ВВ)
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     additionalPaymentSum: string;
     /**
      * Сумма, удержанная за начисленные баллы программы лояльности
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     cashbackAmountSum: string;
     /**
      * Компенсация скидки по программе лояльности
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     cashbackDiscountSum: string;
     /**
      * Стоимость участия в программе лояльности
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     cashbackCommissionChangeSum: string;
     /**
      * Разовое изменение срока перечисления денежных средств
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     paymentSchedule: string;
     /**
      * Итого к оплате
-     * @type {string}
-     * @memberof SalesReportListRes
      */
     bankPaymentSum: string;
 }

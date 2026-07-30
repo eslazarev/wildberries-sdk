@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface AdvV1PaymentsGet200ResponseInner {
     /**
      * ID платежа
-     * @type {number}
-     * @memberof AdvV1PaymentsGet200ResponseInner
      */
     id?: number;
     /**
      * Дата платежа
-     * @type {string}
-     * @memberof AdvV1PaymentsGet200ResponseInner
      */
     date?: string;
     /**
      * Сумма платежа
-     * @type {number}
-     * @memberof AdvV1PaymentsGet200ResponseInner
      */
     sum?: number;
     /**
@@ -43,8 +37,6 @@ export interface AdvV1PaymentsGet200ResponseInner {
      * - `1` — Баланс
      * - `3` — Картой
      * 
-     * @type {number}
-     * @memberof AdvV1PaymentsGet200ResponseInner
      */
     type?: number;
     /**
@@ -52,8 +44,6 @@ export interface AdvV1PaymentsGet200ResponseInner {
      * - `0` — ошибка
      * - `1` — обработано
      * 
-     * @type {number}
-     * @memberof AdvV1PaymentsGet200ResponseInner
      */
     statusId?: number;
     /**
@@ -63,14 +53,10 @@ export interface AdvV1PaymentsGet200ResponseInner {
      * - `pending` — в ожидании ответа
      * - `unknown` — неизвестно
      * 
-     * @type {string}
-     * @memberof AdvV1PaymentsGet200ResponseInner
      */
     cardStatus?: string;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof AdvV1PaymentsGet200ResponseInner
      */
     currency?: string;
 }

@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ApiV1SellerDownloadIdGet451Response {
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof ApiV1SellerDownloadIdGet451Response
      */
     status?: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ApiV1SellerDownloadIdGet451Response
      */
     title?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ApiV1SellerDownloadIdGet451Response
      */
     origin?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ApiV1SellerDownloadIdGet451Response
      */
     detail?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof ApiV1SellerDownloadIdGet451Response
      */
     requestId?: string;
 }

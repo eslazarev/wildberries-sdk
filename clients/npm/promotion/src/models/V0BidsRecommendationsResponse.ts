@@ -36,26 +36,18 @@ import {
 export interface V0BidsRecommendationsResponse {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V0BidsRecommendationsResponse
      */
     advertId?: number;
     /**
      * 
-     * @type {V0BidRecommendationBase}
-     * @memberof V0BidsRecommendationsResponse
      */
     base?: V0BidRecommendationBase;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V0BidsRecommendationsResponse
      */
     nmId?: number;
     /**
      * Рекомендуемые ставки для поисковых кластеров
-     * @type {Array<V0BidRecommendationNormQuery>}
-     * @memberof V0BidsRecommendationsResponse
      */
     normQueries?: Array<V0BidRecommendationNormQuery>;
 }

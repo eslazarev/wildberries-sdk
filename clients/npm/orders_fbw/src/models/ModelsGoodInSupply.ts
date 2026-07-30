@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ModelsGoodInSupply {
     /**
      * Баркод товара
-     * @type {string}
-     * @memberof ModelsGoodInSupply
      */
     barcode?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ModelsGoodInSupply
      */
     vendorCode?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ModelsGoodInSupply
      */
     nmID?: number;
     /**
@@ -42,8 +36,6 @@ export interface ModelsGoodInSupply {
      *   - `false` — не нужен
      *   - `true` — нужен
      * 
-     * @type {boolean}
-     * @memberof ModelsGoodInSupply
      */
     needKiz?: boolean;
     /**
@@ -51,50 +43,34 @@ export interface ModelsGoodInSupply {
      * <br>
      * Если `"needKiz":true`, а `"tnved":null`, нужно заполнить характеристику товара **ТН ВЭД** в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./work-with-products#tag/listings/paths/~1content~1v2~1cards~1update/post)
      * 
-     * @type {string}
-     * @memberof ModelsGoodInSupply
      */
     tnved?: string | null;
     /**
      * Размер товара, указанный продавцом
-     * @type {string}
-     * @memberof ModelsGoodInSupply
      */
     techSize?: string;
     /**
      * Цвет товара
-     * @type {string}
-     * @memberof ModelsGoodInSupply
      */
     color?: string | null;
     /**
      * Указано в упаковке, шт
-     * @type {number}
-     * @memberof ModelsGoodInSupply
      */
     supplierBoxAmount?: number | null;
     /**
      * Указано в поставке/заказе, шт
-     * @type {number}
-     * @memberof ModelsGoodInSupply
      */
     quantity?: number;
     /**
      * Поступило в продажу, шт
-     * @type {number}
-     * @memberof ModelsGoodInSupply
      */
     readyForSaleQuantity?: number | null;
     /**
      * Принято, шт
-     * @type {number}
-     * @memberof ModelsGoodInSupply
      */
     acceptedQuantity?: number | null;
     /**
      * Количество товара на раскладке, шт
-     * @type {number}
-     * @memberof ModelsGoodInSupply
      */
     unloadingQuantity?: number | null;
 }

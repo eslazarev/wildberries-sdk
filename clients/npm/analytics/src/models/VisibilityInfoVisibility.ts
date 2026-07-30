@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface VisibilityInfoVisibility {
     /**
      * Видимость в текущий период
-     * @type {number}
-     * @memberof VisibilityInfoVisibility
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof VisibilityInfoVisibility
      */
     dynamics?: number;
 }

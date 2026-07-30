@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV3MediaFilePost200Response {
     /**
      * 
-     * @type {object}
-     * @memberof ContentV3MediaFilePost200Response
      */
     data?: object;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV3MediaFilePost200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV3MediaFilePost200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {object}
-     * @memberof ContentV3MediaFilePost200Response
      */
     additionalErrors?: object | null;
 }

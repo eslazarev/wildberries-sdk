@@ -29,8 +29,6 @@ import {
 export interface ApiV1CalendarPromotionsUploadPostRequest {
     /**
      * 
-     * @type {ApiV1CalendarPromotionsUploadPostRequestData}
-     * @memberof ApiV1CalendarPromotionsUploadPostRequest
      */
     data?: ApiV1CalendarPromotionsUploadPostRequestData;
 }

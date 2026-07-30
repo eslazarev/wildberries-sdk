@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface ItemHistoryResponseInnerProduct {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ItemHistoryResponseInnerProduct
      */
     nmId: number;
     /**
      * Название карточки товара
-     * @type {string}
-     * @memberof ItemHistoryResponseInnerProduct
      */
     title: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ItemHistoryResponseInnerProduct
      */
     vendorCode: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof ItemHistoryResponseInnerProduct
      */
     brandName: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ItemHistoryResponseInnerProduct
      */
     subjectId: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ItemHistoryResponseInnerProduct
      */
     subjectName: string;
 }

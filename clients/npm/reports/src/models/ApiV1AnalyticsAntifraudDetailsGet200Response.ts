@@ -29,8 +29,6 @@ import {
 export interface ApiV1AnalyticsAntifraudDetailsGet200Response {
     /**
      * 
-     * @type {Array<ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner>}
-     * @memberof ApiV1AnalyticsAntifraudDetailsGet200Response
      */
     details?: Array<ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner>;
 }

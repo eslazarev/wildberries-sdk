@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsListPost200ResponseCardsInnerTagsInner {
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerTagsInner
      */
     id?: number;
     /**
      * Название ярлыка
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerTagsInner
      */
     name?: string;
     /**
@@ -41,8 +37,6 @@ export interface ContentV2GetCardsListPost200ResponseCardsInnerTagsInner {
      * - `DEF1DD` — зеленый
      * - `FFECC7` — желтый
      * 
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerTagsInner
      */
     color?: string;
 }

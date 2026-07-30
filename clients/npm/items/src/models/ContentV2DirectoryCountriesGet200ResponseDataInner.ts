@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2DirectoryCountriesGet200ResponseDataInner {
     /**
      * ID страны
-     * @type {number}
-     * @memberof ContentV2DirectoryCountriesGet200ResponseDataInner
      */
     id?: number;
     /**
      * Значение характеристики Страны
-     * @type {string}
-     * @memberof ContentV2DirectoryCountriesGet200ResponseDataInner
      */
     name?: string;
     /**
      * Полное название страны
-     * @type {string}
-     * @memberof ContentV2DirectoryCountriesGet200ResponseDataInner
      */
     fullName?: string;
 }

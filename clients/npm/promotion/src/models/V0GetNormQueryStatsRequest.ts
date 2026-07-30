@@ -29,20 +29,14 @@ import {
 export interface V0GetNormQueryStatsRequest {
     /**
      * Дата начала периода
-     * @type {Date}
-     * @memberof V0GetNormQueryStatsRequest
      */
     from: Date;
     /**
      * Дата окончания периода
-     * @type {Date}
-     * @memberof V0GetNormQueryStatsRequest
      */
     to: Date;
     /**
      * 
-     * @type {Array<V0GetNormQueryStatsRequestItemsInner>}
-     * @memberof V0GetNormQueryStatsRequest
      */
     items: Array<V0GetNormQueryStatsRequestItemsInner>;
 }

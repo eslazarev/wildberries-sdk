@@ -42,16 +42,12 @@ export interface AccessInner {
      * * `brandzone` — Бренд-зона. Публикация изменений
      * * `brandzoneSubscribe` — Управление подпиской бренд-зоны
      * 
-     * @type {AccessInnerCodeEnum}
-     * @memberof AccessInner
      */
     code: AccessInnerCodeEnum;
     /**
      * * `true` — доступ к разделу запрещён
      * * `false` — доступ к разделу разрешён
      * 
-     * @type {boolean}
-     * @memberof AccessInner
      */
     disabled: boolean;
 }

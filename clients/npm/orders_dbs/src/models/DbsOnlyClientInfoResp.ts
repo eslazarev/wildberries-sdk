@@ -29,8 +29,6 @@ import {
 export interface DbsOnlyClientInfoResp {
     /**
      * Информация о покупателе
-     * @type {Array<DbsOnlyClientInfo>}
-     * @memberof DbsOnlyClientInfoResp
      */
     orders?: Array<DbsOnlyClientInfo> | null;
 }

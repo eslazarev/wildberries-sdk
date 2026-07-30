@@ -36,57 +36,39 @@ import {
 export interface OrderNewDBW {
     /**
      * 
-     * @type {OrderNewDBWAddress}
-     * @memberof OrderNewDBW
      */
     address?: OrderNewDBWAddress | null;
     /**
      * Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
      * 
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     salePrice?: number | null;
     /**
      * Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
-     * @type {Array<string>}
-     * @memberof OrderNewDBW
      */
     requiredMeta?: Array<string> | null;
     /**
      * Комментарий покупателя
-     * @type {string}
-     * @memberof OrderNewDBW
      */
     comment?: string;
     /**
      * 
-     * @type {OrderNewDBWOptions}
-     * @memberof OrderNewDBW
      */
     options?: OrderNewDBWOptions;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-     * @type {string}
-     * @memberof OrderNewDBW
      */
     orderUid?: string;
     /**
      * ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
-     * @type {string}
-     * @memberof OrderNewDBW
      */
     groupId?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof OrderNewDBW
      */
     article?: string;
     /**
      * Код цвета (только для колеруемых товаров)
-     * @type {string}
-     * @memberof OrderNewDBW
      */
     colorCode?: string;
     /**
@@ -101,68 +83,46 @@ export interface OrderNewDBW {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {string}
-     * @memberof OrderNewDBW
      */
     rid?: string;
     /**
      * Дата создания сборочного задания
-     * @type {Date}
-     * @memberof OrderNewDBW
      */
     createdAt?: Date;
     /**
      * Массив баркодов товара
-     * @type {Array<string>}
-     * @memberof OrderNewDBW
      */
     skus?: Array<string>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     id?: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     warehouseId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     nmId?: number;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     chrtId?: number;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     price?: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     convertedPrice?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof OrderNewDBW
      */
     convertedCurrencyCode?: number;
     /**
@@ -171,8 +131,6 @@ export interface OrderNewDBW {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {OrderNewDBWCargoTypeEnum}
-     * @memberof OrderNewDBW
      */
     cargoType?: OrderNewDBWCargoTypeEnum;
     /**
@@ -180,8 +138,6 @@ export interface OrderNewDBW {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
-     * @type {boolean}
-     * @memberof OrderNewDBW
      */
     isZeroOrder?: boolean;
 }

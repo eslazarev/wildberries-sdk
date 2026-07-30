@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsBrandShareGet200ResponseReportInner {
     /**
      * Дата
-     * @type {string}
-     * @memberof ApiV1AnalyticsBrandShareGet200ResponseReportInner
      */
     applyDate?: string;
     /**
      * Рейтинг бренда в родительской категории
-     * @type {number}
-     * @memberof ApiV1AnalyticsBrandShareGet200ResponseReportInner
      */
     brandRating?: number;
     /**
      * Доля от продаж в родительской категории — цена, %
-     * @type {number}
-     * @memberof ApiV1AnalyticsBrandShareGet200ResponseReportInner
      */
     pricePercent?: number;
     /**
      * Доля от продаж в родительской категории — количество, %
-     * @type {number}
-     * @memberof ApiV1AnalyticsBrandShareGet200ResponseReportInner
      */
     qtyPercent?: number;
 }

@@ -147,6 +147,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'agency_vat' => 'float',
         'sale_price_wholesale_discount_prc' => 'float',
         'b2b_customer_tin' => 'string',
+        'paid_with_social_certificate' => 'bool',
         'order_uid' => 'string',
         'srid' => 'string'
     ];
@@ -248,6 +249,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'agency_vat' => null,
         'sale_price_wholesale_discount_prc' => null,
         'b2b_customer_tin' => null,
+        'paid_with_social_certificate' => null,
         'order_uid' => null,
         'srid' => null
     ];
@@ -347,6 +349,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'agency_vat' => false,
         'sale_price_wholesale_discount_prc' => false,
         'b2b_customer_tin' => false,
+        'paid_with_social_certificate' => false,
         'order_uid' => false,
         'srid' => false
     ];
@@ -526,6 +529,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'agency_vat' => 'agencyVat',
         'sale_price_wholesale_discount_prc' => 'salePriceWholesaleDiscountPrc',
         'b2b_customer_tin' => 'b2bCustomerTin',
+        'paid_with_social_certificate' => 'paidWithSocialCertificate',
         'order_uid' => 'orderUid',
         'srid' => 'srid'
     ];
@@ -625,6 +629,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'agency_vat' => 'setAgencyVat',
         'sale_price_wholesale_discount_prc' => 'setSalePriceWholesaleDiscountPrc',
         'b2b_customer_tin' => 'setB2bCustomerTin',
+        'paid_with_social_certificate' => 'setPaidWithSocialCertificate',
         'order_uid' => 'setOrderUid',
         'srid' => 'setSrid'
     ];
@@ -724,6 +729,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'agency_vat' => 'getAgencyVat',
         'sale_price_wholesale_discount_prc' => 'getSalePriceWholesaleDiscountPrc',
         'b2b_customer_tin' => 'getB2bCustomerTin',
+        'paid_with_social_certificate' => 'getPaidWithSocialCertificate',
         'order_uid' => 'getOrderUid',
         'srid' => 'getSrid'
     ];
@@ -891,6 +897,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('agency_vat', $data ?? [], null);
         $this->setIfExists('sale_price_wholesale_discount_prc', $data ?? [], null);
         $this->setIfExists('b2b_customer_tin', $data ?? [], null);
+        $this->setIfExists('paid_with_social_certificate', $data ?? [], null);
         $this->setIfExists('order_uid', $data ?? [], null);
         $this->setIfExists('srid', $data ?? [], null);
     }
@@ -1185,6 +1192,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ($this->container['b2b_customer_tin'] === null) {
             $invalidProperties[] = "'b2b_customer_tin' can't be null";
+        }
+        if ($this->container['paid_with_social_certificate'] === null) {
+            $invalidProperties[] = "'paid_with_social_certificate' can't be null";
         }
         if ($this->container['order_uid'] === null) {
             $invalidProperties[] = "'order_uid' can't be null";
@@ -3616,6 +3626,33 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable b2b_customer_tin cannot be null');
         }
         $this->container['b2b_customer_tin'] = $b2b_customer_tin;
+
+        return $this;
+    }
+
+    /**
+     * Gets paid_with_social_certificate
+     *
+     * @return bool
+     */
+    public function getPaidWithSocialCertificate()
+    {
+        return $this->container['paid_with_social_certificate'];
+    }
+
+    /**
+     * Sets paid_with_social_certificate
+     *
+     * @param bool $paid_with_social_certificate Оплата социальным сертификатом
+     *
+     * @return self
+     */
+    public function setPaidWithSocialCertificate($paid_with_social_certificate)
+    {
+        if (is_null($paid_with_social_certificate)) {
+            throw new \InvalidArgumentException('non-nullable paid_with_social_certificate cannot be null');
+        }
+        $this->container['paid_with_social_certificate'] = $paid_with_social_certificate;
 
         return $this;
     }

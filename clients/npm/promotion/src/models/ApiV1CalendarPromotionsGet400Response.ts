@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV1CalendarPromotionsGet400Response {
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsGet400Response
      */
     errorText?: string;
 }

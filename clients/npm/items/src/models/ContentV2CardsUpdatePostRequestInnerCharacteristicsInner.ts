@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ContentV2CardsUpdatePostRequestInnerCharacteristicsInner {
     /**
      * ID характеристики
-     * @type {number}
-     * @memberof ContentV2CardsUpdatePostRequestInnerCharacteristicsInner
      */
     id: number;
     /**
@@ -32,8 +30,6 @@ export interface ContentV2CardsUpdatePostRequestInnerCharacteristicsInner {
      * <br>
      * Допустимое количество значений отображено в поле `maxCount` того же метода
      * 
-     * @type {any}
-     * @memberof ContentV2CardsUpdatePostRequestInnerCharacteristicsInner
      */
     value: any | null;
 }

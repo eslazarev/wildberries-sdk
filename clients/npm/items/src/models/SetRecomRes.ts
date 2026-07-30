@@ -32,14 +32,10 @@ export interface SetRecomRes {
      *   - `false` — ошибок нет. Запрос полностью успешен
      *   - `true` — ошибки есть
      * 
-     * @type {boolean}
-     * @memberof SetRecomRes
      */
     isError: boolean;
     /**
      * Ошибки. При `"isError":true`
-     * @type {Array<SetRecomResErrorsInner>}
-     * @memberof SetRecomRes
      */
     errors?: Array<SetRecomResErrorsInner>;
 }

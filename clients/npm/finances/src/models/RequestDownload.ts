@@ -29,8 +29,6 @@ import {
 export interface RequestDownload {
     /**
      * 
-     * @type {Array<RequestDownloadParamsInner>}
-     * @memberof RequestDownload
      */
     params?: Array<RequestDownloadParamsInner>;
 }

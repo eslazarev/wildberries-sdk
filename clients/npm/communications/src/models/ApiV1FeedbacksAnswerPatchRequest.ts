@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1FeedbacksAnswerPatchRequest {
     /**
      * ID отзыва
-     * @type {string}
-     * @memberof ApiV1FeedbacksAnswerPatchRequest
      */
     id: string;
     /**
      * Текст ответа
-     * @type {string}
-     * @memberof ApiV1FeedbacksAnswerPatchRequest
      */
     text: string;
 }

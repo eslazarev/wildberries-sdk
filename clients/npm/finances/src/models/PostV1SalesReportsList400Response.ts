@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface PostV1SalesReportsList400Response {
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof PostV1SalesReportsList400Response
      */
     status?: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PostV1SalesReportsList400Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof PostV1SalesReportsList400Response
      */
     detail?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof PostV1SalesReportsList400Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof PostV1SalesReportsList400Response
      */
     origin?: string;
 }

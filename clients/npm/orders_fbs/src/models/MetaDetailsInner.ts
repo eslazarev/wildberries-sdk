@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MetaDetailsInner {
     /**
      * Идентификатор маркировки
-     * @type {string}
-     * @memberof MetaDetailsInner
      */
     key?: string;
     /**
      * Значение идентификатора маркировки
-     * @type {string}
-     * @memberof MetaDetailsInner
      */
     value?: string | null;
     /**
@@ -113,8 +109,6 @@ export interface MetaDetailsInner {
      *   - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
      *   - `required` — Маркировка обязательна и не закреплена за сборочным заданием. Проверка не пройдена
      * 
-     * @type {string}
-     * @memberof MetaDetailsInner
      */
     decision?: string;
 }

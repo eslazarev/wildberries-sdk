@@ -21,21 +21,15 @@ import { mapValues } from '../runtime';
 export interface FinancialReportsDetailedReportIdReq {
     /**
      * Количество строк в ответе
-     * @type {number}
-     * @memberof FinancialReportsDetailedReportIdReq
      */
     limit?: number;
     /**
      * ID строки ответа. Необходим для получения отчёта частями.<br>Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.<br>Повторяйте запрос, пока не получите ответ `204`
      * 
-     * @type {number}
-     * @memberof FinancialReportsDetailedReportIdReq
      */
     rrdId?: number;
     /**
      * Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
-     * @type {Array<string>}
-     * @memberof FinancialReportsDetailedReportIdReq
      */
     fields?: Array<string>;
 }

@@ -21,34 +21,24 @@ import { mapValues } from '../runtime';
 export interface GetUsersResponseUsersInnerInviteeInfo {
     /**
      * Номер телефона приглашённого пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInnerInviteeInfo
      */
     phoneNumber?: string;
     /**
      * Должность приглашённого пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInnerInviteeInfo
      */
     position?: string;
     /**
      * ID приглашения
-     * @type {string}
-     * @memberof GetUsersResponseUsersInnerInviteeInfo
      */
     inviteUuid?: string;
     /**
      * Дата и время окончания срока действия приглашения
-     * @type {Date}
-     * @memberof GetUsersResponseUsersInnerInviteeInfo
      */
     expiredAt?: Date;
     /**
      * - `true` — приглашение активно
      * - `false` — приглашение неактивно
      * 
-     * @type {boolean}
-     * @memberof GetUsersResponseUsersInnerInviteeInfo
      */
     isActive?: boolean;
 }

@@ -68,26 +68,18 @@ export interface V3ArchiveOrder {
      *   - `sgt` — сверхгабаритный товар (СГТ)
      *   - `kgtPlus` — крупногабаритный товар (КГТ+)
      * 
-     * @type {string}
-     * @memberof V3ArchiveOrder
      */
     cargoType: string;
     /**
      * Код цвета для колеруемых товаров
-     * @type {string}
-     * @memberof V3ArchiveOrder
      */
     colorCode: string | null;
     /**
      * Дата создания заказа
-     * @type {string}
-     * @memberof V3ArchiveOrder
      */
     createdAt: string;
     /**
      * 
-     * @type {V3ArchiveOrderCrossBorder}
-     * @memberof V3ArchiveOrder
      */
     crossBorder: V3ArchiveOrderCrossBorder | null;
     /**
@@ -95,14 +87,10 @@ export interface V3ArchiveOrder {
      *   - `local` — внутренняя поставка
      *   - `crossBorder` — трансграничная поставка
      * 
-     * @type {string}
-     * @memberof V3ArchiveOrder
      */
     crossBorderType: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof V3ArchiveOrder
      */
     id: number;
     /**
@@ -110,38 +98,26 @@ export interface V3ArchiveOrder {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком
      * 
-     * @type {boolean}
-     * @memberof V3ArchiveOrder
      */
     isZeroOrder: boolean;
     /**
      * Детали маркировки
-     * @type {Array<MetaDetailsInner>}
-     * @memberof V3ArchiveOrder
      */
     metaDetails: Array<MetaDetailsInner>;
     /**
      * 
-     * @type {V3ArchiveOrderOptions}
-     * @memberof V3ArchiveOrder
      */
     options: V3ArchiveOrderOptions;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-     * @type {string}
-     * @memberof V3ArchiveOrder
      */
     orderUid: string;
     /**
      * 
-     * @type {V3ArchiveOrderPriceInfo}
-     * @memberof V3ArchiveOrder
      */
     priceInfo: V3ArchiveOrderPriceInfo;
     /**
      * 
-     * @type {V3ArchiveOrderProduct}
-     * @memberof V3ArchiveOrder
      */
     product: V3ArchiveOrderProduct;
     /**
@@ -156,38 +132,26 @@ export interface V3ArchiveOrder {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {string}
-     * @memberof V3ArchiveOrder
      */
     rid: string;
     /**
      * Цена приёмки заказа в копейках
-     * @type {number}
-     * @memberof V3ArchiveOrder
      */
     scanPrice: number | null;
     /**
      * 
-     * @type {V3ArchiveOrderStatus}
-     * @memberof V3ArchiveOrder
      */
     status: V3ArchiveOrderStatus;
     /**
      * ID стикера
-     * @type {number}
-     * @memberof V3ArchiveOrder
      */
     stickerId: number;
     /**
      * ID поставки
-     * @type {string}
-     * @memberof V3ArchiveOrder
      */
     supplyId: string | null;
     /**
      * ID склада продавца, с которого был отгружен товар
-     * @type {number}
-     * @memberof V3ArchiveOrder
      */
     warehouseId: number;
 }

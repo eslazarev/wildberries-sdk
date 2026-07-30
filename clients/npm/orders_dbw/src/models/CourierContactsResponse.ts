@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface CourierContactsResponse {
     /**
      * Номер автомобиля
-     * @type {string}
-     * @memberof CourierContactsResponse
      */
     carNumber?: string;
     /**
      * ФИО курьера
-     * @type {string}
-     * @memberof CourierContactsResponse
      */
     fullName?: string;
     /**
      * Номер телефона
-     * @type {string}
-     * @memberof CourierContactsResponse
      */
     phone?: string;
     /**
      * Дата и время, с которого прибудет курьер
-     * @type {Date}
-     * @memberof CourierContactsResponse
      */
     pTimeFrom?: Date | null;
     /**
      * Дата и время, до которого прибудет курьер
-     * @type {Date}
-     * @memberof CourierContactsResponse
      */
     pTimeTo?: Date | null;
 }

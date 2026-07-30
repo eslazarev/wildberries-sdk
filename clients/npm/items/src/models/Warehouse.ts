@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface Warehouse {
     /**
      * Название склада продавца
-     * @type {string}
-     * @memberof Warehouse
      */
     name?: string;
     /**
      * ID склада WB
-     * @type {number}
-     * @memberof Warehouse
      */
     officeId?: number;
     /**
      * ID склада продавца
-     * @type {number}
-     * @memberof Warehouse
      */
     id?: number;
     /**
@@ -43,8 +37,6 @@ export interface Warehouse {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {WarehouseCargoTypeEnum}
-     * @memberof Warehouse
      */
     cargoType?: WarehouseCargoTypeEnum;
     /**
@@ -55,8 +47,6 @@ export interface Warehouse {
      *   - `5` — самовывоз (C&C)
      *   - `6` — экспресс-доставка силами продавца (ЕDBS)
      * 
-     * @type {WarehouseDeliveryTypeEnum}
-     * @memberof Warehouse
      */
     deliveryType?: WarehouseDeliveryTypeEnum;
     /**
@@ -66,8 +56,6 @@ export interface Warehouse {
      * 
      * После удаления склад пропадёт из списка
      * 
-     * @type {boolean}
-     * @memberof Warehouse
      */
     isDeleting?: boolean;
     /**
@@ -77,8 +65,6 @@ export interface Warehouse {
      * 
      * Обновление данных может занимать несколько минут
      * 
-     * @type {boolean}
-     * @memberof Warehouse
      */
     isProcessing?: boolean;
 }

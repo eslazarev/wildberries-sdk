@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner {
     /**
      * Код ошибки
-     * @type {number}
-     * @memberof PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner
      */
     code?: number;
     /**
@@ -30,8 +28,6 @@ export interface PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner 
      * - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
      * - `SGTINIsNotFilled` — обязательный [код маркировки](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin) не указан
      * 
-     * @type {string}
-     * @memberof PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner
      */
     detail?: string;
 }

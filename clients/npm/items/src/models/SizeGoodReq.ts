@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface SizeGoodReq {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof SizeGoodReq
      */
     nmID: number;
     /**
      * ID размера. Можно получить с помощью методов [Получить товары с ценами](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post), поле `sizeID`. В методах Контента это поле `chrtID`
-     * @type {number}
-     * @memberof SizeGoodReq
      */
     sizeID: number;
     /**
      * Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post), поле `currencyIsoCode4217`
-     * @type {number}
-     * @memberof SizeGoodReq
      */
     price: number;
 }

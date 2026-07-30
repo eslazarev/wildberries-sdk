@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface AdvV1SupplierSubjectsGet200ResponseInner {
     /**
      * ID предмета
-     * @type {number}
-     * @memberof AdvV1SupplierSubjectsGet200ResponseInner
      */
     id?: number;
     /**
      * Предмет
-     * @type {string}
-     * @memberof AdvV1SupplierSubjectsGet200ResponseInner
      */
     name?: string;
     /**
      * Количество Артикулов WB (`nmId`) с таким предметом.
-     * @type {number}
-     * @memberof AdvV1SupplierSubjectsGet200ResponseInner
      */
     count?: number;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface TableSearchTextItemAllOfOpenCard {
     /**
      * Текущее количество переходов
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOpenCard
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOpenCard
      */
     dynamics?: number;
     /**
      * Процент, на который показатель количества открытий карточки товара выше, чем у карточек других продавцов по поисковому запросу
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOpenCard
      */
     percentile: number;
 }

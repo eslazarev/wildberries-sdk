@@ -29,20 +29,14 @@ import {
 export interface PlanBuilderPackage {
     /**
      * ID пакета
-     * @type {string}
-     * @memberof PlanBuilderPackage
      */
     id?: string;
     /**
      * Код пакета
-     * @type {string}
-     * @memberof PlanBuilderPackage
      */
     slug?: string;
     /**
      * Название пакета на языке из параметра `locale`
-     * @type {string}
-     * @memberof PlanBuilderPackage
      */
     name?: string;
     /**
@@ -51,38 +45,26 @@ export interface PlanBuilderPackage {
      *   - `pendingActivation` — подключён, начнёт работать с 00:00 следующего дня
      *   - `pendingDeactivation` — отключён, перестанет работать с 00:00 следующего дня
      * 
-     * @type {PlanBuilderPackageStatusEnum}
-     * @memberof PlanBuilderPackage
      */
     status?: PlanBuilderPackageStatusEnum;
     /**
      * Дата активации пакета
-     * @type {Date}
-     * @memberof PlanBuilderPackage
      */
     activatedAt?: Date;
     /**
      * Дата окончания минимального срока действия пакета. До этого дня пакет опций нельзя отключить
-     * @type {Date}
-     * @memberof PlanBuilderPackage
      */
     expiresAt?: Date;
     /**
      * Комиссия за пакет, % от оборота
-     * @type {number}
-     * @memberof PlanBuilderPackage
      */
     commissionRate?: number;
     /**
      * Минимальный срок действия пакета в днях
-     * @type {number}
-     * @memberof PlanBuilderPackage
      */
     periodDuration?: number;
     /**
      * Опции, которые входят в пакет
-     * @type {Array<PlanBuilderOptionShort>}
-     * @memberof PlanBuilderPackage
      */
     options?: Array<PlanBuilderOptionShort>;
 }

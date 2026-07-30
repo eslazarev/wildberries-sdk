@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiCheckIdentityRequest {
     /**
      * Уникальный ID заказа покупателя
-     * @type {string}
-     * @memberof ApiCheckIdentityRequest
      */
     orderCode?: string;
     /**
      * Код подтверждения
-     * @type {string}
-     * @memberof ApiCheckIdentityRequest
      */
     passcode?: string;
 }

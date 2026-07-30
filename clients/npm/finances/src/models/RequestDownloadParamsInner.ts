@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface RequestDownloadParamsInner {
     /**
      * Формат документа
-     * @type {string}
-     * @memberof RequestDownloadParamsInner
      */
     extension?: string;
     /**
      * Уникальный ID документа
-     * @type {string}
-     * @memberof RequestDownloadParamsInner
      */
     serviceName?: string;
 }

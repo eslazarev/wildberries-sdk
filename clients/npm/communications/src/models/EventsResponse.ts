@@ -29,14 +29,10 @@ import {
 export interface EventsResponse {
     /**
      * 
-     * @type {EventsResult}
-     * @memberof EventsResponse
      */
     result?: EventsResult;
     /**
      * Ошибки, если есть
-     * @type {Array<string>}
-     * @memberof EventsResponse
      */
     errors?: Array<string> | null;
 }

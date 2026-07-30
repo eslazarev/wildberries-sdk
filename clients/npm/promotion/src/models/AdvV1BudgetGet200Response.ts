@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface AdvV1BudgetGet200Response {
     /**
      * Поле не используется. Значение всегда 0.
-     * @type {number}
-     * @memberof AdvV1BudgetGet200Response
      */
     cash?: number;
     /**
      * Поле не используется. Значение всегда 0.
-     * @type {number}
-     * @memberof AdvV1BudgetGet200Response
      */
     netting?: number;
     /**
      * Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof AdvV1BudgetGet200Response
      */
     total?: number;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof AdvV1BudgetGet200Response
      */
     currency?: string;
 }

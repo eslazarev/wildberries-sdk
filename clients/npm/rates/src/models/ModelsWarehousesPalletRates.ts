@@ -29,26 +29,18 @@ import {
 export interface ModelsWarehousesPalletRates {
     /**
      * Валюта тарифов
-     * @type {string}
-     * @memberof ModelsWarehousesPalletRates
      */
     currency?: string;
     /**
      * Дата начала следующего тарифа
-     * @type {string}
-     * @memberof ModelsWarehousesPalletRates
      */
     dtNextPallet?: string;
     /**
      * Дата окончания последнего установленного тарифа
-     * @type {string}
-     * @memberof ModelsWarehousesPalletRates
      */
     dtTillMax?: string;
     /**
      * Тарифы для монопаллет, сгруппированные по складам
-     * @type {Array<ModelsWarehousePalletRates>}
-     * @memberof ModelsWarehousesPalletRates
      */
     warehouseList?: Array<ModelsWarehousePalletRates> | null;
 }

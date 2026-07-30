@@ -29,20 +29,14 @@ import {
 export interface V0GetNormQueryListResponseItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V0GetNormQueryListResponseItem
      */
     advertId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V0GetNormQueryListResponseItem
      */
     nmId?: number;
     /**
      * 
-     * @type {V0GetNormQueryListResponseItemNormQueries}
-     * @memberof V0GetNormQueryListResponseItem
      */
     normQueries?: V0GetNormQueryListResponseItemNormQueries;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface SetRecomReqRecListInnerRecommendationsInner {
     /**
      * Артикул WB рекомендуемого товара
-     * @type {number}
-     * @memberof SetRecomReqRecListInnerRecommendationsInner
      */
     recomNm?: number;
     /**
      * На каком месте находится товар в списке рекомендаций
-     * @type {number}
-     * @memberof SetRecomReqRecListInnerRecommendationsInner
      */
     sort?: number;
 }

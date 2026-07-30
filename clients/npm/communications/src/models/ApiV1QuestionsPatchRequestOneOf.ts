@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1QuestionsPatchRequestOneOf {
     /**
      * Id вопроса
-     * @type {string}
-     * @memberof ApiV1QuestionsPatchRequestOneOf
      */
     id: string;
     /**
      * Просмотрен ли вопрос
-     * @type {boolean}
-     * @memberof ApiV1QuestionsPatchRequestOneOf
      */
     wasViewed: boolean;
 }

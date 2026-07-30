@@ -29,8 +29,6 @@ import {
 export interface GetV3DbwOrdersOrderIdMeta200Response {
     /**
      * 
-     * @type {Meta}
-     * @memberof GetV3DbwOrdersOrderIdMeta200Response
      */
     meta?: Meta | null;
 }

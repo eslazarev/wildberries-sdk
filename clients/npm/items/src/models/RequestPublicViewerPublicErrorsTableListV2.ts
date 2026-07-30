@@ -36,14 +36,10 @@ import {
 export interface RequestPublicViewerPublicErrorsTableListV2 {
     /**
      * 
-     * @type {SwaggerPublicErrorsCursorInput}
-     * @memberof RequestPublicViewerPublicErrorsTableListV2
      */
     cursor?: SwaggerPublicErrorsCursorInput;
     /**
      * 
-     * @type {SwaggerPublicErrorsOrderV2}
-     * @memberof RequestPublicViewerPublicErrorsTableListV2
      */
     order?: SwaggerPublicErrorsOrderV2;
 }

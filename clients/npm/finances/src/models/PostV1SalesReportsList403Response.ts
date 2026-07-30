@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface PostV1SalesReportsList403Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PostV1SalesReportsList403Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof PostV1SalesReportsList403Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof PostV1SalesReportsList403Response
      */
     code?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof PostV1SalesReportsList403Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof PostV1SalesReportsList403Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof PostV1SalesReportsList403Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof PostV1SalesReportsList403Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof PostV1SalesReportsList403Response
      */
     timestamp?: Date;
 }

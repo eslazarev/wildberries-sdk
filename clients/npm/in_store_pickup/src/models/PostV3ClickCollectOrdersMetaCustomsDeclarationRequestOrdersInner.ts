@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner {
     /**
      * Номер ДТ
-     * @type {string}
-     * @memberof PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner
      */
     customsDeclaration: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner
      */
     orderId: number;
     /**
      * Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
-     * @type {string}
-     * @memberof PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner
      */
     originCountryCode: string;
 }

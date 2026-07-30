@@ -57,86 +57,58 @@ import {
 export interface TableSizeResponseSizesInnerMetrics {
     /**
      * Заказы, шт.
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     ordersCount: number;
     /**
      * Заказы, сумма
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     ordersSum: number;
     /**
      * Среднее количество заказов в день
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     avgOrders: number;
     /**
      * Среднее количество заказов по месяцам
-     * @type {Array<FloatGraphByPeriodItem>}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     avgOrdersByMonth: Array<FloatGraphByPeriodItem>;
     /**
      * Выкупы, шт.
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     buyoutCount: number;
     /**
      * Выкупы, сумма
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     buyoutSum: number;
     /**
      * Процент выкупа
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     buyoutPercent: number;
     /**
      * Остатки на текущий день, шт.
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     stockCount: number;
     /**
      * Стоимость остатков на текущий день
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     stockSum: number;
     /**
      * 
-     * @type {TableCommonMetricsSaleRate}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     saleRate: TableCommonMetricsSaleRate;
     /**
      * 
-     * @type {TableCommonMetricsAvgStockTurnover}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     avgStockTurnover: TableCommonMetricsAvgStockTurnover;
     /**
      * В пути к клиенту, шт.
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     toClientCount: number;
     /**
      * В пути от клиента, шт.
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     fromClientCount: number;
     /**
      * 
-     * @type {TableCommonMetricsOfficeMissingTime}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     officeMissingTime: TableCommonMetricsOfficeMissingTime;
     /**
@@ -144,8 +116,6 @@ export interface TableSizeResponseSizesInnerMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     lostOrdersCount: number;
     /**
@@ -153,8 +123,6 @@ export interface TableSizeResponseSizesInnerMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     lostOrdersSum: number;
     /**
@@ -162,8 +130,6 @@ export interface TableSizeResponseSizesInnerMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     lostBuyoutsCount: number;
     /**
@@ -171,14 +137,10 @@ export interface TableSizeResponseSizesInnerMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     lostBuyoutsSum: number;
     /**
      * 
-     * @type {TableItemItemStMetricsAllOfCurrentPrice}
-     * @memberof TableSizeResponseSizesInnerMetrics
      */
     currentPrice: TableItemItemStMetricsAllOfCurrentPrice;
 }

@@ -29,14 +29,10 @@ import {
 export interface ApiB2bClientInfoResponses {
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ApiB2bClientInfoResponses
      */
     requestId: string;
     /**
      * 
-     * @type {Array<ApiB2bClientInfoResponse>}
-     * @memberof ApiB2bClientInfoResponses
      */
     results?: Array<ApiB2bClientInfoResponse>;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiFeedbacksV1PinsCountGet200Response {
     /**
      * Количество отзывов
-     * @type {number}
-     * @memberof ApiFeedbacksV1PinsCountGet200Response
      */
     data: number;
 }

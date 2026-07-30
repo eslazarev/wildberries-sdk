@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface Response400Retentions {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof Response400Retentions
      */
     title?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof Response400Retentions
      */
     status?: number;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof Response400Retentions
      */
     detail?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof Response400Retentions
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response400Retentions
      */
     origin?: string;
 }

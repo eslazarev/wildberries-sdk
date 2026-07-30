@@ -24,8 +24,6 @@ export interface ApiMetaDeleteResponsesResultsInnerErrorsInner {
      *   - `404`
      *   - `409`
      * 
-     * @type {number}
-     * @memberof ApiMetaDeleteResponsesResultsInnerErrorsInner
      */
     code: number;
     /**
@@ -33,8 +31,6 @@ export interface ApiMetaDeleteResponsesResultsInnerErrorsInner {
      * - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
      * - `ImeiIsNotFilled` — не заполнен IMEI
      * 
-     * @type {string}
-     * @memberof ApiMetaDeleteResponsesResultsInnerErrorsInner
      */
     detail: string;
 }

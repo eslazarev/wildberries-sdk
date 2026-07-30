@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ErrorObject {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ErrorObject
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ErrorObject
      */
     detail: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ErrorObject
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ErrorObject
      */
     origin: string;
 }

@@ -92,122 +92,82 @@ import {
 export interface TableSearchTextItem {
     /**
      * Текст поискового запроса
-     * @type {string}
-     * @memberof TableSearchTextItem
      */
     text: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof TableSearchTextItem
      */
     nmId: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof TableSearchTextItem
      */
     subjectName: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof TableSearchTextItem
      */
     brandName: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof TableSearchTextItem
      */
     vendorCode: string;
     /**
      * Название товара
-     * @type {string}
-     * @memberof TableSearchTextItem
      */
     name: string;
     /**
      * Есть ли рейтинг у карточки товара
-     * @type {boolean}
-     * @memberof TableSearchTextItem
      */
     isCardRated: boolean;
     /**
      * Рейтинг карточки товара
-     * @type {number}
-     * @memberof TableSearchTextItem
      */
     rating: number;
     /**
      * Рейтинг по отзывам
-     * @type {number}
-     * @memberof TableSearchTextItem
      */
     feedbackRating: number;
     /**
      * 
-     * @type {TableItemItemAllOfPrice}
-     * @memberof TableSearchTextItem
      */
     price: TableItemItemAllOfPrice;
     /**
      * 
-     * @type {TableSearchTextItemAllOfFrequency}
-     * @memberof TableSearchTextItem
      */
     frequency: TableSearchTextItemAllOfFrequency;
     /**
      * Количество обращений с поисковым запросом за неделю
-     * @type {number}
-     * @memberof TableSearchTextItem
      */
     weekFrequency: number;
     /**
      * 
-     * @type {TableSearchTextItemAllOfMedianPosition}
-     * @memberof TableSearchTextItem
      */
     medianPosition: TableSearchTextItemAllOfMedianPosition;
     /**
      * 
-     * @type {TableGroupItemMetricsAvgPosition}
-     * @memberof TableSearchTextItem
      */
     avgPosition: TableGroupItemMetricsAvgPosition;
     /**
      * 
-     * @type {TableSearchTextItemAllOfOpenCard}
-     * @memberof TableSearchTextItem
      */
     openCard: TableSearchTextItemAllOfOpenCard;
     /**
      * 
-     * @type {TableSearchTextItemAllOfAddToCart}
-     * @memberof TableSearchTextItem
      */
     addToCart: TableSearchTextItemAllOfAddToCart;
     /**
      * 
-     * @type {TableSearchTextItemAllOfOpenToCart}
-     * @memberof TableSearchTextItem
      */
     openToCart: TableSearchTextItemAllOfOpenToCart;
     /**
      * 
-     * @type {TableSearchTextItemAllOfOrders}
-     * @memberof TableSearchTextItem
      */
     orders: TableSearchTextItemAllOfOrders;
     /**
      * 
-     * @type {TableSearchTextItemAllOfCartToOrder}
-     * @memberof TableSearchTextItem
      */
     cartToOrder: TableSearchTextItemAllOfCartToOrder;
     /**
      * 
-     * @type {TableSearchTextItemAllOfVisibility}
-     * @memberof TableSearchTextItem
      */
     visibility: TableSearchTextItemAllOfVisibility;
 }

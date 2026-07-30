@@ -21,62 +21,42 @@ import { mapValues } from '../runtime';
 export interface FeeReportInner {
     /**
      * Комиссия по модели **Бронирование**, %
-     * @type {number}
-     * @memberof FeeReportInner
      */
     kgvpBooking?: number;
     /**
      * Комиссия по модели **Маркетплейс** (`FBS`), %
-     * @type {number}
-     * @memberof FeeReportInner
      */
     kgvpMarketplace?: number;
     /**
      * Комиссия по модели **Самовывоз из магазина продавца** (`C&C`), %
-     * @type {number}
-     * @memberof FeeReportInner
      */
     kgvpPickup?: number;
     /**
      * Комиссия по моделям **Витрина** (`DBS`) и **Курьер WB** (`DBW`), %
-     * @type {number}
-     * @memberof FeeReportInner
      */
     kgvpSupplier?: number;
     /**
      * Комиссия по модели **Витрина экспресс** (`EDBS`), %
-     * @type {number}
-     * @memberof FeeReportInner
      */
     kgvpSupplierExpress?: number;
     /**
      * Комиссия по модели **Склад WB** (`FBW`), %
-     * @type {number}
-     * @memberof FeeReportInner
      */
     paidStorageKgvp?: number;
     /**
      * ID родительской категории
-     * @type {number}
-     * @memberof FeeReportInner
      */
     parentID?: number;
     /**
      * Название родительской категории
-     * @type {string}
-     * @memberof FeeReportInner
      */
     parentName?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof FeeReportInner
      */
     subjectID?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof FeeReportInner
      */
     subjectName?: string;
 }

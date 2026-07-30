@@ -43,62 +43,42 @@ import {
 export interface ItemRatingRequestV1 {
     /**
      * 
-     * @type {PeriodItemRating}
-     * @memberof ItemRatingRequestV1
      */
     currentPeriod: PeriodItemRating;
     /**
      * 
-     * @type {PastPeriodItemRating}
-     * @memberof ItemRatingRequestV1
      */
     pastPeriod?: PastPeriodItemRating;
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemRatingRequestV1
      */
     nmIds?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemRatingRequestV1
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof ItemRatingRequestV1
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemRatingRequestV1
      */
     tagIds?: Array<number>;
     /**
      * Не учитывать товары без продаж
-     * @type {boolean}
-     * @memberof ItemRatingRequestV1
      */
     isNotIncludeNMsWithoutSales?: boolean;
     /**
      * 
-     * @type {OrderByItemRating}
-     * @memberof ItemRatingRequestV1
      */
     orderBy: OrderByItemRating;
     /**
      * Количество товаров в ответе
-     * @type {number}
-     * @memberof ItemRatingRequestV1
      */
     limit?: number;
     /**
      * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-     * @type {number}
-     * @memberof ItemRatingRequestV1
      */
     offset: number;
 }

@@ -65,18 +65,30 @@ import {
 } from '../models/PostV3SalesFunnelProducts402Response';
 
 export interface ApiV2NmReportDownloadsFileDownloadIdGetRequest {
+    /**
+     * ID отчёта
+     */
     downloadId: string;
 }
 
 export interface ApiV2NmReportDownloadsGetRequest {
+    /**
+     * ID отчёта
+     */
     filterDownloadIds?: Array<string>;
 }
 
 export interface ApiV2NmReportDownloadsPostOperationRequest {
+    /**
+     * 
+     */
     apiV2NmReportDownloadsPostRequest?: ApiV2NmReportDownloadsPostRequest;
 }
 
 export interface ApiV2NmReportDownloadsRetryPostRequest {
+    /**
+     * 
+     */
     nmReportRetryReportRequest: NmReportRetryReportRequest;
 }
 

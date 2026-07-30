@@ -29,8 +29,6 @@ import {
 export interface MeasurementPenalties {
     /**
      * 
-     * @type {MeasurementPenaltiesData}
-     * @memberof MeasurementPenalties
      */
     data: MeasurementPenaltiesData;
 }

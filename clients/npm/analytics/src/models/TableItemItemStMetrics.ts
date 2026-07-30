@@ -57,86 +57,58 @@ import {
 export interface TableItemItemStMetrics {
     /**
      * Заказы, шт.
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     ordersCount: number;
     /**
      * Заказы, сумма
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     ordersSum: number;
     /**
      * Среднее количество заказов в день
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     avgOrders: number;
     /**
      * Среднее количество заказов по месяцам
-     * @type {Array<FloatGraphByPeriodItem>}
-     * @memberof TableItemItemStMetrics
      */
     avgOrdersByMonth: Array<FloatGraphByPeriodItem>;
     /**
      * Выкупы, шт.
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     buyoutCount: number;
     /**
      * Выкупы, сумма
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     buyoutSum: number;
     /**
      * Процент выкупа
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     buyoutPercent: number;
     /**
      * Остатки на текущий день, шт.
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     stockCount: number;
     /**
      * Стоимость остатков на текущий день
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     stockSum: number;
     /**
      * 
-     * @type {TableCommonMetricsSaleRate}
-     * @memberof TableItemItemStMetrics
      */
     saleRate: TableCommonMetricsSaleRate;
     /**
      * 
-     * @type {TableCommonMetricsAvgStockTurnover}
-     * @memberof TableItemItemStMetrics
      */
     avgStockTurnover: TableCommonMetricsAvgStockTurnover;
     /**
      * В пути к клиенту, шт.
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     toClientCount: number;
     /**
      * В пути от клиента, шт.
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     fromClientCount: number;
     /**
      * 
-     * @type {TableCommonMetricsOfficeMissingTime}
-     * @memberof TableItemItemStMetrics
      */
     officeMissingTime: TableCommonMetricsOfficeMissingTime;
     /**
@@ -144,8 +116,6 @@ export interface TableItemItemStMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     lostOrdersCount: number;
     /**
@@ -153,8 +123,6 @@ export interface TableItemItemStMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     lostOrdersSum: number;
     /**
@@ -162,8 +130,6 @@ export interface TableItemItemStMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     lostBuyoutsCount: number;
     /**
@@ -171,14 +137,10 @@ export interface TableItemItemStMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableItemItemStMetrics
      */
     lostBuyoutsSum: number;
     /**
      * 
-     * @type {TableItemItemStMetricsAllOfCurrentPrice}
-     * @memberof TableItemItemStMetrics
      */
     currentPrice: TableItemItemStMetricsAllOfCurrentPrice;
     /**
@@ -190,8 +152,6 @@ export interface TableItemItemStMetrics {
      *   - `nonLiquid` — Неликвид
      *   - `invalidData` — Не рассчитано
      * 
-     * @type {TableItemItemStMetricsAvailabilityEnum}
-     * @memberof TableItemItemStMetrics
      */
     availability: TableItemItemStMetricsAvailabilityEnum;
 }

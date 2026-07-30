@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1CalendarPromotionsUploadPost200ResponseData {
     /**
      * Загрузка с такими данными уже существует
-     * @type {boolean}
-     * @memberof ApiV1CalendarPromotionsUploadPost200ResponseData
      */
     alreadyExists?: boolean;
     /**
      * ID загрузки
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsUploadPost200ResponseData
      */
     uploadID?: number;
 }

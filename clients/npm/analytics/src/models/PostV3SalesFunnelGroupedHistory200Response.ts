@@ -29,8 +29,6 @@ import {
 export interface PostV3SalesFunnelGroupedHistory200Response {
     /**
      * Статистика
-     * @type {Array<ItemHistoryResponseInner>}
-     * @memberof PostV3SalesFunnelGroupedHistory200Response
      */
     data: Array<ItemHistoryResponseInner>;
 }

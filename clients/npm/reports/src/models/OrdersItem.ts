@@ -21,168 +21,114 @@ import { mapValues } from '../runtime';
 export interface OrdersItem {
     /**
      * Дата и время заказа. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-     * @type {string}
-     * @memberof OrdersItem
      */
     date?: string;
     /**
      * Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-     * @type {string}
-     * @memberof OrdersItem
      */
     lastChangeDate?: string;
     /**
      * Склад отгрузки
-     * @type {string}
-     * @memberof OrdersItem
      */
     warehouseName?: string;
     /**
      * Тип склада хранения товаров
-     * @type {OrdersItemWarehouseTypeEnum}
-     * @memberof OrdersItem
      */
     warehouseType?: OrdersItemWarehouseTypeEnum;
     /**
      * Страна
-     * @type {string}
-     * @memberof OrdersItem
      */
     countryName?: string;
     /**
      * Округ
-     * @type {string}
-     * @memberof OrdersItem
      */
     oblastOkrugName?: string;
     /**
      * Регион
-     * @type {string}
-     * @memberof OrdersItem
      */
     regionName?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof OrdersItem
      */
     supplierArticle?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof OrdersItem
      */
     nmId?: number;
     /**
      * Баркод
-     * @type {string}
-     * @memberof OrdersItem
      */
     barcode?: string;
     /**
      * Категория
-     * @type {string}
-     * @memberof OrdersItem
      */
     category?: string;
     /**
      * Предмет
-     * @type {string}
-     * @memberof OrdersItem
      */
     subject?: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof OrdersItem
      */
     brand?: string;
     /**
      * Размер товара
-     * @type {string}
-     * @memberof OrdersItem
      */
     techSize?: string;
     /**
      * Номер поставки
-     * @type {number}
-     * @memberof OrdersItem
      */
     incomeID?: number;
     /**
      * Договор поставки
-     * @type {boolean}
-     * @memberof OrdersItem
      */
     isSupply?: boolean;
     /**
      * Договор реализации
-     * @type {boolean}
-     * @memberof OrdersItem
      */
     isRealization?: boolean;
     /**
      * Цена без скидок
-     * @type {number}
-     * @memberof OrdersItem
      */
     totalPrice?: number;
     /**
      * Скидка продавца, %
-     * @type {number}
-     * @memberof OrdersItem
      */
     discountPercent?: number;
     /**
      * Скидка WB, %
-     * @type {number}
-     * @memberof OrdersItem
      */
     spp?: number;
     /**
      * Цена с учетом всех скидок, кроме суммы по WB Кошельку
-     * @type {number}
-     * @memberof OrdersItem
      */
     finishedPrice?: number;
     /**
      * Цена со скидкой продавца, в том числе со скидкой WB Клуба
-     * @type {number}
-     * @memberof OrdersItem
      */
     priceWithDisc?: number;
     /**
      * Отмена заказа:
      *   - `true` — заказ отменен
      * 
-     * @type {boolean}
-     * @memberof OrdersItem
      */
     isCancel?: boolean;
     /**
      * Дата и время отмены заказа. Если заказ не был отменен, то "0001-01-01T00:00:00".Если часовой пояс не указан, то берётся Московское время UTC+3.
-     * @type {string}
-     * @memberof OrdersItem
      */
     cancelDate?: string;
     /**
      * ID стикера
-     * @type {string}
-     * @memberof OrdersItem
      */
     sticker?: string;
     /**
      * ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`
-     * @type {string}
-     * @memberof OrdersItem
      */
     gNumber?: string;
     /**
      * Уникальный ID заказа.<br>
      * Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий.
      * 
-     * @type {string}
-     * @memberof OrdersItem
      */
     srid?: string;
 }

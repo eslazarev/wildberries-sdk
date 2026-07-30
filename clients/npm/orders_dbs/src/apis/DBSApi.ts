@@ -165,88 +165,167 @@ import {
 } from '../models/Response403General';
 
 export interface GetV3DbsOrdersRequest {
+    /**
+     * Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
+     */
     limit: number;
+    /**
+     * Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе.
+     */
     next: number;
+    /**
+     * Дата начала периода в формате Unix timestamp
+     * 
+     */
     dateFrom: number;
+    /**
+     * Дата конца периода в формате Unix timestamp
+     */
     dateTo: number;
 }
 
 export interface PostV3DbsGroupsInfoRequest {
+    /**
+     * 
+     */
     apiOrderGroupsRequest: ApiOrderGroupsRequest;
 }
 
 export interface PostV3DbsOrdersB2bInfoRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersClientRequest {
+    /**
+     * 
+     */
     ordersRequestAPI: OrdersRequestAPI;
 }
 
 export interface PostV3DbsOrdersDeliveryDateRequest {
+    /**
+     * 
+     */
     deliveryDatesRequest: DeliveryDatesRequest;
 }
 
 export interface PostV3DbsOrdersMetaCustomsDeclarationOperationRequest {
+    /**
+     * 
+     */
     postV3DbsOrdersMetaCustomsDeclarationRequest?: PostV3DbsOrdersMetaCustomsDeclarationRequest;
 }
 
 export interface PostV3DbsOrdersMetaDeleteRequest {
+    /**
+     * 
+     */
     apiOrdersMetaDeleteRequest?: ApiOrdersMetaDeleteRequest;
 }
 
 export interface PostV3DbsOrdersMetaDetailsRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersMetaGtinRequest {
+    /**
+     * 
+     */
     apiOrdersGTINSetRequest?: ApiOrdersGTINSetRequest;
 }
 
 export interface PostV3DbsOrdersMetaImeiRequest {
+    /**
+     * 
+     */
     apiOrdersIMEISetRequest?: ApiOrdersIMEISetRequest;
 }
 
 export interface PostV3DbsOrdersMetaInfoRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersMetaSgtinRequest {
+    /**
+     * 
+     */
     apiOrdersSGTINsSetRequest?: ApiOrdersSGTINsSetRequest;
 }
 
 export interface PostV3DbsOrdersMetaUinRequest {
+    /**
+     * 
+     */
     apiOrdersUINSetRequest?: ApiOrdersUINSetRequest;
 }
 
 export interface PostV3DbsOrdersStatusCancelRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusConfirmRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusDeliverRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusInfoRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusReceiveRequest {
+    /**
+     * 
+     */
     apiOrdersCodeRequest?: ApiOrdersCodeRequest;
 }
 
 export interface PostV3DbsOrdersStatusRejectRequest {
+    /**
+     * 
+     */
     apiOrdersCodeRequest?: ApiOrdersCodeRequest;
 }
 
 export interface PostV3DbsOrdersStickersOperationRequest {
+    /**
+     * Формат стикера
+     */
     type: PostV3DbsOrdersStickersOperationTypeEnum;
+    /**
+     * Ширина стикера
+     */
     width: PostV3DbsOrdersStickersOperationWidthEnum;
+    /**
+     * Высота стикера
+     */
     height: PostV3DbsOrdersStickersOperationHeightEnum;
+    /**
+     * 
+     */
     postV3DbsOrdersStickersRequest?: PostV3DbsOrdersStickersRequest;
 }
 

@@ -29,14 +29,10 @@ import {
 export interface ChatsResponse {
     /**
      * 
-     * @type {Array<Chat>}
-     * @memberof ChatsResponse
      */
     result?: Array<Chat>;
     /**
      * Ошибки, если есть
-     * @type {Array<string>}
-     * @memberof ChatsResponse
      */
     errors?: Array<string> | null;
 }

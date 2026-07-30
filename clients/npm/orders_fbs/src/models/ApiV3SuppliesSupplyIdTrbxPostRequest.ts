@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3SuppliesSupplyIdTrbxPostRequest {
     /**
      * Количество грузомест, которые необходимо добавить к поставке
-     * @type {number}
-     * @memberof ApiV3SuppliesSupplyIdTrbxPostRequest
      */
     amount: number;
 }

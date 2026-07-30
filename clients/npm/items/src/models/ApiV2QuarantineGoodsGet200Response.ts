@@ -29,20 +29,14 @@ import {
 export interface ApiV2QuarantineGoodsGet200Response {
     /**
      * 
-     * @type {ApiV2QuarantineGoodsGet200ResponseData}
-     * @memberof ApiV2QuarantineGoodsGet200Response
      */
     data?: ApiV2QuarantineGoodsGet200ResponseData | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ApiV2QuarantineGoodsGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV2QuarantineGoodsGet200Response
      */
     errorText?: string;
 }

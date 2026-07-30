@@ -24,8 +24,6 @@ export interface AdvV1CountGet200ResponseAdverts {
      * - `1` — размещение по дням
      * - `2` — размещение по просмотрам
      * 
-     * @type {number}
-     * @memberof AdvV1CountGet200ResponseAdverts
      */
     type?: number;
     /**
@@ -42,14 +40,10 @@ export interface AdvV1CountGet200ResponseAdverts {
      *   - `10` — пауза по дневному лимиту
      *   - `11` — пауза
      * 
-     * @type {number}
-     * @memberof AdvV1CountGet200ResponseAdverts
      */
     status?: number;
     /**
      * Количество медиакампаний
-     * @type {number}
-     * @memberof AdvV1CountGet200ResponseAdverts
      */
     count?: number;
 }

@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface FeeTurkeyReportInner {
     /**
      * Комиссия для продавцов из Турции, %
-     * @type {number}
-     * @memberof FeeTurkeyReportInner
      */
     kgvpTurkey?: number;
     /**
      * ID родительской категории
-     * @type {number}
-     * @memberof FeeTurkeyReportInner
      */
     parentID?: number;
     /**
      * Название родительской категории
-     * @type {string}
-     * @memberof FeeTurkeyReportInner
      */
     parentName?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof FeeTurkeyReportInner
      */
     subjectID?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof FeeTurkeyReportInner
      */
     subjectName?: string;
 }

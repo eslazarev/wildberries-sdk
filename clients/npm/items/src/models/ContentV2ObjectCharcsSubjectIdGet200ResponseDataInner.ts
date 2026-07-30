@@ -21,40 +21,28 @@ import { mapValues } from '../runtime';
 export interface ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner {
     /**
      * ID характеристики
-     * @type {number}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     charcID?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     subjectName?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     subjectID?: number;
     /**
      * Название характеристики
-     * @type {string}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     name?: string;
     /**
      * - `true` — характеристику необходимо обязательно указать в карточке товара
      * - `false` — характеристику необязательно указывать
      * 
-     * @type {boolean}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     required?: boolean;
     /**
      * Единица измерения
-     * @type {string}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     unitName?: string;
     /**
@@ -66,14 +54,10 @@ export interface ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner {
      * <br><br>
      * Если `"maxCount":0`, количество значений не ограничено
      * 
-     * @type {number}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     maxCount?: number;
     /**
      * Характеристика популярна у пользователей (true - да, false - нет)
-     * @type {boolean}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     popular?: boolean;
     /**
@@ -82,8 +66,6 @@ export interface ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner {
      *   -  `4` — число (целое либо с десятичной дробью)
      *   -  `0` — характеристика не используется
      * 
-     * @type {number}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     charcType?: number;
     /**
@@ -91,8 +73,6 @@ export interface ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner {
      *   - `true` — да
      *   - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     hasFilter?: boolean;
     /**
@@ -100,8 +80,6 @@ export interface ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner {
      *   -  `true` — варианты товара отличаются по этой характеристике
      *   -  `false` — варианты товара не отличаются по этой характеристике
      * 
-     * @type {boolean}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     isVariable?: boolean;
     /**
@@ -109,8 +87,6 @@ export interface ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner {
      *   -  `true` — в соответствующем параметре запроса
      *   -  `false` — внутри массива `characteristics`
      * 
-     * @type {boolean}
-     * @memberof ContentV2ObjectCharcsSubjectIdGet200ResponseDataInner
      */
     existNamedField?: boolean;
 }

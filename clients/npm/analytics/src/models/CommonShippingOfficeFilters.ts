@@ -36,44 +36,30 @@ import {
 export interface CommonShippingOfficeFilters {
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof CommonShippingOfficeFilters
      */
     nmIDs?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof CommonShippingOfficeFilters
      */
     subjectIDs?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof CommonShippingOfficeFilters
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof CommonShippingOfficeFilters
      */
     tagIDs?: Array<number>;
     /**
      * 
-     * @type {PeriodInv}
-     * @memberof CommonShippingOfficeFilters
      */
     currentPeriod: PeriodInv;
     /**
      * 
-     * @type {StockType}
-     * @memberof CommonShippingOfficeFilters
      */
     stockType: StockType;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof CommonShippingOfficeFilters
      */
     skipDeletedNm: boolean;
 }

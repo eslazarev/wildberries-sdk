@@ -29,8 +29,6 @@ import {
 export interface ApiOrdersIMEISetRequest {
     /**
      * 
-     * @type {Array<ApiIMEI>}
-     * @memberof ApiOrdersIMEISetRequest
      */
     orders: Array<ApiIMEI>;
 }

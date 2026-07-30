@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ContentV2BarcodesPostRequest {
     /**
      * Кол-во баркодов которые надо сгенерировать, максимальное доступное количество баркодов для генерации - `5 000`
-     * @type {number}
-     * @memberof ContentV2BarcodesPostRequest
      */
     count?: number;
 }

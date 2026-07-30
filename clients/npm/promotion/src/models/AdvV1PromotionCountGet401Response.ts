@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface AdvV1PromotionCountGet401Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof AdvV1PromotionCountGet401Response
      */
     timestamp?: Date;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ResponseItemListAdditionalErrorsOneOf {
     /**
      * 
-     * @type {string}
-     * @memberof ResponseItemListAdditionalErrorsOneOf
      */
     string?: string;
 }

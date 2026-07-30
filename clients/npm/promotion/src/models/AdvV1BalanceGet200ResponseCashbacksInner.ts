@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface AdvV1BalanceGet200ResponseCashbacksInner {
     /**
      * Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof AdvV1BalanceGet200ResponseCashbacksInner
      */
     sum?: number;
     /**
      * Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз
-     * @type {number}
-     * @memberof AdvV1BalanceGet200ResponseCashbacksInner
      */
     percent?: number;
     /**
      * Дата окончания действия промо-бонусов
-     * @type {string}
-     * @memberof AdvV1BalanceGet200ResponseCashbacksInner
      */
     expirationDate?: string;
 }

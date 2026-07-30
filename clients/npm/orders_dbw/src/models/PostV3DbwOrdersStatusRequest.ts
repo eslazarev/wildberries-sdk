@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PostV3DbwOrdersStatusRequest {
     /**
      * Список ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof PostV3DbwOrdersStatusRequest
      */
     orders: Array<number>;
 }

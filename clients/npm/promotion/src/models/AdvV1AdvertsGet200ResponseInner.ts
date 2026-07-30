@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface AdvV1AdvertsGet200ResponseInner {
     /**
      * ID медиакампании
-     * @type {number}
-     * @memberof AdvV1AdvertsGet200ResponseInner
      */
     advertId?: number;
     /**
      * Название медиакампании
-     * @type {string}
-     * @memberof AdvV1AdvertsGet200ResponseInner
      */
     name?: string;
     /**
      * Название бренда
-     * @type {string}
-     * @memberof AdvV1AdvertsGet200ResponseInner
      */
     brand?: string;
     /**
@@ -42,8 +36,6 @@ export interface AdvV1AdvertsGet200ResponseInner {
      * - `1` — размещение по дням
      * - `2` — размещение по просмотрам
      * 
-     * @type {number}
-     * @memberof AdvV1AdvertsGet200ResponseInner
      */
     type?: number;
     /**
@@ -60,20 +52,14 @@ export interface AdvV1AdvertsGet200ResponseInner {
      *   - `10` — пауза по дневному лимиту
      *   - `11` — пауза
      * 
-     * @type {number}
-     * @memberof AdvV1AdvertsGet200ResponseInner
      */
     status?: number;
     /**
      * Время создания медиакампании
-     * @type {Date}
-     * @memberof AdvV1AdvertsGet200ResponseInner
      */
     createTime?: Date;
     /**
      * Время завершения медиакампании
-     * @type {Date}
-     * @memberof AdvV1AdvertsGet200ResponseInner
      */
     endTime?: Date;
 }

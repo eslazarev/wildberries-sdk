@@ -29,32 +29,22 @@ import {
 export interface EventsResult {
     /**
      * Пагинатор. Значение поля необходимо указать в запросе для получения следующего пакета данных
-     * @type {number}
-     * @memberof EventsResult
      */
     next?: number;
     /**
      * Время новейшего события в ответе
-     * @type {Date}
-     * @memberof EventsResult
      */
     newestEventTime?: Date;
     /**
      * Время старейшего события в ответе
-     * @type {Date}
-     * @memberof EventsResult
      */
     oldestEventTime?: Date;
     /**
      * Количество событий
-     * @type {number}
-     * @memberof EventsResult
      */
     totalEvents?: number;
     /**
      * 
-     * @type {Array<Event>}
-     * @memberof EventsResult
      */
     events?: Array<Event>;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PutV3DbwOrdersOrderIdMetaGtinRequest {
     /**
      * GTIN
-     * @type {string}
-     * @memberof PutV3DbwOrdersOrderIdMetaGtinRequest
      */
     gtin: string;
 }

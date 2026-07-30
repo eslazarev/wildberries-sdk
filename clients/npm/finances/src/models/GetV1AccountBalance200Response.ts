@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface GetV1AccountBalance200Response {
     /**
      * Валюта
-     * @type {string}
-     * @memberof GetV1AccountBalance200Response
      */
     currency?: string;
     /**
      * Текущий баланс продавца
-     * @type {number}
-     * @memberof GetV1AccountBalance200Response
      */
     current?: number;
     /**
      * Сумма, доступная к выводу
-     * @type {number}
-     * @memberof GetV1AccountBalance200Response
      */
     forWithdraw?: number;
 }

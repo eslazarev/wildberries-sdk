@@ -29,8 +29,6 @@ import {
 export interface V0GetNormQueryListRequest {
     /**
      * 
-     * @type {Array<V0GetNormQueryListRequestItem>}
-     * @memberof V0GetNormQueryListRequest
      */
     items: Array<V0GetNormQueryListRequestItem>;
 }

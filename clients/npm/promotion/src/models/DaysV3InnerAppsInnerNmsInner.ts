@@ -21,80 +21,54 @@ import { mapValues } from '../runtime';
 export interface DaysV3InnerAppsInnerNmsInner {
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     atbs: number;
     /**
      * Отмены, шт.
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     canceled: number;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     clicks: number;
     /**
      * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     cpc: number;
     /**
      * CR (conversion rate) — отношение количества заказов к общему количеству кликов
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     cr: number;
     /**
      * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     ctr: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     name: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     nmId: number;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     orders: number;
     /**
      * Количество заказанных товаров, шт.
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     shks: number;
     /**
      * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     sum: number;
     /**
      * Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     sumPrice: number;
     /**
      * Количество просмотров
-     * @type {number}
-     * @memberof DaysV3InnerAppsInnerNmsInner
      */
     views: number;
 }

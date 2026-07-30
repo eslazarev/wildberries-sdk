@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner {
     /**
      * Количество товаров, шт.
-     * @type {number}
-     * @memberof ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
      */
     count?: number;
     /**
      * Дата создания поставки
-     * @type {Date}
-     * @memberof ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
      */
     giCreateDate?: Date;
     /**
      * Номер поставки
-     * @type {number}
-     * @memberof ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
      */
     incomeId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
      */
     nmID?: number;
     /**
      * Дата приёмки
-     * @type {Date}
-     * @memberof ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
      */
     shkCreateDate?: Date;
     /**
      * Предмет
-     * @type {string}
-     * @memberof ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
      */
     subjectName?: string;
     /**
      * Суммарная стоимость приёмки, ₽ с копейками
-     * @type {number}
-     * @memberof ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
      */
     total?: number;
 }

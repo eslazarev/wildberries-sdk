@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ComparisonTimeToReadyDynamic {
     /**
      * Дни
-     * @type {number}
-     * @memberof ComparisonTimeToReadyDynamic
      */
     days: number;
     /**
      * Часы
-     * @type {number}
-     * @memberof ComparisonTimeToReadyDynamic
      */
     hours: number;
     /**
      * Минуты
-     * @type {number}
-     * @memberof ComparisonTimeToReadyDynamic
      */
     mins: number;
 }

@@ -29,14 +29,10 @@ import {
 export interface ApiV2HistoryGoodsTaskGet200ResponseData {
     /**
      * ID загрузки
-     * @type {number}
-     * @memberof ApiV2HistoryGoodsTaskGet200ResponseData
      */
     uploadID?: number | null;
     /**
      * Информация о товарах в загрузке
-     * @type {Array<GoodHistory>}
-     * @memberof ApiV2HistoryGoodsTaskGet200ResponseData
      */
     historyGoods?: Array<GoodHistory> | null;
 }

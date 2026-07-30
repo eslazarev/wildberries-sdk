@@ -29,8 +29,6 @@ import {
 export interface ApiV3OrdersNewGet200Response {
     /**
      * Список новых сборочных заданий
-     * @type {Array<OrderNew>}
-     * @memberof ApiV3OrdersNewGet200Response
      */
     orders?: Array<OrderNew>;
 }

@@ -24,8 +24,6 @@ export interface ContentV2GetCardsListPostRequestSettingsSort {
      *   - `false` — по убыванию
      *   -  `true` — по возрастанию
      * 
-     * @type {boolean}
-     * @memberof ContentV2GetCardsListPostRequestSettingsSort
      */
     ascending?: boolean;
 }

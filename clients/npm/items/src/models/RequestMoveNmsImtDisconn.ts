@@ -22,8 +22,6 @@ export interface RequestMoveNmsImtDisconn {
     /**
      * `nmID`, которые необходимо разъединить
      * 
-     * @type {Array<number>}
-     * @memberof RequestMoveNmsImtDisconn
      */
     nmIDs: Array<number>;
 }

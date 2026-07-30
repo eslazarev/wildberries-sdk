@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AdvV0RenamePostRequest {
     /**
      * ID кампании, в которой меняется название
-     * @type {number}
-     * @memberof AdvV0RenamePostRequest
      */
     advertId: number;
     /**
      * Новое название (максимум 100 символов)
-     * @type {string}
-     * @memberof AdvV0RenamePostRequest
      */
     name: string;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface VisibilityInfoOpenCard {
     /**
      * Текущее количество переходов
-     * @type {number}
-     * @memberof VisibilityInfoOpenCard
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof VisibilityInfoOpenCard
      */
     dynamics?: number;
 }

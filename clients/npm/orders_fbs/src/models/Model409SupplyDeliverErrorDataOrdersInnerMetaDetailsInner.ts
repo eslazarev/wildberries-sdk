@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner {
     /**
      * Идентификатор маркировки
-     * @type {string}
-     * @memberof Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner
      */
     key?: string;
     /**
      * Значение идентификатора маркировки
-     * @type {string}
-     * @memberof Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner
      */
     value?: string;
     /**
@@ -75,8 +71,6 @@ export interface Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner {
      * - `customsDeclaration`
      *   - `required` — Маркировка обязательна и не закреплена за сборочным заданием
      * 
-     * @type {string}
-     * @memberof Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner
      */
     decision?: string;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface MetaGtin {
     /**
      * 
-     * @type {string}
-     * @memberof MetaGtin
      */
     value?: string | null;
 }

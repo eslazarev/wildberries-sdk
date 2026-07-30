@@ -36,20 +36,14 @@ import {
 export interface ApiV1QuestionGet200ResponseData {
     /**
      * ID вопроса
-     * @type {string}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     id?: string;
     /**
      * Текст вопроса
-     * @type {string}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     text?: string;
     /**
      * Дата и время создания вопроса
-     * @type {Date}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     createdDate?: Date;
     /**
@@ -58,34 +52,24 @@ export interface ApiV1QuestionGet200ResponseData {
      *   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей
      *   - `suppliersPortalSynch` - новый вопрос
      * 
-     * @type {string}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     state?: string;
     /**
      * 
-     * @type {ApiV1QuestionGet200ResponseDataAnswer}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     answer?: ApiV1QuestionGet200ResponseDataAnswer | null;
     /**
      * 
-     * @type {ApiV1QuestionGet200ResponseDataProductDetails}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     productDetails?: ApiV1QuestionGet200ResponseDataProductDetails;
     /**
      * Просмотрен ли вопрос
-     * @type {boolean}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     wasViewed?: boolean;
     /**
      * Признак подозрительного вопроса.<br>
      * Если `true`, то вопрос опубликован, но на портале продавцов вы увидите баннер **Сообщение подозрительное**
      * 
-     * @type {boolean}
-     * @memberof ApiV1QuestionGet200ResponseData
      */
     isWarned?: boolean;
 }

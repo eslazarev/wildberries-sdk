@@ -43,44 +43,30 @@ import {
 export interface TableGroupRequestSt {
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof TableGroupRequestSt
      */
     nmIDs?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof TableGroupRequestSt
      */
     subjectIDs?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof TableGroupRequestSt
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof TableGroupRequestSt
      */
     tagIDs?: Array<number>;
     /**
      * 
-     * @type {PeriodInv}
-     * @memberof TableGroupRequestSt
      */
     currentPeriod: PeriodInv;
     /**
      * 
-     * @type {StockType}
-     * @memberof TableGroupRequestSt
      */
     stockType: StockType;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof TableGroupRequestSt
      */
     skipDeletedNm: boolean;
     /**
@@ -92,26 +78,18 @@ export interface TableGroupRequestSt {
      *   - `nonLiquid` — Неликвид
      *   - `invalidData` — Не рассчитано
      * 
-     * @type {Array<TableGroupRequestStAvailabilityFiltersEnum>}
-     * @memberof TableGroupRequestSt
      */
     availabilityFilters: Array<TableGroupRequestStAvailabilityFiltersEnum>;
     /**
      * 
-     * @type {TableOrderBy}
-     * @memberof TableGroupRequestSt
      */
     orderBy: TableOrderBy;
     /**
      * Количество групп в ответе
-     * @type {number}
-     * @memberof TableGroupRequestSt
      */
     limit?: number;
     /**
      * После какого элемента выдавать данные
-     * @type {number}
-     * @memberof TableGroupRequestSt
      */
     offset: number;
 }

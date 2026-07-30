@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsListPost200ResponseCardsInnerWholesale {
     /**
      * Предназначена ли карточка товара для оптовой продажи
-     * @type {boolean}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerWholesale
      */
     enabled?: boolean;
     /**
      * Количество единиц товара в упаковке
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerWholesale
      */
     quantum?: number;
 }

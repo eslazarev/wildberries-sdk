@@ -29,14 +29,10 @@ import {
 export interface ModelsOptionsResultModel {
     /**
      * 
-     * @type {Array<ModelsOptionsResultModelResultInner>}
-     * @memberof ModelsOptionsResultModel
      */
     result?: Array<ModelsOptionsResultModelResultInner>;
     /**
      * ID запроса при наличии ошибок
-     * @type {string}
-     * @memberof ModelsOptionsResultModel
      */
     requestId?: string;
 }

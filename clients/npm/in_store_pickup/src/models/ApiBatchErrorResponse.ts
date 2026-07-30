@@ -25,16 +25,12 @@ export interface ApiBatchErrorResponse {
      *   - `409`
      *   - `400`
      * 
-     * @type {number}
-     * @memberof ApiBatchErrorResponse
      */
     code: number;
     /**
      * - `NotFound` — сборочное задание не найдено
      * - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
      * 
-     * @type {string}
-     * @memberof ApiBatchErrorResponse
      */
     detail: string;
 }

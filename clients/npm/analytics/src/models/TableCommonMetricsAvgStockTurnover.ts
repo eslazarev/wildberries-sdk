@@ -25,14 +25,10 @@ import { mapValues } from '../runtime';
 export interface TableCommonMetricsAvgStockTurnover {
     /**
      * Количество дней
-     * @type {number}
-     * @memberof TableCommonMetricsAvgStockTurnover
      */
     days: number;
     /**
      * Количество часов
-     * @type {number}
-     * @memberof TableCommonMetricsAvgStockTurnover
      */
     hours: number;
 }

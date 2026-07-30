@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner {
     /**
      * Дата присвоения статуса
-     * @type {string}
-     * @memberof ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner
      */
     date?: string | null;
     /**
@@ -75,8 +73,6 @@ export interface ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner
      *   - `canceled` — Отмена
      *   - `failed_to_reach_client` — Не дозвонились до клиента
      * 
-     * @type {string}
-     * @memberof ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner
      */
     code?: string;
 }

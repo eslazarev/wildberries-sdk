@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PostV3DbsOrdersStickersRequest {
     /**
      * Список ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof PostV3DbsOrdersStickersRequest
      */
     orders: Array<number>;
 }

@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface ModelsSupply {
     /**
      * Телефон пользователя, создавшего поставку
-     * @type {string}
-     * @memberof ModelsSupply
      */
     phone?: string;
     /**
      * ID поставки. Если `null`, это заказ, тогда используйте значение поля `preorderID`
-     * @type {number}
-     * @memberof ModelsSupply
      */
     supplyID?: number | null;
     /**
      * ID заказа (незапланированная поставка). Для всех виртуальных поставок будет `0`
-     * @type {number}
-     * @memberof ModelsSupply
      */
     preorderID?: number;
     /**
      * Дата и время создания поставки
-     * @type {string}
-     * @memberof ModelsSupply
      */
     createDate?: string;
     /**
      * Плановая дата отгрузки поставки
-     * @type {string}
-     * @memberof ModelsSupply
      */
     supplyDate?: string | null;
     /**
      * Дата фактической отгрузки поставки
-     * @type {string}
-     * @memberof ModelsSupply
      */
     factDate?: string | null;
     /**
      * Дата изменения поставки
-     * @type {string}
-     * @memberof ModelsSupply
      */
     updatedDate?: string | null;
     /**
@@ -70,8 +56,6 @@ export interface ModelsSupply {
      *   - `5` — Принято
      *   - `6` — Отгружено на воротах
      * 
-     * @type {ModelsSupplyStatusIDEnum}
-     * @memberof ModelsSupply
      */
     statusID?: ModelsSupplyStatusIDEnum;
     /**
@@ -81,8 +65,6 @@ export interface ModelsSupply {
      *   - `5` — Монопаллеты
      *   - `6` — Суперсейф
      * 
-     * @type {any}
-     * @memberof ModelsSupply
      */
     boxTypeID?: any | null;
     /**
@@ -92,8 +74,6 @@ export interface ModelsSupply {
      * 
      *   Поле возвращается только при `"boxTypeID": 2`
      * 
-     * @type {boolean}
-     * @memberof ModelsSupply
      */
     isBoxOnPallet?: boolean;
 }

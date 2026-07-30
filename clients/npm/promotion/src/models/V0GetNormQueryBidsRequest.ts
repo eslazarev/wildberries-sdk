@@ -29,8 +29,6 @@ import {
 export interface V0GetNormQueryBidsRequest {
     /**
      * 
-     * @type {Array<V0GetNormQueryBidsRequestItem>}
-     * @memberof V0GetNormQueryBidsRequest
      */
     items: Array<V0GetNormQueryBidsRequestItem>;
 }

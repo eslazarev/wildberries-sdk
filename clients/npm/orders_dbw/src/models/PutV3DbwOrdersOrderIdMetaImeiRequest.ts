@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PutV3DbwOrdersOrderIdMetaImeiRequest {
     /**
      * IMEI
-     * @type {string}
-     * @memberof PutV3DbwOrdersOrderIdMetaImeiRequest
      */
     imei: string;
 }

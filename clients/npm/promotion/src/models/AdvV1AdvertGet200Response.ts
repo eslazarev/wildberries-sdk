@@ -36,20 +36,14 @@ import {
 export interface AdvV1AdvertGet200Response {
     /**
      * ID медиакампании
-     * @type {number}
-     * @memberof AdvV1AdvertGet200Response
      */
     advertId?: number;
     /**
      * Название медиакампании
-     * @type {string}
-     * @memberof AdvV1AdvertGet200Response
      */
     name?: string;
     /**
      * Название бренда
-     * @type {string}
-     * @memberof AdvV1AdvertGet200Response
      */
     brand?: string;
     /**
@@ -57,8 +51,6 @@ export interface AdvV1AdvertGet200Response {
      * - `1` — размещение по дням
      * - `2` — размещение по просмотрам
      * 
-     * @type {number}
-     * @memberof AdvV1AdvertGet200Response
      */
     type?: number;
     /**
@@ -75,20 +67,14 @@ export interface AdvV1AdvertGet200Response {
      *   - `10` — пауза по дневному лимиту
      *   - `11` — пауза
      * 
-     * @type {number}
-     * @memberof AdvV1AdvertGet200Response
      */
     status?: number;
     /**
      * Время создания медиакампании
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200Response
      */
     createTime?: Date;
     /**
      * 
-     * @type {AdvV1AdvertGet200ResponseExtended}
-     * @memberof AdvV1AdvertGet200Response
      */
     extended?: AdvV1AdvertGet200ResponseExtended;
     /**
@@ -96,8 +82,6 @@ export interface AdvV1AdvertGet200Response {
      * <br>
      * Наличие в ответе тех или иных полей зависит от конфигурации медиакампании.
      * 
-     * @type {Array<AdvV1AdvertGet200ResponseItemsInner>}
-     * @memberof AdvV1AdvertGet200Response
      */
     items?: Array<AdvV1AdvertGet200ResponseItemsInner>;
 }

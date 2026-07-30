@@ -26,8 +26,6 @@ export interface SalesReportsDetailedReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof SalesReportsDetailedReq
      */
     dateFrom: string;
     /**
@@ -37,21 +35,15 @@ export interface SalesReportsDetailedReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof SalesReportsDetailedReq
      */
     dateTo: string;
     /**
      * Количество строк в ответе
-     * @type {number}
-     * @memberof SalesReportsDetailedReq
      */
     limit?: number;
     /**
      * ID строки ответа. Необходим для получения отчёта частями.<br>Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.<br>Повторяйте запрос, пока не получите ответ `204`
      * 
-     * @type {number}
-     * @memberof SalesReportsDetailedReq
      */
     rrdId?: number;
     /**
@@ -59,14 +51,10 @@ export interface SalesReportsDetailedReq {
      *   - `weekly` — еженедельные
      *   - `daily` — ежедневные
      * 
-     * @type {SalesReportsDetailedReqPeriodEnum}
-     * @memberof SalesReportsDetailedReq
      */
     period?: SalesReportsDetailedReqPeriodEnum;
     /**
      * Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
-     * @type {Array<string>}
-     * @memberof SalesReportsDetailedReq
      */
     fields?: Array<string>;
 }

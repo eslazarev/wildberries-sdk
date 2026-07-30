@@ -30,14 +30,10 @@ export interface ContentV2TagPostRequest {
      *   - `DEF1DD` — зеленый
      *   - `FFECC7` — желтый
      * 
-     * @type {string}
-     * @memberof ContentV2TagPostRequest
      */
     color?: string;
     /**
      * Имя ярлыка
-     * @type {string}
-     * @memberof ContentV2TagPostRequest
      */
     name?: string;
 }

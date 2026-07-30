@@ -29,8 +29,6 @@ import {
 export interface ApiMetaDetailsResponseResultsInnerErrorsInner {
     /**
      * Код ошибки
-     * @type {number}
-     * @memberof ApiMetaDetailsResponseResultsInnerErrorsInner
      */
     code: number;
     /**
@@ -38,14 +36,10 @@ export interface ApiMetaDetailsResponseResultsInnerErrorsInner {
      * - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
      * - `MetaValidationFail` — идентификаторы маркировки не прошли проверку
      * 
-     * @type {string}
-     * @memberof ApiMetaDetailsResponseResultsInnerErrorsInner
      */
     detail: string;
     /**
      * Ошибки проверки идентификаторов маркировки
-     * @type {Array<MetaDetailsErrorsInner>}
-     * @memberof ApiMetaDetailsResponseResultsInnerErrorsInner
      */
     metaDetails?: Array<MetaDetailsErrorsInner>;
 }

@@ -43,50 +43,34 @@ import {
 export interface CommonItemFilters {
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof CommonItemFilters
      */
     nmIDs?: Array<number>;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof CommonItemFilters
      */
     subjectID?: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof CommonItemFilters
      */
     brandName?: string;
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof CommonItemFilters
      */
     tagID?: number;
     /**
      * 
-     * @type {PeriodInv}
-     * @memberof CommonItemFilters
      */
     currentPeriod: PeriodInv;
     /**
      * 
-     * @type {StockType}
-     * @memberof CommonItemFilters
      */
     stockType: StockType;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof CommonItemFilters
      */
     skipDeletedNm: boolean;
     /**
      * 
-     * @type {TableOrderBy}
-     * @memberof CommonItemFilters
      */
     orderBy: TableOrderBy;
     /**
@@ -98,8 +82,6 @@ export interface CommonItemFilters {
      *   - `nonLiquid` — Неликвид
      *   - `invalidData` — Не рассчитано
      * 
-     * @type {Array<CommonItemFiltersAvailabilityFiltersEnum>}
-     * @memberof CommonItemFilters
      */
     availabilityFilters: Array<CommonItemFiltersAvailabilityFiltersEnum>;
 }

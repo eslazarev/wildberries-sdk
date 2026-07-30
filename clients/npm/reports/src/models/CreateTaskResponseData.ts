@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface CreateTaskResponseData {
     /**
      * ID задания на генерацию
-     * @type {string}
-     * @memberof CreateTaskResponseData
      */
     taskId?: string;
 }

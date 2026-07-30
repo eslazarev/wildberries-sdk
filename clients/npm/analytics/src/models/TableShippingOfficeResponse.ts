@@ -29,14 +29,10 @@ import {
 export interface TableShippingOfficeResponse {
     /**
      * Множество данных по регионам отгрузки
-     * @type {Array<TableShippingOfficeItem>}
-     * @memberof TableShippingOfficeResponse
      */
     regions?: Array<TableShippingOfficeItem>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof TableShippingOfficeResponse
      */
     currency: string;
 }

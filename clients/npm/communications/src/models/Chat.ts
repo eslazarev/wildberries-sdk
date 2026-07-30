@@ -36,33 +36,23 @@ import {
 export interface Chat {
     /**
      * ID чата
-     * @type {string}
-     * @memberof Chat
      */
     chatID?: string;
     /**
      * Подпись чата. Требуется при [отправке сообщения](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1message/post)
      * 
-     * @type {string}
-     * @memberof Chat
      */
     replySign?: string;
     /**
      * Имя покупателя
-     * @type {string}
-     * @memberof Chat
      */
     clientName?: string;
     /**
      * 
-     * @type {Listing}
-     * @memberof Chat
      */
     goodCard?: Listing;
     /**
      * Последнее сообщение в чате
-     * @type {LastMessage}
-     * @memberof Chat
      */
     lastMessage?: LastMessage;
 }

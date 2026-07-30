@@ -29,8 +29,6 @@ import {
 export interface ApiV1FeedbacksArchiveGet200ResponseData {
     /**
      * Массив отзывов
-     * @type {Array<ResponseFeedbackInner>}
-     * @memberof ApiV1FeedbacksArchiveGet200ResponseData
      */
     feedbacks?: Array<ResponseFeedbackInner>;
 }

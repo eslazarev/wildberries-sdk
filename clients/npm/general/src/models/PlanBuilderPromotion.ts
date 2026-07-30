@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PlanBuilderPromotion {
     /**
      * Стоимость подключения опции по акции, % от оборота
-     * @type {number}
-     * @memberof PlanBuilderPromotion
      */
     commissionRate?: number;
     /**
      * Дата окончания действия цены по акции
-     * @type {Date}
-     * @memberof PlanBuilderPromotion
      */
     expiresAt?: Date;
 }

@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface PostV1AcceptanceOptions401Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof PostV1AcceptanceOptions401Response
      */
     timestamp?: Date;
 }

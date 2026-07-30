@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface DistributionTableItemV1FeedbackCount {
     /**
      * Прирост оценок за период
-     * @type {number}
-     * @memberof DistributionTableItemV1FeedbackCount
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof DistributionTableItemV1FeedbackCount
      */
     dynamics?: number;
 }

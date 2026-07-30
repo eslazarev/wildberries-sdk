@@ -195,121 +195,332 @@ import {
 } from '../models/StandardizedFQError';
 
 export interface ApiFeedbacksV1PinsCountGetRequest {
+    /**
+     * Закреплён ли отзыв:
+     *   - `pinned` — да
+     *   - `unpinned` — нет
+     * 
+     */
     state?: ApiFeedbacksV1PinsCountGetStateEnum;
+    /**
+     * Место закрепления отзыва:
+     *   - `nm` — карточка товара
+     *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * 
+     */
     pinOn?: ApiFeedbacksV1PinsCountGetPinOnEnum;
+    /**
+     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br>
+     * 
+     */
     imtId?: number;
+    /**
+     * Артикул WB
+     */
     nmId?: number;
+    /**
+     * ID отзыва
+     */
     feedbackId?: number;
+    /**
+     * Дата закрепления первого отзыва в списке
+     */
     dateFrom?: Date;
+    /**
+     * Дата закрепления последнего отзыва в списке
+     */
     dateTo?: Date;
 }
 
 export interface ApiFeedbacksV1PinsDeleteRequest {
+    /**
+     * 
+     */
     requestBody: Array<number>;
 }
 
 export interface ApiFeedbacksV1PinsGetRequest {
+    /**
+     * Закреплён ли отзыв:
+     *   - `pinned` — да
+     *   - `unpinned` — нет
+     * 
+     */
     state?: ApiFeedbacksV1PinsGetStateEnum;
+    /**
+     * Место закрепления отзыва:
+     *   - `nm` — карточка товара
+     *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * 
+     */
     pinOn?: ApiFeedbacksV1PinsGetPinOnEnum;
+    /**
+     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtId`, даже если она не объединена с другими карточками<br>
+     * 
+     */
     imtId?: number;
+    /**
+     * Артикул WB
+     */
     nmId?: number;
+    /**
+     * ID отзыва
+     */
     feedbackId?: number;
+    /**
+     * Дата закрепления первого отзыва в списке
+     */
     dateFrom?: Date;
+    /**
+     * Дата закрепления последнего отзыва в списке
+     */
     dateTo?: Date;
+    /**
+     * ID последней операции закрепления (пагинатор)
+     */
     next?: number;
+    /**
+     * Количество отзывов на одной странице (пагинация)
+     */
     limit?: number;
 }
 
 export interface ApiFeedbacksV1PinsPostRequest {
+    /**
+     * 
+     */
     openapiPinReviewItem: Array<OpenapiPinReviewItem>;
 }
 
 export interface ApiV1ClaimPatchOperationRequest {
+    /**
+     * 
+     */
     apiV1ClaimPatchRequest: ApiV1ClaimPatchRequest;
 }
 
 export interface ApiV1ClaimsGetRequest {
+    /**
+     * Состояние заявки:
+     *   * `false` — на рассмотрении
+     *   * `true` — в архиве
+     * 
+     */
     isArchive: boolean;
+    /**
+     * ID заявки
+     */
     id?: string;
+    /**
+     * Количество заявок в ответе
+     */
     limit?: number;
+    /**
+     * После какого элемента выдавать данные
+     */
     offset?: number;
+    /**
+     * Артикул WB
+     */
     nmId?: number;
 }
 
 export interface ApiV1FeedbackGetRequest {
+    /**
+     * ID отзыва
+     */
     id: string;
 }
 
 export interface ApiV1FeedbacksAnswerPatchOperationRequest {
+    /**
+     * 
+     */
     apiV1FeedbacksAnswerPatchRequest?: ApiV1FeedbacksAnswerPatchRequest;
 }
 
 export interface ApiV1FeedbacksAnswerPostOperationRequest {
+    /**
+     * 
+     */
     apiV1FeedbacksAnswerPostRequest?: ApiV1FeedbacksAnswerPostRequest;
 }
 
 export interface ApiV1FeedbacksArchiveGetRequest {
+    /**
+     * Количество отзывов (max. 5 000)
+     */
     take: number;
+    /**
+     * Количество отзывов для пропуска
+     */
     skip: number;
+    /**
+     * Артикул WB
+     */
     nmId?: number;
+    /**
+     * Сортировка отзывов по дате (dateAsc/dateDesc)
+     */
     order?: ApiV1FeedbacksArchiveGetOrderEnum;
 }
 
 export interface ApiV1FeedbacksCountGetRequest {
+    /**
+     * Дата начала периода в формате Unix timestamp
+     */
     dateFrom?: number;
+    /**
+     * Дата конца периода в формате Unix timestamp
+     */
     dateTo?: number;
+    /**
+     * Обработан ли отзыв:
+     *   - `true` — да
+     *   - `false` — нет
+     * 
+     */
     isAnswered?: boolean;
 }
 
 export interface ApiV1FeedbacksGetRequest {
+    /**
+     * Обработан ли отзыв:
+     *   - `true` — да
+     *   - `false` — нет
+     * 
+     */
     isAnswered: boolean;
+    /**
+     * Количество отзывов (max. 5 000)
+     */
     take: number;
+    /**
+     * Количество отзывов для пропуска (max. 199990)
+     */
     skip: number;
+    /**
+     * Артикул WB
+     */
     nmId?: number;
+    /**
+     * Сортировка отзывов по дате (dateAsc/dateDesc)
+     */
     order?: ApiV1FeedbacksGetOrderEnum;
+    /**
+     * Дата начала периода в формате Unix timestamp
+     */
     dateFrom?: number;
+    /**
+     * Дата конца периода в формате Unix timestamp
+     */
     dateTo?: number;
 }
 
 export interface ApiV1FeedbacksOrderReturnPostOperationRequest {
+    /**
+     * 
+     */
     apiV1FeedbacksOrderReturnPostRequest: ApiV1FeedbacksOrderReturnPostRequest;
 }
 
 export interface ApiV1QuestionGetRequest {
+    /**
+     * ID вопроса
+     */
     id: string;
 }
 
 export interface ApiV1QuestionsCountGetRequest {
+    /**
+     * Дата начала периода в формате Unix timestamp
+     */
     dateFrom?: number;
+    /**
+     * Дата конца периода в формате Unix timestamp
+     */
     dateTo?: number;
+    /**
+     * Есть ли ответ на вопрос:
+     *   - `true` — да
+     *   - `false` — нет
+     * 
+     */
     isAnswered?: boolean;
 }
 
 export interface ApiV1QuestionsGetRequest {
+    /**
+     * Есть ли ответ на вопрос:
+     *   - `true` — да
+     *   - `false` — нет
+     * 
+     */
     isAnswered: boolean;
+    /**
+     * Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000,
+     * при этом сумма значений параметров `take` и `skip` не должна превышать 10 000)
+     * 
+     */
     take: number;
+    /**
+     * Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000,
+     * при этом сумма значений параметров `take` и `skip` не должна превышать 10 000)
+     * 
+     */
     skip: number;
+    /**
+     * Артикул WB
+     */
     nmId?: number;
+    /**
+     * Сортировка вопросов по дате (`dateAsc`/`dateDesc`)
+     */
     order?: string;
+    /**
+     * Дата начала периода в формате Unix timestamp
+     */
     dateFrom?: number;
+    /**
+     * Дата конца периода в формате Unix timestamp
+     */
     dateTo?: number;
 }
 
 export interface ApiV1QuestionsPatchOperationRequest {
+    /**
+     * 
+     */
     apiV1QuestionsPatchRequest?: ApiV1QuestionsPatchRequest;
 }
 
 export interface ApiV1SellerDownloadIdGetRequest {
+    /**
+     * ID файла, см. значение поля `downloadID` в методе [События чатов](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1events/get)
+     */
     id: string;
 }
 
 export interface ApiV1SellerEventsGetRequest {
+    /**
+     * Пагинатор. С какого момента получить следующий пакет данных.<br>Формат Unix timestamp **с миллисекундами**
+     * 
+     */
     next?: number;
 }
 
 export interface ApiV1SellerMessagePostRequest {
+    /**
+     * Подпись чата. Можно получить из [информации по чату](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1chats/get) или [данных события](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1events/get), если в событии есть поле `\"isNewChat\": true`. 
+     */
     replySign: string;
+    /**
+     * Текст сообщения. Максимум 1000 символов.
+     */
     message?: string;
+    /**
+     * Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. 
+     */
     file?: Array<Blob>;
 }
 

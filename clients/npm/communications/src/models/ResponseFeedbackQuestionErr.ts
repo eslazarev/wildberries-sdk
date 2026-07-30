@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ResponseFeedbackQuestionErr {
     /**
      * 
-     * @type {object}
-     * @memberof ResponseFeedbackQuestionErr
      */
     data?: object | null;
     /**
      * Есть ли ошибка
-     * @type {boolean}
-     * @memberof ResponseFeedbackQuestionErr
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ResponseFeedbackQuestionErr
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {Array<string>}
-     * @memberof ResponseFeedbackQuestionErr
      */
     additionalErrors?: Array<string> | null;
     /**
      * 
-     * @type {string}
-     * @memberof ResponseFeedbackQuestionErr
      */
     requestId?: string;
 }

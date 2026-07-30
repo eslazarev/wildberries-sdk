@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner {
     /**
      * Размер товара (например, XL, 45)
-     * @type {string}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
      */
     techSize?: string;
     /**
      * Российский размер товара
-     * @type {string}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
      */
     wbSize?: string;
     /**
      * Цена товара
-     * @type {number}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
      */
     price?: number;
     /**
      * Баркод. Если не указать, сгенерируется автоматически
-     * @type {Array<string>}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner
      */
     skus?: Array<string>;
 }

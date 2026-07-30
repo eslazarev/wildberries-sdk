@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner {
     /**
      * ID акции
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner
      */
     id?: number;
     /**
      * Название акции
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner
      */
     name?: string;
     /**
      * Начало акции
-     * @type {Date}
-     * @memberof ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner
      */
     startDateTime?: Date;
     /**
      * Конец акции
-     * @type {Date}
-     * @memberof ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner
      */
     endDateTime?: Date;
     /**
@@ -48,8 +40,6 @@ export interface ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner {
      *   - `regular` — акция
      *   - `auto` — автоакция
      * 
-     * @type {ApiV1CalendarPromotionsGet200ResponseDataPromotionsInnerTypeEnum}
-     * @memberof ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner
      */
     type?: ApiV1CalendarPromotionsGet200ResponseDataPromotionsInnerTypeEnum;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ContentV3MediaSavePostRequest {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ContentV3MediaSavePostRequest
      */
     nmId?: number;
     /**
      * Ссылки на изображения в том порядке, в котором они будут в карточке товара, и на видео, на любой позиции массива
-     * @type {Array<string>}
-     * @memberof ContentV3MediaSavePostRequest
      */
     data?: Array<string>;
 }

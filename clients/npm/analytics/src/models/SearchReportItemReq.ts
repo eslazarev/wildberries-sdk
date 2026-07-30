@@ -29,26 +29,18 @@ import {
 export interface SearchReportItemReq {
     /**
      * ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
-     * @type {string}
-     * @memberof SearchReportItemReq
      */
     id: string;
     /**
      * Тип отчёта `SEARCH_QUERIES_PREMIUM_REPORT_PRODUCT` — Отчёт по параметрам поиска. По артикулам WB
-     * @type {string}
-     * @memberof SearchReportItemReq
      */
     reportType: string;
     /**
      * Название отчёта. Если не указано, сформируется автоматически
-     * @type {string}
-     * @memberof SearchReportItemReq
      */
     userReportName?: string;
     /**
      * 
-     * @type {SearchReportItemReqParams}
-     * @memberof SearchReportItemReq
      */
     params: SearchReportItemReqParams;
 }

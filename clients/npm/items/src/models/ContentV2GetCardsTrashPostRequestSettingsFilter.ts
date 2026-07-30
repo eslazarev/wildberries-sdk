@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsTrashPostRequestSettingsFilter {
     /**
      * Поиск по артикулу продавца, артикулу WB, баркоду
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPostRequestSettingsFilter
      */
     textSearch?: string;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface StatIntervalInterval {
     /**
      * Начало периода
-     * @type {Date}
-     * @memberof StatIntervalInterval
      */
     begin?: Date;
     /**
      * Конец периода
-     * @type {Date}
-     * @memberof StatIntervalInterval
      */
     end?: Date;
 }

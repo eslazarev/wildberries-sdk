@@ -31,14 +31,10 @@ export interface ApiOrders {
      * Параметр пагинации. Содержит значение, которое необходимо указать в
      * запросе для получения следующего пакета данных
      * 
-     * @type {number}
-     * @memberof ApiOrders
      */
     next?: number;
     /**
      * Список сборочных заданий
-     * @type {Array<ApiOrder>}
-     * @memberof ApiOrders
      */
     orders?: Array<ApiOrder>;
 }

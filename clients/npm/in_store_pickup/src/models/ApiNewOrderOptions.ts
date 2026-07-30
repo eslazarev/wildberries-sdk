@@ -24,8 +24,6 @@ export interface ApiNewOrderOptions {
      *   - `false` — не B2B-продажа
      *   - `true` — B2B-продажа
      * 
-     * @type {boolean}
-     * @memberof ApiNewOrderOptions
      */
     isB2b?: boolean;
 }

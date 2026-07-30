@@ -24,8 +24,6 @@ export interface ApiV1NewFeedbacksQuestionsGet200ResponseData {
      *    - `true` — да
      *    - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof ApiV1NewFeedbacksQuestionsGet200ResponseData
      */
     hasNewQuestions?: boolean;
     /**
@@ -33,8 +31,6 @@ export interface ApiV1NewFeedbacksQuestionsGet200ResponseData {
      *  - `true` — да
      *  - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof ApiV1NewFeedbacksQuestionsGet200ResponseData
      */
     hasNewFeedbacks?: boolean;
 }

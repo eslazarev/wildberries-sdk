@@ -36,38 +36,26 @@ import {
 export interface ModelsErrorTableListPublicRespV2Item {
     /**
      * ID пакета
-     * @type {string}
-     * @memberof ModelsErrorTableListPublicRespV2Item
      */
     batchUUID: string;
     /**
      * Предметы. Разбивка по `vendorCodes`
-     * @type {{ [key: string]: ModelsErrorSubcategory; }}
-     * @memberof ModelsErrorTableListPublicRespV2Item
      */
     subjects: { [key: string]: ModelsErrorSubcategory; };
     /**
      * Бренды. Разбивка по `vendorCodes`
-     * @type {{ [key: string]: ModelsErrorBrand; }}
-     * @memberof ModelsErrorTableListPublicRespV2Item
      */
     brands: { [key: string]: ModelsErrorBrand; };
     /**
      * Артикулы продавца
-     * @type {Array<string>}
-     * @memberof ModelsErrorTableListPublicRespV2Item
      */
     vendorCodes: Array<string>;
     /**
      * Ошибки. Разбивка по `vendorCodes`
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof ModelsErrorTableListPublicRespV2Item
      */
     errors: { [key: string]: Array<string>; };
     /**
      * Дата и время создания или редактирования пакета
-     * @type {Date}
-     * @memberof ModelsErrorTableListPublicRespV2Item
      */
     updatedAt: Date;
 }

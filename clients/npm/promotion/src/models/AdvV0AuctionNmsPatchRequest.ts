@@ -29,8 +29,6 @@ import {
 export interface AdvV0AuctionNmsPatchRequest {
     /**
      * Карточки товаров в кампаниях
-     * @type {Array<AdvV0AuctionNmsPatchRequestNmsInner>}
-     * @memberof AdvV0AuctionNmsPatchRequest
      */
     nms: Array<AdvV0AuctionNmsPatchRequestNmsInner>;
 }

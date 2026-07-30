@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface ContentV2ObjectParentAllGet401Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof ContentV2ObjectParentAllGet401Response
      */
     timestamp?: Date;
 }

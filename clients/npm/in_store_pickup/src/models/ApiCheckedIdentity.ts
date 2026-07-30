@@ -24,8 +24,6 @@ export interface ApiCheckedIdentity {
      *   - `true` — принадлежит
      *   - `false` — значение не применяется. Если заказ не принадлежит покупателю, вы получите ответ со статус-кодом `409`
      * 
-     * @type {boolean}
-     * @memberof ApiCheckedIdentity
      */
     ok?: boolean;
 }

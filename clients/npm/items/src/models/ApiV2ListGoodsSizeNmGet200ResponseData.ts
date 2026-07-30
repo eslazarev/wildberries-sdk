@@ -29,8 +29,6 @@ import {
 export interface ApiV2ListGoodsSizeNmGet200ResponseData {
     /**
      * Размеры товара
-     * @type {Array<SizeGood>}
-     * @memberof ApiV2ListGoodsSizeNmGet200ResponseData
      */
     listGoods?: Array<SizeGood> | null;
 }

@@ -36,44 +36,30 @@ import {
 export interface InventoryHistoryReportReqParams {
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof InventoryHistoryReportReqParams
      */
     nmIds?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof InventoryHistoryReportReqParams
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof InventoryHistoryReportReqParams
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof InventoryHistoryReportReqParams
      */
     tagIds?: Array<number>;
     /**
      * 
-     * @type {PeriodInv}
-     * @memberof InventoryHistoryReportReqParams
      */
     currentPeriod: PeriodInv;
     /**
      * 
-     * @type {StockType}
-     * @memberof InventoryHistoryReportReqParams
      */
     stockType: StockType;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof InventoryHistoryReportReqParams
      */
     skipDeletedNm: boolean;
 }

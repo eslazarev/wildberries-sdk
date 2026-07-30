@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface GetListDataDocumentsInner {
     /**
      * Уникальный ID документа
-     * @type {string}
-     * @memberof GetListDataDocumentsInner
      */
     serviceName?: string;
     /**
      * Название документа
-     * @type {string}
-     * @memberof GetListDataDocumentsInner
      */
     name?: string;
     /**
      * Название [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля ответа `title`
-     * @type {string}
-     * @memberof GetListDataDocumentsInner
      */
     category?: string;
     /**
      * Форматы документа
-     * @type {Array<string>}
-     * @memberof GetListDataDocumentsInner
      */
     extensions?: Array<string>;
     /**
      * Дата и время создания документа
-     * @type {string}
-     * @memberof GetListDataDocumentsInner
      */
     creationTime?: string;
     /**
      * Выгружен ли документ в личном кабинете
-     * @type {boolean}
-     * @memberof GetListDataDocumentsInner
      */
     viewed?: boolean;
 }

@@ -29,14 +29,10 @@ import {
 export interface TableGroupResponseSt {
     /**
      * Множество данных по группам
-     * @type {Array<TableGroupItemSt>}
-     * @memberof TableGroupResponseSt
      */
     groups: Array<TableGroupItemSt>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof TableGroupResponseSt
      */
     currency: string;
 }

@@ -53,74 +53,50 @@ import {
 export interface TableGroupRequest {
     /**
      * 
-     * @type {Period}
-     * @memberof TableGroupRequest
      */
     currentPeriod: Period;
     /**
      * 
-     * @type {PastPeriod}
-     * @memberof TableGroupRequest
      */
     pastPeriod?: PastPeriod;
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof TableGroupRequest
      */
     nmIds?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof TableGroupRequest
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof TableGroupRequest
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof TableGroupRequest
      */
     tagIds?: Array<number>;
     /**
      * 
-     * @type {OrderByGrTe}
-     * @memberof TableGroupRequest
      */
     orderBy: OrderByGrTe;
     /**
      * 
-     * @type {PositionCluster}
-     * @memberof TableGroupRequest
      */
     positionCluster: PositionCluster;
     /**
      * Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
-     * @type {boolean}
-     * @memberof TableGroupRequest
      */
     includeSubstitutedSKUs?: boolean;
     /**
      * Показать данные по поисковым запросам без учёта подменного артикула
-     * @type {boolean}
-     * @memberof TableGroupRequest
      */
     includeSearchTexts?: boolean;
     /**
      * Количество групп товаров в ответе
-     * @type {number}
-     * @memberof TableGroupRequest
      */
     limit: number;
     /**
      * После какого элемента выдавать данные
-     * @type {number}
-     * @memberof TableGroupRequest
      */
     offset: number;
 }

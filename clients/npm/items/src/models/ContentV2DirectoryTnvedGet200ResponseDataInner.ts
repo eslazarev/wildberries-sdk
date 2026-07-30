@@ -21,16 +21,12 @@ import { mapValues } from '../runtime';
 export interface ContentV2DirectoryTnvedGet200ResponseDataInner {
     /**
      * ТНВЭД-код
-     * @type {string}
-     * @memberof ContentV2DirectoryTnvedGet200ResponseDataInner
      */
     tnved?: string;
     /**
      * - `true` — код маркировки [Честного знака](https://честныйзнак.рф/) требуется
      * - `false` — код маркировки [Честного знака](https://честныйзнак.рф/) не требуется
      * 
-     * @type {boolean}
-     * @memberof ContentV2DirectoryTnvedGet200ResponseDataInner
      */
     isKiz?: boolean;
 }

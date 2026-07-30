@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface NmReportGetReportsResponseDataInner {
     /**
      * ID отчёта
-     * @type {string}
-     * @memberof NmReportGetReportsResponseDataInner
      */
     id: string;
     /**
      * Дата и время завершения генерации
-     * @type {string}
-     * @memberof NmReportGetReportsResponseDataInner
      */
     createdAt: string;
     /**
@@ -40,32 +36,22 @@ export interface NmReportGetReportsResponseDataInner {
      * * `RETRY` — ожидает повторной обработки
      * * `FAILED` — не получилось сгенерировать, сгенерируйте повторно
      * 
-     * @type {string}
-     * @memberof NmReportGetReportsResponseDataInner
      */
     status: string;
     /**
      * Название отчёта
-     * @type {string}
-     * @memberof NmReportGetReportsResponseDataInner
      */
     name: string;
     /**
      * Размер отчёта, Б
-     * @type {number}
-     * @memberof NmReportGetReportsResponseDataInner
      */
     size: number;
     /**
      * Начало периода
-     * @type {Date}
-     * @memberof NmReportGetReportsResponseDataInner
      */
     startDate: Date;
     /**
      * Конец периода
-     * @type {Date}
-     * @memberof NmReportGetReportsResponseDataInner
      */
     endDate: Date;
 }

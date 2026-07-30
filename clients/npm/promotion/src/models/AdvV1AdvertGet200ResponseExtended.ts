@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface AdvV1AdvertGet200ResponseExtended {
     /**
      * Комментарий модератора
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     reason?: string | null;
     /**
      * Затраты
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     expenses?: number;
     /**
      * Дата и время начала показа медиакампании
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     from?: Date;
     /**
      * Дата и время окончания показа медиакампании
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     to?: Date;
     /**
      * Дата и время изменения кампании
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     updatedAt?: Date;
     /**
      * Стоимость размещения по дням для типа `1`
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     price?: number;
     /**
      * Остаток бюджета для типа `2`
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     budget?: number;
     /**
@@ -66,14 +52,10 @@ export interface AdvV1AdvertGet200ResponseExtended {
      *   - `1` — баланс
      *   - `2` — счёт
      * 
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     operation?: number;
     /**
      * ID контракта, для продавцов на контракте
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseExtended
      */
     contractId?: number;
 }

@@ -26,8 +26,6 @@ export interface SalesReportListReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof SalesReportListReq
      */
     dateFrom: string;
     /**
@@ -37,20 +35,14 @@ export interface SalesReportListReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof SalesReportListReq
      */
     dateTo: string;
     /**
      * Количество отчётов в ответе
-     * @type {number}
-     * @memberof SalesReportListReq
      */
     limit?: number;
     /**
      * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-     * @type {number}
-     * @memberof SalesReportListReq
      */
     offset?: number;
     /**
@@ -58,8 +50,6 @@ export interface SalesReportListReq {
      *   - `weekly` — еженедельные
      *   - `daily` — ежедневные
      * 
-     * @type {SalesReportListReqPeriodEnum}
-     * @memberof SalesReportListReq
      */
     period?: SalesReportListReqPeriodEnum;
 }

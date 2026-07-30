@@ -29,26 +29,18 @@ import {
 export interface ResponsePublicViewerPublicErrorsTableListV2 {
     /**
      * 
-     * @type {ModelsErrorTableListPublicRespV2}
-     * @memberof ResponsePublicViewerPublicErrorsTableListV2
      */
     data: ModelsErrorTableListPublicRespV2;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ResponsePublicViewerPublicErrorsTableListV2
      */
     error: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ResponsePublicViewerPublicErrorsTableListV2
      */
     errorText: string;
     /**
      * Дополнительные ошибки
-     * @type {object}
-     * @memberof ResponsePublicViewerPublicErrorsTableListV2
      */
     additionalErrors: object | null;
 }

@@ -24,8 +24,6 @@ export interface OrderOptions {
      *   - `false` — не B2B-продажа
      *   - `true` — B2B-продажа
      * 
-     * @type {boolean}
-     * @memberof OrderOptions
      */
     isB2B?: boolean;
 }

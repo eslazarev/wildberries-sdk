@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiSGTINs {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiSGTINs
      */
     orderId: number;
     /**
      * Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки
-     * @type {Array<string>}
-     * @memberof ApiSGTINs
      */
     sgtins: Array<string>;
 }

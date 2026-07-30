@@ -29,8 +29,6 @@ import {
 export interface ApiV1AnalyticsGoodsReturnGet200Response {
     /**
      * Отчёт
-     * @type {Array<ApiV1AnalyticsGoodsReturnGet200ResponseReportInner>}
-     * @memberof ApiV1AnalyticsGoodsReturnGet200Response
      */
     report?: Array<ApiV1AnalyticsGoodsReturnGet200ResponseReportInner>;
 }

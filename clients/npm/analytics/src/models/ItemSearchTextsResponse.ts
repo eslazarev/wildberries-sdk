@@ -29,14 +29,10 @@ import {
 export interface ItemSearchTextsResponse {
     /**
      * Элементы таблицы
-     * @type {Array<TableSearchTextItem>}
-     * @memberof ItemSearchTextsResponse
      */
     items: Array<TableSearchTextItem>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof ItemSearchTextsResponse
      */
     currency: string;
 }

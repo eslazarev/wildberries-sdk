@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV1ClaimsGet200ResponseClaimsInner {
     /**
      * ID заявки
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     id?: string;
     /**
@@ -30,8 +28,6 @@ export interface ApiV1ClaimsGet200ResponseClaimsInner {
      *   * `1` — портал покупателей
      *   * `3` — чат
      * 
-     * @type {number}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     claimType?: number;
     /**
@@ -40,8 +36,6 @@ export interface ApiV1ClaimsGet200ResponseClaimsInner {
      *   * `1` — отказ
      *   * `2` — одобрено
      * 
-     * @type {number}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     status?: number;
     /**
@@ -53,62 +47,42 @@ export interface ApiV1ClaimsGet200ResponseClaimsInner {
      *   * `8` — товар будет возвращён в реализацию после проверки WB
      *   * `10` — товар возвращается продавцу
      * 
-     * @type {number}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     statusEx?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     nmId?: number;
     /**
      * Комментарий покупателя
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     userComment?: string;
     /**
      * Ответ покупателю
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     wbComment?: string | null;
     /**
      * Дата и время оформления заявки покупателем. UTC+3
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     dt?: string;
     /**
      * Название товара
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     imtName?: string | null;
     /**
      * Дата и время заказа
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     orderDt?: string;
     /**
      * Дата и время рассмотрения заявки. Для нерассмотренной заявки — дата и время оформления. UTC+3
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     dtUpdate?: string;
     /**
      * Фотографии из заявки покупателя
-     * @type {Array<string>}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     photos?: Array<string>;
     /**
      * Видео из заявки покупателя
-     * @type {Array<string>}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     videoPaths?: Array<string>;
     /**
@@ -123,38 +97,26 @@ export interface ApiV1ClaimsGet200ResponseClaimsInner {
      *   * `approvecc1` — одобрить заявку с возвратом товара в магазин продавца.<br>Можно передать комментарий (например, телефон для связи или время работы своего отдела возвратов) в параметре `comment`. По итогу возврата необходимо ответить на заявку с `"action":"confirmreturngoodcc1"` или `"action":"rejectcustom"`.<br>Применимо только при модели <strong>[Самовывоз](./in-store-pickup)</strong>.
      *   * `confirmreturngoodcc1` — подтвердить приёмку товара от покупателя.<br>Применимо только при модели <strong>[Самовывоз](./in-store-pickup)</strong>.
      * 
-     * @type {Array<string>}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     actions?: Array<string>;
     /**
      * Фактическая цена с учетом всех скидок. Взимается с покупателя
-     * @type {number}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     price?: number;
     /**
      * Код валюты цены
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     currencyCode?: string;
     /**
      * Уникальный ID заказа, по товару которого создана заявка
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     srid?: string;
     /**
      * Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Применимо только для товаров **Apple** предмета `Смартфоны` (`"subjectId":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post) параметры и поля `price` и `discount`)
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     originIdInfo?: string | null;
     /**
      * Дата и время получения заказа покупателем
-     * @type {string}
-     * @memberof ApiV1ClaimsGet200ResponseClaimsInner
      */
     deliveryDt?: string;
 }

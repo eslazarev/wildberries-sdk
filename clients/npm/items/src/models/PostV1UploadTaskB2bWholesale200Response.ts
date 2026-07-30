@@ -29,21 +29,15 @@ import {
 export interface PostV1UploadTaskB2bWholesale200Response {
     /**
      * ID загрузки
-     * @type {number}
-     * @memberof PostV1UploadTaskB2bWholesale200Response
      */
     id: number;
     /**
      * Дублирование загрузки: `true` — такая загрузка уже есть
      * 
-     * @type {boolean}
-     * @memberof PostV1UploadTaskB2bWholesale200Response
      */
     alreadyExists: boolean;
     /**
      * Результаты обработки запроса
-     * @type {Array<PostV1UploadTaskB2bWholesale200ResponseResultsInner>}
-     * @memberof PostV1UploadTaskB2bWholesale200Response
      */
     results: Array<PostV1UploadTaskB2bWholesale200ResponseResultsInner>;
 }

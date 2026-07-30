@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface Response208SetRecom {
     /**
      * ID запроса
-     * @type {string}
-     * @memberof Response208SetRecom
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response208SetRecom
      */
     origin: string;
     /**
      * Заголовок ответа
-     * @type {string}
-     * @memberof Response208SetRecom
      */
     title: string;
     /**
      * Детали ответа
-     * @type {string}
-     * @memberof Response208SetRecom
      */
     detail: string;
 }

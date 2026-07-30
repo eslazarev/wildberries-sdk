@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3StocksWarehouseIdPostRequest {
     /**
      * Массив ID размеров товаров
-     * @type {Array<number>}
-     * @memberof ApiV3StocksWarehouseIdPostRequest
      */
     chrtIds: Array<number>;
 }

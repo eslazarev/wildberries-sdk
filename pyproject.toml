@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wildberries-sdk"
-version = "0.1.133"
+version = "0.1.134"
 description = "Wildberries OpenAPI clients (generated)."
 keywords = ["wildberries", "wb", "api", "sdk", "openapi", "marketplace", "ecommerce", "wildberries-api", "вайлдберриз"]
 readme = "docs/python/README.md"

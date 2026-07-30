@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiUIN {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiUIN
      */
     orderId?: number;
     /**
      * УИН
-     * @type {string}
-     * @memberof ApiUIN
      */
     uin?: string;
 }

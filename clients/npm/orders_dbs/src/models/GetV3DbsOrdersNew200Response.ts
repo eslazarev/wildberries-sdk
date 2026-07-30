@@ -29,8 +29,6 @@ import {
 export interface GetV3DbsOrdersNew200Response {
     /**
      * Список новых сборочных заданий
-     * @type {Array<OrderNewDBS>}
-     * @memberof GetV3DbsOrdersNew200Response
      */
     orders?: Array<OrderNewDBS>;
 }

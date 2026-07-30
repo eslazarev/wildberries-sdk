@@ -29,26 +29,18 @@ import {
 export interface ModelsWarehousesBoxRates {
     /**
      * Валюта тарифов
-     * @type {string}
-     * @memberof ModelsWarehousesBoxRates
      */
     currency?: string;
     /**
      * Дата начала следующего тарифа
-     * @type {string}
-     * @memberof ModelsWarehousesBoxRates
      */
     dtNextBox?: string;
     /**
      * Дата окончания последнего установленного тарифа
-     * @type {string}
-     * @memberof ModelsWarehousesBoxRates
      */
     dtTillMax?: string;
     /**
      * Тарифы для коробов, сгруппированные по складам
-     * @type {Array<ModelsWarehouseBoxRates>}
-     * @memberof ModelsWarehousesBoxRates
      */
     warehouseList?: Array<ModelsWarehouseBoxRates> | null;
 }

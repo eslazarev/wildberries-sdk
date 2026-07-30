@@ -36,38 +36,26 @@ import {
 export interface Order {
     /**
      * 
-     * @type {OrderNewDBWAddress}
-     * @memberof Order
      */
     address?: OrderNewDBWAddress | null;
     /**
      * 
-     * @type {OrderNewDBWOptions}
-     * @memberof Order
      */
     options?: OrderNewDBWOptions;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-     * @type {string}
-     * @memberof Order
      */
     orderUid?: string;
     /**
      * ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
-     * @type {string}
-     * @memberof Order
      */
     groupId?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof Order
      */
     article?: string;
     /**
      * Код цвета (только для колеруемых товаров)
-     * @type {string}
-     * @memberof Order
      */
     colorCode?: string;
     /**
@@ -82,68 +70,46 @@ export interface Order {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {string}
-     * @memberof Order
      */
     rid?: string;
     /**
      * Дата создания сборочного задания
-     * @type {Date}
-     * @memberof Order
      */
     createdAt?: Date;
     /**
      * Массив баркодов товара
-     * @type {Array<string>}
-     * @memberof Order
      */
     skus?: Array<string>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof Order
      */
     id?: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
-     * @type {number}
-     * @memberof Order
      */
     warehouseId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof Order
      */
     nmId?: number;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof Order
      */
     chrtId?: number;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof Order
      */
     price?: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof Order
      */
     convertedPrice?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof Order
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof Order
      */
     convertedCurrencyCode?: number;
     /**
@@ -152,14 +118,10 @@ export interface Order {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {OrderCargoTypeEnum}
-     * @memberof Order
      */
     cargoType?: OrderCargoTypeEnum;
     /**
      * Комментарий покупателя
-     * @type {string}
-     * @memberof Order
      */
     comment?: string;
     /**
@@ -167,8 +129,6 @@ export interface Order {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
-     * @type {boolean}
-     * @memberof Order
      */
     isZeroOrder?: boolean;
 }

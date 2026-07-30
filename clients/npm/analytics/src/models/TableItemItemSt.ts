@@ -29,56 +29,38 @@ import {
 export interface TableItemItemSt {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof TableItemItemSt
      */
     nmID: number;
     /**
      * Является ли товар удалённым
-     * @type {boolean}
-     * @memberof TableItemItemSt
      */
     isDeleted: boolean;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof TableItemItemSt
      */
     subjectName: string;
     /**
      * Название товара
-     * @type {string}
-     * @memberof TableItemItemSt
      */
     name: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof TableItemItemSt
      */
     vendorCode: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof TableItemItemSt
      */
     brandName: string;
     /**
      * Ссылка на главное фото
-     * @type {string}
-     * @memberof TableItemItemSt
      */
     mainPhoto: string;
     /**
      * Является ли товар размерным. Неразмерный товар имеет единственный размер, с `"techSize":"0"`
-     * @type {boolean}
-     * @memberof TableItemItemSt
      */
     hasSizes: boolean;
     /**
      * 
-     * @type {TableItemItemStMetrics}
-     * @memberof TableItemItemSt
      */
     metrics: TableItemItemStMetrics;
 }

@@ -29,8 +29,6 @@ import {
 export interface CreateTaskResponse {
     /**
      * 
-     * @type {CreateTaskResponseData}
-     * @memberof CreateTaskResponse
      */
     data?: CreateTaskResponseData;
 }

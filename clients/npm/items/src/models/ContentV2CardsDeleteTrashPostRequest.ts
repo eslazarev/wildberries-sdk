@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ContentV2CardsDeleteTrashPostRequest {
     /**
      * Артикулы WB
-     * @type {Array<number>}
-     * @memberof ContentV2CardsDeleteTrashPostRequest
      */
     nmIDs?: Array<number>;
 }

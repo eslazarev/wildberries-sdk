@@ -50,86 +50,58 @@ import {
 export interface TableCommonMetrics {
     /**
      * Заказы, шт.
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     ordersCount: number;
     /**
      * Заказы, сумма
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     ordersSum: number;
     /**
      * Среднее количество заказов в день
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     avgOrders: number;
     /**
      * Среднее количество заказов по месяцам
-     * @type {Array<FloatGraphByPeriodItem>}
-     * @memberof TableCommonMetrics
      */
     avgOrdersByMonth: Array<FloatGraphByPeriodItem>;
     /**
      * Выкупы, шт.
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     buyoutCount: number;
     /**
      * Выкупы, сумма
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     buyoutSum: number;
     /**
      * Процент выкупа
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     buyoutPercent: number;
     /**
      * Остатки на текущий день, шт.
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     stockCount: number;
     /**
      * Стоимость остатков на текущий день
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     stockSum: number;
     /**
      * 
-     * @type {TableCommonMetricsSaleRate}
-     * @memberof TableCommonMetrics
      */
     saleRate: TableCommonMetricsSaleRate;
     /**
      * 
-     * @type {TableCommonMetricsAvgStockTurnover}
-     * @memberof TableCommonMetrics
      */
     avgStockTurnover: TableCommonMetricsAvgStockTurnover;
     /**
      * В пути к клиенту, шт.
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     toClientCount: number;
     /**
      * В пути от клиента, шт.
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     fromClientCount: number;
     /**
      * 
-     * @type {TableCommonMetricsOfficeMissingTime}
-     * @memberof TableCommonMetrics
      */
     officeMissingTime: TableCommonMetricsOfficeMissingTime;
     /**
@@ -137,8 +109,6 @@ export interface TableCommonMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     lostOrdersCount: number;
     /**
@@ -146,8 +116,6 @@ export interface TableCommonMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     lostOrdersSum: number;
     /**
@@ -155,8 +123,6 @@ export interface TableCommonMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     lostBuyoutsCount: number;
     /**
@@ -164,8 +130,6 @@ export interface TableCommonMetrics {
      *   1. Значение меньше `0` и не равно `-2` — значение не рассчитано
      *   2. Значение `-2` — нулевое значение
      * 
-     * @type {number}
-     * @memberof TableCommonMetrics
      */
     lostBuyoutsSum: number;
 }

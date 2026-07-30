@@ -29,14 +29,10 @@ import {
 export interface ApiMetaDetailsResponse {
     /**
      * Уникальный ID запроса
-     * @type {any}
-     * @memberof ApiMetaDetailsResponse
      */
     requestId: any | null;
     /**
      * 
-     * @type {Array<ApiMetaDetailsResponseResultsInner>}
-     * @memberof ApiMetaDetailsResponse
      */
     results: Array<ApiMetaDetailsResponseResultsInner>;
 }

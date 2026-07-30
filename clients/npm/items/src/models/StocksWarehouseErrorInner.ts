@@ -29,20 +29,14 @@ import {
 export interface StocksWarehouseErrorInner {
     /**
      * Дополнительная информация об ошибке
-     * @type {Array<StocksWarehouseErrorInnerDataInner>}
-     * @memberof StocksWarehouseErrorInner
      */
     data?: Array<StocksWarehouseErrorInnerDataInner> | null;
     /**
      * Код ошибки
-     * @type {string}
-     * @memberof StocksWarehouseErrorInner
      */
     code?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof StocksWarehouseErrorInner
      */
     message?: string;
 }

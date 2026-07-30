@@ -64,56 +64,38 @@ import {
 export interface ContentV2GetCardsListPost200ResponseCardsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     nmID?: number;
     /**
      * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     imtID?: number;
     /**
      * Внутренний технический ID карточки товара
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     nmUUID?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     subjectID?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     subjectName?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     vendorCode?: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     brand?: string;
     /**
      * Наименование товара
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     title?: string;
     /**
      * Описание товара
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     description?: string;
     /**
@@ -121,8 +103,6 @@ export interface ContentV2GetCardsListPost200ResponseCardsInner {
      *   - `false` — не требуется
      *   - `true` — требуется
      * 
-     * @type {boolean}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     needKiz?: boolean;
     /**
@@ -132,62 +112,42 @@ export interface ContentV2GetCardsListPost200ResponseCardsInner {
      * 
      * Является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, указано в поле `needKiz`
      * 
-     * @type {boolean}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     kizMarked?: boolean;
     /**
      * Массив фото
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner>}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     photos?: Array<ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner>;
     /**
      * URL видео
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     video?: string;
     /**
      * 
-     * @type {ContentV2GetCardsListPost200ResponseCardsInnerWholesale}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     wholesale?: ContentV2GetCardsListPost200ResponseCardsInnerWholesale;
     /**
      * 
-     * @type {ContentV2GetCardsListPost200ResponseCardsInnerDimensions}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     dimensions?: ContentV2GetCardsListPost200ResponseCardsInnerDimensions;
     /**
      * Характеристики
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner>}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     characteristics?: Array<ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner>;
     /**
      * Размеры товара
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInnerSizesInner>}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     sizes?: Array<ContentV2GetCardsListPost200ResponseCardsInnerSizesInner>;
     /**
      * Ярлыки
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInnerTagsInner>}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     tags?: Array<ContentV2GetCardsListPost200ResponseCardsInnerTagsInner>;
     /**
      * Дата и время создания
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     createdAt?: string;
     /**
      * Дата и время изменения
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInner
      */
     updatedAt?: string;
 }

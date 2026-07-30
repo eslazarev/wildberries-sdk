@@ -21,56 +21,38 @@ import { mapValues } from '../runtime';
 export interface WbClubMetrics {
     /**
      * Заказали товаров с WB Клубом, шт.
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     orderCount: number;
     /**
      * Заказали с WB Клубом на сумму
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     orderSum: number;
     /**
      * Выкупили с WB Клубом на сумму
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     buyoutSum: number;
     /**
      * Выкупили товаров с WB Клубом, шт.
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     buyoutCount: number;
     /**
      * Отменили и вернули с WB Клубом на сумму
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     cancelSum: number;
     /**
      * Отменили и вернули товаров с WB Клубом, шт.
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     cancelCount: number;
     /**
      * Средняя цена с WB Клубом
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     avgPrice: number;
     /**
      * Процент выкупа с WB Клубом
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     buyoutPercent: number;
     /**
      * Среднее количество заказов с WB Клубом в день, шт.
-     * @type {number}
-     * @memberof WbClubMetrics
      */
     avgOrderCountPerDay: number;
 }

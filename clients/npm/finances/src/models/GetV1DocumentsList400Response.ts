@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface GetV1DocumentsList400Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof GetV1DocumentsList400Response
      */
     title?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof GetV1DocumentsList400Response
      */
     status?: number;
     /**
      * Детализация ошибки
-     * @type {string}
-     * @memberof GetV1DocumentsList400Response
      */
     detail?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof GetV1DocumentsList400Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof GetV1DocumentsList400Response
      */
     origin?: string;
 }

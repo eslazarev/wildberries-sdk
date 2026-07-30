@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner {
     /**
      * ID размера
-     * @type {number}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner
      */
     chrtID?: number;
     /**
      * Размер товара
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner
      */
     techSize?: string;
     /**
      * Российский размер товара
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner
      */
     wbSize?: string;
     /**
      * Массив баркодов
-     * @type {Array<string>}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner
      */
     skus?: Array<string>;
 }

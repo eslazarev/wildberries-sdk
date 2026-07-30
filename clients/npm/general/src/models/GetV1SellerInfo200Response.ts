@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface GetV1SellerInfo200Response {
     /**
      * Наименование продавца
-     * @type {string}
-     * @memberof GetV1SellerInfo200Response
      */
     name?: string;
     /**
      * Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/authorization/Kak-ustroen-token)
-     * @type {string}
-     * @memberof GetV1SellerInfo200Response
      */
     sid?: string;
     /**
      * ИНН
-     * @type {string}
-     * @memberof GetV1SellerInfo200Response
      */
     tin?: string;
     /**
      * Торговое наименование продавца
-     * @type {string}
-     * @memberof GetV1SellerInfo200Response
      */
     tradeMark?: string;
 }

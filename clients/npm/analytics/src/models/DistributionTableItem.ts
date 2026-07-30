@@ -71,110 +71,74 @@ import {
 export interface DistributionTableItem {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof DistributionTableItem
      */
     nmId: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof DistributionTableItem
      */
     title: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof DistributionTableItem
      */
     vendorCode: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof DistributionTableItem
      */
     subjectId: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof DistributionTableItem
      */
     subjectName: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof DistributionTableItem
      */
     brandName: string;
     /**
      * Название ярлыка
-     * @type {string}
-     * @memberof DistributionTableItem
      */
     tagName: string;
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof DistributionTableItem
      */
     tagId: number;
     /**
      * Отзыв закреплён
-     * @type {boolean}
-     * @memberof DistributionTableItem
      */
     pinnedFeedback: boolean;
     /**
      * Рейтинг карточки товара
-     * @type {number}
-     * @memberof DistributionTableItem
      */
     rating: number;
     /**
      * 
-     * @type {DistributionTableItemV1FeedbackRating}
-     * @memberof DistributionTableItem
      */
     feedbackRating: DistributionTableItemV1FeedbackRating;
     /**
      * 
-     * @type {DistributionTableItemV1FeedbackCount}
-     * @memberof DistributionTableItem
      */
     feedbackCount: DistributionTableItemV1FeedbackCount;
     /**
      * 
-     * @type {DistributionTableItemV1FiveStar}
-     * @memberof DistributionTableItem
      */
     fiveStar: DistributionTableItemV1FiveStar;
     /**
      * 
-     * @type {DistributionTableItemV1FourStar}
-     * @memberof DistributionTableItem
      */
     fourStar: DistributionTableItemV1FourStar;
     /**
      * 
-     * @type {DistributionTableItemV1ThreeStar}
-     * @memberof DistributionTableItem
      */
     threeStar: DistributionTableItemV1ThreeStar;
     /**
      * 
-     * @type {DistributionTableItemV1TwoStar}
-     * @memberof DistributionTableItem
      */
     twoStar: DistributionTableItemV1TwoStar;
     /**
      * 
-     * @type {DistributionTableItemV1OneStar}
-     * @memberof DistributionTableItem
      */
     oneStar: DistributionTableItemV1OneStar;
     /**
      * Отзывы, исключённые из рейтинга
-     * @type {number}
-     * @memberof DistributionTableItem
      */
     disqualified: number;
     /**
@@ -182,8 +146,6 @@ export interface DistributionTableItem {
      *   - `true` — товар скрыт из каталога
      *   - `false` — товар не скрыт из каталога
      * 
-     * @type {boolean}
-     * @memberof DistributionTableItem
      */
     isShadowed: boolean;
 }

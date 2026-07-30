@@ -21,62 +21,42 @@ import { mapValues } from '../runtime';
 export interface SizeGood {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof SizeGood
      */
     nmID?: number;
     /**
      * ID размера. Можно получить с помощью метода [Получение списка товаров по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get), поле `sizeID`. В методах Контента это поле `chrtID`
-     * @type {number}
-     * @memberof SizeGood
      */
     sizeID?: number;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof SizeGood
      */
     vendorCode?: string;
     /**
      * Цена
-     * @type {number}
-     * @memberof SizeGood
      */
     price?: number;
     /**
      * Валюта, по стандарту ISO 4217
-     * @type {string}
-     * @memberof SizeGood
      */
     currencyIsoCode4217?: string;
     /**
      * Цена со скидкой
-     * @type {number}
-     * @memberof SizeGood
      */
     discountedPrice?: number;
     /**
      * Цена со скидкой, включая скидку WB Клуба
-     * @type {number}
-     * @memberof SizeGood
      */
     clubDiscountedPrice?: number;
     /**
      * Скидка, %
-     * @type {number}
-     * @memberof SizeGood
      */
     discount?: number;
     /**
      * Скидка WB Клуба, %
-     * @type {number}
-     * @memberof SizeGood
      */
     clubDiscount?: number;
     /**
      * Размер товара
-     * @type {string}
-     * @memberof SizeGood
      */
     techSizeName?: string;
     /**
@@ -84,8 +64,6 @@ export interface SizeGood {
      *   - `true` — можно
      *   - `false` — нельзя
      * 
-     * @type {boolean}
-     * @memberof SizeGood
      */
     editableSizePrice?: boolean;
     /**
@@ -93,8 +71,6 @@ export interface SizeGood {
      *   - `true` — неликвидный товар с [низким индексом остатка](https://seller.wildberries.ru/instructions/ru/ru/material/stocks-index?categoryId=e324ce0f-9a2a-4b8d-8fd1-72f751b09b3b&goBackOption=prevRoute#%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B8-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0-%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0)
      *   - Поле отсутствует — ликвидный товар
      * 
-     * @type {boolean}
-     * @memberof SizeGood
      */
     isBadTurnover?: boolean;
 }

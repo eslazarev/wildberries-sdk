@@ -60,22 +60,41 @@ import {
 } from '../models/ReturnRatesResponse';
 
 export interface GetV1AcceptanceCoefficientsRequest {
+    /**
+     * ID складов.<br>По умолчанию возвращаются данные по всем складам
+     */
     warehouseIDs?: string;
 }
 
 export interface GetV1TariffsBoxRequest {
+    /**
+     * Дата в формате ГГГГ-ММ-ДД
+     */
     date: string;
 }
 
 export interface GetV1TariffsCommissionRequest {
+    /**
+     * Язык полей ответа `parentName` и `subjectName`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     */
     locale?: string;
 }
 
 export interface GetV1TariffsPalletRequest {
+    /**
+     * Дата в формате ГГГГ-ММ-ДД
+     */
     date: string;
 }
 
 export interface GetV1TariffsReturnRequest {
+    /**
+     * Дата в формате ГГГГ-ММ-ДД
+     */
     date: string;
 }
 

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3SuppliesSupplyIdTrbxDeleteRequest {
     /**
      * Список ID грузомест, которые необходимо удалить
-     * @type {Array<string>}
-     * @memberof ApiV3SuppliesSupplyIdTrbxDeleteRequest
      */
     trbxIds: Array<string>;
 }

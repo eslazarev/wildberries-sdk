@@ -29,8 +29,6 @@ import {
 export interface GetTasksResponse {
     /**
      * 
-     * @type {GetTasksResponseData}
-     * @memberof GetTasksResponse
      */
     data?: GetTasksResponseData;
 }

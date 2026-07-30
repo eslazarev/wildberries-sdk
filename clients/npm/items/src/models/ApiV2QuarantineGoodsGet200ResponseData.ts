@@ -29,8 +29,6 @@ import {
 export interface ApiV2QuarantineGoodsGet200ResponseData {
     /**
      * Информация о товарах в карантине
-     * @type {Array<QuarantineItems>}
-     * @memberof ApiV2QuarantineGoodsGet200ResponseData
      */
     quarantineGoods?: Array<QuarantineItems>;
 }

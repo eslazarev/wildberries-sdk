@@ -29,8 +29,6 @@ import {
 export interface ApiV2SearchReportReportPost200Response {
     /**
      * 
-     * @type {MainResponse}
-     * @memberof ApiV2SearchReportReportPost200Response
      */
     data: MainResponse;
 }

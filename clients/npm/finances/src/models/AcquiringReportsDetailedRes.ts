@@ -21,105 +21,71 @@ import { mapValues } from '../runtime';
 export interface AcquiringReportsDetailedRes {
     /**
      * ID строки
-     * @type {number}
-     * @memberof AcquiringReportsDetailedRes
      */
     rrdId: number;
     /**
      * ID отчёта
-     * @type {number}
-     * @memberof AcquiringReportsDetailedRes
      */
     reportId: number;
     /**
      * Дата операции
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     acqDate: string;
     /**
      * Наименование банка-эквайера
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     acquiringBank: string;
     /**
      * ИНН
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     tin: string;
     /**
      * КПП
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     taxRegistrationReasonCode: string;
     /**
      * Дата продажи
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     saleDate: string;
     /**
      * ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
      * 
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     srid: string;
     /**
      * Тип документа
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     docTypeName: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof AcquiringReportsDetailedRes
      */
     nmId: number;
     /**
      * Вайлдберриз реализовал Товар (Пр)
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     retailAmount: string;
     /**
      * Размер комиссии за эквайринг, в том числе НДС
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     acquiringFee: string;
     /**
      * Сумма НДС
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     acquiringFeeVat: string;
     /**
      * Номер счёта-фактуры
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     invoiceNumber: string;
     /**
      * Дата счёта-фактуры
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     invoiceDate: string;
     /**
      * Штрихкод
-     * @type {number}
-     * @memberof AcquiringReportsDetailedRes
      */
     shkId: number;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof AcquiringReportsDetailedRes
      */
     currency: string;
 }

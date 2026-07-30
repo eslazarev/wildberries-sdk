@@ -29,8 +29,6 @@ import {
 export interface GetV3DbwOrdersNew200Response {
     /**
      * Список новых сборочных заданий
-     * @type {Array<OrderNewDBW>}
-     * @memberof GetV3DbwOrdersNew200Response
      */
     orders?: Array<OrderNewDBW>;
 }

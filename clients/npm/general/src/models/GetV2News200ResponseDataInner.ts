@@ -29,32 +29,22 @@ import {
 export interface GetV2News200ResponseDataInner {
     /**
      * Текст новости
-     * @type {string}
-     * @memberof GetV2News200ResponseDataInner
      */
     content?: string;
     /**
      * Дата и время публикации новости
-     * @type {Date}
-     * @memberof GetV2News200ResponseDataInner
      */
     date?: Date;
     /**
      * Заголовок новости
-     * @type {string}
-     * @memberof GetV2News200ResponseDataInner
      */
     header?: string;
     /**
      * ID новости
-     * @type {number}
-     * @memberof GetV2News200ResponseDataInner
      */
     id?: number;
     /**
      * Теги новости
-     * @type {Array<GetV2News200ResponseDataInnerTypesInner>}
-     * @memberof GetV2News200ResponseDataInner
      */
     types?: Array<GetV2News200ResponseDataInnerTypesInner>;
 }

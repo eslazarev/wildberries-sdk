@@ -29,8 +29,6 @@ import {
 export interface RatesPalletResponse {
     /**
      * 
-     * @type {ModelsRatesPalletResponse}
-     * @memberof RatesPalletResponse
      */
     response?: ModelsRatesPalletResponse;
 }

@@ -29,26 +29,18 @@ import {
 export interface ContentV2ObjectParentAllGet200Response {
     /**
      * 
-     * @type {Array<ContentV2ObjectParentAllGet200ResponseDataInner>}
-     * @memberof ContentV2ObjectParentAllGet200Response
      */
     data?: Array<ContentV2ObjectParentAllGet200ResponseDataInner>;
     /**
      * Флаг наличия ошибки
-     * @type {boolean}
-     * @memberof ContentV2ObjectParentAllGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet200Response
      */
     additionalErrors?: string | null;
 }

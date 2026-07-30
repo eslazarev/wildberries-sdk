@@ -29,20 +29,14 @@ import {
 export interface ApiOrdersResponse {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiOrdersResponse
      */
     orderId: number;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof ApiOrdersResponse
      */
     isError: boolean;
     /**
      * Детали ошибки
-     * @type {Array<ApiOrdersErrorResponse>}
-     * @memberof ApiOrdersResponse
      */
     errors?: Array<ApiOrdersErrorResponse>;
 }

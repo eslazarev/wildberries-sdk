@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface GetV1Rating403Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof GetV1Rating403Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof GetV1Rating403Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof GetV1Rating403Response
      */
     code?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof GetV1Rating403Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof GetV1Rating403Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof GetV1Rating403Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof GetV1Rating403Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof GetV1Rating403Response
      */
     timestamp?: Date;
 }

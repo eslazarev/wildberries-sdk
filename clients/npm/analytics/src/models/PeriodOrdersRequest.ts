@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PeriodOrdersRequest {
     /**
      * Дата начала периода. Не позднее `end`. Не ранее 365 суток от сегодня
-     * @type {Date}
-     * @memberof PeriodOrdersRequest
      */
     start: Date;
     /**
      * Дата окончания периода. Не ранее 365 суток от сегодня
-     * @type {Date}
-     * @memberof PeriodOrdersRequest
      */
     end: Date;
 }

@@ -22,8 +22,6 @@ import { mapValues } from '../runtime';
 export interface V0BidRecommendationBaseBidLeadersBid {
     /**
      * Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof V0BidRecommendationBaseBidLeadersBid
      */
     bidKopecks?: number;
 }

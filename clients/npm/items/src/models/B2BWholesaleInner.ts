@@ -29,14 +29,10 @@ import {
 export interface B2BWholesaleInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof B2BWholesaleInner
      */
     nmId: number;
     /**
      * Оптовые скидки разных уровней для B2B
-     * @type {Array<WholesaleDiscountThresholdReq>}
-     * @memberof B2BWholesaleInner
      */
     wholesaleDiscountThreshold: Array<WholesaleDiscountThresholdReq>;
 }

@@ -29,8 +29,6 @@ import {
 export interface ApiOrderStatusesV2 {
     /**
      * Информация о статусах
-     * @type {Array<ApiOrderStatusV2>}
-     * @memberof ApiOrderStatusesV2
      */
     orders?: Array<ApiOrderStatusV2>;
 }

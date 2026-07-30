@@ -29,8 +29,6 @@ import {
 export interface V1SetNormQueryBidsRequest {
     /**
      * 
-     * @type {Array<V1SetNormQueryBidsRequestItem>}
-     * @memberof V1SetNormQueryBidsRequest
      */
     bids: Array<V1SetNormQueryBidsRequestItem>;
 }

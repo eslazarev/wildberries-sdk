@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
     /**
      * Идентификатор маркировки
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     key?: string;
     /**
      * Значение идентификатора маркировки
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     value?: string | null;
     /**
@@ -71,8 +67,6 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
      *   - `optional` — Маркировка не обязательна
      *   - `filled` — Валидация пройдена
      * 
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     decision?: string;
 }

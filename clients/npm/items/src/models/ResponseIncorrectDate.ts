@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ResponseIncorrectDate {
     /**
      * 
-     * @type {string}
-     * @memberof ResponseIncorrectDate
      */
     error?: string;
 }

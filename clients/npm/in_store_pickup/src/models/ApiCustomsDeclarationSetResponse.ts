@@ -29,14 +29,10 @@ import {
 export interface ApiCustomsDeclarationSetResponse {
     /**
      * Уникальный ID запроса
-     * @type {any}
-     * @memberof ApiCustomsDeclarationSetResponse
      */
     requestId: any | null;
     /**
      * 
-     * @type {Array<ApiStatusSetCustomsDeclarationResponse>}
-     * @memberof ApiCustomsDeclarationSetResponse
      */
     results: Array<ApiStatusSetCustomsDeclarationResponse>;
 }

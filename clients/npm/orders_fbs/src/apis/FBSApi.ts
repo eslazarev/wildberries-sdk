@@ -240,150 +240,316 @@ import {
 } from '../models/V3SupplyOrderIDsAPI';
 
 export interface ApiMarketplaceV3FbsOrdersArchiveGetRequest {
+    /**
+     * Год создания заказа
+     */
     year: number;
+    /**
+     * Месяц создания заказа
+     */
     month: number;
+    /**
+     * Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+     */
     next: number;
+    /**
+     * Количество сборочных заданий в ответе
+     */
     limit: number;
 }
 
 export interface ApiMarketplaceV3OrdersMetaPostRequest {
+    /**
+     * 
+     */
     v3GetMetaMultiRequest?: V3GetMetaMultiRequest;
 }
 
 export interface ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutOperationRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
+    /**
+     * 
+     */
     apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest?: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest;
 }
 
 export interface ApiMarketplaceV3SuppliesSupplyIdOrderIdsGetRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
 }
 
 export interface ApiMarketplaceV3SuppliesSupplyIdOrdersPatchOperationRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
+    /**
+     * 
+     */
     apiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest: ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest;
 }
 
 export interface ApiV3OrdersClientPostRequest {
+    /**
+     * 
+     */
     ordersRequestAPI: OrdersRequestAPI;
 }
 
 export interface ApiV3OrdersGetRequest {
+    /**
+     * Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
+     */
     limit: number;
+    /**
+     * Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+     */
     next: number;
+    /**
+     * Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC
+     * 
+     */
     dateFrom?: number;
+    /**
+     * Дата конца периода в формате Unix timestamp. Часовой пояс — UTC
+     */
     dateTo?: number;
 }
 
 export interface ApiV3OrdersOrderIdCancelPatchRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
 }
 
 export interface ApiV3OrdersOrderIdMetaDeleteRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
+    /**
+     * Название идентификаторов маркировки для удаления. Передаётся только одно значение.
+     */
     key?: ApiV3OrdersOrderIdMetaDeleteKeyEnum;
 }
 
 export interface ApiV3OrdersOrderIdMetaExpirationPutOperationRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
+    /**
+     * 
+     */
     apiV3OrdersOrderIdMetaExpirationPutRequest?: ApiV3OrdersOrderIdMetaExpirationPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaGtinPutOperationRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
+    /**
+     * 
+     */
     apiV3OrdersOrderIdMetaGtinPutRequest?: ApiV3OrdersOrderIdMetaGtinPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaImeiPutOperationRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
+    /**
+     * 
+     */
     apiV3OrdersOrderIdMetaImeiPutRequest?: ApiV3OrdersOrderIdMetaImeiPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaSgtinPutOperationRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
+    /**
+     * 
+     */
     apiV3OrdersOrderIdMetaSgtinPutRequest?: ApiV3OrdersOrderIdMetaSgtinPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaUinPutOperationRequest {
+    /**
+     * ID сборочного задания
+     */
     orderId: number;
+    /**
+     * 
+     */
     apiV3OrdersOrderIdMetaUinPutRequest?: ApiV3OrdersOrderIdMetaUinPutRequest;
 }
 
 export interface ApiV3OrdersStatusHistoryPostOperationRequest {
+    /**
+     * 
+     */
     apiV3OrdersStatusHistoryPostRequest?: ApiV3OrdersStatusHistoryPostRequest;
 }
 
 export interface ApiV3OrdersStatusPostOperationRequest {
+    /**
+     * 
+     */
     apiV3OrdersStatusPostRequest?: ApiV3OrdersStatusPostRequest;
 }
 
 export interface ApiV3OrdersStickersCrossBorderPostOperationRequest {
+    /**
+     * 
+     */
     apiV3OrdersStickersCrossBorderPostRequest?: ApiV3OrdersStickersCrossBorderPostRequest;
 }
 
 export interface ApiV3OrdersStickersPostOperationRequest {
+    /**
+     * Тип стикера
+     */
     type: ApiV3OrdersStickersPostOperationTypeEnum;
+    /**
+     * Ширина стикера
+     */
     width: ApiV3OrdersStickersPostOperationWidthEnum;
+    /**
+     * Высота стикера
+     */
     height: ApiV3OrdersStickersPostOperationHeightEnum;
+    /**
+     * 
+     */
     apiV3OrdersStickersPostRequest?: ApiV3OrdersStickersPostRequest;
 }
 
 export interface ApiV3PassesPassIdDeleteRequest {
+    /**
+     * ID пропуска
+     */
     passId: number;
 }
 
 export interface ApiV3PassesPassIdPutOperationRequest {
+    /**
+     * ID пропуска
+     */
     passId: number;
+    /**
+     * 
+     */
     apiV3PassesPassIdPutRequest: ApiV3PassesPassIdPutRequest;
 }
 
 export interface ApiV3PassesPostOperationRequest {
+    /**
+     * 
+     */
     apiV3PassesPostRequest: ApiV3PassesPostRequest;
 }
 
 export interface ApiV3SuppliesGetRequest {
+    /**
+     * Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
+     */
     limit: number;
+    /**
+     * Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+     */
     next: number;
 }
 
 export interface ApiV3SuppliesPostOperationRequest {
+    /**
+     * 
+     */
     apiV3SuppliesPostRequest: ApiV3SuppliesPostRequest;
 }
 
 export interface ApiV3SuppliesSupplyIdBarcodeGetRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
+    /**
+     * Тип стикера
+     */
     type: ApiV3SuppliesSupplyIdBarcodeGetTypeEnum;
 }
 
 export interface ApiV3SuppliesSupplyIdDeleteRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
 }
 
 export interface ApiV3SuppliesSupplyIdDeliverPatchRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
 }
 
 export interface ApiV3SuppliesSupplyIdGetRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
 }
 
 export interface ApiV3SuppliesSupplyIdTrbxDeleteOperationRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
+    /**
+     * 
+     */
     apiV3SuppliesSupplyIdTrbxDeleteRequest?: ApiV3SuppliesSupplyIdTrbxDeleteRequest;
 }
 
 export interface ApiV3SuppliesSupplyIdTrbxGetRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
 }
 
 export interface ApiV3SuppliesSupplyIdTrbxPostOperationRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
+    /**
+     * 
+     */
     apiV3SuppliesSupplyIdTrbxPostRequest?: ApiV3SuppliesSupplyIdTrbxPostRequest;
 }
 
 export interface ApiV3SuppliesSupplyIdTrbxStickersPostOperationRequest {
+    /**
+     * ID поставки
+     */
     supplyId: string;
+    /**
+     * Тип стикера
+     */
     type: ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum;
+    /**
+     * 
+     */
     apiV3SuppliesSupplyIdTrbxStickersPostRequest?: ApiV3SuppliesSupplyIdTrbxStickersPostRequest;
 }
 

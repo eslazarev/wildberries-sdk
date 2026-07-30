@@ -29,8 +29,6 @@ import {
 export interface ApiNewOrders {
     /**
      * Список сборочных заданий
-     * @type {Array<ApiNewOrder>}
-     * @memberof ApiNewOrders
      */
     orders?: Array<ApiNewOrder>;
 }

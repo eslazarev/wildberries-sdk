@@ -29,8 +29,6 @@ import {
 export interface ApiV2SearchReportTableGroupsPost200Response {
     /**
      * 
-     * @type {TableGroupResponse}
-     * @memberof ApiV2SearchReportTableGroupsPost200Response
      */
     data: TableGroupResponse;
 }

@@ -78,118 +78,80 @@ import {
 export interface TableItemItem {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof TableItemItem
      */
     nmId: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof TableItemItem
      */
     name?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof TableItemItem
      */
     vendorCode: string;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof TableItemItem
      */
     subjectName?: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof TableItemItem
      */
     brandName?: string;
     /**
      * URL главного фото карточки товара
-     * @type {string}
-     * @memberof TableItemItem
      */
     mainPhoto?: string;
     /**
      * Находится ли товар в продвижении в Поисковой выдаче
-     * @type {boolean}
-     * @memberof TableItemItem
      */
     isAdvertised: boolean;
     /**
      * Искали ли товар по подменному артикулу.<br>
      * Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
      * 
-     * @type {boolean}
-     * @memberof TableItemItem
      */
     isSubstitutedSKU?: boolean;
     /**
      * Есть ли рейтинг у карточки товара
-     * @type {boolean}
-     * @memberof TableItemItem
      */
     isCardRated: boolean;
     /**
      * Рейтинг карточки товара
-     * @type {number}
-     * @memberof TableItemItem
      */
     rating: number;
     /**
      * Рейтинг по отзывам
-     * @type {number}
-     * @memberof TableItemItem
      */
     feedbackRating: number;
     /**
      * 
-     * @type {TableItemItemAllOfPrice}
-     * @memberof TableItemItem
      */
     price: TableItemItemAllOfPrice;
     /**
      * 
-     * @type {TableGroupItemMetricsAvgPosition}
-     * @memberof TableItemItem
      */
     avgPosition: TableGroupItemMetricsAvgPosition;
     /**
      * 
-     * @type {VisibilityInfoOpenCard}
-     * @memberof TableItemItem
      */
     openCard: VisibilityInfoOpenCard;
     /**
      * 
-     * @type {TableGroupItemMetricsAddToCart}
-     * @memberof TableItemItem
      */
     addToCart: TableGroupItemMetricsAddToCart;
     /**
      * 
-     * @type {TableGroupItemMetricsOpenToCart}
-     * @memberof TableItemItem
      */
     openToCart: TableGroupItemMetricsOpenToCart;
     /**
      * 
-     * @type {TableGroupItemMetricsOrders}
-     * @memberof TableItemItem
      */
     orders: TableGroupItemMetricsOrders;
     /**
      * 
-     * @type {TableGroupItemMetricsCartToOrder}
-     * @memberof TableItemItem
      */
     cartToOrder: TableGroupItemMetricsCartToOrder;
     /**
      * 
-     * @type {TableGroupItemMetricsVisibility}
-     * @memberof TableItemItem
      */
     visibility: TableGroupItemMetricsVisibility;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV1FeedbacksOrderReturnPostRequest {
     /**
      * ID отзыва
-     * @type {string}
-     * @memberof ApiV1FeedbacksOrderReturnPostRequest
      */
     feedbackId?: string;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsTrashPost200ResponseCursor {
     /**
      * Дата и время, с которых надо запрашивать следующий список карточек товаров
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCursor
      */
     trashedAt?: string;
     /**
      * Артикул WB, с которого надо запрашивать следующий список карточек товаров
-     * @type {number}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCursor
      */
     nmID?: number;
     /**
      * Количество возвращённых карточек товаров
-     * @type {number}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCursor
      */
     total?: number;
 }

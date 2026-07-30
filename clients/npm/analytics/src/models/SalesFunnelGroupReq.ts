@@ -29,26 +29,18 @@ import {
 export interface SalesFunnelGroupReq {
     /**
      * ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
-     * @type {string}
-     * @memberof SalesFunnelGroupReq
      */
     id: string;
     /**
      * Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам
-     * @type {string}
-     * @memberof SalesFunnelGroupReq
      */
     reportType: string;
     /**
      * Название отчёта. Если не указано, сформируется автоматически
-     * @type {string}
-     * @memberof SalesFunnelGroupReq
      */
     userReportName?: string;
     /**
      * 
-     * @type {SalesFunnelGroupReqParams}
-     * @memberof SalesFunnelGroupReq
      */
     params: SalesFunnelGroupReqParams;
 }

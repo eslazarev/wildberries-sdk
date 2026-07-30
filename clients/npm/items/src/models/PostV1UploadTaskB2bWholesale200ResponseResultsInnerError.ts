@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface PostV1UploadTaskB2bWholesale200ResponseResultsInnerError {
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof PostV1UploadTaskB2bWholesale200ResponseResultsInnerError
      */
     status: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PostV1UploadTaskB2bWholesale200ResponseResultsInnerError
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof PostV1UploadTaskB2bWholesale200ResponseResultsInnerError
      */
     detail: string;
 }

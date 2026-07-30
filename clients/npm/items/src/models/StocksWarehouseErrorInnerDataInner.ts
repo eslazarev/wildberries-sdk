@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface StocksWarehouseErrorInnerDataInner {
     /**
      * Баркод
-     * @type {string}
-     * @memberof StocksWarehouseErrorInnerDataInner
      */
     sku?: string;
     /**
      * ID размера товара
-     * @type {number}
-     * @memberof StocksWarehouseErrorInnerDataInner
      */
     chrtId?: number;
     /**
      * Остаток
-     * @type {number}
-     * @memberof StocksWarehouseErrorInnerDataInner
      */
     amount?: number;
 }

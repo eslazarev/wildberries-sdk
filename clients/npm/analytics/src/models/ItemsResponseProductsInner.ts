@@ -36,14 +36,10 @@ import {
 export interface ItemsResponseProductsInner {
     /**
      * 
-     * @type {ItemsResponseProductsInnerProduct}
-     * @memberof ItemsResponseProductsInner
      */
     product: ItemsResponseProductsInnerProduct;
     /**
      * 
-     * @type {ItemsResponseProductsInnerStatistic}
-     * @memberof ItemsResponseProductsInner
      */
     statistic: ItemsResponseProductsInnerStatistic;
 }

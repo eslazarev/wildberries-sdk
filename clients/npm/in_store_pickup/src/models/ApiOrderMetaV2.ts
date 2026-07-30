@@ -24,44 +24,30 @@ export interface ApiOrderMetaV2 {
      * - `""` — нет ошибок
      * - `NotFound` — сборочное задание не найдено
      * 
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     error: string;
     /**
      * GTIN
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     gtin?: string | null;
     /**
      * IMEI
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     imei?: string | null;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiOrderMetaV2
      */
     orderId: number;
     /**
      * Код маркировки [Честного знака](https://честныйзнак.рф/)
-     * @type {Array<string>}
-     * @memberof ApiOrderMetaV2
      */
     sgtin?: Array<string> | null;
     /**
      * УИН
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     uin?: string | null;
     /**
      * Номер ДТ
-     * @type {string}
-     * @memberof ApiOrderMetaV2
      */
     customsDeclaration?: string | null;
 }

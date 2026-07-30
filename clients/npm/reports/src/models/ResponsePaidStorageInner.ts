@@ -21,140 +21,94 @@ import { mapValues } from '../runtime';
 export interface ResponsePaidStorageInner {
     /**
      * Дата, за которую был расчёт или перерасчёт
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     date?: string;
     /**
      * Коэффициент логистики и хранения
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     logWarehouseCoef?: number;
     /**
      * ID склада
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     officeId?: number;
     /**
      * Название склада
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     warehouse?: string;
     /**
      * Коэффициент склада
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     warehouseCoef?: number;
     /**
      * ID поставки
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     giId?: number;
     /**
      * ID размера для этого артикула WB
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     chrtId?: number;
     /**
      * Размер (`techSize` в карточке товара)
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     size?: string;
     /**
      * Баркод
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     barcode?: string;
     /**
      * Предмет
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     subject?: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     brand?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     vendorCode?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     nmId?: number;
     /**
      * Объём товара
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     volume?: number;
     /**
      * Способ расчёта
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     calcType?: string;
     /**
      * Сумма хранения
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     warehousePrice?: number;
     /**
      * Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     barcodesCount?: number;
     /**
      * Код паллетоместа
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     palletPlaceCode?: number;
     /**
      * Количество паллет
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     palletCount?: number;
     /**
      * Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с `date`
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     originalDate?: string;
     /**
      * Скидка программы лояльности, ₽
-     * @type {number}
-     * @memberof ResponsePaidStorageInner
      */
     loyaltyDiscount?: number;
     /**
      * Дата фиксации тарифа
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     tariffFixDate?: string;
     /**
      * Дата понижения тарифа
-     * @type {string}
-     * @memberof ResponsePaidStorageInner
      */
     tariffLowerDate?: string;
 }

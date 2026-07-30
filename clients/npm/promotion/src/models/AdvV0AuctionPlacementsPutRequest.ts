@@ -29,8 +29,6 @@ import {
 export interface AdvV0AuctionPlacementsPutRequest {
     /**
      * Места размещения в кампаниях
-     * @type {Array<AdvV0AuctionPlacementsPutRequestPlacementsInner>}
-     * @memberof AdvV0AuctionPlacementsPutRequest
      */
     placements: Array<AdvV0AuctionPlacementsPutRequestPlacementsInner>;
 }

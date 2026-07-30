@@ -29,20 +29,14 @@ import {
 export interface TableShippingOfficeItemOfficesInner {
     /**
      * ID склада
-     * @type {number}
-     * @memberof TableShippingOfficeItemOfficesInner
      */
     officeID: number;
     /**
      * Название склада
-     * @type {string}
-     * @memberof TableShippingOfficeItemOfficesInner
      */
     officeName: string;
     /**
      * Метрики по складу
-     * @type {TableShippingOfficeMetrics}
-     * @memberof TableShippingOfficeItemOfficesInner
      */
     metrics: TableShippingOfficeMetrics;
 }

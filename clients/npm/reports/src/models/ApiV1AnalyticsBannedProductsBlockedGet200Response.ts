@@ -29,8 +29,6 @@ import {
 export interface ApiV1AnalyticsBannedProductsBlockedGet200Response {
     /**
      * Отчёт
-     * @type {Array<ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner>}
-     * @memberof ApiV1AnalyticsBannedProductsBlockedGet200Response
      */
     report?: Array<ApiV1AnalyticsBannedProductsBlockedGet200ResponseReportInner>;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiOrderMetaV2CustomsDeclaration {
     /**
      * 
-     * @type {string}
-     * @memberof ApiOrderMetaV2CustomsDeclaration
      */
     value?: string | null;
 }

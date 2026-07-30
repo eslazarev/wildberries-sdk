@@ -29,8 +29,6 @@ import {
 export interface ApiAdvertV1BidsMinPost200Response {
     /**
      * Список карточек товаров со ставками
-     * @type {Array<ApiAdvertV1BidsMinPost200ResponseBidsInner>}
-     * @memberof ApiAdvertV1BidsMinPost200Response
      */
     bids: Array<ApiAdvertV1BidsMinPost200ResponseBidsInner>;
 }

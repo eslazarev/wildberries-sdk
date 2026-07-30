@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PutV3DbwOrdersOrderIdMetaUinRequest {
     /**
      * УИН
-     * @type {string}
-     * @memberof PutV3DbwOrdersOrderIdMetaUinRequest
      */
     uin: string;
 }

@@ -50,39 +50,27 @@ import {
 export interface SearchReportTextReqParams {
     /**
      * 
-     * @type {Period}
-     * @memberof SearchReportTextReqParams
      */
     currentPeriod: Period;
     /**
      * 
-     * @type {PastPeriod}
-     * @memberof SearchReportTextReqParams
      */
     pastPeriod?: PastPeriod;
     /**
      * Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт по всем товарам
      * 
-     * @type {Array<string>}
-     * @memberof SearchReportTextReqParams
      */
     nmIds?: Array<string>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof SearchReportTextReqParams
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof SearchReportTextReqParams
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof SearchReportTextReqParams
      */
     tagIds?: Array<number>;
     /**
@@ -93,32 +81,22 @@ export interface SearchReportTextReqParams {
      *   - `orders` — заказали товаров
      *   - `cartToOrder` — конверсия в заказ
      * 
-     * @type {SearchReportTextReqParamsTopOrderByEnum}
-     * @memberof SearchReportTextReqParams
      */
     topOrderBy: SearchReportTextReqParamsTopOrderByEnum;
     /**
      * 
-     * @type {OrderByGrTe}
-     * @memberof SearchReportTextReqParams
      */
     orderBy: OrderByGrTe;
     /**
      * Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
-     * @type {boolean}
-     * @memberof SearchReportTextReqParams
      */
     includeSubstitutedSKUs?: boolean;
     /**
      * Показать данные по поисковым запросам без учёта подменного артикула
-     * @type {boolean}
-     * @memberof SearchReportTextReqParams
      */
     includeSearchTexts?: boolean;
     /**
      * 
-     * @type {TextLimit}
-     * @memberof SearchReportTextReqParams
      */
     limit: TextLimit;
 }

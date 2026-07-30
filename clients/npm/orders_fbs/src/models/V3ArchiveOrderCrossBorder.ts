@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface V3ArchiveOrderCrossBorder {
     /**
      * ID посылки
-     * @type {string}
-     * @memberof V3ArchiveOrderCrossBorder
      */
     parcel?: string;
 }

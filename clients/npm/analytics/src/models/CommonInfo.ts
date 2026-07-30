@@ -36,20 +36,14 @@ import {
 export interface CommonInfo {
     /**
      * 
-     * @type {CommonInfoSupplierRating}
-     * @memberof CommonInfo
      */
     supplierRating: CommonInfoSupplierRating;
     /**
      * 
-     * @type {CommonInfoAdvertisedProducts}
-     * @memberof CommonInfo
      */
     advertisedProducts: CommonInfoAdvertisedProducts;
     /**
      * Общее количество товаров
-     * @type {number}
-     * @memberof CommonInfo
      */
     totalProducts: number;
 }

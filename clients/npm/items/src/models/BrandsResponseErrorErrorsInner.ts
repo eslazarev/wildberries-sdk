@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface BrandsResponseErrorErrorsInner {
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof BrandsResponseErrorErrorsInner
      */
     message?: string;
     /**
      * Параметр, где произошла ошибка
-     * @type {string}
-     * @memberof BrandsResponseErrorErrorsInner
      */
     location?: string;
     /**
      * Значение параметра, где произошла ошибка
-     * @type {any}
-     * @memberof BrandsResponseErrorErrorsInner
      */
     value?: any | null;
 }

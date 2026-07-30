@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ItemStocks {
     /**
      * Общее количество остатков на складах WB на текущий день, шт.
-     * @type {number}
-     * @memberof ItemStocks
      */
     wb: number;
     /**
      * Общее количество остатков на складах продавца на текущий день, шт.
-     * @type {number}
-     * @memberof ItemStocks
      */
     mp: number;
     /**
      * Сумма остатков на складах на текущий день, шт.
-     * @type {number}
-     * @memberof ItemStocks
      */
     balanceSum: number;
 }

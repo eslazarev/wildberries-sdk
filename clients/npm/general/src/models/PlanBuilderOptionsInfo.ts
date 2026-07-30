@@ -36,32 +36,22 @@ import {
 export interface PlanBuilderOptionsInfo {
     /**
      * Количество активных опций, не включённых в пакеты
-     * @type {number}
-     * @memberof PlanBuilderOptionsInfo
      */
     activeOptionCount: number;
     /**
      * Количество активных пакетов опций
-     * @type {number}
-     * @memberof PlanBuilderOptionsInfo
      */
     activePackageCount: number;
     /**
      * Итоговая комиссия за подключённые опции и пакеты, % от оборота
-     * @type {number}
-     * @memberof PlanBuilderOptionsInfo
      */
     totalCommissionRate: number;
     /**
      * Подключённые пакеты опций
-     * @type {Array<PlanBuilderPackage>}
-     * @memberof PlanBuilderOptionsInfo
      */
     packages: Array<PlanBuilderPackage>;
     /**
      * Подключённые опции
-     * @type {Array<PlanBuilderOption>}
-     * @memberof PlanBuilderOptionsInfo
      */
     options: Array<PlanBuilderOption>;
 }

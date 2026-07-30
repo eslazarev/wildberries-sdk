@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface ModelsExciseReportResponseDataInner {
     /**
      * Страна покупателя
-     * @type {string}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     name?: string;
     /**
      * Цена товара, с НДС
-     * @type {number}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     price?: number;
     /**
      * Валюта
-     * @type {string}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     currencyNameShort?: string;
     /**
      * Код маркировки
-     * @type {string}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     exciseShort?: string;
     /**
      * Баркод
-     * @type {string}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     barcode?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     nmId?: number;
     /**
@@ -61,40 +49,28 @@ export interface ModelsExciseReportResponseDataInner {
      *   * `1` — вывод из оборота
      *   * `2` — возврат в оборот
      * 
-     * @type {number}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     operationTypeId?: number;
     /**
      * Номер фискального документа (чека полного расчёта), если есть
-     * @type {number}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     fiscalDocNumber?: number;
     /**
      * Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
-     * @type {string}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     fiscalDt?: string;
     /**
      * Номер фискального накопителя, если есть
-     * @type {string}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     fiscalDriveNumber?: string;
     /**
      * `Rid`
      * 
-     * @type {number}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     rid?: number;
     /**
      * `Srid`
      * 
-     * @type {string}
-     * @memberof ModelsExciseReportResponseDataInner
      */
     srid?: string;
 }

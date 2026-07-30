@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PeriodItemRating {
     /**
      * Дата начала периода. Не ранее 364 суток от вчерашнего дня и не позднее `end`
-     * @type {Date}
-     * @memberof PeriodItemRating
      */
     start: Date;
     /**
      * Дата окончания периода. Не ранее 364 суток от вчерашнего дня
-     * @type {Date}
-     * @memberof PeriodItemRating
      */
     end: Date;
 }

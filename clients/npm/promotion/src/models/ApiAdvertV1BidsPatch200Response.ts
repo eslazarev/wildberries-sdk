@@ -29,14 +29,10 @@ import {
 export interface ApiAdvertV1BidsPatch200Response {
     /**
      * Результат отработки запроса
-     * @type {Array<ApiAdvertV1BidsPatch200ResponseBidsInner>}
-     * @memberof ApiAdvertV1BidsPatch200Response
      */
     bids: Array<ApiAdvertV1BidsPatch200ResponseBidsInner>;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof ApiAdvertV1BidsPatch200Response
      */
     currency: string;
 }

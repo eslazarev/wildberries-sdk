@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersStatusHistoryPostRequest {
     /**
      * ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof ApiV3OrdersStatusHistoryPostRequest
      */
     orders?: Array<number>;
 }

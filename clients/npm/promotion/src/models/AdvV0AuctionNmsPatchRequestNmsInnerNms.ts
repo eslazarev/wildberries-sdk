@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AdvV0AuctionNmsPatchRequestNmsInnerNms {
     /**
      * Карточки товаров, которые необходимо добавить
-     * @type {Array<number>}
-     * @memberof AdvV0AuctionNmsPatchRequestNmsInnerNms
      */
     add?: Array<number>;
     /**
      * Карточки товаров, которые необходимо удалить
-     * @type {Array<number>}
-     * @memberof AdvV0AuctionNmsPatchRequestNmsInnerNms
      */
     _delete?: Array<number>;
 }

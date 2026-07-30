@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ModelsSupplyDetails {
     /**
      * Телефон пользователя, создавшего поставку
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     phone?: string;
     /**
@@ -34,8 +32,6 @@ export interface ModelsSupplyDetails {
      *   - `5` — Принято
      *   - `6` — Отгружено на воротах
      * 
-     * @type {ModelsSupplyDetailsStatusIDEnum}
-     * @memberof ModelsSupplyDetails
      */
     statusID?: ModelsSupplyDetailsStatusIDEnum;
     /**
@@ -46,8 +42,6 @@ export interface ModelsSupplyDetails {
      *   - `5` — Допринято
      *   - `6` — Скан-приёмка
      * 
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     virtualTypeID?: number;
     /**
@@ -57,134 +51,90 @@ export interface ModelsSupplyDetails {
      *   - `5` — Монопаллеты
      *   - `6` — Суперсейф
      * 
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     boxTypeID?: number;
     /**
      * Дата и время создания поставки
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     createDate?: string;
     /**
      * Плановая дата отгрузки поставки
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     supplyDate?: string | null;
     /**
      * Дата фактической отгрузки поставки
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     factDate?: string | null;
     /**
      * Дата изменения поставки
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     updatedDate?: string | null;
     /**
      * ID склада, на который планируется поставка
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     warehouseID?: number;
     /**
      * Название склада, на который планируется поставка
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     warehouseName?: string;
     /**
      * ID склада, на который поставка была привезена
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     actualWarehouseID?: number | null;
     /**
      * Название склада, на который поставка привезена
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     actualWarehouseName?: string;
     /**
      * ID транзитного склада
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     transitWarehouseID?: number | null;
     /**
      * Название транзитного склада
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     transitWarehouseName?: string;
     /**
      * Предварительная стоимость приёмки, ₽
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     acceptanceCost?: number | null;
     /**
      * Коэффициент приёмки
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     paidAcceptanceCoefficient?: number | null;
     /**
      * Причина, по которой поставка не может быть принята
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     rejectReason?: string | null;
     /**
      * Краткое название продавца
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     supplierAssignName?: string | null;
     /**
      * Коэффициент хранения
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     storageCoef?: string | null;
     /**
      * Коэффициент логистики
-     * @type {string}
-     * @memberof ModelsSupplyDetails
      */
     deliveryCoef?: string | null;
     /**
      * Добавлено в поставку/заказ, шт
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     quantity?: number;
     /**
      * Поступило в продажу, шт
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     readyForSaleQuantity?: number;
     /**
      * Принято, шт
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     acceptedQuantity?: number;
     /**
      * Количество товара, находящегося на раскладке, шт
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     unloadingQuantity?: number;
     /**
      * Количество обезличенного товара, шт
-     * @type {number}
-     * @memberof ModelsSupplyDetails
      */
     depersonalizedQuantity?: number | null;
     /**
@@ -194,8 +144,6 @@ export interface ModelsSupplyDetails {
      * 
      *   Поле возвращается только при `"boxTypeID": 2`
      * 
-     * @type {boolean}
-     * @memberof ModelsSupplyDetails
      */
     isBoxOnPallet?: boolean;
 }

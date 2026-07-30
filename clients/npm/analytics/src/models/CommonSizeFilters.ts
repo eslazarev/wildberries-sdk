@@ -43,32 +43,22 @@ import {
 export interface CommonSizeFilters {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof CommonSizeFilters
      */
     nmID: number;
     /**
      * 
-     * @type {PeriodInv}
-     * @memberof CommonSizeFilters
      */
     currentPeriod: PeriodInv;
     /**
      * 
-     * @type {StockType}
-     * @memberof CommonSizeFilters
      */
     stockType: StockType;
     /**
      * 
-     * @type {TableOrderBy}
-     * @memberof CommonSizeFilters
      */
     orderBy: TableOrderBy;
     /**
      * Включить детализацию по складам
-     * @type {boolean}
-     * @memberof CommonSizeFilters
      */
     includeOffice: boolean;
 }

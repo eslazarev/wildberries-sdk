@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface GetRecomReq {
     /**
      * Бренды
-     * @type {Array<string>}
-     * @memberof GetRecomReq
      */
     brandNames?: Array<string>;
     /**
      * Количество товаров в ответе
-     * @type {number}
-     * @memberof GetRecomReq
      */
     limit?: number;
     /**
      * Курсор. Последний `nmId` в ответе
-     * @type {number}
-     * @memberof GetRecomReq
      */
     next?: number;
     /**
@@ -42,14 +36,10 @@ export interface GetRecomReq {
      *   - по артикулу WB `nmId` — полное совпадение
      *   - по артикулу продавца `vendorCode` — частичное совпадение
      * 
-     * @type {string}
-     * @memberof GetRecomReq
      */
     search?: string;
     /**
      * ID предметов
-     * @type {Array<number>}
-     * @memberof GetRecomReq
      */
     subjectIds?: Array<number>;
 }

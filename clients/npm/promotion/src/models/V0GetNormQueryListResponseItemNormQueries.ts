@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface V0GetNormQueryListResponseItemNormQueries {
     /**
      * Активные поисковые кластеры
-     * @type {Array<string>}
-     * @memberof V0GetNormQueryListResponseItemNormQueries
      */
     active?: Array<string> | null;
     /**
      * Неактивные поисковые кластеры
-     * @type {Array<string>}
-     * @memberof V0GetNormQueryListResponseItemNormQueries
      */
     excluded?: Array<string> | null;
     /**
      * Архивные поисковые кластеры
-     * @type {Array<string>}
-     * @memberof V0GetNormQueryListResponseItemNormQueries
      */
     archived?: Array<string> | null;
 }

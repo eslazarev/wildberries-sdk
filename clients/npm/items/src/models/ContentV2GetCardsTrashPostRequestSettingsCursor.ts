@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsTrashPostRequestSettingsCursor {
     /**
      * Сколько карточек товаров выдать в ответе
-     * @type {number}
-     * @memberof ContentV2GetCardsTrashPostRequestSettingsCursor
      */
     limit?: number;
     /**
      * Дата и время помещения в корзину
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPostRequestSettingsCursor
      */
     trashedAt?: string;
     /**
      * Артикул WB, с которого надо запрашивать следующий список карточек товаров
-     * @type {number}
-     * @memberof ContentV2GetCardsTrashPostRequestSettingsCursor
      */
     nmID?: number;
 }

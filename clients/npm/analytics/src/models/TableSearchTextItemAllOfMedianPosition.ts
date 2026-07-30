@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableSearchTextItemAllOfMedianPosition {
     /**
      * Текущая медианная позиция
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfMedianPosition
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfMedianPosition
      */
     dynamics?: number;
 }

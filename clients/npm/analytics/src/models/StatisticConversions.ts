@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface StatisticConversions {
     /**
      * Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
-     * @type {number}
-     * @memberof StatisticConversions
      */
     addToCartPercent: number;
     /**
      * Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ, %
-     * @type {number}
-     * @memberof StatisticConversions
      */
     cartToOrderPercent: number;
     /**
      * Процент выкупа. Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю, %
-     * @type {number}
-     * @memberof StatisticConversions
      */
     buyoutPercent: number;
 }

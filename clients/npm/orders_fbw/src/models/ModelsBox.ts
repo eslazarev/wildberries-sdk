@@ -29,20 +29,14 @@ import {
 export interface ModelsBox {
     /**
      * Штрих-код упаковки
-     * @type {string}
-     * @memberof ModelsBox
      */
     packageCode?: string;
     /**
      * Суммарное количество товара в упаковке, шт
-     * @type {number}
-     * @memberof ModelsBox
      */
     quantity?: number;
     /**
      * Список упакованных товаров
-     * @type {Array<ModelsGoodInBox>}
-     * @memberof ModelsBox
      */
     barcodes?: Array<ModelsGoodInBox>;
 }

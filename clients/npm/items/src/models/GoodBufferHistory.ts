@@ -21,63 +21,43 @@ import { mapValues } from '../runtime';
 export interface GoodBufferHistory {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof GoodBufferHistory
      */
     nmID?: number;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof GoodBufferHistory
      */
     vendorCode?: string;
     /**
      * ID размера. В методах Контента это поле `chrtID`
-     * @type {number}
-     * @memberof GoodBufferHistory
      */
     sizeID?: number;
     /**
      * Размер
-     * @type {string}
-     * @memberof GoodBufferHistory
      */
     techSizeName?: string;
     /**
      * Цена
-     * @type {number}
-     * @memberof GoodBufferHistory
      */
     price?: number;
     /**
      * Валюта, по стандарту ISO 4217
-     * @type {string}
-     * @memberof GoodBufferHistory
      */
     currencyIsoCode4217?: string;
     /**
      * Скидка, %
-     * @type {number}
-     * @memberof GoodBufferHistory
      */
     discount?: number;
     /**
      * Скидка WB Клуба, %
-     * @type {number}
-     * @memberof GoodBufferHistory
      */
     clubDiscount?: number;
     /**
      * Статус товара: `1` — в обработке
      * 
-     * @type {number}
-     * @memberof GoodBufferHistory
      */
     status?: number;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof GoodBufferHistory
      */
     errorText?: string | null;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
      */
     orderId?: number;
     /**
@@ -30,38 +28,26 @@ export interface ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner {
      *   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.
      *   - `ready` — стикер готов
      * 
-     * @type {ApiV3OrdersStickersCrossBorderPost200ResponseStickersInnerStatusEnum}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
      */
     status?: ApiV3OrdersStickersCrossBorderPost200ResponseStickersInnerStatusEnum;
     /**
      * Трек-номер в стикере для отслеживания сборочного задания
-     * @type {string}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
      */
     parcelId?: string;
     /**
      * Стикер в формате PDF, кодировка base64
-     * @type {string}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
      */
     file?: string;
     /**
      * Первая часть ID стикера для печати подписи
-     * @type {string}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
      */
     partA?: string;
     /**
      * Вторая часть ID стикера для печати подписи
-     * @type {string}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
      */
     partB?: string;
     /**
      * Закодированное значение стикера
-     * @type {string}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner
      */
     barcode?: string;
 }

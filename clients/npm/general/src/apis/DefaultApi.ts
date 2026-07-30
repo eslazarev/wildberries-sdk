@@ -80,24 +80,51 @@ import {
 } from '../models/UpdateUserAccessRequest';
 
 export interface DeleteV1UserRequest {
+    /**
+     * ID пользователя, которому будет закрыт доступ
+     */
     deletedUserID: number;
 }
 
 export interface GetV1TariffConstructorOptionsRequest {
+    /**
+     * Язык полей ответа:
+     *   - `ru` — русский
+     *   - `en` — английский
+     * 
+     */
     locale?: GetV1TariffConstructorOptionsLocaleEnum;
 }
 
 export interface GetV1UsersRequest {
+    /**
+     * Количество активных или приглашённых пользователей в ответе
+     */
     limit?: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     * 
+     */
     offset?: number;
+    /**
+     * - `true` — список приглашённых пользователей, которые ещё не активировали доступ
+     * - `false` или не указан — список активных пользователей профиля продавца
+     * 
+     */
     isInviteOnly?: boolean;
 }
 
 export interface PostV1InviteRequest {
+    /**
+     * 
+     */
     createInviteRequest: CreateInviteRequest;
 }
 
 export interface PutV1UsersAccessRequest {
+    /**
+     * 
+     */
     updateUserAccessRequest: UpdateUserAccessRequest;
 }
 

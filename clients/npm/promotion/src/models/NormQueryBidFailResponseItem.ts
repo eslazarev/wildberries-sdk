@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface NormQueryBidFailResponseItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof NormQueryBidFailResponseItem
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof NormQueryBidFailResponseItem
      */
     nmId: number;
     /**
      * Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
-     * @type {string}
-     * @memberof NormQueryBidFailResponseItem
      */
     normQuery: string;
     /**
      * Описание причины ошибки
-     * @type {string}
-     * @memberof NormQueryBidFailResponseItem
      */
     reason: string;
 }

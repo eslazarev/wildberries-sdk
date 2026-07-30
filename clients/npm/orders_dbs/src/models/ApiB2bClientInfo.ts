@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ApiB2bClientInfo {
     /**
      * Индивидуальный номер налогоплательщика (ИНН)
-     * @type {string}
-     * @memberof ApiB2bClientInfo
      */
     inn?: string;
     /**
      * Код причины постановки на учёт (КПП)
-     * @type {string}
-     * @memberof ApiB2bClientInfo
      */
     kpp?: string;
     /**
      * Наименование организации
-     * @type {string}
-     * @memberof ApiB2bClientInfo
      */
     orgName?: string;
 }

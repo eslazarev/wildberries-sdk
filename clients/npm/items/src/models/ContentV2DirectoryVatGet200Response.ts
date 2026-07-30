@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2DirectoryVatGet200Response {
     /**
      * 
-     * @type {Array<string>}
-     * @memberof ContentV2DirectoryVatGet200Response
      */
     data?: Array<string>;
     /**
      * Флаг наличия ошибки
-     * @type {boolean}
-     * @memberof ContentV2DirectoryVatGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryVatGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryVatGet200Response
      */
     additionalErrors?: string | null;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface AdvV1BudgetDepositPost400Response {
     /**
      * 
-     * @type {string}
-     * @memberof AdvV1BudgetDepositPost400Response
      */
     error?: string;
 }

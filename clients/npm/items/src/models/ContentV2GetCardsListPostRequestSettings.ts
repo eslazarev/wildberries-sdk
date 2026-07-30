@@ -43,20 +43,14 @@ import {
 export interface ContentV2GetCardsListPostRequestSettings {
     /**
      * 
-     * @type {ContentV2GetCardsListPostRequestSettingsSort}
-     * @memberof ContentV2GetCardsListPostRequestSettings
      */
     sort?: ContentV2GetCardsListPostRequestSettingsSort;
     /**
      * 
-     * @type {ContentV2GetCardsListPostRequestSettingsFilter}
-     * @memberof ContentV2GetCardsListPostRequestSettings
      */
     filter?: ContentV2GetCardsListPostRequestSettingsFilter;
     /**
      * 
-     * @type {ContentV2GetCardsListPostRequestSettingsCursor}
-     * @memberof ContentV2GetCardsListPostRequestSettings
      */
     cursor?: ContentV2GetCardsListPostRequestSettingsCursor;
 }

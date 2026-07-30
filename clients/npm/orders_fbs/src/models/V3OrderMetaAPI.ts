@@ -29,14 +29,10 @@ import {
 export interface V3OrderMetaAPI {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof V3OrderMetaAPI
      */
     id?: number;
     /**
      * Детали маркировки
-     * @type {Array<MetaDetailsInner>}
-     * @memberof V3OrderMetaAPI
      */
     metaDetails?: Array<MetaDetailsInner>;
 }

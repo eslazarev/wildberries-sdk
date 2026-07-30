@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner {
     /**
      * ID характеристики
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner
      */
     id?: number;
     /**
      * Название характеристики
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner
      */
     name?: string;
     /**
      * Значение характеристики. Тип значения зависит от типа характеристики
-     * @type {any}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner
      */
     value?: any | null;
 }

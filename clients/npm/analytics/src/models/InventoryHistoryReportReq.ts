@@ -29,26 +29,18 @@ import {
 export interface InventoryHistoryReportReq {
     /**
      * ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
-     * @type {string}
-     * @memberof InventoryHistoryReportReq
      */
     id: string;
     /**
      * Тип отчёта `STOCK_HISTORY_DAILY_CSV` — Отчёт по истории остатков
-     * @type {string}
-     * @memberof InventoryHistoryReportReq
      */
     reportType: string;
     /**
      * Название отчёта. Если не указано, сформируется автоматически
-     * @type {string}
-     * @memberof InventoryHistoryReportReq
      */
     userReportName?: string;
     /**
      * 
-     * @type {InventoryHistoryReportReqParams}
-     * @memberof InventoryHistoryReportReq
      */
     params: InventoryHistoryReportReqParams;
 }

@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ErrorResponse {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ErrorResponse
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ErrorResponse
      */
     detail: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof ErrorResponse
      */
     requestId: string;
     /**
      * Название внутреннего сервиса
-     * @type {string}
-     * @memberof ErrorResponse
      */
     origin: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof ErrorResponse
      */
     status: number;
 }

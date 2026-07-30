@@ -29,20 +29,14 @@ import {
 export interface ApiV2BufferGoodsTaskGet200Response {
     /**
      * 
-     * @type {ApiV2BufferGoodsTaskGet200ResponseData}
-     * @memberof ApiV2BufferGoodsTaskGet200Response
      */
     data?: ApiV2BufferGoodsTaskGet200ResponseData;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ApiV2BufferGoodsTaskGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV2BufferGoodsTaskGet200Response
      */
     errorText?: string;
 }

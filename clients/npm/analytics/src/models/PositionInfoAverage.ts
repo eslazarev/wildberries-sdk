@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PositionInfoAverage {
     /**
      * Текущая средняя позиция товара
-     * @type {number}
-     * @memberof PositionInfoAverage
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof PositionInfoAverage
      */
     dynamics?: number;
 }

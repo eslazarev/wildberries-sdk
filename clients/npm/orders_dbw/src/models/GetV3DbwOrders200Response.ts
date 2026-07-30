@@ -29,14 +29,10 @@ import {
 export interface GetV3DbwOrders200Response {
     /**
      * Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-     * @type {number}
-     * @memberof GetV3DbwOrders200Response
      */
     next?: number;
     /**
      * 
-     * @type {Array<Order>}
-     * @memberof GetV3DbwOrders200Response
      */
     orders?: Array<Order>;
 }

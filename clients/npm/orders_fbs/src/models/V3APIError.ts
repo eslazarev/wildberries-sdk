@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface V3APIError {
     /**
      * Код ошибки
-     * @type {string}
-     * @memberof V3APIError
      */
     code?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof V3APIError
      */
     message?: string;
     /**
      * Дополнительные данные ошибки
-     * @type {object}
-     * @memberof V3APIError
      */
     data?: object;
 }

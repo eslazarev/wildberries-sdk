@@ -29,14 +29,10 @@ import {
 export interface MeasurementPenaltiesData {
     /**
      * Удержания
-     * @type {Array<MeasurementPenaltiesDataReportsInner>}
-     * @memberof MeasurementPenaltiesData
      */
     reports: Array<MeasurementPenaltiesDataReportsInner>;
     /**
      * Количество удержаний в отчёте. Без учёта `limit` и `offset`
-     * @type {number}
-     * @memberof MeasurementPenaltiesData
      */
     total: number;
 }

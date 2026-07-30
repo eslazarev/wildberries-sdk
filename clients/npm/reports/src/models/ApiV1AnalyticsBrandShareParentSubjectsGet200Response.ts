@@ -29,8 +29,6 @@ import {
 export interface ApiV1AnalyticsBrandShareParentSubjectsGet200Response {
     /**
      * Категории бренда
-     * @type {Array<ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseDataInner>}
-     * @memberof ApiV1AnalyticsBrandShareParentSubjectsGet200Response
      */
     data?: Array<ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseDataInner>;
 }

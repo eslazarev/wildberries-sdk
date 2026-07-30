@@ -26,39 +26,29 @@ export interface ModelsWarehouseReturnRates {
      *   - на складе обнаружили бракованные товары;
      *   - покупатель возвращает товар, но его нельзя вернуть в продажу.
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpKgtOfficeBase?: string;
     /**
      * **Стоимость возврата при грузовой доставке, доставка на ПВЗ (доп. литр), ₽**<br>
      * Стоимость за каждый дополнительный литр.
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpKgtOfficeLiter?: string;
     /**
      * **Стоимость возврата при грузовой доставке, обратная логистика невостребованного возврата, ₽**<br>
      * Грузовая доставка невостребованного возврата обратно на склад WB. За единицу товара.
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpKgtReturnExpr?: string;
     /**
      * **Стоимость возврата неопознанного складом товара за каждую единицу, доставка на ПВЗ, ₽**<br>
      * Применяется для товаров, которые не смогли принять на складе.
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpSrgOfficeExpr?: string;
     /**
      * **Стоимость возврата неопознанного складом товара за каждую единицу, обратная логистика невостребованного возврата, ₽** <br>Доставка невостребованного возврата обратно на склад WB.
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpSrgReturnExpr?: string;
     /**
@@ -70,16 +60,12 @@ export interface ModelsWarehouseReturnRates {
      *   - покупатель возвращает товар, но его нельзя вернуть в продажу
      *   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpSupCourierBase?: string;
     /**
      * **Стоимость возврата, доставка курьером (доп. л), ₽**
      * <br>Стоимость за каждый дополнительный литр.
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpSupCourierLiter?: string;
     /**
@@ -91,15 +77,11 @@ export interface ModelsWarehouseReturnRates {
      *   - покупатель возвращает товар, но его нельзя вернуть в продажу
      *   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpSupOfficeBase?: string;
     /**
      * **Стоимость возврата, доставка на ПВЗ (доп. литр), ₽** <br>Стоимость за каждый дополнительный литр
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpSupOfficeLiter?: string;
     /**
@@ -112,14 +94,10 @@ export interface ModelsWarehouseReturnRates {
      *   - покупатель возвращает товар, но его нельзя вернуть в продажу
      *   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
      * 
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     deliveryDumpSupReturnExpr?: string;
     /**
      * Название склада
-     * @type {string}
-     * @memberof ModelsWarehouseReturnRates
      */
     warehouseName?: string;
 }

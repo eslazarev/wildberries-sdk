@@ -29,26 +29,18 @@ import {
 export interface SearchReportGroupReq {
     /**
      * ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
-     * @type {string}
-     * @memberof SearchReportGroupReq
      */
     id: string;
     /**
      * Тип отчёта `SEARCH_QUERIES_PREMIUM_REPORT_GROUP` — Отчёт по параметрам поиска. По предметам, брендам и ярлыкам
-     * @type {string}
-     * @memberof SearchReportGroupReq
      */
     reportType: string;
     /**
      * Название отчёта. Если не указано, сформируется автоматически
-     * @type {string}
-     * @memberof SearchReportGroupReq
      */
     userReportName?: string;
     /**
      * 
-     * @type {SearchReportGroupReqParams}
-     * @memberof SearchReportGroupReq
      */
     params: SearchReportGroupReqParams;
 }

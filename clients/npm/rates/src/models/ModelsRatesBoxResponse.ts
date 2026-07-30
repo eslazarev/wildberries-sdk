@@ -29,8 +29,6 @@ import {
 export interface ModelsRatesBoxResponse {
     /**
      * 
-     * @type {ModelsWarehousesBoxRates}
-     * @memberof ModelsRatesBoxResponse
      */
     data?: ModelsWarehousesBoxRates;
 }

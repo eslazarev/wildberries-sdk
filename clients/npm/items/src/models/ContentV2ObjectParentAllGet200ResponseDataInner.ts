@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2ObjectParentAllGet200ResponseDataInner {
     /**
      * Название категории
-     * @type {string}
-     * @memberof ContentV2ObjectParentAllGet200ResponseDataInner
      */
     name?: string;
     /**
      * ID родительской категории
-     * @type {number}
-     * @memberof ContentV2ObjectParentAllGet200ResponseDataInner
      */
     id?: number;
     /**
      * Виден на сайте
-     * @type {boolean}
-     * @memberof ContentV2ObjectParentAllGet200ResponseDataInner
      */
     isVisible?: boolean;
 }

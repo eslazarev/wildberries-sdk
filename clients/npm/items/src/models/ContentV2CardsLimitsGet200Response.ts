@@ -29,26 +29,18 @@ import {
 export interface ContentV2CardsLimitsGet200Response {
     /**
      * 
-     * @type {ContentV2CardsLimitsGet200ResponseData}
-     * @memberof ContentV2CardsLimitsGet200Response
      */
     data?: ContentV2CardsLimitsGet200ResponseData;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2CardsLimitsGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2CardsLimitsGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2CardsLimitsGet200Response
      */
     additionalErrors?: string | null;
 }

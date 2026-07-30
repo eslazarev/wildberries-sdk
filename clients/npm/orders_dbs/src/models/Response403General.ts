@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface Response403General {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof Response403General
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof Response403General
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof Response403General
      */
     code?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof Response403General
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response403General
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof Response403General
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof Response403General
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof Response403General
      */
     timestamp?: Date;
 }

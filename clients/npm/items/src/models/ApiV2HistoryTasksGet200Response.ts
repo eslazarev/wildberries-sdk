@@ -29,20 +29,14 @@ import {
 export interface ApiV2HistoryTasksGet200Response {
     /**
      * 
-     * @type {SellerTaskMetadata}
-     * @memberof ApiV2HistoryTasksGet200Response
      */
     data?: SellerTaskMetadata | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ApiV2HistoryTasksGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV2HistoryTasksGet200Response
      */
     errorText?: string;
 }

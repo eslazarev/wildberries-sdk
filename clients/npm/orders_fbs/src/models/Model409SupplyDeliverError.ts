@@ -29,20 +29,14 @@ import {
 export interface Model409SupplyDeliverError {
     /**
      * Код ошибки
-     * @type {string}
-     * @memberof Model409SupplyDeliverError
      */
     code?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof Model409SupplyDeliverError
      */
     message?: string;
     /**
      * 
-     * @type {Model409SupplyDeliverErrorData}
-     * @memberof Model409SupplyDeliverError
      */
     data?: Model409SupplyDeliverErrorData | null;
 }

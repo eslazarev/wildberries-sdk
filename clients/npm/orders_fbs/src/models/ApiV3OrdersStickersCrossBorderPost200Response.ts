@@ -29,8 +29,6 @@ import {
 export interface ApiV3OrdersStickersCrossBorderPost200Response {
     /**
      * 
-     * @type {Array<ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner>}
-     * @memberof ApiV3OrdersStickersCrossBorderPost200Response
      */
     stickers?: Array<ApiV3OrdersStickersCrossBorderPost200ResponseStickersInner>;
 }

@@ -29,32 +29,22 @@ import {
 export interface ModelsTransitTariff {
     /**
      * Транзитный склад
-     * @type {string}
-     * @memberof ModelsTransitTariff
      */
     transitWarehouseName?: string;
     /**
      * Склад назначения
-     * @type {string}
-     * @memberof ModelsTransitTariff
      */
     destinationWarehouseName?: string;
     /**
      * С какого числа доступно транзитное направление
-     * @type {Date}
-     * @memberof ModelsTransitTariff
      */
     activeFrom?: Date;
     /**
      * Тариф за транзит коробов. Если `null`, транзит для коробов недоступен
-     * @type {Array<ModelsVolumeTariff>}
-     * @memberof ModelsTransitTariff
      */
     boxTariff?: Array<ModelsVolumeTariff> | null;
     /**
      * Тариф за паллету, ₽
-     * @type {number}
-     * @memberof ModelsTransitTariff
      */
     palletTariff?: number;
 }

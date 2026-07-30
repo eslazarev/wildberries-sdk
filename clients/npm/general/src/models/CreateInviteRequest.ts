@@ -36,14 +36,10 @@ import {
 export interface CreateInviteRequest {
     /**
      * Настройки доступа к разделам профиля продавца
-     * @type {Array<AccessInner>}
-     * @memberof CreateInviteRequest
      */
     access?: Array<AccessInner>;
     /**
      * 
-     * @type {CreateInviteRequestInvite}
-     * @memberof CreateInviteRequest
      */
     invite: CreateInviteRequestInvite;
 }

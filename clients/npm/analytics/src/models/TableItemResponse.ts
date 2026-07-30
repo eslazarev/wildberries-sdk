@@ -29,14 +29,10 @@ import {
 export interface TableItemResponse {
     /**
      * Множество данных по товарам
-     * @type {Array<TableItemItemSt>}
-     * @memberof TableItemResponse
      */
     items: Array<TableItemItemSt>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof TableItemResponse
      */
     currency: string;
 }

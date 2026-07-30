@@ -43,63 +43,43 @@ import {
 export interface ItemsRequest {
     /**
      * 
-     * @type {ItemsRequestSelectedPeriod}
-     * @memberof ItemsRequest
      */
     selectedPeriod: ItemsRequestSelectedPeriod;
     /**
      * 
-     * @type {ItemsRequestPastPeriod}
-     * @memberof ItemsRequest
      */
     pastPeriod?: ItemsRequestPastPeriod;
     /**
      * Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
      * 
-     * @type {Array<number>}
-     * @memberof ItemsRequest
      */
     nmIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof ItemsRequest
      */
     brandNames?: Array<string>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemsRequest
      */
     subjectIds?: Array<number>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemsRequest
      */
     tagIds?: Array<number>;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof ItemsRequest
      */
     skipDeletedNm?: boolean;
     /**
      * 
-     * @type {OrderBy}
-     * @memberof ItemsRequest
      */
     orderBy?: OrderBy;
     /**
      * Количество карточек товара в ответе
-     * @type {number}
-     * @memberof ItemsRequest
      */
     limit?: number;
     /**
      * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-     * @type {number}
-     * @memberof ItemsRequest
      */
     offset?: number;
 }

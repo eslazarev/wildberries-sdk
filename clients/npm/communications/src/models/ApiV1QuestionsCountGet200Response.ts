@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ApiV1QuestionsCountGet200Response {
     /**
      * Количество вопросов
-     * @type {number}
-     * @memberof ApiV1QuestionsCountGet200Response
      */
     data?: number;
     /**
      * Есть ли ошибка
-     * @type {boolean}
-     * @memberof ApiV1QuestionsCountGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ApiV1QuestionsCountGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {Array<string>}
-     * @memberof ApiV1QuestionsCountGet200Response
      */
     additionalErrors?: Array<string> | null;
 }

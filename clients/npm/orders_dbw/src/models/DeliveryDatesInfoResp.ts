@@ -29,8 +29,6 @@ import {
 export interface DeliveryDatesInfoResp {
     /**
      * 
-     * @type {Array<DeliveryDatesInfoRespOrdersInner>}
-     * @memberof DeliveryDatesInfoResp
      */
     orders?: Array<DeliveryDatesInfoRespOrdersInner>;
 }

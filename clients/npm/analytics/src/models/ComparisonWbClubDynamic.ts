@@ -21,56 +21,38 @@ import { mapValues } from '../runtime';
 export interface ComparisonWbClubDynamic {
     /**
      * Динамика количества заказов с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     orderCount: number;
     /**
      * Динамика суммы заказов с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     orderSum: number;
     /**
      * Динамика суммы выкупов с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     buyoutSum: number;
     /**
      * Динамика выкупов с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     buyoutCount: number;
     /**
      * Динамика сумм отмен и возвратов товаров с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     cancelSum: number;
     /**
      * Динамика отмен и возвратов товаров с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     cancelCount: number;
     /**
      * Динамика средней цены на товары с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     avgPrice: number;
     /**
      * Динамика процента выкупа с WB Клубом
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     buyoutPercent: number;
     /**
      * Динамика среднего количества заказов с WB Клубом в день
-     * @type {number}
-     * @memberof ComparisonWbClubDynamic
      */
     avgOrderCountPerDay: number;
 }

@@ -29,8 +29,6 @@ import {
 export interface PostV3DbsOrdersMetaCustomsDeclarationRequest {
     /**
      * 
-     * @type {Array<PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner>}
-     * @memberof PostV3DbsOrdersMetaCustomsDeclarationRequest
      */
     orders?: Array<PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner>;
 }

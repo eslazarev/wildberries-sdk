@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ContentV2TagIdPatchRequest {
     /**
      * Цвет ярлыка
-     * @type {string}
-     * @memberof ContentV2TagIdPatchRequest
      */
     color?: string;
     /**
      * Имя ярлыка
-     * @type {string}
-     * @memberof ContentV2TagIdPatchRequest
      */
     name?: string;
 }

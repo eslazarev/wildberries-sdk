@@ -24,8 +24,6 @@ export interface ContentV2GetCardsTrashPostRequestSettingsSort {
      *   - `false` — по убыванию
      *   - `true` — по возрастанию
      * 
-     * @type {boolean}
-     * @memberof ContentV2GetCardsTrashPostRequestSettingsSort
      */
     ascending?: boolean;
 }

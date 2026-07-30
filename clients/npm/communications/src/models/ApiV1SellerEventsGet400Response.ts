@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface ApiV1SellerEventsGet400Response {
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof ApiV1SellerEventsGet400Response
      */
     status?: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ApiV1SellerEventsGet400Response
      */
     title?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ApiV1SellerEventsGet400Response
      */
     origin?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ApiV1SellerEventsGet400Response
      */
     detail?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ApiV1SellerEventsGet400Response
      */
     requestId?: string;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV1SellerEventsGet400Response
      */
     error?: string;
 }

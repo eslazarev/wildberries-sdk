@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ApiV2NmReportDownloadsGet400Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ApiV2NmReportDownloadsGet400Response
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ApiV2NmReportDownloadsGet400Response
      */
     detail: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ApiV2NmReportDownloadsGet400Response
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ApiV2NmReportDownloadsGet400Response
      */
     origin: string;
 }

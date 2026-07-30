@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface PostV1UploadTaskB2bWholesale208Response {
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof PostV1UploadTaskB2bWholesale208Response
      */
     status: number;
     /**
      * Заголовок ответа
-     * @type {string}
-     * @memberof PostV1UploadTaskB2bWholesale208Response
      */
     title: string;
     /**
      * Детали ответа
-     * @type {string}
-     * @memberof PostV1UploadTaskB2bWholesale208Response
      */
     detail: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof PostV1UploadTaskB2bWholesale208Response
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof PostV1UploadTaskB2bWholesale208Response
      */
     origin: string;
 }

@@ -36,27 +36,19 @@ import {
 export interface ItemHistoryRequest {
     /**
      * 
-     * @type {ItemsRequestSelectedPeriod}
-     * @memberof ItemHistoryRequest
      */
     selectedPeriod: ItemsRequestSelectedPeriod;
     /**
      * Артикулы WB, по которым нужно составить отчёт
      * 
-     * @type {Array<number>}
-     * @memberof ItemHistoryRequest
      */
     nmIds: Array<number>;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof ItemHistoryRequest
      */
     skipDeletedNm?: boolean;
     /**
      * 
-     * @type {Level}
-     * @memberof ItemHistoryRequest
      */
     aggregationLevel?: Level;
 }

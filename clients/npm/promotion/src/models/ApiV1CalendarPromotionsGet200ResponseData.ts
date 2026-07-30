@@ -29,8 +29,6 @@ import {
 export interface ApiV1CalendarPromotionsGet200ResponseData {
     /**
      * Список акций
-     * @type {Array<ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner>}
-     * @memberof ApiV1CalendarPromotionsGet200ResponseData
      */
     promotions?: Array<ApiV1CalendarPromotionsGet200ResponseDataPromotionsInner>;
 }

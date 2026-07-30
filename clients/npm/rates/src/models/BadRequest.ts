@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface BadRequest {
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof BadRequest
      */
     detail?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof BadRequest
      */
     origin?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof BadRequest
      */
     requestId?: string;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof BadRequest
      */
     title?: string;
 }

@@ -29,14 +29,10 @@ import {
 export interface RequestWithInterval {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof RequestWithInterval
      */
     id: number;
     /**
      * 
-     * @type {RequestWithIntervalInterval}
-     * @memberof RequestWithInterval
      */
     interval: RequestWithIntervalInterval;
 }

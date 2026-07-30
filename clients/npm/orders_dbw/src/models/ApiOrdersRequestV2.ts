@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiOrdersRequestV2 {
     /**
      * Список ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof ApiOrdersRequestV2
      */
     ordersIds?: Array<number>;
 }

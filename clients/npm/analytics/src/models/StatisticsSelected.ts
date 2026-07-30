@@ -50,104 +50,70 @@ import {
 export interface StatisticsSelected {
     /**
      * Даты периода
-     * @type {DatePeriod}
-     * @memberof StatisticsSelected
      */
     period: DatePeriod;
     /**
      * Количество переходов в карточку товара
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     openCount: number;
     /**
      * Положили в корзину, шт.
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     cartCount: number;
     /**
      * Заказали товаров, шт.
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     orderCount: number;
     /**
      * Заказали на сумму
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     orderSum: number;
     /**
      * Выкупили товаров, шт.
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     buyoutCount: number;
     /**
      * Выкупили на сумму
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     buyoutSum: number;
     /**
      * Отменили и вернули товаров, шт.
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     cancelCount: number;
     /**
      * Отменили и вернули на сумму
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     cancelSum: number;
     /**
      * Средняя цена
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     avgPrice: number;
     /**
      * Среднее количество заказов в день, шт.
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     avgOrdersCountPerDay: number;
     /**
      * Доля в выручке
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     shareOrderPercent: number;
     /**
      * Добавили в **Отложенные**
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     addToWishlist: number;
     /**
      * 
-     * @type {StatisticTimeToReady}
-     * @memberof StatisticsSelected
      */
     timeToReady: StatisticTimeToReady;
     /**
      * Локальные заказы в рамках одного региона
-     * @type {number}
-     * @memberof StatisticsSelected
      */
     localizationPercent: number;
     /**
      * 
-     * @type {StatisticWbClub}
-     * @memberof StatisticsSelected
      */
     wbClub: StatisticWbClub;
     /**
      * 
-     * @type {StatisticConversions}
-     * @memberof StatisticsSelected
      */
     conversions: StatisticConversions;
 }

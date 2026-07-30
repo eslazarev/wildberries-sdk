@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2BarcodesPost200Response {
     /**
      * Массив сгенерированных баркодов
-     * @type {Array<string>}
-     * @memberof ContentV2BarcodesPost200Response
      */
     data?: Array<string>;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2BarcodesPost200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2BarcodesPost200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2BarcodesPost200Response
      */
     additionalErrors?: string | null;
 }

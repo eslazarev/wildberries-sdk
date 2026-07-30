@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface CommonResponseProperties {
     /**
      * Данные ответа
-     * @type {object}
-     * @memberof CommonResponseProperties
      */
     data?: object;
 }

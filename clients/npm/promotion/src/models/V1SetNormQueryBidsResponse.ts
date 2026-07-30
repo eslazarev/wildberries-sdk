@@ -36,14 +36,10 @@ import {
 export interface V1SetNormQueryBidsResponse {
     /**
      * 
-     * @type {Array<V1SetNormQueryBidsSuccessResponseItem>}
-     * @memberof V1SetNormQueryBidsResponse
      */
     success: Array<V1SetNormQueryBidsSuccessResponseItem>;
     /**
      * 
-     * @type {Array<NormQueryBidFailResponseItem>}
-     * @memberof V1SetNormQueryBidsResponse
      */
     failed: Array<NormQueryBidFailResponseItem>;
 }

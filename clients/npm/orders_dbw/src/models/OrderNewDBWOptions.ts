@@ -24,8 +24,6 @@ export interface OrderNewDBWOptions {
      *   - `false` — не B2B-продажа
      *   - `true` — B2B-продажа
      * 
-     * @type {boolean}
-     * @memberof OrderNewDBWOptions
      */
     isB2b?: boolean;
 }

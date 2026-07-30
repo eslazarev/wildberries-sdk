@@ -50,44 +50,30 @@ import {
 export interface ResponseFeedbackInner {
     /**
      * ID отзыва
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     id?: string;
     /**
      * Текст отзыва
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     text?: string;
     /**
      * Достоинства товара
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     pros?: string;
     /**
      * Недостатки товара
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     cons?: string;
     /**
      * Оценка товара
-     * @type {number}
-     * @memberof ResponseFeedbackInner
      */
     productValuation?: number;
     /**
      * Дата и время создания отзыва
-     * @type {Date}
-     * @memberof ResponseFeedbackInner
      */
     createdDate?: Date;
     /**
      * 
-     * @type {ResponseFeedbackInnerAnswer}
-     * @memberof ResponseFeedbackInner
      */
     answer?: ResponseFeedbackInnerAnswer | null;
     /**
@@ -95,38 +81,26 @@ export interface ResponseFeedbackInner {
      *   - `none` - не обработан (новый)
      *   - `wbRu` - обработан
      * 
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     state?: string;
     /**
      * 
-     * @type {ResponseFeedbackInnerProductDetails}
-     * @memberof ResponseFeedbackInner
      */
     productDetails?: ResponseFeedbackInnerProductDetails;
     /**
      * Массив структур фотографий
-     * @type {Array<ApiV1FeedbackGet200ResponseDataPhotoLinksInner>}
-     * @memberof ResponseFeedbackInner
      */
     photoLinks?: Array<ApiV1FeedbackGet200ResponseDataPhotoLinksInner> | null;
     /**
      * 
-     * @type {ResponseFeedbackInnerVideo}
-     * @memberof ResponseFeedbackInner
      */
     video?: ResponseFeedbackInnerVideo | null;
     /**
      * Просмотрен ли отзыв
-     * @type {boolean}
-     * @memberof ResponseFeedbackInner
      */
     wasViewed?: boolean;
     /**
      * Имя автора отзыва
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     userName?: string;
     /**
@@ -137,8 +111,6 @@ export interface ResponseFeedbackInner {
      * - `returned` — возврат
      * - `notSpecified` — статус не присвоен
      * 
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     orderStatus?: string;
     /**
@@ -149,21 +121,15 @@ export interface ResponseFeedbackInner {
      * - `smaller` — маломерит
      * - `bigger` — большемерит
      * 
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     matchingSize?: string;
     /**
      * Доступна ли продавцу возможность оставить жалобу на отзыв (`true` — доступна, `false` — не доступна)
-     * @type {boolean}
-     * @memberof ResponseFeedbackInner
      */
     isAbleSupplierFeedbackValuation?: boolean;
     /**
      * Ключ причины жалобы на отзыв
      * 
-     * @type {number}
-     * @memberof ResponseFeedbackInner
      */
     supplierFeedbackValuation?: number;
     /**
@@ -171,15 +137,11 @@ export interface ResponseFeedbackInner {
      *   - `true` — да
      *   - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof ResponseFeedbackInner
      */
     isAbleSupplierProductValuation?: boolean;
     /**
      * Ключ проблемы с товаром
      * 
-     * @type {number}
-     * @memberof ResponseFeedbackInner
      */
     supplierProductValuation?: number;
     /**
@@ -187,62 +149,42 @@ export interface ResponseFeedbackInner {
      *  - `true` — доступна
      *  - `false` — недоступна
      * 
-     * @type {boolean}
-     * @memberof ResponseFeedbackInner
      */
     isAbleReturnProductOrders?: boolean;
     /**
      * Дата и время, когда на запрос возврата был получен ответ со статус-кодом 200.
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     returnProductOrdersDate?: string | null;
     /**
      * Список тегов покупателя
-     * @type {Array<string>}
-     * @memberof ResponseFeedbackInner
      */
     bables?: Array<string> | null;
     /**
      * Штрихкод единицы товара
-     * @type {number}
-     * @memberof ResponseFeedbackInner
      */
     lastOrderShkId?: number;
     /**
      * Дата покупки
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     lastOrderCreatedAt?: string;
     /**
      * Цвет товара
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     color?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ResponseFeedbackInner
      */
     subjectId?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     subjectName?: string;
     /**
      * ID начального отзыва (`null`, если этот отзыв начальный)
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     parentFeedbackId?: string | null;
     /**
      * ID дополненного отзыва (`null`, если этот отзыв дополненный)
-     * @type {string}
-     * @memberof ResponseFeedbackInner
      */
     childFeedbackId?: string | null;
 }

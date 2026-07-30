@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2DirectorySeasonsGet200Response {
     /**
      * Массив значений для хар-ки Сезон
-     * @type {Array<string>}
-     * @memberof ContentV2DirectorySeasonsGet200Response
      */
     data?: Array<string>;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2DirectorySeasonsGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2DirectorySeasonsGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2DirectorySeasonsGet200Response
      */
     additionalErrors?: string | null;
 }

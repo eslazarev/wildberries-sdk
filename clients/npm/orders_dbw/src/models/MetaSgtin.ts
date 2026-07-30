@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface MetaSgtin {
     /**
      * 
-     * @type {Array<string>}
-     * @memberof MetaSgtin
      */
     value?: Array<string> | null;
 }

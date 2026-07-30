@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersStatusPost200ResponseOrdersInner {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiV3OrdersStatusPost200ResponseOrdersInner
      */
     id?: number;
     /**
@@ -30,20 +28,14 @@ export interface ApiV3OrdersStatusPost200ResponseOrdersInner {
      * - `false` — недоступна
      * - `true` — доступна
      * 
-     * @type {boolean}
-     * @memberof ApiV3OrdersStatusPost200ResponseOrdersInner
      */
     isCancellable?: boolean;
     /**
      * Статус сборочного задания, установленный продавцом
-     * @type {ApiV3OrdersStatusPost200ResponseOrdersInnerSupplierStatusEnum}
-     * @memberof ApiV3OrdersStatusPost200ResponseOrdersInner
      */
     supplierStatus?: ApiV3OrdersStatusPost200ResponseOrdersInnerSupplierStatusEnum;
     /**
      * Статус сборочного задания в системе Wildberries
-     * @type {ApiV3OrdersStatusPost200ResponseOrdersInnerWbStatusEnum}
-     * @memberof ApiV3OrdersStatusPost200ResponseOrdersInner
      */
     wbStatus?: ApiV3OrdersStatusPost200ResponseOrdersInnerWbStatusEnum;
 }

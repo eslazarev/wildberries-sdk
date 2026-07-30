@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ApiV3PassesPassIdPutRequest {
     /**
      * Имя водителя
-     * @type {string}
-     * @memberof ApiV3PassesPassIdPutRequest
      */
     firstName: string;
     /**
      * Фамилия водителя
-     * @type {string}
-     * @memberof ApiV3PassesPassIdPutRequest
      */
     lastName: string;
     /**
      * Марка машины
-     * @type {string}
-     * @memberof ApiV3PassesPassIdPutRequest
      */
     carModel: string;
     /**
      * Номер машины
-     * @type {string}
-     * @memberof ApiV3PassesPassIdPutRequest
      */
     carNumber: string;
     /**
      * ID склада
-     * @type {number}
-     * @memberof ApiV3PassesPassIdPutRequest
      */
     officeId: number;
 }

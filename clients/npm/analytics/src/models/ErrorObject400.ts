@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ErrorObject400 {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ErrorObject400
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ErrorObject400
      */
     detail: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ErrorObject400
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ErrorObject400
      */
     origin: string;
 }

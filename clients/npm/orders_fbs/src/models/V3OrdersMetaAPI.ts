@@ -29,8 +29,6 @@ import {
 export interface V3OrdersMetaAPI {
     /**
      * 
-     * @type {Array<V3OrderMetaAPI>}
-     * @memberof V3OrdersMetaAPI
      */
     orders?: Array<V3OrderMetaAPI>;
 }

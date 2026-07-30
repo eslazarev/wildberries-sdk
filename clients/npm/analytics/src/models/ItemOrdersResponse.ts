@@ -36,14 +36,10 @@ import {
 export interface ItemOrdersResponse {
     /**
      * Итог по товарам
-     * @type {Array<ItemOrdersMetrics>}
-     * @memberof ItemOrdersResponse
      */
     total: Array<ItemOrdersMetrics>;
     /**
      * Элементы таблицы
-     * @type {Array<ItemOrdersTextItem>}
-     * @memberof ItemOrdersResponse
      */
     items: Array<ItemOrdersTextItem>;
 }

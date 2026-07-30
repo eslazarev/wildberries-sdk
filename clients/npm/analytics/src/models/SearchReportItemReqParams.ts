@@ -50,63 +50,43 @@ import {
 export interface SearchReportItemReqParams {
     /**
      * 
-     * @type {Period}
-     * @memberof SearchReportItemReqParams
      */
     currentPeriod: Period;
     /**
      * 
-     * @type {PastPeriod}
-     * @memberof SearchReportItemReqParams
      */
     pastPeriod?: PastPeriod;
     /**
      * ID предмета. Используйте значение `0`, чтобы получить отчёт по всем предметам
-     * @type {number}
-     * @memberof SearchReportItemReqParams
      */
     subjectId?: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof SearchReportItemReqParams
      */
     brandName?: string;
     /**
      * ID ярлыка. Чтобы получить отчёт по всем ярлыкам, укажите значение 0
-     * @type {number}
-     * @memberof SearchReportItemReqParams
      */
     tagId?: number;
     /**
      * Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
      * 
-     * @type {Array<number>}
-     * @memberof SearchReportItemReqParams
      */
     nmIds?: Array<number>;
     /**
      * 
-     * @type {PositionCluster}
-     * @memberof SearchReportItemReqParams
      */
     positionCluster: PositionCluster;
     /**
      * 
-     * @type {OrderBy}
-     * @memberof SearchReportItemReqParams
      */
     orderBy: OrderBy;
     /**
      * Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
-     * @type {boolean}
-     * @memberof SearchReportItemReqParams
      */
     includeSubstitutedSKUs?: boolean;
     /**
      * Показать данные по поисковым запросам без учёта подменного артикула
-     * @type {boolean}
-     * @memberof SearchReportItemReqParams
      */
     includeSearchTexts?: boolean;
 }

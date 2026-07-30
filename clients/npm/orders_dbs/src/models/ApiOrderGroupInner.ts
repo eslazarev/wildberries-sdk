@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ApiOrderGroupInner {
     /**
      * ID группы сборочных заданий
-     * @type {string}
-     * @memberof ApiOrderGroupInner
      */
     groupID?: string;
     /**
      * Стоимость платной доставки в валюте продажи, умноженная на 100
-     * @type {number}
-     * @memberof ApiOrderGroupInner
      */
     deliveryCost?: number;
     /**
      * Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.
-     * @type {number}
-     * @memberof ApiOrderGroupInner
      */
     convertedDeliveryCost?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof ApiOrderGroupInner
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof ApiOrderGroupInner
      */
     convertedCurrencyCode?: number;
 }

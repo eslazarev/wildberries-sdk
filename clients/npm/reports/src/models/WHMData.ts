@@ -29,14 +29,10 @@ import {
 export interface WHMData {
     /**
      * Замеры
-     * @type {Array<WHMDataReportsInner>}
-     * @memberof WHMData
      */
     reports: Array<WHMDataReportsInner>;
     /**
      * Количество замеров в отчёте. Без учёта `limit` и `offset`
-     * @type {number}
-     * @memberof WHMData
      */
     total: number;
 }

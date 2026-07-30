@@ -29,14 +29,10 @@ import {
 export interface SetRecomReqRecListInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof SetRecomReqRecListInner
      */
     nmId?: number;
     /**
      * Рекомендуемые товары
-     * @type {Array<SetRecomReqRecListInnerRecommendationsInner>}
-     * @memberof SetRecomReqRecListInner
      */
     recommendations?: Array<SetRecomReqRecListInnerRecommendationsInner>;
 }

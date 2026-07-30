@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface TimeToReady {
     /**
      * Дни
-     * @type {number}
-     * @memberof TimeToReady
      */
     days: number;
     /**
      * Часы
-     * @type {number}
-     * @memberof TimeToReady
      */
     hours: number;
     /**
      * Минуты
-     * @type {number}
-     * @memberof TimeToReady
      */
     mins: number;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface Supply {
     /**
      * ID поставки
-     * @type {string}
-     * @memberof Supply
      */
     id?: string;
     /**
@@ -31,8 +29,6 @@ export interface Supply {
      *   - `false` — не B2B-продажа
      *   - `null` — признак отсутствует, сборочные задания не добавлены к поставке
      * 
-     * @type {boolean}
-     * @memberof Supply
      */
     isB2b?: boolean | null;
     /**
@@ -40,8 +36,6 @@ export interface Supply {
      *   - `false` — нет
      *   - `true` — да
      * 
-     * @type {boolean}
-     * @memberof Supply
      */
     isPickupPointShipmentAllowed?: boolean;
     /**
@@ -49,32 +43,22 @@ export interface Supply {
      *   - `true` — закрыта
      *   - `false` — открыта
      * 
-     * @type {boolean}
-     * @memberof Supply
      */
     done?: boolean;
     /**
      * Дата создания поставки (RFC3339)
-     * @type {Date}
-     * @memberof Supply
      */
     createdAt?: Date;
     /**
      * Дата закрытия поставки (RFC3339)
-     * @type {Date}
-     * @memberof Supply
      */
     closedAt?: Date | null;
     /**
      * Дата сканирования поставки или первого заказа (RFC3339)
-     * @type {Date}
-     * @memberof Supply
      */
     scanDt?: Date | null;
     /**
      * Наименование поставки
-     * @type {string}
-     * @memberof Supply
      */
     name?: string;
     /**
@@ -83,8 +67,6 @@ export interface Supply {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {SupplyCargoTypeEnum}
-     * @memberof Supply
      */
     cargoType?: SupplyCargoTypeEnum;
     /**
@@ -93,14 +75,10 @@ export interface Supply {
      *   - `1` — трансграничная поставка
      *   - `null` — значение отсутствует
      * 
-     * @type {SupplyCrossBorderTypeEnum}
-     * @memberof Supply
      */
     crossBorderType?: SupplyCrossBorderTypeEnum | null;
     /**
      * ID склада назначения поставки. Если `null`, склад назначения не указан
-     * @type {number}
-     * @memberof Supply
      */
     destinationOfficeId?: number | null;
     /**
@@ -108,8 +86,6 @@ export interface Supply {
      * Рекомендуется ближайший к покупателям склад, который определяется автоматически при передаче поставки в доставку с учётом параметров всех сборочных заданий в поставке.<br>
      * Если `0`, рекомендуемый склад не определён
      * 
-     * @type {number}
-     * @memberof Supply
      */
     recommendedWhId?: number;
 }

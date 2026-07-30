@@ -1842,6 +1842,7 @@ components:
         agencyVat: 0
         salePriceWholesaleDiscountPrc: 0
         b2bCustomerTin: "010101010101"
+        paidWithSocialCertificate: false
         orderUid: id375f16c4bec295d9995393af803ff7b
         srid: 0f1c3999172603062979867564654dac5b702849
       properties:
@@ -2211,8 +2212,8 @@ components:
           example: 0
           type: number
         agencyVat:
-          description: |
-            Удержание Агентского НДС, %.<br>Только для продавцов из Кыргызстана
+          description: "Удержание Агентского НДС, %.<br>Только для продавцов из Кы\
+            ргызстана"
           example: 0
           type: number
         salePriceWholesaleDiscountPrc:
@@ -2223,6 +2224,10 @@ components:
           description: ИНН B2B-покупателя
           example: "010101010101"
           type: string
+        paidWithSocialCertificate:
+          description: Оплата социальным сертификатом
+          example: false
+          type: boolean
         orderUid:
           description: |
             ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
@@ -2276,6 +2281,7 @@ components:
       - orderUid
       - paidAcceptance
       - paidStorage
+      - paidWithSocialCertificate
       - paymentProcessing
       - paymentSchedule
       - penalty

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3SuppliesPost201Response {
     /**
      * ID поставки
-     * @type {string}
-     * @memberof ApiV3SuppliesPost201Response
      */
     id?: string;
 }

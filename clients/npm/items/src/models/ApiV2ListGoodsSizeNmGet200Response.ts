@@ -29,20 +29,14 @@ import {
 export interface ApiV2ListGoodsSizeNmGet200Response {
     /**
      * 
-     * @type {ApiV2ListGoodsSizeNmGet200ResponseData}
-     * @memberof ApiV2ListGoodsSizeNmGet200Response
      */
     data?: ApiV2ListGoodsSizeNmGet200ResponseData;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ApiV2ListGoodsSizeNmGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV2ListGoodsSizeNmGet200Response
      */
     errorText?: string;
 }

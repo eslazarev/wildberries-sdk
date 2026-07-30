@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersOrderIdMetaUinPutRequest {
     /**
      * УИН
-     * @type {string}
-     * @memberof ApiV3OrdersOrderIdMetaUinPutRequest
      */
     uin: string;
 }

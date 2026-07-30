@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ModelsGoodInBox {
     /**
      * Баркод
-     * @type {string}
-     * @memberof ModelsGoodInBox
      */
     barcode?: string;
     /**
      * Количество, шт
-     * @type {number}
-     * @memberof ModelsGoodInBox
      */
     quantity?: number;
 }

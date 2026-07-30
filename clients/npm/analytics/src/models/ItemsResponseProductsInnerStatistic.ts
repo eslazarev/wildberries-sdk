@@ -43,20 +43,14 @@ import {
 export interface ItemsResponseProductsInnerStatistic {
     /**
      * 
-     * @type {StatisticsSelected}
-     * @memberof ItemsResponseProductsInnerStatistic
      */
     selected: StatisticsSelected;
     /**
      * 
-     * @type {StatisticsPast}
-     * @memberof ItemsResponseProductsInnerStatistic
      */
     past?: StatisticsPast;
     /**
      * 
-     * @type {StatisticsComparison}
-     * @memberof ItemsResponseProductsInnerStatistic
      */
     comparison?: StatisticsComparison;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface V0GetNormQueryBidsRequestItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V0GetNormQueryBidsRequestItem
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V0GetNormQueryBidsRequestItem
      */
     nmId: number;
 }

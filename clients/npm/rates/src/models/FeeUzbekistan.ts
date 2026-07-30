@@ -29,8 +29,6 @@ import {
 export interface FeeUzbekistan {
     /**
      * Список комиссий
-     * @type {Array<FeeUzbekistanReportInner>}
-     * @memberof FeeUzbekistan
      */
     report?: Array<FeeUzbekistanReportInner>;
 }

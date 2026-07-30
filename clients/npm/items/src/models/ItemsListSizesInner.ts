@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ItemsListSizesInner {
     /**
      * ID размера. В методах Контента это поле `chrtID`
-     * @type {number}
-     * @memberof ItemsListSizesInner
      */
     sizeID: number;
     /**
      * Цена
-     * @type {number}
-     * @memberof ItemsListSizesInner
      */
     price: number;
     /**
      * Цена со скидкой
-     * @type {number}
-     * @memberof ItemsListSizesInner
      */
     discountedPrice: number;
     /**
      * Цена со скидкой, включая скидку WB Клуба
-     * @type {number}
-     * @memberof ItemsListSizesInner
      */
     clubDiscountedPrice: number;
     /**
      * Размер товара
-     * @type {string}
-     * @memberof ItemsListSizesInner
      */
     techSizeName: string;
 }

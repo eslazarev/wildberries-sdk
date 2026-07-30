@@ -29,8 +29,6 @@ import {
 export interface V0DeleteNormQueryBidsRequest {
     /**
      * 
-     * @type {Array<V0DeleteNormQueryBidsRequestItem>}
-     * @memberof V0DeleteNormQueryBidsRequest
      */
     bids: Array<V0DeleteNormQueryBidsRequestItem>;
 }

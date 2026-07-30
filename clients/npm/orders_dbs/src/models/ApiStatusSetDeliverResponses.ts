@@ -29,14 +29,10 @@ import {
 export interface ApiStatusSetDeliverResponses {
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ApiStatusSetDeliverResponses
      */
     requestId?: string;
     /**
      * 
-     * @type {Array<ApiStatusSetDeliverResponse>}
-     * @memberof ApiStatusSetDeliverResponses
      */
     results?: Array<ApiStatusSetDeliverResponse>;
 }

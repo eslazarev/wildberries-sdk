@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface ResponseFeedbackInnerProductDetails {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ResponseFeedbackInnerProductDetails
      */
     nmId?: number;
     /**
      * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @type {number}
-     * @memberof ResponseFeedbackInnerProductDetails
      */
     imtId?: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof ResponseFeedbackInnerProductDetails
      */
     productName?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ResponseFeedbackInnerProductDetails
      */
     supplierArticle?: string | null;
     /**
      * Имя продавца
-     * @type {string}
-     * @memberof ResponseFeedbackInnerProductDetails
      */
     supplierName?: string | null;
     /**
      * Бренд товара
-     * @type {string}
-     * @memberof ResponseFeedbackInnerProductDetails
      */
     brandName?: string | null;
     /**
      * Размер товара (`techSize` в КТ)
-     * @type {string}
-     * @memberof ResponseFeedbackInnerProductDetails
      */
     size?: string;
 }

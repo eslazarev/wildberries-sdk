@@ -4137,7 +4137,6 @@ paths:
         name: limit
         required: true
         schema:
-          default: 100
           format: int32
           maximum: 1000
           minimum: 100

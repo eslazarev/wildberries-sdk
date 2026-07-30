@@ -21,28 +21,20 @@ import { mapValues } from '../runtime';
 export interface CreateInviteResponse {
     /**
      * ID приглашения
-     * @type {string}
-     * @memberof CreateInviteResponse
      */
     inviteID: string;
     /**
      * Дата и время окончания срока действия приглашения
-     * @type {Date}
-     * @memberof CreateInviteResponse
      */
     expiredAt: Date;
     /**
      * - `true` — приглашение создано успешно
      * - `false` — повторите запрос
      * 
-     * @type {boolean}
-     * @memberof CreateInviteResponse
      */
     isSuccess: boolean;
     /**
      * URL приглашения, по которому должен перейти пользователь
-     * @type {string}
-     * @memberof CreateInviteResponse
      */
     inviteUrl: string;
 }

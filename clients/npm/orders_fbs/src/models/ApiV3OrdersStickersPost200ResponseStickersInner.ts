@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersStickersPost200ResponseStickersInner {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiV3OrdersStickersPost200ResponseStickersInner
      */
     orderId?: number;
     /**
      * Первая часть ID стикера для печати подписи
-     * @type {string}
-     * @memberof ApiV3OrdersStickersPost200ResponseStickersInner
      */
     partA?: string;
     /**
      * Вторая часть ID стикера для печати подписи
-     * @type {string}
-     * @memberof ApiV3OrdersStickersPost200ResponseStickersInner
      */
     partB?: string;
     /**
      * Закодированное значение стикера
-     * @type {string}
-     * @memberof ApiV3OrdersStickersPost200ResponseStickersInner
      */
     barcode?: string;
     /**
      * Полное представление стикера в заданном формате (кодировка base64)
-     * @type {string}
-     * @memberof ApiV3OrdersStickersPost200ResponseStickersInner
      */
     file?: string;
 }

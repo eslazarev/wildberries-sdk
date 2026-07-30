@@ -29,20 +29,14 @@ import {
 export interface ApiV2BufferTasksGet200Response {
     /**
      * 
-     * @type {SellerTaskMetadataBuffer}
-     * @memberof ApiV2BufferTasksGet200Response
      */
     data?: SellerTaskMetadataBuffer | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ApiV2BufferTasksGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV2BufferTasksGet200Response
      */
     errorText?: string;
 }

@@ -29,8 +29,6 @@ import {
 export interface GetAdverts {
     /**
      * Кампании
-     * @type {Array<GetAdvertsAdvertsInner>}
-     * @memberof GetAdverts
      */
     adverts: Array<GetAdvertsAdvertsInner>;
 }

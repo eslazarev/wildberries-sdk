@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface V1SetNormQueryBidsSuccessResponseItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V1SetNormQueryBidsSuccessResponseItem
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V1SetNormQueryBidsSuccessResponseItem
      */
     nmId: number;
     /**
      * Поисковый кластер — это группа похожих поисковых запросов, по которым покупатели находят товары
-     * @type {string}
-     * @memberof V1SetNormQueryBidsSuccessResponseItem
      */
     normQuery: string;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof V1SetNormQueryBidsSuccessResponseItem
      */
     currency: string;
 }

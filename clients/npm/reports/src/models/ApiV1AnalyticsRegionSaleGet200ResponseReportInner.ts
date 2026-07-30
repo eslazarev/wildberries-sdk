@@ -21,56 +21,38 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsRegionSaleGet200ResponseReportInner {
     /**
      * Населённый пункт
-     * @type {string}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     cityName?: string;
     /**
      * Страна
-     * @type {string}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     countryName?: string;
     /**
      * Федеральный округ
-     * @type {string}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     foName?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     nmID?: number;
     /**
      * Регион
-     * @type {string}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     regionName?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     sa?: string;
     /**
      * К перечислению за товар, ₽
-     * @type {number}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     saleInvoiceCostPrice?: number;
     /**
      * Доля, %
-     * @type {number}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     saleInvoiceCostPricePerc?: number;
     /**
      * Выкупили, шт.
-     * @type {number}
-     * @memberof ApiV1AnalyticsRegionSaleGet200ResponseReportInner
      */
     saleItemInvoiceQty?: number;
 }

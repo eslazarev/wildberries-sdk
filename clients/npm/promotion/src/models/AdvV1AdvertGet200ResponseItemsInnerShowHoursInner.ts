@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AdvV1AdvertGet200ResponseItemsInnerShowHoursInner {
     /**
      * Начало показа
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInnerShowHoursInner
      */
     from?: number;
     /**
      * Конец показа
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInnerShowHoursInner
      */
     to?: number;
 }

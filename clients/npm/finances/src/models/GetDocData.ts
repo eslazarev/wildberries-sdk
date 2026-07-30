@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface GetDocData {
     /**
      * Название документа
-     * @type {string}
-     * @memberof GetDocData
      */
     fileName?: string;
     /**
      * Формат документа
-     * @type {string}
-     * @memberof GetDocData
      */
     extension?: string;
     /**
      * Документ в кодировке base64
-     * @type {string}
-     * @memberof GetDocData
      */
     document?: string;
 }

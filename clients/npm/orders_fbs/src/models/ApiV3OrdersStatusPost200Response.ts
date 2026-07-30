@@ -29,8 +29,6 @@ import {
 export interface ApiV3OrdersStatusPost200Response {
     /**
      * 
-     * @type {Array<ApiV3OrdersStatusPost200ResponseOrdersInner>}
-     * @memberof ApiV3OrdersStatusPost200Response
      */
     orders?: Array<ApiV3OrdersStatusPost200ResponseOrdersInner>;
 }

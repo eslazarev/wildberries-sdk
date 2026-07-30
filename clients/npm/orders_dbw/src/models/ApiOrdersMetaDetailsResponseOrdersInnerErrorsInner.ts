@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner {
     /**
      * Код ошибки
-     * @type {number}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
      */
     code?: number;
     /**
      * Дополнительная информация об ошибке
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
      */
     detail?: string;
 }

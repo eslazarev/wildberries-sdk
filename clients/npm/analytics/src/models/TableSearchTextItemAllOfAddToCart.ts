@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface TableSearchTextItemAllOfAddToCart {
     /**
      * Текущее количество
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfAddToCart
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfAddToCart
      */
     dynamics?: number;
     /**
      * Процент, на который показатель добавлений в корзину выше, чем у карточек других продавцов по поисковому запросу
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfAddToCart
      */
     percentile: number;
 }

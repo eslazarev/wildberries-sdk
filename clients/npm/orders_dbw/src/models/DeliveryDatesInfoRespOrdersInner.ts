@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface DeliveryDatesInfoRespOrdersInner {
     /**
      * Актуальное время доставки "с"
-     * @type {string}
-     * @memberof DeliveryDatesInfoRespOrdersInner
      */
     dTimeFrom?: string | null;
     /**
      * Актуальное время доставки "по"
-     * @type {string}
-     * @memberof DeliveryDatesInfoRespOrdersInner
      */
     dTimeTo?: string | null;
     /**
      * Прежнее время доставки "с". Доступно первые сутки после изменения
-     * @type {string}
-     * @memberof DeliveryDatesInfoRespOrdersInner
      */
     dTimeFromOld?: string | null;
     /**
      * Прежнее время доставки "по". Доступно первые сутки после изменения
-     * @type {string}
-     * @memberof DeliveryDatesInfoRespOrdersInner
      */
     dTimeToOld?: string | null;
     /**
      * Прежняя дата доставки. Доступна первые сутки после изменения
-     * @type {string}
-     * @memberof DeliveryDatesInfoRespOrdersInner
      */
     dDateOld?: string | null;
     /**
      * Актуальная дата доставки
-     * @type {string}
-     * @memberof DeliveryDatesInfoRespOrdersInner
      */
     dDate?: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof DeliveryDatesInfoRespOrdersInner
      */
     id?: number;
 }

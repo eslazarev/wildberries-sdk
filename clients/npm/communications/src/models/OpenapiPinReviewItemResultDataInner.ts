@@ -29,15 +29,11 @@ import {
 export interface OpenapiPinReviewItemResultDataInner {
     /**
      * ID отзыва
-     * @type {string}
-     * @memberof OpenapiPinReviewItemResultDataInner
      */
     feedbackId: string;
     /**
      * ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось
      * 
-     * @type {number}
-     * @memberof OpenapiPinReviewItemResultDataInner
      */
     pinId?: number;
     /**
@@ -45,8 +41,6 @@ export interface OpenapiPinReviewItemResultDataInner {
      *   - `subscription` — подписка Джем
      *   - `tariff` — тарифная опция
      * 
-     * @type {OpenapiPinReviewItemResultDataInnerPinMethodEnum}
-     * @memberof OpenapiPinReviewItemResultDataInner
      */
     pinMethod: OpenapiPinReviewItemResultDataInnerPinMethodEnum;
     /**
@@ -54,20 +48,14 @@ export interface OpenapiPinReviewItemResultDataInner {
      *   - `nm` — карточка товара
      *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * 
-     * @type {OpenapiPinReviewItemResultDataInnerPinOnEnum}
-     * @memberof OpenapiPinReviewItemResultDataInner
      */
     pinOn: OpenapiPinReviewItemResultDataInnerPinOnEnum;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof OpenapiPinReviewItemResultDataInner
      */
     isErrors: boolean;
     /**
      * Детали ошибок
-     * @type {Array<OpenapiResultErr>}
-     * @memberof OpenapiPinReviewItemResultDataInner
      */
     errors?: Array<OpenapiResultErr>;
 }

@@ -29,20 +29,14 @@ import {
 export interface V0GetNormQueryStatsItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItem
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItem
      */
     nmId: number;
     /**
      * 
-     * @type {Array<V0GetNormQueryStatsItemStat>}
-     * @memberof V0GetNormQueryStatsItem
      */
     stats?: Array<V0GetNormQueryStatsItemStat>;
 }

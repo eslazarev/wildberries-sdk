@@ -29,8 +29,6 @@ import {
 export interface FeeUAE {
     /**
      * Список комиссий
-     * @type {Array<FeeUAEReportInner>}
-     * @memberof FeeUAE
      */
     report?: Array<FeeUAEReportInner>;
 }

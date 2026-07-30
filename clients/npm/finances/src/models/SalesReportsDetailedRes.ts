@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface SalesReportsDetailedRes {
     /**
      * ID отчёта
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     reportId: number;
     /**
      * Дата начала отчётного периода
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     dateFrom: Date;
     /**
      * Дата конца отчётного периода
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     dateTo: Date;
     /**
      * Дата формирования отчёта
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     createDate: Date;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     currency: string;
     /**
@@ -55,521 +45,352 @@ export interface SalesReportsDetailedRes {
      *   - `2` — по выкупам
      *   - `3` — по выкупам для Грузии
      * 
-     * @type {SalesReportsDetailedResReportTypeEnum}
-     * @memberof SalesReportsDetailedRes
      */
     reportType: SalesReportsDetailedResReportTypeEnum;
     /**
      * ID строки
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     rrdId: number;
     /**
      * ID поставки
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     giId: number;
     /**
      * Фиксированный коэффициент склада по поставке
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     dlvPrc: number;
     /**
      * Дата начала действия фиксации
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     fixTariffDateFrom: Date;
     /**
      * Дата конца действия фиксации
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     fixTariffDateTo: Date;
     /**
      * Предмет
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     subjectName: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     nmId: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     brandName: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     vendorCode: string;
     /**
      * Название товара
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     title: string;
     /**
      * Размер
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     techSize: string;
     /**
      * Баркод
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     sku: string;
     /**
      * Тип документа
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     docTypeName: string;
     /**
      * Количество
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     quantity: number;
     /**
      * Цена розничная
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     retailPrice: string;
     /**
      * Вайлдберриз реализовал Товар (Пр)
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     retailAmount: string;
     /**
      * Согласованный продуктовый дисконт, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     salePercent: number;
     /**
      * Размер кВВ, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     commissionPercent: number;
     /**
      * Склад
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     officeName: string;
     /**
      * Обоснование для оплаты
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     sellerOperName: string;
     /**
      * Дата и время заказа
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     orderDt: Date;
     /**
      * Дата и время продажи
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     saleDt: Date;
     /**
      * Дата операции
-     * @type {Date}
-     * @memberof SalesReportsDetailedRes
      */
     rrDate: Date;
     /**
      * Штрихкод
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     shkId: number;
     /**
      * Цена розничная с учётом согласованной скидки
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     retailPriceWithDisc: string;
     /**
      * Количество доставок
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     deliveryAmount: number;
     /**
      * Количество возврата
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     returnAmount: number;
     /**
      * Услуги по доставке товара покупателю
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     deliveryService: string;
     /**
      * Тип коробов
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     giBoxTypeName: string;
     /**
      * Итоговая согласованная скидка, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     productDiscountForReport: number;
     /**
      * Промокод, %
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     sellerPromo: string;
     /**
      * Платформенные скидки, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     spp: number;
     /**
      * Размер кВВ без НДС, % базовый
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     kvwBase: number;
     /**
      * Итоговый кВВ без НДС, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     kvw: number;
     /**
      * Размер снижения кВВ из-за рейтинга, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     supRatingUp: number;
     /**
      * Размер снижения кВВ из-за акции, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     isKgvpV2: number;
     /**
      * Вознаграждение с продаж до вычета услуг поверенного, без НДС
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     ppvzSalesCommission: string;
     /**
      * К перечислению продавцу за реализованный товар
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     forPay: string;
     /**
      * Возмещение за выдачу и возврат товаров на ПВЗ
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     ppvzReward: string;
     /**
      * Компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     acquiringFee: string;
     /**
      * Размер компенсации платёжных услуг/Комиссии за интеграцию платёжных сервисов, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     acquiringPercent: number;
     /**
      * Тип платежа: компенсация платёжных услуг/Комиссия за интеграцию платёжных сервисов
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     paymentProcessing: string;
     /**
      * Наименование банка-эквайера
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     acquiringBank: string;
     /**
      * Вознаграждение Вайлдберриз (ВВ), без НДС
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     vw: string;
     /**
      * НДС с вознаграждения Вайлдберриз
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     vwNds: string;
     /**
      * Наименование офиса доставки
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     ppvzOfficeName: string;
     /**
      * ID офиса доставки
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     ppvzOfficeId: number;
     /**
      * Партнёр
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     ppvzSupplierName: string;
     /**
      * ИНН партнёра
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     ppvzSupplierInn: string;
     /**
      * Номер таможенной декларации
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     declarationNumber: string;
     /**
      * Виды логистики, штрафов и корректировок ВВ
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     bonusTypeName?: string;
     /**
      * Стикер МП
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     stickerId: string;
     /**
      * Страна продажи
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     country: string;
     /**
      * Признак услуги платной доставки
-     * @type {boolean}
-     * @memberof SalesReportsDetailedRes
      */
     srvDbs: boolean;
     /**
      * Общая сумма штрафов
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     penalty: string;
     /**
      * Корректировка Вознаграждения Вайлдберриз (ВВ)
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     additionalPayment: string;
     /**
      * Возмещение издержек по перевозке/по складским операциям с товаром
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     rebillLogisticCost: string;
     /**
      * Организатор перевозки
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     rebillLogisticOrg?: string;
     /**
      * Хранение
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     paidStorage: string;
     /**
      * Удержания
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     deduction: string;
     /**
      * Операции на приёмке
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     paidAcceptance: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     orderId: number;
     /**
      * Код маркировки [Честного знака](https://честныйзнак.рф/)
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     kiz?: string;
     /**
      * Признак B2B-продажи
-     * @type {boolean}
-     * @memberof SalesReportsDetailedRes
      */
     isB2b: boolean;
     /**
      * ID короба для обработки товара
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     trbxId: string;
     /**
      * Скидка по программе софинансирования
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     installmentCofinancingAmount: string;
     /**
      * Скидка Wibes, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     wibesDiscountPercent: number;
     /**
      * Сумма, удержанная за начисленные баллы программы лояльности
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     cashbackAmount: string;
     /**
      * Компенсация скидки по программе лояльности
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     cashbackDiscount: string;
     /**
      * Стоимость участия в программе лояльности
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     cashbackCommissionChange: string;
     /**
      * Разовое изменение срока перечисления денежных средств
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     paymentSchedule: string;
     /**
      * Способ продажи и тип товара
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     deliveryMethod: string;
     /**
      * ID собственной акции продавца с дополнительной скидкой
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     sellerPromoId: number;
     /**
      * Размер дополнительной скидки по собственной акции продавца, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     sellerPromoDiscount: number;
     /**
      * ID скидки лояльности от продавца
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     loyaltyId: number;
     /**
      * Размер скидки лояльности от продавца, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     loyaltyDiscount: number;
     /**
      * ID промокода
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     uuidPromocode: string;
     /**
      * Скидка за промокод, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     salePricePromocodeDiscountPrc: number;
     /**
      * ID подменного артикула
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     articleSubstitution: string;
     /**
      * Скидка по подменному артикулу, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     salePriceAffiliatedDiscountPrc: number;
     /**
      * Удержание Агентского НДС, %.<br>Только для продавцов из Кыргызстана
-     * 
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     agencyVat?: number;
     /**
      * Оптовая скидка для бизнеса, %
-     * @type {number}
-     * @memberof SalesReportsDetailedRes
      */
     salePriceWholesaleDiscountPrc: number;
     /**
      * ИНН B2B-покупателя
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     b2bCustomerTin: string;
     /**
+     * Оплата социальным сертификатом
+     */
+    paidWithSocialCertificate: boolean;
+    /**
      * ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
      * 
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     orderUid: string;
     /**
      * ID заказа.<br>В ответах методов сборочных заданий [FBS](./orders-fbs#tag/Sborochnye-zadaniya-FBS), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./orders-dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`
      * 
-     * @type {string}
-     * @memberof SalesReportsDetailedRes
      */
     srid: string;
 }
@@ -675,6 +496,7 @@ export function instanceOfSalesReportsDetailedRes(value: object): value is Sales
     if (!('salePriceAffiliatedDiscountPrc' in value) || value['salePriceAffiliatedDiscountPrc'] === undefined) return false;
     if (!('salePriceWholesaleDiscountPrc' in value) || value['salePriceWholesaleDiscountPrc'] === undefined) return false;
     if (!('b2bCustomerTin' in value) || value['b2bCustomerTin'] === undefined) return false;
+    if (!('paidWithSocialCertificate' in value) || value['paidWithSocialCertificate'] === undefined) return false;
     if (!('orderUid' in value) || value['orderUid'] === undefined) return false;
     if (!('srid' in value) || value['srid'] === undefined) return false;
     return true;
@@ -779,6 +601,7 @@ export function SalesReportsDetailedResFromJSONTyped(json: any, ignoreDiscrimina
         'agencyVat': json['agencyVat'] == null ? undefined : json['agencyVat'],
         'salePriceWholesaleDiscountPrc': json['salePriceWholesaleDiscountPrc'],
         'b2bCustomerTin': json['b2bCustomerTin'],
+        'paidWithSocialCertificate': json['paidWithSocialCertificate'],
         'orderUid': json['orderUid'],
         'srid': json['srid'],
     };
@@ -884,6 +707,7 @@ export function SalesReportsDetailedResToJSONTyped(value?: SalesReportsDetailedR
         'agencyVat': value['agencyVat'],
         'salePriceWholesaleDiscountPrc': value['salePriceWholesaleDiscountPrc'],
         'b2bCustomerTin': value['b2bCustomerTin'],
+        'paidWithSocialCertificate': value['paidWithSocialCertificate'],
         'orderUid': value['orderUid'],
         'srid': value['srid'],
     };

@@ -25,7 +25,13 @@ import {
 } from '../models/GetV2News200Response';
 
 export interface GetV2NewsRequest {
+    /**
+     * Дата, от которой необходимо выдать новости
+     */
     from?: Date;
+    /**
+     * ID новости, начиная с которой — включая её — нужно получить список новостей
+     */
     fromID?: number;
 }
 

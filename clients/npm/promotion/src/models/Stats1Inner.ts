@@ -21,27 +21,19 @@ import { mapValues } from '../runtime';
 export interface Stats1Inner {
     /**
      * Количество просмотров
-     * @type {number}
-     * @memberof Stats1Inner
      */
     views?: number;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof Stats1Inner
      */
     clicks?: number;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof Stats1Inner
      */
     atbs?: number;
     /**
      * CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
      * 
-     * @type {number}
-     * @memberof Stats1Inner
      */
     ctr?: number;
 }

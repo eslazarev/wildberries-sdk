@@ -29,8 +29,6 @@ import {
 export interface ApiV3StocksWarehouseIdPost200Response {
     /**
      * 
-     * @type {Array<ApiV3StocksWarehouseIdPost200ResponseStocksInner>}
-     * @memberof ApiV3StocksWarehouseIdPost200Response
      */
     stocks?: Array<ApiV3StocksWarehouseIdPost200ResponseStocksInner>;
 }

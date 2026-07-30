@@ -50,26 +50,18 @@ import {
 export interface ApiV1FeedbackGet200ResponseData {
     /**
      * ID отзыва
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     id?: string;
     /**
      * Текст отзыва
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     text?: string;
     /**
      * Достоинства товара
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     pros?: string;
     /**
      * Недостатки товара
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     cons?: string;
     /**
@@ -80,26 +72,18 @@ export interface ApiV1FeedbackGet200ResponseData {
      * - `smaller` - маломерит
      * - `bigger` - большемерит
      * 
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     matchingSize?: string;
     /**
      * Оценка товара
-     * @type {number}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     productValuation?: number;
     /**
      * Дата и время создания отзыва
-     * @type {Date}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     createdDate?: Date;
     /**
      * 
-     * @type {ApiV1FeedbackGet200ResponseDataAnswer}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     answer?: ApiV1FeedbackGet200ResponseDataAnswer | null;
     /**
@@ -107,26 +91,18 @@ export interface ApiV1FeedbackGet200ResponseData {
      *   - `none` - не обработан (новый)
      *   - `wbRu` - обработан
      * 
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     state?: string;
     /**
      * 
-     * @type {ApiV1FeedbackGet200ResponseDataProductDetails}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     productDetails?: ApiV1FeedbackGet200ResponseDataProductDetails;
     /**
      * Массив структур фотографий
-     * @type {Array<ApiV1FeedbackGet200ResponseDataPhotoLinksInner>}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     photoLinks?: Array<ApiV1FeedbackGet200ResponseDataPhotoLinksInner> | null;
     /**
      * Имя автора отзыва
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     userName?: string;
     /**
@@ -137,20 +113,14 @@ export interface ApiV1FeedbackGet200ResponseData {
      * - `returned` — возврат
      * - `notSpecified` — статус не присвоен
      * 
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     orderStatus?: string;
     /**
      * 
-     * @type {ApiV1FeedbackGet200ResponseDataVideo}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     video?: ApiV1FeedbackGet200ResponseDataVideo | null;
     /**
      * Просмотрен ли отзыв
-     * @type {boolean}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     wasViewed?: boolean;
     /**
@@ -158,28 +128,20 @@ export interface ApiV1FeedbackGet200ResponseData {
      *   - `true`— да
      *   - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     isAbleSupplierFeedbackValuation?: boolean;
     /**
      * Ключ причины жалобы на отзыв
      * 
-     * @type {number}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     supplierFeedbackValuation?: number;
     /**
      * Доступна ли продавцу возможность сообщить о проблеме с товаром  (`true` - доступна, `false` - не доступна)
-     * @type {boolean}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     isAbleSupplierProductValuation?: boolean;
     /**
      * Ключ проблемы с товаром
      * 
-     * @type {number}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     supplierProductValuation?: number;
     /**
@@ -187,62 +149,42 @@ export interface ApiV1FeedbackGet200ResponseData {
      *   - `true` — доступна
      *   - `false` — недоступна
      * 
-     * @type {boolean}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     isAbleReturnProductOrders?: boolean;
     /**
      * Дата и время, когда на запрос возврата был получен ответ со статус-кодом 200.
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     returnProductOrdersDate?: string | null;
     /**
      * Список тегов покупателя
-     * @type {Array<string>}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     bables?: Array<string> | null;
     /**
      * Штрихкод единицы товара
-     * @type {number}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     lastOrderShkId?: number;
     /**
      * Дата покупки
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     lastOrderCreatedAt?: string;
     /**
      * Цвет товара
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     color?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     subjectId?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     subjectName?: string;
     /**
      * ID начального отзыва (`null`, если этот отзыв начальный)
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     parentFeedbackId?: string | null;
     /**
      * ID дополненного отзыва (`null`, если этот отзыв дополненный)
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseData
      */
     childFeedbackId?: string | null;
 }

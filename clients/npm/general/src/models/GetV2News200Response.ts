@@ -29,8 +29,6 @@ import {
 export interface GetV2News200Response {
     /**
      * Новости
-     * @type {Array<GetV2News200ResponseDataInner>}
-     * @memberof GetV2News200Response
      */
     data?: Array<GetV2News200ResponseDataInner>;
 }

@@ -28,14 +28,10 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
      *   - `customsDeclaration` — [номер ДТ](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
      *   - `originCountryCode` — [числовой код страны происхождения](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) post)
      * 
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     key?: string;
     /**
      * Значение идентификатора маркировки
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     value?: string | null;
     /**
@@ -78,8 +74,6 @@ export interface ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner {
      *   - `optional` — Маркировка не обязательна
      *   - `filled` — Валидация пройдена
      * 
-     * @type {string}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
      */
     decision?: string;
 }

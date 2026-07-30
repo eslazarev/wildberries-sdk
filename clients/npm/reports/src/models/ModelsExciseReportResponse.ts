@@ -29,8 +29,6 @@ import {
 export interface ModelsExciseReportResponse {
     /**
      * 
-     * @type {Array<ModelsExciseReportResponseDataInner>}
-     * @memberof ModelsExciseReportResponse
      */
     data?: Array<ModelsExciseReportResponseDataInner>;
 }

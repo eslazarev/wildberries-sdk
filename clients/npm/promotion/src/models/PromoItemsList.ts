@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PromoItemsList {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof PromoItemsList
      */
     id?: number;
     /**
@@ -30,38 +28,26 @@ export interface PromoItemsList {
      *   - `true` — да
      *   - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof PromoItemsList
      */
     inAction?: boolean;
     /**
      * Текущая розничная цена
-     * @type {number}
-     * @memberof PromoItemsList
      */
     price?: number;
     /**
      * Валюта в формате ISO 4217
-     * @type {string}
-     * @memberof PromoItemsList
      */
     currencyCode?: string;
     /**
      * Плановая цена (цена во время акции)
-     * @type {number}
-     * @memberof PromoItemsList
      */
     planPrice?: number;
     /**
      * Текущая скидка
-     * @type {number}
-     * @memberof PromoItemsList
      */
     discount?: number;
     /**
      * Рекомендуемая скидка для участия в акции
-     * @type {number}
-     * @memberof PromoItemsList
      */
     planDiscount?: number;
 }

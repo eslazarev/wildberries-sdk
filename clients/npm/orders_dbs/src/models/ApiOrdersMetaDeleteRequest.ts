@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiOrdersMetaDeleteRequest {
     /**
      * Название идентификатора маркировки для удаления. Передаётся только одно значение
-     * @type {ApiOrdersMetaDeleteRequestKeyEnum}
-     * @memberof ApiOrdersMetaDeleteRequest
      */
     key: ApiOrdersMetaDeleteRequestKeyEnum;
     /**
      * Список ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof ApiOrdersMetaDeleteRequest
      */
     orderIds: Array<number>;
 }

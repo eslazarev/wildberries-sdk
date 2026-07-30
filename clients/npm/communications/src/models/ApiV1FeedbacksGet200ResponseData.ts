@@ -29,20 +29,14 @@ import {
 export interface ApiV1FeedbacksGet200ResponseData {
     /**
      * Количество необработанных отзывов
-     * @type {number}
-     * @memberof ApiV1FeedbacksGet200ResponseData
      */
     countUnanswered?: number;
     /**
      * Количество обработанных отзывов
-     * @type {number}
-     * @memberof ApiV1FeedbacksGet200ResponseData
      */
     countArchive?: number;
     /**
      * Массив отзывов
-     * @type {Array<ResponseFeedbackInner>}
-     * @memberof ApiV1FeedbacksGet200ResponseData
      */
     feedbacks?: Array<ResponseFeedbackInner>;
 }

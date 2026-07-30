@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface SwaggerPublicErrorsCursorInput {
     /**
      * Количество пакетов в ответе
-     * @type {number}
-     * @memberof SwaggerPublicErrorsCursorInput
      */
     limit?: number;
     /**
      * Дата и время формирования последнего пакета в ответе на предыдущий запрос
-     * @type {Date}
-     * @memberof SwaggerPublicErrorsCursorInput
      */
     updatedAt?: Date;
     /**
      * ID последнего пакета в ответе на предыдущий запрос
-     * @type {string}
-     * @memberof SwaggerPublicErrorsCursorInput
      */
     batchUUID?: string;
 }

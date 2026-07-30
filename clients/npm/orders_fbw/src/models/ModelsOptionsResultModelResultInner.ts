@@ -36,14 +36,10 @@ import {
 export interface ModelsOptionsResultModelResultInner {
     /**
      * Баркод из карточки товара
-     * @type {string}
-     * @memberof ModelsOptionsResultModelResultInner
      */
     barcode?: string;
     /**
      * 
-     * @type {ModelsOptionsResultModelResultInnerError}
-     * @memberof ModelsOptionsResultModelResultInner
      */
     error?: ModelsOptionsResultModelResultInnerError;
     /**
@@ -51,14 +47,10 @@ export interface ModelsOptionsResultModelResultInner {
      *   - `true` — ошибка есть
      *   - Поля нет — ошибка отсутствует
      * 
-     * @type {boolean}
-     * @memberof ModelsOptionsResultModelResultInner
      */
     isError?: boolean;
     /**
      * Список складов. При наличии ошибки будет `null`
-     * @type {Array<ModelsOptionsResultModelResultInnerWarehousesInner>}
-     * @memberof ModelsOptionsResultModelResultInner
      */
     warehouses?: Array<ModelsOptionsResultModelResultInnerWarehousesInner> | null;
 }

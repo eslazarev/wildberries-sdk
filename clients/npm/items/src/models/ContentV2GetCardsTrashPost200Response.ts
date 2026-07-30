@@ -36,14 +36,10 @@ import {
 export interface ContentV2GetCardsTrashPost200Response {
     /**
      * Массив карточек товаров
-     * @type {Array<ContentV2GetCardsTrashPost200ResponseCardsInner>}
-     * @memberof ContentV2GetCardsTrashPost200Response
      */
     cards?: Array<ContentV2GetCardsTrashPost200ResponseCardsInner>;
     /**
      * 
-     * @type {ContentV2GetCardsTrashPost200ResponseCursor}
-     * @memberof ContentV2GetCardsTrashPost200Response
      */
     cursor?: ContentV2GetCardsTrashPost200ResponseCursor;
 }

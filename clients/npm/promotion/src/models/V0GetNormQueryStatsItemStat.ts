@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface V0GetNormQueryStatsItemStat {
     /**
      * Поисковый кластер
-     * @type {string}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     normQuery?: string;
     /**
@@ -30,26 +28,18 @@ export interface V0GetNormQueryStatsItemStat {
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     views?: number | null;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     clicks?: number;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     atbs?: number;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     orders?: number;
     /**
@@ -57,14 +47,10 @@ export interface V0GetNormQueryStatsItemStat {
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     ctr?: number | null;
     /**
      * Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     cpc?: number;
     /**
@@ -72,33 +58,23 @@ export interface V0GetNormQueryStatsItemStat {
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     cpm?: number | null;
     /**
      * Средняя позиция товара на страницах поисковой выдачи
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     avgPos?: number;
     /**
      * Количество заказанных товаров, шт.
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     shks?: number;
     /**
      * Затраты на продвижение товаров в конкретном поисковом кластере кампании
      * 
-     * @type {number}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     spend?: number;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof V0GetNormQueryStatsItemStat
      */
     currency?: string;
 }

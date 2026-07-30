@@ -29,8 +29,6 @@ import {
 export interface ApiOrdersMetaResponse {
     /**
      * Идентификаторы маркировки сборочных заданий
-     * @type {Array<ApiOrderMetaV2>}
-     * @memberof ApiOrdersMetaResponse
      */
     meta?: Array<ApiOrderMetaV2>;
 }

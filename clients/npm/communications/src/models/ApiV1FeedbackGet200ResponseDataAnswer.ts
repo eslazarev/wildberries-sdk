@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV1FeedbackGet200ResponseDataAnswer {
     /**
      * Текст ответа
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseDataAnswer
      */
     text?: string;
     /**
@@ -32,8 +30,6 @@ export interface ApiV1FeedbackGet200ResponseDataAnswer {
      *   - `reviewRequired` — ответ проходит проверку
      *   - `rejected` — ответ отклонён
      * 
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseDataAnswer
      */
     state?: string;
     /**
@@ -41,8 +37,6 @@ export interface ApiV1FeedbackGet200ResponseDataAnswer {
      *   - `false` — нет
      *   - `true` — да
      * 
-     * @type {boolean}
-     * @memberof ApiV1FeedbackGet200ResponseDataAnswer
      */
     editable?: boolean;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ContentV2DirectoryColorsGet200ResponseDataInner {
     /**
      * Наименование цвета
-     * @type {string}
-     * @memberof ContentV2DirectoryColorsGet200ResponseDataInner
      */
     name?: string;
     /**
      * Наименование родительского цвета
-     * @type {string}
-     * @memberof ContentV2DirectoryColorsGet200ResponseDataInner
      */
     parentName?: string;
 }

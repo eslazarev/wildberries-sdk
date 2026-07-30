@@ -29,8 +29,6 @@ import {
 export interface ApiV2SearchReportProductSearchTextsPost200Response {
     /**
      * 
-     * @type {ItemSearchTextsResponse}
-     * @memberof ApiV2SearchReportProductSearchTextsPost200Response
      */
     data: ItemSearchTextsResponse;
 }

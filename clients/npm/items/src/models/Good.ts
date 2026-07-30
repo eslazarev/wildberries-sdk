@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface Good {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof Good
      */
     nmID: number;
     /**
      * Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post), поле `currencyIsoCode4217`
-     * @type {number}
-     * @memberof Good
      */
     price?: number;
     /**
      * Скидка, %
-     * @type {number}
-     * @memberof Good
      */
     discount?: number;
 }

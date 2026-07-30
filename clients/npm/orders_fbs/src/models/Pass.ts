@@ -21,56 +21,38 @@ import { mapValues } from '../runtime';
 export interface Pass {
     /**
      * Имя водителя
-     * @type {string}
-     * @memberof Pass
      */
     firstName?: string;
     /**
      * Дата окончания действия пропуска
-     * @type {string}
-     * @memberof Pass
      */
     dateEnd?: string;
     /**
      * Фамилия водителя
-     * @type {string}
-     * @memberof Pass
      */
     lastName?: string;
     /**
      * Марка машины
-     * @type {string}
-     * @memberof Pass
      */
     carModel?: string;
     /**
      * Номер машины
-     * @type {string}
-     * @memberof Pass
      */
     carNumber?: string;
     /**
      * Название склада
-     * @type {string}
-     * @memberof Pass
      */
     officeName?: string;
     /**
      * Адрес склада
-     * @type {string}
-     * @memberof Pass
      */
     officeAddress?: string;
     /**
      * ID склада
-     * @type {number}
-     * @memberof Pass
      */
     officeId?: number;
     /**
      * ID пропуска
-     * @type {number}
-     * @memberof Pass
      */
     id?: number;
 }

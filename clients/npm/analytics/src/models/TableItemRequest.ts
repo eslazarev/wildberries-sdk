@@ -43,50 +43,34 @@ import {
 export interface TableItemRequest {
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof TableItemRequest
      */
     nmIDs?: Array<number>;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof TableItemRequest
      */
     subjectID?: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof TableItemRequest
      */
     brandName?: string;
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof TableItemRequest
      */
     tagID?: number;
     /**
      * 
-     * @type {PeriodInv}
-     * @memberof TableItemRequest
      */
     currentPeriod: PeriodInv;
     /**
      * 
-     * @type {StockType}
-     * @memberof TableItemRequest
      */
     stockType: StockType;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof TableItemRequest
      */
     skipDeletedNm: boolean;
     /**
      * 
-     * @type {TableOrderBy}
-     * @memberof TableItemRequest
      */
     orderBy: TableOrderBy;
     /**
@@ -98,20 +82,14 @@ export interface TableItemRequest {
      *   - `nonLiquid` — Неликвид
      *   - `invalidData` — Не рассчитано
      * 
-     * @type {Array<TableItemRequestAvailabilityFiltersEnum>}
-     * @memberof TableItemRequest
      */
     availabilityFilters: Array<TableItemRequestAvailabilityFiltersEnum>;
     /**
      * Количество товаров в ответе
-     * @type {number}
-     * @memberof TableItemRequest
      */
     limit?: number;
     /**
      * После какого элемента выдавать данные
-     * @type {number}
-     * @memberof TableItemRequest
      */
     offset: number;
 }

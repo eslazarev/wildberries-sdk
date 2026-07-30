@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface V3ArchiveOrderProduct {
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof V3ArchiveOrderProduct
      */
     article: string;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof V3ArchiveOrderProduct
      */
     chrtId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V3ArchiveOrderProduct
      */
     nmId: number;
     /**
      * Список баркодов
-     * @type {Array<string>}
-     * @memberof V3ArchiveOrderProduct
      */
     skus: Array<string>;
 }

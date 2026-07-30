@@ -29,8 +29,6 @@ import {
 export interface GetCategoriesData {
     /**
      * Категории документов
-     * @type {Array<GetCategoriesDataCategoriesInner>}
-     * @memberof GetCategoriesData
      */
     categories?: Array<GetCategoriesDataCategoriesInner>;
 }

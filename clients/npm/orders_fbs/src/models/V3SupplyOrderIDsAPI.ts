@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface V3SupplyOrderIDsAPI {
     /**
      * ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof V3SupplyOrderIDsAPI
      */
     orderIds?: Array<number>;
 }

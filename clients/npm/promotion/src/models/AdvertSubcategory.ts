@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AdvertSubcategory {
     /**
      * ID предмета
-     * @type {number}
-     * @memberof AdvertSubcategory
      */
     id: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof AdvertSubcategory
      */
     name: string;
 }

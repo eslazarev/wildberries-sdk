@@ -24,8 +24,6 @@ export interface GetAdvertsAdvertsInnerRestrictions {
      *   - `true` — да
      *   - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof GetAdvertsAdvertsInnerRestrictions
      */
     canChangeNms?: boolean;
 }

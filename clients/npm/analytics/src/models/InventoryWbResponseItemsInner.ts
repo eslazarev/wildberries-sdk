@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface InventoryWbResponseItemsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof InventoryWbResponseItemsInner
      */
     nmId: number;
     /**
      * ID размера
-     * @type {number}
-     * @memberof InventoryWbResponseItemsInner
      */
     chrtId: number;
     /**
      * ID склада
-     * @type {number}
-     * @memberof InventoryWbResponseItemsInner
      */
     warehouseId: number;
     /**
      * Название склада
-     * @type {string}
-     * @memberof InventoryWbResponseItemsInner
      */
     warehouseName: string;
     /**
      * Регион отгрузки
-     * @type {string}
-     * @memberof InventoryWbResponseItemsInner
      */
     regionName: string;
     /**
      * Количество товара на складе, доступное клиентам для добавления в корзину
-     * @type {number}
-     * @memberof InventoryWbResponseItemsInner
      */
     quantity: number;
     /**
      * В пути к клиенту
-     * @type {number}
-     * @memberof InventoryWbResponseItemsInner
      */
     inWayToClient: number;
     /**
      * В пути от клиента
-     * @type {number}
-     * @memberof InventoryWbResponseItemsInner
      */
     inWayFromClient: number;
 }

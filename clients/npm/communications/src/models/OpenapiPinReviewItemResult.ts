@@ -29,8 +29,6 @@ import {
 export interface OpenapiPinReviewItemResult {
     /**
      * 
-     * @type {Array<OpenapiPinReviewItemResultDataInner>}
-     * @memberof OpenapiPinReviewItemResult
      */
     data?: Array<OpenapiPinReviewItemResultDataInner>;
 }

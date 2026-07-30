@@ -29,20 +29,14 @@ import {
 export interface PostV3DbsOrdersStatusReceive200ResponseResultsInner {
     /**
      * Детали ошибки
-     * @type {Array<PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner>}
-     * @memberof PostV3DbsOrdersStatusReceive200ResponseResultsInner
      */
     errors?: Array<PostV3DbsOrdersStatusReceive200ResponseResultsInnerErrorsInner>;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof PostV3DbsOrdersStatusReceive200ResponseResultsInner
      */
     isError?: boolean;
     /**
      * ID сборочного задания с успешно обновлёнными данными
-     * @type {number}
-     * @memberof PostV3DbsOrdersStatusReceive200ResponseResultsInner
      */
     orderId?: number;
 }

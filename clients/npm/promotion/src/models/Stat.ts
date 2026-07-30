@@ -29,8 +29,6 @@ import {
 export interface Stat {
     /**
      * Блок статистики
-     * @type {Array<StatsBlok1>}
-     * @memberof Stat
      */
     stats?: Array<StatsBlok1>;
 }

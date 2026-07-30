@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface UpdateBlocked {
     /**
      * Код ошибки
-     * @type {string}
-     * @memberof UpdateBlocked
      */
     code?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof UpdateBlocked
      */
     message?: string;
     /**
      * Дополнительные данные ошибки
-     * @type {object}
-     * @memberof UpdateBlocked
      */
     data?: object | null;
 }

@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface ContentV2CardsUpdatePost413Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePost413Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePost413Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePost413Response
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePost413Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePost413Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof ContentV2CardsUpdatePost413Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePost413Response
      */
     statusText?: string;
 }

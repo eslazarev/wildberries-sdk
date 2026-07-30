@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface VisibilityInfoByDayInner {
     /**
      * Дата
-     * @type {Date}
-     * @memberof VisibilityInfoByDayInner
      */
     dt: Date;
     /**
      * Видимость карточки в результатах поиска, %
-     * @type {number}
-     * @memberof VisibilityInfoByDayInner
      */
     visibility: number;
     /**
      * Количество переходов в карточку
-     * @type {number}
-     * @memberof VisibilityInfoByDayInner
      */
     open: number;
 }

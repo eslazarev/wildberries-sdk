@@ -115,53 +115,134 @@ import {
 } from '../models/SalesReportsDetailedRes';
 
 export interface GetV1DocumentsCategoriesRequest {
+    /**
+     * Язык поля `title`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     */
     locale?: string;
 }
 
 export interface GetV1DocumentsDownloadRequest {
+    /**
+     * Уникальный ID документа
+     */
     serviceName: string;
+    /**
+     * Формат документа
+     */
     extension: string;
 }
 
 export interface GetV1DocumentsListRequest {
+    /**
+     * Язык поля `category`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     */
     locale?: string;
+    /**
+     * Начало периода. Только вместе с `endTime`
+     */
     beginTime?: Date;
+    /**
+     * Конец периода. Только вместе с `beginTime`
+     */
     endTime?: Date;
+    /**
+     * Сортировка:
+     *   - `date` — по дате создания документа
+     *   - `category` — по категории (только при `locale=ru`)
+     * 
+     * Только вместе с `order`
+     * 
+     */
     sort?: GetV1DocumentsListSortEnum;
+    /**
+     * Сортировка:
+     *   - `desc` — по убыванию
+     *   - `asc` — по возрастанию
+     * 
+     * Только вместе с `sort`
+     * 
+     */
     order?: GetV1DocumentsListOrderEnum;
+    /**
+     * ID [категории документов](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`
+     */
     category?: string;
+    /**
+     * Уникальный ID документа
+     */
     serviceName?: string;
+    /**
+     * Максимальное количество строк ответа
+     */
     limit?: number;
+    /**
+     * После какой строки выдавать данные
+     */
     offset?: number;
 }
 
 export interface PostV1AcquiringDetailedRequest {
+    /**
+     * 
+     */
     acquiringReportsDetailedReq: AcquiringReportsDetailedReq;
 }
 
 export interface PostV1AcquiringDetailedReportIdRequest {
+    /**
+     * ID отчёта
+     */
     reportId: number;
+    /**
+     * 
+     */
     financialReportsDetailedReportIdReq: FinancialReportsDetailedReportIdReq;
 }
 
 export interface PostV1AcquiringListRequest {
+    /**
+     * 
+     */
     acquiringReportListReq: AcquiringReportListReq;
 }
 
 export interface PostV1DocumentsDownloadAllRequest {
+    /**
+     * 
+     */
     requestDownload?: RequestDownload;
 }
 
 export interface PostV1SalesReportsDetailedRequest {
+    /**
+     * 
+     */
     salesReportsDetailedReq: SalesReportsDetailedReq;
 }
 
 export interface PostV1SalesReportsDetailedReportIdRequest {
+    /**
+     * ID отчёта.<br>Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)
+     */
     reportId: number;
+    /**
+     * 
+     */
     financialReportsDetailedReportIdReq: FinancialReportsDetailedReportIdReq;
 }
 
 export interface PostV1SalesReportsListRequest {
+    /**
+     * 
+     */
     salesReportListReq: SalesReportListReq;
 }
 

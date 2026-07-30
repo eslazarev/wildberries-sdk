@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface StandardizedFQError {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof StandardizedFQError
      */
     title?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof StandardizedFQError
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof StandardizedFQError
      */
     origin?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof StandardizedFQError
      */
     detail?: string;
 }

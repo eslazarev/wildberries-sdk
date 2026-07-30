@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface NmReportCreateReportResponse {
     /**
      * Уведомление, что началась генерация отчёта
-     * @type {string}
-     * @memberof NmReportCreateReportResponse
      */
     data: string;
 }

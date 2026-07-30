@@ -23,14 +23,10 @@ export interface CreateInviteRequestInvite {
      * Номер телефона пользователя для приглашения.
      * <details><summary><strong>Поддерживаются номера телефонов из стран:</strong></summary>• Азербайджан<br>• Армения<br>• Барбадос<br>• Беларусь<br>• Бразилия<br>• Гонконг<br>• Грузия<br>• Италия<br>• Казахстан<br>• Китай<br>• Кыргызстан<br>• Макао<br>• ОАЭ<br>• Россия<br>• Сербия<br>• Таджикистан<br>• Турция<br>• Узбекистан<br>• Чехия<br>• Швеция</details>
      * 
-     * @type {string}
-     * @memberof CreateInviteRequestInvite
      */
     phoneNumber: string;
     /**
      * Должность пользователя
-     * @type {string}
-     * @memberof CreateInviteRequestInvite
      */
     position?: string;
 }

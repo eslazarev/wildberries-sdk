@@ -21,40 +21,28 @@ import { mapValues } from '../runtime';
 export interface Stats2Inner {
     /**
      * Количество просмотров
-     * @type {number}
-     * @memberof Stats2Inner
      */
     views?: number;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof Stats2Inner
      */
     clicks?: number;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof Stats2Inner
      */
     atbs?: number;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof Stats2Inner
      */
     orders?: number;
     /**
      * CR(conversion rate) — отношение количества заказов к общему количеству посещений медиакампании
      * 
-     * @type {number}
-     * @memberof Stats2Inner
      */
     cr?: number;
     /**
      * CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
      * 
-     * @type {number}
-     * @memberof Stats2Inner
      */
     ctr?: number;
 }

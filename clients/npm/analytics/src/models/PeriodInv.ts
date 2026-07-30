@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PeriodInv {
     /**
      * Дата начала периода. Не позднее `end`. Не ранее 3 месяцев от текущей даты
-     * @type {Date}
-     * @memberof PeriodInv
      */
     start: Date;
     /**
      * Дата окончания периода. Не ранее 3 месяцев от текущей даты
-     * @type {Date}
-     * @memberof PeriodInv
      */
     end: Date;
 }

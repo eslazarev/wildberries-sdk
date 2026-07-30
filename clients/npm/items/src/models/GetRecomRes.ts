@@ -29,14 +29,10 @@ import {
 export interface GetRecomRes {
     /**
      * Данные о товарах и их рекомендациях
-     * @type {Array<GetRecomResDataInner>}
-     * @memberof GetRecomRes
      */
     data: Array<GetRecomResDataInner>;
     /**
      * Курсор. Последний `nmId` в ответе
-     * @type {number}
-     * @memberof GetRecomRes
      */
     next: number;
 }

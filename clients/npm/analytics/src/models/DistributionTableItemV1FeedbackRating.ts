@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface DistributionTableItemV1FeedbackRating {
     /**
      * Текущий рейтинг
-     * @type {number}
-     * @memberof DistributionTableItemV1FeedbackRating
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof DistributionTableItemV1FeedbackRating
      */
     dynamics?: number;
     /**
      * Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара
-     * @type {number}
-     * @memberof DistributionTableItemV1FeedbackRating
      */
     percentile: number | null;
 }

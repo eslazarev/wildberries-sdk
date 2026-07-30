@@ -29,80 +29,54 @@ import {
 export interface DaysV3Inner {
     /**
      * Блок информации о платформе
-     * @type {Array<DaysV3InnerAppsInner>}
-     * @memberof DaysV3Inner
      */
     apps: Array<DaysV3InnerAppsInner>;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     atbs: number;
     /**
      * Отмены, шт.
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     canceled: number;
     /**
      * Дата, за которую представлены данные
-     * @type {Date}
-     * @memberof DaysV3Inner
      */
     date: Date;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     clicks: number;
     /**
      * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     cpc: number;
     /**
      * CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     cr: number;
     /**
      * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     ctr: number;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     orders: number;
     /**
      * Количество заказанных товаров, шт.
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     shks: number;
     /**
      * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     sum: number;
     /**
      * Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     sumPrice: number;
     /**
      * Количество просмотров
-     * @type {number}
-     * @memberof DaysV3Inner
      */
     views: number;
 }

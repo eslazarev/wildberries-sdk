@@ -29,8 +29,6 @@ import {
 export interface GetV1Deductions200Response {
     /**
      * 
-     * @type {GetV1Deductions200ResponseData}
-     * @memberof GetV1Deductions200Response
      */
     data: GetV1Deductions200ResponseData;
 }

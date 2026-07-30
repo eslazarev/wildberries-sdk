@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface SetRecomResErrorsInner {
     /**
      * Значение параметра `nmId`
-     * @type {string}
-     * @memberof SetRecomResErrorsInner
      */
     mainNm: string;
     /**
      * Значение параметра `recomNm`
-     * @type {string}
-     * @memberof SetRecomResErrorsInner
      */
     recomNm: string;
     /**
      * Сообщение об ошибке
-     * @type {string}
-     * @memberof SetRecomResErrorsInner
      */
     message: string;
 }

@@ -29,8 +29,6 @@ import {
 export interface ContentV2GetCardsListPostRequest {
     /**
      * 
-     * @type {ContentV2GetCardsListPostRequestSettings}
-     * @memberof ContentV2GetCardsListPostRequest
      */
     settings?: ContentV2GetCardsListPostRequestSettings;
 }

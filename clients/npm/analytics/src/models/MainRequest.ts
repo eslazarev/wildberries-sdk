@@ -53,74 +53,50 @@ import {
 export interface MainRequest {
     /**
      * 
-     * @type {Period}
-     * @memberof MainRequest
      */
     currentPeriod: Period;
     /**
      * 
-     * @type {PastPeriod}
-     * @memberof MainRequest
      */
     pastPeriod?: PastPeriod;
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof MainRequest
      */
     nmIds?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof MainRequest
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof MainRequest
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof MainRequest
      */
     tagIds?: Array<number>;
     /**
      * 
-     * @type {PositionCluster}
-     * @memberof MainRequest
      */
     positionCluster: PositionCluster;
     /**
      * 
-     * @type {OrderByMainAndDetails}
-     * @memberof MainRequest
      */
     orderBy: OrderByMainAndDetails;
     /**
      * Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
-     * @type {boolean}
-     * @memberof MainRequest
      */
     includeSubstitutedSKUs?: boolean;
     /**
      * Показать данные по поисковым запросам без учёта подменного артикула
-     * @type {boolean}
-     * @memberof MainRequest
      */
     includeSearchTexts?: boolean;
     /**
      * Количество групп товаров в ответе
-     * @type {number}
-     * @memberof MainRequest
      */
     limit: number;
     /**
      * После какого элемента выдавать данные
-     * @type {number}
-     * @memberof MainRequest
      */
     offset: number;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface PlanBuilderOptionShort {
     /**
      * ID опции
-     * @type {string}
-     * @memberof PlanBuilderOptionShort
      */
     id?: string;
     /**
      * Код опции
-     * @type {string}
-     * @memberof PlanBuilderOptionShort
      */
     slug?: string;
     /**
      * Название опции на языке из параметра `locale`
-     * @type {string}
-     * @memberof PlanBuilderOptionShort
      */
     name?: string;
 }

@@ -36,26 +36,18 @@ import {
 export interface ApiOrdersMetaDetailsResponseOrdersInner {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInner
      */
     orderId: number;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInner
      */
     isError: boolean;
     /**
      * Информация об ошибке
-     * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInner
      */
     errors?: Array<ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner>;
     /**
      * Идентификаторы маркировки и статусы их валидации
-     * @type {Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>}
-     * @memberof ApiOrdersMetaDetailsResponseOrdersInner
      */
     metaDetails: Array<ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner>;
 }

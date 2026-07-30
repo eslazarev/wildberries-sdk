@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ModelsErrorBrand {
     /**
      * ID бренда
-     * @type {number}
-     * @memberof ModelsErrorBrand
      */
     id?: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof ModelsErrorBrand
      */
     name?: string;
 }

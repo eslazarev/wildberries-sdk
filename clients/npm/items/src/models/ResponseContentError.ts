@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ResponseContentError {
     /**
      * Данные ошибки
-     * @type {object}
-     * @memberof ResponseContentError
      */
     data?: object | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ResponseContentError
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ResponseContentError
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ResponseContentError
      */
     additionalErrors?: string | null;
 }

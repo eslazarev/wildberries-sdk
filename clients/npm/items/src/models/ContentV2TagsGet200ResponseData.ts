@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ContentV2TagsGet200ResponseData {
     /**
      * Числовой ID ярлыка
-     * @type {number}
-     * @memberof ContentV2TagsGet200ResponseData
      */
     id?: number;
     /**
      * Цвет ярлыка
-     * @type {string}
-     * @memberof ContentV2TagsGet200ResponseData
      */
     color?: string;
     /**
      * Имя ярлыка
-     * @type {string}
-     * @memberof ContentV2TagsGet200ResponseData
      */
     name?: string;
 }

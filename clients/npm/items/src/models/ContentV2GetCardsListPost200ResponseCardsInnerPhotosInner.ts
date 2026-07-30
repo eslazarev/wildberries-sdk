@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner {
     /**
      * URL фото `900x1200`
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner
      */
     big?: string;
     /**
      * URL фото `248x328`
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner
      */
     c246x328?: string;
     /**
      * URL фото `516x688`
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner
      */
     c516x688?: string;
     /**
      * URL фото `600x600`
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner
      */
     square?: string;
     /**
      * URL фото `75x100`
-     * @type {string}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner
      */
     tm?: string;
 }

@@ -43,38 +43,26 @@ import {
 export interface ItemRatingRequest {
     /**
      * 
-     * @type {PeriodItemRating}
-     * @memberof ItemRatingRequest
      */
     currentPeriod: PeriodItemRating;
     /**
      * 
-     * @type {PastPeriodItemRating}
-     * @memberof ItemRatingRequest
      */
     pastPeriod?: PastPeriodItemRating;
     /**
      * Список артикулов WB для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemRatingRequest
      */
     nmIds?: Array<number>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemRatingRequest
      */
     subjectIds?: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof ItemRatingRequest
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof ItemRatingRequest
      */
     tagIds?: Array<number>;
     /**
@@ -82,8 +70,6 @@ export interface ItemRatingRequest {
      *   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`
      *   - `false` — нет, возвращаются все товары, если не указаны другие параметры
      * 
-     * @type {boolean}
-     * @memberof ItemRatingRequest
      */
     isNotIncludeNmsWithoutSales?: boolean;
     /**
@@ -91,26 +77,18 @@ export interface ItemRatingRequest {
      *   - `true` — да, возвращаются только скрытые из каталога товары
      *   - `false` — нет, возвращаются все товары, если не указаны другие параметры
      * 
-     * @type {boolean}
-     * @memberof ItemRatingRequest
      */
     onlyShadowedNms?: boolean;
     /**
      * 
-     * @type {OrderByItemRating}
-     * @memberof ItemRatingRequest
      */
     orderBy: OrderByItemRating;
     /**
      * Количество товаров в ответе
-     * @type {number}
-     * @memberof ItemRatingRequest
      */
     limit?: number;
     /**
      * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-     * @type {number}
-     * @memberof ItemRatingRequest
      */
     offset: number;
 }

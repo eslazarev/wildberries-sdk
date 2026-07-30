@@ -29,14 +29,10 @@ import {
 export interface ApiAdvertV1BidsPatch200ResponseBidsInner {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof ApiAdvertV1BidsPatch200ResponseBidsInner
      */
     advertId: number;
     /**
      * Ставки
-     * @type {Array<ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner>}
-     * @memberof ApiAdvertV1BidsPatch200ResponseBidsInner
      */
     nmBids: Array<ApiAdvertV1BidsPatch200ResponseBidsInnerNmBidsInner>;
 }

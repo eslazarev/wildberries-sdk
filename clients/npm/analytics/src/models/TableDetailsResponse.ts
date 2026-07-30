@@ -30,14 +30,10 @@ export interface TableDetailsResponse {
     /**
      * Список товаров в группе по фильтру
      * 
-     * @type {Array<TableItemItem>}
-     * @memberof TableDetailsResponse
      */
     products: Array<TableItemItem>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof TableDetailsResponse
      */
     currency: string;
 }

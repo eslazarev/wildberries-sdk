@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GetV1AccountBalance402Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof GetV1AccountBalance402Response
      */
     title?: string;
     /**
      * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
-     * @type {string}
-     * @memberof GetV1AccountBalance402Response
      */
     detail?: string;
 }

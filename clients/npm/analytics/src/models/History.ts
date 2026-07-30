@@ -21,68 +21,46 @@ import { mapValues } from '../runtime';
 export interface History {
     /**
      * Дата сбора статистики
-     * @type {Date}
-     * @memberof History
      */
     date: Date;
     /**
      * Количество переходов в карточку товара
-     * @type {number}
-     * @memberof History
      */
     openCount: number;
     /**
      * Положили в корзину, шт.
-     * @type {number}
-     * @memberof History
      */
     cartCount: number;
     /**
      * Заказали товаров, шт.
-     * @type {number}
-     * @memberof History
      */
     orderCount: number;
     /**
      * Заказали на сумму
-     * @type {number}
-     * @memberof History
      */
     orderSum: number;
     /**
      * Выкупили товаров, шт.
-     * @type {number}
-     * @memberof History
      */
     buyoutCount: number;
     /**
      * Выкупили на сумму
-     * @type {number}
-     * @memberof History
      */
     buyoutSum: number;
     /**
      * Процент выкупа
-     * @type {number}
-     * @memberof History
      */
     buyoutPercent: number;
     /**
      * Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %
-     * @type {number}
-     * @memberof History
      */
     addToCartConversion: number;
     /**
      * Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ
-     * @type {number}
-     * @memberof History
      */
     cartToOrderConversion: number;
     /**
      * Количество добавлений товара в **Отложенные**
-     * @type {number}
-     * @memberof History
      */
     addToWishlistCount: number;
 }

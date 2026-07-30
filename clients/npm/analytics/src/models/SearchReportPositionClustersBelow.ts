@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface SearchReportPositionClustersBelow {
     /**
      * Текущее количество товаров
-     * @type {number}
-     * @memberof SearchReportPositionClustersBelow
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof SearchReportPositionClustersBelow
      */
     dynamics?: number;
 }

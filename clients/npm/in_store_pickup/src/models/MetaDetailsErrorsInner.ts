@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface MetaDetailsErrorsInner {
     /**
      * Идентификатор маркировки
-     * @type {string}
-     * @memberof MetaDetailsErrorsInner
      */
     key?: string;
     /**
      * Значение идентификатора маркировки
-     * @type {string}
-     * @memberof MetaDetailsErrorsInner
      */
     value?: string | null;
     /**
@@ -60,8 +56,6 @@ export interface MetaDetailsErrorsInner {
      * - `customsDeclaration`
      *   - `required` — Маркировка обязательна и не закреплена за сборочным заданием
      * 
-     * @type {string}
-     * @memberof MetaDetailsErrorsInner
      */
     decision?: string;
 }

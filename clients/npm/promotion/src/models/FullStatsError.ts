@@ -29,44 +29,30 @@ import {
 export interface FullStatsError {
     /**
      * 
-     * @type {Array<FullStatsErrorErrorsInner>}
-     * @memberof FullStatsError
      */
     errors?: Array<FullStatsErrorErrorsInner>;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof FullStatsError
      */
     detail?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof FullStatsError
      */
     origin: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof FullStatsError
      */
     requestId: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof FullStatsError
      */
     status: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof FullStatsError
      */
     title: string;
     /**
      * Тип ошибки
-     * @type {string}
-     * @memberof FullStatsError
      */
     type?: string;
 }

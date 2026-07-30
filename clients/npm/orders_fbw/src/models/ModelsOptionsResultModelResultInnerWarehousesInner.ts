@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ModelsOptionsResultModelResultInnerWarehousesInner {
     /**
      * ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
-     * @type {number}
-     * @memberof ModelsOptionsResultModelResultInnerWarehousesInner
      */
     warehouseID?: number;
     /**
@@ -30,8 +28,6 @@ export interface ModelsOptionsResultModelResultInnerWarehousesInner {
      *   - `true` — доступен
      *   - `false` — недоступен
      * 
-     * @type {boolean}
-     * @memberof ModelsOptionsResultModelResultInnerWarehousesInner
      */
     canBox?: boolean;
     /**
@@ -39,8 +35,6 @@ export interface ModelsOptionsResultModelResultInnerWarehousesInner {
      *   - `true` — доступен
      *   - `false` — недоступен
      * 
-     * @type {boolean}
-     * @memberof ModelsOptionsResultModelResultInnerWarehousesInner
      */
     canMonopallet?: boolean;
     /**
@@ -48,8 +42,6 @@ export interface ModelsOptionsResultModelResultInnerWarehousesInner {
      *   - `true` — доступен
      *   - `false` — недоступен
      * 
-     * @type {boolean}
-     * @memberof ModelsOptionsResultModelResultInnerWarehousesInner
      */
     canSupersafe?: boolean;
     /**
@@ -57,8 +49,6 @@ export interface ModelsOptionsResultModelResultInnerWarehousesInner {
      *   - `true` — доступен
      *   - `false` — недоступен
      * 
-     * @type {boolean}
-     * @memberof ModelsOptionsResultModelResultInnerWarehousesInner
      */
     isBoxOnPallet?: boolean;
 }

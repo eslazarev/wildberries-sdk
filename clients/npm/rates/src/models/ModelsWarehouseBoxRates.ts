@@ -21,68 +21,46 @@ import { mapValues } from '../runtime';
 export interface ModelsWarehouseBoxRates {
     /**
      * Логистика, первый литр, ₽
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxDeliveryBase?: string;
     /**
      * Коэффициент **Логистика**, %. На него умножается стоимость логистики. Уже учтён в тарифах
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxDeliveryCoefExpr?: string;
     /**
      * Логистика, дополнительный литр, ₽
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxDeliveryLiter?: string;
     /**
      * Логистика FBS, первый литр, ₽
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxDeliveryMarketplaceBase?: string;
     /**
      * Коэффициент **FBS**, %. На него умножается стоимость логистики FBS. Уже учтён в тарифах
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxDeliveryMarketplaceCoefExpr?: string;
     /**
      * Логистика FBS, дополнительный литр, ₽
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxDeliveryMarketplaceLiter?: string;
     /**
      * Хранение в день, первый литр, ₽
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxStorageBase?: string;
     /**
      * Коэффициент **Хранение**, %. На него умножается стоимость хранения в день. Уже учтён в тарифах
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxStorageCoefExpr?: string;
     /**
      * Хранение в день, дополнительный литр, ₽
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     boxStorageLiter?: string;
     /**
      * Страна, для РФ — округ
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     geoName?: string;
     /**
      * Название склада
-     * @type {string}
-     * @memberof ModelsWarehouseBoxRates
      */
     warehouseName?: string;
 }

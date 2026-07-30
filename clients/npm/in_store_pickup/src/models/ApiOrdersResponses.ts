@@ -29,14 +29,10 @@ import {
 export interface ApiOrdersResponses {
     /**
      * Уникальный ID запроса
-     * @type {any}
-     * @memberof ApiOrdersResponses
      */
     requestId: any | null;
     /**
      * 
-     * @type {Array<ApiOrdersResponse>}
-     * @memberof ApiOrdersResponses
      */
     results: Array<ApiOrdersResponse>;
 }

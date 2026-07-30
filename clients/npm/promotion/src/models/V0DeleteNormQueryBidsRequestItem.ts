@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface V0DeleteNormQueryBidsRequestItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V0DeleteNormQueryBidsRequestItem
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V0DeleteNormQueryBidsRequestItem
      */
     nmId: number;
     /**
      * Поисковый кластер
-     * @type {string}
-     * @memberof V0DeleteNormQueryBidsRequestItem
      */
     normQuery: string;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiFeedbacksV1PinsDelete200Response {
     /**
      * Список `pinId` — ID операций закрепления отзывов, которые были успешно откреплены
-     * @type {Array<number>}
-     * @memberof ApiFeedbacksV1PinsDelete200Response
      */
     data: Array<number>;
 }

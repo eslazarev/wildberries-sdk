@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ModelsOptionsResultModelResultInnerError {
     /**
      * ID ошибки
-     * @type {string}
-     * @memberof ModelsOptionsResultModelResultInnerError
      */
     title?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ModelsOptionsResultModelResultInnerError
      */
     detail?: string;
 }

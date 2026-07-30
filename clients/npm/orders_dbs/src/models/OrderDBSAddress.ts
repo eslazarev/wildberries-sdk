@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface OrderDBSAddress {
     /**
      * Адрес доставки
-     * @type {string}
-     * @memberof OrderDBSAddress
      */
     fullAddress?: string;
     /**
      * Долгота
-     * @type {number}
-     * @memberof OrderDBSAddress
      */
     longitude?: number;
     /**
      * Широта
-     * @type {number}
-     * @memberof OrderDBSAddress
      */
     latitude?: number;
 }

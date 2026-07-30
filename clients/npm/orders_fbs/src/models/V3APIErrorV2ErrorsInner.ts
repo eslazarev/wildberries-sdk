@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface V3APIErrorV2ErrorsInner {
     /**
      * Параметр, где произошла ошибка
-     * @type {string}
-     * @memberof V3APIErrorV2ErrorsInner
      */
     location?: string;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof V3APIErrorV2ErrorsInner
      */
     message?: string;
     /**
      * Значение параметра, где произошла ошибка
-     * @type {any}
-     * @memberof V3APIErrorV2ErrorsInner
      */
     value?: any | null;
 }

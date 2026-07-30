@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3SuppliesSupplyIdTrbxPost201Response {
     /**
      * Список ID грузомест, которые были созданы
-     * @type {Array<string>}
-     * @memberof ApiV3SuppliesSupplyIdTrbxPost201Response
      */
     trbxIds?: Array<string>;
 }

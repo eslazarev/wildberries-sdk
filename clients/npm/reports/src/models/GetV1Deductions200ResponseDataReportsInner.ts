@@ -21,92 +21,62 @@ import { mapValues } from '../runtime';
 export interface GetV1Deductions200ResponseDataReportsInner {
     /**
      * Дата и время удержания
-     * @type {Date}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     dtBonus?: Date;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     nmId?: number;
     /**
      * Старый штрихкод
-     * @type {number}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     oldShkId?: number;
     /**
      * Старый цвет
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     oldColor?: string;
     /**
      * Старый размер
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     oldSize?: string;
     /**
      * Старый баркод
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     oldSku?: string;
     /**
      * Старый артикул продавца
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     oldVendorCode?: string;
     /**
      * Новый штрихкод
-     * @type {number}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     newShkId?: number;
     /**
      * Новый цвет
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     newColor?: string;
     /**
      * Новый размер
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     newSize?: string;
     /**
      * Новый баркод
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     newSku?: string;
     /**
      * Новый артикул продавца
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     newVendorCode?: string;
     /**
      * Сумма удержания
-     * @type {number}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     bonusSumm?: number;
     /**
      * Причина удержания
-     * @type {string}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     bonusType?: string;
     /**
      * Фото замеров
-     * @type {Array<string>}
-     * @memberof GetV1Deductions200ResponseDataReportsInner
      */
     photoUrls?: Array<string>;
 }

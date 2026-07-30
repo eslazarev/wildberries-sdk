@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface AdvV1UpdGet200ResponseInner {
     /**
      * Номер выставленного документа
-     * @type {number}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     updNum?: number;
     /**
      * Время списания
-     * @type {string}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     updTime?: string | null;
     /**
      * Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     updSum?: number;
     /**
      * ID кампании
-     * @type {number}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     advertId?: number;
     /**
      * Название кампании
-     * @type {string}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     campName?: string;
     /**
      * Тип кампании
-     * @type {number}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     advertType?: number;
     /**
@@ -62,8 +50,6 @@ export interface AdvV1UpdGet200ResponseInner {
      *  - `Счёт`
      *  - `Кэшбэк`
      * 
-     * @type {string}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     paymentType?: string;
     /**
@@ -75,8 +61,6 @@ export interface AdvV1UpdGet200ResponseInner {
      * - `9` — активна
      * - `11` — на паузе
      * 
-     * @type {number}
-     * @memberof AdvV1UpdGet200ResponseInner
      */
     advertStatus?: number;
 }

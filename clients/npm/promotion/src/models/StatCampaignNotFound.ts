@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface StatCampaignNotFound {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof StatCampaignNotFound
      */
     advertId?: number;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof StatCampaignNotFound
      */
     error?: string;
 }

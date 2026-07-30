@@ -29,8 +29,6 @@ import {
 export interface ApiV3DbwWarehousesWarehouseIdContactsGet200Response {
     /**
      * 
-     * @type {Array<ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner>}
-     * @memberof ApiV3DbwWarehousesWarehouseIdContactsGet200Response
      */
     contacts?: Array<ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner>;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiBatchErrorResponseMetaDetailsInner {
     /**
      * Идентификатор маркировки
-     * @type {string}
-     * @memberof ApiBatchErrorResponseMetaDetailsInner
      */
     key: string;
     /**
      * Значение идентификатора маркировки
-     * @type {string}
-     * @memberof ApiBatchErrorResponseMetaDetailsInner
      */
     value?: string | null;
     /**
@@ -46,8 +42,6 @@ export interface ApiBatchErrorResponseMetaDetailsInner {
      *   - `sgtinAppliedNotPaid` — Не оплачен
      *   - `pending` — Маркировка на проверке
      * 
-     * @type {string}
-     * @memberof ApiBatchErrorResponseMetaDetailsInner
      */
     decision: string;
 }

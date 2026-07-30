@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface PostV3DbwOrdersStickersRequest {
     /**
      * Список ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof PostV3DbwOrdersStickersRequest
      */
     orders?: Array<number>;
 }

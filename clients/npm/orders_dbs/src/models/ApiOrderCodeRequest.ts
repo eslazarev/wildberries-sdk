@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiOrderCodeRequest {
     /**
      * Код подтверждения. <br> Отображается у покупателя на сайте и в приложении Wildberries
-     * @type {string}
-     * @memberof ApiOrderCodeRequest
      */
     code?: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiOrderCodeRequest
      */
     orderId?: number;
 }

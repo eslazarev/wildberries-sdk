@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ResponseFeedbackInnerVideo {
     /**
      * Ссылка на обложку видео
-     * @type {string}
-     * @memberof ResponseFeedbackInnerVideo
      */
     previewImage?: string;
     /**
      * Ссылка на файл плейлиста видео (доступно по протоколу HLS)
-     * @type {string}
-     * @memberof ResponseFeedbackInnerVideo
      */
     link?: string;
     /**
      * Общая продолжительность видео
-     * @type {number}
-     * @memberof ResponseFeedbackInnerVideo
      */
     durationSec?: number;
 }

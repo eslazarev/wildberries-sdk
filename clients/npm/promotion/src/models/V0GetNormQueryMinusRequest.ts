@@ -29,8 +29,6 @@ import {
 export interface V0GetNormQueryMinusRequest {
     /**
      * 
-     * @type {Array<V0GetNormQueryMinusRequestItem>}
-     * @memberof V0GetNormQueryMinusRequest
      */
     items: Array<V0GetNormQueryMinusRequestItem>;
 }

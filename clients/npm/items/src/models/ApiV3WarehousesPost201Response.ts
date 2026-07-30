@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3WarehousesPost201Response {
     /**
      * ID склада продавца
-     * @type {number}
-     * @memberof ApiV3WarehousesPost201Response
      */
     id?: number;
 }

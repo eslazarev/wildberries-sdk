@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GetV2News200ResponseDataInnerTypesInner {
     /**
      * ID тега
-     * @type {number}
-     * @memberof GetV2News200ResponseDataInnerTypesInner
      */
     id?: number;
     /**
      * Название тега
-     * @type {string}
-     * @memberof GetV2News200ResponseDataInnerTypesInner
      */
     name?: string;
 }

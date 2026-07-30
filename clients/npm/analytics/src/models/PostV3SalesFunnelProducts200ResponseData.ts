@@ -29,14 +29,10 @@ import {
 export interface PostV3SalesFunnelProducts200ResponseData {
     /**
      * Список карточек товаров
-     * @type {Array<ItemsResponseProductsInner>}
-     * @memberof PostV3SalesFunnelProducts200ResponseData
      */
     products: Array<ItemsResponseProductsInner>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts200ResponseData
      */
     currency: string;
 }

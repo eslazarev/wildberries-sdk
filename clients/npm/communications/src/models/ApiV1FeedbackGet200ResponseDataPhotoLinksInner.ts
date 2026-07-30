@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1FeedbackGet200ResponseDataPhotoLinksInner {
     /**
      * Адрес фотографии полного размера
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseDataPhotoLinksInner
      */
     fullSize?: string;
     /**
      * Адрес фотографии маленького размера
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseDataPhotoLinksInner
      */
     miniSize?: string;
 }

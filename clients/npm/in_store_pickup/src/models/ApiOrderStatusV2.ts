@@ -29,26 +29,18 @@ import {
 export interface ApiOrderStatusV2 {
     /**
      * Информация об ошибке
-     * @type {Array<ApiOrdersErrorResponse>}
-     * @memberof ApiOrderStatusV2
      */
     errors?: Array<ApiOrdersErrorResponse>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiOrderStatusV2
      */
     orderId: number;
     /**
      * Статус сборочного задания, установленный продавцом
-     * @type {string}
-     * @memberof ApiOrderStatusV2
      */
     supplierStatus?: string;
     /**
      * Статус сборочного задания в системе Wildberries
-     * @type {string}
-     * @memberof ApiOrderStatusV2
      */
     wbStatus?: string;
 }

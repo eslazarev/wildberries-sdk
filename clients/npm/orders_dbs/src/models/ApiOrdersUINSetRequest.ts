@@ -29,8 +29,6 @@ import {
 export interface ApiOrdersUINSetRequest {
     /**
      * 
-     * @type {Array<ApiUIN>}
-     * @memberof ApiOrdersUINSetRequest
      */
     orders: Array<ApiUIN>;
 }

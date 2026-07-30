@@ -29,26 +29,18 @@ import {
 export interface SalesFunnelItemReq {
     /**
      * ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
-     * @type {string}
-     * @memberof SalesFunnelItemReq
      */
     id: string;
     /**
      * Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB
-     * @type {string}
-     * @memberof SalesFunnelItemReq
      */
     reportType: string;
     /**
      * Название отчёта. Если не указано, сформируется автоматически
-     * @type {string}
-     * @memberof SalesFunnelItemReq
      */
     userReportName?: string;
     /**
      * 
-     * @type {SalesFunnelItemReqParams}
-     * @memberof SalesFunnelItemReq
      */
     params: SalesFunnelItemReqParams;
 }

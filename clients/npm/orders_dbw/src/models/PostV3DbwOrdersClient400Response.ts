@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface PostV3DbwOrdersClient400Response {
     /**
      * Код ошибки
-     * @type {string}
-     * @memberof PostV3DbwOrdersClient400Response
      */
     code?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof PostV3DbwOrdersClient400Response
      */
     message?: string;
     /**
      * Дополнительные данные ошибки
-     * @type {object}
-     * @memberof PostV3DbwOrdersClient400Response
      */
     data?: object | null;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof PostV3DbwOrdersClient400Response
      */
     detail?: string | null;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof PostV3DbwOrdersClient400Response
      */
     origin?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof PostV3DbwOrdersClient400Response
      */
     requestId?: string;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PostV3DbwOrdersClient400Response
      */
     title?: string;
 }

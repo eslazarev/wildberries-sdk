@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface TableSearchTextItemAllOfOrders {
     /**
      * Текущее количество
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOrders
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOrders
      */
     dynamics?: number;
     /**
      * Процент, на который показатель заказов выше, чем у карточек других продавцов по поисковому запросу
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOrders
      */
     percentile: number;
 }

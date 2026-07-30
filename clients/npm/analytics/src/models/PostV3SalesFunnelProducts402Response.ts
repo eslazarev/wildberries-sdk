@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PostV3SalesFunnelProducts402Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts402Response
      */
     title?: string;
     /**
      * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts402Response
      */
     detail?: string;
 }

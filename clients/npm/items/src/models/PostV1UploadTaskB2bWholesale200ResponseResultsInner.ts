@@ -29,8 +29,6 @@ import {
 export interface PostV1UploadTaskB2bWholesale200ResponseResultsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof PostV1UploadTaskB2bWholesale200ResponseResultsInner
      */
     nmId: number;
     /**
@@ -38,14 +36,10 @@ export interface PostV1UploadTaskB2bWholesale200ResponseResultsInner {
      *   - `false` — неуспешна
      *   - `true` — успешна
      * 
-     * @type {boolean}
-     * @memberof PostV1UploadTaskB2bWholesale200ResponseResultsInner
      */
     success: boolean;
     /**
      * 
-     * @type {PostV1UploadTaskB2bWholesale200ResponseResultsInnerError}
-     * @memberof PostV1UploadTaskB2bWholesale200ResponseResultsInner
      */
     error?: PostV1UploadTaskB2bWholesale200ResponseResultsInnerError;
 }

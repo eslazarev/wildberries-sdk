@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV3SuppliesOrdersReshipmentGet200ResponseOrdersInner {
     /**
      * ID поставки
-     * @type {any}
-     * @memberof ApiV3SuppliesOrdersReshipmentGet200ResponseOrdersInner
      */
     supplyID?: any | null;
     /**
      * ID сборочного задания
-     * @type {any}
-     * @memberof ApiV3SuppliesOrdersReshipmentGet200ResponseOrdersInner
      */
     orderID?: any | null;
 }

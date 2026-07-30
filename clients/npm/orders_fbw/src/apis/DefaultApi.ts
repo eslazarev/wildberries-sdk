@@ -75,29 +75,71 @@ import {
 } from '../models/PostV1AcceptanceOptions402Response';
 
 export interface GetV1SuppliesIdRequest {
+    /**
+     * ID поставки или заказа
+     */
     iD: number;
+    /**
+     * Поиск по:
+     *   - `true` — ID заказа, если в `ID` передаёте ID заказа
+     *   - `false` — ID поставки, если в `ID` передаёте ID поставки
+     * 
+     */
     isPreorderID?: boolean;
 }
 
 export interface GetV1SuppliesIdGoodsRequest {
+    /**
+     * ID поставки или заказа
+     */
     iD: number;
+    /**
+     * Количество записей в ответе
+     */
     limit?: number;
+    /**
+     * После какого элемента выдавать данные
+     */
     offset?: number;
+    /**
+     * Поиск по:
+     *   - `true` — ID заказа, если в `ID` передаёте ID заказа
+     *   - `false` — ID поставки, если в `ID` передаёте ID поставки
+     * 
+     */
     isPreorderID?: boolean;
 }
 
 export interface GetV1SuppliesIdPackageRequest {
+    /**
+     * ID поставки
+     */
     iD: number;
 }
 
 export interface PostV1AcceptanceOptionsRequest {
+    /**
+     * 
+     */
     modelsGood: Array<ModelsGood>;
+    /**
+     * ID склада. <br> Если параметр не указан, возвращаются данные по всем складам.<br> **Максимум одно значение**
+     */
     warehouseID?: number;
 }
 
 export interface PostV1SuppliesRequest {
+    /**
+     * 
+     */
     modelsSuppliesFiltersRequest: ModelsSuppliesFiltersRequest;
+    /**
+     * Количество записей в ответе
+     */
     limit?: number;
+    /**
+     * После какого элемента выдавать данные
+     */
     offset?: number;
 }
 

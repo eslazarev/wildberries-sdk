@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableSearchTextItemAllOfVisibility {
     /**
      * Текущий процент
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfVisibility
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfVisibility
      */
     dynamics?: number;
 }

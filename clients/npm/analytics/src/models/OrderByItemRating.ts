@@ -30,8 +30,6 @@ export interface OrderByItemRating {
      *   - `oneStar` — Отзывы 1 звезда
      *   - `disqualified` — Отзывы, исключённые из рейтинга
      * 
-     * @type {OrderByItemRatingFieldEnum}
-     * @memberof OrderByItemRating
      */
     field: OrderByItemRatingFieldEnum;
     /**
@@ -39,8 +37,6 @@ export interface OrderByItemRating {
      *   - `asc` — по возрастанию
      *   - `desc` — по убыванию
      * 
-     * @type {OrderByItemRatingModeEnum}
-     * @memberof OrderByItemRating
      */
     mode: OrderByItemRatingModeEnum;
 }

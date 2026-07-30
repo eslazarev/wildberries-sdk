@@ -21,56 +21,38 @@ import { mapValues } from '../runtime';
 export interface WHMDataReportsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof WHMDataReportsInner
      */
     nmId?: number;
     /**
      * Предмет
-     * @type {string}
-     * @memberof WHMDataReportsInner
      */
     subjectName?: string;
     /**
      * ID замера
-     * @type {number}
-     * @memberof WHMDataReportsInner
      */
     dimId?: number;
     /**
      * Объём, л
-     * @type {number}
-     * @memberof WHMDataReportsInner
      */
     volume?: number;
     /**
      * Ширина, см
-     * @type {number}
-     * @memberof WHMDataReportsInner
      */
     width?: number;
     /**
      * Длина, см
-     * @type {number}
-     * @memberof WHMDataReportsInner
      */
     length?: number;
     /**
      * Высота, см
-     * @type {number}
-     * @memberof WHMDataReportsInner
      */
     height?: number;
     /**
      * Фото замеров
-     * @type {Array<string>}
-     * @memberof WHMDataReportsInner
      */
     photoUrls?: Array<string>;
     /**
      * Дата и время
-     * @type {Date}
-     * @memberof WHMDataReportsInner
      */
     dt?: Date;
 }

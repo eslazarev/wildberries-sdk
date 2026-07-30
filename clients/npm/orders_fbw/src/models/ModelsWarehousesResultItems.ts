@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ModelsWarehousesResultItems {
     /**
      * ID склада
-     * @type {number}
-     * @memberof ModelsWarehousesResultItems
      */
     iD?: number;
     /**
      * Название склада
-     * @type {string}
-     * @memberof ModelsWarehousesResultItems
      */
     name?: string;
     /**
      * Адрес склада
-     * @type {string}
-     * @memberof ModelsWarehousesResultItems
      */
     address?: string;
     /**
      * Режим работы склада
-     * @type {string}
-     * @memberof ModelsWarehousesResultItems
      */
     workTime?: string;
     /**
@@ -48,8 +40,6 @@ export interface ModelsWarehousesResultItems {
      * - `true` — да
      * - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof ModelsWarehousesResultItems
      */
     isActive?: boolean;
     /**
@@ -57,8 +47,6 @@ export interface ModelsWarehousesResultItems {
      * - `true` — да
      * - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof ModelsWarehousesResultItems
      */
     isTransitActive?: boolean;
 }

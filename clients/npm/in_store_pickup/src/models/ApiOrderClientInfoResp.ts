@@ -29,8 +29,6 @@ import {
 export interface ApiOrderClientInfoResp {
     /**
      * 
-     * @type {Array<ApiOrderClientInfo>}
-     * @memberof ApiOrderClientInfoResp
      */
     orders?: Array<ApiOrderClientInfo>;
 }

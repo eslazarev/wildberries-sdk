@@ -26,8 +26,6 @@ export interface AcquiringReportsDetailedReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof AcquiringReportsDetailedReq
      */
     dateFrom: string;
     /**
@@ -37,27 +35,19 @@ export interface AcquiringReportsDetailedReq {
      *   - `2025-06-20T00:00:00.12345`
      *   - `2025-06-20T00:00:00`
      * 
-     * @type {string}
-     * @memberof AcquiringReportsDetailedReq
      */
     dateTo: string;
     /**
      * Количество строк в ответе
-     * @type {number}
-     * @memberof AcquiringReportsDetailedReq
      */
     limit?: number;
     /**
      * ID строки ответа. Необходим для получения отчёта частями.<br>Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа.<br>Повторяйте запрос, пока не получите ответ `204`
      * 
-     * @type {number}
-     * @memberof AcquiringReportsDetailedReq
      */
     rrdId?: number;
     /**
      * Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
-     * @type {Array<string>}
-     * @memberof AcquiringReportsDetailedReq
      */
     fields?: Array<string>;
 }

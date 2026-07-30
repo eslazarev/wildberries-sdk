@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails
      */
     nmId?: number;
     /**
      * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @type {number}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails
      */
     imtId?: number;
     /**
      * Название товара
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails
      */
     productName?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails
      */
     supplierArticle?: string;
     /**
      * Имя продавца
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails
      */
     supplierName?: string;
     /**
      * Название бренда
-     * @type {string}
-     * @memberof ApiV1QuestionsGet200ResponseDataQuestionsInnerProductDetails
      */
     brandName?: string;
 }

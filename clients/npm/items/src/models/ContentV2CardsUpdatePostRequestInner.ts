@@ -43,14 +43,10 @@ import {
 export interface ContentV2CardsUpdatePostRequestInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     nmID: number;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     vendorCode: string;
     /**
@@ -60,20 +56,14 @@ export interface ContentV2CardsUpdatePostRequestInner {
      * 
      * Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz`
      * 
-     * @type {boolean}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     kizMarked?: boolean;
     /**
      * Бренд
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     brand?: string;
     /**
      * Наименование товара
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     title?: string;
     /**
@@ -82,14 +72,10 @@ export interface ContentV2CardsUpdatePostRequestInner {
      * Стандарт — 2000, минимум — 1000, максимум — 5000<br>
      * Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
      * 
-     * @type {string}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     description?: string;
     /**
      * 
-     * @type {ContentV2CardsUpdatePostRequestInnerDimensions}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     dimensions?: ContentV2CardsUpdatePostRequestInnerDimensions;
     /**
@@ -97,16 +83,12 @@ export interface ContentV2CardsUpdatePostRequestInner {
      * <br>
      * Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get)
      * 
-     * @type {Array<ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     characteristics?: Array<ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>;
     /**
      * Массив размеров<br>
      * Для безразмерного товара всё равно нужно передавать данный массив без параметров (wbSize и techSize), но с баркодом
      * 
-     * @type {Array<ContentV2CardsUpdatePostRequestInnerSizesInner>}
-     * @memberof ContentV2CardsUpdatePostRequestInner
      */
     sizes: Array<ContentV2CardsUpdatePostRequestInnerSizesInner>;
 }

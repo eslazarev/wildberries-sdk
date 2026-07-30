@@ -23,26 +23,18 @@ export interface DbsOnlyClientInfo {
      * Подменный номер для связи с покупателем. <br>
      * Пустое значение `""` указывает, что номер еще не назначен <br>
      * 
-     * @type {string}
-     * @memberof DbsOnlyClientInfo
      */
     replacementPhone?: string;
     /**
      * Имя покупателя
-     * @type {string}
-     * @memberof DbsOnlyClientInfo
      */
     firstName?: string;
     /**
      * Полное имя, используется для оформления документов. Например, документы на автомобиль
-     * @type {string}
-     * @memberof DbsOnlyClientInfo
      */
     fullName?: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof DbsOnlyClientInfo
      */
     orderID?: number;
     /**
@@ -51,16 +43,12 @@ export interface DbsOnlyClientInfo {
      * Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. <br>
      * Пустое значение `""` указывает, что номер ещё не назначен
      * 
-     * @type {string}
-     * @memberof DbsOnlyClientInfo
      */
     phone?: string;
     /**
      * Добавочный код. <br>
      * Пустое значение `""` указывает, что код ещё не назначен
      * 
-     * @type {number}
-     * @memberof DbsOnlyClientInfo
      */
     phoneCode?: number;
     /**
@@ -68,8 +56,6 @@ export interface DbsOnlyClientInfo {
      * Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`.<br>
      * Пустое значение `""` указывает, что код ещё не назначен
      * 
-     * @type {Array<string>}
-     * @memberof DbsOnlyClientInfo
      */
     additionalPhoneCodes?: Array<string>;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface BoosterStatsV3Inner {
     /**
      * Средняя позиция товара
-     * @type {number}
-     * @memberof BoosterStatsV3Inner
      */
     avgPosition: number;
     /**
      * Дата, за которую предоставлены данные
-     * @type {Date}
-     * @memberof BoosterStatsV3Inner
      */
     date: Date;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof BoosterStatsV3Inner
      */
     nm: number;
 }

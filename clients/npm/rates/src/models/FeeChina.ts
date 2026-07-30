@@ -29,8 +29,6 @@ import {
 export interface FeeChina {
     /**
      * Список комиссий
-     * @type {Array<FeeChinaReportInner>}
-     * @memberof FeeChina
      */
     report?: Array<FeeChinaReportInner>;
 }

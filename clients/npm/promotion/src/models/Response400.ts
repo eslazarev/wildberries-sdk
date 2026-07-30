@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface Response400 {
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof Response400
      */
     detail: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response400
      */
     origin: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof Response400
      */
     requestId: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof Response400
      */
     status: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof Response400
      */
     title: string;
 }

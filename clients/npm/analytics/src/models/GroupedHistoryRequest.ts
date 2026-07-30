@@ -36,38 +36,26 @@ import {
 export interface GroupedHistoryRequest {
     /**
      * 
-     * @type {ItemsRequestSelectedPeriod}
-     * @memberof GroupedHistoryRequest
      */
     selectedPeriod: ItemsRequestSelectedPeriod;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof GroupedHistoryRequest
      */
     brandNames?: Array<string>;
     /**
      * Список ID предметов для фильтрации
-     * @type {Array<number>}
-     * @memberof GroupedHistoryRequest
      */
     subjectIds?: Array<number>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof GroupedHistoryRequest
      */
     tagIds?: Array<number>;
     /**
      * Скрыть удалённые товары
-     * @type {boolean}
-     * @memberof GroupedHistoryRequest
      */
     skipDeletedNm?: boolean;
     /**
      * 
-     * @type {Level}
-     * @memberof GroupedHistoryRequest
      */
     aggregationLevel?: Level;
 }

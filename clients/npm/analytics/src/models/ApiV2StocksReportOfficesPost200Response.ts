@@ -29,8 +29,6 @@ import {
 export interface ApiV2StocksReportOfficesPost200Response {
     /**
      * 
-     * @type {TableShippingOfficeResponse}
-     * @memberof ApiV2StocksReportOfficesPost200Response
      */
     data: TableShippingOfficeResponse;
 }

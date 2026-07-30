@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface PassOffice {
     /**
      * Название
-     * @type {string}
-     * @memberof PassOffice
      */
     name?: string;
     /**
      * Адрес
-     * @type {string}
-     * @memberof PassOffice
      */
     address?: string;
     /**
      * ID
-     * @type {number}
-     * @memberof PassOffice
      */
     id?: number;
 }

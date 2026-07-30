@@ -29,44 +29,30 @@ import {
 export interface V3APIErrorV2 {
     /**
      * Код ошибки
-     * @type {string}
-     * @memberof V3APIErrorV2
      */
     code?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof V3APIErrorV2
      */
     detail: string;
     /**
      * 
-     * @type {Array<V3APIErrorV2ErrorsInner>}
-     * @memberof V3APIErrorV2
      */
     errors?: Array<V3APIErrorV2ErrorsInner>;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof V3APIErrorV2
      */
     origin?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof V3APIErrorV2
      */
     requestId?: string;
     /**
      * HTTP статус-код ответа
-     * @type {number}
-     * @memberof V3APIErrorV2
      */
     status?: number;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof V3APIErrorV2
      */
     title: string;
 }

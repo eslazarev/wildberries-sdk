@@ -29,8 +29,6 @@ import {
 export interface PostV1UploadTaskB2bWholesaleRequest {
     /**
      * Товары и оптовые скидки для B2B
-     * @type {Array<B2BWholesaleInner>}
-     * @memberof PostV1UploadTaskB2bWholesaleRequest
      */
     data: Array<B2BWholesaleInner>;
 }

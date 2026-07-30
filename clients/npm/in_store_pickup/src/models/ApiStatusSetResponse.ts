@@ -29,20 +29,14 @@ import {
 export interface ApiStatusSetResponse {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiStatusSetResponse
      */
     orderId: number;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof ApiStatusSetResponse
      */
     isError: boolean;
     /**
      * Детали ошибки
-     * @type {Array<ApiBatchErrorResponse>}
-     * @memberof ApiStatusSetResponse
      */
     errors?: Array<ApiBatchErrorResponse>;
 }

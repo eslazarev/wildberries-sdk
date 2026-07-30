@@ -36,14 +36,10 @@ import {
 export interface StatInterval {
     /**
      * 
-     * @type {StatIntervalInterval}
-     * @memberof StatInterval
      */
     interval: StatIntervalInterval;
     /**
      * Блок статистики
-     * @type {Array<StatsBlok1>}
-     * @memberof StatInterval
      */
     stats?: Array<StatsBlok1>;
 }

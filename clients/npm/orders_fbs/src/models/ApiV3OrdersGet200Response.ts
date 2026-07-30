@@ -29,14 +29,10 @@ import {
 export interface ApiV3OrdersGet200Response {
     /**
      * Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-     * @type {number}
-     * @memberof ApiV3OrdersGet200Response
      */
     next?: number;
     /**
      * 
-     * @type {Array<Order>}
-     * @memberof ApiV3OrdersGet200Response
      */
     orders?: Array<Order>;
 }

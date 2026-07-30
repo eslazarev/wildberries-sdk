@@ -29,14 +29,10 @@ import {
 export interface ApiV3SuppliesGet200Response {
     /**
      * Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-     * @type {number}
-     * @memberof ApiV3SuppliesGet200Response
      */
     next?: number;
     /**
      * Список поставок
-     * @type {Array<Supply>}
-     * @memberof ApiV3SuppliesGet200Response
      */
     supplies?: Array<Supply>;
 }

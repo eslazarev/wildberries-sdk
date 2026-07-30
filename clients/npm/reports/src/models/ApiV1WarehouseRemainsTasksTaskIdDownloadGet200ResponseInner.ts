@@ -29,50 +29,34 @@ import {
 export interface ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner {
     /**
      * Бренд
-     * @type {string}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     brand?: string;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     subjectName?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     vendorCode?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     nmId?: number;
     /**
      * Баркод
-     * @type {string}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     barcode?: string;
     /**
      * Размер
-     * @type {string}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     techSize?: string;
     /**
      * Объём, л
-     * @type {number}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     volume?: number;
     /**
      * Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`
-     * @type {Array<ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner>}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
      */
     warehouses?: Array<ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner>;
 }

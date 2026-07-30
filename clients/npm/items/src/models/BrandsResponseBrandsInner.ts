@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface BrandsResponseBrandsInner {
     /**
      * ID бренда
-     * @type {number}
-     * @memberof BrandsResponseBrandsInner
      */
     id: number;
     /**
      * URL логотипа бренда
-     * @type {string}
-     * @memberof BrandsResponseBrandsInner
      */
     logoUrl: string;
     /**
      * Название бренда
-     * @type {string}
-     * @memberof BrandsResponseBrandsInner
      */
     name: string;
 }

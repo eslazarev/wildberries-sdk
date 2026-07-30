@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
     /**
      * Номер ДТ
-     * @type {string}
-     * @memberof ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
      */
     customsDeclaration?: string;
 }

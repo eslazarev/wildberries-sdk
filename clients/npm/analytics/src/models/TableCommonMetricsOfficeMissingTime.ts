@@ -26,14 +26,10 @@ import { mapValues } from '../runtime';
 export interface TableCommonMetricsOfficeMissingTime {
     /**
      * Количество дней
-     * @type {number}
-     * @memberof TableCommonMetricsOfficeMissingTime
      */
     days: number;
     /**
      * Количество часов
-     * @type {number}
-     * @memberof TableCommonMetricsOfficeMissingTime
      */
     hours: number;
 }

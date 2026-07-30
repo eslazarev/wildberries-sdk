@@ -29,8 +29,6 @@ import {
 export interface AdvV0AuctionNmsPatch200Response {
     /**
      * Результат отработки запроса
-     * @type {Array<AdvV0AuctionNmsPatch200ResponseNmsInner>}
-     * @memberof AdvV0AuctionNmsPatch200Response
      */
     nms: Array<AdvV0AuctionNmsPatch200ResponseNmsInner>;
 }

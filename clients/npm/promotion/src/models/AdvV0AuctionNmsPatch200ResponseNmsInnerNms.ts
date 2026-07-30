@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface AdvV0AuctionNmsPatch200ResponseNmsInnerNms {
     /**
      * Добавленные карточки товаров
-     * @type {Array<number>}
-     * @memberof AdvV0AuctionNmsPatch200ResponseNmsInnerNms
      */
     added: Array<number>;
     /**
      * Удалённые карточки товаров
-     * @type {Array<number>}
-     * @memberof AdvV0AuctionNmsPatch200ResponseNmsInnerNms
      */
     deleted: Array<number>;
 }

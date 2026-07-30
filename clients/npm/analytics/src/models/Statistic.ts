@@ -50,104 +50,70 @@ import {
 export interface Statistic {
     /**
      * Даты периода
-     * @type {DatePeriod}
-     * @memberof Statistic
      */
     period: DatePeriod;
     /**
      * Количество переходов в карточку товара
-     * @type {number}
-     * @memberof Statistic
      */
     openCount: number;
     /**
      * Положили в корзину, шт.
-     * @type {number}
-     * @memberof Statistic
      */
     cartCount: number;
     /**
      * Заказали товаров, шт.
-     * @type {number}
-     * @memberof Statistic
      */
     orderCount: number;
     /**
      * Заказали на сумму
-     * @type {number}
-     * @memberof Statistic
      */
     orderSum: number;
     /**
      * Выкупили товаров, шт.
-     * @type {number}
-     * @memberof Statistic
      */
     buyoutCount: number;
     /**
      * Выкупили на сумму
-     * @type {number}
-     * @memberof Statistic
      */
     buyoutSum: number;
     /**
      * Отменили и вернули товаров, шт.
-     * @type {number}
-     * @memberof Statistic
      */
     cancelCount: number;
     /**
      * Отменили и вернули на сумму
-     * @type {number}
-     * @memberof Statistic
      */
     cancelSum: number;
     /**
      * Средняя цена
-     * @type {number}
-     * @memberof Statistic
      */
     avgPrice: number;
     /**
      * Среднее количество заказов в день, шт.
-     * @type {number}
-     * @memberof Statistic
      */
     avgOrdersCountPerDay: number;
     /**
      * Доля в выручке
-     * @type {number}
-     * @memberof Statistic
      */
     shareOrderPercent: number;
     /**
      * Добавили в **Отложенные**
-     * @type {number}
-     * @memberof Statistic
      */
     addToWishlist: number;
     /**
      * 
-     * @type {StatisticTimeToReady}
-     * @memberof Statistic
      */
     timeToReady: StatisticTimeToReady;
     /**
      * Локальные заказы в рамках одного региона
-     * @type {number}
-     * @memberof Statistic
      */
     localizationPercent: number;
     /**
      * 
-     * @type {StatisticWbClub}
-     * @memberof Statistic
      */
     wbClub: StatisticWbClub;
     /**
      * 
-     * @type {StatisticConversions}
-     * @memberof Statistic
      */
     conversions: StatisticConversions;
 }

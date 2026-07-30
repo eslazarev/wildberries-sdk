@@ -36,14 +36,10 @@ import {
 export interface ContentV2GetCardsListPost200Response {
     /**
      * Список карточек товаров
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInner>}
-     * @memberof ContentV2GetCardsListPost200Response
      */
     cards?: Array<ContentV2GetCardsListPost200ResponseCardsInner>;
     /**
      * 
-     * @type {ContentV2GetCardsListPost200ResponseCursor}
-     * @memberof ContentV2GetCardsListPost200Response
      */
     cursor?: ContentV2GetCardsListPost200ResponseCursor;
 }

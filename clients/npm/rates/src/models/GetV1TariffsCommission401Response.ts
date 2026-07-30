@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface GetV1TariffsCommission401Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof GetV1TariffsCommission401Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof GetV1TariffsCommission401Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof GetV1TariffsCommission401Response
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof GetV1TariffsCommission401Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof GetV1TariffsCommission401Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof GetV1TariffsCommission401Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof GetV1TariffsCommission401Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof GetV1TariffsCommission401Response
      */
     timestamp?: Date;
 }

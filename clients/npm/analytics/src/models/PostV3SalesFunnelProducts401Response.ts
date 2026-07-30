@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface PostV3SalesFunnelProducts401Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     title?: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     detail?: string;
     /**
      * Внутренний код ошибки
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     code?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     requestId?: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     origin?: string;
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     status?: number;
     /**
      * Расшифровка HTTP статус-кода
-     * @type {string}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     statusText?: string;
     /**
      * Дата и время запроса
-     * @type {Date}
-     * @memberof PostV3SalesFunnelProducts401Response
      */
     timestamp?: Date;
 }

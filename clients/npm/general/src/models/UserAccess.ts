@@ -29,14 +29,10 @@ import {
 export interface UserAccess {
     /**
      * ID пользователя
-     * @type {number}
-     * @memberof UserAccess
      */
     userId?: number;
     /**
      * Настройки доступа к разделам профиля продавца
-     * @type {Array<AccessInner>}
-     * @memberof UserAccess
      */
     access?: Array<AccessInner>;
 }

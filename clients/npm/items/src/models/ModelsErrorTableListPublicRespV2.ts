@@ -36,14 +36,10 @@ import {
 export interface ModelsErrorTableListPublicRespV2 {
     /**
      * Пакеты данных
-     * @type {Array<ModelsErrorTableListPublicRespV2Item>}
-     * @memberof ModelsErrorTableListPublicRespV2
      */
     items: Array<ModelsErrorTableListPublicRespV2Item>;
     /**
      * 
-     * @type {ViewerContractPublicErrorsCursorOutput}
-     * @memberof ModelsErrorTableListPublicRespV2
      */
     cursor: ViewerContractPublicErrorsCursorOutput;
 }

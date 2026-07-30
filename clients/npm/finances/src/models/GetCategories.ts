@@ -29,8 +29,6 @@ import {
 export interface GetCategories {
     /**
      * 
-     * @type {GetCategoriesData}
-     * @memberof GetCategories
      */
     data?: GetCategoriesData;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface NmReportRetryReportRequest {
     /**
      * ID отчёта
-     * @type {string}
-     * @memberof NmReportRetryReportRequest
      */
     downloadId?: string;
 }

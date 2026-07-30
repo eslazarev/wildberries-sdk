@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ModelsDateFilterRequest {
     /**
      * Дата начала периода
-     * @type {string}
-     * @memberof ModelsDateFilterRequest
      */
     from?: string;
     /**
      * Дата окончания периода
-     * @type {string}
-     * @memberof ModelsDateFilterRequest
      */
     till?: string;
     /**
@@ -38,8 +34,6 @@ export interface ModelsDateFilterRequest {
      *   - `supplyDate` — плановая дата отгрузки поставки
      *   - `updatedDate` — дата изменения поставки
      * 
-     * @type {ModelsDateFilterRequestTypeEnum}
-     * @memberof ModelsDateFilterRequest
      */
     type: ModelsDateFilterRequestTypeEnum;
 }

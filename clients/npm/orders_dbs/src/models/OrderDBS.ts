@@ -36,8 +36,6 @@ import {
 export interface OrderDBS {
     /**
      * 
-     * @type {OrderDBSAddress}
-     * @memberof OrderDBS
      */
     address?: OrderDBSAddress | null;
     /**
@@ -46,38 +44,26 @@ export interface OrderDBS {
      *   - `dbsPickupPoint` — доставка силами продавца в ПВЗ
      *   - `edbs` — экспресс-доставка силами продавца
      * 
-     * @type {string}
-     * @memberof OrderDBS
      */
     deliveryType?: string;
     /**
      * 
-     * @type {OrderNewDBSOptions}
-     * @memberof OrderDBS
      */
     options?: OrderNewDBSOptions;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
-     * @type {string}
-     * @memberof OrderDBS
      */
     orderUid?: string;
     /**
      * ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
-     * @type {string}
-     * @memberof OrderDBS
      */
     groupId?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof OrderDBS
      */
     article?: string;
     /**
      * Код цвета (только для колеруемых товаров)
-     * @type {string}
-     * @memberof OrderDBS
      */
     colorCode?: string;
     /**
@@ -92,86 +78,58 @@ export interface OrderDBS {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {any}
-     * @memberof OrderDBS
      */
     rid?: any | null;
     /**
      * Дата создания сборочного задания
-     * @type {Date}
-     * @memberof OrderDBS
      */
     createdAt?: Date;
     /**
      * Массив баркодов товара
-     * @type {Array<string>}
-     * @memberof OrderDBS
      */
     skus?: Array<string>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof OrderDBS
      */
     id?: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
-     * @type {number}
-     * @memberof OrderDBS
      */
     warehouseId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof OrderDBS
      */
     nmId?: number;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof OrderDBS
      */
     chrtId?: number;
     /**
      * Цена приёмки заказов в ПВЗ, в копейках. Отображается только для заказов в ПВЗ
-     * @type {number}
-     * @memberof OrderDBS
      */
     scanPrice?: number | null;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderDBS
      */
     price?: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderDBS
      */
     convertedPrice?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof OrderDBS
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof OrderDBS
      */
     convertedCurrencyCode?: number;
     /**
      * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderDBS
      */
     convertedFinalPrice?: number;
     /**
      * Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderDBS
      */
     finalPrice?: number;
     /**
@@ -180,14 +138,10 @@ export interface OrderDBS {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {OrderDBSCargoTypeEnum}
-     * @memberof OrderDBS
      */
     cargoType?: OrderDBSCargoTypeEnum;
     /**
      * Комментарий покупателя
-     * @type {string}
-     * @memberof OrderDBS
      */
     comment?: string;
     /**
@@ -195,14 +149,10 @@ export interface OrderDBS {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
-     * @type {boolean}
-     * @memberof OrderDBS
      */
     isZeroOrder?: boolean;
     /**
      * ID стикера. Отображается только для заказов в ПВЗ
-     * @type {number}
-     * @memberof OrderDBS
      */
     wbStickerId?: number;
 }

@@ -21,15 +21,11 @@ import { mapValues } from '../runtime';
 export interface ApiOrdersErrorResponse {
     /**
      * Код ошибки
-     * @type {number}
-     * @memberof ApiOrdersErrorResponse
      */
     code: number;
     /**
      * - `NotFound` — сборочное задание не найдено
      * 
-     * @type {string}
-     * @memberof ApiOrdersErrorResponse
      */
     detail: string;
 }

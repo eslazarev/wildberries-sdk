@@ -29,26 +29,18 @@ import {
 export interface ModelsWarehousesReturnRates {
     /**
      * Валюта тарифов
-     * @type {string}
-     * @memberof ModelsWarehousesReturnRates
      */
     currency?: string;
     /**
      * Дата начала следующего тарифа при грузовой доставке
-     * @type {string}
-     * @memberof ModelsWarehousesReturnRates
      */
     dtNextDeliveryDumpKgt?: string;
     /**
      * Дата начала следующего тарифа для неопознанных товаров
-     * @type {string}
-     * @memberof ModelsWarehousesReturnRates
      */
     dtNextDeliveryDumpSrg?: string;
     /**
      * Дата начала следующего тарифа при обычной доставке
-     * @type {string}
-     * @memberof ModelsWarehousesReturnRates
      */
     dtNextDeliveryDumpSup?: string;
     /**
@@ -59,8 +51,6 @@ export interface ModelsWarehousesReturnRates {
      * 
      * Можно получить стоимость возврата в пункт выдачи (ПВЗ) и обратной логистики — если продавец не забрал товары из пункта выдачи за 7 дней.
      * 
-     * @type {Array<ModelsWarehouseReturnRates>}
-     * @memberof ModelsWarehousesReturnRates
      */
     warehouseList?: Array<ModelsWarehouseReturnRates> | null;
 }

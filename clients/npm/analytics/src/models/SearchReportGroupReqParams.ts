@@ -50,63 +50,43 @@ import {
 export interface SearchReportGroupReqParams {
     /**
      * 
-     * @type {Period}
-     * @memberof SearchReportGroupReqParams
      */
     currentPeriod: Period;
     /**
      * 
-     * @type {PastPeriod}
-     * @memberof SearchReportGroupReqParams
      */
     pastPeriod?: PastPeriod;
     /**
      * Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
      * 
-     * @type {Array<number>}
-     * @memberof SearchReportGroupReqParams
      */
     nmIds?: Array<number>;
     /**
      * Список ID предметов для фильтрации. Оставьте пустым, чтобы получить отчёт по всем предметам
-     * @type {Array<number>}
-     * @memberof SearchReportGroupReqParams
      */
     subjectIds: Array<number>;
     /**
      * Список брендов для фильтрации
-     * @type {Array<string>}
-     * @memberof SearchReportGroupReqParams
      */
     brandNames?: Array<string>;
     /**
      * Список ID ярлыков для фильтрации
-     * @type {Array<number>}
-     * @memberof SearchReportGroupReqParams
      */
     tagIds?: Array<number>;
     /**
      * 
-     * @type {OrderByGrTe}
-     * @memberof SearchReportGroupReqParams
      */
     orderBy: OrderByGrTe;
     /**
      * 
-     * @type {PositionCluster}
-     * @memberof SearchReportGroupReqParams
      */
     positionCluster: PositionCluster;
     /**
      * Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
-     * @type {boolean}
-     * @memberof SearchReportGroupReqParams
      */
     includeSubstitutedSKUs?: boolean;
     /**
      * Показать данные по поисковым запросам без учёта подменного артикула
-     * @type {boolean}
-     * @memberof SearchReportGroupReqParams
      */
     includeSearchTexts?: boolean;
 }

@@ -29,32 +29,22 @@ import {
 export interface TableShippingOfficeMetrics {
     /**
      * Остатки на текущий день, шт.
-     * @type {number}
-     * @memberof TableShippingOfficeMetrics
      */
     stockCount: number;
     /**
      * Остатки на текущий день, сумма
-     * @type {number}
-     * @memberof TableShippingOfficeMetrics
      */
     stockSum: number;
     /**
      * 
-     * @type {TableCommonMetricsSaleRate}
-     * @memberof TableShippingOfficeMetrics
      */
     saleRate: TableCommonMetricsSaleRate;
     /**
      * В пути к клиенту, шт.
-     * @type {number}
-     * @memberof TableShippingOfficeMetrics
      */
     toClientCount: number;
     /**
      * В пути от клиента, шт.
-     * @type {number}
-     * @memberof TableShippingOfficeMetrics
      */
     fromClientCount: number;
 }

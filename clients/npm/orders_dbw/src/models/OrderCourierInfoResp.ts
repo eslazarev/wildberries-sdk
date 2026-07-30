@@ -29,8 +29,6 @@ import {
 export interface OrderCourierInfoResp {
     /**
      * 
-     * @type {Array<OrderCourierInfo>}
-     * @memberof OrderCourierInfoResp
      */
     orders?: Array<OrderCourierInfo>;
 }

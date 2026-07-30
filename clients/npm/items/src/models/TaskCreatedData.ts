@@ -21,15 +21,11 @@ import { mapValues } from '../runtime';
 export interface TaskCreatedData {
     /**
      * ID загрузки
-     * @type {number}
-     * @memberof TaskCreatedData
      */
     id?: number;
     /**
      * Флаг дублирования загрузки: `true` — такая загрузка уже есть
      * 
-     * @type {boolean}
-     * @memberof TaskCreatedData
      */
     alreadyExists?: boolean;
 }

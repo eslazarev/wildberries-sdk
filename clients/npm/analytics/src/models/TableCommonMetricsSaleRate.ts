@@ -25,14 +25,10 @@ import { mapValues } from '../runtime';
 export interface TableCommonMetricsSaleRate {
     /**
      * Количество дней
-     * @type {number}
-     * @memberof TableCommonMetricsSaleRate
      */
     days: number;
     /**
      * Количество часов
-     * @type {number}
-     * @memberof TableCommonMetricsSaleRate
      */
     hours: number;
 }

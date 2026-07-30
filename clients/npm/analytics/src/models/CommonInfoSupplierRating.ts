@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface CommonInfoSupplierRating {
     /**
      * Текущий рейтинг продавца
-     * @type {number}
-     * @memberof CommonInfoSupplierRating
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof CommonInfoSupplierRating
      */
     dynamics?: number;
 }

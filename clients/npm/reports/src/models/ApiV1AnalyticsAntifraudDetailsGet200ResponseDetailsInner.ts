@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner
      */
     nmID?: number;
     /**
      * Сумма заказа
-     * @type {number}
-     * @memberof ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner
      */
     sum?: number;
     /**
      * Валюта заказа
-     * @type {string}
-     * @memberof ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner
      */
     currency?: string;
     /**
      * Начало отчётного периода
-     * @type {string}
-     * @memberof ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner
      */
     dateFrom?: string;
     /**
      * Конец отчётного периода
-     * @type {string}
-     * @memberof ApiV1AnalyticsAntifraudDetailsGet200ResponseDetailsInner
      */
     dateTo?: string;
 }

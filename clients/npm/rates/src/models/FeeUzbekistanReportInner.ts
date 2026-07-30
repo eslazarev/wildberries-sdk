@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface FeeUzbekistanReportInner {
     /**
      * Комиссия по модели **Маркетплейс** (`FBS`), %
-     * @type {number}
-     * @memberof FeeUzbekistanReportInner
      */
     kgvpMarketplaceUz?: number;
     /**
      * Комиссия по модели **Склад WB** (`FBW`), %
-     * @type {number}
-     * @memberof FeeUzbekistanReportInner
      */
     kgvpPaidStorageUz?: number;
     /**
      * Комиссия по модели **Витрина** (`DBS`), %
-     * @type {number}
-     * @memberof FeeUzbekistanReportInner
      */
     kgvpSupplierUz?: number;
     /**
      * ID родительской категории
-     * @type {number}
-     * @memberof FeeUzbekistanReportInner
      */
     parentID?: number;
     /**
      * Название родительской категории
-     * @type {string}
-     * @memberof FeeUzbekistanReportInner
      */
     parentName?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof FeeUzbekistanReportInner
      */
     subjectID?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof FeeUzbekistanReportInner
      */
     subjectName?: string;
 }

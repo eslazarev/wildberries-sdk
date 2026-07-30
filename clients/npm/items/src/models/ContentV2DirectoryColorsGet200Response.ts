@@ -29,26 +29,18 @@ import {
 export interface ContentV2DirectoryColorsGet200Response {
     /**
      * 
-     * @type {Array<ContentV2DirectoryColorsGet200ResponseDataInner>}
-     * @memberof ContentV2DirectoryColorsGet200Response
      */
     data?: Array<ContentV2DirectoryColorsGet200ResponseDataInner>;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2DirectoryColorsGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryColorsGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryColorsGet200Response
      */
     additionalErrors?: string | null;
 }

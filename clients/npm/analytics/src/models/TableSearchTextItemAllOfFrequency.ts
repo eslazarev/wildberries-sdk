@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableSearchTextItemAllOfFrequency {
     /**
      * Текущее количество
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfFrequency
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfFrequency
      */
     dynamics?: number;
 }

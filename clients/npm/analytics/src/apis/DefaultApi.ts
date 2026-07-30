@@ -195,62 +195,107 @@ import {
 } from '../models/TableItemRequest';
 
 export interface ApiV2SearchReportProductOrdersPostRequest {
+    /**
+     * 
+     */
     itemOrdersRequest: ItemOrdersRequest;
 }
 
 export interface ApiV2SearchReportProductSearchTextsPostRequest {
+    /**
+     * 
+     */
     itemSearchTextsRequest: ItemSearchTextsRequest;
 }
 
 export interface ApiV2SearchReportReportPostRequest {
+    /**
+     * 
+     */
     mainRequest: MainRequest;
 }
 
 export interface ApiV2SearchReportTableDetailsPostRequest {
+    /**
+     * 
+     */
     tableDetailsRequest: TableDetailsRequest;
 }
 
 export interface ApiV2SearchReportTableGroupsPostRequest {
+    /**
+     * 
+     */
     tableGroupRequest: TableGroupRequest;
 }
 
 export interface ApiV2StocksReportOfficesPostRequest {
+    /**
+     * 
+     */
     body: CommonShippingOfficeFilters;
 }
 
 export interface ApiV2StocksReportProductsGroupsPostRequest {
+    /**
+     * 
+     */
     tableGroupRequestSt: TableGroupRequestSt;
 }
 
 export interface ApiV2StocksReportProductsProductsPostRequest {
+    /**
+     * 
+     */
     tableItemRequest: TableItemRequest;
 }
 
 export interface ApiV2StocksReportProductsSizesPostRequest {
+    /**
+     * 
+     */
     body: CommonSizeFilters;
 }
 
 export interface PostV1ItemRatingRequest {
+    /**
+     * 
+     */
     itemRatingRequestV1: ItemRatingRequestV1;
 }
 
 export interface PostV1StocksReportWbWarehousesRequest {
+    /**
+     * 
+     */
     inventoryRequest: InventoryRequest;
 }
 
 export interface PostV2ItemRatingRequest {
+    /**
+     * 
+     */
     itemRatingRequest: ItemRatingRequest;
 }
 
 export interface PostV3SalesFunnelGroupedHistoryRequest {
+    /**
+     * 
+     */
     groupedHistoryRequest: GroupedHistoryRequest;
 }
 
 export interface PostV3SalesFunnelProductsRequest {
+    /**
+     * 
+     */
     itemsRequest: ItemsRequest;
 }
 
 export interface PostV3SalesFunnelProductsHistoryRequest {
+    /**
+     * 
+     */
     itemHistoryRequest: ItemHistoryRequest;
 }
 

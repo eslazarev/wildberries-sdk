@@ -29,8 +29,6 @@ import {
 export interface InventoryWbResponse {
     /**
      * Остатки товаров на складах WB по размерам
-     * @type {Array<InventoryWbResponseItemsInner>}
-     * @memberof InventoryWbResponse
      */
     items: Array<InventoryWbResponseItemsInner>;
 }

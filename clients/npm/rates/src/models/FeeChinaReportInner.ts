@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface FeeChinaReportInner {
     /**
      * Комиссия для продавцов из Китая, %
-     * @type {number}
-     * @memberof FeeChinaReportInner
      */
     kgvpChina?: number;
     /**
      * ID родительской категории
-     * @type {number}
-     * @memberof FeeChinaReportInner
      */
     parentID?: number;
     /**
      * Название родительской категории
-     * @type {string}
-     * @memberof FeeChinaReportInner
      */
     parentName?: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof FeeChinaReportInner
      */
     subjectID?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof FeeChinaReportInner
      */
     subjectName?: string;
 }

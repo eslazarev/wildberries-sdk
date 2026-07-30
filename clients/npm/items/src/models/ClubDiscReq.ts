@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ClubDiscReq {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ClubDiscReq
      */
     nmID: number;
     /**
      * Скидка WB Клуба, %
-     * @type {number}
-     * @memberof ClubDiscReq
      */
     clubDiscount: number;
 }

@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ApiError {
     /**
      * Детали ошибки
-     * @type {object}
-     * @memberof ApiError
      */
     detail?: object;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ApiError
      */
     origin?: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ApiError
      */
     requestId?: string;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ApiError
      */
     title?: string;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV1CalendarPromotionsUploadPostRequestData {
     /**
      * ID акции
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsUploadPostRequestData
      */
     promotionID?: number;
     /**
@@ -30,14 +28,10 @@ export interface ApiV1CalendarPromotionsUploadPostRequestData {
      *   - `true` — сейчас
      *   - `false` — в момент старта акции
      * 
-     * @type {boolean}
-     * @memberof ApiV1CalendarPromotionsUploadPostRequestData
      */
     uploadNow?: boolean;
     /**
      * Артикулы WB, которые можно добавить в акцию
-     * @type {Set<number>}
-     * @memberof ApiV1CalendarPromotionsUploadPostRequestData
      */
     nomenclatures?: Set<number>;
 }

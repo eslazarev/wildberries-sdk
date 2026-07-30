@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface Response429DownloadDaily {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof Response429DownloadDaily
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof Response429DownloadDaily
      */
     detail: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof Response429DownloadDaily
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof Response429DownloadDaily
      */
     origin: string;
 }

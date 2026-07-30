@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface Timestamps {
     /**
      * Время создания кампании
-     * @type {Date}
-     * @memberof Timestamps
      */
     created: Date;
     /**
      * Время последнего изменения кампании
-     * @type {Date}
-     * @memberof Timestamps
      */
     updated: Date;
     /**
      * Время последнего запуска кампании
-     * @type {Date}
-     * @memberof Timestamps
      */
     started: Date | null;
     /**
      * Время удаления кампании. Если кампания не удалена, время указывается в будущем
-     * @type {Date}
-     * @memberof Timestamps
      */
     deleted: Date;
 }

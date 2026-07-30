@@ -29,20 +29,14 @@ import {
 export interface ApiV1QuestionsGet200ResponseData {
     /**
      * Количество неотвеченных вопросов
-     * @type {number}
-     * @memberof ApiV1QuestionsGet200ResponseData
      */
     countUnanswered?: number;
     /**
      * Количество отвеченных вопросов
-     * @type {number}
-     * @memberof ApiV1QuestionsGet200ResponseData
      */
     countArchive?: number;
     /**
      * Вопросы
-     * @type {Array<ApiV1QuestionsGet200ResponseDataQuestionsInner>}
-     * @memberof ApiV1QuestionsGet200ResponseData
      */
     questions?: Array<ApiV1QuestionsGet200ResponseDataQuestionsInner>;
 }

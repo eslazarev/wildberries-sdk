@@ -29,28 +29,20 @@ import {
 export interface ApiNewOrder {
     /**
      * Планируемая дата доставки
-     * @type {string}
-     * @memberof ApiNewOrder
      */
     ddate?: string;
     /**
      * Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
      * 
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     salePrice?: number | null;
     /**
      * Список идентификаторов маркировки, доступных для сборочного задания
      * 
-     * @type {Array<string>}
-     * @memberof ApiNewOrder
      */
     requiredMeta?: Array<string> | null;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ApiNewOrder
      */
     article?: string;
     /**
@@ -65,29 +57,21 @@ export interface ApiNewOrder {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {string}
-     * @memberof ApiNewOrder
      */
     rid?: string;
     /**
      * Дата и время создания сборочного задания
-     * @type {Date}
-     * @memberof ApiNewOrder
      */
     createdAt?: Date;
     /**
      * Адрес магазина (склада продавца), на который поступило сборочное
      * задание
      * 
-     * @type {string}
-     * @memberof ApiNewOrder
      */
     warehouseAddress?: string;
     /**
      * Уникальный ID заказа покупателя
      * 
-     * @type {string}
-     * @memberof ApiNewOrder
      */
     orderCode?: string;
     /**
@@ -96,78 +80,54 @@ export interface ApiNewOrder {
      *   - `postpaid` — постоплатный
      *   - `unknown` — неизвестный
      * 
-     * @type {string}
-     * @memberof ApiNewOrder
      */
     payMode?: string;
     /**
      * Массив баркодов товара
-     * @type {Array<string>}
-     * @memberof ApiNewOrder
      */
     skus?: Array<string>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     id?: number;
     /**
      * ID склада продавца, на который поступило сборочное
      * задание
      * 
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     warehouseId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     nmId?: number;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     chrtId?: number;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.
      * Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
      * 
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     price?: number;
     /**
      * Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     finalPrice?: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     convertedPrice?: number;
     /**
      * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     convertedFinalPrice?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof ApiNewOrder
      */
     convertedCurrencyCode?: number;
     /**
@@ -176,8 +136,6 @@ export interface ApiNewOrder {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {ApiNewOrderCargoTypeEnum}
-     * @memberof ApiNewOrder
      */
     cargoType?: ApiNewOrderCargoTypeEnum;
     /**
@@ -185,14 +143,10 @@ export interface ApiNewOrder {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
-     * @type {boolean}
-     * @memberof ApiNewOrder
      */
     isZeroOrder?: boolean;
     /**
      * 
-     * @type {ApiNewOrderOptions}
-     * @memberof ApiNewOrder
      */
     options?: ApiNewOrderOptions;
 }

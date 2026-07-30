@@ -50,104 +50,70 @@ import {
 export interface StatisticsPast {
     /**
      * Даты периода
-     * @type {DatePeriod}
-     * @memberof StatisticsPast
      */
     period: DatePeriod;
     /**
      * Количество переходов в карточку товара
-     * @type {number}
-     * @memberof StatisticsPast
      */
     openCount: number;
     /**
      * Положили в корзину, шт.
-     * @type {number}
-     * @memberof StatisticsPast
      */
     cartCount: number;
     /**
      * Заказали товаров, шт.
-     * @type {number}
-     * @memberof StatisticsPast
      */
     orderCount: number;
     /**
      * Заказали на сумму
-     * @type {number}
-     * @memberof StatisticsPast
      */
     orderSum: number;
     /**
      * Выкупили товаров, шт.
-     * @type {number}
-     * @memberof StatisticsPast
      */
     buyoutCount: number;
     /**
      * Выкупили на сумму
-     * @type {number}
-     * @memberof StatisticsPast
      */
     buyoutSum: number;
     /**
      * Отменили и вернули товаров, шт.
-     * @type {number}
-     * @memberof StatisticsPast
      */
     cancelCount: number;
     /**
      * Отменили и вернули на сумму
-     * @type {number}
-     * @memberof StatisticsPast
      */
     cancelSum: number;
     /**
      * Средняя цена
-     * @type {number}
-     * @memberof StatisticsPast
      */
     avgPrice: number;
     /**
      * Среднее количество заказов в день, шт.
-     * @type {number}
-     * @memberof StatisticsPast
      */
     avgOrdersCountPerDay: number;
     /**
      * Доля в выручке
-     * @type {number}
-     * @memberof StatisticsPast
      */
     shareOrderPercent: number;
     /**
      * Добавили в **Отложенные**
-     * @type {number}
-     * @memberof StatisticsPast
      */
     addToWishlist: number;
     /**
      * 
-     * @type {StatisticTimeToReady}
-     * @memberof StatisticsPast
      */
     timeToReady: StatisticTimeToReady;
     /**
      * Локальные заказы в рамках одного региона
-     * @type {number}
-     * @memberof StatisticsPast
      */
     localizationPercent: number;
     /**
      * 
-     * @type {StatisticWbClub}
-     * @memberof StatisticsPast
      */
     wbClub: StatisticWbClub;
     /**
      * 
-     * @type {StatisticConversions}
-     * @memberof StatisticsPast
      */
     conversions: StatisticConversions;
 }

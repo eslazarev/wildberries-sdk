@@ -29,8 +29,6 @@ import {
 export interface ApiV2HistoryGoodsTaskGet200Response {
     /**
      * 
-     * @type {ApiV2HistoryGoodsTaskGet200ResponseData}
-     * @memberof ApiV2HistoryGoodsTaskGet200Response
      */
     data?: ApiV2HistoryGoodsTaskGet200ResponseData;
 }

@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV3SuppliesSupplyIdBarcodeGet200Response {
     /**
      * Закодированное значение стикера (ID поставки)
-     * @type {string}
-     * @memberof ApiV3SuppliesSupplyIdBarcodeGet200Response
      */
     barcode?: string;
     /**
      * Полное представление стикера в заданном формате (кодировка base64)
-     * @type {string}
-     * @memberof ApiV3SuppliesSupplyIdBarcodeGet200Response
      */
     file?: string;
 }

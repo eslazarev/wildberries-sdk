@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV3WarehousesPostRequest {
     /**
      * Имя склада продавца
-     * @type {string}
-     * @memberof ApiV3WarehousesPostRequest
      */
     name: string;
     /**
      * ID склада WB
-     * @type {number}
-     * @memberof ApiV3WarehousesPostRequest
      */
     officeId: number;
 }

@@ -29,15 +29,11 @@ import {
 export interface ContentV2CardsUploadPostRequestInner {
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ContentV2CardsUploadPostRequestInner
      */
     subjectID: number;
     /**
      * [Объединённые](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров.<br>Чтобы создать отдельную карточку, передайте только один объект
      * 
-     * @type {Array<ContentV2CardsUploadPostRequestInnerVariantsInner>}
-     * @memberof ContentV2CardsUploadPostRequestInner
      */
     variants: Array<ContentV2CardsUploadPostRequestInnerVariantsInner>;
 }

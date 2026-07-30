@@ -29,26 +29,18 @@ import {
 export interface ResponseItemList {
     /**
      * Данные ответа
-     * @type {object}
-     * @memberof ResponseItemList
      */
     data?: object | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ResponseItemList
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ResponseItemList
      */
     errorText?: string;
     /**
      * 
-     * @type {ResponseItemListAdditionalErrors}
-     * @memberof ResponseItemList
      */
     additionalErrors?: ResponseItemListAdditionalErrors;
 }

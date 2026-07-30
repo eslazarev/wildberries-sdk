@@ -50,14 +50,10 @@ import {
 export interface ContentV2CardsUploadAddPostRequestCardsToAddInner {
     /**
      * Бренд
-     * @type {string}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     brand?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     vendorCode: string;
     /**
@@ -67,20 +63,14 @@ export interface ContentV2CardsUploadAddPostRequestCardsToAddInner {
      * 
      * Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz`
      * 
-     * @type {boolean}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     kizMarked?: boolean;
     /**
      * 
-     * @type {ContentV2GetCardsListPost200ResponseCardsInnerWholesale}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     wholesale?: ContentV2GetCardsListPost200ResponseCardsInnerWholesale;
     /**
      * Наименование товара
-     * @type {string}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     title?: string;
     /**
@@ -89,22 +79,16 @@ export interface ContentV2CardsUploadAddPostRequestCardsToAddInner {
      * Стандарт — 2000, минимум — 1000, максимум — 5000<br>
      * Подробно о **правилах заполнения карточки товара** в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
      * 
-     * @type {string}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     description?: string;
     /**
      * 
-     * @type {ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     dimensions?: ContentV2CardsUploadAddPostRequestCardsToAddInnerDimensions;
     /**
      * Массив размеров.<br>
      * Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с `techSize` = "A", `wbSize` = "1" и баркодом
      * 
-     * @type {Array<ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner>}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     sizes?: Array<ContentV2CardsUploadAddPostRequestCardsToAddInnerSizesInner>;
     /**
@@ -112,8 +96,6 @@ export interface ContentV2CardsUploadAddPostRequestCardsToAddInner {
      * <br>
      * Можно получить методом [Характеристики предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1charcs~1%7BsubjectId%7D/get)
      * 
-     * @type {Array<ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>}
-     * @memberof ContentV2CardsUploadAddPostRequestCardsToAddInner
      */
     characteristics?: Array<ContentV2CardsUpdatePostRequestInnerCharacteristicsInner>;
 }

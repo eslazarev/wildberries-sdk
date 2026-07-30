@@ -50,26 +50,18 @@ import {
 export interface PositionInfo {
     /**
      * 
-     * @type {PositionInfoAverage}
-     * @memberof PositionInfo
      */
     average: PositionInfoAverage;
     /**
      * 
-     * @type {PositionInfoMedian}
-     * @memberof PositionInfo
      */
     median: PositionInfoMedian;
     /**
      * Данные для чарта по средней и медианной позиции товара в результатах поиска
-     * @type {Array<SearchReportPositionChartItem>}
-     * @memberof PositionInfo
      */
     chartItems: Array<SearchReportPositionChartItem>;
     /**
      * 
-     * @type {SearchReportPositionClusters}
-     * @memberof PositionInfo
      */
     clusters: SearchReportPositionClusters;
 }

@@ -29,8 +29,6 @@ import {
 export interface ApiV3OrdersStatusHistoryPost200Response {
     /**
      * Список сборочных заданий
-     * @type {Array<ApiV3OrdersStatusHistoryPost200ResponseOrdersInner>}
-     * @memberof ApiV3OrdersStatusHistoryPost200Response
      */
     orders?: Array<ApiV3OrdersStatusHistoryPost200ResponseOrdersInner>;
 }

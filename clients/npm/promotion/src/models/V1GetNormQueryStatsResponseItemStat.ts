@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface V1GetNormQueryStatsResponseItemStat {
     /**
      * Поисковый кластер
-     * @type {string}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     normQuery?: string;
     /**
@@ -30,26 +28,18 @@ export interface V1GetNormQueryStatsResponseItemStat {
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     views?: number | null;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     clicks?: number;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     atbs?: number;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     orders?: number;
     /**
@@ -57,14 +47,10 @@ export interface V1GetNormQueryStatsResponseItemStat {
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     ctr?: number | null;
     /**
      * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     cpc?: number;
     /**
@@ -72,27 +58,19 @@ export interface V1GetNormQueryStatsResponseItemStat {
      * 
      * Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
      * 
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     cpm?: number | null;
     /**
      * Средняя позиция товара на страницах поисковой выдачи
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     avgPos?: number;
     /**
      * Количество заказанных товаров, шт.
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     shks?: number;
     /**
      * Затраты на продвижение товаров в конкретном поисковом кластере кампании
      * 
-     * @type {number}
-     * @memberof V1GetNormQueryStatsResponseItemStat
      */
     spend?: number;
 }

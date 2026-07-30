@@ -43,20 +43,14 @@ import {
 export interface Statistics {
     /**
      * 
-     * @type {StatisticsSelected}
-     * @memberof Statistics
      */
     selected: StatisticsSelected;
     /**
      * 
-     * @type {StatisticsPast}
-     * @memberof Statistics
      */
     past?: StatisticsPast;
     /**
      * 
-     * @type {StatisticsComparison}
-     * @memberof Statistics
      */
     comparison?: StatisticsComparison;
 }

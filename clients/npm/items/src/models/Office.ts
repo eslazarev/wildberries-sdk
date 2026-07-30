@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface Office {
     /**
      * Адрес
-     * @type {string}
-     * @memberof Office
      */
     address?: string;
     /**
      * Название
-     * @type {string}
-     * @memberof Office
      */
     name?: string;
     /**
      * Город
-     * @type {string}
-     * @memberof Office
      */
     city?: string;
     /**
      * ID
-     * @type {number}
-     * @memberof Office
      */
     id?: number;
     /**
      * Долгота
-     * @type {number}
-     * @memberof Office
      */
     longitude?: number;
     /**
      * Широта
-     * @type {number}
-     * @memberof Office
      */
     latitude?: number;
     /**
@@ -61,8 +49,6 @@ export interface Office {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {OfficeCargoTypeEnum}
-     * @memberof Office
      */
     cargoType?: OfficeCargoTypeEnum;
     /**
@@ -73,20 +59,14 @@ export interface Office {
      *   - `5` — самовывоз (C&C)
      *   - `6` — экспресс-доставка силами продавца (ЕDBS)
      * 
-     * @type {OfficeDeliveryTypeEnum}
-     * @memberof Office
      */
     deliveryType?: OfficeDeliveryTypeEnum;
     /**
      * Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан
-     * @type {string}
-     * @memberof Office
      */
     federalDistrict?: string | null;
     /**
      * Признак того, что склад уже выбран продавцом
-     * @type {boolean}
-     * @memberof Office
      */
     selected?: boolean;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface OpenapiSellerLimit {
     /**
      * Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
-     * @type {number}
-     * @memberof OpenapiSellerLimit
      */
     perUnitLimit: number;
     /**
      * Сколько ещё отзывов можно закрепить
-     * @type {number}
-     * @memberof OpenapiSellerLimit
      */
     remaining: number;
     /**
      * Общий лимит закреплений
-     * @type {number}
-     * @memberof OpenapiSellerLimit
      */
     totalLimit: number;
     /**
@@ -42,14 +36,10 @@ export interface OpenapiSellerLimit {
      *   - `true` — да
      *   - `false` — нет
      * 
-     * @type {boolean}
-     * @memberof OpenapiSellerLimit
      */
     unlimited: boolean;
     /**
      * Текущее количество закреплённых отзывов
-     * @type {number}
-     * @memberof OpenapiSellerLimit
      */
     used: number;
 }

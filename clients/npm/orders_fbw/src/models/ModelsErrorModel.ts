@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface ModelsErrorModel {
     /**
      * HTTP статус-код
-     * @type {number}
-     * @memberof ModelsErrorModel
      */
     status?: number;
     /**
      * ID ошибки
-     * @type {string}
-     * @memberof ModelsErrorModel
      */
     title?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ModelsErrorModel
      */
     detail?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof ModelsErrorModel
      */
     requestId?: string;
     /**
      * Сервис, вернувший ошибку
-     * @type {string}
-     * @memberof ModelsErrorModel
      */
     origin?: string;
 }

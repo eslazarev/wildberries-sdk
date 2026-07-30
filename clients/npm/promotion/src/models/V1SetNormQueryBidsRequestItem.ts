@@ -21,28 +21,20 @@ import { mapValues } from '../runtime';
 export interface V1SetNormQueryBidsRequestItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V1SetNormQueryBidsRequestItem
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V1SetNormQueryBidsRequestItem
      */
     nmId: number;
     /**
      * Поисковый кластер
-     * @type {string}
-     * @memberof V1SetNormQueryBidsRequestItem
      */
     normQuery: string;
     /**
      * Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
      * Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config)
      * 
-     * @type {number}
-     * @memberof V1SetNormQueryBidsRequestItem
      */
     bidMinorUnits: number;
 }

@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ErrorObject403 {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ErrorObject403
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof ErrorObject403
      */
     detail: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof ErrorObject403
      */
     requestId: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof ErrorObject403
      */
     origin: string;
 }

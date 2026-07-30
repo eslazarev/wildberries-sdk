@@ -29,8 +29,6 @@ import {
 export interface PostV3DbsOrdersStickers200Response {
     /**
      * Стикеры
-     * @type {Array<PostV3DbsOrdersStickers200ResponseStickersInner>}
-     * @memberof PostV3DbsOrdersStickers200Response
      */
     stickers?: Array<PostV3DbsOrdersStickers200ResponseStickersInner>;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ApiV1ClaimPatch400Response {
     /**
      * ID ошибки
-     * @type {string}
-     * @memberof ApiV1ClaimPatch400Response
      */
     title?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ApiV1ClaimPatch400Response
      */
     detail?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof ApiV1ClaimPatch400Response
      */
     requestId?: string;
 }

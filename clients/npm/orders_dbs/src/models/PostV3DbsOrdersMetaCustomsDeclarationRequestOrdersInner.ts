@@ -21,21 +21,15 @@ import { mapValues } from '../runtime';
 export interface PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner {
     /**
      * Номер ДТ
-     * @type {string}
-     * @memberof PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner
      */
     customsDeclaration: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner
      */
     orderId: number;
     /**
      * Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `"isB2b":true`
      * 
-     * @type {string}
-     * @memberof PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner
      */
     originCountryCode: string;
 }

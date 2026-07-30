@@ -29,14 +29,10 @@ import {
 export interface StatDate {
     /**
      * Даты, за которые нужно получить информацию
-     * @type {Array<Date>}
-     * @memberof StatDate
      */
     dates: Array<Date>;
     /**
      * Блок статистики
-     * @type {Array<StatsBlok2>}
-     * @memberof StatDate
      */
     stats?: Array<StatsBlok2>;
 }

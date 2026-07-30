@@ -140,73 +140,139 @@ import {
 } from '../models/PostV3ClickCollectOrdersMetaCustomsDeclarationRequest';
 
 export interface GetV3ClickCollectOrdersRequest {
+    /**
+     * Параметр пагинации. Устанавливает предельное количество возвращаемых
+     * данных.
+     * 
+     */
     limit: number;
+    /**
+     * Параметр пагинации. Устанавливает значение, с которого необходимо получить
+     * следующий пакет данных. Для получения полного списка данных должен
+     * быть равен `0` в первом запросе. Для следующих запросов необходимо
+     * брать значения из одноимённого поля в ответе
+     * 
+     */
     next: number;
+    /**
+     * Дата начала периода в формате Unix timestamp
+     */
     dateFrom: number;
+    /**
+     * Дата конца периода в формате Unix timestamp
+     */
     dateTo: number;
 }
 
 export interface PostV3ClickCollectOrdersClientRequest {
+    /**
+     * 
+     */
     apiOrdersRequest: ApiOrdersRequest;
 }
 
 export interface PostV3ClickCollectOrdersClientIdentityRequest {
+    /**
+     * 
+     */
     apiCheckIdentityRequest: ApiCheckIdentityRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest {
+    /**
+     * 
+     */
     postV3ClickCollectOrdersMetaCustomsDeclarationRequest?: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaDeleteRequest {
+    /**
+     * 
+     */
     apiOrdersMetaDeleteRequest?: ApiOrdersMetaDeleteRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaDetailsRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersMetaGtinRequest {
+    /**
+     * 
+     */
     apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaImeiRequest {
+    /**
+     * 
+     */
     apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaInfoRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersMetaSgtinRequest {
+    /**
+     * 
+     */
     apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaUinRequest {
+    /**
+     * 
+     */
     apiOrdersUINSetRequest: ApiOrdersUINSetRequest;
 }
 
 export interface PostV3ClickCollectOrdersStatusCancelRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersStatusConfirmRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersStatusInfoRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersStatusPrepareRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersStatusReceiveRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersStatusRejectRequest {
+    /**
+     * 
+     */
     apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 

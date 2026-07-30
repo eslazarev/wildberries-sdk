@@ -30,14 +30,10 @@ export interface ContentV2CardsUploadAddPostRequest {
     /**
      * `imtID` отдельной карточки товара или группы [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки
      * 
-     * @type {number}
-     * @memberof ContentV2CardsUploadAddPostRequest
      */
     imtID?: number;
     /**
      * Добавляемые карточки товаров
-     * @type {Array<ContentV2CardsUploadAddPostRequestCardsToAddInner>}
-     * @memberof ContentV2CardsUploadAddPostRequest
      */
     cardsToAdd?: Array<ContentV2CardsUploadAddPostRequestCardsToAddInner>;
 }

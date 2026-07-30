@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner {
     /**
      * Комментарий
-     * @type {string}
-     * @memberof ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner
      */
     comment?: string;
     /**
      * Номер телефона
-     * @type {string}
-     * @memberof ApiV3DbwWarehousesWarehouseIdContactsGet200ResponseContactsInner
      */
     phone?: string;
 }

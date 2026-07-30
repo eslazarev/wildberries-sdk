@@ -29,14 +29,10 @@ import {
 export interface ApiV1ClaimsGet200Response {
     /**
      * Заявки
-     * @type {Array<ApiV1ClaimsGet200ResponseClaimsInner>}
-     * @memberof ApiV1ClaimsGet200Response
      */
     claims?: Array<ApiV1ClaimsGet200ResponseClaimsInner>;
     /**
      * Количество заявок, соответствующих параметрам запроса. Без учёта `limit` и `offset`
-     * @type {number}
-     * @memberof ApiV1ClaimsGet200Response
      */
     total?: number;
 }

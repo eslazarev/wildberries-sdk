@@ -36,20 +36,14 @@ import {
 export interface EventAttachments {
     /**
      * 
-     * @type {Listing}
-     * @memberof EventAttachments
      */
     goodCard?: Listing;
     /**
      * Файлы
-     * @type {Array<any>}
-     * @memberof EventAttachments
      */
     files?: Array<any>;
     /**
      * Изображения
-     * @type {Array<Image>}
-     * @memberof EventAttachments
      */
     images?: Array<Image>;
 }

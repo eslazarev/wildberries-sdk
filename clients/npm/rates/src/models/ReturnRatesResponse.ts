@@ -29,8 +29,6 @@ import {
 export interface ReturnRatesResponse {
     /**
      * 
-     * @type {ModelsReturnRatesResponse}
-     * @memberof ReturnRatesResponse
      */
     response?: ModelsReturnRatesResponse;
 }

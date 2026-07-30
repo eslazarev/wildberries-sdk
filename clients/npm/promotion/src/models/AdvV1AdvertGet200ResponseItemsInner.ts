@@ -29,56 +29,38 @@ import {
 export interface AdvV1AdvertGet200ResponseItemsInner {
     /**
      * ID баннера
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     id?: number;
     /**
      * Бренд
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     name?: string;
     /**
      * Статус (такой же как у медиакампании)
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     status?: number;
     /**
      * Позиция на странице размещения
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     place?: number;
     /**
      * Бюджет
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     budget?: number;
     /**
      * Дневной лимит (для баннеров по показам)
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     dailyLimit?: number;
     /**
      * Название категории размещения
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     categoryName?: string;
     /**
      * Ставка
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     cpm?: number;
     /**
      * URL страницы, на которую попадает пользователь при клике по баннеру
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     url?: string;
     /**
@@ -89,56 +71,38 @@ export interface AdvV1AdvertGet200ResponseItemsInner {
      * - `4` — социальные сети
      * - `5` — push-уведомления в мобильном приложении
      * 
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     advertType?: number;
     /**
      * Дата создания баннера
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     createdAt?: Date;
     /**
      * Дата и время обновления баннера
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     updatedAt?: Date;
     /**
      * Дата начала работы баннера
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     dateFrom?: Date;
     /**
      * Дата завершения работы баннера
-     * @type {Date}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     dateTo?: Date;
     /**
      * Подборка артикулов WB
-     * @type {Array<number>}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     nms?: Array<number>;
     /**
      * Текст под плашкой баннера
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     bottomText1?: string;
     /**
      * 2-я строка с текстом под плашкой баннера
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     bottomText2?: string;
     /**
      * Текст push-уведомления или рассылки
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     message?: string;
     /**
@@ -154,44 +118,30 @@ export interface AdvV1AdvertGet200ResponseItemsInner {
      * - `1` — VK
      * - `2` — OK (Одноклассники)
      * 
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     additionalSettings?: number;
     /**
      * Кол-во получателей push-уведомлений
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     receiversCount?: number;
     /**
      * ID родительской категории товара
-     * @type {number}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     subjectId?: number;
     /**
      * Название родительской категории товара
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     subjectName?: string;
     /**
      * Название акции
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     actionName?: string;
     /**
      * Часы показа
-     * @type {Array<AdvV1AdvertGet200ResponseItemsInnerShowHoursInner>}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     showHours?: Array<AdvV1AdvertGet200ResponseItemsInnerShowHoursInner>;
     /**
      * Уникальный ID медиакампании для работы с ОРД
-     * @type {string}
-     * @memberof AdvV1AdvertGet200ResponseItemsInner
      */
     erid?: string;
 }

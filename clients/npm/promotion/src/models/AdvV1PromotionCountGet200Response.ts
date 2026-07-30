@@ -29,14 +29,10 @@ import {
 export interface AdvV1PromotionCountGet200Response {
     /**
      * Данные по кампаниям
-     * @type {Array<AdvV1PromotionCountGet200ResponseAdvertsInner>}
-     * @memberof AdvV1PromotionCountGet200Response
      */
     adverts?: Array<AdvV1PromotionCountGet200ResponseAdvertsInner> | null;
     /**
      * Общее количество кампаний всех статусов и типов
-     * @type {number}
-     * @memberof AdvV1PromotionCountGet200Response
      */
     all?: number;
 }

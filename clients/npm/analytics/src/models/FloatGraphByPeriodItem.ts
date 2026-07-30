@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface FloatGraphByPeriodItem {
     /**
      * Начало месяца
-     * @type {Date}
-     * @memberof FloatGraphByPeriodItem
      */
     start: Date;
     /**
      * Конец месяца
-     * @type {Date}
-     * @memberof FloatGraphByPeriodItem
      */
     end: Date;
     /**
      * Среднее количество заказов
-     * @type {number}
-     * @memberof FloatGraphByPeriodItem
      */
     value: number;
 }

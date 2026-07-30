@@ -145,124 +145,400 @@ import {
 } from '../models/WHM';
 
 export interface ApiV1AcceptanceReportGetRequest {
+    /**
+     * Начало отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Конец отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateTo: string;
 }
 
 export interface ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
     taskId: string;
 }
 
 export interface ApiV1AcceptanceReportTasksTaskIdStatusGetRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
     taskId: string;
 }
 
 export interface ApiV1AnalyticsAntifraudDetailsGetRequest {
+    /**
+     * Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.
+     * <br/>
+     * Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр
+     * 
+     */
     date?: string;
 }
 
 export interface ApiV1AnalyticsBannedProductsBlockedGetRequest {
+    /**
+     * Сортировка
+     * - `brand` — по бренду
+     * - `nmId` — по артикулу WB
+     * - `title` — по наименованию товара
+     * - `vendorCode` — по артикулу продавца
+     * - `reason` — по причине блокировки
+     * 
+     */
     sort: ApiV1AnalyticsBannedProductsBlockedGetSortEnum;
+    /**
+     * Порядок выдачи
+     * - `desc` — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому
+     * - `asc` — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
+     * 
+     */
     order: ApiV1AnalyticsBannedProductsBlockedGetOrderEnum;
 }
 
 export interface ApiV1AnalyticsBannedProductsShadowedGetRequest {
+    /**
+     * Сортировка
+     * - `brand` — по бренду
+     * - `nmId` — по артикулу WB
+     * - `title` — по наименованию товара
+     * - `vendorCode` — по артикулу продавца
+     * - `nmRating` — по рейтингу товара
+     * 
+     */
     sort: ApiV1AnalyticsBannedProductsShadowedGetSortEnum;
+    /**
+     * Порядок выдачи
+     * - `desc` — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому
+     * - `asc` — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
+     * 
+     */
     order: ApiV1AnalyticsBannedProductsShadowedGetOrderEnum;
 }
 
 export interface ApiV1AnalyticsBrandShareGetRequest {
+    /**
+     * ID родительской категории
+     */
     parentId: number;
+    /**
+     * Бренд
+     */
     brand: string;
+    /**
+     * Начало отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Конец отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateTo: string;
 }
 
 export interface ApiV1AnalyticsBrandShareParentSubjectsGetRequest {
+    /**
+     * Бренд
+     */
     brand: string;
+    /**
+     * Начало отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Конец отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateTo: string;
+    /**
+     * Язык поля ответа `parentName`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     */
     locale?: string;
 }
 
 export interface ApiV1AnalyticsGoodsLabelingGetRequest {
+    /**
+     * Начало отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateFrom: Date;
+    /**
+     * Конец отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateTo: Date;
 }
 
 export interface ApiV1AnalyticsGoodsReturnGetRequest {
+    /**
+     * Дата начала отчётного периода
+     */
     dateFrom: Date;
+    /**
+     * Дата окончания отчётного периода
+     */
     dateTo: Date;
 }
 
 export interface ApiV1AnalyticsRegionSaleGetRequest {
+    /**
+     * Начало отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Конец отчётного периода, `ГГГГ-ММ-ДД`
+     * 
+     */
     dateTo: string;
 }
 
 export interface ApiV1PaidStorageGetRequest {
+    /**
+     * Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:
+     * 
+     *   * `2019-06-20`
+     *   * `2019-06-20T23:59:59`
+     *   * `2019-06-20T00:00:00.12345`
+     *   * `2017-03-25T00:00:00`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:
+     * 
+     *   * `2019-06-20`
+     *   * `2019-06-20T23:59:59`
+     *   * `2019-06-20T00:00:00.12345`
+     *   * `2017-03-25T00:00:00`
+     * 
+     */
     dateTo: string;
 }
 
 export interface ApiV1PaidStorageTasksTaskIdDownloadGetRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
     taskId: string;
 }
 
 export interface ApiV1PaidStorageTasksTaskIdStatusGetRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
     taskId: string;
 }
 
 export interface ApiV1SupplierOrdersGetRequest {
+    /**
+     * Дата и время последнего изменения по заказу. <br>
+     * Дата в формате RFC3339. Можно передать дату или дату со временем.
+     * Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br>
+     * Время передаётся в часовом поясе Москва (UTC+3).
+     * <br>Примеры:
+     *   - `2019-06-20`
+     *   - `2019-06-20T23:59:59`
+     *   - `2019-06-20T00:00:00.12345`
+     *   - `2017-03-25T00:00:00`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
+     * у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше или равно переданному
+     * значению параметра `dateFrom`.
+     * При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
+     * <br>
+     * Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
+     * равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
+     * При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
+     * сделанных в указанную дату, переданную в параметре `dateFrom`.
+     * 
+     */
     flag?: number;
 }
 
 export interface ApiV1SupplierSalesGetRequest {
+    /**
+     * Дата и время последнего изменения по продаже/возврату. <br>
+     * Дата в формате RFC3339. Можно передать дату или дату со временем.
+     * Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br>
+     * Время передаётся в часовом поясе Москва (UTC+3).
+     * <br>Примеры:
+     *   - `2019-06-20`
+     *   - `2019-06-20T23:59:59`
+     *   - `2019-06-20T00:00:00.12345`
+     *   - `2017-03-25T00:00:00`
+     * 
+     */
     dateFrom: string;
+    /**
+     * Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
+     * у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше или равно переданному
+     * значению параметра `dateFrom`.
+     * При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
+     * <br>
+     * Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
+     * равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
+     * При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
+     * сделанных в указанную дату, переданную в параметре `dateFrom`.
+     * 
+     */
     flag?: number;
 }
 
 export interface ApiV1WarehouseRemainsGetRequest {
+    /**
+     * Язык полей ответа `subjectName` и `warehouseName`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский. Значения `warehouseName` на английском
+     * 
+     */
     locale?: string;
+    /**
+     * Разбивка по брендам
+     */
     groupByBrand?: boolean;
+    /**
+     * Разбивка по предметам
+     */
     groupBySubject?: boolean;
+    /**
+     * Разбивка по артикулам продавца
+     */
     groupBySa?: boolean;
+    /**
+     * Разбивка по артикулам WB. Если `groupByNm=true`, в ответе будет поле `volume`
+     */
     groupByNm?: boolean;
+    /**
+     * Разбивка по баркодам
+     */
     groupByBarcode?: boolean;
+    /**
+     * Разбивка по размерам
+     */
     groupBySize?: boolean;
+    /**
+     * Фильтр по фото:
+     *   - `-1` — без фото
+     *   - `0` — не применять фильтр
+     *   - `1` — с фото
+     * 
+     */
     filterPics?: number;
+    /**
+     * Фильтр по объёму:
+     *   - `-1` — без габаритов
+     *   - `0` — не применять фильтр
+     *   - `3` — свыше трёх литров
+     * 
+     */
     filterVolume?: number;
 }
 
 export interface ApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
     taskId: string;
 }
 
 export interface ApiV1WarehouseRemainsTasksTaskIdStatusGetRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
     taskId: string;
 }
 
 export interface GetV1DeductionsRequest {
+    /**
+     * Конец отчётного периода
+     */
     dateTo: Date;
+    /**
+     * Количество удержаний в ответе
+     */
     limit: number;
+    /**
+     * Начало отчётного периода. По умолчанию используются дата и время, когда были впервые получены данные для отчёта
+     */
     dateFrom?: Date;
+    /**
+     * Сортировка:
+     * - `nmId` — по артикулу WB
+     * - `dtBonus` — по дате и времени удержания
+     * - `bonusSumm` — по сумме удержания
+     * 
+     */
     sort?: GetV1DeductionsSortEnum;
+    /**
+     * Порядок выдачи:
+     * - `desc` — по убыванию
+     * - `asc` — по возрастанию
+     * 
+     */
     order?: GetV1DeductionsOrderEnum;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
+     */
     offset?: number;
 }
 
 export interface GetV1MeasurementPenaltiesRequest {
+    /**
+     * Конец отчётного периода
+     */
     dateTo: Date;
+    /**
+     * Количество удержаний в ответе
+     */
     limit: number;
+    /**
+     * Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
+     */
     dateFrom?: Date;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
+     */
     offset?: number;
 }
 
 export interface GetV1WarehouseMeasurementsRequest {
+    /**
+     * Конец отчётного периода
+     */
     dateTo: Date;
+    /**
+     * Количество замеров в ответе
+     */
     limit: number;
+    /**
+     * Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
+     */
     dateFrom?: Date;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
+     */
     offset?: number;
 }
 

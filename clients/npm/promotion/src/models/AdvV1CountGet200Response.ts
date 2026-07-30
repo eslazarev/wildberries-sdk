@@ -29,14 +29,10 @@ import {
 export interface AdvV1CountGet200Response {
     /**
      * Общее количество медиакампаний всех статусов и типов
-     * @type {number}
-     * @memberof AdvV1CountGet200Response
      */
     all?: number;
     /**
      * 
-     * @type {AdvV1CountGet200ResponseAdverts}
-     * @memberof AdvV1CountGet200Response
      */
     adverts?: AdvV1CountGet200ResponseAdverts | null;
 }

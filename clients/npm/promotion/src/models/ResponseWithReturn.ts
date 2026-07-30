@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ResponseWithReturn {
     /**
      * Размер обновлённого бюджета
-     * @type {number}
-     * @memberof ResponseWithReturn
      */
     total?: number;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof ResponseWithReturn
      */
     currency?: string;
 }

@@ -22,8 +22,6 @@ export interface ExciseReportRequest {
     /**
      * Код стран по стандарту ISO 3166-2. Чтобы получить данные по всем странам, оставьте параметр пустым
      * 
-     * @type {Array<ExciseReportRequestCountriesEnum>}
-     * @memberof ExciseReportRequest
      */
     countries?: Array<ExciseReportRequestCountriesEnum>;
 }

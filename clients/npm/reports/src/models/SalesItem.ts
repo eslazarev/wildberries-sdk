@@ -21,146 +21,98 @@ import { mapValues } from '../runtime';
 export interface SalesItem {
     /**
      * Дата и время продажи. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=1. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-     * @type {string}
-     * @memberof SalesItem
      */
     date?: string;
     /**
      * Дата и время обновления информации в сервисе. Это поле соответствует параметру `dateFrom` в запросе, если параметр `flag`=0 или не указан. Если часовой пояс не указан, то берётся Московское время (UTC+3).
-     * @type {string}
-     * @memberof SalesItem
      */
     lastChangeDate?: string;
     /**
      * Склад отгрузки
-     * @type {string}
-     * @memberof SalesItem
      */
     warehouseName?: string;
     /**
      * Тип склада хранения товаров
-     * @type {SalesItemWarehouseTypeEnum}
-     * @memberof SalesItem
      */
     warehouseType?: SalesItemWarehouseTypeEnum;
     /**
      * Страна
-     * @type {string}
-     * @memberof SalesItem
      */
     countryName?: string;
     /**
      * Округ
-     * @type {string}
-     * @memberof SalesItem
      */
     oblastOkrugName?: string;
     /**
      * Регион
-     * @type {string}
-     * @memberof SalesItem
      */
     regionName?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof SalesItem
      */
     supplierArticle?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof SalesItem
      */
     nmId?: number;
     /**
      * Баркод
-     * @type {string}
-     * @memberof SalesItem
      */
     barcode?: string;
     /**
      * Категория
-     * @type {string}
-     * @memberof SalesItem
      */
     category?: string;
     /**
      * Предмет
-     * @type {string}
-     * @memberof SalesItem
      */
     subject?: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof SalesItem
      */
     brand?: string;
     /**
      * Размер товара
-     * @type {string}
-     * @memberof SalesItem
      */
     techSize?: string;
     /**
      * Номер поставки
-     * @type {number}
-     * @memberof SalesItem
      */
     incomeID?: number;
     /**
      * Договор поставки
-     * @type {boolean}
-     * @memberof SalesItem
      */
     isSupply?: boolean;
     /**
      * Договор реализации
-     * @type {boolean}
-     * @memberof SalesItem
      */
     isRealization?: boolean;
     /**
      * Цена без скидок
-     * @type {number}
-     * @memberof SalesItem
      */
     totalPrice?: number;
     /**
      * Скидка продавца, %
-     * @type {number}
-     * @memberof SalesItem
      */
     discountPercent?: number;
     /**
      * Скидка WB, %
-     * @type {number}
-     * @memberof SalesItem
      */
     spp?: number;
     /**
      * Скидка за оплату WB Кошельком, ₽
-     * @type {number}
-     * @memberof SalesItem
      */
     paymentSaleAmount?: number;
     /**
      * К перечислению продавцу.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
-     * @type {number}
-     * @memberof SalesItem
      */
     forPay?: number;
     /**
      * Фактическая цена с учётом всех скидок (к взиманию с покупателя).<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
-     * @type {number}
-     * @memberof SalesItem
      */
     finishedPrice?: number;
     /**
      * Цена со скидкой продавца, в том числе со скидкой WB Клуба, от которой рассчитывается сумма к перечислению продавцу `forPay`.<br>Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
-     * @type {number}
-     * @memberof SalesItem
      */
     priceWithDisc?: number;
     /**
@@ -168,28 +120,20 @@ export interface SalesItem {
      * - `S**********` — продажа
      * - `R**********` — возврат (на склад WB)
      * 
-     * @type {string}
-     * @memberof SalesItem
      */
     saleID?: string;
     /**
      * ID стикера
-     * @type {string}
-     * @memberof SalesItem
      */
     sticker?: string;
     /**
      * ID корзины покупателя. Заказы одной транзакции будут иметь одинаковый `gNumber`
-     * @type {string}
-     * @memberof SalesItem
      */
     gNumber?: string;
     /**
      * Уникальный ID заказа.<br>
      * Примечание для использующих API Маркетплейс: `srid` равен `rid` в ответах методов сборочных заданий.
      * 
-     * @type {string}
-     * @memberof SalesItem
      */
     srid?: string;
 }

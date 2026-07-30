@@ -36,8 +36,6 @@ import {
 export interface ModelsSuppliesFiltersRequest {
     /**
      * Фильтр по датам
-     * @type {Array<ModelsDateFilterRequest>}
-     * @memberof ModelsSuppliesFiltersRequest
      */
     dates?: Array<ModelsDateFilterRequest>;
     /**
@@ -49,8 +47,6 @@ export interface ModelsSuppliesFiltersRequest {
      *   - `5` — Принято
      *   - `6` — Отгружено на воротах
      * 
-     * @type {Array<ModelsHandySupplyStatus>}
-     * @memberof ModelsSuppliesFiltersRequest
      */
     statusIDs?: Array<ModelsHandySupplyStatus>;
 }

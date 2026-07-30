@@ -36,8 +36,6 @@ import {
 export interface GetUsersResponseUsersInner {
     /**
      * ID пользователя
-     * @type {number}
-     * @memberof GetUsersResponseUsersInner
      */
     id: number;
     /**
@@ -45,74 +43,50 @@ export interface GetUsersResponseUsersInner {
      *   * `user` — пользователь, который активировал доступ
      *   * ` ` (пустая строка) — пользователь, который не активировал доступ
      * 
-     * @type {GetUsersResponseUsersInnerRoleEnum}
-     * @memberof GetUsersResponseUsersInner
      */
     role: GetUsersResponseUsersInnerRoleEnum;
     /**
      * Должность пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInner
      */
     position: string;
     /**
      * Номер телефона пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInner
      */
     phone: string;
     /**
      * Email пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInner
      */
     email: string;
     /**
      * Является ли пользователь владельцем профиля продавца
-     * @type {boolean}
-     * @memberof GetUsersResponseUsersInner
      */
     isOwner: boolean;
     /**
      * Имя пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInner
      */
     firstName: string;
     /**
      * Фамилия пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInner
      */
     secondName: string;
     /**
      * Отчество пользователя
-     * @type {string}
-     * @memberof GetUsersResponseUsersInner
      */
     patronymic: string;
     /**
      * Может ли пользователь одобрять возвраты товаров
-     * @type {boolean}
-     * @memberof GetUsersResponseUsersInner
      */
     goodsReturn: boolean;
     /**
      * Приглашён ли пользователь
-     * @type {boolean}
-     * @memberof GetUsersResponseUsersInner
      */
     isInvitee: boolean;
     /**
      * 
-     * @type {GetUsersResponseUsersInnerInviteeInfo}
-     * @memberof GetUsersResponseUsersInner
      */
     inviteeInfo: GetUsersResponseUsersInnerInviteeInfo | null;
     /**
      * Настройки доступа к разделам профиля продавца
-     * @type {Array<AccessInner>}
-     * @memberof GetUsersResponseUsersInner
      */
     access: Array<AccessInner>;
 }

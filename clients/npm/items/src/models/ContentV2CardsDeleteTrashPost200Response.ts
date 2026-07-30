@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2CardsDeleteTrashPost200Response {
     /**
      * 
-     * @type {object}
-     * @memberof ContentV2CardsDeleteTrashPost200Response
      */
     data?: object | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2CardsDeleteTrashPost200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2CardsDeleteTrashPost200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {object}
-     * @memberof ContentV2CardsDeleteTrashPost200Response
      */
     additionalErrors?: object | null;
 }

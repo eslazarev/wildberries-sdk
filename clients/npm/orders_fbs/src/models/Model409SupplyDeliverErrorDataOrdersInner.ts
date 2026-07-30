@@ -29,14 +29,10 @@ import {
 export interface Model409SupplyDeliverErrorDataOrdersInner {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof Model409SupplyDeliverErrorDataOrdersInner
      */
     id?: number;
     /**
      * Информация об ошибках
-     * @type {Array<Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner>}
-     * @memberof Model409SupplyDeliverErrorDataOrdersInner
      */
     metaDetails?: Array<Model409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner>;
 }

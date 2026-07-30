@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface CommonInfoAdvertisedProducts {
     /**
      * Текущее количество товаров в рекламе
-     * @type {number}
-     * @memberof CommonInfoAdvertisedProducts
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof CommonInfoAdvertisedProducts
      */
     dynamics?: number;
 }

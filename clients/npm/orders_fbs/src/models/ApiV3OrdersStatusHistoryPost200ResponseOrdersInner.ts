@@ -29,20 +29,14 @@ import {
 export interface ApiV3OrdersStatusHistoryPost200ResponseOrdersInner {
     /**
      * Планируемая дата доставки, [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
-     * @type {Date}
-     * @memberof ApiV3OrdersStatusHistoryPost200ResponseOrdersInner
      */
     deliveryDate?: Date;
     /**
      * Статусы
-     * @type {Array<ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner>}
-     * @memberof ApiV3OrdersStatusHistoryPost200ResponseOrdersInner
      */
     statuses?: Array<ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiV3OrdersStatusHistoryPost200ResponseOrdersInner
      */
     orderID?: number;
 }

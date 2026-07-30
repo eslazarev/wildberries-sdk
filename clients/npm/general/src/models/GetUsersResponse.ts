@@ -29,20 +29,14 @@ import {
 export interface GetUsersResponse {
     /**
      * Общее количество активных или приглашённых пользователей
-     * @type {number}
-     * @memberof GetUsersResponse
      */
     total: number;
     /**
      * Количество активных или приглашённых пользователей на текущей странице
-     * @type {number}
-     * @memberof GetUsersResponse
      */
     countInResponse: number;
     /**
      * Информация о пользователях
-     * @type {Array<GetUsersResponseUsersInner>}
-     * @memberof GetUsersResponse
      */
     users: Array<GetUsersResponseUsersInner>;
 }

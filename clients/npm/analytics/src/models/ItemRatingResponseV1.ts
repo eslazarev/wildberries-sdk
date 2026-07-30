@@ -43,20 +43,14 @@ import {
 export interface ItemRatingResponseV1 {
     /**
      * 
-     * @type {TableItemFloat}
-     * @memberof ItemRatingResponseV1
      */
     sellerRating: TableItemFloat;
     /**
      * 
-     * @type {FeedbacksIncreaseItem}
-     * @memberof ItemRatingResponseV1
      */
     feedbackIncrease: FeedbacksIncreaseItem;
     /**
      * Данные по товарам
-     * @type {Array<DistributionTableItemV1>}
-     * @memberof ItemRatingResponseV1
      */
     cards: Array<DistributionTableItemV1>;
 }

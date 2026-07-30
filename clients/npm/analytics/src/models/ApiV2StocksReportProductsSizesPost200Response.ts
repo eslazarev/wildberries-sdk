@@ -29,8 +29,6 @@ import {
 export interface ApiV2StocksReportProductsSizesPost200Response {
     /**
      * 
-     * @type {TableSizeResponse}
-     * @memberof ApiV2StocksReportProductsSizesPost200Response
      */
     data: TableSizeResponse;
 }

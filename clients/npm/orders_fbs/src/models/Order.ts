@@ -36,46 +36,32 @@ import {
 export interface Order {
     /**
      * 
-     * @type {OrderAddress}
-     * @memberof Order
      */
     address?: OrderAddress | null;
     /**
      * Цена приёмки в копейках. Отображается после фактической приёмки заказа
-     * @type {number}
-     * @memberof Order
      */
     scanPrice?: number | null;
     /**
      * Тип доставки:
      * - `fbs` — доставка на склад Wildberries (FBS)
      * 
-     * @type {OrderDeliveryTypeEnum}
-     * @memberof Order
      */
     deliveryType?: OrderDeliveryTypeEnum;
     /**
      * ID поставки. Возвращается, если заказ закреплён за поставкой
-     * @type {string}
-     * @memberof Order
      */
     supplyId?: string;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-     * @type {string}
-     * @memberof Order
      */
     orderUid?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof Order
      */
     article?: string;
     /**
      * Код цвета (только для колеруемых товаров)
-     * @type {string}
-     * @memberof Order
      */
     colorCode?: string;
     /**
@@ -90,81 +76,55 @@ export interface Order {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {string}
-     * @memberof Order
      */
     rid?: string;
     /**
      * Дата создания сборочного задания (RFC3339). Часовой пояс — UTC
-     * @type {Date}
-     * @memberof Order
      */
     createdAt?: Date;
     /**
      * Список офисов, куда следует привезти товар
-     * @type {Array<string>}
-     * @memberof Order
      */
     offices?: Array<string> | null;
     /**
      * Список баркодов
-     * @type {Array<string>}
-     * @memberof Order
      */
     skus?: Array<string>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof Order
      */
     id?: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
-     * @type {number}
-     * @memberof Order
      */
     warehouseId?: number;
     /**
      * ID склада WB, к которому привязан склад продавца
-     * @type {number}
-     * @memberof Order
      */
     officeId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof Order
      */
     nmId?: number;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof Order
      */
     chrtId?: number;
     /**
      * Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях
      * 
-     * @type {number}
-     * @memberof Order
      */
     price?: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof Order
      */
     convertedPrice?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof Order
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof Order
      */
     convertedCurrencyCode?: number;
     /**
@@ -173,8 +133,6 @@ export interface Order {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {OrderCargoTypeEnum}
-     * @memberof Order
      */
     cargoType?: OrderCargoTypeEnum;
     /**
@@ -182,14 +140,10 @@ export interface Order {
      *   - `0` — внутренняя поставка
      *   - `1` — трансграничная поставка
      * 
-     * @type {OrderCrossBorderTypeEnum}
-     * @memberof Order
      */
     crossBorderType?: OrderCrossBorderTypeEnum;
     /**
      * Комментарий покупателя
-     * @type {string}
-     * @memberof Order
      */
     comment?: string;
     /**
@@ -197,14 +151,10 @@ export interface Order {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
-     * @type {boolean}
-     * @memberof Order
      */
     isZeroOrder?: boolean;
     /**
      * 
-     * @type {OrderOptions}
-     * @memberof Order
      */
     options?: OrderOptions;
 }

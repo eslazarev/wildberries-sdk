@@ -29,8 +29,6 @@ import {
 export interface ApiAdvertV1BidsPatchRequest {
     /**
      * Ставки в кампаниях
-     * @type {Array<ApiAdvertV1BidsPatchRequestBidsInner>}
-     * @memberof ApiAdvertV1BidsPatchRequest
      */
     bids: Array<ApiAdvertV1BidsPatchRequestBidsInner>;
 }

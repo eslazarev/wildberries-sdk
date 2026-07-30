@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ModelError {
     /**
      * Код ошибки
-     * @type {string}
-     * @memberof ModelError
      */
     code?: string;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ModelError
      */
     message?: string;
     /**
      * Дополнительные данные, обогащающие ошибку
-     * @type {object}
-     * @memberof ModelError
      */
     data?: object | null;
 }

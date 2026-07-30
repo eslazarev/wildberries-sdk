@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface WholesaleDiscountThresholdRes {
     /**
      * Минимальное количество единиц товара для скидки
-     * @type {number}
-     * @memberof WholesaleDiscountThresholdRes
      */
     minQuantity: number;
     /**
      * Скидка, %
-     * @type {number}
-     * @memberof WholesaleDiscountThresholdRes
      */
     wholesaleDiscount: number;
     /**
      * Уровень скидки
-     * @type {number}
-     * @memberof WholesaleDiscountThresholdRes
      */
     level: number;
 }

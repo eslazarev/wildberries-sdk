@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableGroupItemMetricsAvgPosition {
     /**
      * Текущая средняя позиция
-     * @type {number}
-     * @memberof TableGroupItemMetricsAvgPosition
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableGroupItemMetricsAvgPosition
      */
     dynamics?: number;
 }

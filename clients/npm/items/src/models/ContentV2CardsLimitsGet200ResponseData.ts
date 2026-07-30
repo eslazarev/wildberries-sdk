@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ContentV2CardsLimitsGet200ResponseData {
     /**
      * Количество бесплатных лимитов
-     * @type {number}
-     * @memberof ContentV2CardsLimitsGet200ResponseData
      */
     freeLimits?: number;
     /**
      * Количество оплаченных лимитов
-     * @type {number}
-     * @memberof ContentV2CardsLimitsGet200ResponseData
      */
     paidLimits?: number;
 }

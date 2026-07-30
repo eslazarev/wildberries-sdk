@@ -32,8 +32,6 @@ export interface ApiBatchErrorResponse {
      *   - `404`
      *   - `409`
      * 
-     * @type {number}
-     * @memberof ApiBatchErrorResponse
      */
     code: number;
     /**
@@ -42,14 +40,10 @@ export interface ApiBatchErrorResponse {
      * - `ImeiIsNotFilled` — не заполнен IMEI
      * - `MetaValidationFail` — ошибки валидации идентификаторов маркировки
      * 
-     * @type {string}
-     * @memberof ApiBatchErrorResponse
      */
     detail: string;
     /**
      * Детали ошибки валидации идентификаторов маркировки
-     * @type {Array<ApiBatchErrorResponseMetaDetailsInner>}
-     * @memberof ApiBatchErrorResponse
      */
     metaDetails?: Array<ApiBatchErrorResponseMetaDetailsInner>;
 }

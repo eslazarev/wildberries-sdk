@@ -29,8 +29,6 @@ import {
 export interface ApiV3SuppliesSupplyIdTrbxGet200Response {
     /**
      * 
-     * @type {Array<SupplyTrbx>}
-     * @memberof ApiV3SuppliesSupplyIdTrbxGet200Response
      */
     trbxes?: Array<SupplyTrbx>;
 }

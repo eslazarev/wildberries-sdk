@@ -29,8 +29,6 @@ import {
 export interface PostV1StocksReportWbWarehouses200Response {
     /**
      * 
-     * @type {InventoryWbResponse}
-     * @memberof PostV1StocksReportWbWarehouses200Response
      */
     data: InventoryWbResponse;
 }

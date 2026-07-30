@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface PastPeriod {
     /**
      * Дата начала периода. Не позднее `end`. Не ранее 365 суток от сегодня
-     * @type {Date}
-     * @memberof PastPeriod
      */
     start: Date;
     /**
      * Дата окончания периода. Не позднее даты перед датой начала `currentPeriod`. Не ранее 365 суток от сегодня
-     * @type {Date}
-     * @memberof PastPeriod
      */
     end: Date;
 }

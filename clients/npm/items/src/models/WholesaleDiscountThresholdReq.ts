@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface WholesaleDiscountThresholdReq {
     /**
      * Минимальное количество единиц товара для скидки
-     * @type {number}
-     * @memberof WholesaleDiscountThresholdReq
      */
     minQuantity: number;
     /**
      * Скидка, %.<br>Чтобы удалить скидку, укажите `0`. Такой запрос одновременно удалит скидки на этом уровне и на всех более высоких уровнях `level` — вне зависимости от указания их в запросе
-     * @type {number}
-     * @memberof WholesaleDiscountThresholdReq
      */
     wholesaleDiscount: number;
     /**
      * Уровень скидки
-     * @type {number}
-     * @memberof WholesaleDiscountThresholdReq
      */
     level: number;
 }

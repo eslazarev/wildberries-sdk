@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface MediaErrors {
     /**
      * Дополнительные ошибки
-     * @type {object}
-     * @memberof MediaErrors
      */
     additionalErrors?: object | null;
     /**
      * Данные ошибки
-     * @type {object}
-     * @memberof MediaErrors
      */
     data?: object | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof MediaErrors
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof MediaErrors
      */
     errorText?: string;
 }

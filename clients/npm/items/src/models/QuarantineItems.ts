@@ -21,56 +21,38 @@ import { mapValues } from '../runtime';
 export interface QuarantineItems {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof QuarantineItems
      */
     nmID?: number;
     /**
      * Не используется
-     * @type {number}
-     * @memberof QuarantineItems
      */
     sizeID?: number | null;
     /**
      * Не используется
-     * @type {string}
-     * @memberof QuarantineItems
      */
     techSizeName?: string;
     /**
      * Валюта по стандарту ISO 4217
-     * @type {string}
-     * @memberof QuarantineItems
      */
     currencyIsoCode4217?: string;
     /**
      * Новая цена продавца до скидки
-     * @type {number}
-     * @memberof QuarantineItems
      */
     newPrice?: number | null;
     /**
      * Текущая цена продавца до скидки
-     * @type {number}
-     * @memberof QuarantineItems
      */
     oldPrice?: number;
     /**
      * Новая скидка продавца, %
-     * @type {number}
-     * @memberof QuarantineItems
      */
     newDiscount?: number | null;
     /**
      * Текущая скидка продавца, %
-     * @type {number}
-     * @memberof QuarantineItems
      */
     oldDiscount?: number;
     /**
      * Разница: `newPrice` * (1 - `newDiscount` / 100) - `oldPrice` * (1 - `oldDiscount` / 100)
-     * @type {number}
-     * @memberof QuarantineItems
      */
     priceDiff?: number;
 }

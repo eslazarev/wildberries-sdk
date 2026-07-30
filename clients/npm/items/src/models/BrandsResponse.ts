@@ -29,20 +29,14 @@ import {
 export interface BrandsResponse {
     /**
      * 
-     * @type {Array<BrandsResponseBrandsInner>}
-     * @memberof BrandsResponse
      */
     brands: Array<BrandsResponseBrandsInner>;
     /**
      * Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
-     * @type {number}
-     * @memberof BrandsResponse
      */
     next?: number;
     /**
      * Общее количество брендов предмета
-     * @type {number}
-     * @memberof BrandsResponse
      */
     total: number;
 }

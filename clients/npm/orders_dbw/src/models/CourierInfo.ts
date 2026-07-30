@@ -29,8 +29,6 @@ import {
 export interface CourierInfo {
     /**
      * Контактные данные курьера
-     * @type {CourierContactsResponse}
-     * @memberof CourierInfo
      */
     contacts?: CourierContactsResponse | null;
     /**
@@ -40,14 +38,10 @@ export interface CourierInfo {
      * 
      *   Если `"mustBeAssigned":true`, а `"contacts":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)
      * 
-     * @type {boolean}
-     * @memberof CourierInfo
      */
     mustBeAssigned?: boolean;
     /**
      * Дата и время обновления информации о курьере. <br> Если `null`, информация не обновлялась
-     * @type {Date}
-     * @memberof CourierInfo
      */
     updatedAt?: Date | null;
 }

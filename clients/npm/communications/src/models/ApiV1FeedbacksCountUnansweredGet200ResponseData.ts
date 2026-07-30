@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1FeedbacksCountUnansweredGet200ResponseData {
     /**
      * Количество необработанных отзывов
-     * @type {number}
-     * @memberof ApiV1FeedbacksCountUnansweredGet200ResponseData
      */
     countUnanswered?: number;
     /**
      * Количество необработанных отзывов за сегодня
-     * @type {number}
-     * @memberof ApiV1FeedbacksCountUnansweredGet200ResponseData
      */
     countUnansweredToday?: number;
 }

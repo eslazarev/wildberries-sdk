@@ -29,20 +29,14 @@ import {
 export interface ApiMetaSetResponse {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiMetaSetResponse
      */
     orderId: number;
     /**
      * Есть ли ошибки
-     * @type {boolean}
-     * @memberof ApiMetaSetResponse
      */
     isError: boolean;
     /**
      * Детали ошибки
-     * @type {Array<ApiMetaErrorResponse>}
-     * @memberof ApiMetaSetResponse
      */
     errors?: Array<ApiMetaErrorResponse>;
 }

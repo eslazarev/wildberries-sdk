@@ -29,8 +29,6 @@ import {
 export interface ApiFeedbacksV1PinsLimitsGet200Response {
     /**
      * 
-     * @type {OpenapiSellerLimitsResponseData}
-     * @memberof ApiFeedbacksV1PinsLimitsGet200Response
      */
     data: OpenapiSellerLimitsResponseData;
 }

@@ -21,15 +21,11 @@ import { mapValues } from '../runtime';
 export interface RequestAlreadyExistsErrorData {
     /**
      * ID загрузки
-     * @type {number}
-     * @memberof RequestAlreadyExistsErrorData
      */
     id?: number;
     /**
      * Флаг дублирования загрузки: `true` — такая загрузка уже есть
      * 
-     * @type {boolean}
-     * @memberof RequestAlreadyExistsErrorData
      */
     alreadyExists?: boolean;
 }

@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ContentV2GetCardsListPost200ResponseCardsInnerDimensions {
     /**
      * Длина, см
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerDimensions
      */
     length?: number;
     /**
      * Ширина, см
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerDimensions
      */
     width?: number;
     /**
      * Высота, см
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerDimensions
      */
     height?: number;
     /**
      * Вес, кг<br>Количество знаков после запятой <=3
-     * @type {number}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerDimensions
      */
     weightBrutto?: number;
     /**
@@ -50,8 +42,6 @@ export interface ContentV2GetCardsListPost200ResponseCardsInnerDimensions {
      * 
      * - `false` — указанные габариты значительно отличаются от средних по категории (предмету). Рекомендуется перепроверить, правильно ли указаны размеры товара в упаковке в `сантиметрах`. Функциональность карточки товара, в том числе начисление логистики и хранения, при этом ограничена не будет. Логистика и хранение продолжают начисляться — по текущим габаритам. Также `"isValid":false` возвращается при отсутствии значений или нулевом значении любой стороны.
      * 
-     * @type {boolean}
-     * @memberof ContentV2GetCardsListPost200ResponseCardsInnerDimensions
      */
     isValid?: boolean;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ApiV1FeedbackGet200ResponseDataVideo {
     /**
      * Ссылка на обложку видео
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseDataVideo
      */
     previewImage?: string;
     /**
      * Ссылка на файл плейлиста видео (доступно по протоколу hls)
-     * @type {string}
-     * @memberof ApiV1FeedbackGet200ResponseDataVideo
      */
     link?: string;
     /**
      * Общая продолжительность видео
-     * @type {number}
-     * @memberof ApiV1FeedbackGet200ResponseDataVideo
      */
     durationSec?: number;
 }

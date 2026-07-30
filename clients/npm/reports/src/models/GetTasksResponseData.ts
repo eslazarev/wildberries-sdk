@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface GetTasksResponseData {
     /**
      * ID задания
-     * @type {string}
-     * @memberof GetTasksResponseData
      */
     id?: string;
     /**
@@ -33,8 +31,6 @@ export interface GetTasksResponseData {
      *   * `purged` — отчёт удалён
      *   * `canceled` — отклонено
      * 
-     * @type {string}
-     * @memberof GetTasksResponseData
      */
     status?: string;
 }

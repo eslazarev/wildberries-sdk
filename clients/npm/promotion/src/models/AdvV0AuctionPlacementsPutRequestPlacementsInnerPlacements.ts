@@ -24,8 +24,6 @@ export interface AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements {
      *   - `false` — отключено
      *   - `true` — включено
      * 
-     * @type {boolean}
-     * @memberof AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements
      */
     search: boolean;
     /**
@@ -33,8 +31,6 @@ export interface AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements {
      *   - `false` — отключено
      *   - `true` — включено
      * 
-     * @type {boolean}
-     * @memberof AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements
      */
     recommendations: boolean;
 }

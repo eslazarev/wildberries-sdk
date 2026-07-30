@@ -29,14 +29,10 @@ import {
 export interface ApiFeedbacksV1PinsGet200Response {
     /**
      * 
-     * @type {Array<OpenapiPinnedReviewItemResult>}
-     * @memberof ApiFeedbacksV1PinsGet200Response
      */
     data: Array<OpenapiPinnedReviewItemResult>;
     /**
      * Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
-     * @type {number}
-     * @memberof ApiFeedbacksV1PinsGet200Response
      */
     next?: number;
 }

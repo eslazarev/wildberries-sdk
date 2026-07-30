@@ -29,8 +29,6 @@ import {
 export interface ClientInfoResp {
     /**
      * Информация о покупателях
-     * @type {Array<ClientInfo>}
-     * @memberof ClientInfoResp
      */
     orders?: Array<ClientInfo>;
 }

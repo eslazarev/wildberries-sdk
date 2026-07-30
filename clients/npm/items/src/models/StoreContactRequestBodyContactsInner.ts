@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface StoreContactRequestBodyContactsInner {
     /**
      * Комментарий
-     * @type {string}
-     * @memberof StoreContactRequestBodyContactsInner
      */
     comment?: string;
     /**
@@ -32,8 +30,6 @@ export interface StoreContactRequestBodyContactsInner {
      *   - `+375` — Беларусь
      *   - `+996` — Кыргызстан
      * 
-     * @type {string}
-     * @memberof StoreContactRequestBodyContactsInner
      */
     phone?: string;
 }

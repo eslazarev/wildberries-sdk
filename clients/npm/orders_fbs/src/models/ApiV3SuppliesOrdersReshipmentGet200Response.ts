@@ -29,8 +29,6 @@ import {
 export interface ApiV3SuppliesOrdersReshipmentGet200Response {
     /**
      * Список сборочных заданий
-     * @type {Array<ApiV3SuppliesOrdersReshipmentGet200ResponseOrdersInner>}
-     * @memberof ApiV3SuppliesOrdersReshipmentGet200Response
      */
     orders?: Array<ApiV3SuppliesOrdersReshipmentGet200ResponseOrdersInner>;
 }

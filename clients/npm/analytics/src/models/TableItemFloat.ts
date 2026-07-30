@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableItemFloat {
     /**
      * Текущий рейтинг
-     * @type {number}
-     * @memberof TableItemFloat
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableItemFloat
      */
     dynamics?: number;
 }

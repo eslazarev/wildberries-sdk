@@ -36,62 +36,42 @@ import {
 export interface Item {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof Item
      */
     nmId: number;
     /**
      * Название карточки товара
-     * @type {string}
-     * @memberof Item
      */
     title: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof Item
      */
     vendorCode: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof Item
      */
     brandName: string;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof Item
      */
     subjectId: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof Item
      */
     subjectName: string;
     /**
      * Ярлыки
-     * @type {Array<Tag>}
-     * @memberof Item
      */
     tags: Array<Tag>;
     /**
      * Оценка карточки
-     * @type {number}
-     * @memberof Item
      */
     productRating: number;
     /**
      * Оценка пользователей
-     * @type {number}
-     * @memberof Item
      */
     feedbackRating: number;
     /**
      * 
-     * @type {ItemStocks}
-     * @memberof Item
      */
     stocks: ItemStocks;
 }

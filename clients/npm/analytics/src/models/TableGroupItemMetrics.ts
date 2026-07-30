@@ -71,44 +71,30 @@ import {
 export interface TableGroupItemMetrics {
     /**
      * 
-     * @type {TableGroupItemMetricsAvgPosition}
-     * @memberof TableGroupItemMetrics
      */
     avgPosition: TableGroupItemMetricsAvgPosition;
     /**
      * 
-     * @type {VisibilityInfoOpenCard}
-     * @memberof TableGroupItemMetrics
      */
     openCard: VisibilityInfoOpenCard;
     /**
      * 
-     * @type {TableGroupItemMetricsAddToCart}
-     * @memberof TableGroupItemMetrics
      */
     addToCart: TableGroupItemMetricsAddToCart;
     /**
      * 
-     * @type {TableGroupItemMetricsOpenToCart}
-     * @memberof TableGroupItemMetrics
      */
     openToCart: TableGroupItemMetricsOpenToCart;
     /**
      * 
-     * @type {TableGroupItemMetricsOrders}
-     * @memberof TableGroupItemMetrics
      */
     orders: TableGroupItemMetricsOrders;
     /**
      * 
-     * @type {TableGroupItemMetricsCartToOrder}
-     * @memberof TableGroupItemMetrics
      */
     cartToOrder: TableGroupItemMetricsCartToOrder;
     /**
      * 
-     * @type {TableGroupItemMetricsVisibility}
-     * @memberof TableGroupItemMetrics
      */
     visibility: TableGroupItemMetricsVisibility;
 }

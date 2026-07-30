@@ -29,8 +29,6 @@ import {
 export interface NmReportGetReportsResponse {
     /**
      * 
-     * @type {Array<NmReportGetReportsResponseDataInner>}
-     * @memberof NmReportGetReportsResponse
      */
     data: Array<NmReportGetReportsResponseDataInner>;
 }

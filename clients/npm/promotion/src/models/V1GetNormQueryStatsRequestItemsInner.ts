@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface V1GetNormQueryStatsRequestItemsInner {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V1GetNormQueryStatsRequestItemsInner
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V1GetNormQueryStatsRequestItemsInner
      */
     nmId: number;
 }

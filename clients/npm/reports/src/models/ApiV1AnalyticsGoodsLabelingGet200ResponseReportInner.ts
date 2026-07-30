@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner {
     /**
      * Сумма штрафа, руб
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner
      */
     amount?: number;
     /**
      * Дата
-     * @type {Date}
-     * @memberof ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner
      */
     date?: Date;
     /**
      * Номер поставки
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner
      */
     incomeId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner
      */
     nmID?: number;
     /**
      * URL фото товара
-     * @type {Array<string>}
-     * @memberof ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner
      */
     photoUrls?: Array<string>;
     /**
      * Штрихкод товара в WB
-     * @type {number}
-     * @memberof ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner
      */
     shkID?: number;
     /**
      * Баркод из карточки товара
-     * @type {string}
-     * @memberof ApiV1AnalyticsGoodsLabelingGet200ResponseReportInner
      */
     sku?: string;
 }

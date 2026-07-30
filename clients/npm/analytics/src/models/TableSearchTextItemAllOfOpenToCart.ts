@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface TableSearchTextItemAllOfOpenToCart {
     /**
      * Текущая конверсия
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOpenToCart
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOpenToCart
      */
     dynamics?: number;
     /**
      * Процент, на который показатель конверсии в корзину выше, чем у карточек других продавцов по поисковому запросу
-     * @type {number}
-     * @memberof TableSearchTextItemAllOfOpenToCart
      */
     percentile: number;
 }

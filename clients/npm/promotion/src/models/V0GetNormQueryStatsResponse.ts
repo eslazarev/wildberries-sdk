@@ -29,8 +29,6 @@ import {
 export interface V0GetNormQueryStatsResponse {
     /**
      * 
-     * @type {Array<V0GetNormQueryStatsItem>}
-     * @memberof V0GetNormQueryStatsResponse
      */
     stats: Array<V0GetNormQueryStatsItem>;
 }

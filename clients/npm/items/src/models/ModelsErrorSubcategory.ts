@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ModelsErrorSubcategory {
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ModelsErrorSubcategory
      */
     id: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ModelsErrorSubcategory
      */
     name: string;
 }

@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest {
     /**
      * ID сборочных заданий
-     * @type {Array<number>}
-     * @memberof ApiMarketplaceV3SuppliesSupplyIdOrdersPatchRequest
      */
     orders?: Array<number>;
 }

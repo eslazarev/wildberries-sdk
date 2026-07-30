@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GetPing200Response {
     /**
      * Timestamp запроса
-     * @type {string}
-     * @memberof GetPing200Response
      */
     tS?: string;
     /**
      * Статус
-     * @type {GetPing200ResponseStatusEnum}
-     * @memberof GetPing200Response
      */
     status?: GetPing200ResponseStatusEnum;
 }

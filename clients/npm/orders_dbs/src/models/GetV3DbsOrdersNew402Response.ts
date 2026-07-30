@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GetV3DbsOrdersNew402Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof GetV3DbsOrdersNew402Response
      */
     title?: string;
     /**
      * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
-     * @type {string}
-     * @memberof GetV3DbsOrdersNew402Response
      */
     detail?: string;
 }

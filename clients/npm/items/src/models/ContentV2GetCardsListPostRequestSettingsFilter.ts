@@ -26,20 +26,14 @@ export interface ContentV2GetCardsListPostRequestSettingsFilter {
      *   * `1` — только карточки с фото
      *   * `2` — только карточки без фото. С [16 июня](/release-notes?id=531)
      * 
-     * @type {ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum}
-     * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
     withPhoto?: ContentV2GetCardsListPostRequestSettingsFilterWithPhotoEnum;
     /**
      * Поиск по артикулу продавца, артикулу WB, баркоду
-     * @type {string}
-     * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
     textSearch?: string;
     /**
      * Поиск по ID ярлыков
-     * @type {Array<number>}
-     * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
     tagIDs?: Array<number>;
     /**
@@ -49,26 +43,18 @@ export interface ContentV2GetCardsListPostRequestSettingsFilter {
      * 
      *   Не используется в песочнице
      * 
-     * @type {boolean}
-     * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
     allowedCategoriesOnly?: boolean;
     /**
      * Поиск по ID предметов
-     * @type {Array<number>}
-     * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
     objectIDs?: Array<number>;
     /**
      * Поиск по брендам
-     * @type {Array<string>}
-     * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
     brands?: Array<string>;
     /**
      * Поиск по [ID для объединённых карточек товаров](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-     * @type {number}
-     * @memberof ContentV2GetCardsListPostRequestSettingsFilter
      */
     imtID?: number;
 }

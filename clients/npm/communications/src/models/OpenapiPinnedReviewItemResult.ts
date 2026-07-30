@@ -43,26 +43,18 @@ import {
 export interface OpenapiPinnedReviewItemResult {
     /**
      * Дата и время закрепления или открепления
-     * @type {Date}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     changeStateAt: Date;
     /**
      * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @type {number}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     imtId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     nmId: number;
     /**
      * ID операции закрепления отзыва
-     * @type {number}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     pinId: number;
     /**
@@ -70,8 +62,6 @@ export interface OpenapiPinnedReviewItemResult {
      *   - `subscription` — подписка Джем
      *   - `tariff` — тарифная опция
      * 
-     * @type {DomainReviewPinMethod}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     pinMethod: DomainReviewPinMethod;
     /**
@@ -79,14 +69,10 @@ export interface OpenapiPinnedReviewItemResult {
      *   - `nm` — карточка товара
      *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * 
-     * @type {DomainReviewPinOn}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     pinOn: DomainReviewPinOn;
     /**
      * ID отзыва
-     * @type {string}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     feedbackId: string;
     /**
@@ -94,8 +80,6 @@ export interface OpenapiPinnedReviewItemResult {
      *   - `pinned` — да
      *   - `unpinned` — нет
      * 
-     * @type {DomainReviewState}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     state: DomainReviewState;
     /**
@@ -105,8 +89,6 @@ export interface OpenapiPinnedReviewItemResult {
      *   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен
      *   - `sysAdditionalSlot` — к карточке или к группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов
      * 
-     * @type {OpenapiPinnedReviewItemResultUnpinnedCauseEnum}
-     * @memberof OpenapiPinnedReviewItemResult
      */
     unpinnedCause?: OpenapiPinnedReviewItemResultUnpinnedCauseEnum;
 }

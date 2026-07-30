@@ -43,32 +43,22 @@ import {
 export interface VisibilityInfo {
     /**
      * 
-     * @type {VisibilityInfoVisibility}
-     * @memberof VisibilityInfo
      */
     visibility: VisibilityInfoVisibility;
     /**
      * 
-     * @type {VisibilityInfoOpenCard}
-     * @memberof VisibilityInfo
      */
     openCard: VisibilityInfoOpenCard;
     /**
      * Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням
-     * @type {Array<VisibilityInfoByDayInner>}
-     * @memberof VisibilityInfo
      */
     byDay?: Array<VisibilityInfoByDayInner>;
     /**
      * Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям
-     * @type {Array<VisibilityInfoByDayInner>}
-     * @memberof VisibilityInfo
      */
     byWeek?: Array<VisibilityInfoByDayInner>;
     /**
      * Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам
-     * @type {Array<VisibilityInfoByDayInner>}
-     * @memberof VisibilityInfo
      */
     byMonth?: Array<VisibilityInfoByDayInner>;
 }

@@ -21,39 +21,27 @@ import { mapValues } from '../runtime';
 export interface SellerTaskMetadataBuffer {
     /**
      * ID загрузки
-     * @type {number}
-     * @memberof SellerTaskMetadataBuffer
      */
     uploadID?: number;
     /**
      * Статус загрузки: `1` — в обработке
      * 
-     * @type {number}
-     * @memberof SellerTaskMetadataBuffer
      */
     status?: number;
     /**
      * Дата и время, когда загрузка создана
-     * @type {Date}
-     * @memberof SellerTaskMetadataBuffer
      */
     uploadDate?: Date;
     /**
      * Дата и время, когда загрузка отправляется в обработку
-     * @type {Date}
-     * @memberof SellerTaskMetadataBuffer
      */
     activationDate?: Date;
     /**
      * Всего товаров
-     * @type {number}
-     * @memberof SellerTaskMetadataBuffer
      */
     overAllGoodsNumber?: number;
     /**
      * Товаров без ошибок (0, потому что загрузка в обработке)
-     * @type {number}
-     * @memberof SellerTaskMetadataBuffer
      */
     successGoodsNumber?: number;
 }

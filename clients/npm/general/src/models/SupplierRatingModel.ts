@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface SupplierRatingModel {
     /**
      * Количество отзывов
-     * @type {number}
-     * @memberof SupplierRatingModel
      */
     feedbackCount?: number;
     /**
      * Рейтинг продавца
-     * @type {number}
-     * @memberof SupplierRatingModel
      */
     valuation?: number;
 }

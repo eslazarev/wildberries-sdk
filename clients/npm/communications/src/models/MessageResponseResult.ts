@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface MessageResponseResult {
     /**
      * Дата и время создания чата
-     * @type {number}
-     * @memberof MessageResponseResult
      */
     addTime?: number;
     /**
      * ID чата
-     * @type {string}
-     * @memberof MessageResponseResult
      */
     chatID?: string;
     /**
      * Подпись чата
-     * @type {string}
-     * @memberof MessageResponseResult
      */
     sign?: string;
 }

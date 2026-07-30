@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ApiV1ClaimPatchRequest {
     /**
      * ID заявки
-     * @type {string}
-     * @memberof ApiV1ClaimPatchRequest
      */
     id: string;
     /**
      * Действие с заявкой.<br>Используйте одно из значений массива `actions` — ответа [метода получения заявок](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)
-     * @type {string}
-     * @memberof ApiV1ClaimPatchRequest
      */
     action: string;
     /**
      * Комментарий.<br>Применимо только при `"action":"rejectcustom"` или `"action":"approvecc1"`. При `"action":"rejectcustom"` параметр обязателен
-     * @type {string}
-     * @memberof ApiV1ClaimPatchRequest
      */
     comment?: string;
 }

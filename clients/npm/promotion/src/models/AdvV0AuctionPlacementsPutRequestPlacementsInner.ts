@@ -29,14 +29,10 @@ import {
 export interface AdvV0AuctionPlacementsPutRequestPlacementsInner {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof AdvV0AuctionPlacementsPutRequestPlacementsInner
      */
     advertId: number;
     /**
      * 
-     * @type {AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements}
-     * @memberof AdvV0AuctionPlacementsPutRequestPlacementsInner
      */
     placements: AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements;
 }

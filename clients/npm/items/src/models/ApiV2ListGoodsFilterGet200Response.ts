@@ -29,20 +29,14 @@ import {
 export interface ApiV2ListGoodsFilterGet200Response {
     /**
      * 
-     * @type {ApiV2ListGoodsFilterGet200ResponseData}
-     * @memberof ApiV2ListGoodsFilterGet200Response
      */
     data: ApiV2ListGoodsFilterGet200ResponseData;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ApiV2ListGoodsFilterGet200Response
      */
     error: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ApiV2ListGoodsFilterGet200Response
      */
     errorText: string;
 }

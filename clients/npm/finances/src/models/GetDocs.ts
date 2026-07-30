@@ -29,8 +29,6 @@ import {
 export interface GetDocs {
     /**
      * 
-     * @type {GetDocsData}
-     * @memberof GetDocs
      */
     data?: GetDocsData;
 }

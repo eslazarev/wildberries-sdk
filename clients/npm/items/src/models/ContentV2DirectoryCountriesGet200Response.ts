@@ -29,26 +29,18 @@ import {
 export interface ContentV2DirectoryCountriesGet200Response {
     /**
      * 
-     * @type {Array<ContentV2DirectoryCountriesGet200ResponseDataInner>}
-     * @memberof ContentV2DirectoryCountriesGet200Response
      */
     data?: Array<ContentV2DirectoryCountriesGet200ResponseDataInner>;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ContentV2DirectoryCountriesGet200Response
      */
     error?: boolean;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryCountriesGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2DirectoryCountriesGet200Response
      */
     additionalErrors?: string | null;
 }

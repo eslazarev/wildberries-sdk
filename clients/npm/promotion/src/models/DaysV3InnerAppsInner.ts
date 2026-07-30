@@ -33,80 +33,54 @@ export interface DaysV3InnerAppsInner {
      *   - `32` — Android
      *   - `64` — IOS
      * 
-     * @type {DaysV3InnerAppsInnerAppTypeEnum}
-     * @memberof DaysV3InnerAppsInner
      */
     appType: DaysV3InnerAppsInnerAppTypeEnum;
     /**
      * Количество добавлений товаров в корзину
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     atbs: number;
     /**
      * Отмены, шт.
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     canceled: number;
     /**
      * Количество кликов
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     clicks: number;
     /**
      * Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     cpc: number;
     /**
      * CR (conversion rate) — отношение количества заказов к общему количеству кликов
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     cr: number;
     /**
      * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     ctr: number;
     /**
      * Блок статистики по артикулам WB
-     * @type {Array<DaysV3InnerAppsInnerNmsInner>}
-     * @memberof DaysV3InnerAppsInner
      */
     nms: Array<DaysV3InnerAppsInnerNmsInner>;
     /**
      * Количество заказов
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     orders: number;
     /**
      * Количество заказанных товаров, шт.
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     shks: number;
     /**
      * Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     sum: number;
     /**
      * Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     sumPrice: number;
     /**
      * Количество просмотров
-     * @type {number}
-     * @memberof DaysV3InnerAppsInner
      */
     views: number;
 }

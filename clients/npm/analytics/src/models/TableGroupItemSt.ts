@@ -36,44 +36,30 @@ import {
 export interface TableGroupItemSt {
     /**
      * ID предмета
-     * @type {number}
-     * @memberof TableGroupItemSt
      */
     subjectID: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof TableGroupItemSt
      */
     subjectName: string;
     /**
      * Бренд
-     * @type {string}
-     * @memberof TableGroupItemSt
      */
     brandName: string;
     /**
      * ID ярлыка
-     * @type {number}
-     * @memberof TableGroupItemSt
      */
     tagID: number;
     /**
      * Название ярлыка
-     * @type {string}
-     * @memberof TableGroupItemSt
      */
     tagName: string;
     /**
      * Метрики группы
-     * @type {TableCommonMetrics}
-     * @memberof TableGroupItemSt
      */
     metrics: TableCommonMetrics;
     /**
      * Товары группы
-     * @type {Array<TableItemItemSt>}
-     * @memberof TableGroupItemSt
      */
     items: Array<TableItemItemSt>;
 }

@@ -29,14 +29,10 @@ import {
 export interface ItemsResponse {
     /**
      * Список карточек товаров
-     * @type {Array<ItemsResponseProductsInner>}
-     * @memberof ItemsResponse
      */
     products: Array<ItemsResponseProductsInner>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof ItemsResponse
      */
     currency: string;
 }

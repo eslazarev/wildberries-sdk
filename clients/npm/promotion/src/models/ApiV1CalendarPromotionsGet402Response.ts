@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1CalendarPromotionsGet402Response {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsGet402Response
      */
     title?: string;
     /**
      * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsGet402Response
      */
     detail?: string;
 }

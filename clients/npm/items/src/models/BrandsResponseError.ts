@@ -29,32 +29,22 @@ import {
 export interface BrandsResponseError {
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof BrandsResponseError
      */
     title: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof BrandsResponseError
      */
     detail: string;
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof BrandsResponseError
      */
     origin: string;
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof BrandsResponseError
      */
     requestId: string;
     /**
      * 
-     * @type {Array<BrandsResponseErrorErrorsInner>}
-     * @memberof BrandsResponseError
      */
     errors?: Array<BrandsResponseErrorErrorsInner>;
 }

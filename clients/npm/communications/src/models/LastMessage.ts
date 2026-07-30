@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface LastMessage {
     /**
      * Текст сообщения
-     * @type {string}
-     * @memberof LastMessage
      */
     text?: string;
     /**
      * Время сообщения
-     * @type {number}
-     * @memberof LastMessage
      */
     addTimestamp?: number;
 }

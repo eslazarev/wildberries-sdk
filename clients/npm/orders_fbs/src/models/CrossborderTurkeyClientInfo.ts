@@ -21,44 +21,30 @@ import { mapValues } from '../runtime';
 export interface CrossborderTurkeyClientInfo {
     /**
      * Имя клиента
-     * @type {string}
-     * @memberof CrossborderTurkeyClientInfo
      */
     firstName?: string;
     /**
      * Фамилия, Имя, Отчество
-     * @type {string}
-     * @memberof CrossborderTurkeyClientInfo
      */
     fullName?: string;
     /**
      * Фамилия клиента
-     * @type {string}
-     * @memberof CrossborderTurkeyClientInfo
      */
     lastName?: string;
     /**
      * Отчество клиента
-     * @type {string}
-     * @memberof CrossborderTurkeyClientInfo
      */
     middleName?: string;
     /**
      * Номер заказа
-     * @type {number}
-     * @memberof CrossborderTurkeyClientInfo
      */
     orderID?: number;
     /**
      * Телефон для связи с клиентом
-     * @type {string}
-     * @memberof CrossborderTurkeyClientInfo
      */
     phone?: string;
     /**
      * Не используется
-     * @type {string}
-     * @memberof CrossborderTurkeyClientInfo
      */
     phoneCode?: string;
 }

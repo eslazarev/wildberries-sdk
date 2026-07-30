@@ -36,26 +36,18 @@ import {
 export interface TableSizeResponseSizesInner {
     /**
      * Название размера
-     * @type {string}
-     * @memberof TableSizeResponseSizesInner
      */
     name: string;
     /**
      * ID размера
-     * @type {number}
-     * @memberof TableSizeResponseSizesInner
      */
     chrtID: number;
     /**
      * Склады
-     * @type {Array<TableOfficeItem>}
-     * @memberof TableSizeResponseSizesInner
      */
     offices?: Array<TableOfficeItem>;
     /**
      * 
-     * @type {TableSizeResponseSizesInnerMetrics}
-     * @memberof TableSizeResponseSizesInner
      */
     metrics: TableSizeResponseSizesInnerMetrics;
 }

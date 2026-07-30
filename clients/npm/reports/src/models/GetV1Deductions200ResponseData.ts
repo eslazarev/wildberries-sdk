@@ -29,14 +29,10 @@ import {
 export interface GetV1Deductions200ResponseData {
     /**
      * Удержания
-     * @type {Array<GetV1Deductions200ResponseDataReportsInner>}
-     * @memberof GetV1Deductions200ResponseData
      */
     reports: Array<GetV1Deductions200ResponseDataReportsInner>;
     /**
      * Количество удержаний в отчёте. Без учёта `limit` и `offset`
-     * @type {number}
-     * @memberof GetV1Deductions200ResponseData
      */
     total: number;
 }

@@ -21,86 +21,58 @@ import { mapValues } from '../runtime';
 export interface MeasurementPenaltiesDataReportsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     nmId?: number;
     /**
      * Предмет
-     * @type {string}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     subjectName?: string;
     /**
      * ID замера
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     dimId?: number;
     /**
      * Разница в габаритах, %
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     prcOver?: number;
     /**
      * Объём, л (фактические габариты по замеру на складе)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     volume?: number;
     /**
      * Ширина, см (фактические габариты по замеру на складе)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     width?: number;
     /**
      * Длина, см (фактические габариты по замеру на складе)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     length?: number;
     /**
      * Высота, см (фактические габариты по замеру на складе)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     height?: number;
     /**
      * Объём, л (габариты карточки товара)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     volumeSup?: number;
     /**
      * Ширина, см (габариты карточки товара)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     widthSup?: number;
     /**
      * Длина, см (габариты карточки товара)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     lengthSup?: number;
     /**
      * Высота, см (габариты карточки товара)
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     heightSup?: number;
     /**
      * Фото замеров
-     * @type {Array<string>}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     photoUrls?: Array<string>;
     /**
      * Дата штрафа
-     * @type {Date}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     dtBonus?: Date;
     /**
@@ -108,26 +80,18 @@ export interface MeasurementPenaltiesDataReportsInner {
      *   - `false` — отменён
      *   - `true` — подтверждён
      * 
-     * @type {boolean}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     isValid?: boolean;
     /**
      * Дата и время подтверждения или отмены обмера
-     * @type {Date}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     isValidDt?: Date;
     /**
      * Сумма сторно
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     reversalAmount?: number;
     /**
      * Сумма штрафа
-     * @type {number}
-     * @memberof MeasurementPenaltiesDataReportsInner
      */
     penaltyAmount?: number;
 }

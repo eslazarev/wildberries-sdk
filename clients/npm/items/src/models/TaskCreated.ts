@@ -29,20 +29,14 @@ import {
 export interface TaskCreated {
     /**
      * 
-     * @type {TaskCreatedData}
-     * @memberof TaskCreated
      */
     data?: TaskCreatedData;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof TaskCreated
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof TaskCreated
      */
     errorText?: string;
 }

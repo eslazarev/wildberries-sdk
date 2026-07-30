@@ -22,14 +22,10 @@ export interface ModelsGood {
     /**
      * Суммарное количество товаров, планируемых для поставки. <br>  **Максимум 999999**
      * 
-     * @type {number}
-     * @memberof ModelsGood
      */
     quantity?: number;
     /**
      * Баркод из карточки товара
-     * @type {string}
-     * @memberof ModelsGood
      */
     barcode?: string;
 }

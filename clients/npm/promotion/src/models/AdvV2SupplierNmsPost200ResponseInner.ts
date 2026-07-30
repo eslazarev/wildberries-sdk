@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface AdvV2SupplierNmsPost200ResponseInner {
     /**
      * Название товара
-     * @type {string}
-     * @memberof AdvV2SupplierNmsPost200ResponseInner
      */
     title?: string;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof AdvV2SupplierNmsPost200ResponseInner
      */
     nm?: number;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof AdvV2SupplierNmsPost200ResponseInner
      */
     subjectId?: number;
 }

@@ -29,26 +29,18 @@ import {
 export interface InventoryMetricsReportReq {
     /**
      * ID отчёта в UUID-формате. Генерируется продавцом самостоятельно
-     * @type {string}
-     * @memberof InventoryMetricsReportReq
      */
     id: string;
     /**
      * Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков
-     * @type {string}
-     * @memberof InventoryMetricsReportReq
      */
     reportType: string;
     /**
      * Название отчёта. Если не указано, сформируется автоматически
-     * @type {string}
-     * @memberof InventoryMetricsReportReq
      */
     userReportName?: string;
     /**
      * Параметры отчёта
-     * @type {CommonReportFilters}
-     * @memberof InventoryMetricsReportReq
      */
     params: CommonReportFilters;
 }

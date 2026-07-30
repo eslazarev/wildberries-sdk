@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersOrderIdMetaImeiPutRequest {
     /**
      * IMEI
-     * @type {string}
-     * @memberof ApiV3OrdersOrderIdMetaImeiPutRequest
      */
     imei: string;
 }

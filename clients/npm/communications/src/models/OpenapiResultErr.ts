@@ -21,32 +21,22 @@ import { mapValues } from '../runtime';
 export interface OpenapiResultErr {
     /**
      * ID внутреннего сервиса WB
-     * @type {string}
-     * @memberof OpenapiResultErr
      */
     origin: string;
     /**
      * Детали ошибки
-     * @type {string}
-     * @memberof OpenapiResultErr
      */
     detail?: string;
     /**
      * ID запроса
-     * @type {string}
-     * @memberof OpenapiResultErr
      */
     requestId: string;
     /**
      * Статус
-     * @type {OpenapiResultErrStatusEnum}
-     * @memberof OpenapiResultErr
      */
     status: OpenapiResultErrStatusEnum;
     /**
      * Заголовок ошибки
-     * @type {string}
-     * @memberof OpenapiResultErr
      */
     title: string;
 }

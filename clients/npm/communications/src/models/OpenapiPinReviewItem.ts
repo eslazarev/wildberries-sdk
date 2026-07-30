@@ -24,8 +24,6 @@ export interface OpenapiPinReviewItem {
      *   - `subscription` — подписка Джем
      *   - `tariff` — тарифная опция
      * 
-     * @type {OpenapiPinReviewItemPinMethodEnum}
-     * @memberof OpenapiPinReviewItem
      */
     pinMethod: OpenapiPinReviewItemPinMethodEnum;
     /**
@@ -33,14 +31,10 @@ export interface OpenapiPinReviewItem {
      *   - `nm` — карточка товара
      *   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * 
-     * @type {OpenapiPinReviewItemPinOnEnum}
-     * @memberof OpenapiPinReviewItem
      */
     pinOn: OpenapiPinReviewItemPinOnEnum;
     /**
      * ID отзыва
-     * @type {string}
-     * @memberof OpenapiPinReviewItem
      */
     feedbackId: string;
 }

@@ -43,20 +43,14 @@ import {
 export interface ContentV2GetCardsTrashPostRequestSettings {
     /**
      * 
-     * @type {ContentV2GetCardsTrashPostRequestSettingsSort}
-     * @memberof ContentV2GetCardsTrashPostRequestSettings
      */
     sort?: ContentV2GetCardsTrashPostRequestSettingsSort;
     /**
      * 
-     * @type {ContentV2GetCardsTrashPostRequestSettingsCursor}
-     * @memberof ContentV2GetCardsTrashPostRequestSettings
      */
     cursor?: ContentV2GetCardsTrashPostRequestSettingsCursor;
     /**
      * 
-     * @type {ContentV2GetCardsTrashPostRequestSettingsFilter}
-     * @memberof ContentV2GetCardsTrashPostRequestSettings
      */
     filter?: ContentV2GetCardsTrashPostRequestSettingsFilter;
 }

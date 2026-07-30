@@ -43,20 +43,14 @@ import {
 export interface Event {
     /**
      * ID чата
-     * @type {string}
-     * @memberof Event
      */
     chatID?: string;
     /**
      * ID события
-     * @type {string}
-     * @memberof Event
      */
     eventID?: string;
     /**
      * 
-     * @type {EventType}
-     * @memberof Event
      */
     eventType?: EventType;
     /**
@@ -64,14 +58,10 @@ export interface Event {
      * - `false` — чат не новый
      * - `true` — чат новый
      * 
-     * @type {boolean}
-     * @memberof Event
      */
     isNewChat?: boolean;
     /**
      * 
-     * @type {EventMessage}
-     * @memberof Event
      */
     message?: EventMessage;
     /**
@@ -83,39 +73,27 @@ export interface Event {
      * - `ios` —  мобильная операционная система от **Apple**
      * - `android` — операционная система **Android** от **Google**
      * 
-     * @type {string}
-     * @memberof Event
      */
     source?: string;
     /**
      * Время появления события на сервере. Формат Unix timestamp
-     * @type {number}
-     * @memberof Event
      */
     addTimestamp?: number;
     /**
      * Время появления события на сервере в UTC
-     * @type {string}
-     * @memberof Event
      */
     addTime?: string;
     /**
      * Подпись чата. Доступна только при `"isNewChat": true`. Требуется при [отправке сообщения](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1message/post)
      * 
-     * @type {string}
-     * @memberof Event
      */
     replySign?: string;
     /**
      * 
-     * @type {Sender}
-     * @memberof Event
      */
     sender?: Sender;
     /**
      * Имя покупателя
-     * @type {string}
-     * @memberof Event
      */
     clientName?: string;
 }

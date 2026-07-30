@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiIMEI {
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiIMEI
      */
     orderId?: number;
     /**
      * IMEI
-     * @type {string}
-     * @memberof ApiIMEI
      */
     imei?: string;
 }

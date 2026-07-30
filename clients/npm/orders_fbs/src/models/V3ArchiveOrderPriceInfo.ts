@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface V3ArchiveOrderPriceInfo {
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof V3ArchiveOrderPriceInfo
      */
     convertedCurrencyCode: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
-     * @type {number}
-     * @memberof V3ArchiveOrderPriceInfo
      */
     convertedPrice: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof V3ArchiveOrderPriceInfo
      */
     currencyCode: number;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100
-     * @type {number}
-     * @memberof V3ArchiveOrderPriceInfo
      */
     price: number;
 }

@@ -29,8 +29,6 @@ import {
 export interface V0GetNormQueryMinusResponse {
     /**
      * 
-     * @type {Array<V0GetNormQueryMinusResponseItem>}
-     * @memberof V0GetNormQueryMinusResponse
      */
     items?: Array<V0GetNormQueryMinusResponseItem>;
 }

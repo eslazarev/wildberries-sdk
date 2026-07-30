@@ -36,20 +36,14 @@ import {
 export interface TableShippingOfficeItem {
     /**
      * Регион отгрузки
-     * @type {string}
-     * @memberof TableShippingOfficeItem
      */
     regionName: string;
     /**
      * Метрики по региону
-     * @type {TableShippingOfficeMetrics}
-     * @memberof TableShippingOfficeItem
      */
     metrics: TableShippingOfficeMetrics;
     /**
      * Данные по складам
-     * @type {Array<TableShippingOfficeItemOfficesInner>}
-     * @memberof TableShippingOfficeItem
      */
     offices: Array<TableShippingOfficeItemOfficesInner>;
 }

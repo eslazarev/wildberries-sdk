@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface DatePeriod {
     /**
      * Начало периода
-     * @type {Date}
-     * @memberof DatePeriod
      */
     start: Date;
     /**
      * Конец периода
-     * @type {Date}
-     * @memberof DatePeriod
      */
     end: Date;
 }

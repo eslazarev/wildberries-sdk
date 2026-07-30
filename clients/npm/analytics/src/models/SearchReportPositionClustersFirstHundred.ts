@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface SearchReportPositionClustersFirstHundred {
     /**
      * Текущее количество товаров
-     * @type {number}
-     * @memberof SearchReportPositionClustersFirstHundred
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof SearchReportPositionClustersFirstHundred
      */
     dynamics?: number;
 }

@@ -310,162 +310,371 @@ import {
 } from '../models/V2GetConfigResponse';
 
 export interface AdvV0AuctionNmsPatchOperationRequest {
+    /**
+     * 
+     */
     advV0AuctionNmsPatchRequest: AdvV0AuctionNmsPatchRequest;
 }
 
 export interface AdvV0AuctionPlacementsPutOperationRequest {
+    /**
+     * 
+     */
     advV0AuctionPlacementsPutRequest: AdvV0AuctionPlacementsPutRequest;
 }
 
 export interface AdvV0DeleteGetRequest {
+    /**
+     * ID кампании
+     */
     id: number;
 }
 
 export interface AdvV0NormqueryBidsDeleteRequest {
+    /**
+     * 
+     */
     v0DeleteNormQueryBidsRequest: V0DeleteNormQueryBidsRequest;
 }
 
 export interface AdvV0NormqueryBidsPostRequest {
+    /**
+     * 
+     */
     v0SetNormQueryBidsRequest: V0SetNormQueryBidsRequest;
 }
 
 export interface AdvV0NormqueryGetBidsPostRequest {
+    /**
+     * 
+     */
     v0GetNormQueryBidsRequest: V0GetNormQueryBidsRequest;
 }
 
 export interface AdvV0NormqueryGetMinusPostRequest {
+    /**
+     * 
+     */
     v0GetNormQueryMinusRequest: V0GetNormQueryMinusRequest;
 }
 
 export interface AdvV0NormqueryListPostRequest {
+    /**
+     * 
+     */
     v0GetNormQueryListRequest: V0GetNormQueryListRequest;
 }
 
 export interface AdvV0NormquerySetMinusPostRequest {
+    /**
+     * 
+     */
     v0SetMinusNormQueryRequest: V0SetMinusNormQueryRequest;
 }
 
 export interface AdvV0NormqueryStatsPostRequest {
+    /**
+     * 
+     */
     v0GetNormQueryStatsRequest: V0GetNormQueryStatsRequest;
 }
 
 export interface AdvV0PauseGetRequest {
+    /**
+     * ID кампании
+     */
     id: number;
 }
 
 export interface AdvV0RenamePostOperationRequest {
+    /**
+     * 
+     */
     advV0RenamePostRequest?: AdvV0RenamePostRequest;
 }
 
 export interface AdvV0StartGetRequest {
+    /**
+     * ID кампании
+     */
     id: number;
 }
 
 export interface AdvV0StopGetRequest {
+    /**
+     * ID кампании
+     */
     id: number;
 }
 
 export interface AdvV1AdvertGetRequest {
+    /**
+     * ID медиакампании
+     */
     id: number;
 }
 
 export interface AdvV1AdvertsGetRequest {
+    /**
+     * Статус медиакампании:
+     *   - `1` — черновик
+     *   - `2` — модерация
+     *   - `3` — отклонена (с возможностью вернуть на модерацию)
+     *   - `4` — готова к запуску
+     *   - `5` — запланирована
+     *   - `6` — на показах
+     *   - `7` — завершена
+     *   - `8` — отменена
+     *   - `9` — приостановлена продавцом
+     *   - `10` — пауза по дневному лимиту
+     *   - `11` — пауза
+     * 
+     */
     status?: string;
+    /**
+     * Тип медиакампании:
+     * - `1` — размещение по дням
+     * - `2` — размещение по просмотрам
+     * 
+     */
     type?: number;
+    /**
+     * Количество кампаний в ответе
+     */
     limit?: number;
+    /**
+     * Смещение относительно первой медиакампании
+     */
     offset?: number;
+    /**
+     * Порядок вывода ответа:
+     * - `create` — по времени создания медиакампании
+     * - `id` — по ID медиакампании
+     * 
+     */
     order?: string;
+    /**
+     * Порядок сортировки:
+     * - `desc` — от большего к меньшему
+     * - `asc` — от меньшего к большему
+     * 
+     */
     direction?: string;
 }
 
 export interface AdvV1BudgetDepositPostOperationRequest {
+    /**
+     * ID кампании
+     */
     id: number;
+    /**
+     * 
+     */
     advV1BudgetDepositPostRequest: AdvV1BudgetDepositPostRequest;
 }
 
 export interface AdvV1BudgetGetRequest {
+    /**
+     * ID кампании
+     */
     id: number;
 }
 
 export interface AdvV1NormqueryStatsPostRequest {
+    /**
+     * 
+     */
     v1GetNormQueryStatsRequest: V1GetNormQueryStatsRequest;
 }
 
 export interface AdvV1PaymentsGetRequest {
+    /**
+     * Начало интервала
+     */
     from?: Date;
+    /**
+     * Конец интервала. <br>
+     * (Минимальный интервал 1 день, максимальный 31)
+     * 
+     */
     to?: Date;
 }
 
 export interface AdvV1StatsPostRequest {
+    /**
+     * 
+     */
     advV1StatsPostRequestInner: Array<AdvV1StatsPostRequestInner>;
 }
 
 export interface AdvV1SupplierSubjectsGetRequest {
+    /**
+     * Тип оплаты:
+     * - `cpm` — за показы
+     * - `cpc` — за клик
+     * 
+     */
     paymentType?: string;
 }
 
 export interface AdvV1UpdGetRequest {
+    /**
+     * Начало интервала
+     */
     from: Date;
+    /**
+     * Конец интервала. <br>
+     * (Минимальный интервал 1 день, максимальный 31)
+     * 
+     */
     to: Date;
 }
 
 export interface AdvV2SeacatSaveAdPostOperationRequest {
+    /**
+     * 
+     */
     advV2SeacatSaveAdPostRequest?: AdvV2SeacatSaveAdPostRequest;
 }
 
 export interface AdvV2SupplierNmsPostRequest {
+    /**
+     * 
+     */
     requestBody?: Array<number>;
 }
 
 export interface AdvV3FullstatsGetRequest {
+    /**
+     * ID кампаний, максимум 50 значений
+     */
     ids: string;
+    /**
+     * Дата начала интервала
+     */
     beginDate: Date;
+    /**
+     * Дата окончания интервала
+     */
     endDate: Date;
 }
 
 export interface ApiAdvertV0BidsRecommendationsGetRequest {
+    /**
+     * Артикул WB
+     */
     nmId: number;
+    /**
+     * ID кампании
+     */
     advertId: number;
 }
 
 export interface ApiAdvertV1BidsMinPostOperationRequest {
+    /**
+     * 
+     */
     apiAdvertV1BidsMinPostRequest: ApiAdvertV1BidsMinPostRequest;
 }
 
 export interface ApiAdvertV1BidsPatchOperationRequest {
+    /**
+     * 
+     */
     apiAdvertV1BidsPatchRequest: ApiAdvertV1BidsPatchRequest;
 }
 
 export interface ApiAdvertV2AdvertsGetRequest {
+    /**
+     * ID кампаний, максимум 50
+     */
     ids?: string;
+    /**
+     * Статусы кампаний:
+     * - `-1` — удалена, процесс удаления будет завершён в течение 10 минут
+     * - `4` — готова к запуску
+     * - `7` — завершена
+     * - `8` — отменена
+     * - `9` — активна
+     * - `11` — на паузе
+     * 
+     */
     statuses?: string;
+    /**
+     * Тип оплаты:
+     * - `cpm` — за показы
+     * - `cpc` — за клик
+     * 
+     */
     paymentType?: ApiAdvertV2AdvertsGetPaymentTypeEnum;
 }
 
 export interface ApiV1CalendarPromotionsDetailsGetRequest {
+    /**
+     * ID акций, по которым нужно вернуть информацию
+     */
     promotionIDs: Set<number>;
 }
 
 export interface ApiV1CalendarPromotionsGetRequest {
+    /**
+     * Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`
+     */
     startDateTime: Date;
+    /**
+     * Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ`
+     */
     endDateTime: Date;
+    /**
+     * Показать акции:
+     *   - `false` — доступные для участия
+     *   - `true` — все акции
+     * 
+     */
     allPromo: boolean;
+    /**
+     * Количество запрашиваемых акций
+     */
     limit?: number;
+    /**
+     * После какого элемента выдавать данные
+     */
     offset?: number;
 }
 
 export interface ApiV1CalendarPromotionsNomenclaturesGetRequest {
+    /**
+     * ID акции
+     */
     promotionID: number;
+    /**
+     * Участвует в акции:
+     *   - `true` — да
+     *   - `false` — нет
+     * 
+     */
     inAction: boolean;
+    /**
+     * Количество запрашиваемых товаров
+     */
     limit?: number;
+    /**
+     * После какого элемента выдавать данные
+     */
     offset?: number;
 }
 
 export interface ApiV1CalendarPromotionsUploadPostOperationRequest {
+    /**
+     * 
+     */
     apiV1CalendarPromotionsUploadPostRequest: ApiV1CalendarPromotionsUploadPostRequest;
 }
 
 export interface PostV1NormqueryBidsRequest {
+    /**
+     * 
+     */
     v1SetNormQueryBidsRequest: V1SetNormQueryBidsRequest;
 }
 

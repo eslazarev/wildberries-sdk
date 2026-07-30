@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ResponseBodyContentError400 {
     /**
      * Данные ошибки
-     * @type {object}
-     * @memberof ResponseBodyContentError400
      */
     data?: object | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ResponseBodyContentError400
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ResponseBodyContentError400
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {object}
-     * @memberof ResponseBodyContentError400
      */
     additionalErrors?: object | null;
 }

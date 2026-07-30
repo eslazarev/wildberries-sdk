@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3PassesPost201Response {
     /**
      * ID пропуска продавца
-     * @type {number}
-     * @memberof ApiV3PassesPost201Response
      */
     id?: number;
 }

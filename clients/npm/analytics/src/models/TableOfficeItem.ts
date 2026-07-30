@@ -29,26 +29,18 @@ import {
 export interface TableOfficeItem {
     /**
      * Регион отгрузки
-     * @type {string}
-     * @memberof TableOfficeItem
      */
     regionName: string;
     /**
      * ID склада
-     * @type {number}
-     * @memberof TableOfficeItem
      */
     officeID: number;
     /**
      * Название склада
-     * @type {string}
-     * @memberof TableOfficeItem
      */
     officeName: string;
     /**
      * Метрики склада
-     * @type {TableCommonMetrics}
-     * @memberof TableOfficeItem
      */
     metrics: TableCommonMetrics;
 }

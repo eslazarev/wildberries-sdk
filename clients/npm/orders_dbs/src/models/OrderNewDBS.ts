@@ -37,56 +37,38 @@ export interface OrderNewDBS {
     /**
      * Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
      * 
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     salePrice?: number | null;
     /**
      * Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) `Смартфоны`, `"subjectId":515`
-     * @type {Array<string>}
-     * @memberof OrderNewDBS
      */
     requiredMeta?: Array<string> | null;
     /**
      * Комментарий покупателя
-     * @type {string}
-     * @memberof OrderNewDBS
      */
     comment?: string;
     /**
      * 
-     * @type {OrderNewDBSOptions}
-     * @memberof OrderNewDBS
      */
     options?: OrderNewDBSOptions;
     /**
      * 
-     * @type {OrderNewDBSAddress}
-     * @memberof OrderNewDBS
      */
     address?: OrderNewDBSAddress;
     /**
      * ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
-     * @type {string}
-     * @memberof OrderNewDBS
      */
     orderUid?: string;
     /**
      * ID группы сборочных заданий. <br> Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
-     * @type {string}
-     * @memberof OrderNewDBS
      */
     groupId?: string;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof OrderNewDBS
      */
     article?: string;
     /**
      * Код цвета (только для колеруемых товаров)
-     * @type {string}
-     * @memberof OrderNewDBS
      */
     colorCode?: string;
     /**
@@ -101,14 +83,10 @@ export interface OrderNewDBS {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {any}
-     * @memberof OrderNewDBS
      */
     rid?: any | null;
     /**
      * Дата создания сборочного задания
-     * @type {Date}
-     * @memberof OrderNewDBS
      */
     createdAt?: Date;
     /**
@@ -117,74 +95,50 @@ export interface OrderNewDBS {
      *   - `dbsPickupPoint` — доставка силами продавца в ПВЗ
      *   - `edbs` — экспресс-доставка силами продавца
      * 
-     * @type {OrderNewDBSDeliveryTypeEnum}
-     * @memberof OrderNewDBS
      */
     deliveryType?: OrderNewDBSDeliveryTypeEnum;
     /**
      * Массив баркодов товара
-     * @type {Array<string>}
-     * @memberof OrderNewDBS
      */
     skus?: Array<string>;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     id?: number;
     /**
      * ID склада продавца, на который поступило сборочное задание
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     warehouseId?: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     nmId?: number;
     /**
      * ID размера товара в системе WB
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     chrtId?: number;
     /**
      * Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     price?: number;
     /**
      * Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     finalPrice?: number;
     /**
      * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     convertedFinalPrice?: number;
     /**
      * Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     convertedPrice?: number;
     /**
      * Код валюты продажи
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     currencyCode?: number;
     /**
      * Код валюты страны продавца
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     convertedCurrencyCode?: number;
     /**
@@ -193,8 +147,6 @@ export interface OrderNewDBS {
      *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
-     * @type {OrderNewDBSCargoTypeEnum}
-     * @memberof OrderNewDBS
      */
     cargoType?: OrderNewDBSCargoTypeEnum;
     /**
@@ -202,14 +154,10 @@ export interface OrderNewDBS {
      *   - `false` — заказ сделан на товар с ненулевым остатком
      *   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
      * 
-     * @type {boolean}
-     * @memberof OrderNewDBS
      */
     isZeroOrder?: boolean;
     /**
      * ID стикера. Отображается только для заказов в ПВЗ
-     * @type {number}
-     * @memberof OrderNewDBS
      */
     wbStickerId?: number;
 }

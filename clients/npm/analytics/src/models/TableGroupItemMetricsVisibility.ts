@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface TableGroupItemMetricsVisibility {
     /**
      * Текущий процент видимости
-     * @type {number}
-     * @memberof TableGroupItemMetricsVisibility
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof TableGroupItemMetricsVisibility
      */
     dynamics?: number;
 }

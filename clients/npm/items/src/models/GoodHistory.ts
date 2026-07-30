@@ -21,50 +21,34 @@ import { mapValues } from '../runtime';
 export interface GoodHistory {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof GoodHistory
      */
     nmID?: number;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof GoodHistory
      */
     vendorCode?: string;
     /**
      * ID размера. В методах Контента это поле `chrtID`
-     * @type {number}
-     * @memberof GoodHistory
      */
     sizeID?: number | null;
     /**
      * Размер
-     * @type {string}
-     * @memberof GoodHistory
      */
     techSizeName?: string;
     /**
      * Цена
-     * @type {number}
-     * @memberof GoodHistory
      */
     price?: number | null;
     /**
      * Валюта, по стандарту ISO 4217
-     * @type {string}
-     * @memberof GoodHistory
      */
     currencyIsoCode4217?: string;
     /**
      * Скидка, %
-     * @type {number}
-     * @memberof GoodHistory
      */
     discount?: number;
     /**
      * Скидка WB Клуба, %
-     * @type {number}
-     * @memberof GoodHistory
      */
     clubDiscount?: number | null;
     /**
@@ -72,8 +56,6 @@ export interface GoodHistory {
      *   * `2` — товар без ошибок, цена и/или скидка обновилась
      *   * `3` — есть ошибки, данные не обновились
      * 
-     * @type {number}
-     * @memberof GoodHistory
      */
     status?: number;
     /**
@@ -81,8 +63,6 @@ export interface GoodHistory {
      *   - `You can't change the item price. Item was added to the Sale due to high inventory` — ошибка возникает, если товар попал под распродажу по [индексу остатка](https://seller.wildberries.ru/instructions/ru/ru/material/A-1159).
      *   - `The new price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой хотя бы в 3 раза меньше старой. Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
      * 
-     * @type {string}
-     * @memberof GoodHistory
      */
     errorText?: string | null;
 }

@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface Listing {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof Listing
      */
     nmID?: number;
     /**
      * Фактическая цена с учетом всех скидок. Взимается с покупателя
-     * @type {number}
-     * @memberof Listing
      */
     price?: number;
     /**
      * Валюта
-     * @type {string}
-     * @memberof Listing
      */
     priceCurrency?: string;
     /**
@@ -49,14 +43,10 @@ export interface Listing {
      *   - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
      *   - [Детализации к отчётам об издержках на приём платежей за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
      * 
-     * @type {string}
-     * @memberof Listing
      */
     rid?: string;
     /**
      * Размер товара, соответствует `wbSize` в [карточке товара](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post)
-     * @type {string}
-     * @memberof Listing
      */
     size?: string;
 }

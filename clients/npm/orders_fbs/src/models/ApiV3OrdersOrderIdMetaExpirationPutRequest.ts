@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV3OrdersOrderIdMetaExpirationPutRequest {
     /**
      * Дата, до которой годен товар. Не менее 30 дней с текущей даты
-     * @type {string}
-     * @memberof ApiV3OrdersOrderIdMetaExpirationPutRequest
      */
     expiration?: string;
 }

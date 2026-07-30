@@ -57,14 +57,10 @@ import {
 export interface ContentV2GetCardsTrashPost200ResponseCardsInner {
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     nmID?: number;
     /**
      * Артикул продавца
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     vendorCode?: string;
     /**
@@ -74,68 +70,46 @@ export interface ContentV2GetCardsTrashPost200ResponseCardsInner {
      * 
      * Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), поле ответа `needKiz`
      * 
-     * @type {boolean}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     kizMarked?: boolean;
     /**
      * ID предмета
-     * @type {number}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     subjectID?: number;
     /**
      * Название предмета
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     subjectName?: string;
     /**
      * Массив фото
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner>}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     photos?: Array<ContentV2GetCardsListPost200ResponseCardsInnerPhotosInner>;
     /**
      * URL видео
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     video?: string;
     /**
      * 
-     * @type {ContentV2GetCardsListPost200ResponseCardsInnerWholesale}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     wholesale?: ContentV2GetCardsListPost200ResponseCardsInnerWholesale;
     /**
      * Массив размеров
-     * @type {Array<ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner>}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     sizes?: Array<ContentV2GetCardsTrashPost200ResponseCardsInnerSizesInner>;
     /**
      * 
-     * @type {ContentV2GetCardsListPost200ResponseCardsInnerDimensions}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     dimensions?: ContentV2GetCardsListPost200ResponseCardsInnerDimensions;
     /**
      * Характеристики
-     * @type {Array<ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner>}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     characteristics?: Array<ContentV2GetCardsListPost200ResponseCardsInnerCharacteristicsInner> | null;
     /**
      * Date and time the item was listed
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     createdAt?: string;
     /**
      * Дата и время помещения в корзину
-     * @type {string}
-     * @memberof ContentV2GetCardsTrashPost200ResponseCardsInner
      */
     trashedAt?: string;
 }

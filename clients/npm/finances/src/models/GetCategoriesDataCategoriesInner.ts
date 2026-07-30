@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface GetCategoriesDataCategoriesInner {
     /**
      * ID категории документа из параметра [запроса](./financial-reports-and-accounting#tag/documents/operation/getV1DocumentsList) `category`
-     * @type {string}
-     * @memberof GetCategoriesDataCategoriesInner
      */
     name?: string;
     /**
      * Название категории документа из поля [ответа](./financial-reports-and-accounting#tag/documents/~1api~1v1~1documents~1list/get) `category`
-     * @type {string}
-     * @memberof GetCategoriesDataCategoriesInner
      */
     title?: string;
 }

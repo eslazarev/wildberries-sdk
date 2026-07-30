@@ -29,8 +29,6 @@ import {
 export interface ApiV1CalendarPromotionsDetailsGet200Response {
     /**
      * 
-     * @type {ApiV1CalendarPromotionsDetailsGet200ResponseData}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200Response
      */
     data?: ApiV1CalendarPromotionsDetailsGet200ResponseData;
 }

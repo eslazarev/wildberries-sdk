@@ -29,26 +29,18 @@ import {
 export interface ContentV2ObjectAllGet200Response {
     /**
      * Предметы
-     * @type {Array<ContentV2ObjectAllGet200ResponseDataInner>}
-     * @memberof ContentV2ObjectAllGet200Response
      */
     data?: Array<ContentV2ObjectAllGet200ResponseDataInner>;
     /**
      * Флаг наличия ошибки
-     * @type {boolean}
-     * @memberof ContentV2ObjectAllGet200Response
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ContentV2ObjectAllGet200Response
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ContentV2ObjectAllGet200Response
      */
     additionalErrors?: string | null;
 }

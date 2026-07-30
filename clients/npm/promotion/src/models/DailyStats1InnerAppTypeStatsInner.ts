@@ -33,14 +33,10 @@ export interface DailyStats1InnerAppTypeStatsInner {
      * - `32` — Android
      * - `64` — IOS
      * 
-     * @type {number}
-     * @memberof DailyStats1InnerAppTypeStatsInner
      */
     appType?: number;
     /**
      * 
-     * @type {Array<Stats1Inner>}
-     * @memberof DailyStats1InnerAppTypeStatsInner
      */
     stats?: Array<Stats1Inner>;
 }

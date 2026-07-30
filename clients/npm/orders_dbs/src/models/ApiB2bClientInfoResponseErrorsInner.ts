@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiB2bClientInfoResponseErrorsInner {
     /**
      * Код ошибки
-     * @type {number}
-     * @memberof ApiB2bClientInfoResponseErrorsInner
      */
     code?: number;
     /**
      * Описание ошибки
-     * @type {string}
-     * @memberof ApiB2bClientInfoResponseErrorsInner
      */
     detail?: string;
 }

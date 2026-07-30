@@ -29,8 +29,6 @@ import {
 export interface PostV2ItemRating200Response {
     /**
      * 
-     * @type {ItemRatingResponse}
-     * @memberof PostV2ItemRating200Response
      */
     data: ItemRatingResponse;
 }

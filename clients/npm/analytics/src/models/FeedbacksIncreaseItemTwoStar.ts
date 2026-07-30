@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface FeedbacksIncreaseItemTwoStar {
     /**
      * Прирост оценок за период
-     * @type {number}
-     * @memberof FeedbacksIncreaseItemTwoStar
      */
     current: number;
     /**
      * Динамика по сравнению с предыдущим периодом, %
-     * @type {number}
-     * @memberof FeedbacksIncreaseItemTwoStar
      */
     dynamics?: number;
     /**
      * Всего оценок
-     * @type {number}
-     * @memberof FeedbacksIncreaseItemTwoStar
      */
     total: number;
 }

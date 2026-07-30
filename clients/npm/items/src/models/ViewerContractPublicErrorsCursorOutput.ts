@@ -24,20 +24,14 @@ export interface ViewerContractPublicErrorsCursorOutput {
      *   - `false` — нет
      *   - `true` — да
      * 
-     * @type {boolean}
-     * @memberof ViewerContractPublicErrorsCursorOutput
      */
     next: boolean;
     /**
      * Дата и время формирования последнего пакета в ответе
-     * @type {Date}
-     * @memberof ViewerContractPublicErrorsCursorOutput
      */
     updatedAt: Date;
     /**
      * ID последнего пакета в ответе
-     * @type {string}
-     * @memberof ViewerContractPublicErrorsCursorOutput
      */
     batchUUID: string;
 }

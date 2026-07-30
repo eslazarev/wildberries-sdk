@@ -29,14 +29,10 @@ import {
 export interface ApiV1QuestionsPatchRequestOneOf1 {
     /**
      * Id вопроса
-     * @type {string}
-     * @memberof ApiV1QuestionsPatchRequestOneOf1
      */
     id: string;
     /**
      * 
-     * @type {ApiV1QuestionsPatchRequestOneOf1Answer}
-     * @memberof ApiV1QuestionsPatchRequestOneOf1
      */
     answer: ApiV1QuestionsPatchRequestOneOf1Answer;
     /**
@@ -44,8 +40,6 @@ export interface ApiV1QuestionsPatchRequestOneOf1 {
      *   - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)
      *   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей.
      * 
-     * @type {string}
-     * @memberof ApiV1QuestionsPatchRequestOneOf1
      */
     state: string;
 }

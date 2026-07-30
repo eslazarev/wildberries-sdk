@@ -29,14 +29,10 @@ import {
 export interface PostV3DbsOrdersStatusReceive200Response {
     /**
      * Уникальный ID запроса
-     * @type {string}
-     * @memberof PostV3DbsOrdersStatusReceive200Response
      */
     requestId?: string;
     /**
      * 
-     * @type {Array<PostV3DbsOrdersStatusReceive200ResponseResultsInner>}
-     * @memberof PostV3DbsOrdersStatusReceive200Response
      */
     results?: Array<PostV3DbsOrdersStatusReceive200ResponseResultsInner>;
 }

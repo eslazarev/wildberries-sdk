@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ResponseErrorStatistics {
     /**
      * 
-     * @type {Array<string>}
-     * @memberof ResponseErrorStatistics
      */
     errors?: Array<string>;
 }

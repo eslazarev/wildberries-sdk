@@ -29,8 +29,6 @@ import {
 export interface ExciseReportResponse {
     /**
      * 
-     * @type {ModelsExciseReportResponse}
-     * @memberof ExciseReportResponse
      */
     response?: ModelsExciseReportResponse;
 }

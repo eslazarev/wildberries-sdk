@@ -410,222 +410,525 @@ import {
 } from '../models/Warehouse';
 
 export interface ApiContentV1BrandsGetRequest {
+    /**
+     * ID предмета
+     */
     subjectId: number;
+    /**
+     * Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных
+     */
     next?: number;
 }
 
 export interface ApiV2BufferGoodsTaskGetRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
     limit: number;
+    /**
+     * ID загрузки
+     */
     uploadID: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
     offset?: number;
 }
 
 export interface ApiV2BufferTasksGetRequest {
+    /**
+     * ID загрузки
+     */
     uploadID: number;
 }
 
 export interface ApiV2HistoryGoodsTaskGetRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
     limit: number;
+    /**
+     * ID загрузки
+     */
     uploadID: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
     offset?: number;
 }
 
 export interface ApiV2HistoryTasksGetRequest {
+    /**
+     * ID загрузки
+     */
     uploadID: number;
 }
 
 export interface ApiV2ListGoodsFilterGetRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
     limit: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
     offset?: number;
+    /**
+     * Артикул WB для поиска товара
+     */
     filterNmID?: number;
 }
 
 export interface ApiV2ListGoodsFilterPostOperationRequest {
+    /**
+     * 
+     */
     apiV2ListGoodsFilterPostRequest: ApiV2ListGoodsFilterPostRequest;
 }
 
 export interface ApiV2ListGoodsSizeNmGetRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
     limit: number;
+    /**
+     * Артикул WB
+     */
     nmID: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
     offset?: number;
 }
 
 export interface ApiV2QuarantineGoodsGetRequest {
+    /**
+     * Сколько элементов вывести на одной странице (пагинация)
+     */
     limit: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
     offset?: number;
 }
 
 export interface ApiV2UploadTaskClubDiscountPostOperationRequest {
+    /**
+     * 
+     */
     apiV2UploadTaskClubDiscountPostRequest: ApiV2UploadTaskClubDiscountPostRequest;
 }
 
 export interface ApiV2UploadTaskPostOperationRequest {
+    /**
+     * 
+     */
     apiV2UploadTaskPostRequest: ApiV2UploadTaskPostRequest;
 }
 
 export interface ApiV2UploadTaskSizePostOperationRequest {
+    /**
+     * 
+     */
     apiV2UploadTaskSizePostRequest: ApiV2UploadTaskSizePostRequest;
 }
 
 export interface ApiV3DbwWarehousesWarehouseIdContactsGetRequest {
+    /**
+     * ID склада продавца
+     */
     warehouseId: number;
 }
 
 export interface ApiV3DbwWarehousesWarehouseIdContactsPutRequest {
+    /**
+     * ID склада продавца
+     */
     warehouseId: number;
+    /**
+     * 
+     */
     storeContactRequestBody: StoreContactRequestBody;
 }
 
 export interface ApiV3StocksWarehouseIdDeleteOperationRequest {
+    /**
+     * ID склада продавца
+     */
     warehouseId: number;
+    /**
+     * 
+     */
     apiV3StocksWarehouseIdDeleteRequest: ApiV3StocksWarehouseIdDeleteRequest;
 }
 
 export interface ApiV3StocksWarehouseIdPostOperationRequest {
+    /**
+     * ID склада продавца
+     */
     warehouseId: number;
+    /**
+     * 
+     */
     apiV3StocksWarehouseIdPostRequest: ApiV3StocksWarehouseIdPostRequest;
 }
 
 export interface ApiV3StocksWarehouseIdPutOperationRequest {
+    /**
+     * ID склада продавца
+     */
     warehouseId: number;
+    /**
+     * 
+     */
     apiV3StocksWarehouseIdPutRequest?: ApiV3StocksWarehouseIdPutRequest;
 }
 
 export interface ApiV3WarehousesPostOperationRequest {
+    /**
+     * 
+     */
     apiV3WarehousesPostRequest: ApiV3WarehousesPostRequest;
 }
 
 export interface ApiV3WarehousesWarehouseIdDeleteRequest {
+    /**
+     * ID склада продавца
+     */
     warehouseId: number;
 }
 
 export interface ApiV3WarehousesWarehouseIdPutRequest {
+    /**
+     * ID склада продавца
+     */
     warehouseId: number;
+    /**
+     * 
+     */
     apiV3WarehousesPostRequest: ApiV3WarehousesPostRequest;
 }
 
 export interface ContentV2BarcodesPostOperationRequest {
+    /**
+     * 
+     */
     contentV2BarcodesPostRequest: ContentV2BarcodesPostRequest;
 }
 
 export interface ContentV2CardsDeleteTrashPostOperationRequest {
+    /**
+     * 
+     */
     contentV2CardsDeleteTrashPostRequest: ContentV2CardsDeleteTrashPostRequest;
 }
 
 export interface ContentV2CardsErrorListPostRequest {
+    /**
+     * 
+     */
     requestPublicViewerPublicErrorsTableListV2: RequestPublicViewerPublicErrorsTableListV2;
+    /**
+     * Язык названий предметов:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2CardsMoveNmPostOperationRequest {
+    /**
+     * 
+     */
     contentV2CardsMoveNmPostRequest?: ContentV2CardsMoveNmPostRequest;
 }
 
 export interface ContentV2CardsRecoverPostRequest {
+    /**
+     * 
+     */
     contentV2CardsDeleteTrashPostRequest: ContentV2CardsDeleteTrashPostRequest;
 }
 
 export interface ContentV2CardsUpdatePostRequest {
+    /**
+     * 
+     */
     contentV2CardsUpdatePostRequestInner?: Array<ContentV2CardsUpdatePostRequestInner>;
 }
 
 export interface ContentV2CardsUploadAddPostOperationRequest {
+    /**
+     * 
+     */
     contentV2CardsUploadAddPostRequest?: ContentV2CardsUploadAddPostRequest;
 }
 
 export interface ContentV2CardsUploadPostRequest {
+    /**
+     * 
+     */
     contentV2CardsUploadPostRequestInner?: Array<ContentV2CardsUploadPostRequestInner>;
 }
 
 export interface ContentV2DirectoryColorsGetRequest {
+    /**
+     * Язык полей ответа `subjectName` и `name`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2DirectoryCountriesGetRequest {
+    /**
+     * Язык полей ответа `subjectName` и `name`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2DirectoryKindsGetRequest {
+    /**
+     * Язык полей ответа `subjectName` и `name`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2DirectorySeasonsGetRequest {
+    /**
+     * Язык полей ответа `subjectName` и `name`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2DirectoryTnvedGetRequest {
+    /**
+     * ID предмета
+     */
     subjectID: number;
+    /**
+     * Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`
+     */
     search?: number;
+    /**
+     * Язык полей ответа:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2DirectoryVatGetRequest {
+    /**
+     * Язык полей ответа `subjectName` и `name`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2GetCardsListPostOperationRequest {
+    /**
+     * 
+     */
     contentV2GetCardsListPostRequest: ContentV2GetCardsListPostRequest;
+    /**
+     * Язык полей ответа `name`, `value` и `object`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2GetCardsTrashPostOperationRequest {
+    /**
+     * 
+     */
     contentV2GetCardsTrashPostRequest: ContentV2GetCardsTrashPostRequest;
+    /**
+     * Язык полей ответа `name`, `value` и `object`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: ContentV2GetCardsTrashPostOperationLocaleEnum;
 }
 
 export interface ContentV2ObjectAllGetRequest {
+    /**
+     * Язык полей ответа:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
+    /**
+     * Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков
+     */
     name?: string;
+    /**
+     * Количество предметов, максимум 1000
+     */
     limit?: number;
+    /**
+     * Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента
+     */
     offset?: number;
+    /**
+     * ID родительской категории предмета
+     */
     parentID?: number;
 }
 
 export interface ContentV2ObjectCharcsSubjectIdGetRequest {
+    /**
+     * ID предмета
+     */
     subjectId: number;
+    /**
+     * Язык полей ответа `subjectName` и `name`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2ObjectParentAllGetRequest {
+    /**
+     * Язык поля ответа `name`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский
+     * 
+     * Не используется в песочнице. Данные песочницы возвращаются только на русском языке
+     * 
+     */
     locale?: string;
 }
 
 export interface ContentV2TagIdDeleteRequest {
+    /**
+     * Числовой ID ярлыка
+     */
     id: number;
 }
 
 export interface ContentV2TagIdPatchOperationRequest {
+    /**
+     * Числовой ID ярлыка
+     */
     id: number;
+    /**
+     * 
+     */
     contentV2TagIdPatchRequest: ContentV2TagIdPatchRequest;
 }
 
 export interface ContentV2TagNomenclatureLinkPostOperationRequest {
+    /**
+     * 
+     */
     contentV2TagNomenclatureLinkPostRequest: ContentV2TagNomenclatureLinkPostRequest;
 }
 
 export interface ContentV2TagPostOperationRequest {
+    /**
+     * 
+     */
     contentV2TagPostRequest: ContentV2TagPostRequest;
 }
 
 export interface ContentV3MediaFilePostRequest {
+    /**
+     * Артикул WB
+     */
     xNmId: string;
+    /**
+     * Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.
+     * 
+     * Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов.
+     * 
+     */
     xPhotoNumber: number;
+    /**
+     * 
+     */
     uploadfile?: Blob;
 }
 
 export interface ContentV3MediaSavePostOperationRequest {
+    /**
+     * 
+     */
     contentV3MediaSavePostRequest: ContentV3MediaSavePostRequest;
 }
 
 export interface PostV1RecommendationsListRequest {
+    /**
+     * 
+     */
     getRecomReq?: GetRecomReq;
 }
 
 export interface PostV1RecommendationsSetRequest {
+    /**
+     * 
+     */
     setRecomReq: SetRecomReq;
 }
 
 export interface PostV1UploadTaskB2bWholesaleOperationRequest {
+    /**
+     * 
+     */
     postV1UploadTaskB2bWholesaleRequest: PostV1UploadTaskB2bWholesaleRequest;
 }
 

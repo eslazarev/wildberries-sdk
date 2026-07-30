@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface ModelFile {
     /**
      * Тип файла
-     * @type {string}
-     * @memberof ModelFile
      */
     contentType?: string;
     /**
      * Дата загрузки файла
-     * @type {string}
-     * @memberof ModelFile
      */
     date?: string;
     /**
      * ID файла. [Получить файл](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1download~1%7Bid%7D/get)
-     * @type {string}
-     * @memberof ModelFile
      */
     downloadID?: string;
     /**
      * Название файла
-     * @type {string}
-     * @memberof ModelFile
      */
     name?: string;
     /**
      * URL для получения файла
-     * @type {string}
-     * @memberof ModelFile
      */
     url?: string;
     /**
      * Размер файла в байтах
-     * @type {number}
-     * @memberof ModelFile
      */
     size?: number;
 }

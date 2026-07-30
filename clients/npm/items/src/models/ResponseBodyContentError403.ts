@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface ResponseBodyContentError403 {
     /**
      * Данные ошибки
-     * @type {object}
-     * @memberof ResponseBodyContentError403
      */
     data?: object | null;
     /**
      * Флаг ошибки
-     * @type {boolean}
-     * @memberof ResponseBodyContentError403
      */
     error?: boolean;
     /**
      * Текст ошибки
-     * @type {string}
-     * @memberof ResponseBodyContentError403
      */
     errorText?: string;
     /**
      * Дополнительные ошибки
-     * @type {string}
-     * @memberof ResponseBodyContentError403
      */
     additionalErrors?: string | null;
 }

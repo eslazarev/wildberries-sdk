@@ -21,15 +21,11 @@ import { mapValues } from '../runtime';
 export interface ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner {
     /**
      * Название склада
-     * @type {string}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner
      */
     warehouseName?: string;
     /**
      * Количество, шт.
      * 
-     * @type {number}
-     * @memberof ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerWarehousesInner
      */
     quantity?: number;
 }

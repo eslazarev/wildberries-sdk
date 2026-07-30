@@ -43,26 +43,18 @@ import {
 export interface V0BidRecommendationNormQuery {
     /**
      * Поисковый кластер
-     * @type {string}
-     * @memberof V0BidRecommendationNormQuery
      */
     normQuery?: string;
     /**
      * 
-     * @type {V0BidRecommendationReachMax}
-     * @memberof V0BidRecommendationNormQuery
      */
     reachMax?: V0BidRecommendationReachMax;
     /**
      * 
-     * @type {V0BidRecommendationReachMedium}
-     * @memberof V0BidRecommendationNormQuery
      */
     reachMedium?: V0BidRecommendationReachMedium;
     /**
      * 
-     * @type {V0BidRecommendationReachMin}
-     * @memberof V0BidRecommendationNormQuery
      */
     reachMin?: V0BidRecommendationReachMin;
 }

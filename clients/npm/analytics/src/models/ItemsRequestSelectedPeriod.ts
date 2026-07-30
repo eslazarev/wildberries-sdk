@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ItemsRequestSelectedPeriod {
     /**
      * Начало периода
-     * @type {Date}
-     * @memberof ItemsRequestSelectedPeriod
      */
     start: Date;
     /**
      * Конец периода
-     * @type {Date}
-     * @memberof ItemsRequestSelectedPeriod
      */
     end: Date;
 }

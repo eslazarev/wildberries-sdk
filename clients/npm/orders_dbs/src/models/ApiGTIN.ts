@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiGTIN {
     /**
      * GTIN
-     * @type {string}
-     * @memberof ApiGTIN
      */
     gtin?: string;
     /**
      * ID сборочного задания
-     * @type {number}
-     * @memberof ApiGTIN
      */
     orderId?: number;
 }

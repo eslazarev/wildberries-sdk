@@ -21,8 +21,6 @@ import { mapValues } from '../runtime';
 export interface ApiV1AnalyticsBrandShareBrandsGet200Response {
     /**
      * Список брендов
-     * @type {Array<string>}
-     * @memberof ApiV1AnalyticsBrandShareBrandsGet200Response
      */
     data?: Array<string>;
 }

@@ -29,68 +29,46 @@ import {
 export interface ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner {
     /**
      * ID акции
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     id?: number;
     /**
      * Название акции
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     name?: string;
     /**
      * Описание акции
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     description?: string;
     /**
      * Преимущества акции
-     * @type {Array<string>}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     advantages?: Array<string>;
     /**
      * Начало акции
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     startDateTime?: string;
     /**
      * Конец акции
-     * @type {string}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     endDateTime?: string;
     /**
      * Количество товаров с остатками, участвующих в акции
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     inPromoActionLeftovers?: number;
     /**
      * Общее количество товаров, участвующих в акции
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     inPromoActionTotal?: number;
     /**
      * Количество товаров с остатками, не участвующих в акции
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     notInPromoActionLeftovers?: number;
     /**
      * Общее количество товаров, не участвующих в акции
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     notInPromoActionTotal?: number;
     /**
      * Уже участвующие в акции товары, %. Рассчитывается по товарам в акции и с остатком
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     participationPercentage?: number;
     /**
@@ -98,22 +76,16 @@ export interface ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      *   - `regular` — акция
      *   - `auto` — автоакция
      * 
-     * @type {ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerTypeEnum}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     type?: ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerTypeEnum;
     /**
      * Количество товаров, исключенных из автоакции до её старта. Только при `"type": "auto"`.
      * <br>В момент старта акции эти товары автоматически будут без скидки
      * 
-     * @type {number}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     exceptionProductsCount?: number;
     /**
      * Ранжирование (если подключено)
-     * @type {Array<ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInner>}
-     * @memberof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
      */
     ranging?: Array<ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerRangingInner>;
 }

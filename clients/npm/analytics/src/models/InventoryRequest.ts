@@ -21,26 +21,18 @@ import { mapValues } from '../runtime';
 export interface InventoryRequest {
     /**
      * Артикулы WB
-     * @type {Array<number>}
-     * @memberof InventoryRequest
      */
     nmIds?: Array<number>;
     /**
      * ID размеров. Используется только для указанных в массиве `nmIds` артикулов
-     * @type {Array<number>}
-     * @memberof InventoryRequest
      */
     chrtIds?: Array<number>;
     /**
      * Количество строк в ответе
-     * @type {number}
-     * @memberof InventoryRequest
      */
     limit?: number;
     /**
      * Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
-     * @type {number}
-     * @memberof InventoryRequest
      */
     offset?: number;
 }

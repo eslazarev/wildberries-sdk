@@ -21,20 +21,14 @@ import { mapValues } from '../runtime';
 export interface ItemOrdersMetrics {
     /**
      * Дата сбора статистики
-     * @type {Date}
-     * @memberof ItemOrdersMetrics
      */
     dt: Date;
     /**
      * Средняя позиция товара в результатах поиска
-     * @type {number}
-     * @memberof ItemOrdersMetrics
      */
     avgPosition: number;
     /**
      * Сколько раз товары из поиска заказали
-     * @type {number}
-     * @memberof ItemOrdersMetrics
      */
     orders: number;
 }

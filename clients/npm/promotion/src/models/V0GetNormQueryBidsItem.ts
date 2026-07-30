@@ -21,38 +21,26 @@ import { mapValues } from '../runtime';
 export interface V0GetNormQueryBidsItem {
     /**
      * ID кампании
-     * @type {number}
-     * @memberof V0GetNormQueryBidsItem
      */
     advertId: number;
     /**
      * Артикул WB
-     * @type {number}
-     * @memberof V0GetNormQueryBidsItem
      */
     nmId: number;
     /**
      * Поисковый кластер
-     * @type {string}
-     * @memberof V0GetNormQueryBidsItem
      */
     normQuery: string;
     /**
      * Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
-     * @type {number}
-     * @memberof V0GetNormQueryBidsItem
      */
     bid: number;
     /**
      * Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов
-     * @type {number}
-     * @memberof V0GetNormQueryBidsItem
      */
     bidKopecks: number;
     /**
      * Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-     * @type {string}
-     * @memberof V0GetNormQueryBidsItem
      */
     currency: string;
 }

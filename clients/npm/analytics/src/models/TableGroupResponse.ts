@@ -30,14 +30,10 @@ export interface TableGroupResponse {
     /**
      * Список групп товаров для таблицы
      * 
-     * @type {Array<TableGroupItem>}
-     * @memberof TableGroupResponse
      */
     groups: Array<TableGroupItem>;
     /**
      * Валюта отчёта
-     * @type {string}
-     * @memberof TableGroupResponse
      */
     currency: string;
 }

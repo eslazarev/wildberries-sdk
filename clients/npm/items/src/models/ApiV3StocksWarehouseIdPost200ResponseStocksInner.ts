@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV3StocksWarehouseIdPost200ResponseStocksInner {
     /**
      * ID размера товара
-     * @type {number}
-     * @memberof ApiV3StocksWarehouseIdPost200ResponseStocksInner
      */
     chrtId?: number;
     /**
      * Остаток
-     * @type {number}
-     * @memberof ApiV3StocksWarehouseIdPost200ResponseStocksInner
      */
     amount?: number;
 }

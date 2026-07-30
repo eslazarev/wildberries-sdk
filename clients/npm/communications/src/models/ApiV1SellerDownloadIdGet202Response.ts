@@ -21,14 +21,10 @@ import { mapValues } from '../runtime';
 export interface ApiV1SellerDownloadIdGet202Response {
     /**
      * Статус модерации
-     * @type {string}
-     * @memberof ApiV1SellerDownloadIdGet202Response
      */
     moderationState: string;
     /**
      * Секунд до следующей попытки запроса файла
-     * @type {number}
-     * @memberof ApiV1SellerDownloadIdGet202Response
      */
     retrySeconds: number;
 }

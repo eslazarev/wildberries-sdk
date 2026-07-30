@@ -29,8 +29,6 @@ import {
 export interface PostV3DbwOrdersStatus200Response {
     /**
      * 
-     * @type {Array<PostV3DbwOrdersStatus200ResponseOrdersInner>}
-     * @memberof PostV3DbwOrdersStatus200Response
      */
     orders?: Array<PostV3DbwOrdersStatus200ResponseOrdersInner>;
 }
