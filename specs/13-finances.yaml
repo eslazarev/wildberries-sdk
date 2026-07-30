@@ -1183,6 +1183,7 @@ components:
         - salePriceAffiliatedDiscountPrc
         - salePriceWholesaleDiscountPrc
         - b2bCustomerTin
+        - paidWithSocialCertificate
         - orderUid
         - srid
       properties:
@@ -1543,8 +1544,7 @@ components:
           example: 0
         agencyVat:
           type: number
-          description: |
-            Удержание Агентского НДС, %.<br>Только для продавцов из Кыргызстана
+          description: Удержание Агентского НДС, %.<br>Только для продавцов из Кыргызстана
           example: 0
         salePriceWholesaleDiscountPrc:
           type: number
@@ -1554,6 +1554,10 @@ components:
           type: string
           description: ИНН B2B-покупателя
           example: '010101010101'
+        paidWithSocialCertificate:
+          type: boolean
+          description: Оплата социальным сертификатом
+          example: false
         orderUid:
           type: string
           description: |
