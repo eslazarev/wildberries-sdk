@@ -2871,7 +2871,6 @@ paths:
             format: int32
             minimum: 100
             maximum: 1000
-            default: 100
       responses:
         '200':
           description: Успешно
