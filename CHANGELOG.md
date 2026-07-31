@@ -1,6 +1,22 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.07.31)
+- Товары → Остатки на складах продавца: уточнены лимиты — общий лимит применяется ко всем методам, кроме `/api/v3/stocks/{warehouseId}/delete` (удаление остатков выделено отдельно).
+- Товары → Остатки на складах продавца: для одного из методов убрано примечание «запрос с 4XX учитывается как 10 запросов» (в описании лимитов).
+- Товары → Склады продавца: обновлены описания методов — `GET /api/v3/offices` теперь позиционируется для привязки при создании/редактировании склада продавца; `GET /api/v3/warehouses` — «для работы с остатками» (ссылка на раздел).
+- Товары → Склады продавца: изменены ограничения/описания для `POST /api/v3/warehouses` и `PUT /api/v3/warehouses/{warehouseId}` — операции не применимы к складам для СГТ (сверхгабарит), добавлены/уточнены правила привязки `officeId` (нельзя привязывать уже используемый склад WB; для обновления — менять не чаще 1 раза в сутки).
+- Товары → Склады продавца: в схеме `cargoType` удалено значение `2` (СГТ) из enum (теперь только `1` МГТ и `3` КГТ+).
+- Заказы FBS → Настройки автовозврата: добавлен новый тег/раздел «Настройки автовозврата».
+- Заказы FBS → Настройки автовозврата: добавлены новые endpoints:
+  - `GET /api/marketplace/v3/fbs/settings/autoreturns` — получить настройки автовозврата продавца (type: `allToWarehouse|allToPickupPoint|manual`).
+  - `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — обновить настройки автовозврата продавца (только для `"cargoType":1`), ответ `204`.
+  - `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — получить настройки автовозврата по товарам (до 1000 `chrtIds`), в ответе per-item `type` (`auto|byWarehouse|byPickupPoint|byCourier`) и `changeable`.
+  - `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — обновить настройки автовозврата по товарам (только для `"cargoType":1`), per-item результат/ошибки; добавлена ошибка `SupplierSettingMustBeManual`.
+  - `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — получить список `subjectId`, которые не хранятся на складах WB (пагинация `next/limit`).
+- Заказы FBS: обновлено описание rate limit для группы методов — теперь лимит «для сборочных заданий, поставок, пропусков и настроек автовозврата FBS» (без изменения чисел: 300/мин, 200 мс, всплеск 20); для новых autoreturn-методов явно указано, что 4XX считается как 10 запросов.
+- Заказы FBS: добавлены схемы/примеры ошибок для autoreturn (`AutoreturnError400`, `AutoreturnError400Parameter`, `SupplierSettingMustBeManual`); у общего поля `errors` уточнено описание («Информация об ошибке»).
+
 ### Changed (2026.07.30)
 - Orders FBS: у параметра `limit` (int32, min 100 / max 1000) удалено значение по умолчанию `default: 100` — теперь значение нужно передавать явно или оно определяется сервером.
 - Finances: в модели (components schema) добавлено обязательное поле `paidWithSocialCertificate` (boolean) — признак оплаты социальным сертификатом (example: `false`).
