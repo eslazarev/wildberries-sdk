@@ -35,6 +35,9 @@ tags:
     description: ''
   - name: Пропуска FBS
     description: ''
+  - name: Настройки автовозврата
+    x-displayName: Настройки автовозврата
+    description: ''
 paths:
   /api/v3/passes/offices:
     servers:
@@ -60,7 +63,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -107,7 +110,7 @@ paths:
         Метод возвращает список всех [созданных](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/post) пропусков продавца.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -154,7 +157,7 @@ paths:
         </div>
       requestBody:
         required: true
-        description: Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры.
+        description: Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры
         content:
           application/json:
             schema:
@@ -251,7 +254,7 @@ paths:
         Метод обновляет данные [пропуска продавца](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get). В том числе, можно обновить данные привязанного склада WB.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -344,7 +347,7 @@ paths:
         Метод удаляет пропуск продавца [из списка](/openapi/orders-fbs#tag/Propuska-FBS/paths/~1api~1v3~1passes/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -394,7 +397,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -450,7 +453,7 @@ paths:
 
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -553,7 +556,7 @@ paths:
         - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -675,7 +678,7 @@ paths:
         Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1marketplace~1v3~1supplies~1%7BsupplyId%7D~1orders/patch).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -824,7 +827,7 @@ paths:
           - 400x300 px при `width=40&height=30` в запросе
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -1635,7 +1638,7 @@ paths:
         В песочнице этот метод всегда возвращает ответ <code>200</code>.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -1770,7 +1773,7 @@ paths:
         В песочнице этот метод всегда возвращает ответ <code>200</code>.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -1913,7 +1916,7 @@ paths:
         Только для трансграничных поставок из **Турции**.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -1979,7 +1982,7 @@ paths:
         - Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2042,7 +2045,7 @@ paths:
         Метод возвращает список [поставок](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2126,7 +2129,7 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2206,7 +2209,7 @@ paths:
         Метод возвращает подробную информацию о поставке.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2254,7 +2257,7 @@ paths:
         Метод удаляет [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get), если она активна и за ней не закреплено ни одно [сборочное задание](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get).
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2313,7 +2316,7 @@ paths:
         Метод возвращает список ID сборочных заданий, закреплённых за поставкой.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2383,7 +2386,7 @@ paths:
         Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2454,7 +2457,7 @@ paths:
         Размер — 580x400 px.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2543,7 +2546,7 @@ paths:
         Возвращает список грузомест поставки.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2601,7 +2604,7 @@ paths:
         Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2673,7 +2676,7 @@ paths:
         Можно удалить только пока поставка на сборке.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2745,7 +2748,7 @@ paths:
         Размер стикеров — 580x400 px.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2828,7 +2831,7 @@ paths:
         Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок и пропусков FBS</strong>:
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
 
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
@@ -2902,6 +2905,446 @@ paths:
                   $ref: '#/components/examples/APIError403V2'
         '429':
           $ref: '#/components/responses/429-2'
+  /api/marketplace/v3/fbs/settings/autoreturns:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+    get:
+      x-readonly-method: true
+      x-category: marketplace
+      operationId: getV3SettingsAutoreturns
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Настройки автовозврата
+      summary: Получить настройки автовозврата продавца
+      description: |
+        Метод возвращает информацию о настройках автовозврата, установленных продавцом.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - type
+                properties:
+                  type:
+                    type: string
+                    example: allToWarehouse
+                    nullable: false
+                    description: |
+                      Тип автовозврата:
+                        - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                        - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов
+                        - `manual` — используются ручные настройки
+                    enum:
+                      - allToWarehouse
+                      - allToPickupPoint
+                      - manual
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+    patch:
+      x-readonly-method: false
+      x-category: marketplace
+      operationId: patchV3SettingsAutoreturns
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Настройки автовозврата
+      summary: Обновить настройки автовозврата продавца
+      description: |
+        Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+              properties:
+                type:
+                  type: string
+                  example: allToWarehouse
+                  description: |
+                    Тип автовозврата малогабаритных товаров:
+                      - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                      - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов
+                      - `manual` — использовать ручные настройки
+                  enum:
+                    - allToWarehouse
+                    - allToPickupPoint
+                    - manual
+      responses:
+        '204':
+          description: Обновлено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/AutoreturnError400'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/AutoreturnError400'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/marketplace/v3/fbs/settings/autoreturns/items:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+    post:
+      x-readonly-method: true
+      x-category: marketplace
+      operationId: postV3SettingsAutoreturnsItems
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Настройки автовозврата
+      summary: Получить настройки автовозврата товаров
+      description: |
+        Метод возвращает настройки автовозврата товаров.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - chrtIds
+              properties:
+                chrtIds:
+                  type: array
+                  example:
+                    - 111111
+                    - 222222
+                  minItems: 1
+                  maxItems: 1000
+                  description: Список ID размеров товаров в системе WB
+                  items:
+                    type: integer
+                    format: int64
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                required:
+                  - results
+                example:
+                  results:
+                    - success: true
+                      chrtId: 111111
+                      type: byWarehouse
+                      changeable: true
+                    - error:
+                        - code: 404
+                          detail: NotFound
+                      chrtId: 222222
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - chrtId
+                      properties:
+                        success:
+                          type: boolean
+                          description: |
+                            - `true` — настройки автовозврата товара успешно получены
+                        chrtId:
+                          type: integer
+                          description: ID размера товара в системе WB
+                        type:
+                          type: string
+                          enum:
+                            - auto
+                            - byWarehouse
+                            - byPickupPoint
+                            - byCourier
+                          description: |
+                            Куда будет возвращён товар:
+                              - `auto` — место возврата определяется автоматически
+                              - `byWarehouse` — на склад WB
+                              - `byPickupPoint` — на пункт выдачи заказов
+                              - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                        changeable:
+                          type: boolean
+                          description: |
+                            - `true` — настройки автовозврата товара можно изменить
+                        error:
+                          items:
+                            type: object
+                            required:
+                              - code
+                              - detail
+                            properties:
+                              code:
+                                type: integer
+                                description: Код ошибки
+                              detail:
+                                type: string
+                                description: |
+                                  Дополнительная информация об ошибке
+                          type: array
+                          description: Детали ошибки
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/AutoreturnError400'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/AutoreturnError400'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+    patch:
+      x-readonly-method: false
+      x-category: marketplace
+      operationId: patchV3SettingsAutoreturnsItems
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Настройки автовозврата
+      summary: Обновить настройки автовозврата товаров
+      description: |
+        Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+                - chrtIds
+              properties:
+                chrtIds:
+                  type: array
+                  maxItems: 1000
+                  example:
+                    - 111111
+                    - 222222
+                  description: |
+                    Список ID размеров товаров в системе WB
+                  items:
+                    type: integer
+                type:
+                  type: string
+                  example: allToWarehouse
+                  description: |
+                    Тип автовозврата малогабаритных товаров:
+                      - `allToWarehouse` — все товары отправляются на склад WB
+                      - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов
+                      - `byCourier` — возврат продавцу курьером
+                  enum:
+                    - allToWarehouse
+                    - allToPickupPoint
+                    - byCourier
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - results
+                example:
+                  results:
+                    - success: true
+                      chrtId: 111111
+                    - error:
+                        - code: 404
+                          detail: Not Found
+                      chrtId: 222222
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - chrtId
+                      properties:
+                        chrtId:
+                          type: integer
+                          description: ID размера товара в системе WB
+                        error:
+                          items:
+                            type: object
+                            required:
+                              - code
+                              - detail
+                            properties:
+                              code:
+                                type: integer
+                                description: Код ошибки
+                              detail:
+                                type: string
+                                description: |
+                                  Дополнительная информация об ошибке:
+                                    - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара
+                          description: Детали ошибки
+                        success:
+                          type: boolean
+                          description: |
+                            - `true` — настройки автовозврата товара получены
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/AutoreturnError400'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/AutoreturnError400'
+                SupplierSettingMustBeManual:
+                  $ref: '#/components/examples/SupplierSettingMustBeManual'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+    get:
+      x-readonly-method: true
+      x-category: marketplace
+      operationId: getV3SettingsAutoreturnsSubcategoriesRestricted
+      security:
+        - HeaderApiKey: []
+      tags:
+        - Настройки автовозврата
+      summary: Получить предметы, которые не хранятся на складах WB
+      description: |
+        Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: next
+          in: query
+          description: Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
+          required: true
+          example: 0
+          schema:
+            type: integer
+            format: int64
+        - name: limit
+          in: query
+          description: Количество предметов в ответе
+          required: true
+          example: 1000
+          schema:
+            type: integer
+            format: int32
+            minimum: 100
+            maximum: 1000
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - next
+                  - data
+                example:
+                  next: 300
+                  data:
+                    - subjectId: 406
+                    - subjectId: 3109
+                    - subjectId: 4556
+                properties:
+                  next:
+                    description: Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
+                    type: integer
+                    format: int64
+                    nullable: true
+                  data:
+                    type: array
+                    description: Список ID предметов, товары которых не хранятся на складах WB
+                    items:
+                      type: object
+                      required:
+                        - subjectId
+                      properties:
+                        subjectId:
+                          type: integer
+                          description: ID предмета
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/AutoreturnError400'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/AutoreturnError400Parameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
 components:
   securitySchemes:
     HeaderApiKey:
@@ -3031,6 +3474,18 @@ components:
         requestId: a0b5907c-2978-4db6-9a59-00666e8b8d54
         status: 400
         title: IncorrectParameter
+    AutoreturnError400:
+      value:
+        detail: Incorrect required body
+        title: IncorrectRequestBody
+    AutoreturnError400Parameter:
+      value:
+        detail: Incorrect parameter
+        title: IncorrectParameter
+    SupplierSettingMustBeManual:
+      value:
+        detail: Supplier auto-return setting must be in `manual` mode
+        title: SupplierSettingMustBeManual
     APIError403V2:
       value:
         code: AccessDenied
@@ -3509,6 +3964,7 @@ components:
           description: Детали ошибки
           type: string
         errors:
+          description: Информация об ошибке
           items:
             properties:
               location:
@@ -3530,6 +3986,18 @@ components:
         status:
           description: HTTP статус-код ответа
           type: integer
+        title:
+          description: Заголовок ошибки
+          type: string
+      type: object
+    AutoreturnError400:
+      required:
+        - title
+        - detail
+      properties:
+        detail:
+          description: Детали ошибки
+          type: string
         title:
           description: Заголовок ошибки
           type: string
