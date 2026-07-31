@@ -30,7 +30,7 @@ class V3APIErrorV2(BaseModel):
     """ # noqa: E501
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
     detail: StrictStr = Field(description="Детали ошибки")
-    errors: Optional[List[V3APIErrorV2ErrorsInner]] = None
+    errors: Optional[List[V3APIErrorV2ErrorsInner]] = Field(default=None, description="Информация об ошибке")
     origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB")
     request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса", alias="requestId")
     status: Optional[StrictInt] = Field(default=None, description="HTTP статус-код ответа")

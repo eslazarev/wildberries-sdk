@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.134"
+__version__ = "0.1.135"
 
 # Define package exports
 __all__ = [
@@ -67,9 +67,13 @@ __all__ = [
     "ApiV3SuppliesSupplyIdTrbxPostRequest",
     "ApiV3SuppliesSupplyIdTrbxStickersPost200Response",
     "ApiV3SuppliesSupplyIdTrbxStickersPostRequest",
+    "AutoreturnError400",
     "CrossborderTurkeyClientInfo",
     "CrossborderTurkeyClientInfoResp",
     "Error",
+    "GetV3SettingsAutoreturns200Response",
+    "GetV3SettingsAutoreturnsSubcategoriesRestricted200Response",
+    "GetV3SettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner",
     "MetaDetailsInner",
     "Model409SupplyDeliverError",
     "Model409SupplyDeliverErrorData",
@@ -82,6 +86,15 @@ __all__ = [
     "OrderOptions",
     "OrdersRequestAPI",
     "PassOffice",
+    "PatchV3SettingsAutoreturnsItems200Response",
+    "PatchV3SettingsAutoreturnsItems200ResponseResultsInner",
+    "PatchV3SettingsAutoreturnsItems200ResponseResultsInnerErrorInner",
+    "PatchV3SettingsAutoreturnsItemsRequest",
+    "PatchV3SettingsAutoreturnsRequest",
+    "PostV3SettingsAutoreturnsItems200Response",
+    "PostV3SettingsAutoreturnsItems200ResponseResultsInner",
+    "PostV3SettingsAutoreturnsItems200ResponseResultsInnerErrorInner",
+    "PostV3SettingsAutoreturnsItemsRequest",
     "Supply",
     "SupplyTrbx",
     "TrbxStickers",
@@ -155,9 +168,13 @@ from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_post201_re
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_post_request import ApiV3SuppliesSupplyIdTrbxPostRequest as ApiV3SuppliesSupplyIdTrbxPostRequest
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post200_response import ApiV3SuppliesSupplyIdTrbxStickersPost200Response as ApiV3SuppliesSupplyIdTrbxStickersPost200Response
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post_request import ApiV3SuppliesSupplyIdTrbxStickersPostRequest as ApiV3SuppliesSupplyIdTrbxStickersPostRequest
+from wildberries_sdk.orders_fbs.models.autoreturn_error400 import AutoreturnError400 as AutoreturnError400
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info import CrossborderTurkeyClientInfo as CrossborderTurkeyClientInfo
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp as CrossborderTurkeyClientInfoResp
 from wildberries_sdk.orders_fbs.models.error import Error as Error
+from wildberries_sdk.orders_fbs.models.get_v3_settings_autoreturns200_response import GetV3SettingsAutoreturns200Response as GetV3SettingsAutoreturns200Response
+from wildberries_sdk.orders_fbs.models.get_v3_settings_autoreturns_subcategories_restricted200_response import GetV3SettingsAutoreturnsSubcategoriesRestricted200Response as GetV3SettingsAutoreturnsSubcategoriesRestricted200Response
+from wildberries_sdk.orders_fbs.models.get_v3_settings_autoreturns_subcategories_restricted200_response_data_inner import GetV3SettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner as GetV3SettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner
 from wildberries_sdk.orders_fbs.models.meta_details_inner import MetaDetailsInner as MetaDetailsInner
 from wildberries_sdk.orders_fbs.models.model409_supply_deliver_error import Model409SupplyDeliverError as Model409SupplyDeliverError
 from wildberries_sdk.orders_fbs.models.model409_supply_deliver_error_data import Model409SupplyDeliverErrorData as Model409SupplyDeliverErrorData
@@ -170,6 +187,15 @@ from wildberries_sdk.orders_fbs.models.order_new import OrderNew as OrderNew
 from wildberries_sdk.orders_fbs.models.order_options import OrderOptions as OrderOptions
 from wildberries_sdk.orders_fbs.models.orders_request_api import OrdersRequestAPI as OrdersRequestAPI
 from wildberries_sdk.orders_fbs.models.pass_office import PassOffice as PassOffice
+from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_items200_response import PatchV3SettingsAutoreturnsItems200Response as PatchV3SettingsAutoreturnsItems200Response
+from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_items200_response_results_inner import PatchV3SettingsAutoreturnsItems200ResponseResultsInner as PatchV3SettingsAutoreturnsItems200ResponseResultsInner
+from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_items200_response_results_inner_error_inner import PatchV3SettingsAutoreturnsItems200ResponseResultsInnerErrorInner as PatchV3SettingsAutoreturnsItems200ResponseResultsInnerErrorInner
+from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_items_request import PatchV3SettingsAutoreturnsItemsRequest as PatchV3SettingsAutoreturnsItemsRequest
+from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_request import PatchV3SettingsAutoreturnsRequest as PatchV3SettingsAutoreturnsRequest
+from wildberries_sdk.orders_fbs.models.post_v3_settings_autoreturns_items200_response import PostV3SettingsAutoreturnsItems200Response as PostV3SettingsAutoreturnsItems200Response
+from wildberries_sdk.orders_fbs.models.post_v3_settings_autoreturns_items200_response_results_inner import PostV3SettingsAutoreturnsItems200ResponseResultsInner as PostV3SettingsAutoreturnsItems200ResponseResultsInner
+from wildberries_sdk.orders_fbs.models.post_v3_settings_autoreturns_items200_response_results_inner_error_inner import PostV3SettingsAutoreturnsItems200ResponseResultsInnerErrorInner as PostV3SettingsAutoreturnsItems200ResponseResultsInnerErrorInner
+from wildberries_sdk.orders_fbs.models.post_v3_settings_autoreturns_items_request import PostV3SettingsAutoreturnsItemsRequest as PostV3SettingsAutoreturnsItemsRequest
 from wildberries_sdk.orders_fbs.models.supply import Supply as Supply
 from wildberries_sdk.orders_fbs.models.supply_trbx import SupplyTrbx as SupplyTrbx
 from wildberries_sdk.orders_fbs.models.trbx_stickers import TrbxStickers as TrbxStickers

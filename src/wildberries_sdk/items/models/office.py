@@ -33,7 +33,7 @@ class Office(BaseModel):
     id: Optional[StrictInt] = Field(default=None, description="ID", json_schema_extra={"examples": [15]})
     longitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Долгота", json_schema_extra={"examples": [55.386871]})
     latitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Широта", json_schema_extra={"examples": [37.588898]})
-    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType", json_schema_extra={"examples": [1]})
+    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType", json_schema_extra={"examples": [1]})
     delivery_type: Optional[StrictInt] = Field(default=None, description="Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — доставка курьером WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) ", alias="deliveryType", json_schema_extra={"examples": [1]})
     federal_district: Optional[StrictStr] = Field(default=None, description="Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан", alias="federalDistrict", json_schema_extra={"examples": ["Центральный"]})
     selected: Optional[StrictBool] = Field(default=None, description="Признак того, что склад уже выбран продавцом")
@@ -45,8 +45,8 @@ class Office(BaseModel):
         if value is None:
             return value
 
-        if value not in set([1, 2, 3]):
-            raise ValueError("must be one of enum values (1, 2, 3)")
+        if value not in set([1, 3]):
+            raise ValueError("must be one of enum values (1, 3)")
         return value
 
     @field_validator('delivery_type')

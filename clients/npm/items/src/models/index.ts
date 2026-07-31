@@ -26,6 +26,7 @@ export * from './ApiV3StocksWarehouseIdPutRequest';
 export * from './ApiV3StocksWarehouseIdPutRequestStocksInner';
 export * from './ApiV3WarehousesPost201Response';
 export * from './ApiV3WarehousesPostRequest';
+export * from './ApiV3WarehousesWarehouseIdPutRequest';
 export * from './B2BWholesaleInner';
 export * from './BrandsResponse';
 export * from './BrandsResponseBrandsInner';

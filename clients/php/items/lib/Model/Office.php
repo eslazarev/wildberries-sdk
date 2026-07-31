@@ -284,7 +284,6 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const CARGO_TYPE_NUMBER_1 = 1;
-    public const CARGO_TYPE_NUMBER_2 = 2;
     public const CARGO_TYPE_NUMBER_3 = 3;
     public const DELIVERY_TYPE_NUMBER_1 = 1;
     public const DELIVERY_TYPE_NUMBER_2 = 2;
@@ -301,7 +300,6 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::CARGO_TYPE_NUMBER_1,
-            self::CARGO_TYPE_NUMBER_2,
             self::CARGO_TYPE_NUMBER_3,
         ];
     }
@@ -584,7 +582,7 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cargo_type
      *
-     * @param int|null $cargo_type Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
+     * @param int|null $cargo_type Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+)
      *
      * @return self
      */

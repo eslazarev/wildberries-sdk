@@ -29,7 +29,7 @@ class ApiV3WarehousesPostRequest(BaseModel):
     ApiV3WarehousesPostRequest
     """ # noqa: E501
     name: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(description="Имя склада продавца", json_schema_extra={"examples": ["Склад Коледино"]})
-    office_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="ID склада WB", alias="officeId", json_schema_extra={"examples": [15]})
+    office_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="ID [склада WB](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get).<br>Нельзя привязывать склад WB, который уже используется", alias="officeId", json_schema_extra={"examples": [15]})
     __properties: ClassVar[List[str]] = ["name", "officeId"]
 
     model_config = ConfigDict(

@@ -8858,7 +8858,7 @@ class DefaultApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
-     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request api_v3_warehouses_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesWarehouseIdPutRequest $api_v3_warehouses_warehouse_id_put_request api_v3_warehouses_warehouse_id_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3WarehousesWarehouseIdPut'] to see the possible values for this operation
@@ -8867,9 +8867,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV3WarehousesWarehouseIdPut($warehouse_id, $api_v3_warehouses_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
+    public function apiV3WarehousesWarehouseIdPut($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
     {
-        $this->apiV3WarehousesWarehouseIdPutWithHttpInfo($warehouse_id, $api_v3_warehouses_post_request, $hostIndex, $variables, $contentType);
+        $this->apiV3WarehousesWarehouseIdPutWithHttpInfo($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, $hostIndex, $variables, $contentType);
     }
 
     /**
@@ -8883,7 +8883,7 @@ class DefaultApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
-     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesWarehouseIdPutRequest $api_v3_warehouses_warehouse_id_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3WarehousesWarehouseIdPut'] to see the possible values for this operation
@@ -8892,9 +8892,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3WarehousesWarehouseIdPutWithHttpInfo($warehouse_id, $api_v3_warehouses_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
+    public function apiV3WarehousesWarehouseIdPutWithHttpInfo($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
     {
-        $request = $this->apiV3WarehousesWarehouseIdPutRequest($warehouse_id, $api_v3_warehouses_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV3WarehousesWarehouseIdPutRequest($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8996,7 +8996,7 @@ class DefaultApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
-     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesWarehouseIdPutRequest $api_v3_warehouses_warehouse_id_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3WarehousesWarehouseIdPut'] to see the possible values for this operation
@@ -9004,9 +9004,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3WarehousesWarehouseIdPutAsync($warehouse_id, $api_v3_warehouses_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
+    public function apiV3WarehousesWarehouseIdPutAsync($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
     {
-        return $this->apiV3WarehousesWarehouseIdPutAsyncWithHttpInfo($warehouse_id, $api_v3_warehouses_post_request, $hostIndex, $variables, $contentType)
+        return $this->apiV3WarehousesWarehouseIdPutAsyncWithHttpInfo($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9025,7 +9025,7 @@ class DefaultApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
-     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesWarehouseIdPutRequest $api_v3_warehouses_warehouse_id_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3WarehousesWarehouseIdPut'] to see the possible values for this operation
@@ -9033,10 +9033,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3WarehousesWarehouseIdPutAsyncWithHttpInfo($warehouse_id, $api_v3_warehouses_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
+    public function apiV3WarehousesWarehouseIdPutAsyncWithHttpInfo($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
     {
         $returnType = '';
-        $request = $this->apiV3WarehousesWarehouseIdPutRequest($warehouse_id, $api_v3_warehouses_post_request, $hostIndex, $variables, $contentType);
+        $request = $this->apiV3WarehousesWarehouseIdPutRequest($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9070,7 +9070,7 @@ class DefaultApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $warehouse_id ID склада продавца (required)
-     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesPostRequest $api_v3_warehouses_post_request (required)
+     * @param  \Wildberries\Sdk\Items\Model\ApiV3WarehousesWarehouseIdPutRequest $api_v3_warehouses_warehouse_id_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3WarehousesWarehouseIdPut'] to see the possible values for this operation
@@ -9078,7 +9078,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3WarehousesWarehouseIdPutRequest($warehouse_id, $api_v3_warehouses_post_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
+    public function apiV3WarehousesWarehouseIdPutRequest($warehouse_id, $api_v3_warehouses_warehouse_id_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3WarehousesWarehouseIdPut'][0])
     {
 
         // verify the required parameter 'warehouse_id' is set
@@ -9088,10 +9088,10 @@ class DefaultApi
             );
         }
 
-        // verify the required parameter 'api_v3_warehouses_post_request' is set
-        if ($api_v3_warehouses_post_request === null || (is_array($api_v3_warehouses_post_request) && count($api_v3_warehouses_post_request) === 0)) {
+        // verify the required parameter 'api_v3_warehouses_warehouse_id_put_request' is set
+        if ($api_v3_warehouses_warehouse_id_put_request === null || (is_array($api_v3_warehouses_warehouse_id_put_request) && count($api_v3_warehouses_warehouse_id_put_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_v3_warehouses_post_request when calling apiV3WarehousesWarehouseIdPut'
+                'Missing the required parameter $api_v3_warehouses_warehouse_id_put_request when calling apiV3WarehousesWarehouseIdPut'
             );
         }
 
@@ -9122,12 +9122,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($api_v3_warehouses_post_request)) {
+        if (isset($api_v3_warehouses_warehouse_id_put_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_v3_warehouses_post_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_v3_warehouses_warehouse_id_put_request));
             } else {
-                $httpBody = $api_v3_warehouses_post_request;
+                $httpBody = $api_v3_warehouses_warehouse_id_put_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

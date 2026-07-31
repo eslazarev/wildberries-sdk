@@ -404,7 +404,7 @@ class V3APIErrorV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2ErrorsInner[]|null $errors errors
+     * @param \Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2ErrorsInner[]|null $errors Информация об ошибке
      *
      * @return self
      */

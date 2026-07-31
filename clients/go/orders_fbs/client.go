@@ -49,6 +49,8 @@ type APIClient struct {
 
 	// API Services
 
+	DefaultApi *DefaultApiService
+
 	FBSAPI *FBSAPIService
 }
 
@@ -68,6 +70,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
+	c.DefaultApi = (*DefaultApiService)(&c.common)
 	c.FBSAPI = (*FBSAPIService)(&c.common)
 
 	return c

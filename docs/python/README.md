@@ -171,6 +171,11 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_get` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
 - `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_post` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
 - `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_stickers_post` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
+- `orders_fbs.DefaultApi.get_v3_settings_autoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.get_v3_settings_autoreturns_subcategories_restricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApi.patch_v3_settings_autoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.patch_v3_settings_autoreturns_items` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.post_v3_settings_autoreturns_items` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
 
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DefaultApi.get_v3_dbw_orders` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях

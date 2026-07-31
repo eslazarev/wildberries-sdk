@@ -50,6 +50,8 @@ pub mod _api_v3_warehouses_post_201_response;
 pub use self::_api_v3_warehouses_post_201_response::ApiV3WarehousesPost201Response;
 pub mod _api_v3_warehouses_post_request;
 pub use self::_api_v3_warehouses_post_request::ApiV3WarehousesPostRequest;
+pub mod _api_v3_warehouses__warehouse_id__put_request;
+pub use self::_api_v3_warehouses__warehouse_id__put_request::ApiV3WarehousesWarehouseIdPutRequest;
 pub mod b2_b_wholesale_inner;
 pub use self::b2_b_wholesale_inner::B2BWholesaleInner;
 pub mod brands_response;

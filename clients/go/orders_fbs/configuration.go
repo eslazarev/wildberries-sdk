@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.134/go",
+		UserAgent:        "OpenAPI-Generator/0.1.135/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,6 +98,36 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
+			"DefaultApiService.GetV3SettingsAutoreturns": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"DefaultApiService.GetV3SettingsAutoreturnsSubcategoriesRestricted": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"DefaultApiService.PatchV3SettingsAutoreturns": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"DefaultApiService.PatchV3SettingsAutoreturnsItems": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"DefaultApiService.PostV3SettingsAutoreturnsItems": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
 			"FBSAPIService.ApiMarketplaceV3FbsOrdersArchiveGet": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",

@@ -9098,7 +9098,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3PassesPost'] to see the possible values for this operation
@@ -9123,7 +9123,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3PassesPost'] to see the possible values for this operation
@@ -9299,7 +9299,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3PassesPost'] to see the possible values for this operation
@@ -9327,7 +9327,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3PassesPost'] to see the possible values for this operation
@@ -9384,7 +9384,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры. (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesPostRequest $api_v3_passes_post_request Общая длина ФИО ограничена от 6 до 100 символов. В номере машины могут быть только буквы и цифры (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3PassesPost'] to see the possible values for this operation

@@ -16,7 +16,7 @@ pub struct ApiV3WarehousesPostRequest {
     /// Имя склада продавца
     #[serde(rename = "name")]
     pub name: String,
-    /// ID склада WB
+    /// ID [склада WB](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get).<br>Нельзя привязывать склад WB, который уже используется
     #[serde(rename = "officeId")]
     pub office_id: i32,
 }

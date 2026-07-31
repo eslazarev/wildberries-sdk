@@ -571,7 +571,7 @@ conf = wildberries_sdk.analytics.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: analytics\n"\
-               "SDK Package Version: 0.1.134".\
+               "SDK Package Version: 0.1.135".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:

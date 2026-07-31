@@ -2528,7 +2528,7 @@ ApiV3DbwWarehousesWarehouseIdContactsGet Список контактов
 
 Метод возвращает список контактов, привязанных к [складу продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
 <br>
-Только для складов с типом доставки `3` — доставка курьером WB (DBW).
+Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW:
@@ -2909,7 +2909,7 @@ func (r ApiApiV3OfficesGetRequest) Execute() ([]Office, *http.Response, error) {
 /*
 ApiV3OfficesGet Получить список складов WB
 
-Метод возвращает список всех складов WB для привязки к складам продавца. Предназначен для определения складов WB, чтобы сдавать готовые заказы по модели [FBS](/openapi/orders-fbs#tag/Zakazy-FBS) (Fulfillment by Seller).
+Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/post) или [редактировании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses~1%7BwarehouseId%7D/put).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
@@ -3079,13 +3079,11 @@ ApiV3StocksWarehouseIdDelete Удалить остатки товаров
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 2 запроса |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
 </div>
 
 
@@ -3283,7 +3281,7 @@ ApiV3StocksWarehouseIdPost Получить остатки товаров
 Метод возвращает данные об остатках товаров на [складах продавца](/openapi/work-with-products#tag/Sklady-prodavca).
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href="/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete">удаления остатков</a>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3491,7 +3489,7 @@ ApiV3StocksWarehouseIdPut Обновить остатки товаров
 </div>
 
 <div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href="/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete">удаления остатков</a>:
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -3693,7 +3691,7 @@ func (r ApiApiV3WarehousesGetRequest) Execute() ([]Warehouse, *http.Response, er
 /*
 ApiV3WarehousesGet Получить список складов продавца
 
-Метод возвращает список всех складов продавца. Может использоваться для получения [остатков товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).
+Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
@@ -3855,11 +3853,7 @@ func (r ApiApiV3WarehousesPostRequest) Execute() (*ApiV3WarehousesPost201Respons
 /*
 ApiV3WarehousesPost Создать склад продавца
 
-Метод создаёт склад продавца для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post). Нужно привязать к складу продавца [склад WB](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get) для работы по модели [FBS](/openapi/orders-fbs#tag/Zakazy-FBS) (Fulfillment by Seller).
-
-<div class="description_important">
-  Нельзя привязывать склад WB, который уже используется
-</div>
+Метод создаёт склад продавца для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
@@ -4065,7 +4059,7 @@ func (r ApiApiV3WarehousesWarehouseIdDeleteRequest) Execute() (*http.Response, e
 /*
 ApiV3WarehousesWarehouseIdDelete Удалить склад продавца
 
-Метод удаляет склад продавца из [списка складов](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
+Метод удаляет [склад продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
@@ -4227,11 +4221,11 @@ type ApiApiV3WarehousesWarehouseIdPutRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	warehouseId int64
-	apiV3WarehousesPostRequest *ApiV3WarehousesPostRequest
+	apiV3WarehousesWarehouseIdPutRequest *ApiV3WarehousesWarehouseIdPutRequest
 }
 
-func (r ApiApiV3WarehousesWarehouseIdPutRequest) ApiV3WarehousesPostRequest(apiV3WarehousesPostRequest ApiV3WarehousesPostRequest) ApiApiV3WarehousesWarehouseIdPutRequest {
-	r.apiV3WarehousesPostRequest = &apiV3WarehousesPostRequest
+func (r ApiApiV3WarehousesWarehouseIdPutRequest) ApiV3WarehousesWarehouseIdPutRequest(apiV3WarehousesWarehouseIdPutRequest ApiV3WarehousesWarehouseIdPutRequest) ApiApiV3WarehousesWarehouseIdPutRequest {
+	r.apiV3WarehousesWarehouseIdPutRequest = &apiV3WarehousesWarehouseIdPutRequest
 	return r
 }
 
@@ -4242,11 +4236,7 @@ func (r ApiApiV3WarehousesWarehouseIdPutRequest) Execute() (*http.Response, erro
 /*
 ApiV3WarehousesWarehouseIdPut Обновить склад продавца
 
-Метод обновляет данные склада продавца в [списке складов](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get). Данные о привязанном [складе WB](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get) можно изменить один раз в сутки.
-
-<div class="description_important">
-  Нельзя привязывать склад WB, который уже используется
-</div>
+Метод обновляет данные [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:
@@ -4290,8 +4280,8 @@ func (a *DefaultApiService) ApiV3WarehousesWarehouseIdPutExecute(r ApiApiV3Wareh
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiV3WarehousesPostRequest == nil {
-		return nil, reportError("apiV3WarehousesPostRequest is required and must be specified")
+	if r.apiV3WarehousesWarehouseIdPutRequest == nil {
+		return nil, reportError("apiV3WarehousesWarehouseIdPutRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -4312,7 +4302,7 @@ func (a *DefaultApiService) ApiV3WarehousesWarehouseIdPutExecute(r ApiApiV3Wareh
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV3WarehousesPostRequest
+	localVarPostBody = r.apiV3WarehousesWarehouseIdPutRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

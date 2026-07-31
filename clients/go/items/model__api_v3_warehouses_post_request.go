@@ -23,7 +23,7 @@ var _ MappedNullable = &ApiV3WarehousesPostRequest{}
 type ApiV3WarehousesPostRequest struct {
 	// Имя склада продавца
 	Name string `json:"name"`
-	// ID склада WB
+	// ID [склада WB](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get).<br>Нельзя привязывать склад WB, который уже используется
 	OfficeId int32 `json:"officeId"`
 }
 

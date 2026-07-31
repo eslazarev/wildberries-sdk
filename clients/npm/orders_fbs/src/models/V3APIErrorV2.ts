@@ -36,7 +36,7 @@ export interface V3APIErrorV2 {
      */
     detail: string;
     /**
-     * 
+     * Информация об ошибке
      */
     errors?: Array<V3APIErrorV2ErrorsInner>;
     /**

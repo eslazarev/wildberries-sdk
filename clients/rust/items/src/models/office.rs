@@ -34,7 +34,7 @@ pub struct Office {
     /// Широта
     #[serde(rename = "latitude", skip_serializing_if = "Option::is_none")]
     pub latitude: Option<f64>,
-    /// Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+    /// Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+) 
     #[serde(rename = "cargoType", skip_serializing_if = "Option::is_none")]
     pub cargo_type: Option<CargoType>,
     /// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — доставка курьером WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) 
@@ -65,12 +65,11 @@ impl Office {
         }
     }
 }
-/// Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+/// Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+) 
 #[repr(i64)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum CargoType {
     Variant1 = 1,
-    Variant2 = 2,
     Variant3 = 3,
 }
 
@@ -78,7 +77,6 @@ impl std::fmt::Display for CargoType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", match self {
             Self::Variant1 => "1",
-            Self::Variant2 => "2",
             Self::Variant3 => "3",
         })
     }

@@ -25,6 +25,7 @@ type V3APIErrorV2 struct {
 	Code *string `json:"code,omitempty"`
 	// Детали ошибки
 	Detail string `json:"detail"`
+	// Информация об ошибке
 	Errors []V3APIErrorV2ErrorsInner `json:"errors,omitempty"`
 	// ID внутреннего сервиса WB
 	Origin *string `json:"origin,omitempty"`

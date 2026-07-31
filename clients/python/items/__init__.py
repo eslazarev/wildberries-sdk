@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.134"
+__version__ = "0.1.135"
 
 # Define package exports
 __all__ = [
@@ -54,6 +54,7 @@ __all__ = [
     "ApiV3StocksWarehouseIdPutRequestStocksInner",
     "ApiV3WarehousesPost201Response",
     "ApiV3WarehousesPostRequest",
+    "ApiV3WarehousesWarehouseIdPutRequest",
     "B2BWholesaleInner",
     "BrandsResponse",
     "BrandsResponseBrandsInner",
@@ -234,6 +235,7 @@ from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_put_request import 
 from wildberries_sdk.items.models.api_v3_stocks_warehouse_id_put_request_stocks_inner import ApiV3StocksWarehouseIdPutRequestStocksInner as ApiV3StocksWarehouseIdPutRequestStocksInner
 from wildberries_sdk.items.models.api_v3_warehouses_post201_response import ApiV3WarehousesPost201Response as ApiV3WarehousesPost201Response
 from wildberries_sdk.items.models.api_v3_warehouses_post_request import ApiV3WarehousesPostRequest as ApiV3WarehousesPostRequest
+from wildberries_sdk.items.models.api_v3_warehouses_warehouse_id_put_request import ApiV3WarehousesWarehouseIdPutRequest as ApiV3WarehousesWarehouseIdPutRequest
 from wildberries_sdk.items.models.b2_b_wholesale_inner import B2BWholesaleInner as B2BWholesaleInner
 from wildberries_sdk.items.models.brands_response import BrandsResponse as BrandsResponse
 from wildberries_sdk.items.models.brands_response_brands_inner import BrandsResponseBrandsInner as BrandsResponseBrandsInner

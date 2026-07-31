@@ -46,7 +46,6 @@ export interface Office {
     /**
      * Тип товара, который принимает склад:
      *   - `1` — малогабаритный товар (МГТ)
-     *   - `2` — сверхгабаритный товар (СГТ)
      *   - `3` — крупногабаритный товар (КГТ+)
      * 
      */
@@ -77,7 +76,6 @@ export interface Office {
  */
 export const OfficeCargoTypeEnum = {
     NUMBER_1: 1,
-    NUMBER_2: 2,
     NUMBER_3: 3
 } as const;
 export type OfficeCargoTypeEnum = typeof OfficeCargoTypeEnum[keyof typeof OfficeCargoTypeEnum];

@@ -24,7 +24,7 @@ export interface ApiV3WarehousesPostRequest {
      */
     name: string;
     /**
-     * ID склада WB
+     * ID [склада WB](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get).<br>Нельзя привязывать склад WB, который уже используется
      */
     officeId: number;
 }

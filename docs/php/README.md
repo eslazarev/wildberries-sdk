@@ -137,6 +137,11 @@ var_dump($response);
 - `items.DefaultApi.postV1UploadTaskB2bWholesale` — `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
+- `orders_fbs.DefaultApi.getV3SettingsAutoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.getV3SettingsAutoreturnsSubcategoriesRestricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApi.patchV3SettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.patchV3SettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.postV3SettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
 - `orders_fbs.FBSApi.apiMarketplaceV3FbsOrdersArchiveGet` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSApi.apiMarketplaceV3OrdersMetaPost` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием

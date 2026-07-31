@@ -361,7 +361,7 @@ class ApiV3WarehousesPostRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets office_id
      *
-     * @param int $office_id ID склада WB
+     * @param int $office_id ID [склада WB](./work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get).<br>Нельзя привязывать склад WB, который уже используется
      *
      * @return self
      */

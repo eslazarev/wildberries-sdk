@@ -19,6 +19,7 @@ pub struct V3ApiErrorV2 {
     /// Детали ошибки
     #[serde(rename = "detail")]
     pub detail: String,
+    /// Информация об ошибке
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<models::V3ApiErrorV2ErrorsInner>>,
     /// ID внутреннего сервиса WB

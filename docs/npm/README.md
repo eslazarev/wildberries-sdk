@@ -124,6 +124,11 @@ main().catch(console.error);
 - `items.DefaultApi.postV1UploadTaskB2bWholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
+- `orders_fbs.DefaultApi.getV3SettingsAutoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.getV3SettingsAutoreturnsSubcategoriesRestricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApi.patchV3SettingsAutoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.patchV3SettingsAutoreturnsItems` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.postV3SettingsAutoreturnsItems` — Получить настройки автовозврата товаров
 - `orders_fbs.FBSApi.apiMarketplaceV3FbsOrdersArchiveGet` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSApi.apiMarketplaceV3OrdersMetaPost` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — Закрепить номер ДТ за сборочным заданием

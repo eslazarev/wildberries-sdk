@@ -1219,7 +1219,7 @@ pub async fn api_v2_upload_task_size_post(configuration: &configuration::Configu
     }
 }
 
-/// Метод возвращает список контактов, привязанных к [складу продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get). <br> Только для складов с типом доставки `3` — доставка курьером WB (DBW).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод возвращает список контактов, привязанных к [складу продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get). <br> Только для складов с типом доставки `3` — доставка курьером WB ([DBW](/openapi/orders-dbw)).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_dbw_warehouses_warehouse_id_contacts_get(configuration: &configuration::Configuration, warehouse_id: i64) -> Result<models::ApiV3DbwWarehousesWarehouseIdContactsGet200Response, Error<ApiV3DbwWarehousesWarehouseIdContactsGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_warehouse_id = warehouse_id;
@@ -1300,7 +1300,7 @@ pub async fn api_v3_dbw_warehouses_warehouse_id_contacts_put(configuration: &con
     }
 }
 
-/// Метод возвращает список всех складов WB для привязки к складам продавца. Предназначен для определения складов WB, чтобы сдавать готовые заказы по модели [FBS](/openapi/orders-fbs#tag/Zakazy-FBS) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/post) или [редактировании](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses~1%7BwarehouseId%7D/put).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_offices_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::Office>, Error<ApiV3OfficesGetError>> {
 
     let uri_str = format!("{}/api/v3/offices", configuration.base_path);
@@ -1343,7 +1343,7 @@ pub async fn api_v3_offices_get(configuration: &configuration::Configuration, ) 
     }
 }
 
-/// Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   <strong>Действие необратимо</strong>. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 2 запроса | </div> 
 pub async fn api_v3_stocks_warehouse_id_delete(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_stocks_warehouse_id_delete_request: models::ApiV3StocksWarehouseIdDeleteRequest) -> Result<(), Error<ApiV3StocksWarehouseIdDeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_warehouse_id = warehouse_id;
@@ -1379,7 +1379,7 @@ pub async fn api_v3_stocks_warehouse_id_delete(configuration: &configuration::Co
     }
 }
 
-/// Метод возвращает данные об остатках товаров на [складах продавца](/openapi/work-with-products#tag/Sklady-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод возвращает данные об остатках товаров на [складах продавца](/openapi/work-with-products#tag/Sklady-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_stocks_warehouse_id_post(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_stocks_warehouse_id_post_request: models::ApiV3StocksWarehouseIdPostRequest) -> Result<models::ApiV3StocksWarehouseIdPost200Response, Error<ApiV3StocksWarehouseIdPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_warehouse_id = warehouse_id;
@@ -1426,7 +1426,7 @@ pub async fn api_v3_stocks_warehouse_id_post(configuration: &configuration::Conf
     }
 }
 
-/// Метод обновляет количество остатков товаров продавца [в списке](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод обновляет количество остатков товаров продавца [в списке](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_important\">   Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (<code>204</code>), но остатки не обновятся. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>остатков на складах продавца</strong> кроме метода <a href=\"/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/delete\">удаления остатков</a>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_stocks_warehouse_id_put(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_stocks_warehouse_id_put_request: Option<models::ApiV3StocksWarehouseIdPutRequest>) -> Result<(), Error<ApiV3StocksWarehouseIdPutError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_warehouse_id = warehouse_id;
@@ -1462,7 +1462,7 @@ pub async fn api_v3_stocks_warehouse_id_put(configuration: &configuration::Confi
     }
 }
 
-/// Метод возвращает список всех складов продавца. Может использоваться для получения [остатков товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_warehouses_get(configuration: &configuration::Configuration, ) -> Result<Vec<models::Warehouse>, Error<ApiV3WarehousesGetError>> {
 
     let uri_str = format!("{}/api/v3/warehouses", configuration.base_path);
@@ -1505,7 +1505,7 @@ pub async fn api_v3_warehouses_get(configuration: &configuration::Configuration,
     }
 }
 
-/// Метод создаёт склад продавца для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca/paths/~1api~1v3~1stocks~1%7BwarehouseId%7D/post). Нужно привязать к складу продавца [склад WB](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get) для работы по модели [FBS](/openapi/orders-fbs#tag/Zakazy-FBS) (Fulfillment by Seller).  <div class=\"description_important\">   Нельзя привязывать склад WB, который уже используется </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод создаёт склад продавца для работы с [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_warehouses_post(configuration: &configuration::Configuration, api_v3_warehouses_post_request: models::ApiV3WarehousesPostRequest) -> Result<models::ApiV3WarehousesPost201Response, Error<ApiV3WarehousesPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_v3_warehouses_post_request = api_v3_warehouses_post_request;
@@ -1551,7 +1551,7 @@ pub async fn api_v3_warehouses_post(configuration: &configuration::Configuration
     }
 }
 
-/// Метод удаляет склад продавца из [списка складов](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод удаляет [склад продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn api_v3_warehouses_warehouse_id_delete(configuration: &configuration::Configuration, warehouse_id: i64) -> Result<(), Error<ApiV3WarehousesWarehouseIdDeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_warehouse_id = warehouse_id;
@@ -1585,11 +1585,11 @@ pub async fn api_v3_warehouses_warehouse_id_delete(configuration: &configuration
     }
 }
 
-/// Метод обновляет данные склада продавца в [списке складов](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get). Данные о привязанном [складе WB](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1offices/get) можно изменить один раз в сутки.  <div class=\"description_important\">   Нельзя привязывать склад WB, который уже используется </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn api_v3_warehouses_warehouse_id_put(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_warehouses_post_request: models::ApiV3WarehousesPostRequest) -> Result<(), Error<ApiV3WarehousesWarehouseIdPutError>> {
+/// Метод обновляет данные [склада продавца](/openapi/work-with-products#tag/Sklady-prodavca/paths/~1api~1v3~1warehouses/get), кроме складов для сверхгабаритных товаров (СГТ, `\"cargoType\":2`).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>складов продавца</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn api_v3_warehouses_warehouse_id_put(configuration: &configuration::Configuration, warehouse_id: i64, api_v3_warehouses_warehouse_id_put_request: models::ApiV3WarehousesWarehouseIdPutRequest) -> Result<(), Error<ApiV3WarehousesWarehouseIdPutError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_warehouse_id = warehouse_id;
-    let p_body_api_v3_warehouses_post_request = api_v3_warehouses_post_request;
+    let p_body_api_v3_warehouses_warehouse_id_put_request = api_v3_warehouses_warehouse_id_put_request;
 
     let uri_str = format!("{}/api/v3/warehouses/{warehouseId}", configuration.base_path, warehouseId=p_path_warehouse_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -1605,7 +1605,7 @@ pub async fn api_v3_warehouses_warehouse_id_put(configuration: &configuration::C
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v3_warehouses_post_request);
+    req_builder = req_builder.json(&p_body_api_v3_warehouses_warehouse_id_put_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
