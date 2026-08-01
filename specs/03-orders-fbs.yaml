@@ -980,6 +980,7 @@ paths:
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1068,6 +1069,7 @@ paths:
         - $ref: '#/components/parameters/Order'
         - name: key
           in: query
+          required: true
           schema:
             type: string
             enum:
@@ -1143,10 +1145,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Order'
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+                - sgtins
               properties:
                 sgtins:
                   type: array
@@ -1234,6 +1239,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Order'
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1315,6 +1321,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Order'
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1396,6 +1403,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Order'
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -1479,10 +1487,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Order'
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+                - expiration
               properties:
                 expiration:
                   type: string
@@ -1561,10 +1572,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Order'
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+                - customsDeclaration
               properties:
                 customsDeclaration:
                   type: string
@@ -2913,7 +2927,7 @@ paths:
     get:
       x-readonly-method: true
       x-category: marketplace
-      operationId: getV3SettingsAutoreturns
+      operationId: getMarketplaceV3FbsSettingsAutoreturns
       security:
         - HeaderApiKey: []
       tags:
@@ -2947,7 +2961,7 @@ paths:
                     nullable: false
                     description: |
                       Тип автовозврата:
-                        - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                        - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
                         - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов
                         - `manual` — используются ручные настройки
                     enum:
@@ -2961,7 +2975,7 @@ paths:
     patch:
       x-readonly-method: false
       x-category: marketplace
-      operationId: patchV3SettingsAutoreturns
+      operationId: patchMarketplaceV3FbsSettingsAutoreturns
       security:
         - HeaderApiKey: []
       tags:
@@ -2992,7 +3006,7 @@ paths:
                   example: allToWarehouse
                   description: |
                     Тип автовозврата малогабаритных товаров:
-                      - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                      - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
                       - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов
                       - `manual` — использовать ручные настройки
                   enum:
@@ -3023,7 +3037,7 @@ paths:
     post:
       x-readonly-method: true
       x-category: marketplace
-      operationId: postV3SettingsAutoreturnsItems
+      operationId: postMarketplaceV3FbsSettingsAutoreturnsItems
       security:
         - HeaderApiKey: []
       tags:
@@ -3105,7 +3119,7 @@ paths:
                               - `auto` — место возврата определяется автоматически
                               - `byWarehouse` — на склад WB
                               - `byPickupPoint` — на пункт выдачи заказов
-                              - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                              - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
                         changeable:
                           type: boolean
                           description: |
@@ -3142,7 +3156,7 @@ paths:
     patch:
       x-readonly-method: false
       x-category: marketplace
-      operationId: patchV3SettingsAutoreturnsItems
+      operationId: patchMarketplaceV3FbsSettingsAutoreturnsItems
       security:
         - HeaderApiKey: []
       tags:
@@ -3238,7 +3252,7 @@ paths:
                         success:
                           type: boolean
                           description: |
-                            - `true` — настройки автовозврата товара получены
+                            - `true` — настройки автовозврата товара обновлены
         '400':
           description: Неправильный запрос
           content:
@@ -3262,7 +3276,7 @@ paths:
     get:
       x-readonly-method: true
       x-category: marketplace
-      operationId: getV3SettingsAutoreturnsSubcategoriesRestricted
+      operationId: getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
       security:
         - HeaderApiKey: []
       tags:
