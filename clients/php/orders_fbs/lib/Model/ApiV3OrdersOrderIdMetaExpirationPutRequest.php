@@ -274,6 +274,9 @@ class ApiV3OrdersOrderIdMetaExpirationPutRequest implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
+        if ($this->container['expiration'] === null) {
+            $invalidProperties[] = "'expiration' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class ApiV3OrdersOrderIdMetaExpirationPutRequest implements ModelInterface, Arra
     /**
      * Gets expiration
      *
-     * @return string|null
+     * @return string
      */
     public function getExpiration()
     {
@@ -302,7 +305,7 @@ class ApiV3OrdersOrderIdMetaExpirationPutRequest implements ModelInterface, Arra
     /**
      * Sets expiration
      *
-     * @param string|null $expiration Дата, до которой годен товар. Не менее 30 дней с текущей даты
+     * @param string $expiration Дата, до которой годен товар. Не менее 30 дней с текущей даты
      *
      * @return self
      */

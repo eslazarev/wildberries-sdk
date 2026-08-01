@@ -74,19 +74,19 @@ class DefaultApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getV3SettingsAutoreturns' => [
+        'getMarketplaceV3FbsSettingsAutoreturns' => [
             'application/json',
         ],
-        'getV3SettingsAutoreturnsSubcategoriesRestricted' => [
+        'getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted' => [
             'application/json',
         ],
-        'patchV3SettingsAutoreturns' => [
+        'patchMarketplaceV3FbsSettingsAutoreturns' => [
             'application/json',
         ],
-        'patchV3SettingsAutoreturnsItems' => [
+        'patchMarketplaceV3FbsSettingsAutoreturnsItems' => [
             'application/json',
         ],
-        'postV3SettingsAutoreturnsItems' => [
+        'postMarketplaceV3FbsSettingsAutoreturnsItems' => [
             'application/json',
         ],
     ];
@@ -138,7 +138,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getV3SettingsAutoreturns
+     * Operation getMarketplaceV3FbsSettingsAutoreturns
      *
      * Получить настройки автовозврата продавца
      *
@@ -148,20 +148,20 @@ class DefaultApi
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
-    public function getV3SettingsAutoreturns(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturns'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturns(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'][0])
     {
-        list($response) = $this->getV3SettingsAutoreturnsWithHttpInfo($hostIndex, $variables, $contentType);
+        list($response) = $this->getMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo($hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation getV3SettingsAutoreturnsWithHttpInfo
+     * Operation getMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo
      *
      * Получить настройки автовозврата продавца
      *
@@ -171,15 +171,15 @@ class DefaultApi
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getV3SettingsAutoreturnsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturns'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'][0])
     {
-        $request = $this->getV3SettingsAutoreturnsRequest($hostIndex, $variables, $contentType);
+        $request = $this->getMarketplaceV3FbsSettingsAutoreturnsRequest($hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -207,7 +207,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturns200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response',
                         $request,
                         $response,
                     );
@@ -241,7 +241,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturns200Response',
+                '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response',
                 $request,
                 $response,
             );
@@ -250,7 +250,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturns200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -279,7 +279,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getV3SettingsAutoreturnsAsync
+     * Operation getMarketplaceV3FbsSettingsAutoreturnsAsync
      *
      * Получить настройки автовозврата продавца
      *
@@ -289,14 +289,14 @@ class DefaultApi
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getV3SettingsAutoreturnsAsync(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturns'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsAsync(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'][0])
     {
-        return $this->getV3SettingsAutoreturnsAsyncWithHttpInfo($hostIndex, $variables, $contentType)
+        return $this->getMarketplaceV3FbsSettingsAutoreturnsAsyncWithHttpInfo($hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -305,7 +305,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getV3SettingsAutoreturnsAsyncWithHttpInfo
+     * Operation getMarketplaceV3FbsSettingsAutoreturnsAsyncWithHttpInfo
      *
      * Получить настройки автовозврата продавца
      *
@@ -315,15 +315,15 @@ class DefaultApi
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getV3SettingsAutoreturnsAsyncWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturns'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsAsyncWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'][0])
     {
-        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturns200Response';
-        $request = $this->getV3SettingsAutoreturnsRequest($hostIndex, $variables, $contentType);
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturns200Response';
+        $request = $this->getMarketplaceV3FbsSettingsAutoreturnsRequest($hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -362,7 +362,7 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'getV3SettingsAutoreturns'
+     * Create request for operation 'getMarketplaceV3FbsSettingsAutoreturns'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -370,12 +370,12 @@ class DefaultApi
      *
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getV3SettingsAutoreturnsRequest(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturns'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsRequest(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturns'][0])
     {
 
 
@@ -443,7 +443,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForgetV3SettingsAutoreturns();
+        $hostSettings = $this->getHostSettingsForgetMarketplaceV3FbsSettingsAutoreturns();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -461,11 +461,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation getV3SettingsAutoreturns
+     * Returns an array of host settings for Operation getMarketplaceV3FbsSettingsAutoreturns
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForgetV3SettingsAutoreturns(): array
+    protected function getHostSettingsForgetMarketplaceV3FbsSettingsAutoreturns(): array
     {
         return [
             [
@@ -476,7 +476,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getV3SettingsAutoreturnsSubcategoriesRestricted
+     * Operation getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
      *
      * Получить предметы, которые не хранятся на складах WB
      *
@@ -488,20 +488,20 @@ class DefaultApi
      * @param  int $limit Количество предметов в ответе (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
-    public function getV3SettingsAutoreturnsSubcategoriesRestricted($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'][0])
     {
-        list($response) = $this->getV3SettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo($next, $limit, $hostIndex, $variables, $contentType);
+        list($response) = $this->getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo($next, $limit, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation getV3SettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo
+     * Operation getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo
      *
      * Получить предметы, которые не хранятся на складах WB
      *
@@ -513,15 +513,15 @@ class DefaultApi
      * @param  int $limit Количество предметов в ответе (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getV3SettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'][0])
     {
-        $request = $this->getV3SettingsAutoreturnsSubcategoriesRestrictedRequest($next, $limit, $hostIndex, $variables, $contentType);
+        $request = $this->getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest($next, $limit, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -549,7 +549,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturnsSubcategoriesRestricted200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response',
                         $request,
                         $response,
                     );
@@ -589,7 +589,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturnsSubcategoriesRestricted200Response',
+                '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response',
                 $request,
                 $response,
             );
@@ -598,7 +598,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturnsSubcategoriesRestricted200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -635,7 +635,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getV3SettingsAutoreturnsSubcategoriesRestrictedAsync
+     * Operation getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync
      *
      * Получить предметы, которые не хранятся на складах WB
      *
@@ -647,14 +647,14 @@ class DefaultApi
      * @param  int $limit Количество предметов в ответе (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getV3SettingsAutoreturnsSubcategoriesRestrictedAsync($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'][0])
     {
-        return $this->getV3SettingsAutoreturnsSubcategoriesRestrictedAsyncWithHttpInfo($next, $limit, $hostIndex, $variables, $contentType)
+        return $this->getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsyncWithHttpInfo($next, $limit, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -663,7 +663,7 @@ class DefaultApi
     }
 
     /**
-     * Operation getV3SettingsAutoreturnsSubcategoriesRestrictedAsyncWithHttpInfo
+     * Operation getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsyncWithHttpInfo
      *
      * Получить предметы, которые не хранятся на складах WB
      *
@@ -675,15 +675,15 @@ class DefaultApi
      * @param  int $limit Количество предметов в ответе (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getV3SettingsAutoreturnsSubcategoriesRestrictedAsyncWithHttpInfo($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsyncWithHttpInfo($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'][0])
     {
-        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\GetV3SettingsAutoreturnsSubcategoriesRestricted200Response';
-        $request = $this->getV3SettingsAutoreturnsSubcategoriesRestrictedRequest($next, $limit, $hostIndex, $variables, $contentType);
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response';
+        $request = $this->getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest($next, $limit, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -722,7 +722,7 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'getV3SettingsAutoreturnsSubcategoriesRestricted'
+     * Create request for operation 'getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -732,32 +732,32 @@ class DefaultApi
      * @param  int $limit Количество предметов в ответе (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getV3SettingsAutoreturnsSubcategoriesRestrictedRequest($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3SettingsAutoreturnsSubcategoriesRestricted'][0])
+    public function getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest($next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'][0])
     {
 
         // verify the required parameter 'next' is set
         if ($next === null || (is_array($next) && count($next) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $next when calling getV3SettingsAutoreturnsSubcategoriesRestricted'
+                'Missing the required parameter $next when calling getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'
             );
         }
 
         // verify the required parameter 'limit' is set
         if ($limit === null || (is_array($limit) && count($limit) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $limit when calling getV3SettingsAutoreturnsSubcategoriesRestricted'
+                'Missing the required parameter $limit when calling getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted'
             );
         }
         if ($limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV3SettingsAutoreturnsSubcategoriesRestricted, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted, must be smaller than or equal to 1000.');
         }
         if ($limit < 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getV3SettingsAutoreturnsSubcategoriesRestricted, must be bigger than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DefaultApi.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted, must be bigger than or equal to 100.');
         }
         
 
@@ -843,7 +843,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForgetV3SettingsAutoreturnsSubcategoriesRestricted();
+        $hostSettings = $this->getHostSettingsForgetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -861,11 +861,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation getV3SettingsAutoreturnsSubcategoriesRestricted
+     * Returns an array of host settings for Operation getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForgetV3SettingsAutoreturnsSubcategoriesRestricted(): array
+    protected function getHostSettingsForgetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(): array
     {
         return [
             [
@@ -876,7 +876,7 @@ class DefaultApi
     }
 
     /**
-     * Operation patchV3SettingsAutoreturns
+     * Operation patchMarketplaceV3FbsSettingsAutoreturns
      *
      * Обновить настройки автовозврата продавца
      *
@@ -884,22 +884,22 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsRequest|null $patch_v3_settings_autoreturns_request patch_v3_settings_autoreturns_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_request patch_marketplace_v3_fbs_settings_autoreturns_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function patchV3SettingsAutoreturns($patch_v3_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturns'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturns($patch_marketplace_v3_fbs_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'][0])
     {
-        $this->patchV3SettingsAutoreturnsWithHttpInfo($patch_v3_settings_autoreturns_request, $hostIndex, $variables, $contentType);
+        $this->patchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_request, $hostIndex, $variables, $contentType);
     }
 
     /**
-     * Operation patchV3SettingsAutoreturnsWithHttpInfo
+     * Operation patchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo
      *
      * Обновить настройки автовозврата продавца
      *
@@ -907,18 +907,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsRequest|null $patch_v3_settings_autoreturns_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchV3SettingsAutoreturnsWithHttpInfo($patch_v3_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturns'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'][0])
     {
-        $request = $this->patchV3SettingsAutoreturnsRequest($patch_v3_settings_autoreturns_request, $hostIndex, $variables, $contentType);
+        $request = $this->patchMarketplaceV3FbsSettingsAutoreturnsRequest($patch_marketplace_v3_fbs_settings_autoreturns_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -978,7 +978,7 @@ class DefaultApi
     }
 
     /**
-     * Operation patchV3SettingsAutoreturnsAsync
+     * Operation patchMarketplaceV3FbsSettingsAutoreturnsAsync
      *
      * Обновить настройки автовозврата продавца
      *
@@ -986,17 +986,17 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsRequest|null $patch_v3_settings_autoreturns_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchV3SettingsAutoreturnsAsync($patch_v3_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturns'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsAsync($patch_marketplace_v3_fbs_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'][0])
     {
-        return $this->patchV3SettingsAutoreturnsAsyncWithHttpInfo($patch_v3_settings_autoreturns_request, $hostIndex, $variables, $contentType)
+        return $this->patchMarketplaceV3FbsSettingsAutoreturnsAsyncWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1005,7 +1005,7 @@ class DefaultApi
     }
 
     /**
-     * Operation patchV3SettingsAutoreturnsAsyncWithHttpInfo
+     * Operation patchMarketplaceV3FbsSettingsAutoreturnsAsyncWithHttpInfo
      *
      * Обновить настройки автовозврата продавца
      *
@@ -1013,18 +1013,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsRequest|null $patch_v3_settings_autoreturns_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchV3SettingsAutoreturnsAsyncWithHttpInfo($patch_v3_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturns'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsAsyncWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'][0])
     {
         $returnType = '';
-        $request = $this->patchV3SettingsAutoreturnsRequest($patch_v3_settings_autoreturns_request, $hostIndex, $variables, $contentType);
+        $request = $this->patchMarketplaceV3FbsSettingsAutoreturnsRequest($patch_marketplace_v3_fbs_settings_autoreturns_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1050,21 +1050,21 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'patchV3SettingsAutoreturns'
+     * Create request for operation 'patchMarketplaceV3FbsSettingsAutoreturns'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsRequest|null $patch_v3_settings_autoreturns_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturns'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchV3SettingsAutoreturnsRequest($patch_v3_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturns'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsRequest($patch_marketplace_v3_fbs_settings_autoreturns_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturns'][0])
     {
 
 
@@ -1087,12 +1087,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($patch_v3_settings_autoreturns_request)) {
+        if (isset($patch_marketplace_v3_fbs_settings_autoreturns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_v3_settings_autoreturns_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_marketplace_v3_fbs_settings_autoreturns_request));
             } else {
-                $httpBody = $patch_v3_settings_autoreturns_request;
+                $httpBody = $patch_marketplace_v3_fbs_settings_autoreturns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1140,7 +1140,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForpatchV3SettingsAutoreturns();
+        $hostSettings = $this->getHostSettingsForpatchMarketplaceV3FbsSettingsAutoreturns();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -1158,11 +1158,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation patchV3SettingsAutoreturns
+     * Returns an array of host settings for Operation patchMarketplaceV3FbsSettingsAutoreturns
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForpatchV3SettingsAutoreturns(): array
+    protected function getHostSettingsForpatchMarketplaceV3FbsSettingsAutoreturns(): array
     {
         return [
             [
@@ -1173,7 +1173,7 @@ class DefaultApi
     }
 
     /**
-     * Operation patchV3SettingsAutoreturnsItems
+     * Operation patchMarketplaceV3FbsSettingsAutoreturnsItems
      *
      * Обновить настройки автовозврата товаров
      *
@@ -1181,23 +1181,23 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItemsRequest|null $patch_v3_settings_autoreturns_items_request patch_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_items_request patch_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
-    public function patchV3SettingsAutoreturnsItems($patch_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturnsItems'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsItems($patch_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        list($response) = $this->patchV3SettingsAutoreturnsItemsWithHttpInfo($patch_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->patchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation patchV3SettingsAutoreturnsItemsWithHttpInfo
+     * Operation patchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo
      *
      * Обновить настройки автовозврата товаров
      *
@@ -1205,18 +1205,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItemsRequest|null $patch_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchV3SettingsAutoreturnsItemsWithHttpInfo($patch_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturnsItems'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        $request = $this->patchV3SettingsAutoreturnsItemsRequest($patch_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
+        $request = $this->patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest($patch_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1244,7 +1244,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItems200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response',
                         $request,
                         $response,
                     );
@@ -1284,7 +1284,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItems200Response',
+                '\Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response',
                 $request,
                 $response,
             );
@@ -1293,7 +1293,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItems200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1330,7 +1330,7 @@ class DefaultApi
     }
 
     /**
-     * Operation patchV3SettingsAutoreturnsItemsAsync
+     * Operation patchMarketplaceV3FbsSettingsAutoreturnsItemsAsync
      *
      * Обновить настройки автовозврата товаров
      *
@@ -1338,17 +1338,17 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItemsRequest|null $patch_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchV3SettingsAutoreturnsItemsAsync($patch_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturnsItems'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsItemsAsync($patch_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        return $this->patchV3SettingsAutoreturnsItemsAsyncWithHttpInfo($patch_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType)
+        return $this->patchMarketplaceV3FbsSettingsAutoreturnsItemsAsyncWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1357,7 +1357,7 @@ class DefaultApi
     }
 
     /**
-     * Operation patchV3SettingsAutoreturnsItemsAsyncWithHttpInfo
+     * Operation patchMarketplaceV3FbsSettingsAutoreturnsItemsAsyncWithHttpInfo
      *
      * Обновить настройки автовозврата товаров
      *
@@ -1365,18 +1365,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItemsRequest|null $patch_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchV3SettingsAutoreturnsItemsAsyncWithHttpInfo($patch_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturnsItems'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsItemsAsyncWithHttpInfo($patch_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItems200Response';
-        $request = $this->patchV3SettingsAutoreturnsItemsRequest($patch_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response';
+        $request = $this->patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest($patch_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1415,21 +1415,21 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'patchV3SettingsAutoreturnsItems'
+     * Create request for operation 'patchMarketplaceV3FbsSettingsAutoreturnsItems'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchV3SettingsAutoreturnsItemsRequest|null $patch_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $patch_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchV3SettingsAutoreturnsItemsRequest($patch_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchV3SettingsAutoreturnsItems'][0])
+    public function patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest($patch_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['patchMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
 
 
@@ -1452,12 +1452,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($patch_v3_settings_autoreturns_items_request)) {
+        if (isset($patch_marketplace_v3_fbs_settings_autoreturns_items_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_v3_settings_autoreturns_items_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_marketplace_v3_fbs_settings_autoreturns_items_request));
             } else {
-                $httpBody = $patch_v3_settings_autoreturns_items_request;
+                $httpBody = $patch_marketplace_v3_fbs_settings_autoreturns_items_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1505,7 +1505,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForpatchV3SettingsAutoreturnsItems();
+        $hostSettings = $this->getHostSettingsForpatchMarketplaceV3FbsSettingsAutoreturnsItems();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -1523,11 +1523,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation patchV3SettingsAutoreturnsItems
+     * Returns an array of host settings for Operation patchMarketplaceV3FbsSettingsAutoreturnsItems
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForpatchV3SettingsAutoreturnsItems(): array
+    protected function getHostSettingsForpatchMarketplaceV3FbsSettingsAutoreturnsItems(): array
     {
         return [
             [
@@ -1538,7 +1538,7 @@ class DefaultApi
     }
 
     /**
-     * Operation postV3SettingsAutoreturnsItems
+     * Operation postMarketplaceV3FbsSettingsAutoreturnsItems
      *
      * Получить настройки автовозврата товаров
      *
@@ -1546,23 +1546,23 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItemsRequest|null $post_v3_settings_autoreturns_items_request post_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $post_marketplace_v3_fbs_settings_autoreturns_items_request post_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
-    public function postV3SettingsAutoreturnsItems($post_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SettingsAutoreturnsItems'][0])
+    public function postMarketplaceV3FbsSettingsAutoreturnsItems($post_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        list($response) = $this->postV3SettingsAutoreturnsItemsWithHttpInfo($post_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->postMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo($post_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation postV3SettingsAutoreturnsItemsWithHttpInfo
+     * Operation postMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo
      *
      * Получить настройки автовозврата товаров
      *
@@ -1570,18 +1570,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItemsRequest|null $post_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $post_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response|\Wildberries\Sdk\OrdersFbs\Model\AutoreturnError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3SettingsAutoreturnsItemsWithHttpInfo($post_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SettingsAutoreturnsItems'][0])
+    public function postMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo($post_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        $request = $this->postV3SettingsAutoreturnsItemsRequest($post_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
+        $request = $this->postMarketplaceV3FbsSettingsAutoreturnsItemsRequest($post_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1609,7 +1609,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItems200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response',
                         $request,
                         $response,
                     );
@@ -1649,7 +1649,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItems200Response',
+                '\Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response',
                 $request,
                 $response,
             );
@@ -1658,7 +1658,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItems200Response',
+                        '\Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1695,7 +1695,7 @@ class DefaultApi
     }
 
     /**
-     * Operation postV3SettingsAutoreturnsItemsAsync
+     * Operation postMarketplaceV3FbsSettingsAutoreturnsItemsAsync
      *
      * Получить настройки автовозврата товаров
      *
@@ -1703,17 +1703,17 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItemsRequest|null $post_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $post_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3SettingsAutoreturnsItemsAsync($post_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SettingsAutoreturnsItems'][0])
+    public function postMarketplaceV3FbsSettingsAutoreturnsItemsAsync($post_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        return $this->postV3SettingsAutoreturnsItemsAsyncWithHttpInfo($post_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType)
+        return $this->postMarketplaceV3FbsSettingsAutoreturnsItemsAsyncWithHttpInfo($post_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1722,7 +1722,7 @@ class DefaultApi
     }
 
     /**
-     * Operation postV3SettingsAutoreturnsItemsAsyncWithHttpInfo
+     * Operation postMarketplaceV3FbsSettingsAutoreturnsItemsAsyncWithHttpInfo
      *
      * Получить настройки автовозврата товаров
      *
@@ -1730,18 +1730,18 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItemsRequest|null $post_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $post_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3SettingsAutoreturnsItemsAsyncWithHttpInfo($post_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SettingsAutoreturnsItems'][0])
+    public function postMarketplaceV3FbsSettingsAutoreturnsItemsAsyncWithHttpInfo($post_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
-        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItems200Response';
-        $request = $this->postV3SettingsAutoreturnsItemsRequest($post_v3_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItems200Response';
+        $request = $this->postMarketplaceV3FbsSettingsAutoreturnsItemsRequest($post_marketplace_v3_fbs_settings_autoreturns_items_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1780,21 +1780,21 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'postV3SettingsAutoreturnsItems'
+     * Create request for operation 'postMarketplaceV3FbsSettingsAutoreturnsItems'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3SettingsAutoreturnsItemsRequest|null $post_v3_settings_autoreturns_items_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest|null $post_marketplace_v3_fbs_settings_autoreturns_items_request (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3SettingsAutoreturnsItems'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3SettingsAutoreturnsItemsRequest($post_v3_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3SettingsAutoreturnsItems'][0])
+    public function postMarketplaceV3FbsSettingsAutoreturnsItemsRequest($post_marketplace_v3_fbs_settings_autoreturns_items_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postMarketplaceV3FbsSettingsAutoreturnsItems'][0])
     {
 
 
@@ -1817,12 +1817,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($post_v3_settings_autoreturns_items_request)) {
+        if (isset($post_marketplace_v3_fbs_settings_autoreturns_items_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_v3_settings_autoreturns_items_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_marketplace_v3_fbs_settings_autoreturns_items_request));
             } else {
-                $httpBody = $post_v3_settings_autoreturns_items_request;
+                $httpBody = $post_marketplace_v3_fbs_settings_autoreturns_items_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1870,7 +1870,7 @@ class DefaultApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForpostV3SettingsAutoreturnsItems();
+        $hostSettings = $this->getHostSettingsForpostMarketplaceV3FbsSettingsAutoreturnsItems();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -1888,11 +1888,11 @@ class DefaultApi
     }
 
     /**
-     * Returns an array of host settings for Operation postV3SettingsAutoreturnsItems
+     * Returns an array of host settings for Operation postMarketplaceV3FbsSettingsAutoreturnsItems
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForpostV3SettingsAutoreturnsItems(): array
+    protected function getHostSettingsForpostMarketplaceV3FbsSettingsAutoreturnsItems(): array
     {
         return [
             [

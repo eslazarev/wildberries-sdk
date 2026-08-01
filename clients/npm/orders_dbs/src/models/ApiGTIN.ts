@@ -22,17 +22,19 @@ export interface ApiGTIN {
     /**
      * GTIN
      */
-    gtin?: string;
+    gtin: string;
     /**
      * ID сборочного задания
      */
-    orderId?: number;
+    orderId: number;
 }
 
 /**
  * Check if a given object implements the ApiGTIN interface.
  */
 export function instanceOfApiGTIN(value: object): value is ApiGTIN {
+    if (!('gtin' in value) || value['gtin'] === undefined) return false;
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
     return true;
 }
 
@@ -46,8 +48,8 @@ export function ApiGTINFromJSONTyped(json: any, ignoreDiscriminator: boolean): A
     }
     return {
         
-        'gtin': json['gtin'] == null ? undefined : json['gtin'],
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
+        'gtin': json['gtin'],
+        'orderId': json['orderId'],
     };
 }
 

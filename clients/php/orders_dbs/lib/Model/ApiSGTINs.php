@@ -281,11 +281,17 @@ class ApiSGTINs implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['sgtins']) && (count($this->container['sgtins']) > 24)) {
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['sgtins'] === null) {
+            $invalidProperties[] = "'sgtins' can't be null";
+        }
+        if ((count($this->container['sgtins']) > 24)) {
             $invalidProperties[] = "invalid value for 'sgtins', number of items must be less than or equal to 24.";
         }
 
-        if (!is_null($this->container['sgtins']) && (count($this->container['sgtins']) < 1)) {
+        if ((count($this->container['sgtins']) < 1)) {
             $invalidProperties[] = "invalid value for 'sgtins', number of items must be greater than or equal to 1.";
         }
 
@@ -307,7 +313,7 @@ class ApiSGTINs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -317,7 +323,7 @@ class ApiSGTINs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */
@@ -334,7 +340,7 @@ class ApiSGTINs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sgtins
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getSgtins()
     {
@@ -344,7 +350,7 @@ class ApiSGTINs implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sgtins
      *
-     * @param string[]|null $sgtins Массив кодов маркировки Честного знака. Допускается от 16 до 135 символов для кода одной маркировки
+     * @param string[] $sgtins Массив кодов маркировки Честного знака. Допускается от 16 до 135 символов для кода одной маркировки
      *
      * @return self
      */

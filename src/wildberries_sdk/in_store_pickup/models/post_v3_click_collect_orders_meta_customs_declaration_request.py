@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from wildberries_sdk.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request_orders_inner import PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class PostV3ClickCollectOrdersMetaCustomsDeclarationRequest(BaseModel):
     """
     PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
     """ # noqa: E501
-    orders: Optional[Annotated[List[PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner], Field(max_length=1000)]] = None
+    orders: Annotated[List[PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner], Field(max_length=1000)]
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(

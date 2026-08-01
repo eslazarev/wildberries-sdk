@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.135/go",
+		UserAgent:        "OpenAPI-Generator/0.1.136/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,31 +98,31 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.GetV3SettingsAutoreturns": {
+			"DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturns": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.GetV3SettingsAutoreturnsSubcategoriesRestricted": {
+			"DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.PatchV3SettingsAutoreturns": {
+			"DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturns": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.PatchV3SettingsAutoreturnsItems": {
+			"DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturnsItems": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.PostV3SettingsAutoreturnsItems": {
+			"DefaultApiService.PostMarketplaceV3FbsSettingsAutoreturnsItems": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",

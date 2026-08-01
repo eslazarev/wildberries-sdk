@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,7 +27,7 @@ class ApiV3OrdersOrderIdMetaExpirationPutRequest(BaseModel):
     """
     ApiV3OrdersOrderIdMetaExpirationPutRequest
     """ # noqa: E501
-    expiration: Optional[StrictStr] = Field(default=None, description="Дата, до которой годен товар. Не менее 30 дней с текущей даты", json_schema_extra={"examples": ["12.09.2030"]})
+    expiration: StrictStr = Field(description="Дата, до которой годен товар. Не менее 30 дней с текущей даты", json_schema_extra={"examples": ["12.09.2030"]})
     __properties: ClassVar[List[str]] = ["expiration"]
 
     model_config = ConfigDict(

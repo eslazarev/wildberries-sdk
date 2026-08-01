@@ -281,11 +281,17 @@ class ApiUIN implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['uin']) && (mb_strlen($this->container['uin']) > 16)) {
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['uin'] === null) {
+            $invalidProperties[] = "'uin' can't be null";
+        }
+        if ((mb_strlen($this->container['uin']) > 16)) {
             $invalidProperties[] = "invalid value for 'uin', the character length must be smaller than or equal to 16.";
         }
 
-        if (!is_null($this->container['uin']) && (mb_strlen($this->container['uin']) < 16)) {
+        if ((mb_strlen($this->container['uin']) < 16)) {
             $invalidProperties[] = "invalid value for 'uin', the character length must be bigger than or equal to 16.";
         }
 
@@ -307,7 +313,7 @@ class ApiUIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -317,7 +323,7 @@ class ApiUIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */
@@ -334,7 +340,7 @@ class ApiUIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets uin
      *
-     * @return string|null
+     * @return string
      */
     public function getUin()
     {
@@ -344,7 +350,7 @@ class ApiUIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets uin
      *
-     * @param string|null $uin УИН
+     * @param string $uin УИН
      *
      * @return self
      */

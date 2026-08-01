@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiSGTINs type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &ApiSGTINs{}
 // ApiSGTINs struct for ApiSGTINs
 type ApiSGTINs struct {
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId int32 `json:"orderId"`
 	// Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки
-	Sgtins []string `json:"sgtins,omitempty"`
+	Sgtins []string `json:"sgtins"`
 }
+
+type _ApiSGTINs ApiSGTINs
 
 // NewApiSGTINs instantiates a new ApiSGTINs object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiSGTINs() *ApiSGTINs {
+func NewApiSGTINs(orderId int32, sgtins []string) *ApiSGTINs {
 	this := ApiSGTINs{}
+	this.OrderId = orderId
+	this.Sgtins = sgtins
 	return &this
 }
 
@@ -42,66 +48,50 @@ func NewApiSGTINsWithDefaults() *ApiSGTINs {
 	return &this
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *ApiSGTINs) GetOrderId() int32 {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *ApiSGTINs) GetOrderIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *ApiSGTINs) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *ApiSGTINs) SetOrderId(v int32) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
-// GetSgtins returns the Sgtins field value if set, zero value otherwise.
+// GetSgtins returns the Sgtins field value
 func (o *ApiSGTINs) GetSgtins() []string {
-	if o == nil || IsNil(o.Sgtins) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.Sgtins
 }
 
-// GetSgtinsOk returns a tuple with the Sgtins field value if set, nil otherwise
+// GetSgtinsOk returns a tuple with the Sgtins field value
 // and a boolean to check if the value has been set.
 func (o *ApiSGTINs) GetSgtinsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Sgtins) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Sgtins, true
 }
 
-// HasSgtins returns a boolean if a field has been set.
-func (o *ApiSGTINs) HasSgtins() bool {
-	if o != nil && !IsNil(o.Sgtins) {
-		return true
-	}
-
-	return false
-}
-
-// SetSgtins gets a reference to the given []string and assigns it to the Sgtins field.
+// SetSgtins sets field value
 func (o *ApiSGTINs) SetSgtins(v []string) {
 	o.Sgtins = v
 }
@@ -116,13 +106,47 @@ func (o ApiSGTINs) MarshalJSON() ([]byte, error) {
 
 func (o ApiSGTINs) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if !IsNil(o.Sgtins) {
-		toSerialize["sgtins"] = o.Sgtins
-	}
+	toSerialize["orderId"] = o.OrderId
+	toSerialize["sgtins"] = o.Sgtins
 	return toSerialize, nil
+}
+
+func (o *ApiSGTINs) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orderId",
+		"sgtins",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiSGTINs := _ApiSGTINs{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiSGTINs)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiSGTINs(varApiSGTINs)
+
+	return err
 }
 
 type NullableApiSGTINs struct {

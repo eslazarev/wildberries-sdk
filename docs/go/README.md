@@ -124,11 +124,11 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `items.DefaultApiService.PostV1UploadTaskB2bWholesale` — `POST /api/discounts-prices/v1/upload/task/b2b/wholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
-- `orders_fbs.DefaultApiService.GetV3SettingsAutoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
-- `orders_fbs.DefaultApiService.GetV3SettingsAutoreturnsSubcategoriesRestricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
-- `orders_fbs.DefaultApiService.PatchV3SettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
-- `orders_fbs.DefaultApiService.PatchV3SettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
-- `orders_fbs.DefaultApiService.PostV3SettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
+- `orders_fbs.DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturnsItems` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApiService.PostMarketplaceV3FbsSettingsAutoreturnsItems` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
 - `orders_fbs.FBSAPIService.ApiMarketplaceV3FbsOrdersArchiveGet` — `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSAPIService.ApiMarketplaceV3OrdersMetaPost` — `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.FBSAPIService.ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
@@ -168,7 +168,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DBWAPIService.GetV3DbwOrders` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях
 - `orders_dbw.DBWAPIService.GetV3DbwOrdersNew` — `GET /api/v3/dbw/orders/new` — Получить список новых сборочных заданий
-- `orders_dbw.DBWAPIService.GetV3DbwOrdersOrderIdMeta` — `GET /api/v3/dbw/orders/{orderId}/meta` — Получить идентификаторы маркировки сборочного задания
 - `orders_dbw.DBWAPIService.PatchV3DbwOrdersOrderIdCancel` — `PATCH /api/v3/dbw/orders/{orderId}/cancel` — Отменить сборочное задание
 - `orders_dbw.DBWAPIService.PatchV3DbwOrdersOrderIdConfirm` — `PATCH /api/v3/dbw/orders/{orderId}/confirm` — Перевести на сборку
 - `orders_dbw.DBWAPIService.PostV3DbwOrdersClient` — `POST /api/marketplace/v3/dbw/orders/client` — Информация о покупателе
@@ -196,7 +195,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_dbs.DBSAPIService.PostV3DbsOrdersMetaDetails` — `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSAPIService.PostV3DbsOrdersMetaGtin` — `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями
 - `orders_dbs.DBSAPIService.PostV3DbsOrdersMetaImei` — `POST /api/marketplace/v3/dbs/orders/meta/imei` — Закрепить IMEI за сборочными заданиями
-- `orders_dbs.DBSAPIService.PostV3DbsOrdersMetaInfo` — `POST /api/marketplace/v3/dbs/orders/meta/info` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSAPIService.PostV3DbsOrdersMetaSgtin` — `POST /api/marketplace/v3/dbs/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
 - `orders_dbs.DBSAPIService.PostV3DbsOrdersMetaUin` — `POST /api/marketplace/v3/dbs/orders/meta/uin` — Закрепить УИН за сборочными заданиями
 - `orders_dbs.DBSAPIService.PostV3DbsOrdersStatusCancel` — `POST /api/marketplace/v3/dbs/orders/status/cancel` — Отменить сборочные задания

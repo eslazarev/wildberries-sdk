@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiGtin {
     /// GTIN
-    #[serde(rename = "gtin", skip_serializing_if = "Option::is_none")]
-    pub gtin: Option<String>,
+    #[serde(rename = "gtin")]
+    pub gtin: String,
     /// ID сборочного задания
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
 }
 
 impl ApiGtin {
-    pub fn new() -> ApiGtin {
+    pub fn new(gtin: String, order_id: i32) -> ApiGtin {
         ApiGtin {
-            gtin: None,
-            order_id: None,
+            gtin,
+            order_id,
         }
     }
 }

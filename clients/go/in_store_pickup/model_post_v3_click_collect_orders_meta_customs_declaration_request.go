@@ -12,6 +12,8 @@ package in_store_pickup
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PostV3ClickCollectOrdersMetaCustomsDeclarationRequest type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,18 @@ var _ MappedNullable = &PostV3ClickCollectOrdersMetaCustomsDeclarationRequest{}
 
 // PostV3ClickCollectOrdersMetaCustomsDeclarationRequest struct for PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 type PostV3ClickCollectOrdersMetaCustomsDeclarationRequest struct {
-	Orders []PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner `json:"orders,omitempty"`
+	Orders []PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner `json:"orders"`
 }
+
+type _PostV3ClickCollectOrdersMetaCustomsDeclarationRequest PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 
 // NewPostV3ClickCollectOrdersMetaCustomsDeclarationRequest instantiates a new PostV3ClickCollectOrdersMetaCustomsDeclarationRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV3ClickCollectOrdersMetaCustomsDeclarationRequest() *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest {
+func NewPostV3ClickCollectOrdersMetaCustomsDeclarationRequest(orders []PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner) *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest {
 	this := PostV3ClickCollectOrdersMetaCustomsDeclarationRequest{}
+	this.Orders = orders
 	return &this
 }
 
@@ -39,34 +44,26 @@ func NewPostV3ClickCollectOrdersMetaCustomsDeclarationRequestWithDefaults() *Pos
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value
 func (o *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest) GetOrders() []PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner
 		return ret
 	}
+
 	return o.Orders
 }
 
-// GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
+// GetOrdersOk returns a tuple with the Orders field value
 // and a boolean to check if the value has been set.
 func (o *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest) GetOrdersOk() ([]PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner, bool) {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest) HasOrders() bool {
-	if o != nil && !IsNil(o.Orders) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrders gets a reference to the given []PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner and assigns it to the Orders field.
+// SetOrders sets field value
 func (o *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest) SetOrders(v []PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner) {
 	o.Orders = v
 }
@@ -81,10 +78,45 @@ func (o PostV3ClickCollectOrdersMetaCustomsDeclarationRequest) MarshalJSON() ([]
 
 func (o PostV3ClickCollectOrdersMetaCustomsDeclarationRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Orders) {
-		toSerialize["orders"] = o.Orders
-	}
+	toSerialize["orders"] = o.Orders
 	return toSerialize, nil
+}
+
+func (o *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPostV3ClickCollectOrdersMetaCustomsDeclarationRequest := _PostV3ClickCollectOrdersMetaCustomsDeclarationRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPostV3ClickCollectOrdersMetaCustomsDeclarationRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostV3ClickCollectOrdersMetaCustomsDeclarationRequest(varPostV3ClickCollectOrdersMetaCustomsDeclarationRequest)
+
+	return err
 }
 
 type NullablePostV3ClickCollectOrdersMetaCustomsDeclarationRequest struct {

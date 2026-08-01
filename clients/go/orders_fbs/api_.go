@@ -22,17 +22,17 @@ import (
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
-type ApiGetV3SettingsAutoreturnsRequest struct {
+type ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 }
 
-func (r ApiGetV3SettingsAutoreturnsRequest) Execute() (*GetV3SettingsAutoreturns200Response, *http.Response, error) {
-	return r.ApiService.GetV3SettingsAutoreturnsExecute(r)
+func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest) Execute() (*GetMarketplaceV3FbsSettingsAutoreturns200Response, *http.Response, error) {
+	return r.ApiService.GetMarketplaceV3FbsSettingsAutoreturnsExecute(r)
 }
 
 /*
-GetV3SettingsAutoreturns Получить настройки автовозврата продавца
+GetMarketplaceV3FbsSettingsAutoreturns Получить настройки автовозврата продавца
 
 Метод возвращает информацию о настройках автовозврата, установленных продавцом.
 
@@ -48,26 +48,26 @@ GetV3SettingsAutoreturns Получить настройки автовозвр�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3SettingsAutoreturnsRequest
+ @return ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest
 */
-func (a *DefaultApiService) GetV3SettingsAutoreturns(ctx context.Context) ApiGetV3SettingsAutoreturnsRequest {
-	return ApiGetV3SettingsAutoreturnsRequest{
+func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturns(ctx context.Context) ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest {
+	return ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3SettingsAutoreturns200Response
-func (a *DefaultApiService) GetV3SettingsAutoreturnsExecute(r ApiGetV3SettingsAutoreturnsRequest) (*GetV3SettingsAutoreturns200Response, *http.Response, error) {
+//  @return GetMarketplaceV3FbsSettingsAutoreturns200Response
+func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest) (*GetMarketplaceV3FbsSettingsAutoreturns200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetV3SettingsAutoreturns200Response
+		localVarReturnValue  *GetMarketplaceV3FbsSettingsAutoreturns200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV3SettingsAutoreturns")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturns")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -167,7 +167,7 @@ func (a *DefaultApiService) GetV3SettingsAutoreturnsExecute(r ApiGetV3SettingsAu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest struct {
+type ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	next *int64
@@ -175,23 +175,23 @@ type ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest struct {
 }
 
 // Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
-func (r ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest) Next(next int64) ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest {
+func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest) Next(next int64) ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest {
 	r.next = &next
 	return r
 }
 
 // Количество предметов в ответе
-func (r ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest) Limit(limit int32) ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest {
+func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest) Limit(limit int32) ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest) Execute() (*GetV3SettingsAutoreturnsSubcategoriesRestricted200Response, *http.Response, error) {
-	return r.ApiService.GetV3SettingsAutoreturnsSubcategoriesRestrictedExecute(r)
+func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest) Execute() (*GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response, *http.Response, error) {
+	return r.ApiService.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedExecute(r)
 }
 
 /*
-GetV3SettingsAutoreturnsSubcategoriesRestricted Получить предметы, которые не хранятся на складах WB
+GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предметы, которые не хранятся на складах WB
 
 Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
 
@@ -207,26 +207,26 @@ GetV3SettingsAutoreturnsSubcategoriesRestricted Получить предмет�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest
+ @return ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
 */
-func (a *DefaultApiService) GetV3SettingsAutoreturnsSubcategoriesRestricted(ctx context.Context) ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest {
-	return ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest{
+func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(ctx context.Context) ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest {
+	return ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3SettingsAutoreturnsSubcategoriesRestricted200Response
-func (a *DefaultApiService) GetV3SettingsAutoreturnsSubcategoriesRestrictedExecute(r ApiGetV3SettingsAutoreturnsSubcategoriesRestrictedRequest) (*GetV3SettingsAutoreturnsSubcategoriesRestricted200Response, *http.Response, error) {
+//  @return GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response
+func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedExecute(r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest) (*GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetV3SettingsAutoreturnsSubcategoriesRestricted200Response
+		localVarReturnValue  *GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV3SettingsAutoreturnsSubcategoriesRestricted")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -351,23 +351,23 @@ func (a *DefaultApiService) GetV3SettingsAutoreturnsSubcategoriesRestrictedExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchV3SettingsAutoreturnsRequest struct {
+type ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	patchV3SettingsAutoreturnsRequest *PatchV3SettingsAutoreturnsRequest
+	patchMarketplaceV3FbsSettingsAutoreturnsRequest *PatchMarketplaceV3FbsSettingsAutoreturnsRequest
 }
 
-func (r ApiPatchV3SettingsAutoreturnsRequest) PatchV3SettingsAutoreturnsRequest(patchV3SettingsAutoreturnsRequest PatchV3SettingsAutoreturnsRequest) ApiPatchV3SettingsAutoreturnsRequest {
-	r.patchV3SettingsAutoreturnsRequest = &patchV3SettingsAutoreturnsRequest
+func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest) PatchMarketplaceV3FbsSettingsAutoreturnsRequest(patchMarketplaceV3FbsSettingsAutoreturnsRequest PatchMarketplaceV3FbsSettingsAutoreturnsRequest) ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest {
+	r.patchMarketplaceV3FbsSettingsAutoreturnsRequest = &patchMarketplaceV3FbsSettingsAutoreturnsRequest
 	return r
 }
 
-func (r ApiPatchV3SettingsAutoreturnsRequest) Execute() (*http.Response, error) {
-	return r.ApiService.PatchV3SettingsAutoreturnsExecute(r)
+func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest) Execute() (*http.Response, error) {
+	return r.ApiService.PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r)
 }
 
 /*
-PatchV3SettingsAutoreturns Обновить настройки автовозврата продавца
+PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки автовозврата продавца
 
 Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
 
@@ -383,24 +383,24 @@ PatchV3SettingsAutoreturns Обновить настройки автовозв�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchV3SettingsAutoreturnsRequest
+ @return ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest
 */
-func (a *DefaultApiService) PatchV3SettingsAutoreturns(ctx context.Context) ApiPatchV3SettingsAutoreturnsRequest {
-	return ApiPatchV3SettingsAutoreturnsRequest{
+func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturns(ctx context.Context) ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest {
+	return ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *DefaultApiService) PatchV3SettingsAutoreturnsExecute(r ApiPatchV3SettingsAutoreturnsRequest) (*http.Response, error) {
+func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchV3SettingsAutoreturns")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturns")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -429,7 +429,7 @@ func (a *DefaultApiService) PatchV3SettingsAutoreturnsExecute(r ApiPatchV3Settin
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.patchV3SettingsAutoreturnsRequest
+	localVarPostBody = r.patchMarketplaceV3FbsSettingsAutoreturnsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -504,23 +504,23 @@ func (a *DefaultApiService) PatchV3SettingsAutoreturnsExecute(r ApiPatchV3Settin
 	return localVarHTTPResponse, nil
 }
 
-type ApiPatchV3SettingsAutoreturnsItemsRequest struct {
+type ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	patchV3SettingsAutoreturnsItemsRequest *PatchV3SettingsAutoreturnsItemsRequest
+	patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest *PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 }
 
-func (r ApiPatchV3SettingsAutoreturnsItemsRequest) PatchV3SettingsAutoreturnsItemsRequest(patchV3SettingsAutoreturnsItemsRequest PatchV3SettingsAutoreturnsItemsRequest) ApiPatchV3SettingsAutoreturnsItemsRequest {
-	r.patchV3SettingsAutoreturnsItemsRequest = &patchV3SettingsAutoreturnsItemsRequest
+func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest(patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
+	r.patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = &patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 	return r
 }
 
-func (r ApiPatchV3SettingsAutoreturnsItemsRequest) Execute() (*PatchV3SettingsAutoreturnsItems200Response, *http.Response, error) {
-	return r.ApiService.PatchV3SettingsAutoreturnsItemsExecute(r)
+func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) Execute() (*PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response, *http.Response, error) {
+	return r.ApiService.PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute(r)
 }
 
 /*
-PatchV3SettingsAutoreturnsItems Обновить настройки автовозврата товаров
+PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройки автовозврата товаров
 
 Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
 
@@ -536,26 +536,26 @@ PatchV3SettingsAutoreturnsItems Обновить настройки автово
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchV3SettingsAutoreturnsItemsRequest
+ @return ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 */
-func (a *DefaultApiService) PatchV3SettingsAutoreturnsItems(ctx context.Context) ApiPatchV3SettingsAutoreturnsItemsRequest {
-	return ApiPatchV3SettingsAutoreturnsItemsRequest{
+func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItems(ctx context.Context) ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
+	return ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PatchV3SettingsAutoreturnsItems200Response
-func (a *DefaultApiService) PatchV3SettingsAutoreturnsItemsExecute(r ApiPatchV3SettingsAutoreturnsItemsRequest) (*PatchV3SettingsAutoreturnsItems200Response, *http.Response, error) {
+//  @return PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response
+func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute(r ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) (*PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PatchV3SettingsAutoreturnsItems200Response
+		localVarReturnValue  *PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchV3SettingsAutoreturnsItems")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturnsItems")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -584,7 +584,7 @@ func (a *DefaultApiService) PatchV3SettingsAutoreturnsItemsExecute(r ApiPatchV3S
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.patchV3SettingsAutoreturnsItemsRequest
+	localVarPostBody = r.patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -668,23 +668,23 @@ func (a *DefaultApiService) PatchV3SettingsAutoreturnsItemsExecute(r ApiPatchV3S
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostV3SettingsAutoreturnsItemsRequest struct {
+type ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	postV3SettingsAutoreturnsItemsRequest *PostV3SettingsAutoreturnsItemsRequest
+	postMarketplaceV3FbsSettingsAutoreturnsItemsRequest *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 }
 
-func (r ApiPostV3SettingsAutoreturnsItemsRequest) PostV3SettingsAutoreturnsItemsRequest(postV3SettingsAutoreturnsItemsRequest PostV3SettingsAutoreturnsItemsRequest) ApiPostV3SettingsAutoreturnsItemsRequest {
-	r.postV3SettingsAutoreturnsItemsRequest = &postV3SettingsAutoreturnsItemsRequest
+func (r ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest(postMarketplaceV3FbsSettingsAutoreturnsItemsRequest PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
+	r.postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = &postMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 	return r
 }
 
-func (r ApiPostV3SettingsAutoreturnsItemsRequest) Execute() (*PostV3SettingsAutoreturnsItems200Response, *http.Response, error) {
-	return r.ApiService.PostV3SettingsAutoreturnsItemsExecute(r)
+func (r ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) Execute() (*PostMarketplaceV3FbsSettingsAutoreturnsItems200Response, *http.Response, error) {
+	return r.ApiService.PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(r)
 }
 
 /*
-PostV3SettingsAutoreturnsItems Получить настройки автовозврата товаров
+PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки автовозврата товаров
 
 Метод возвращает настройки автовозврата товаров.
 
@@ -700,26 +700,26 @@ PostV3SettingsAutoreturnsItems Получить настройки автово�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3SettingsAutoreturnsItemsRequest
+ @return ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 */
-func (a *DefaultApiService) PostV3SettingsAutoreturnsItems(ctx context.Context) ApiPostV3SettingsAutoreturnsItemsRequest {
-	return ApiPostV3SettingsAutoreturnsItemsRequest{
+func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItems(ctx context.Context) ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
+	return ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3SettingsAutoreturnsItems200Response
-func (a *DefaultApiService) PostV3SettingsAutoreturnsItemsExecute(r ApiPostV3SettingsAutoreturnsItemsRequest) (*PostV3SettingsAutoreturnsItems200Response, *http.Response, error) {
+//  @return PostMarketplaceV3FbsSettingsAutoreturnsItems200Response
+func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(r ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) (*PostMarketplaceV3FbsSettingsAutoreturnsItems200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PostV3SettingsAutoreturnsItems200Response
+		localVarReturnValue  *PostMarketplaceV3FbsSettingsAutoreturnsItems200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3SettingsAutoreturnsItems")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostMarketplaceV3FbsSettingsAutoreturnsItems")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -748,7 +748,7 @@ func (a *DefaultApiService) PostV3SettingsAutoreturnsItemsExecute(r ApiPostV3Set
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.postV3SettingsAutoreturnsItemsRequest
+	localVarPostBody = r.postMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrdersRequestV2 {
     /// Список ID сборочных заданий
-    #[serde(rename = "ordersIds", skip_serializing_if = "Option::is_none")]
-    pub orders_ids: Option<Vec<i32>>,
+    #[serde(rename = "ordersIds")]
+    pub orders_ids: Vec<i32>,
 }
 
 impl ApiOrdersRequestV2 {
-    pub fn new() -> ApiOrdersRequestV2 {
+    pub fn new(orders_ids: Vec<i32>) -> ApiOrdersRequestV2 {
         ApiOrdersRequestV2 {
-            orders_ids: None,
+            orders_ids,
         }
     }
 }

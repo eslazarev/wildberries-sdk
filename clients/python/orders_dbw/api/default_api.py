@@ -29,7 +29,6 @@ from wildberries_sdk.orders_dbw.models.delivery_dates_info_resp import DeliveryD
 from wildberries_sdk.orders_dbw.models.delivery_dates_request import DeliveryDatesRequest
 from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders200_response import GetV3DbwOrders200Response
 from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders_new200_response import GetV3DbwOrdersNew200Response
-from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders_order_id_meta200_response import GetV3DbwOrdersOrderIdMeta200Response
 from wildberries_sdk.orders_dbw.models.order_courier_info_resp import OrderCourierInfoResp
 from wildberries_sdk.orders_dbw.models.orders_request_api import OrdersRequestAPI
 from wildberries_sdk.orders_dbw.models.post_v3_dbw_orders_status200_response import PostV3DbwOrdersStatus200Response
@@ -638,292 +637,6 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v3/dbw/orders/new',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_v3_dbw_orders_order_id_meta(
-        self,
-        order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetV3DbwOrdersOrderIdMeta200Response:
-        """(Deprecated) Получить идентификаторы маркировки сборочного задания
-
-        Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-
-        :param order_id: ID сборочного задания (required)
-        :type order_id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v3/dbw/orders/{orderId}/meta is deprecated.", DeprecationWarning)
-
-        _param = self._get_v3_dbw_orders_order_id_meta_serialize(
-            order_id=order_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersOrderIdMeta200Response",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def get_v3_dbw_orders_order_id_meta_with_http_info(
-        self,
-        order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetV3DbwOrdersOrderIdMeta200Response]:
-        """(Deprecated) Получить идентификаторы маркировки сборочного задания
-
-        Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-
-        :param order_id: ID сборочного задания (required)
-        :type order_id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v3/dbw/orders/{orderId}/meta is deprecated.", DeprecationWarning)
-
-        _param = self._get_v3_dbw_orders_order_id_meta_serialize(
-            order_id=order_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersOrderIdMeta200Response",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_v3_dbw_orders_order_id_meta_without_preload_content(
-        self,
-        order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> RESTResponseType:
-        """(Deprecated) Получить идентификаторы маркировки сборочного задания
-
-        Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-
-        :param order_id: ID сборочного задания (required)
-        :type order_id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("GET /api/v3/dbw/orders/{orderId}/meta is deprecated.", DeprecationWarning)
-
-        _param = self._get_v3_dbw_orders_order_id_meta_serialize(
-            order_id=order_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersOrderIdMeta200Response",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_v3_dbw_orders_order_id_meta_serialize(
-        self,
-        order_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
-        _host = _hosts[_host_index]
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if order_id is not None:
-            _path_params['orderId'] = order_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'HeaderApiKey'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/dbw/orders/{orderId}/meta',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2686,7 +2399,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbw_orders_meta_details(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2704,7 +2417,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2758,7 +2471,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbw_orders_meta_details_with_http_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2776,7 +2489,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2830,7 +2543,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbw_orders_meta_details_without_preload_content(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2848,7 +2561,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4203,7 +3916,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_gtin(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_gtin_request: Optional[PutV3DbwOrdersOrderIdMetaGtinRequest] = None,
+        put_v3_dbw_orders_order_id_meta_gtin_request: PutV3DbwOrdersOrderIdMetaGtinRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4223,7 +3936,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_gtin_request:
+        :param put_v3_dbw_orders_order_id_meta_gtin_request: (required)
         :type put_v3_dbw_orders_order_id_meta_gtin_request: PutV3DbwOrdersOrderIdMetaGtinRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4281,7 +3994,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_gtin_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_gtin_request: Optional[PutV3DbwOrdersOrderIdMetaGtinRequest] = None,
+        put_v3_dbw_orders_order_id_meta_gtin_request: PutV3DbwOrdersOrderIdMetaGtinRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4301,7 +4014,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_gtin_request:
+        :param put_v3_dbw_orders_order_id_meta_gtin_request: (required)
         :type put_v3_dbw_orders_order_id_meta_gtin_request: PutV3DbwOrdersOrderIdMetaGtinRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4359,7 +4072,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_gtin_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_gtin_request: Optional[PutV3DbwOrdersOrderIdMetaGtinRequest] = None,
+        put_v3_dbw_orders_order_id_meta_gtin_request: PutV3DbwOrdersOrderIdMetaGtinRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4379,7 +4092,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_gtin_request:
+        :param put_v3_dbw_orders_order_id_meta_gtin_request: (required)
         :type put_v3_dbw_orders_order_id_meta_gtin_request: PutV3DbwOrdersOrderIdMetaGtinRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4517,7 +4230,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_imei(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_imei_request: Optional[PutV3DbwOrdersOrderIdMetaImeiRequest] = None,
+        put_v3_dbw_orders_order_id_meta_imei_request: PutV3DbwOrdersOrderIdMetaImeiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4537,7 +4250,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_imei_request:
+        :param put_v3_dbw_orders_order_id_meta_imei_request: (required)
         :type put_v3_dbw_orders_order_id_meta_imei_request: PutV3DbwOrdersOrderIdMetaImeiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4595,7 +4308,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_imei_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_imei_request: Optional[PutV3DbwOrdersOrderIdMetaImeiRequest] = None,
+        put_v3_dbw_orders_order_id_meta_imei_request: PutV3DbwOrdersOrderIdMetaImeiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4615,7 +4328,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_imei_request:
+        :param put_v3_dbw_orders_order_id_meta_imei_request: (required)
         :type put_v3_dbw_orders_order_id_meta_imei_request: PutV3DbwOrdersOrderIdMetaImeiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4673,7 +4386,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_imei_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_imei_request: Optional[PutV3DbwOrdersOrderIdMetaImeiRequest] = None,
+        put_v3_dbw_orders_order_id_meta_imei_request: PutV3DbwOrdersOrderIdMetaImeiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4693,7 +4406,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_imei_request:
+        :param put_v3_dbw_orders_order_id_meta_imei_request: (required)
         :type put_v3_dbw_orders_order_id_meta_imei_request: PutV3DbwOrdersOrderIdMetaImeiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4831,7 +4544,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_uin(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_uin_request: Optional[PutV3DbwOrdersOrderIdMetaUinRequest] = None,
+        put_v3_dbw_orders_order_id_meta_uin_request: PutV3DbwOrdersOrderIdMetaUinRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4851,7 +4564,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_uin_request:
+        :param put_v3_dbw_orders_order_id_meta_uin_request: (required)
         :type put_v3_dbw_orders_order_id_meta_uin_request: PutV3DbwOrdersOrderIdMetaUinRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4909,7 +4622,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_uin_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_uin_request: Optional[PutV3DbwOrdersOrderIdMetaUinRequest] = None,
+        put_v3_dbw_orders_order_id_meta_uin_request: PutV3DbwOrdersOrderIdMetaUinRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4929,7 +4642,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_uin_request:
+        :param put_v3_dbw_orders_order_id_meta_uin_request: (required)
         :type put_v3_dbw_orders_order_id_meta_uin_request: PutV3DbwOrdersOrderIdMetaUinRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4987,7 +4700,7 @@ class DefaultApi:
     def put_v3_dbw_orders_order_id_meta_uin_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        put_v3_dbw_orders_order_id_meta_uin_request: Optional[PutV3DbwOrdersOrderIdMetaUinRequest] = None,
+        put_v3_dbw_orders_order_id_meta_uin_request: PutV3DbwOrdersOrderIdMetaUinRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5007,7 +4720,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param put_v3_dbw_orders_order_id_meta_uin_request:
+        :param put_v3_dbw_orders_order_id_meta_uin_request: (required)
         :type put_v3_dbw_orders_order_id_meta_uin_request: PutV3DbwOrdersOrderIdMetaUinRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiSgtins {
     /// ID сборочного задания
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
     /// Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки
-    #[serde(rename = "sgtins", skip_serializing_if = "Option::is_none")]
-    pub sgtins: Option<Vec<String>>,
+    #[serde(rename = "sgtins")]
+    pub sgtins: Vec<String>,
 }
 
 impl ApiSgtins {
-    pub fn new() -> ApiSgtins {
+    pub fn new(order_id: i32, sgtins: Vec<String>) -> ApiSgtins {
         ApiSgtins {
-            order_id: None,
-            sgtins: None,
+            order_id,
+            sgtins,
         }
     }
 }

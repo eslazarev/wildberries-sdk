@@ -300,6 +300,9 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
         $allowedValues = $this->getKeyAllowableValues();
         if (!is_null($this->container['key']) && !in_array($this->container['key'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -309,7 +312,10 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
             );
         }
 
-        if (!is_null($this->container['orders_ids']) && (count($this->container['orders_ids']) > 1000)) {
+        if ($this->container['orders_ids'] === null) {
+            $invalidProperties[] = "'orders_ids' can't be null";
+        }
+        if ((count($this->container['orders_ids']) > 1000)) {
             $invalidProperties[] = "invalid value for 'orders_ids', number of items must be less than or equal to 1000.";
         }
 
@@ -331,7 +337,7 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets key
      *
-     * @return string|null
+     * @return string
      */
     public function getKey()
     {
@@ -341,7 +347,7 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets key
      *
-     * @param string|null $key Название идентификатора маркировки для удаления. Передаётся только одно значение
+     * @param string $key Название идентификатора маркировки для удаления. Передаётся только одно значение
      *
      * @return self
      */
@@ -368,7 +374,7 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets orders_ids
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getOrdersIds()
     {
@@ -378,7 +384,7 @@ class ApiOrdersMetaDleteRequestV2 implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets orders_ids
      *
-     * @param int[]|null $orders_ids Список ID сборочных заданий
+     * @param int[] $orders_ids Список ID сборочных заданий
      *
      * @return self
      */

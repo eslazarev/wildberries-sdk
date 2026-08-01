@@ -329,6 +329,9 @@ func (a *FBSAPIService) ApiMarketplaceV3OrdersMetaPostExecute(r ApiApiMarketplac
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.v3GetMetaMultiRequest == nil {
+		return localVarReturnValue, nil, reportError("v3GetMetaMultiRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -530,6 +533,9 @@ func (a *FBSAPIService) ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutEx
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest == nil {
+		return nil, reportError("apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1962,10 +1968,11 @@ func (a *FBSAPIService) ApiV3OrdersOrderIdMetaDeleteExecute(r ApiApiV3OrdersOrde
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.key != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "key", r.key, "form", "")
+	if r.key == nil {
+		return nil, reportError("key is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "key", r.key, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -2157,6 +2164,9 @@ func (a *FBSAPIService) ApiV3OrdersOrderIdMetaExpirationPutExecute(r ApiApiV3Ord
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiV3OrdersOrderIdMetaExpirationPutRequest == nil {
+		return nil, reportError("apiV3OrdersOrderIdMetaExpirationPutRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2360,6 +2370,9 @@ func (a *FBSAPIService) ApiV3OrdersOrderIdMetaGtinPutExecute(r ApiApiV3OrdersOrd
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiV3OrdersOrderIdMetaGtinPutRequest == nil {
+		return nil, reportError("apiV3OrdersOrderIdMetaGtinPutRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2552,6 +2565,9 @@ func (a *FBSAPIService) ApiV3OrdersOrderIdMetaImeiPutExecute(r ApiApiV3OrdersOrd
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiV3OrdersOrderIdMetaImeiPutRequest == nil {
+		return nil, reportError("apiV3OrdersOrderIdMetaImeiPutRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2746,6 +2762,9 @@ func (a *FBSAPIService) ApiV3OrdersOrderIdMetaSgtinPutExecute(r ApiApiV3OrdersOr
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiV3OrdersOrderIdMetaSgtinPutRequest == nil {
+		return nil, reportError("apiV3OrdersOrderIdMetaSgtinPutRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2949,6 +2968,9 @@ func (a *FBSAPIService) ApiV3OrdersOrderIdMetaUinPutExecute(r ApiApiV3OrdersOrde
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiV3OrdersOrderIdMetaUinPutRequest == nil {
+		return nil, reportError("apiV3OrdersOrderIdMetaUinPutRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

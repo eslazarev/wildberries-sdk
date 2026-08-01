@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiOrdersMetaDleteRequestV2 {
     /// Название идентификатора маркировки для удаления. Передаётся только одно значение
-    #[serde(rename = "key", skip_serializing_if = "Option::is_none")]
-    pub key: Option<Key>,
+    #[serde(rename = "key")]
+    pub key: Key,
     /// Список ID сборочных заданий
-    #[serde(rename = "ordersIds", skip_serializing_if = "Option::is_none")]
-    pub orders_ids: Option<Vec<i32>>,
+    #[serde(rename = "ordersIds")]
+    pub orders_ids: Vec<i32>,
 }
 
 impl ApiOrdersMetaDleteRequestV2 {
-    pub fn new() -> ApiOrdersMetaDleteRequestV2 {
+    pub fn new(key: Key, orders_ids: Vec<i32>) -> ApiOrdersMetaDleteRequestV2 {
         ApiOrdersMetaDleteRequestV2 {
-            key: None,
-            orders_ids: None,
+            key,
+            orders_ids,
         }
     }
 }

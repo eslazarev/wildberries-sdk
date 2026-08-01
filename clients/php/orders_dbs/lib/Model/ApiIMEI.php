@@ -281,11 +281,17 @@ class ApiIMEI implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['imei']) && (mb_strlen($this->container['imei']) > 15)) {
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['imei'] === null) {
+            $invalidProperties[] = "'imei' can't be null";
+        }
+        if ((mb_strlen($this->container['imei']) > 15)) {
             $invalidProperties[] = "invalid value for 'imei', the character length must be smaller than or equal to 15.";
         }
 
-        if (!is_null($this->container['imei']) && (mb_strlen($this->container['imei']) < 15)) {
+        if ((mb_strlen($this->container['imei']) < 15)) {
             $invalidProperties[] = "invalid value for 'imei', the character length must be bigger than or equal to 15.";
         }
 
@@ -307,7 +313,7 @@ class ApiIMEI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -317,7 +323,7 @@ class ApiIMEI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */
@@ -334,7 +340,7 @@ class ApiIMEI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets imei
      *
-     * @return string|null
+     * @return string
      */
     public function getImei()
     {
@@ -344,7 +350,7 @@ class ApiIMEI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets imei
      *
-     * @param string|null $imei IMEI
+     * @param string $imei IMEI
      *
      * @return self
      */

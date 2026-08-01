@@ -398,7 +398,7 @@ class PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner implement
     /**
      * Sets origin_country_code
      *
-     * @param string $origin_country_code Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+     * @param string $origin_country_code Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи \"isB2b\":true
      *
      * @return self
      */

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.135"
+__version__ = "0.1.136"
 
 # Define package exports
 __all__ = [
@@ -42,8 +42,6 @@ __all__ = [
     "ApiOrderCodeRequest",
     "ApiOrderGroupInner",
     "ApiOrderGroupsRequest",
-    "ApiOrderMetaV2",
-    "ApiOrderMetaV2CustomsDeclaration",
     "ApiOrderStatusV2",
     "ApiOrderStatusesV2",
     "ApiOrdersCodeRequest",
@@ -54,7 +52,6 @@ __all__ = [
     "ApiOrdersMetaDetailsResponseOrdersInner",
     "ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner",
     "ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner",
-    "ApiOrdersMetaResponse",
     "ApiOrdersRequestV2",
     "ApiOrdersSGTINsSetRequest",
     "ApiOrdersUINSetRequest",
@@ -120,8 +117,6 @@ from wildberries_sdk.orders_dbs.models.api_imei import ApiIMEI as ApiIMEI
 from wildberries_sdk.orders_dbs.models.api_order_code_request import ApiOrderCodeRequest as ApiOrderCodeRequest
 from wildberries_sdk.orders_dbs.models.api_order_group_inner import ApiOrderGroupInner as ApiOrderGroupInner
 from wildberries_sdk.orders_dbs.models.api_order_groups_request import ApiOrderGroupsRequest as ApiOrderGroupsRequest
-from wildberries_sdk.orders_dbs.models.api_order_meta_v2 import ApiOrderMetaV2 as ApiOrderMetaV2
-from wildberries_sdk.orders_dbs.models.api_order_meta_v2_customs_declaration import ApiOrderMetaV2CustomsDeclaration as ApiOrderMetaV2CustomsDeclaration
 from wildberries_sdk.orders_dbs.models.api_order_status_v2 import ApiOrderStatusV2 as ApiOrderStatusV2
 from wildberries_sdk.orders_dbs.models.api_order_statuses_v2 import ApiOrderStatusesV2 as ApiOrderStatusesV2
 from wildberries_sdk.orders_dbs.models.api_orders_code_request import ApiOrdersCodeRequest as ApiOrdersCodeRequest
@@ -132,7 +127,6 @@ from wildberries_sdk.orders_dbs.models.api_orders_meta_details_response import A
 from wildberries_sdk.orders_dbs.models.api_orders_meta_details_response_orders_inner import ApiOrdersMetaDetailsResponseOrdersInner as ApiOrdersMetaDetailsResponseOrdersInner
 from wildberries_sdk.orders_dbs.models.api_orders_meta_details_response_orders_inner_errors_inner import ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner as ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
 from wildberries_sdk.orders_dbs.models.api_orders_meta_details_response_orders_inner_meta_details_inner import ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner as ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
-from wildberries_sdk.orders_dbs.models.api_orders_meta_response import ApiOrdersMetaResponse as ApiOrdersMetaResponse
 from wildberries_sdk.orders_dbs.models.api_orders_request_v2 import ApiOrdersRequestV2 as ApiOrdersRequestV2
 from wildberries_sdk.orders_dbs.models.api_orders_sgtins_set_request import ApiOrdersSGTINsSetRequest as ApiOrdersSGTINsSetRequest
 from wildberries_sdk.orders_dbs.models.api_orders_uin_set_request import ApiOrdersUINSetRequest as ApiOrdersUINSetRequest

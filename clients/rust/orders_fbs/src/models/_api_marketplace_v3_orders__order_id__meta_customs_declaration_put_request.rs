@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
     /// Номер ДТ
-    #[serde(rename = "customsDeclaration", skip_serializing_if = "Option::is_none")]
-    pub customs_declaration: Option<String>,
+    #[serde(rename = "customsDeclaration")]
+    pub customs_declaration: String,
 }
 
 impl ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
-    pub fn new() -> ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
+    pub fn new(customs_declaration: String) -> ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
         ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
-            customs_declaration: None,
+            customs_declaration,
         }
     }
 }

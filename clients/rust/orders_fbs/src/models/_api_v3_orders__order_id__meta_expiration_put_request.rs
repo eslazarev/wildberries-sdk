@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiV3OrdersOrderIdMetaExpirationPutRequest {
     /// Дата, до которой годен товар. Не менее 30 дней с текущей даты
-    #[serde(rename = "expiration", skip_serializing_if = "Option::is_none")]
-    pub expiration: Option<String>,
+    #[serde(rename = "expiration")]
+    pub expiration: String,
 }
 
 impl ApiV3OrdersOrderIdMetaExpirationPutRequest {
-    pub fn new() -> ApiV3OrdersOrderIdMetaExpirationPutRequest {
+    pub fn new(expiration: String) -> ApiV3OrdersOrderIdMetaExpirationPutRequest {
         ApiV3OrdersOrderIdMetaExpirationPutRequest {
-            expiration: None,
+            expiration,
         }
     }
 }

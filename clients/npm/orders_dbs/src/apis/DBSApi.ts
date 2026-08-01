@@ -69,11 +69,6 @@ import {
     ApiOrdersMetaDetailsResponseToJSON,
 } from '../models/ApiOrdersMetaDetailsResponse';
 import {
-    type ApiOrdersMetaResponse,
-    ApiOrdersMetaResponseFromJSON,
-    ApiOrdersMetaResponseToJSON,
-} from '../models/ApiOrdersMetaResponse';
-import {
     type ApiOrdersRequestV2,
     ApiOrdersRequestV2FromJSON,
     ApiOrdersRequestV2ToJSON,
@@ -216,84 +211,77 @@ export interface PostV3DbsOrdersMetaCustomsDeclarationOperationRequest {
     /**
      * 
      */
-    postV3DbsOrdersMetaCustomsDeclarationRequest?: PostV3DbsOrdersMetaCustomsDeclarationRequest;
+    postV3DbsOrdersMetaCustomsDeclarationRequest: PostV3DbsOrdersMetaCustomsDeclarationRequest;
 }
 
 export interface PostV3DbsOrdersMetaDeleteRequest {
     /**
      * 
      */
-    apiOrdersMetaDeleteRequest?: ApiOrdersMetaDeleteRequest;
+    apiOrdersMetaDeleteRequest: ApiOrdersMetaDeleteRequest;
 }
 
 export interface PostV3DbsOrdersMetaDetailsRequest {
     /**
      * 
      */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersMetaGtinRequest {
     /**
      * 
      */
-    apiOrdersGTINSetRequest?: ApiOrdersGTINSetRequest;
+    apiOrdersGTINSetRequest: ApiOrdersGTINSetRequest;
 }
 
 export interface PostV3DbsOrdersMetaImeiRequest {
     /**
      * 
      */
-    apiOrdersIMEISetRequest?: ApiOrdersIMEISetRequest;
-}
-
-export interface PostV3DbsOrdersMetaInfoRequest {
-    /**
-     * 
-     */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest;
 }
 
 export interface PostV3DbsOrdersMetaSgtinRequest {
     /**
      * 
      */
-    apiOrdersSGTINsSetRequest?: ApiOrdersSGTINsSetRequest;
+    apiOrdersSGTINsSetRequest: ApiOrdersSGTINsSetRequest;
 }
 
 export interface PostV3DbsOrdersMetaUinRequest {
     /**
      * 
      */
-    apiOrdersUINSetRequest?: ApiOrdersUINSetRequest;
+    apiOrdersUINSetRequest: ApiOrdersUINSetRequest;
 }
 
 export interface PostV3DbsOrdersStatusCancelRequest {
     /**
      * 
      */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusConfirmRequest {
     /**
      * 
      */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusDeliverRequest {
     /**
      * 
      */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusInfoRequest {
     /**
      * 
      */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbsOrdersStatusReceiveRequest {
@@ -680,6 +668,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersMetaCustomsDeclaration without sending the request
      */
     async postV3DbsOrdersMetaCustomsDeclarationRequestOpts(requestParameters: PostV3DbsOrdersMetaCustomsDeclarationOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV3DbsOrdersMetaCustomsDeclarationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV3DbsOrdersMetaCustomsDeclarationRequest',
+                'Required parameter "postV3DbsOrdersMetaCustomsDeclarationRequest" was null or undefined when calling postV3DbsOrdersMetaCustomsDeclaration().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -703,7 +698,7 @@ export class DBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номера ДТ можно только за сборочными заданиями в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - сборочное задание находится в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить номера ДТ за сборочными заданиями
      */
     async postV3DbsOrdersMetaCustomsDeclarationRaw(requestParameters: PostV3DbsOrdersMetaCustomsDeclarationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiStatusSetResponses>> {
@@ -714,10 +709,10 @@ export class DBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номера ДТ можно только за сборочными заданиями в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - сборочное задание находится в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить номера ДТ за сборочными заданиями
      */
-    async postV3DbsOrdersMetaCustomsDeclaration(requestParameters: PostV3DbsOrdersMetaCustomsDeclarationOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersMetaCustomsDeclaration(requestParameters: PostV3DbsOrdersMetaCustomsDeclarationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersMetaCustomsDeclarationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -726,6 +721,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersMetaDelete without sending the request
      */
     async postV3DbsOrdersMetaDeleteRequestOpts(requestParameters: PostV3DbsOrdersMetaDeleteRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersMetaDeleteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersMetaDeleteRequest',
+                'Required parameter "apiOrdersMetaDeleteRequest" was null or undefined when calling postV3DbsOrdersMetaDelete().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -763,7 +765,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Удалить идентификаторы маркировки сборочных заданий
      */
-    async postV3DbsOrdersMetaDelete(requestParameters: PostV3DbsOrdersMetaDeleteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersMetaDelete(requestParameters: PostV3DbsOrdersMetaDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersMetaDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -772,6 +774,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersMetaDetails without sending the request
      */
     async postV3DbsOrdersMetaDetailsRequestOpts(requestParameters: PostV3DbsOrdersMetaDetailsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3DbsOrdersMetaDetails().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -809,7 +818,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить идентификаторы маркировки сборочных заданий
      */
-    async postV3DbsOrdersMetaDetails(requestParameters: PostV3DbsOrdersMetaDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
+    async postV3DbsOrdersMetaDetails(requestParameters: PostV3DbsOrdersMetaDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
         const response = await this.postV3DbsOrdersMetaDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -818,6 +827,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersMetaGtin without sending the request
      */
     async postV3DbsOrdersMetaGtinRequestOpts(requestParameters: PostV3DbsOrdersMetaGtinRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersGTINSetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersGTINSetRequest',
+                'Required parameter "apiOrdersGTINSetRequest" was null or undefined when calling postV3DbsOrdersMetaGtin().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -855,7 +871,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN. <br> Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить GTIN за сборочными заданиями
      */
-    async postV3DbsOrdersMetaGtin(requestParameters: PostV3DbsOrdersMetaGtinRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersMetaGtin(requestParameters: PostV3DbsOrdersMetaGtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersMetaGtinRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -864,6 +880,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersMetaImei without sending the request
      */
     async postV3DbsOrdersMetaImeiRequestOpts(requestParameters: PostV3DbsOrdersMetaImeiRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersIMEISetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersIMEISetRequest',
+                'Required parameter "apiOrdersIMEISetRequest" was null or undefined when calling postV3DbsOrdersMetaImei().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -901,57 +924,8 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить IMEI за сборочными заданиями
      */
-    async postV3DbsOrdersMetaImei(requestParameters: PostV3DbsOrdersMetaImeiRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersMetaImei(requestParameters: PostV3DbsOrdersMetaImeiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersMetaImeiRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for postV3DbsOrdersMetaInfo without sending the request
-     * @deprecated
-     */
-    async postV3DbsOrdersMetaInfoRequestOpts(requestParameters: PostV3DbsOrdersMetaInfoRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/dbs/orders/meta/info`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     * @deprecated
-     */
-    async postV3DbsOrdersMetaInfoRaw(requestParameters: PostV3DbsOrdersMetaInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaResponse>> {
-        const requestOptions = await this.postV3DbsOrdersMetaInfoRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     * @deprecated
-     */
-    async postV3DbsOrdersMetaInfo(requestParameters: PostV3DbsOrdersMetaInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaResponse> {
-        const response = await this.postV3DbsOrdersMetaInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -959,6 +933,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersMetaSgtin without sending the request
      */
     async postV3DbsOrdersMetaSgtinRequestOpts(requestParameters: PostV3DbsOrdersMetaSgtinRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersSGTINsSetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersSGTINsSetRequest',
+                'Required parameter "apiOrdersSGTINsSetRequest" was null or undefined when calling postV3DbsOrdersMetaSgtin().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -996,7 +977,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> Закрепить код маркировки можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить коды маркировки Честного знака за сборочными заданиями
      */
-    async postV3DbsOrdersMetaSgtin(requestParameters: PostV3DbsOrdersMetaSgtinRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersMetaSgtin(requestParameters: PostV3DbsOrdersMetaSgtinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersMetaSgtinRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1005,6 +986,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersMetaUin without sending the request
      */
     async postV3DbsOrdersMetaUinRequestOpts(requestParameters: PostV3DbsOrdersMetaUinRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersUINSetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersUINSetRequest',
+                'Required parameter "apiOrdersUINSetRequest" was null or undefined when calling postV3DbsOrdersMetaUin().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1042,7 +1030,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один УИН.<br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить УИН за сборочными заданиями
      */
-    async postV3DbsOrdersMetaUin(requestParameters: PostV3DbsOrdersMetaUinRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersMetaUin(requestParameters: PostV3DbsOrdersMetaUinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersMetaUinRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1051,6 +1039,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersStatusCancel without sending the request
      */
     async postV3DbsOrdersStatusCancelRequestOpts(requestParameters: PostV3DbsOrdersStatusCancelRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3DbsOrdersStatusCancel().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1088,7 +1083,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статусов](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом. Отменить сборочные задания в статусе `deliver` невозможно.  <div class=\"description_limit\"> <a href=\'/docs/openapi/api-information#tag/introduction/Limity-zaprosov\'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Отменить сборочные задания
      */
-    async postV3DbsOrdersStatusCancel(requestParameters: PostV3DbsOrdersStatusCancelRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersStatusCancel(requestParameters: PostV3DbsOrdersStatusCancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersStatusCancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1097,6 +1092,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersStatusConfirm without sending the request
      */
     async postV3DbsOrdersStatusConfirmRequestOpts(requestParameters: PostV3DbsOrdersStatusConfirmRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3DbsOrdersStatusConfirm().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1134,7 +1136,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href=\'/docs/openapi/api-information#tag/introduction/Limity-zaprosov\'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Перевести сборочные задания на сборку
      */
-    async postV3DbsOrdersStatusConfirm(requestParameters: PostV3DbsOrdersStatusConfirmRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
+    async postV3DbsOrdersStatusConfirm(requestParameters: PostV3DbsOrdersStatusConfirmRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetResponses> {
         const response = await this.postV3DbsOrdersStatusConfirmRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1143,6 +1145,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersStatusDeliver without sending the request
      */
     async postV3DbsOrdersStatusDeliverRequestOpts(requestParameters: PostV3DbsOrdersStatusDeliverRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3DbsOrdersStatusDeliver().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1180,7 +1189,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.  <div class=\"description_limit\"> <a href=\'/docs/openapi/api-information#tag/introduction/Limity-zaprosov\'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Перевести сборочные задания в доставку
      */
-    async postV3DbsOrdersStatusDeliver(requestParameters: PostV3DbsOrdersStatusDeliverRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetDeliverResponses> {
+    async postV3DbsOrdersStatusDeliver(requestParameters: PostV3DbsOrdersStatusDeliverRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiStatusSetDeliverResponses> {
         const response = await this.postV3DbsOrdersStatusDeliverRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1189,6 +1198,13 @@ export class DBSApi extends runtime.BaseAPI {
      * Creates request options for postV3DbsOrdersStatusInfo without sending the request
      */
     async postV3DbsOrdersStatusInfoRequestOpts(requestParameters: PostV3DbsOrdersStatusInfoRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3DbsOrdersStatusInfo().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1226,7 +1242,7 @@ export class DBSApi extends runtime.BaseAPI {
      * Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm) | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver) | `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) <br> | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject) | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel) | `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на ПВЗ - `canceled_by_missed_call` — отмена по причине недозвона  <div class=\"description_limit\"> <a href=\'/docs/openapi/api-information#tag/introduction/Limity-zaprosov\'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить статусы сборочных заданий
      */
-    async postV3DbsOrdersStatusInfo(requestParameters: PostV3DbsOrdersStatusInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrderStatusesV2> {
+    async postV3DbsOrdersStatusInfo(requestParameters: PostV3DbsOrdersStatusInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrderStatusesV2> {
         const response = await this.postV3DbsOrdersStatusInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }

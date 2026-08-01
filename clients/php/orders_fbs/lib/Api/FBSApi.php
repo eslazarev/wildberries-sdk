@@ -713,7 +713,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request v3_get_meta_multi_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest $v3_get_meta_multi_request v3_get_meta_multi_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersMetaPost'] to see the possible values for this operation
@@ -722,7 +722,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersFbs\Model\V3OrdersMetaAPI|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
-    public function apiMarketplaceV3OrdersMetaPost($v3_get_meta_multi_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
+    public function apiMarketplaceV3OrdersMetaPost($v3_get_meta_multi_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
     {
         list($response) = $this->apiMarketplaceV3OrdersMetaPostWithHttpInfo($v3_get_meta_multi_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -738,7 +738,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest $v3_get_meta_multi_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersMetaPost'] to see the possible values for this operation
@@ -747,7 +747,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersFbs\Model\V3OrdersMetaAPI|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\V3APIError|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3OrdersMetaPostWithHttpInfo($v3_get_meta_multi_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
+    public function apiMarketplaceV3OrdersMetaPostWithHttpInfo($v3_get_meta_multi_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
     {
         $request = $this->apiMarketplaceV3OrdersMetaPostRequest($v3_get_meta_multi_request, $hostIndex, $variables, $contentType);
 
@@ -914,7 +914,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest $v3_get_meta_multi_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersMetaPost'] to see the possible values for this operation
@@ -922,7 +922,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3OrdersMetaPostAsync($v3_get_meta_multi_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
+    public function apiMarketplaceV3OrdersMetaPostAsync($v3_get_meta_multi_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
     {
         return $this->apiMarketplaceV3OrdersMetaPostAsyncWithHttpInfo($v3_get_meta_multi_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -942,7 +942,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest $v3_get_meta_multi_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersMetaPost'] to see the possible values for this operation
@@ -950,7 +950,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3OrdersMetaPostAsyncWithHttpInfo($v3_get_meta_multi_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
+    public function apiMarketplaceV3OrdersMetaPostAsyncWithHttpInfo($v3_get_meta_multi_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersFbs\Model\V3OrdersMetaAPI';
         $request = $this->apiMarketplaceV3OrdersMetaPostRequest($v3_get_meta_multi_request, $hostIndex, $variables, $contentType);
@@ -999,7 +999,7 @@ class FBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest|null $v3_get_meta_multi_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\V3GetMetaMultiRequest $v3_get_meta_multi_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersMetaPost'] to see the possible values for this operation
@@ -1007,9 +1007,15 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3OrdersMetaPostRequest($v3_get_meta_multi_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
+    public function apiMarketplaceV3OrdersMetaPostRequest($v3_get_meta_multi_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersMetaPost'][0])
     {
 
+        // verify the required parameter 'v3_get_meta_multi_request' is set
+        if ($v3_get_meta_multi_request === null || (is_array($v3_get_meta_multi_request) && count($v3_get_meta_multi_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $v3_get_meta_multi_request when calling apiMarketplaceV3OrdersMetaPost'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/orders/meta';
@@ -1130,7 +1136,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'] to see the possible values for this operation
@@ -1139,7 +1145,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
+    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
     {
         $this->apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutWithHttpInfo($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, $hostIndex, $variables, $contentType);
     }
@@ -1155,7 +1161,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'] to see the possible values for this operation
@@ -1164,7 +1170,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutWithHttpInfo($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
+    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutWithHttpInfo($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
     {
         $request = $this->apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, $hostIndex, $variables, $contentType);
 
@@ -1268,7 +1274,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'] to see the possible values for this operation
@@ -1276,7 +1282,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutAsync($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
+    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutAsync($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
     {
         return $this->apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutAsyncWithHttpInfo($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -1297,7 +1303,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'] to see the possible values for this operation
@@ -1305,7 +1311,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutAsyncWithHttpInfo($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
+    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutAsyncWithHttpInfo($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
     {
         $returnType = '';
         $request = $this->apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, $hostIndex, $variables, $contentType);
@@ -1342,7 +1348,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest|null $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'] to see the possible values for this operation
@@ -1350,7 +1356,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
+    public function apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest($order_id, $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -1360,6 +1366,12 @@ class FBSApi
             );
         }
 
+        // verify the required parameter 'api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request' is set
+        if ($api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request === null || (is_array($api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request) && count($api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request when calling apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/orders/{orderId}/meta/customs-declaration';
@@ -3884,7 +3896,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
+     * @param  string $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -3893,7 +3905,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV3OrdersOrderIdMetaDelete($order_id, $key = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
+    public function apiV3OrdersOrderIdMetaDelete($order_id, $key, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
     {
         $this->apiV3OrdersOrderIdMetaDeleteWithHttpInfo($order_id, $key, $hostIndex, $variables, $contentType);
     }
@@ -3909,7 +3921,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
+     * @param  string $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -3918,7 +3930,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3OrdersOrderIdMetaDeleteWithHttpInfo($order_id, $key = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
+    public function apiV3OrdersOrderIdMetaDeleteWithHttpInfo($order_id, $key, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
     {
         $request = $this->apiV3OrdersOrderIdMetaDeleteRequest($order_id, $key, $hostIndex, $variables, $contentType);
 
@@ -4014,7 +4026,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
+     * @param  string $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -4022,7 +4034,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaDeleteAsync($order_id, $key = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
+    public function apiV3OrdersOrderIdMetaDeleteAsync($order_id, $key, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
     {
         return $this->apiV3OrdersOrderIdMetaDeleteAsyncWithHttpInfo($order_id, $key, $hostIndex, $variables, $contentType)
             ->then(
@@ -4043,7 +4055,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
+     * @param  string $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -4051,7 +4063,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaDeleteAsyncWithHttpInfo($order_id, $key = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
+    public function apiV3OrdersOrderIdMetaDeleteAsyncWithHttpInfo($order_id, $key, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
     {
         $returnType = '';
         $request = $this->apiV3OrdersOrderIdMetaDeleteRequest($order_id, $key, $hostIndex, $variables, $contentType);
@@ -4088,7 +4100,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  string|null $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (optional)
+     * @param  string $key Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaDelete'] to see the possible values for this operation
@@ -4096,7 +4108,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3OrdersOrderIdMetaDeleteRequest($order_id, $key = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
+    public function apiV3OrdersOrderIdMetaDeleteRequest($order_id, $key, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaDelete'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -4106,6 +4118,12 @@ class FBSApi
             );
         }
 
+        // verify the required parameter 'key' is set
+        if ($key === null || (is_array($key) && count($key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key when calling apiV3OrdersOrderIdMetaDelete'
+            );
+        }
 
 
         $resourcePath = '/api/v3/orders/{orderId}/meta';
@@ -4122,7 +4140,7 @@ class FBSApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
 
 
@@ -4236,7 +4254,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request api_v3_orders_order_id_meta_expiration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest $api_v3_orders_order_id_meta_expiration_put_request api_v3_orders_order_id_meta_expiration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'] to see the possible values for this operation
@@ -4245,7 +4263,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV3OrdersOrderIdMetaExpirationPut($order_id, $api_v3_orders_order_id_meta_expiration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
+    public function apiV3OrdersOrderIdMetaExpirationPut($order_id, $api_v3_orders_order_id_meta_expiration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
     {
         $this->apiV3OrdersOrderIdMetaExpirationPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_expiration_put_request, $hostIndex, $variables, $contentType);
     }
@@ -4261,7 +4279,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest $api_v3_orders_order_id_meta_expiration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'] to see the possible values for this operation
@@ -4270,7 +4288,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3OrdersOrderIdMetaExpirationPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_expiration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
+    public function apiV3OrdersOrderIdMetaExpirationPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_expiration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
     {
         $request = $this->apiV3OrdersOrderIdMetaExpirationPutRequest($order_id, $api_v3_orders_order_id_meta_expiration_put_request, $hostIndex, $variables, $contentType);
 
@@ -4374,7 +4392,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest $api_v3_orders_order_id_meta_expiration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'] to see the possible values for this operation
@@ -4382,7 +4400,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaExpirationPutAsync($order_id, $api_v3_orders_order_id_meta_expiration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
+    public function apiV3OrdersOrderIdMetaExpirationPutAsync($order_id, $api_v3_orders_order_id_meta_expiration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
     {
         return $this->apiV3OrdersOrderIdMetaExpirationPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_expiration_put_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -4403,7 +4421,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest $api_v3_orders_order_id_meta_expiration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'] to see the possible values for this operation
@@ -4411,7 +4429,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaExpirationPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_expiration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
+    public function apiV3OrdersOrderIdMetaExpirationPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_expiration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
     {
         $returnType = '';
         $request = $this->apiV3OrdersOrderIdMetaExpirationPutRequest($order_id, $api_v3_orders_order_id_meta_expiration_put_request, $hostIndex, $variables, $contentType);
@@ -4448,7 +4466,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest|null $api_v3_orders_order_id_meta_expiration_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaExpirationPutRequest $api_v3_orders_order_id_meta_expiration_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'] to see the possible values for this operation
@@ -4456,7 +4474,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3OrdersOrderIdMetaExpirationPutRequest($order_id, $api_v3_orders_order_id_meta_expiration_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
+    public function apiV3OrdersOrderIdMetaExpirationPutRequest($order_id, $api_v3_orders_order_id_meta_expiration_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaExpirationPut'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -4466,6 +4484,12 @@ class FBSApi
             );
         }
 
+        // verify the required parameter 'api_v3_orders_order_id_meta_expiration_put_request' is set
+        if ($api_v3_orders_order_id_meta_expiration_put_request === null || (is_array($api_v3_orders_order_id_meta_expiration_put_request) && count($api_v3_orders_order_id_meta_expiration_put_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_v3_orders_order_id_meta_expiration_put_request when calling apiV3OrdersOrderIdMetaExpirationPut'
+            );
+        }
 
 
         $resourcePath = '/api/v3/orders/{orderId}/meta/expiration';
@@ -4594,7 +4618,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request api_v3_orders_order_id_meta_gtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest $api_v3_orders_order_id_meta_gtin_put_request api_v3_orders_order_id_meta_gtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'] to see the possible values for this operation
@@ -4603,7 +4627,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV3OrdersOrderIdMetaGtinPut($order_id, $api_v3_orders_order_id_meta_gtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
+    public function apiV3OrdersOrderIdMetaGtinPut($order_id, $api_v3_orders_order_id_meta_gtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
     {
         $this->apiV3OrdersOrderIdMetaGtinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_gtin_put_request, $hostIndex, $variables, $contentType);
     }
@@ -4619,7 +4643,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest $api_v3_orders_order_id_meta_gtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'] to see the possible values for this operation
@@ -4628,7 +4652,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3OrdersOrderIdMetaGtinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_gtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
+    public function apiV3OrdersOrderIdMetaGtinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_gtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
     {
         $request = $this->apiV3OrdersOrderIdMetaGtinPutRequest($order_id, $api_v3_orders_order_id_meta_gtin_put_request, $hostIndex, $variables, $contentType);
 
@@ -4724,7 +4748,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest $api_v3_orders_order_id_meta_gtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'] to see the possible values for this operation
@@ -4732,7 +4756,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaGtinPutAsync($order_id, $api_v3_orders_order_id_meta_gtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
+    public function apiV3OrdersOrderIdMetaGtinPutAsync($order_id, $api_v3_orders_order_id_meta_gtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
     {
         return $this->apiV3OrdersOrderIdMetaGtinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_gtin_put_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -4753,7 +4777,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest $api_v3_orders_order_id_meta_gtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'] to see the possible values for this operation
@@ -4761,7 +4785,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaGtinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_gtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
+    public function apiV3OrdersOrderIdMetaGtinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_gtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
     {
         $returnType = '';
         $request = $this->apiV3OrdersOrderIdMetaGtinPutRequest($order_id, $api_v3_orders_order_id_meta_gtin_put_request, $hostIndex, $variables, $contentType);
@@ -4798,7 +4822,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest|null $api_v3_orders_order_id_meta_gtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaGtinPutRequest $api_v3_orders_order_id_meta_gtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'] to see the possible values for this operation
@@ -4806,7 +4830,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3OrdersOrderIdMetaGtinPutRequest($order_id, $api_v3_orders_order_id_meta_gtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
+    public function apiV3OrdersOrderIdMetaGtinPutRequest($order_id, $api_v3_orders_order_id_meta_gtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaGtinPut'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -4816,6 +4840,12 @@ class FBSApi
             );
         }
 
+        // verify the required parameter 'api_v3_orders_order_id_meta_gtin_put_request' is set
+        if ($api_v3_orders_order_id_meta_gtin_put_request === null || (is_array($api_v3_orders_order_id_meta_gtin_put_request) && count($api_v3_orders_order_id_meta_gtin_put_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_v3_orders_order_id_meta_gtin_put_request when calling apiV3OrdersOrderIdMetaGtinPut'
+            );
+        }
 
 
         $resourcePath = '/api/v3/orders/{orderId}/meta/gtin';
@@ -4944,7 +4974,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request api_v3_orders_order_id_meta_imei_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest $api_v3_orders_order_id_meta_imei_put_request api_v3_orders_order_id_meta_imei_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'] to see the possible values for this operation
@@ -4953,7 +4983,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV3OrdersOrderIdMetaImeiPut($order_id, $api_v3_orders_order_id_meta_imei_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
+    public function apiV3OrdersOrderIdMetaImeiPut($order_id, $api_v3_orders_order_id_meta_imei_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
     {
         $this->apiV3OrdersOrderIdMetaImeiPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_imei_put_request, $hostIndex, $variables, $contentType);
     }
@@ -4969,7 +4999,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest $api_v3_orders_order_id_meta_imei_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'] to see the possible values for this operation
@@ -4978,7 +5008,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3OrdersOrderIdMetaImeiPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_imei_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
+    public function apiV3OrdersOrderIdMetaImeiPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_imei_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
     {
         $request = $this->apiV3OrdersOrderIdMetaImeiPutRequest($order_id, $api_v3_orders_order_id_meta_imei_put_request, $hostIndex, $variables, $contentType);
 
@@ -5074,7 +5104,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest $api_v3_orders_order_id_meta_imei_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'] to see the possible values for this operation
@@ -5082,7 +5112,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaImeiPutAsync($order_id, $api_v3_orders_order_id_meta_imei_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
+    public function apiV3OrdersOrderIdMetaImeiPutAsync($order_id, $api_v3_orders_order_id_meta_imei_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
     {
         return $this->apiV3OrdersOrderIdMetaImeiPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_imei_put_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -5103,7 +5133,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest $api_v3_orders_order_id_meta_imei_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'] to see the possible values for this operation
@@ -5111,7 +5141,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaImeiPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_imei_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
+    public function apiV3OrdersOrderIdMetaImeiPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_imei_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
     {
         $returnType = '';
         $request = $this->apiV3OrdersOrderIdMetaImeiPutRequest($order_id, $api_v3_orders_order_id_meta_imei_put_request, $hostIndex, $variables, $contentType);
@@ -5148,7 +5178,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest|null $api_v3_orders_order_id_meta_imei_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaImeiPutRequest $api_v3_orders_order_id_meta_imei_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'] to see the possible values for this operation
@@ -5156,7 +5186,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3OrdersOrderIdMetaImeiPutRequest($order_id, $api_v3_orders_order_id_meta_imei_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
+    public function apiV3OrdersOrderIdMetaImeiPutRequest($order_id, $api_v3_orders_order_id_meta_imei_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaImeiPut'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -5166,6 +5196,12 @@ class FBSApi
             );
         }
 
+        // verify the required parameter 'api_v3_orders_order_id_meta_imei_put_request' is set
+        if ($api_v3_orders_order_id_meta_imei_put_request === null || (is_array($api_v3_orders_order_id_meta_imei_put_request) && count($api_v3_orders_order_id_meta_imei_put_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_v3_orders_order_id_meta_imei_put_request when calling apiV3OrdersOrderIdMetaImeiPut'
+            );
+        }
 
 
         $resourcePath = '/api/v3/orders/{orderId}/meta/imei';
@@ -5294,7 +5330,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request api_v3_orders_order_id_meta_sgtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest $api_v3_orders_order_id_meta_sgtin_put_request api_v3_orders_order_id_meta_sgtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'] to see the possible values for this operation
@@ -5303,7 +5339,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV3OrdersOrderIdMetaSgtinPut($order_id, $api_v3_orders_order_id_meta_sgtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
+    public function apiV3OrdersOrderIdMetaSgtinPut($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
     {
         $this->apiV3OrdersOrderIdMetaSgtinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, $hostIndex, $variables, $contentType);
     }
@@ -5319,7 +5355,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest $api_v3_orders_order_id_meta_sgtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'] to see the possible values for this operation
@@ -5328,7 +5364,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3OrdersOrderIdMetaSgtinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_sgtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
+    public function apiV3OrdersOrderIdMetaSgtinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
     {
         $request = $this->apiV3OrdersOrderIdMetaSgtinPutRequest($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, $hostIndex, $variables, $contentType);
 
@@ -5432,7 +5468,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest $api_v3_orders_order_id_meta_sgtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'] to see the possible values for this operation
@@ -5440,7 +5476,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaSgtinPutAsync($order_id, $api_v3_orders_order_id_meta_sgtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
+    public function apiV3OrdersOrderIdMetaSgtinPutAsync($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
     {
         return $this->apiV3OrdersOrderIdMetaSgtinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -5461,7 +5497,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest $api_v3_orders_order_id_meta_sgtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'] to see the possible values for this operation
@@ -5469,7 +5505,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaSgtinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_sgtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
+    public function apiV3OrdersOrderIdMetaSgtinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
     {
         $returnType = '';
         $request = $this->apiV3OrdersOrderIdMetaSgtinPutRequest($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, $hostIndex, $variables, $contentType);
@@ -5506,7 +5542,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest|null $api_v3_orders_order_id_meta_sgtin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaSgtinPutRequest $api_v3_orders_order_id_meta_sgtin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'] to see the possible values for this operation
@@ -5514,7 +5550,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3OrdersOrderIdMetaSgtinPutRequest($order_id, $api_v3_orders_order_id_meta_sgtin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
+    public function apiV3OrdersOrderIdMetaSgtinPutRequest($order_id, $api_v3_orders_order_id_meta_sgtin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaSgtinPut'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -5524,6 +5560,12 @@ class FBSApi
             );
         }
 
+        // verify the required parameter 'api_v3_orders_order_id_meta_sgtin_put_request' is set
+        if ($api_v3_orders_order_id_meta_sgtin_put_request === null || (is_array($api_v3_orders_order_id_meta_sgtin_put_request) && count($api_v3_orders_order_id_meta_sgtin_put_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_v3_orders_order_id_meta_sgtin_put_request when calling apiV3OrdersOrderIdMetaSgtinPut'
+            );
+        }
 
 
         $resourcePath = '/api/v3/orders/{orderId}/meta/sgtin';
@@ -5652,7 +5694,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request api_v3_orders_order_id_meta_uin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest $api_v3_orders_order_id_meta_uin_put_request api_v3_orders_order_id_meta_uin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaUinPut'] to see the possible values for this operation
@@ -5661,7 +5703,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function apiV3OrdersOrderIdMetaUinPut($order_id, $api_v3_orders_order_id_meta_uin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
+    public function apiV3OrdersOrderIdMetaUinPut($order_id, $api_v3_orders_order_id_meta_uin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
     {
         $this->apiV3OrdersOrderIdMetaUinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_uin_put_request, $hostIndex, $variables, $contentType);
     }
@@ -5677,7 +5719,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest $api_v3_orders_order_id_meta_uin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaUinPut'] to see the possible values for this operation
@@ -5686,7 +5728,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiV3OrdersOrderIdMetaUinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_uin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
+    public function apiV3OrdersOrderIdMetaUinPutWithHttpInfo($order_id, $api_v3_orders_order_id_meta_uin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
     {
         $request = $this->apiV3OrdersOrderIdMetaUinPutRequest($order_id, $api_v3_orders_order_id_meta_uin_put_request, $hostIndex, $variables, $contentType);
 
@@ -5782,7 +5824,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest $api_v3_orders_order_id_meta_uin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaUinPut'] to see the possible values for this operation
@@ -5790,7 +5832,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaUinPutAsync($order_id, $api_v3_orders_order_id_meta_uin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
+    public function apiV3OrdersOrderIdMetaUinPutAsync($order_id, $api_v3_orders_order_id_meta_uin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
     {
         return $this->apiV3OrdersOrderIdMetaUinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_uin_put_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -5811,7 +5853,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest $api_v3_orders_order_id_meta_uin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaUinPut'] to see the possible values for this operation
@@ -5819,7 +5861,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiV3OrdersOrderIdMetaUinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_uin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
+    public function apiV3OrdersOrderIdMetaUinPutAsyncWithHttpInfo($order_id, $api_v3_orders_order_id_meta_uin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
     {
         $returnType = '';
         $request = $this->apiV3OrdersOrderIdMetaUinPutRequest($order_id, $api_v3_orders_order_id_meta_uin_put_request, $hostIndex, $variables, $contentType);
@@ -5856,7 +5898,7 @@ class FBSApi
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
      * @param  int $order_id ID сборочного задания (required)
-     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest|null $api_v3_orders_order_id_meta_uin_put_request (optional)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\ApiV3OrdersOrderIdMetaUinPutRequest $api_v3_orders_order_id_meta_uin_put_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiV3OrdersOrderIdMetaUinPut'] to see the possible values for this operation
@@ -5864,7 +5906,7 @@ class FBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function apiV3OrdersOrderIdMetaUinPutRequest($order_id, $api_v3_orders_order_id_meta_uin_put_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
+    public function apiV3OrdersOrderIdMetaUinPutRequest($order_id, $api_v3_orders_order_id_meta_uin_put_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiV3OrdersOrderIdMetaUinPut'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -5874,6 +5916,12 @@ class FBSApi
             );
         }
 
+        // verify the required parameter 'api_v3_orders_order_id_meta_uin_put_request' is set
+        if ($api_v3_orders_order_id_meta_uin_put_request === null || (is_array($api_v3_orders_order_id_meta_uin_put_request) && count($api_v3_orders_order_id_meta_uin_put_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_v3_orders_order_id_meta_uin_put_request when calling apiV3OrdersOrderIdMetaUinPut'
+            );
+        }
 
 
         $resourcePath = '/api/v3/orders/{orderId}/meta/uin';

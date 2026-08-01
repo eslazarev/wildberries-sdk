@@ -84,11 +84,6 @@ import {
     GetV3DbwOrdersNew402ResponseToJSON,
 } from '../models/GetV3DbwOrdersNew402Response';
 import {
-    type GetV3DbwOrdersOrderIdMeta200Response,
-    GetV3DbwOrdersOrderIdMeta200ResponseFromJSON,
-    GetV3DbwOrdersOrderIdMeta200ResponseToJSON,
-} from '../models/GetV3DbwOrdersOrderIdMeta200Response';
-import {
     type OrderCourierInfoResp,
     OrderCourierInfoRespFromJSON,
     OrderCourierInfoRespToJSON,
@@ -159,13 +154,6 @@ export interface GetV3DbwOrdersRequest {
     dateTo: number;
 }
 
-export interface GetV3DbwOrdersOrderIdMetaRequest {
-    /**
-     * ID сборочного задания
-     */
-    orderId: number;
-}
-
 export interface PatchV3DbwOrdersOrderIdCancelRequest {
     /**
      * ID сборочного задания
@@ -212,7 +200,7 @@ export interface PostV3DbwOrdersMetaDetailsRequest {
     /**
      * 
      */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3DbwOrdersMetaSgtinRequest {
@@ -263,7 +251,7 @@ export interface PutV3DbwOrdersOrderIdMetaGtinOperationRequest {
     /**
      * 
      */
-    putV3DbwOrdersOrderIdMetaGtinRequest?: PutV3DbwOrdersOrderIdMetaGtinRequest;
+    putV3DbwOrdersOrderIdMetaGtinRequest: PutV3DbwOrdersOrderIdMetaGtinRequest;
 }
 
 export interface PutV3DbwOrdersOrderIdMetaImeiOperationRequest {
@@ -274,7 +262,7 @@ export interface PutV3DbwOrdersOrderIdMetaImeiOperationRequest {
     /**
      * 
      */
-    putV3DbwOrdersOrderIdMetaImeiRequest?: PutV3DbwOrdersOrderIdMetaImeiRequest;
+    putV3DbwOrdersOrderIdMetaImeiRequest: PutV3DbwOrdersOrderIdMetaImeiRequest;
 }
 
 export interface PutV3DbwOrdersOrderIdMetaUinOperationRequest {
@@ -285,7 +273,7 @@ export interface PutV3DbwOrdersOrderIdMetaUinOperationRequest {
     /**
      * 
      */
-    putV3DbwOrdersOrderIdMetaUinRequest?: PutV3DbwOrdersOrderIdMetaUinRequest;
+    putV3DbwOrdersOrderIdMetaUinRequest: PutV3DbwOrdersOrderIdMetaUinRequest;
 }
 
 /**
@@ -420,60 +408,6 @@ export class DBWApi extends runtime.BaseAPI {
      */
     async getV3DbwOrdersNew(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3DbwOrdersNew200Response> {
         const response = await this.getV3DbwOrdersNewRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getV3DbwOrdersOrderIdMeta without sending the request
-     * @deprecated
-     */
-    async getV3DbwOrdersOrderIdMetaRequestOpts(requestParameters: GetV3DbwOrdersOrderIdMetaRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['orderId'] == null) {
-            throw new runtime.RequiredError(
-                'orderId',
-                'Required parameter "orderId" was null or undefined when calling getV3DbwOrdersOrderIdMeta().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v3/dbw/orders/{orderId}/meta`;
-        urlPath = urlPath.replace('{orderId}', encodeURIComponent(String(requestParameters['orderId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочного задания
-     * @deprecated
-     */
-    async getV3DbwOrdersOrderIdMetaRaw(requestParameters: GetV3DbwOrdersOrderIdMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV3DbwOrdersOrderIdMeta200Response>> {
-        const requestOptions = await this.getV3DbwOrdersOrderIdMetaRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetV3DbwOrdersOrderIdMeta200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочного задания
-     * @deprecated
-     */
-    async getV3DbwOrdersOrderIdMeta(requestParameters: GetV3DbwOrdersOrderIdMetaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3DbwOrdersOrderIdMeta200Response> {
-        const response = await this.getV3DbwOrdersOrderIdMetaRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -793,6 +727,13 @@ export class DBWApi extends runtime.BaseAPI {
      * Creates request options for postV3DbwOrdersMetaDetails without sending the request
      */
     async postV3DbwOrdersMetaDetailsRequestOpts(requestParameters: PostV3DbwOrdersMetaDetailsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3DbwOrdersMetaDetails().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -830,7 +771,7 @@ export class DBWApi extends runtime.BaseAPI {
      * Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить идентификаторы маркировки сборочных заданий
      */
-    async postV3DbwOrdersMetaDetails(requestParameters: PostV3DbwOrdersMetaDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
+    async postV3DbwOrdersMetaDetails(requestParameters: PostV3DbwOrdersMetaDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
         const response = await this.postV3DbwOrdersMetaDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1077,6 +1018,13 @@ export class DBWApi extends runtime.BaseAPI {
             );
         }
 
+        if (requestParameters['putV3DbwOrdersOrderIdMetaGtinRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putV3DbwOrdersOrderIdMetaGtinRequest',
+                'Required parameter "putV3DbwOrdersOrderIdMetaGtinRequest" was null or undefined when calling putV3DbwOrdersOrderIdMetaGtin().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1130,6 +1078,13 @@ export class DBWApi extends runtime.BaseAPI {
             );
         }
 
+        if (requestParameters['putV3DbwOrdersOrderIdMetaImeiRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putV3DbwOrdersOrderIdMetaImeiRequest',
+                'Required parameter "putV3DbwOrdersOrderIdMetaImeiRequest" was null or undefined when calling putV3DbwOrdersOrderIdMetaImei().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1180,6 +1135,13 @@ export class DBWApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'orderId',
                 'Required parameter "orderId" was null or undefined when calling putV3DbwOrdersOrderIdMetaUin().'
+            );
+        }
+
+        if (requestParameters['putV3DbwOrdersOrderIdMetaUinRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putV3DbwOrdersOrderIdMetaUinRequest',
+                'Required parameter "putV3DbwOrdersOrderIdMetaUinRequest" was null or undefined when calling putV3DbwOrdersOrderIdMetaUin().'
             );
         }
 

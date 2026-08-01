@@ -152,18 +152,6 @@ pub enum PostV3DbsOrdersMetaImeiError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`post_v3_dbs_orders_meta_info`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PostV3DbsOrdersMetaInfoError {
-    Status400(models::ApiBatchError),
-    Status401(models::GetV3DbsOrdersNew401Response),
-    Status402(models::GetV3DbsOrdersNew402Response),
-    Status403(models::ApiBatchError),
-    Status429(models::GetV3DbsOrdersNew401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`post_v3_dbs_orders_meta_sgtin`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -554,8 +542,8 @@ pub async fn post_v3_dbs_orders_delivery_date(configuration: &configuration::Con
     }
 }
 
-/// Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номера ДТ можно только за сборочными заданиями в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_meta_customs_declaration(configuration: &configuration::Configuration, post_v3_dbs_orders_meta_customs_declaration_request: Option<models::PostV3DbsOrdersMetaCustomsDeclarationRequest>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaCustomsDeclarationError>> {
+/// Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - сборочное задание находится в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_dbs_orders_meta_customs_declaration(configuration: &configuration::Configuration, post_v3_dbs_orders_meta_customs_declaration_request: models::PostV3DbsOrdersMetaCustomsDeclarationRequest) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaCustomsDeclarationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_post_v3_dbs_orders_meta_customs_declaration_request = post_v3_dbs_orders_meta_customs_declaration_request;
 
@@ -601,7 +589,7 @@ pub async fn post_v3_dbs_orders_meta_customs_declaration(configuration: &configu
 }
 
 /// Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_meta_delete(configuration: &configuration::Configuration, api_orders_meta_delete_request: Option<models::ApiOrdersMetaDeleteRequest>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaDeleteError>> {
+pub async fn post_v3_dbs_orders_meta_delete(configuration: &configuration::Configuration, api_orders_meta_delete_request: models::ApiOrdersMetaDeleteRequest) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaDeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_meta_delete_request = api_orders_meta_delete_request;
 
@@ -647,7 +635,7 @@ pub async fn post_v3_dbs_orders_meta_delete(configuration: &configuration::Confi
 }
 
 /// Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_meta_details(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaDetailsResponse, Error<PostV3DbsOrdersMetaDetailsError>> {
+pub async fn post_v3_dbs_orders_meta_details(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiOrdersMetaDetailsResponse, Error<PostV3DbsOrdersMetaDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request_v2 = api_orders_request_v2;
 
@@ -693,7 +681,7 @@ pub async fn post_v3_dbs_orders_meta_details(configuration: &configuration::Conf
 }
 
 /// Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN. <br> Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_meta_gtin(configuration: &configuration::Configuration, api_orders_gtin_set_request: Option<models::ApiOrdersGtinSetRequest>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaGtinError>> {
+pub async fn post_v3_dbs_orders_meta_gtin(configuration: &configuration::Configuration, api_orders_gtin_set_request: models::ApiOrdersGtinSetRequest) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaGtinError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_gtin_set_request = api_orders_gtin_set_request;
 
@@ -739,7 +727,7 @@ pub async fn post_v3_dbs_orders_meta_gtin(configuration: &configuration::Configu
 }
 
 /// Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_meta_imei(configuration: &configuration::Configuration, api_orders_imei_set_request: Option<models::ApiOrdersImeiSetRequest>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaImeiError>> {
+pub async fn post_v3_dbs_orders_meta_imei(configuration: &configuration::Configuration, api_orders_imei_set_request: models::ApiOrdersImeiSetRequest) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaImeiError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_imei_set_request = api_orders_imei_set_request;
 
@@ -784,55 +772,8 @@ pub async fn post_v3_dbs_orders_meta_imei(configuration: &configuration::Configu
     }
 }
 
-/// Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-#[deprecated]
-pub async fn post_v3_dbs_orders_meta_info(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaResponse, Error<PostV3DbsOrdersMetaInfoError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_orders_request_v2 = api_orders_request_v2;
-
-    let uri_str = format!("{}/api/marketplace/v3/dbs/orders/meta/info", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_api_orders_request_v2);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersMetaResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersMetaResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<PostV3DbsOrdersMetaInfoError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 /// Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> Закрепить код маркировки можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_meta_sgtin(configuration: &configuration::Configuration, api_orders_sgtins_set_request: Option<models::ApiOrdersSgtinsSetRequest>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaSgtinError>> {
+pub async fn post_v3_dbs_orders_meta_sgtin(configuration: &configuration::Configuration, api_orders_sgtins_set_request: models::ApiOrdersSgtinsSetRequest) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaSgtinError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_sgtins_set_request = api_orders_sgtins_set_request;
 
@@ -878,7 +819,7 @@ pub async fn post_v3_dbs_orders_meta_sgtin(configuration: &configuration::Config
 }
 
 /// Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один УИН.<br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_meta_uin(configuration: &configuration::Configuration, api_orders_uin_set_request: Option<models::ApiOrdersUinSetRequest>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaUinError>> {
+pub async fn post_v3_dbs_orders_meta_uin(configuration: &configuration::Configuration, api_orders_uin_set_request: models::ApiOrdersUinSetRequest) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersMetaUinError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_uin_set_request = api_orders_uin_set_request;
 
@@ -924,7 +865,7 @@ pub async fn post_v3_dbs_orders_meta_uin(configuration: &configuration::Configur
 }
 
 /// Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статусов](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом. Отменить сборочные задания в статусе `deliver` невозможно.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_status_cancel(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersStatusCancelError>> {
+pub async fn post_v3_dbs_orders_status_cancel(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersStatusCancelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request_v2 = api_orders_request_v2;
 
@@ -970,7 +911,7 @@ pub async fn post_v3_dbs_orders_status_cancel(configuration: &configuration::Con
 }
 
 /// Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_status_confirm(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersStatusConfirmError>> {
+pub async fn post_v3_dbs_orders_status_confirm(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiStatusSetResponses, Error<PostV3DbsOrdersStatusConfirmError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request_v2 = api_orders_request_v2;
 
@@ -1016,7 +957,7 @@ pub async fn post_v3_dbs_orders_status_confirm(configuration: &configuration::Co
 }
 
 /// Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_status_deliver(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiStatusSetDeliverResponses, Error<PostV3DbsOrdersStatusDeliverError>> {
+pub async fn post_v3_dbs_orders_status_deliver(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiStatusSetDeliverResponses, Error<PostV3DbsOrdersStatusDeliverError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request_v2 = api_orders_request_v2;
 
@@ -1062,7 +1003,7 @@ pub async fn post_v3_dbs_orders_status_deliver(configuration: &configuration::Co
 }
 
 /// Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm) | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver) | `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) <br> | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject) | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel) | `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на ПВЗ - `canceled_by_missed_call` — отмена по причине недозвона  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbs_orders_status_info(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrderStatusesV2, Error<PostV3DbsOrdersStatusInfoError>> {
+pub async fn post_v3_dbs_orders_status_info(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiOrderStatusesV2, Error<PostV3DbsOrdersStatusInfoError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request_v2 = api_orders_request_v2;
 

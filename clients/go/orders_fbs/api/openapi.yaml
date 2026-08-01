@@ -1307,6 +1307,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/v3.GetMetaMultiRequest"
+        required: true
       responses:
         "200":
           content:
@@ -1438,7 +1439,7 @@ paths:
         explode: true
         in: query
         name: key
-        required: false
+        required: true
         schema:
           enum:
           - imei
@@ -1569,6 +1570,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/_api_v3_orders__orderId__meta_sgtin_put_request"
+        required: true
       responses:
         "204":
           description: Отправлено
@@ -1701,6 +1703,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/_api_v3_orders__orderId__meta_uin_put_request"
+        required: true
       responses:
         "204":
           description: Обновлено
@@ -1824,6 +1827,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/_api_v3_orders__orderId__meta_imei_put_request"
+        required: true
       responses:
         "204":
           description: Обновлено
@@ -1947,6 +1951,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/_api_v3_orders__orderId__meta_gtin_put_request"
+        required: true
       responses:
         "204":
           description: Обновлено
@@ -2072,6 +2077,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/_api_v3_orders__orderId__meta_expiration_put_request"
+        required: true
       responses:
         "204":
           description: Отправлено
@@ -2206,6 +2212,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/_api_marketplace_v3_orders__orderId__meta_customs_declaration_put_request"
+        required: true
       responses:
         "204":
           description: Обновлено
@@ -4232,13 +4239,13 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
-      operationId: getV3SettingsAutoreturns
+      operationId: getMarketplaceV3FbsSettingsAutoreturns
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/getV3SettingsAutoreturns_200_response"
+                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_200_response"
           description: Успешно
         "401":
           content:
@@ -4291,12 +4298,12 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
-      operationId: patchV3SettingsAutoreturns
+      operationId: patchMarketplaceV3FbsSettingsAutoreturns
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/patchV3SettingsAutoreturns_request"
+              $ref: "#/components/schemas/patchMarketplaceV3FbsSettingsAutoreturns_request"
       responses:
         "204":
           description: Обновлено
@@ -4365,18 +4372,18 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
-      operationId: patchV3SettingsAutoreturnsItems
+      operationId: patchMarketplaceV3FbsSettingsAutoreturnsItems
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/patchV3SettingsAutoreturnsItems_request"
+              $ref: "#/components/schemas/patchMarketplaceV3FbsSettingsAutoreturnsItems_request"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/patchV3SettingsAutoreturnsItems_200_response"
+                $ref: "#/components/schemas/patchMarketplaceV3FbsSettingsAutoreturnsItems_200_response"
           description: Успешно
         "400":
           content:
@@ -4440,18 +4447,18 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
-      operationId: postV3SettingsAutoreturnsItems
+      operationId: postMarketplaceV3FbsSettingsAutoreturnsItems
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/postV3SettingsAutoreturnsItems_request"
+              $ref: "#/components/schemas/postMarketplaceV3FbsSettingsAutoreturnsItems_request"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/postV3SettingsAutoreturnsItems_200_response"
+                $ref: "#/components/schemas/postMarketplaceV3FbsSettingsAutoreturnsItems_200_response"
           description: Успешно
         "400":
           content:
@@ -4518,7 +4525,7 @@ paths:
 
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
-      operationId: getV3SettingsAutoreturnsSubcategoriesRestricted
+      operationId: getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
       parameters:
       - description: "Параметр пагинации. Устанавливает значение, с которого надо\
           \ получить следующий пакет данных. Для получения полного списка данных д\
@@ -4550,7 +4557,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/getV3SettingsAutoreturnsSubcategoriesRestricted_200_response"
+                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted_200_response"
           description: Успешно
         "400":
           content:
@@ -6596,6 +6603,8 @@ components:
           maxItems: 100
           minItems: 1
           type: array
+      required:
+      - sgtins
       type: object
     _api_v3_orders__orderId__meta_uin_put_request:
       properties:
@@ -6638,6 +6647,8 @@ components:
           example: 12.09.2030
           format: date (dd.mm.yyyy)
           type: string
+      required:
+      - expiration
       type: object
     _api_marketplace_v3_orders__orderId__meta_customs_declaration_put_request:
       properties:
@@ -6647,6 +6658,8 @@ components:
           maxLength: 29
           minLength: 17
           type: string
+      required:
+      - customsDeclaration
       type: object
     _api_v3_orders_stickers_cross_border_post_request:
       properties:
@@ -7031,14 +7044,14 @@ components:
           minItems: 1
           type: array
       type: object
-    getV3SettingsAutoreturns_200_response:
+    getMarketplaceV3FbsSettingsAutoreturns_200_response:
       example:
         type: allToWarehouse
       properties:
         type:
           description: |
             Тип автовозврата:
-              - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+              - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
               - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов
               - `manual` — используются ручные настройки
           enum:
@@ -7051,12 +7064,12 @@ components:
       required:
       - type
       type: object
-    patchV3SettingsAutoreturns_request:
+    patchMarketplaceV3FbsSettingsAutoreturns_request:
       properties:
         type:
           description: |
             Тип автовозврата малогабаритных товаров:
-              - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+              - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
               - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов
               - `manual` — использовать ручные настройки
           enum:
@@ -7068,7 +7081,7 @@ components:
       required:
       - type
       type: object
-    postV3SettingsAutoreturnsItems_request:
+    postMarketplaceV3FbsSettingsAutoreturnsItems_request:
       properties:
         chrtIds:
           description: Список ID размеров товаров в системе WB
@@ -7084,7 +7097,7 @@ components:
       required:
       - chrtIds
       type: object
-    postV3SettingsAutoreturnsItems_200_response_results_inner_error_inner:
+    postMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner_error_inner:
       properties:
         code:
           description: Код ошибки
@@ -7097,7 +7110,7 @@ components:
       - code
       - detail
       type: object
-    postV3SettingsAutoreturnsItems_200_response_results_inner:
+    postMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner:
       properties:
         success:
           description: |
@@ -7112,7 +7125,7 @@ components:
               - `auto` — место возврата определяется автоматически
               - `byWarehouse` — на склад WB
               - `byPickupPoint` — на пункт выдачи заказов
-              - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3SettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+              - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
           enum:
           - auto
           - byWarehouse
@@ -7126,12 +7139,12 @@ components:
         error:
           description: Детали ошибки
           items:
-            $ref: "#/components/schemas/postV3SettingsAutoreturnsItems_200_response_results_inner_error_inner"
+            $ref: "#/components/schemas/postMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner_error_inner"
           type: array
       required:
       - chrtId
       type: object
-    postV3SettingsAutoreturnsItems_200_response:
+    postMarketplaceV3FbsSettingsAutoreturnsItems_200_response:
       example:
         results:
         - success: true
@@ -7145,11 +7158,11 @@ components:
       properties:
         results:
           items:
-            $ref: "#/components/schemas/postV3SettingsAutoreturnsItems_200_response_results_inner"
+            $ref: "#/components/schemas/postMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner"
           type: array
       required:
       - results
-    patchV3SettingsAutoreturnsItems_request:
+    patchMarketplaceV3FbsSettingsAutoreturnsItems_request:
       properties:
         chrtIds:
           description: |
@@ -7177,7 +7190,7 @@ components:
       - chrtIds
       - type
       type: object
-    patchV3SettingsAutoreturnsItems_200_response_results_inner_error_inner:
+    patchMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner_error_inner:
       properties:
         code:
           description: Код ошибки
@@ -7191,7 +7204,7 @@ components:
       - code
       - detail
       type: object
-    patchV3SettingsAutoreturnsItems_200_response_results_inner:
+    patchMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner:
       properties:
         chrtId:
           description: ID размера товара в системе WB
@@ -7199,16 +7212,16 @@ components:
         error:
           description: Детали ошибки
           items:
-            $ref: "#/components/schemas/patchV3SettingsAutoreturnsItems_200_response_results_inner_error_inner"
+            $ref: "#/components/schemas/patchMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner_error_inner"
           type: array
         success:
           description: |
-            - `true` — настройки автовозврата товара получены
+            - `true` — настройки автовозврата товара обновлены
           type: boolean
       required:
       - chrtId
       type: object
-    patchV3SettingsAutoreturnsItems_200_response:
+    patchMarketplaceV3FbsSettingsAutoreturnsItems_200_response:
       example:
         results:
         - success: true
@@ -7220,12 +7233,12 @@ components:
       properties:
         results:
           items:
-            $ref: "#/components/schemas/patchV3SettingsAutoreturnsItems_200_response_results_inner"
+            $ref: "#/components/schemas/patchMarketplaceV3FbsSettingsAutoreturnsItems_200_response_results_inner"
           type: array
       required:
       - results
       type: object
-    getV3SettingsAutoreturnsSubcategoriesRestricted_200_response_data_inner:
+    getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted_200_response_data_inner:
       properties:
         subjectId:
           description: ID предмета
@@ -7233,7 +7246,7 @@ components:
       required:
       - subjectId
       type: object
-    getV3SettingsAutoreturnsSubcategoriesRestricted_200_response:
+    getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted_200_response:
       example:
         next: 300
         data:
@@ -7251,7 +7264,7 @@ components:
           description: "Список ID предметов, товары которых не хранятся на складах\
             \ WB"
           items:
-            $ref: "#/components/schemas/getV3SettingsAutoreturnsSubcategoriesRestricted_200_response_data_inner"
+            $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted_200_response_data_inner"
           type: array
       required:
       - data

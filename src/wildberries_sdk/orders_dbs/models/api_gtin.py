@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,8 @@ class ApiGTIN(BaseModel):
     """
     ApiGTIN
     """ # noqa: E501
-    gtin: Optional[Annotated[str, Field(min_length=13, strict=True, max_length=13)]] = Field(default=None, description="GTIN", json_schema_extra={"examples": ["1234567890123"]})
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
+    gtin: Annotated[str, Field(min_length=13, strict=True, max_length=13)] = Field(description="GTIN", json_schema_extra={"examples": ["1234567890123"]})
+    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
     __properties: ClassVar[List[str]] = ["gtin", "orderId"]
 
     model_config = ConfigDict(

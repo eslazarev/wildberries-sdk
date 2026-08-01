@@ -41,12 +41,6 @@ from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders200_response import GetV
 from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders_new200_response import GetV3DbwOrdersNew200Response
 from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders_new401_response import GetV3DbwOrdersNew401Response
 from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders_new402_response import GetV3DbwOrdersNew402Response
-from wildberries_sdk.orders_dbw.models.get_v3_dbw_orders_order_id_meta200_response import GetV3DbwOrdersOrderIdMeta200Response
-from wildberries_sdk.orders_dbw.models.meta import Meta
-from wildberries_sdk.orders_dbw.models.meta_gtin import MetaGtin
-from wildberries_sdk.orders_dbw.models.meta_imei import MetaImei
-from wildberries_sdk.orders_dbw.models.meta_sgtin import MetaSgtin
-from wildberries_sdk.orders_dbw.models.meta_uin import MetaUin
 from wildberries_sdk.orders_dbw.models.order import Order
 from wildberries_sdk.orders_dbw.models.order_courier_info import OrderCourierInfo
 from wildberries_sdk.orders_dbw.models.order_courier_info_resp import OrderCourierInfoResp

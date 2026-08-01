@@ -182,21 +182,21 @@ export interface PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest 
     /**
      * 
      */
-    postV3ClickCollectOrdersMetaCustomsDeclarationRequest?: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest;
+    postV3ClickCollectOrdersMetaCustomsDeclarationRequest: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaDeleteRequest {
     /**
      * 
      */
-    apiOrdersMetaDeleteRequest?: ApiOrdersMetaDeleteRequest;
+    apiOrdersMetaDeleteRequest: ApiOrdersMetaDeleteRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaDetailsRequest {
     /**
      * 
      */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
+    apiOrdersRequestV2: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersMetaGtinRequest {
@@ -521,6 +521,13 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postV3ClickCollectOrdersMetaCustomsDeclaration without sending the request
      */
     async postV3ClickCollectOrdersMetaCustomsDeclarationRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV3ClickCollectOrdersMetaCustomsDeclarationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV3ClickCollectOrdersMetaCustomsDeclarationRequest',
+                'Required parameter "postV3ClickCollectOrdersMetaCustomsDeclarationRequest" was null or undefined when calling postV3ClickCollectOrdersMetaCustomsDeclaration().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -558,7 +565,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - сборочное задание находится в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить номера ДТ за сборочными заданиями
      */
-    async postV3ClickCollectOrdersMetaCustomsDeclaration(requestParameters: PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiCustomsDeclarationSetResponse> {
+    async postV3ClickCollectOrdersMetaCustomsDeclaration(requestParameters: PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiCustomsDeclarationSetResponse> {
         const response = await this.postV3ClickCollectOrdersMetaCustomsDeclarationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -567,6 +574,13 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postV3ClickCollectOrdersMetaDelete without sending the request
      */
     async postV3ClickCollectOrdersMetaDeleteRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaDeleteRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersMetaDeleteRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersMetaDeleteRequest',
+                'Required parameter "apiOrdersMetaDeleteRequest" was null or undefined when calling postV3ClickCollectOrdersMetaDelete().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -604,7 +618,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Удалить идентификаторы маркировки сборочных заданий
      */
-    async postV3ClickCollectOrdersMetaDelete(requestParameters: PostV3ClickCollectOrdersMetaDeleteRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersResponses> {
+    async postV3ClickCollectOrdersMetaDelete(requestParameters: PostV3ClickCollectOrdersMetaDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersResponses> {
         const response = await this.postV3ClickCollectOrdersMetaDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -613,6 +627,13 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postV3ClickCollectOrdersMetaDetails without sending the request
      */
     async postV3ClickCollectOrdersMetaDetailsRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaDetailsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['apiOrdersRequestV2'] == null) {
+            throw new runtime.RequiredError(
+                'apiOrdersRequestV2',
+                'Required parameter "apiOrdersRequestV2" was null or undefined when calling postV3ClickCollectOrdersMetaDetails().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -650,7 +671,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает идентификаторы маркировки [сборочных заданий ](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.<br><br>  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить идентификаторы маркировки сборочных заданий
      */
-    async postV3ClickCollectOrdersMetaDetails(requestParameters: PostV3ClickCollectOrdersMetaDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
+    async postV3ClickCollectOrdersMetaDetails(requestParameters: PostV3ClickCollectOrdersMetaDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaDetailsResponse> {
         const response = await this.postV3ClickCollectOrdersMetaDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }

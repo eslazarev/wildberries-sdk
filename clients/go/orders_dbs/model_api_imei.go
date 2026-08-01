@@ -12,6 +12,8 @@ package orders_dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiIMEI type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &ApiIMEI{}
 // ApiIMEI struct for ApiIMEI
 type ApiIMEI struct {
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId int32 `json:"orderId"`
 	// IMEI
-	Imei *string `json:"imei,omitempty"`
+	Imei string `json:"imei"`
 }
+
+type _ApiIMEI ApiIMEI
 
 // NewApiIMEI instantiates a new ApiIMEI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiIMEI() *ApiIMEI {
+func NewApiIMEI(orderId int32, imei string) *ApiIMEI {
 	this := ApiIMEI{}
+	this.OrderId = orderId
+	this.Imei = imei
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewApiIMEIWithDefaults() *ApiIMEI {
 	return &this
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *ApiIMEI) GetOrderId() int32 {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *ApiIMEI) GetOrderIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *ApiIMEI) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *ApiIMEI) SetOrderId(v int32) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
-// GetImei returns the Imei field value if set, zero value otherwise.
+// GetImei returns the Imei field value
 func (o *ApiIMEI) GetImei() string {
-	if o == nil || IsNil(o.Imei) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Imei
+
+	return o.Imei
 }
 
-// GetImeiOk returns a tuple with the Imei field value if set, nil otherwise
+// GetImeiOk returns a tuple with the Imei field value
 // and a boolean to check if the value has been set.
 func (o *ApiIMEI) GetImeiOk() (*string, bool) {
-	if o == nil || IsNil(o.Imei) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Imei, true
+	return &o.Imei, true
 }
 
-// HasImei returns a boolean if a field has been set.
-func (o *ApiIMEI) HasImei() bool {
-	if o != nil && !IsNil(o.Imei) {
-		return true
-	}
-
-	return false
-}
-
-// SetImei gets a reference to the given string and assigns it to the Imei field.
+// SetImei sets field value
 func (o *ApiIMEI) SetImei(v string) {
-	o.Imei = &v
+	o.Imei = v
 }
 
 func (o ApiIMEI) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o ApiIMEI) MarshalJSON() ([]byte, error) {
 
 func (o ApiIMEI) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if !IsNil(o.Imei) {
-		toSerialize["imei"] = o.Imei
-	}
+	toSerialize["orderId"] = o.OrderId
+	toSerialize["imei"] = o.Imei
 	return toSerialize, nil
+}
+
+func (o *ApiIMEI) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orderId",
+		"imei",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiIMEI := _ApiIMEI{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiIMEI)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiIMEI(varApiIMEI)
+
+	return err
 }
 
 type NullableApiIMEI struct {

@@ -274,11 +274,14 @@ class ApiV3OrdersOrderIdMetaSgtinPutRequest implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['sgtins']) && (count($this->container['sgtins']) > 100)) {
+        if ($this->container['sgtins'] === null) {
+            $invalidProperties[] = "'sgtins' can't be null";
+        }
+        if ((count($this->container['sgtins']) > 100)) {
             $invalidProperties[] = "invalid value for 'sgtins', number of items must be less than or equal to 100.";
         }
 
-        if (!is_null($this->container['sgtins']) && (count($this->container['sgtins']) < 1)) {
+        if ((count($this->container['sgtins']) < 1)) {
             $invalidProperties[] = "invalid value for 'sgtins', number of items must be greater than or equal to 1.";
         }
 
@@ -300,7 +303,7 @@ class ApiV3OrdersOrderIdMetaSgtinPutRequest implements ModelInterface, ArrayAcce
     /**
      * Gets sgtins
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getSgtins()
     {
@@ -310,7 +313,7 @@ class ApiV3OrdersOrderIdMetaSgtinPutRequest implements ModelInterface, ArrayAcce
     /**
      * Sets sgtins
      *
-     * @param string[]|null $sgtins Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#bfd5fce8-e0fd-4f15-9d8b-e616fac02c2e) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D`
+     * @param string[] $sgtins Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#bfd5fce8-e0fd-4f15-9d8b-e616fac02c2e) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D`
      *
      * @return self
      */

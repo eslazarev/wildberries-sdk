@@ -1127,6 +1127,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/api.OrdersRequestV2"
+        required: true
       responses:
         "200":
           content:
@@ -1322,6 +1323,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/api.OrdersMetaDeleteRequest"
+        required: true
       responses:
         "200":
           content:
@@ -1837,6 +1839,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/postV3ClickCollectOrdersMetaCustomsDeclaration_request"
+        required: true
       responses:
         "200":
           content:
@@ -2814,6 +2817,8 @@ components:
             type: integer
           maxItems: 1000
           type: array
+      required:
+      - ordersIds
       type: object
     api.StatusSetResponses:
       example:
@@ -3257,8 +3262,8 @@ components:
           description: ID сборочного задания
           type: integer
         originCountryCode:
-          description: "Числовой код страны происхождения товара из [Общероссийско\
-            го классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)"
+          description: |
+            Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи "isB2b":true
           example: "643"
           maxLength: 3
           type: string
@@ -3274,6 +3279,8 @@ components:
             $ref: "#/components/schemas/postV3ClickCollectOrdersMetaCustomsDeclaration_request_orders_inner"
           maxItems: 1000
           type: array
+      required:
+      - orders
       type: object
     api_NewOrder_options:
       description: Опции заказа

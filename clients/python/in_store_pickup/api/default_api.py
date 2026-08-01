@@ -1252,7 +1252,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_customs_declaration(
         self,
-        post_v3_click_collect_orders_meta_customs_declaration_request: Optional[PostV3ClickCollectOrdersMetaCustomsDeclarationRequest] = None,
+        post_v3_click_collect_orders_meta_customs_declaration_request: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1270,7 +1270,7 @@ class DefaultApi:
 
         Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - сборочное задание находится в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_click_collect_orders_meta_customs_declaration_request:
+        :param post_v3_click_collect_orders_meta_customs_declaration_request: (required)
         :type post_v3_click_collect_orders_meta_customs_declaration_request: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1323,7 +1323,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_customs_declaration_with_http_info(
         self,
-        post_v3_click_collect_orders_meta_customs_declaration_request: Optional[PostV3ClickCollectOrdersMetaCustomsDeclarationRequest] = None,
+        post_v3_click_collect_orders_meta_customs_declaration_request: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1341,7 +1341,7 @@ class DefaultApi:
 
         Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - сборочное задание находится в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_click_collect_orders_meta_customs_declaration_request:
+        :param post_v3_click_collect_orders_meta_customs_declaration_request: (required)
         :type post_v3_click_collect_orders_meta_customs_declaration_request: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1394,7 +1394,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_customs_declaration_without_preload_content(
         self,
-        post_v3_click_collect_orders_meta_customs_declaration_request: Optional[PostV3ClickCollectOrdersMetaCustomsDeclarationRequest] = None,
+        post_v3_click_collect_orders_meta_customs_declaration_request: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1412,7 +1412,7 @@ class DefaultApi:
 
         Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)   - сборочное задание находится в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 20 запросов | 3 сек | 500 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_click_collect_orders_meta_customs_declaration_request:
+        :param post_v3_click_collect_orders_meta_customs_declaration_request: (required)
         :type post_v3_click_collect_orders_meta_customs_declaration_request: PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1542,7 +1542,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_delete(
         self,
-        api_orders_meta_delete_request: Optional[ApiOrdersMetaDeleteRequest] = None,
+        api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1560,7 +1560,7 @@ class DefaultApi:
 
         Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_meta_delete_request:
+        :param api_orders_meta_delete_request: (required)
         :type api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1614,7 +1614,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_delete_with_http_info(
         self,
-        api_orders_meta_delete_request: Optional[ApiOrdersMetaDeleteRequest] = None,
+        api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1632,7 +1632,7 @@ class DefaultApi:
 
         Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_meta_delete_request:
+        :param api_orders_meta_delete_request: (required)
         :type api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1686,7 +1686,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_delete_without_preload_content(
         self,
-        api_orders_meta_delete_request: Optional[ApiOrdersMetaDeleteRequest] = None,
+        api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1704,7 +1704,7 @@ class DefaultApi:
 
         Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_meta_delete_request:
+        :param api_orders_meta_delete_request: (required)
         :type api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1836,7 +1836,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_details(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1854,7 +1854,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий ](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.<br><br>  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1907,7 +1907,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_details_with_http_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1925,7 +1925,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий ](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.<br><br>  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1978,7 +1978,7 @@ class DefaultApi:
     @validate_call
     def post_v3_click_collect_orders_meta_details_without_preload_content(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1996,7 +1996,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий ](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.<br><br>  Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

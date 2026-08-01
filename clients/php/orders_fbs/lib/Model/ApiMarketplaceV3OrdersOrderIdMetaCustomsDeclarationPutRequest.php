@@ -274,11 +274,14 @@ class ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest implements M
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['customs_declaration']) && (mb_strlen($this->container['customs_declaration']) > 29)) {
+        if ($this->container['customs_declaration'] === null) {
+            $invalidProperties[] = "'customs_declaration' can't be null";
+        }
+        if ((mb_strlen($this->container['customs_declaration']) > 29)) {
             $invalidProperties[] = "invalid value for 'customs_declaration', the character length must be smaller than or equal to 29.";
         }
 
-        if (!is_null($this->container['customs_declaration']) && (mb_strlen($this->container['customs_declaration']) < 17)) {
+        if ((mb_strlen($this->container['customs_declaration']) < 17)) {
             $invalidProperties[] = "invalid value for 'customs_declaration', the character length must be bigger than or equal to 17.";
         }
 
@@ -300,7 +303,7 @@ class ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest implements M
     /**
      * Gets customs_declaration
      *
-     * @return string|null
+     * @return string
      */
     public function getCustomsDeclaration()
     {
@@ -310,7 +313,7 @@ class ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest implements M
     /**
      * Sets customs_declaration
      *
-     * @param string|null $customs_declaration Номер ДТ
+     * @param string $customs_declaration Номер ДТ
      *
      * @return self
      */

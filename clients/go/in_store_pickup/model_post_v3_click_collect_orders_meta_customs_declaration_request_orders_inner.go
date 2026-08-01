@@ -25,7 +25,7 @@ type PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner struct {
 	CustomsDeclaration string `json:"customsDeclaration"`
 	// ID сборочного задания
 	OrderId int32 `json:"orderId"`
-	// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+	// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи \"isB2b\":true 
 	OriginCountryCode string `json:"originCountryCode"`
 }
 

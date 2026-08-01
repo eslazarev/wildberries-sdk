@@ -107,9 +107,6 @@ class DBSApi
         'postV3DbsOrdersMetaImei' => [
             'application/json',
         ],
-        'postV3DbsOrdersMetaInfo' => [
-            'application/json',
-        ],
         'postV3DbsOrdersMetaSgtin' => [
             'application/json',
         ],
@@ -2686,7 +2683,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest|null $post_v3_dbs_orders_meta_customs_declaration_request post_v3_dbs_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest $post_v3_dbs_orders_meta_customs_declaration_request post_v3_dbs_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2695,7 +2692,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersMetaCustomsDeclaration($post_v3_dbs_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
+    public function postV3DbsOrdersMetaCustomsDeclaration($post_v3_dbs_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
     {
         list($response) = $this->postV3DbsOrdersMetaCustomsDeclarationWithHttpInfo($post_v3_dbs_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -2711,7 +2708,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest|null $post_v3_dbs_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest $post_v3_dbs_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2720,7 +2717,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\Error|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersMetaCustomsDeclarationWithHttpInfo($post_v3_dbs_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
+    public function postV3DbsOrdersMetaCustomsDeclarationWithHttpInfo($post_v3_dbs_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
     {
         $request = $this->postV3DbsOrdersMetaCustomsDeclarationRequest($post_v3_dbs_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType);
 
@@ -2901,7 +2898,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest|null $post_v3_dbs_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest $post_v3_dbs_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2909,7 +2906,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaCustomsDeclarationAsync($post_v3_dbs_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
+    public function postV3DbsOrdersMetaCustomsDeclarationAsync($post_v3_dbs_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
     {
         return $this->postV3DbsOrdersMetaCustomsDeclarationAsyncWithHttpInfo($post_v3_dbs_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -2929,7 +2926,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest|null $post_v3_dbs_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest $post_v3_dbs_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2937,7 +2934,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaCustomsDeclarationAsyncWithHttpInfo($post_v3_dbs_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
+    public function postV3DbsOrdersMetaCustomsDeclarationAsyncWithHttpInfo($post_v3_dbs_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersMetaCustomsDeclarationRequest($post_v3_dbs_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType);
@@ -2986,7 +2983,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest|null $post_v3_dbs_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\PostV3DbsOrdersMetaCustomsDeclarationRequest $post_v3_dbs_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2994,9 +2991,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersMetaCustomsDeclarationRequest($post_v3_dbs_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
+    public function postV3DbsOrdersMetaCustomsDeclarationRequest($post_v3_dbs_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaCustomsDeclaration'][0])
     {
 
+        // verify the required parameter 'post_v3_dbs_orders_meta_customs_declaration_request' is set
+        if ($post_v3_dbs_orders_meta_customs_declaration_request === null || (is_array($post_v3_dbs_orders_meta_customs_declaration_request) && count($post_v3_dbs_orders_meta_customs_declaration_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $post_v3_dbs_orders_meta_customs_declaration_request when calling postV3DbsOrdersMetaCustomsDeclaration'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/meta/customs-declaration';
@@ -3116,7 +3119,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDelete'] to see the possible values for this operation
@@ -3125,7 +3128,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersMetaDelete($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
+    public function postV3DbsOrdersMetaDelete($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
     {
         list($response) = $this->postV3DbsOrdersMetaDeleteWithHttpInfo($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -3141,7 +3144,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDelete'] to see the possible values for this operation
@@ -3150,7 +3153,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersMetaDeleteWithHttpInfo($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
+    public function postV3DbsOrdersMetaDeleteWithHttpInfo($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
     {
         $request = $this->postV3DbsOrdersMetaDeleteRequest($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
 
@@ -3317,7 +3320,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDelete'] to see the possible values for this operation
@@ -3325,7 +3328,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaDeleteAsync($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
+    public function postV3DbsOrdersMetaDeleteAsync($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
     {
         return $this->postV3DbsOrdersMetaDeleteAsyncWithHttpInfo($api_orders_meta_delete_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -3345,7 +3348,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDelete'] to see the possible values for this operation
@@ -3353,7 +3356,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaDeleteAsyncWithHttpInfo($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
+    public function postV3DbsOrdersMetaDeleteAsyncWithHttpInfo($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersMetaDeleteRequest($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
@@ -3402,7 +3405,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDelete'] to see the possible values for this operation
@@ -3410,9 +3413,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersMetaDeleteRequest($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
+    public function postV3DbsOrdersMetaDeleteRequest($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDelete'][0])
     {
 
+        // verify the required parameter 'api_orders_meta_delete_request' is set
+        if ($api_orders_meta_delete_request === null || (is_array($api_orders_meta_delete_request) && count($api_orders_meta_delete_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_meta_delete_request when calling postV3DbsOrdersMetaDelete'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/meta/delete';
@@ -3531,7 +3540,7 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDetails'] to see the possible values for this operation
@@ -3540,7 +3549,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDetailsResponse|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersMetaDetails($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
+    public function postV3DbsOrdersMetaDetails($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
     {
         list($response) = $this->postV3DbsOrdersMetaDetailsWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
@@ -3555,7 +3564,7 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDetails'] to see the possible values for this operation
@@ -3564,7 +3573,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDetailsResponse|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersMetaDetailsWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
+    public function postV3DbsOrdersMetaDetailsWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
     {
         $request = $this->postV3DbsOrdersMetaDetailsRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
@@ -3716,7 +3725,7 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDetails'] to see the possible values for this operation
@@ -3724,7 +3733,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaDetailsAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
+    public function postV3DbsOrdersMetaDetailsAsync($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
     {
         return $this->postV3DbsOrdersMetaDetailsAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
@@ -3743,7 +3752,7 @@ class DBSApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDetails'] to see the possible values for this operation
@@ -3751,7 +3760,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaDetailsAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
+    public function postV3DbsOrdersMetaDetailsAsyncWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaDetailsResponse';
         $request = $this->postV3DbsOrdersMetaDetailsRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
@@ -3799,7 +3808,7 @@ class DBSApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaDetails'] to see the possible values for this operation
@@ -3807,9 +3816,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersMetaDetailsRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
+    public function postV3DbsOrdersMetaDetailsRequest($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaDetails'][0])
     {
 
+        // verify the required parameter 'api_orders_request_v2' is set
+        if ($api_orders_request_v2 === null || (is_array($api_orders_request_v2) && count($api_orders_request_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_request_v2 when calling postV3DbsOrdersMetaDetails'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/meta/details';
@@ -3925,7 +3940,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request api_orders_gtin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request api_orders_gtin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaGtin'] to see the possible values for this operation
@@ -3934,7 +3949,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersMetaGtin($api_orders_gtin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
+    public function postV3DbsOrdersMetaGtin($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
     {
         list($response) = $this->postV3DbsOrdersMetaGtinWithHttpInfo($api_orders_gtin_set_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -3950,7 +3965,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaGtin'] to see the possible values for this operation
@@ -3959,7 +3974,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersMetaGtinWithHttpInfo($api_orders_gtin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
+    public function postV3DbsOrdersMetaGtinWithHttpInfo($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
     {
         $request = $this->postV3DbsOrdersMetaGtinRequest($api_orders_gtin_set_request, $hostIndex, $variables, $contentType);
 
@@ -4126,7 +4141,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaGtin'] to see the possible values for this operation
@@ -4134,7 +4149,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaGtinAsync($api_orders_gtin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
+    public function postV3DbsOrdersMetaGtinAsync($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
     {
         return $this->postV3DbsOrdersMetaGtinAsyncWithHttpInfo($api_orders_gtin_set_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -4154,7 +4169,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaGtin'] to see the possible values for this operation
@@ -4162,7 +4177,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaGtinAsyncWithHttpInfo($api_orders_gtin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
+    public function postV3DbsOrdersMetaGtinAsyncWithHttpInfo($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersMetaGtinRequest($api_orders_gtin_set_request, $hostIndex, $variables, $contentType);
@@ -4211,7 +4226,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest|null $api_orders_gtin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersGTINSetRequest $api_orders_gtin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaGtin'] to see the possible values for this operation
@@ -4219,9 +4234,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersMetaGtinRequest($api_orders_gtin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
+    public function postV3DbsOrdersMetaGtinRequest($api_orders_gtin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaGtin'][0])
     {
 
+        // verify the required parameter 'api_orders_gtin_set_request' is set
+        if ($api_orders_gtin_set_request === null || (is_array($api_orders_gtin_set_request) && count($api_orders_gtin_set_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_gtin_set_request when calling postV3DbsOrdersMetaGtin'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/meta/gtin';
@@ -4341,7 +4362,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request api_orders_imei_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request api_orders_imei_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaImei'] to see the possible values for this operation
@@ -4350,7 +4371,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersMetaImei($api_orders_imei_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
+    public function postV3DbsOrdersMetaImei($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
     {
         list($response) = $this->postV3DbsOrdersMetaImeiWithHttpInfo($api_orders_imei_set_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -4366,7 +4387,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaImei'] to see the possible values for this operation
@@ -4375,7 +4396,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersMetaImeiWithHttpInfo($api_orders_imei_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
+    public function postV3DbsOrdersMetaImeiWithHttpInfo($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
     {
         $request = $this->postV3DbsOrdersMetaImeiRequest($api_orders_imei_set_request, $hostIndex, $variables, $contentType);
 
@@ -4542,7 +4563,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaImei'] to see the possible values for this operation
@@ -4550,7 +4571,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaImeiAsync($api_orders_imei_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
+    public function postV3DbsOrdersMetaImeiAsync($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
     {
         return $this->postV3DbsOrdersMetaImeiAsyncWithHttpInfo($api_orders_imei_set_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -4570,7 +4591,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaImei'] to see the possible values for this operation
@@ -4578,7 +4599,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaImeiAsyncWithHttpInfo($api_orders_imei_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
+    public function postV3DbsOrdersMetaImeiAsyncWithHttpInfo($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersMetaImeiRequest($api_orders_imei_set_request, $hostIndex, $variables, $contentType);
@@ -4627,7 +4648,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest|null $api_orders_imei_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersIMEISetRequest $api_orders_imei_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaImei'] to see the possible values for this operation
@@ -4635,9 +4656,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersMetaImeiRequest($api_orders_imei_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
+    public function postV3DbsOrdersMetaImeiRequest($api_orders_imei_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaImei'][0])
     {
 
+        // verify the required parameter 'api_orders_imei_set_request' is set
+        if ($api_orders_imei_set_request === null || (is_array($api_orders_imei_set_request) && count($api_orders_imei_set_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_imei_set_request when calling postV3DbsOrdersMetaImei'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/meta/imei';
@@ -4748,413 +4775,6 @@ class DBSApi
     }
 
     /**
-     * Operation postV3DbsOrdersMetaInfo
-     *
-     * Получить идентификаторы маркировки сборочных заданий
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://marketplace-api.wildberries.ru
-     * URL: https://marketplace-api-sandbox.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaInfo'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\OrdersDbs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaResponse|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
-     * @deprecated
-     */
-    public function postV3DbsOrdersMetaInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaInfo'][0])
-    {
-        list($response) = $this->postV3DbsOrdersMetaInfoWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation postV3DbsOrdersMetaInfoWithHttpInfo
-     *
-     * Получить идентификаторы маркировки сборочных заданий
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://marketplace-api.wildberries.ru
-     * URL: https://marketplace-api-sandbox.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaInfo'] to see the possible values for this operation
-     *
-     * @throws \Wildberries\Sdk\OrdersDbs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaResponse|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
-     */
-    public function postV3DbsOrdersMetaInfoWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaInfo'][0])
-    {
-        $request = $this->postV3DbsOrdersMetaInfoRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError',
-                        $request,
-                        $response,
-                    );
-                case 429:
-                    return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaResponse',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation postV3DbsOrdersMetaInfoAsync
-     *
-     * Получить идентификаторы маркировки сборочных заданий
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://marketplace-api.wildberries.ru
-     * URL: https://marketplace-api-sandbox.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaInfo'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
-     */
-    public function postV3DbsOrdersMetaInfoAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaInfo'][0])
-    {
-        return $this->postV3DbsOrdersMetaInfoAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation postV3DbsOrdersMetaInfoAsyncWithHttpInfo
-     *
-     * Получить идентификаторы маркировки сборочных заданий
-     *
-     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-     * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://marketplace-api.wildberries.ru
-     * URL: https://marketplace-api-sandbox.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaInfo'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
-     */
-    public function postV3DbsOrdersMetaInfoAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaInfo'][0])
-    {
-        $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiOrdersMetaResponse';
-        $request = $this->postV3DbsOrdersMetaInfoRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'postV3DbsOrdersMetaInfo'
-     *
-    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-    * if needed, use the 'variables' parameter to pass variables to the host.
-     * URL: https://marketplace-api.wildberries.ru
-     * URL: https://marketplace-api-sandbox.wildberries.ru
-     *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaInfo'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
-     */
-    public function postV3DbsOrdersMetaInfoRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaInfo'][0])
-    {
-
-
-
-        $resourcePath = '/api/marketplace/v3/dbs/orders/meta/info';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/problem+json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($api_orders_request_v2)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_orders_request_v2));
-            } else {
-                $httpBody = $api_orders_request_v2;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        # Preserve the original behavior of server indexing.
-        if ($hostIndex === null) {
-            $hostIndex = $this->hostIndex;
-        }
-
-        $hostSettings = $this->getHostSettingsForpostV3DbsOrdersMetaInfo();
-
-        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
-        }
-        $operationHost = $this->config->isHostOverridden()
-            ? $this->config->getHost()
-            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Returns an array of host settings for Operation postV3DbsOrdersMetaInfo
-     *
-     * @return array an array of host settings
-     */
-    protected function getHostSettingsForpostV3DbsOrdersMetaInfo(): array
-    {
-        return [
-            [
-                "url" => "https://marketplace-api.wildberries.ru",
-                "description" => "**Prod**",
-            ],
-            [
-                "url" => "https://marketplace-api-sandbox.wildberries.ru",
-                "description" => "**Sandbox**",
-            ]
-        ];
-    }
-
-    /**
      * Operation postV3DbsOrdersMetaSgtin
      *
      * Закрепить коды маркировки Честного знака за сборочными заданиями
@@ -5164,7 +4784,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request api_orders_sgtins_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request api_orders_sgtins_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaSgtin'] to see the possible values for this operation
@@ -5173,7 +4793,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersMetaSgtin($api_orders_sgtins_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
+    public function postV3DbsOrdersMetaSgtin($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
     {
         list($response) = $this->postV3DbsOrdersMetaSgtinWithHttpInfo($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -5189,7 +4809,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaSgtin'] to see the possible values for this operation
@@ -5198,7 +4818,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersMetaSgtinWithHttpInfo($api_orders_sgtins_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
+    public function postV3DbsOrdersMetaSgtinWithHttpInfo($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
     {
         $request = $this->postV3DbsOrdersMetaSgtinRequest($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType);
 
@@ -5351,7 +4971,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaSgtin'] to see the possible values for this operation
@@ -5359,7 +4979,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaSgtinAsync($api_orders_sgtins_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
+    public function postV3DbsOrdersMetaSgtinAsync($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
     {
         return $this->postV3DbsOrdersMetaSgtinAsyncWithHttpInfo($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -5379,7 +4999,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaSgtin'] to see the possible values for this operation
@@ -5387,7 +5007,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaSgtinAsyncWithHttpInfo($api_orders_sgtins_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
+    public function postV3DbsOrdersMetaSgtinAsyncWithHttpInfo($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersMetaSgtinRequest($api_orders_sgtins_set_request, $hostIndex, $variables, $contentType);
@@ -5436,7 +5056,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest|null $api_orders_sgtins_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersSGTINsSetRequest $api_orders_sgtins_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaSgtin'] to see the possible values for this operation
@@ -5444,9 +5064,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersMetaSgtinRequest($api_orders_sgtins_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
+    public function postV3DbsOrdersMetaSgtinRequest($api_orders_sgtins_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaSgtin'][0])
     {
 
+        // verify the required parameter 'api_orders_sgtins_set_request' is set
+        if ($api_orders_sgtins_set_request === null || (is_array($api_orders_sgtins_set_request) && count($api_orders_sgtins_set_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_sgtins_set_request when calling postV3DbsOrdersMetaSgtin'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/meta/sgtin';
@@ -5566,7 +5192,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request api_orders_uin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request api_orders_uin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaUin'] to see the possible values for this operation
@@ -5575,7 +5201,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersMetaUin($api_orders_uin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
+    public function postV3DbsOrdersMetaUin($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
     {
         list($response) = $this->postV3DbsOrdersMetaUinWithHttpInfo($api_orders_uin_set_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -5591,7 +5217,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaUin'] to see the possible values for this operation
@@ -5600,7 +5226,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersMetaUinWithHttpInfo($api_orders_uin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
+    public function postV3DbsOrdersMetaUinWithHttpInfo($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
     {
         $request = $this->postV3DbsOrdersMetaUinRequest($api_orders_uin_set_request, $hostIndex, $variables, $contentType);
 
@@ -5767,7 +5393,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaUin'] to see the possible values for this operation
@@ -5775,7 +5401,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaUinAsync($api_orders_uin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
+    public function postV3DbsOrdersMetaUinAsync($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
     {
         return $this->postV3DbsOrdersMetaUinAsyncWithHttpInfo($api_orders_uin_set_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -5795,7 +5421,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaUin'] to see the possible values for this operation
@@ -5803,7 +5429,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersMetaUinAsyncWithHttpInfo($api_orders_uin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
+    public function postV3DbsOrdersMetaUinAsyncWithHttpInfo($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersMetaUinRequest($api_orders_uin_set_request, $hostIndex, $variables, $contentType);
@@ -5852,7 +5478,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest|null $api_orders_uin_set_request (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersUINSetRequest $api_orders_uin_set_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersMetaUin'] to see the possible values for this operation
@@ -5860,9 +5486,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersMetaUinRequest($api_orders_uin_set_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
+    public function postV3DbsOrdersMetaUinRequest($api_orders_uin_set_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersMetaUin'][0])
     {
 
+        // verify the required parameter 'api_orders_uin_set_request' is set
+        if ($api_orders_uin_set_request === null || (is_array($api_orders_uin_set_request) && count($api_orders_uin_set_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_uin_set_request when calling postV3DbsOrdersMetaUin'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/meta/uin';
@@ -5982,7 +5614,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusCancel'] to see the possible values for this operation
@@ -5991,7 +5623,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersStatusCancel($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
+    public function postV3DbsOrdersStatusCancel($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
     {
         list($response) = $this->postV3DbsOrdersStatusCancelWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
@@ -6007,7 +5639,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusCancel'] to see the possible values for this operation
@@ -6016,7 +5648,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersStatusCancelWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
+    public function postV3DbsOrdersStatusCancelWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
     {
         $request = $this->postV3DbsOrdersStatusCancelRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
@@ -6169,7 +5801,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusCancel'] to see the possible values for this operation
@@ -6177,7 +5809,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusCancelAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
+    public function postV3DbsOrdersStatusCancelAsync($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
     {
         return $this->postV3DbsOrdersStatusCancelAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
@@ -6197,7 +5829,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusCancel'] to see the possible values for this operation
@@ -6205,7 +5837,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusCancelAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
+    public function postV3DbsOrdersStatusCancelAsyncWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersStatusCancelRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
@@ -6254,7 +5886,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusCancel'] to see the possible values for this operation
@@ -6262,9 +5894,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersStatusCancelRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
+    public function postV3DbsOrdersStatusCancelRequest($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusCancel'][0])
     {
 
+        // verify the required parameter 'api_orders_request_v2' is set
+        if ($api_orders_request_v2 === null || (is_array($api_orders_request_v2) && count($api_orders_request_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_request_v2 when calling postV3DbsOrdersStatusCancel'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/status/cancel';
@@ -6384,7 +6022,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusConfirm'] to see the possible values for this operation
@@ -6393,7 +6031,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersStatusConfirm($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
+    public function postV3DbsOrdersStatusConfirm($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
     {
         list($response) = $this->postV3DbsOrdersStatusConfirmWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
@@ -6409,7 +6047,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusConfirm'] to see the possible values for this operation
@@ -6418,7 +6056,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersStatusConfirmWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
+    public function postV3DbsOrdersStatusConfirmWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
     {
         $request = $this->postV3DbsOrdersStatusConfirmRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
@@ -6571,7 +6209,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusConfirm'] to see the possible values for this operation
@@ -6579,7 +6217,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusConfirmAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
+    public function postV3DbsOrdersStatusConfirmAsync($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
     {
         return $this->postV3DbsOrdersStatusConfirmAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
@@ -6599,7 +6237,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusConfirm'] to see the possible values for this operation
@@ -6607,7 +6245,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusConfirmAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
+    public function postV3DbsOrdersStatusConfirmAsyncWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetResponses';
         $request = $this->postV3DbsOrdersStatusConfirmRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
@@ -6656,7 +6294,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusConfirm'] to see the possible values for this operation
@@ -6664,9 +6302,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersStatusConfirmRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
+    public function postV3DbsOrdersStatusConfirmRequest($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusConfirm'][0])
     {
 
+        // verify the required parameter 'api_orders_request_v2' is set
+        if ($api_orders_request_v2 === null || (is_array($api_orders_request_v2) && count($api_orders_request_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_request_v2 when calling postV3DbsOrdersStatusConfirm'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/status/confirm';
@@ -6786,7 +6430,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusDeliver'] to see the possible values for this operation
@@ -6795,7 +6439,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetDeliverResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersStatusDeliver($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
+    public function postV3DbsOrdersStatusDeliver($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
     {
         list($response) = $this->postV3DbsOrdersStatusDeliverWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
@@ -6811,7 +6455,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusDeliver'] to see the possible values for this operation
@@ -6820,7 +6464,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetDeliverResponses|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersStatusDeliverWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
+    public function postV3DbsOrdersStatusDeliverWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
     {
         $request = $this->postV3DbsOrdersStatusDeliverRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
@@ -6973,7 +6617,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusDeliver'] to see the possible values for this operation
@@ -6981,7 +6625,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusDeliverAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
+    public function postV3DbsOrdersStatusDeliverAsync($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
     {
         return $this->postV3DbsOrdersStatusDeliverAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
@@ -7001,7 +6645,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusDeliver'] to see the possible values for this operation
@@ -7009,7 +6653,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusDeliverAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
+    public function postV3DbsOrdersStatusDeliverAsyncWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiStatusSetDeliverResponses';
         $request = $this->postV3DbsOrdersStatusDeliverRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
@@ -7058,7 +6702,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusDeliver'] to see the possible values for this operation
@@ -7066,9 +6710,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersStatusDeliverRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
+    public function postV3DbsOrdersStatusDeliverRequest($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusDeliver'][0])
     {
 
+        // verify the required parameter 'api_orders_request_v2' is set
+        if ($api_orders_request_v2 === null || (is_array($api_orders_request_v2) && count($api_orders_request_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_request_v2 when calling postV3DbsOrdersStatusDeliver'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/status/deliver';
@@ -7188,7 +6838,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusInfo'] to see the possible values for this operation
@@ -7197,7 +6847,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\OrdersDbs\Model\ApiOrderStatusesV2|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response
      */
-    public function postV3DbsOrdersStatusInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
+    public function postV3DbsOrdersStatusInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
     {
         list($response) = $this->postV3DbsOrdersStatusInfoWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType);
         return $response;
@@ -7213,7 +6863,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusInfo'] to see the possible values for this operation
@@ -7222,7 +6872,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\OrdersDbs\Model\ApiOrderStatusesV2|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew402Response|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\ApiBatchError|\Wildberries\Sdk\OrdersDbs\Model\GetV3DbsOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3DbsOrdersStatusInfoWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
+    public function postV3DbsOrdersStatusInfoWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
     {
         $request = $this->postV3DbsOrdersStatusInfoRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
 
@@ -7389,7 +7039,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusInfo'] to see the possible values for this operation
@@ -7397,7 +7047,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusInfoAsync($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
+    public function postV3DbsOrdersStatusInfoAsync($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
     {
         return $this->postV3DbsOrdersStatusInfoAsyncWithHttpInfo($api_orders_request_v2, $hostIndex, $variables, $contentType)
             ->then(
@@ -7417,7 +7067,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusInfo'] to see the possible values for this operation
@@ -7425,7 +7075,7 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3DbsOrdersStatusInfoAsyncWithHttpInfo($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
+    public function postV3DbsOrdersStatusInfoAsyncWithHttpInfo($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
     {
         $returnType = '\Wildberries\Sdk\OrdersDbs\Model\ApiOrderStatusesV2';
         $request = $this->postV3DbsOrdersStatusInfoRequest($api_orders_request_v2, $hostIndex, $variables, $contentType);
@@ -7474,7 +7124,7 @@ class DBSApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\OrdersDbs\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3DbsOrdersStatusInfo'] to see the possible values for this operation
@@ -7482,9 +7132,15 @@ class DBSApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3DbsOrdersStatusInfoRequest($api_orders_request_v2 = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
+    public function postV3DbsOrdersStatusInfoRequest($api_orders_request_v2, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3DbsOrdersStatusInfo'][0])
     {
 
+        // verify the required parameter 'api_orders_request_v2' is set
+        if ($api_orders_request_v2 === null || (is_array($api_orders_request_v2) && count($api_orders_request_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_request_v2 when calling postV3DbsOrdersStatusInfo'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/dbs/orders/status/info';

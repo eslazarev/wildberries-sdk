@@ -12,6 +12,8 @@ package orders_dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiOrdersRequestV2 type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &ApiOrdersRequestV2{}
 // ApiOrdersRequestV2 struct for ApiOrdersRequestV2
 type ApiOrdersRequestV2 struct {
 	// Список ID сборочных заданий
-	OrdersIds []int32 `json:"ordersIds,omitempty"`
+	OrdersIds []int32 `json:"ordersIds"`
 }
+
+type _ApiOrdersRequestV2 ApiOrdersRequestV2
 
 // NewApiOrdersRequestV2 instantiates a new ApiOrdersRequestV2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersRequestV2() *ApiOrdersRequestV2 {
+func NewApiOrdersRequestV2(ordersIds []int32) *ApiOrdersRequestV2 {
 	this := ApiOrdersRequestV2{}
+	this.OrdersIds = ordersIds
 	return &this
 }
 
@@ -40,34 +45,26 @@ func NewApiOrdersRequestV2WithDefaults() *ApiOrdersRequestV2 {
 	return &this
 }
 
-// GetOrdersIds returns the OrdersIds field value if set, zero value otherwise.
+// GetOrdersIds returns the OrdersIds field value
 func (o *ApiOrdersRequestV2) GetOrdersIds() []int32 {
-	if o == nil || IsNil(o.OrdersIds) {
+	if o == nil {
 		var ret []int32
 		return ret
 	}
+
 	return o.OrdersIds
 }
 
-// GetOrdersIdsOk returns a tuple with the OrdersIds field value if set, nil otherwise
+// GetOrdersIdsOk returns a tuple with the OrdersIds field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersRequestV2) GetOrdersIdsOk() ([]int32, bool) {
-	if o == nil || IsNil(o.OrdersIds) {
+	if o == nil {
 		return nil, false
 	}
 	return o.OrdersIds, true
 }
 
-// HasOrdersIds returns a boolean if a field has been set.
-func (o *ApiOrdersRequestV2) HasOrdersIds() bool {
-	if o != nil && !IsNil(o.OrdersIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrdersIds gets a reference to the given []int32 and assigns it to the OrdersIds field.
+// SetOrdersIds sets field value
 func (o *ApiOrdersRequestV2) SetOrdersIds(v []int32) {
 	o.OrdersIds = v
 }
@@ -82,10 +79,45 @@ func (o ApiOrdersRequestV2) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrdersRequestV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OrdersIds) {
-		toSerialize["ordersIds"] = o.OrdersIds
-	}
+	toSerialize["ordersIds"] = o.OrdersIds
 	return toSerialize, nil
+}
+
+func (o *ApiOrdersRequestV2) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"ordersIds",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiOrdersRequestV2 := _ApiOrdersRequestV2{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiOrdersRequestV2)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiOrdersRequestV2(varApiOrdersRequestV2)
+
+	return err
 }
 
 type NullableApiOrdersRequestV2 struct {

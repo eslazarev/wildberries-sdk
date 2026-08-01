@@ -274,7 +274,10 @@ class PostV3ClickCollectOrdersMetaCustomsDeclarationRequest implements ModelInte
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['orders']) && (count($this->container['orders']) > 1000)) {
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
+        if ((count($this->container['orders']) > 1000)) {
             $invalidProperties[] = "invalid value for 'orders', number of items must be less than or equal to 1000.";
         }
 
@@ -296,7 +299,7 @@ class PostV3ClickCollectOrdersMetaCustomsDeclarationRequest implements ModelInte
     /**
      * Gets orders
      *
-     * @return \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner[]|null
+     * @return \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner[]
      */
     public function getOrders()
     {
@@ -306,7 +309,7 @@ class PostV3ClickCollectOrdersMetaCustomsDeclarationRequest implements ModelInte
     /**
      * Sets orders
      *
-     * @param \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner[]|null $orders orders
+     * @param \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner[] $orders orders
      *
      * @return self
      */

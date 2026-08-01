@@ -1883,7 +1883,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest|null $post_v3_click_collect_orders_meta_customs_declaration_request post_v3_click_collect_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest $post_v3_click_collect_orders_meta_customs_declaration_request post_v3_click_collect_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -1892,7 +1892,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiCustomsDeclarationSetResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response
      */
-    public function postV3ClickCollectOrdersMetaCustomsDeclaration($post_v3_click_collect_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
+    public function postV3ClickCollectOrdersMetaCustomsDeclaration($post_v3_click_collect_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
     {
         list($response) = $this->postV3ClickCollectOrdersMetaCustomsDeclarationWithHttpInfo($post_v3_click_collect_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -1907,7 +1907,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest|null $post_v3_click_collect_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest $post_v3_click_collect_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -1916,7 +1916,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiCustomsDeclarationSetResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3ClickCollectOrdersMetaCustomsDeclarationWithHttpInfo($post_v3_click_collect_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
+    public function postV3ClickCollectOrdersMetaCustomsDeclarationWithHttpInfo($post_v3_click_collect_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
     {
         $request = $this->postV3ClickCollectOrdersMetaCustomsDeclarationRequest($post_v3_click_collect_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType);
 
@@ -2054,7 +2054,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest|null $post_v3_click_collect_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest $post_v3_click_collect_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2062,7 +2062,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3ClickCollectOrdersMetaCustomsDeclarationAsync($post_v3_click_collect_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
+    public function postV3ClickCollectOrdersMetaCustomsDeclarationAsync($post_v3_click_collect_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
     {
         return $this->postV3ClickCollectOrdersMetaCustomsDeclarationAsyncWithHttpInfo($post_v3_click_collect_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -2081,7 +2081,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest|null $post_v3_click_collect_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest $post_v3_click_collect_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2089,7 +2089,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3ClickCollectOrdersMetaCustomsDeclarationAsyncWithHttpInfo($post_v3_click_collect_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
+    public function postV3ClickCollectOrdersMetaCustomsDeclarationAsyncWithHttpInfo($post_v3_click_collect_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiCustomsDeclarationSetResponse';
         $request = $this->postV3ClickCollectOrdersMetaCustomsDeclarationRequest($post_v3_click_collect_orders_meta_customs_declaration_request, $hostIndex, $variables, $contentType);
@@ -2137,7 +2137,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://marketplace-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest|null $post_v3_click_collect_orders_meta_customs_declaration_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\PostV3ClickCollectOrdersMetaCustomsDeclarationRequest $post_v3_click_collect_orders_meta_customs_declaration_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'] to see the possible values for this operation
@@ -2145,9 +2145,15 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3ClickCollectOrdersMetaCustomsDeclarationRequest($post_v3_click_collect_orders_meta_customs_declaration_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
+    public function postV3ClickCollectOrdersMetaCustomsDeclarationRequest($post_v3_click_collect_orders_meta_customs_declaration_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaCustomsDeclaration'][0])
     {
 
+        // verify the required parameter 'post_v3_click_collect_orders_meta_customs_declaration_request' is set
+        if ($post_v3_click_collect_orders_meta_customs_declaration_request === null || (is_array($post_v3_click_collect_orders_meta_customs_declaration_request) && count($post_v3_click_collect_orders_meta_customs_declaration_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $post_v3_click_collect_orders_meta_customs_declaration_request when calling postV3ClickCollectOrdersMetaCustomsDeclaration'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/click-collect/orders/meta/customs-declaration';
@@ -2263,7 +2269,7 @@ class DefaultApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDelete'] to see the possible values for this operation
@@ -2272,7 +2278,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrdersResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response
      */
-    public function postV3ClickCollectOrdersMetaDelete($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
+    public function postV3ClickCollectOrdersMetaDelete($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
     {
         list($response) = $this->postV3ClickCollectOrdersMetaDeleteWithHttpInfo($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
         return $response;
@@ -2288,7 +2294,7 @@ class DefaultApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDelete'] to see the possible values for this operation
@@ -2297,7 +2303,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiOrdersResponses|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew402Response|\Wildberries\Sdk\InStorePickup\Model\Error|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3ClickCollectOrdersMetaDeleteWithHttpInfo($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
+    public function postV3ClickCollectOrdersMetaDeleteWithHttpInfo($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
     {
         $request = $this->postV3ClickCollectOrdersMetaDeleteRequest($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
 
@@ -2450,7 +2456,7 @@ class DefaultApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDelete'] to see the possible values for this operation
@@ -2458,7 +2464,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3ClickCollectOrdersMetaDeleteAsync($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
+    public function postV3ClickCollectOrdersMetaDeleteAsync($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
     {
         return $this->postV3ClickCollectOrdersMetaDeleteAsyncWithHttpInfo($api_orders_meta_delete_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -2478,7 +2484,7 @@ class DefaultApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDelete'] to see the possible values for this operation
@@ -2486,7 +2492,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3ClickCollectOrdersMetaDeleteAsyncWithHttpInfo($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
+    public function postV3ClickCollectOrdersMetaDeleteAsyncWithHttpInfo($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiOrdersResponses';
         $request = $this->postV3ClickCollectOrdersMetaDeleteRequest($api_orders_meta_delete_request, $hostIndex, $variables, $contentType);
@@ -2535,7 +2541,7 @@ class DefaultApi
      * URL: https://marketplace-api.wildberries.ru
      * URL: https://marketplace-api-sandbox.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest|null $api_orders_meta_delete_request (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDeleteRequest $api_orders_meta_delete_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDelete'] to see the possible values for this operation
@@ -2543,9 +2549,15 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3ClickCollectOrdersMetaDeleteRequest($api_orders_meta_delete_request = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
+    public function postV3ClickCollectOrdersMetaDeleteRequest($api_orders_meta_delete_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDelete'][0])
     {
 
+        // verify the required parameter 'api_orders_meta_delete_request' is set
+        if ($api_orders_meta_delete_request === null || (is_array($api_orders_meta_delete_request) && count($api_orders_meta_delete_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_meta_delete_request when calling postV3ClickCollectOrdersMetaDelete'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/click-collect/orders/meta/delete';
@@ -2660,14 +2672,14 @@ class DefaultApi
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 api_orders_request_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDetails'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDetailsResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response
      */
-    public function postV3ClickCollectOrdersMetaDetails($api_orders_request_v2 = null, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
+    public function postV3ClickCollectOrdersMetaDetails($api_orders_request_v2, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
     {
         list($response) = $this->postV3ClickCollectOrdersMetaDetailsWithHttpInfo($api_orders_request_v2, $contentType);
         return $response;
@@ -2678,14 +2690,14 @@ class DefaultApi
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDetails'] to see the possible values for this operation
      *
      * @throws \Wildberries\Sdk\InStorePickup\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDetailsResponse|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response|\Wildberries\Sdk\InStorePickup\Model\ApiBatchError|\Wildberries\Sdk\InStorePickup\Model\GetV3ClickCollectOrdersNew401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV3ClickCollectOrdersMetaDetailsWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
+    public function postV3ClickCollectOrdersMetaDetailsWithHttpInfo($api_orders_request_v2, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
     {
         $request = $this->postV3ClickCollectOrdersMetaDetailsRequest($api_orders_request_v2, $contentType);
 
@@ -2819,13 +2831,13 @@ class DefaultApi
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDetails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3ClickCollectOrdersMetaDetailsAsync($api_orders_request_v2 = null, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
+    public function postV3ClickCollectOrdersMetaDetailsAsync($api_orders_request_v2, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
     {
         return $this->postV3ClickCollectOrdersMetaDetailsAsyncWithHttpInfo($api_orders_request_v2, $contentType)
             ->then(
@@ -2840,13 +2852,13 @@ class DefaultApi
      *
      * Получить идентификаторы маркировки сборочных заданий
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDetails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV3ClickCollectOrdersMetaDetailsAsyncWithHttpInfo($api_orders_request_v2 = null, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
+    public function postV3ClickCollectOrdersMetaDetailsAsyncWithHttpInfo($api_orders_request_v2, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
     {
         $returnType = '\Wildberries\Sdk\InStorePickup\Model\ApiOrdersMetaDetailsResponse';
         $request = $this->postV3ClickCollectOrdersMetaDetailsRequest($api_orders_request_v2, $contentType);
@@ -2890,15 +2902,21 @@ class DefaultApi
     /**
      * Create request for operation 'postV3ClickCollectOrdersMetaDetails'
      *
-     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2|null $api_orders_request_v2 (optional)
+     * @param  \Wildberries\Sdk\InStorePickup\Model\ApiOrdersRequestV2 $api_orders_request_v2 (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3ClickCollectOrdersMetaDetails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV3ClickCollectOrdersMetaDetailsRequest($api_orders_request_v2 = null, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
+    public function postV3ClickCollectOrdersMetaDetailsRequest($api_orders_request_v2, string $contentType = self::contentTypes['postV3ClickCollectOrdersMetaDetails'][0])
     {
 
+        // verify the required parameter 'api_orders_request_v2' is set
+        if ($api_orders_request_v2 === null || (is_array($api_orders_request_v2) && count($api_orders_request_v2) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_orders_request_v2 when calling postV3ClickCollectOrdersMetaDetails'
+            );
+        }
 
 
         $resourcePath = '/api/marketplace/v3/click-collect/orders/meta/details';

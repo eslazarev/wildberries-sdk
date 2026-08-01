@@ -1209,7 +1209,10 @@ func (r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) Execute() (*ApiStatusSe
 PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за сборочными заданиями
 
 Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br>
-Закрепить номера ДТ можно только за сборочными заданиями в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.
+Закрепить номер ДТ можно, только если выполняются все условия:
+  - сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)
+  - сборочное задание находится в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`
+  - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:
@@ -1252,6 +1255,9 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.postV3DbsOrdersMetaCustomsDeclarationRequest == nil {
+		return localVarReturnValue, nil, reportError("postV3DbsOrdersMetaCustomsDeclarationRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1467,6 +1473,9 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersMetaDeleteRequest == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersMetaDeleteRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1672,6 +1681,9 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersRequestV2 == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1859,6 +1871,9 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersGTINSetRequest == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersGTINSetRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2058,6 +2073,9 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersIMEISetRequest == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersIMEISetRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2194,195 +2212,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostV3DbsOrdersMetaInfoRequest struct {
-	ctx context.Context
-	ApiService *DBSAPIService
-	apiOrdersRequestV2 *ApiOrdersRequestV2
-}
-
-func (r ApiPostV3DbsOrdersMetaInfoRequest) ApiOrdersRequestV2(apiOrdersRequestV2 ApiOrdersRequestV2) ApiPostV3DbsOrdersMetaInfoRequest {
-	r.apiOrdersRequestV2 = &apiOrdersRequestV2
-	return r
-}
-
-func (r ApiPostV3DbsOrdersMetaInfoRequest) Execute() (*ApiOrdersMetaResponse, *http.Response, error) {
-	return r.ApiService.PostV3DbsOrdersMetaInfoExecute(r)
-}
-
-/*
-PostV3DbsOrdersMetaInfo Получить идентификаторы маркировки сборочных заданий
-
-Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:
-
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaInfoRequest
-
-Deprecated
-*/
-func (a *DBSAPIService) PostV3DbsOrdersMetaInfo(ctx context.Context) ApiPostV3DbsOrdersMetaInfoRequest {
-	return ApiPostV3DbsOrdersMetaInfoRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiOrdersMetaResponse
-// Deprecated
-func (a *DBSAPIService) PostV3DbsOrdersMetaInfoExecute(r ApiPostV3DbsOrdersMetaInfoRequest) (*ApiOrdersMetaResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersMetaResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaInfo")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/marketplace/v3/dbs/orders/meta/info"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v GetV3DbsOrdersNew401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetV3DbsOrdersNew402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiBatchError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetV3DbsOrdersNew401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiPostV3DbsOrdersMetaSgtinRequest struct {
 	ctx context.Context
 	ApiService *DBSAPIService
@@ -2451,6 +2280,9 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersSGTINsSetRequest == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersSGTINsSetRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2639,6 +2471,9 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersUINSetRequest == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersUINSetRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2837,6 +2672,9 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersRequestV2 == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -3023,6 +2861,9 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersRequestV2 == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -3209,6 +3050,9 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersRequestV2 == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -3422,6 +3266,9 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersRequestV2 == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

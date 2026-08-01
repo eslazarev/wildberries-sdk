@@ -27,7 +27,6 @@ from wildberries_sdk.orders_dbs.models.api_orders_gtin_set_request import ApiOrd
 from wildberries_sdk.orders_dbs.models.api_orders_imei_set_request import ApiOrdersIMEISetRequest
 from wildberries_sdk.orders_dbs.models.api_orders_meta_delete_request import ApiOrdersMetaDeleteRequest
 from wildberries_sdk.orders_dbs.models.api_orders_meta_details_response import ApiOrdersMetaDetailsResponse
-from wildberries_sdk.orders_dbs.models.api_orders_meta_response import ApiOrdersMetaResponse
 from wildberries_sdk.orders_dbs.models.api_orders_request_v2 import ApiOrdersRequestV2
 from wildberries_sdk.orders_dbs.models.api_orders_sgtins_set_request import ApiOrdersSGTINsSetRequest
 from wildberries_sdk.orders_dbs.models.api_orders_uin_set_request import ApiOrdersUINSetRequest
@@ -1840,7 +1839,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_customs_declaration(
         self,
-        post_v3_dbs_orders_meta_customs_declaration_request: Optional[PostV3DbsOrdersMetaCustomsDeclarationRequest] = None,
+        post_v3_dbs_orders_meta_customs_declaration_request: PostV3DbsOrdersMetaCustomsDeclarationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1856,9 +1855,9 @@ class DefaultApi:
     ) -> ApiStatusSetResponses:
         """Закрепить номера ДТ за сборочными заданиями
 
-        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номера ДТ можно только за сборочными заданиями в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - сборочное задание находится в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_dbs_orders_meta_customs_declaration_request:
+        :param post_v3_dbs_orders_meta_customs_declaration_request: (required)
         :type post_v3_dbs_orders_meta_customs_declaration_request: PostV3DbsOrdersMetaCustomsDeclarationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1914,7 +1913,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_customs_declaration_with_http_info(
         self,
-        post_v3_dbs_orders_meta_customs_declaration_request: Optional[PostV3DbsOrdersMetaCustomsDeclarationRequest] = None,
+        post_v3_dbs_orders_meta_customs_declaration_request: PostV3DbsOrdersMetaCustomsDeclarationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1930,9 +1929,9 @@ class DefaultApi:
     ) -> ApiResponse[ApiStatusSetResponses]:
         """Закрепить номера ДТ за сборочными заданиями
 
-        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номера ДТ можно только за сборочными заданиями в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - сборочное задание находится в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_dbs_orders_meta_customs_declaration_request:
+        :param post_v3_dbs_orders_meta_customs_declaration_request: (required)
         :type post_v3_dbs_orders_meta_customs_declaration_request: PostV3DbsOrdersMetaCustomsDeclarationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1988,7 +1987,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_customs_declaration_without_preload_content(
         self,
-        post_v3_dbs_orders_meta_customs_declaration_request: Optional[PostV3DbsOrdersMetaCustomsDeclarationRequest] = None,
+        post_v3_dbs_orders_meta_customs_declaration_request: PostV3DbsOrdersMetaCustomsDeclarationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2004,9 +2003,9 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Закрепить номера ДТ за сборочными заданиями
 
-        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номера ДТ можно только за сборочными заданиями в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно, только если выполняются все условия:   - сборочное задание имеет признак B2B-продажи — `\"isB2b\":true` в ответе метода [получения новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)   - сборочное задание находится в [статусах](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`   - поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_dbs_orders_meta_customs_declaration_request:
+        :param post_v3_dbs_orders_meta_customs_declaration_request: (required)
         :type post_v3_dbs_orders_meta_customs_declaration_request: PostV3DbsOrdersMetaCustomsDeclarationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2140,7 +2139,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_delete(
         self,
-        api_orders_meta_delete_request: Optional[ApiOrdersMetaDeleteRequest] = None,
+        api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2158,7 +2157,7 @@ class DefaultApi:
 
         Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_meta_delete_request:
+        :param api_orders_meta_delete_request: (required)
         :type api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2213,7 +2212,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_delete_with_http_info(
         self,
-        api_orders_meta_delete_request: Optional[ApiOrdersMetaDeleteRequest] = None,
+        api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2231,7 +2230,7 @@ class DefaultApi:
 
         Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_meta_delete_request:
+        :param api_orders_meta_delete_request: (required)
         :type api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2286,7 +2285,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_delete_without_preload_content(
         self,
-        api_orders_meta_delete_request: Optional[ApiOrdersMetaDeleteRequest] = None,
+        api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2304,7 +2303,7 @@ class DefaultApi:
 
         Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). <br><br> В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_meta_delete_request:
+        :param api_orders_meta_delete_request: (required)
         :type api_orders_meta_delete_request: ApiOrdersMetaDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2437,7 +2436,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_details(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2455,7 +2454,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2509,7 +2508,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_details_with_http_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2527,7 +2526,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2581,7 +2580,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_details_without_preload_content(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2599,7 +2598,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)   - `uin` — [УИН](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2730,7 +2729,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_gtin(
         self,
-        api_orders_gtin_set_request: Optional[ApiOrdersGTINSetRequest] = None,
+        api_orders_gtin_set_request: ApiOrdersGTINSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2748,7 +2747,7 @@ class DefaultApi:
 
         Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN. <br> Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_gtin_set_request:
+        :param api_orders_gtin_set_request: (required)
         :type api_orders_gtin_set_request: ApiOrdersGTINSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2803,7 +2802,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_gtin_with_http_info(
         self,
-        api_orders_gtin_set_request: Optional[ApiOrdersGTINSetRequest] = None,
+        api_orders_gtin_set_request: ApiOrdersGTINSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2821,7 +2820,7 @@ class DefaultApi:
 
         Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN. <br> Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_gtin_set_request:
+        :param api_orders_gtin_set_request: (required)
         :type api_orders_gtin_set_request: ApiOrdersGTINSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2876,7 +2875,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_gtin_without_preload_content(
         self,
-        api_orders_gtin_set_request: Optional[ApiOrdersGTINSetRequest] = None,
+        api_orders_gtin_set_request: ApiOrdersGTINSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2894,7 +2893,7 @@ class DefaultApi:
 
         Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN. <br> Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_gtin_set_request:
+        :param api_orders_gtin_set_request: (required)
         :type api_orders_gtin_set_request: ApiOrdersGTINSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3027,7 +3026,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_imei(
         self,
-        api_orders_imei_set_request: Optional[ApiOrdersIMEISetRequest] = None,
+        api_orders_imei_set_request: ApiOrdersIMEISetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3045,7 +3044,7 @@ class DefaultApi:
 
         Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_imei_set_request:
+        :param api_orders_imei_set_request: (required)
         :type api_orders_imei_set_request: ApiOrdersIMEISetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3100,7 +3099,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_imei_with_http_info(
         self,
-        api_orders_imei_set_request: Optional[ApiOrdersIMEISetRequest] = None,
+        api_orders_imei_set_request: ApiOrdersIMEISetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3118,7 +3117,7 @@ class DefaultApi:
 
         Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_imei_set_request:
+        :param api_orders_imei_set_request: (required)
         :type api_orders_imei_set_request: ApiOrdersIMEISetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3173,7 +3172,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_imei_without_preload_content(
         self,
-        api_orders_imei_set_request: Optional[ApiOrdersIMEISetRequest] = None,
+        api_orders_imei_set_request: ApiOrdersIMEISetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3191,7 +3190,7 @@ class DefaultApi:
 
         Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.<br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_imei_set_request:
+        :param api_orders_imei_set_request: (required)
         :type api_orders_imei_set_request: ApiOrdersIMEISetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3322,306 +3321,9 @@ class DefaultApi:
 
 
     @validate_call
-    def post_v3_dbs_orders_meta_info(
-        self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiOrdersMetaResponse:
-        """(Deprecated) Получить идентификаторы маркировки сборочных заданий
-
-        Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-
-        :param api_orders_request_v2:
-        :type api_orders_request_v2: ApiOrdersRequestV2
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("POST /api/marketplace/v3/dbs/orders/meta/info is deprecated.", DeprecationWarning)
-
-        _param = self._post_v3_dbs_orders_meta_info_serialize(
-            api_orders_request_v2=api_orders_request_v2,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3DbsOrdersNew401Response",
-            '402': "GetV3DbsOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3DbsOrdersNew401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def post_v3_dbs_orders_meta_info_with_http_info(
-        self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> ApiResponse[ApiOrdersMetaResponse]:
-        """(Deprecated) Получить идентификаторы маркировки сборочных заданий
-
-        Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-
-        :param api_orders_request_v2:
-        :type api_orders_request_v2: ApiOrdersRequestV2
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("POST /api/marketplace/v3/dbs/orders/meta/info is deprecated.", DeprecationWarning)
-
-        _param = self._post_v3_dbs_orders_meta_info_serialize(
-            api_orders_request_v2=api_orders_request_v2,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3DbsOrdersNew401Response",
-            '402': "GetV3DbsOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3DbsOrdersNew401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def post_v3_dbs_orders_meta_info_without_preload_content(
-        self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=2)] = 0,
-    ) -> RESTResponseType:
-        """(Deprecated) Получить идентификаторы маркировки сборочных заданий
-
-        Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-
-        :param api_orders_request_v2:
-        :type api_orders_request_v2: ApiOrdersRequestV2
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-        warnings.warn("POST /api/marketplace/v3/dbs/orders/meta/info is deprecated.", DeprecationWarning)
-
-        _param = self._post_v3_dbs_orders_meta_info_serialize(
-            api_orders_request_v2=api_orders_request_v2,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3DbsOrdersNew401Response",
-            '402': "GetV3DbsOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3DbsOrdersNew401Response",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_v3_dbs_orders_meta_info_serialize(
-        self,
-        api_orders_request_v2,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
-        ]
-        _host = _hosts[_host_index]
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if api_orders_request_v2 is not None:
-            _body_params = api_orders_request_v2
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'HeaderApiKey'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/dbs/orders/meta/info',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def post_v3_dbs_orders_meta_sgtin(
         self,
-        api_orders_sgtins_set_request: Optional[ApiOrdersSGTINsSetRequest] = None,
+        api_orders_sgtins_set_request: ApiOrdersSGTINsSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3639,7 +3341,7 @@ class DefaultApi:
 
         Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> Закрепить код маркировки можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_sgtins_set_request:
+        :param api_orders_sgtins_set_request: (required)
         :type api_orders_sgtins_set_request: ApiOrdersSGTINsSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3693,7 +3395,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_sgtin_with_http_info(
         self,
-        api_orders_sgtins_set_request: Optional[ApiOrdersSGTINsSetRequest] = None,
+        api_orders_sgtins_set_request: ApiOrdersSGTINsSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3711,7 +3413,7 @@ class DefaultApi:
 
         Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> Закрепить код маркировки можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_sgtins_set_request:
+        :param api_orders_sgtins_set_request: (required)
         :type api_orders_sgtins_set_request: ApiOrdersSGTINsSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3765,7 +3467,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_sgtin_without_preload_content(
         self,
-        api_orders_sgtins_set_request: Optional[ApiOrdersSGTINsSetRequest] = None,
+        api_orders_sgtins_set_request: ApiOrdersSGTINsSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3783,7 +3485,7 @@ class DefaultApi:
 
         Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).<br> Закрепить код маркировки можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`. <br><br> Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_sgtins_set_request:
+        :param api_orders_sgtins_set_request: (required)
         :type api_orders_sgtins_set_request: ApiOrdersSGTINsSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3915,7 +3617,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_uin(
         self,
-        api_orders_uin_set_request: Optional[ApiOrdersUINSetRequest] = None,
+        api_orders_uin_set_request: ApiOrdersUINSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3933,7 +3635,7 @@ class DefaultApi:
 
         Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один УИН.<br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_uin_set_request:
+        :param api_orders_uin_set_request: (required)
         :type api_orders_uin_set_request: ApiOrdersUINSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3988,7 +3690,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_uin_with_http_info(
         self,
-        api_orders_uin_set_request: Optional[ApiOrdersUINSetRequest] = None,
+        api_orders_uin_set_request: ApiOrdersUINSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4006,7 +3708,7 @@ class DefaultApi:
 
         Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один УИН.<br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_uin_set_request:
+        :param api_orders_uin_set_request: (required)
         :type api_orders_uin_set_request: ApiOrdersUINSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4061,7 +3763,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_meta_uin_without_preload_content(
         self,
-        api_orders_uin_set_request: Optional[ApiOrdersUINSetRequest] = None,
+        api_orders_uin_set_request: ApiOrdersUINSetRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4079,7 +3781,7 @@ class DefaultApi:
 
         Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один УИН.<br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 500 запросов | 120 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_uin_set_request:
+        :param api_orders_uin_set_request: (required)
         :type api_orders_uin_set_request: ApiOrdersUINSetRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4212,7 +3914,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_cancel(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4230,7 +3932,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статусов](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом. Отменить сборочные задания в статусе `deliver` невозможно.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4284,7 +3986,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_cancel_with_http_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4302,7 +4004,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статусов](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом. Отменить сборочные задания в статусе `deliver` невозможно.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4356,7 +4058,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_cancel_without_preload_content(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4374,7 +4076,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статусов](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом. Отменить сборочные задания в статусе `deliver` невозможно.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4506,7 +4208,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_confirm(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4524,7 +4226,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4578,7 +4280,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_confirm_with_http_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4596,7 +4298,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4650,7 +4352,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_confirm_without_preload_content(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4668,7 +4370,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4800,7 +4502,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_deliver(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4818,7 +4520,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4872,7 +4574,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_deliver_with_http_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4890,7 +4592,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4944,7 +4646,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_deliver_without_preload_content(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4962,7 +4664,7 @@ class DefaultApi:
 
         Метод переводит [сборочные задания](/openapi/orders-dbs#tag/dbsAssemblyOrders) из [статуса](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 сек | 1 запрос | 1 сек | 10 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5094,7 +4796,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5112,7 +4814,7 @@ class DefaultApi:
 
         Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm) | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver) | `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) <br> | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject) | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel) | `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на ПВЗ - `canceled_by_missed_call` — отмена по причине недозвона  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5167,7 +4869,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_info_with_http_info(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5185,7 +4887,7 @@ class DefaultApi:
 
         Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm) | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver) | `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) <br> | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject) | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel) | `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на ПВЗ - `canceled_by_missed_call` — отмена по причине недозвона  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5240,7 +4942,7 @@ class DefaultApi:
     @validate_call
     def post_v3_dbs_orders_status_info_without_preload_content(
         self,
-        api_orders_request_v2: Optional[ApiOrdersRequestV2] = None,
+        api_orders_request_v2: ApiOrdersRequestV2,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5258,7 +4960,7 @@ class DefaultApi:
 
         Метод возвращает статусы [сборочных заданий](/openapi/orders-dbs#tag/dbsAssemblyOrders) по их ID. <br><br> `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.  Возможные значения `supplierStatus`: | Статус   | Описание            | Как перевести сборочное задание в данный статус | | -------  | ---------           | --------------------------------------| | `new`      | **Новое сборочное задание** | | | `confirm`  | **На сборке**      |  [Перевести сборочное задание на сборку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm) | `deliver`  | **В доставке**    | [Перевести сборочное задание в доставку](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver) | `receive`  | **Получено покупателем**       | [Сообщить, что заказ принят покупателем](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) <br> | `reject`   | **Отказ покупателя при получении**           |  [Сообщить, что покупатель отказался от заказа](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject) | `cancel`   | **Отменено продавцом**   |  [Отменить сборочное задание](/openapi/orders-dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel) | `cancel_missed_call` | **Отмена по причине недозвона** | Статус меняется автоматически |  <br><br> `wbStatus` — статус системы Wildberries.  Возможные значения `wbStatus`: - `waiting` — сборочное задание в работе - `sold` — заказ получен покупателем - `canceled` — отмена сборочного задания - `canceled_by_client` — покупатель отменил заказ при получении - `declined_by_client` — покупатель отменил заказ в первый чаc <br> Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку - `defect` — отмена заказа по причине брака - `ready_for_pickup` — заказ прибыл на ПВЗ - `canceled_by_missed_call` — отмена по причине недозвона  <div class=\"description_limit\"> <a href='/docs/openapi/api-information#tag/introduction/Limity-zaprosov'>Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий DBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param api_orders_request_v2:
+        :param api_orders_request_v2: (required)
         :type api_orders_request_v2: ApiOrdersRequestV2
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

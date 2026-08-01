@@ -22,17 +22,19 @@ export interface ApiSGTINs {
     /**
      * ID сборочного задания
      */
-    orderId?: number;
+    orderId: number;
     /**
      * Массив кодов маркировки Честного знака. Допускается от 16 до 135 символов для кода одной маркировки
      */
-    sgtins?: Array<string>;
+    sgtins: Array<string>;
 }
 
 /**
  * Check if a given object implements the ApiSGTINs interface.
  */
 export function instanceOfApiSGTINs(value: object): value is ApiSGTINs {
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
+    if (!('sgtins' in value) || value['sgtins'] === undefined) return false;
     return true;
 }
 
@@ -46,8 +48,8 @@ export function ApiSGTINsFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
-        'sgtins': json['sgtins'] == null ? undefined : json['sgtins'],
+        'orderId': json['orderId'],
+        'sgtins': json['sgtins'],
     };
 }
 

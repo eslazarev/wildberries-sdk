@@ -124,11 +124,11 @@ main().catch(console.error);
 - `items.DefaultApi.postV1UploadTaskB2bWholesale` — Установить оптовые скидки для B2B-продаж
 
 ### orders_fbs (`orders_fbs`)
-- `orders_fbs.DefaultApi.getV3SettingsAutoreturns` — Получить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.getV3SettingsAutoreturnsSubcategoriesRestricted` — Получить предметы, которые не хранятся на складах WB
-- `orders_fbs.DefaultApi.patchV3SettingsAutoreturns` — Обновить настройки автовозврата продавца
-- `orders_fbs.DefaultApi.patchV3SettingsAutoreturnsItems` — Обновить настройки автовозврата товаров
-- `orders_fbs.DefaultApi.postV3SettingsAutoreturnsItems` — Получить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.getMarketplaceV3FbsSettingsAutoreturns` — Получить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturns` — Обновить настройки автовозврата продавца
+- `orders_fbs.DefaultApi.patchMarketplaceV3FbsSettingsAutoreturnsItems` — Обновить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.postMarketplaceV3FbsSettingsAutoreturnsItems` — Получить настройки автовозврата товаров
 - `orders_fbs.FBSApi.apiMarketplaceV3FbsOrdersArchiveGet` — Получить список архивных сборочных заданий
 - `orders_fbs.FBSApi.apiMarketplaceV3OrdersMetaPost` — Получить идентификаторы маркировки сборочных заданий
 - `orders_fbs.FBSApi.apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut` — Закрепить номер ДТ за сборочным заданием
@@ -168,7 +168,6 @@ main().catch(console.error);
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DBWApi.getV3DbwOrders` — Получить информацию о завершенных сборочных заданиях
 - `orders_dbw.DBWApi.getV3DbwOrdersNew` — Получить список новых сборочных заданий
-- `orders_dbw.DBWApi.getV3DbwOrdersOrderIdMeta` — Получить идентификаторы маркировки сборочного задания
 - `orders_dbw.DBWApi.patchV3DbwOrdersOrderIdCancel` — Отменить сборочное задание
 - `orders_dbw.DBWApi.patchV3DbwOrdersOrderIdConfirm` — Перевести на сборку
 - `orders_dbw.DBWApi.postV3DbwOrdersClient` — Информация о покупателе
@@ -196,7 +195,6 @@ main().catch(console.error);
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaDetails` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaGtin` — Закрепить GTIN за сборочными заданиями
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaImei` — Закрепить IMEI за сборочными заданиями
-- `orders_dbs.DBSApi.postV3DbsOrdersMetaInfo` — Получить идентификаторы маркировки сборочных заданий
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaSgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
 - `orders_dbs.DBSApi.postV3DbsOrdersMetaUin` — Закрепить УИН за сборочными заданиями
 - `orders_dbs.DBSApi.postV3DbsOrdersStatusCancel` — Отменить сборочные задания

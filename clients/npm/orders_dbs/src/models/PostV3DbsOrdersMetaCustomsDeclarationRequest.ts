@@ -30,13 +30,14 @@ export interface PostV3DbsOrdersMetaCustomsDeclarationRequest {
     /**
      * 
      */
-    orders?: Array<PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner>;
+    orders: Array<PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner>;
 }
 
 /**
  * Check if a given object implements the PostV3DbsOrdersMetaCustomsDeclarationRequest interface.
  */
 export function instanceOfPostV3DbsOrdersMetaCustomsDeclarationRequest(value: object): value is PostV3DbsOrdersMetaCustomsDeclarationRequest {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function PostV3DbsOrdersMetaCustomsDeclarationRequestFromJSONTyped(json: 
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInnerFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function PostV3DbsOrdersMetaCustomsDeclarationRequestToJSONTyped(value?: 
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInnerToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInnerToJSON)),
     };
 }
 

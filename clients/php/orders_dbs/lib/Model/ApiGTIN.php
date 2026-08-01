@@ -281,14 +281,20 @@ class ApiGTIN implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['gtin']) && (mb_strlen($this->container['gtin']) > 13)) {
+        if ($this->container['gtin'] === null) {
+            $invalidProperties[] = "'gtin' can't be null";
+        }
+        if ((mb_strlen($this->container['gtin']) > 13)) {
             $invalidProperties[] = "invalid value for 'gtin', the character length must be smaller than or equal to 13.";
         }
 
-        if (!is_null($this->container['gtin']) && (mb_strlen($this->container['gtin']) < 13)) {
+        if ((mb_strlen($this->container['gtin']) < 13)) {
             $invalidProperties[] = "invalid value for 'gtin', the character length must be bigger than or equal to 13.";
         }
 
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +313,7 @@ class ApiGTIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gtin
      *
-     * @return string|null
+     * @return string
      */
     public function getGtin()
     {
@@ -317,7 +323,7 @@ class ApiGTIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gtin
      *
-     * @param string|null $gtin GTIN
+     * @param string $gtin GTIN
      *
      * @return self
      */
@@ -341,7 +347,7 @@ class ApiGTIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -351,7 +357,7 @@ class ApiGTIN implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id ID сборочного задания
+     * @param int $order_id ID сборочного задания
      *
      * @return self
      */

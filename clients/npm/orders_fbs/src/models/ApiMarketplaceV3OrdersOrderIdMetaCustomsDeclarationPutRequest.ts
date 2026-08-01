@@ -22,13 +22,14 @@ export interface ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
     /**
      * Номер ДТ
      */
-    customsDeclaration?: string;
+    customsDeclaration: string;
 }
 
 /**
  * Check if a given object implements the ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest interface.
  */
 export function instanceOfApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest(value: object): value is ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
+    if (!('customsDeclaration' in value) || value['customsDeclaration'] === undefined) return false;
     return true;
 }
 
@@ -42,7 +43,7 @@ export function ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequestFro
     }
     return {
         
-        'customsDeclaration': json['customsDeclaration'] == null ? undefined : json['customsDeclaration'],
+        'customsDeclaration': json['customsDeclaration'],
     };
 }
 

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,8 @@ class ApiUIN(BaseModel):
     """
     ApiUIN
     """ # noqa: E501
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
-    uin: Optional[Annotated[str, Field(min_length=16, strict=True, max_length=16)]] = Field(default=None, description="УИН", json_schema_extra={"examples": ["1234568909091232"]})
+    order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId", json_schema_extra={"examples": [123456]})
+    uin: Annotated[str, Field(min_length=16, strict=True, max_length=16)] = Field(description="УИН", json_schema_extra={"examples": ["1234568909091232"]})
     __properties: ClassVar[List[str]] = ["orderId", "uin"]
 
     model_config = ConfigDict(

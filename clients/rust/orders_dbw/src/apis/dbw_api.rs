@@ -38,19 +38,6 @@ pub enum GetV3DbwOrdersNewError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_v3_dbw_orders_order_id_meta`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetV3DbwOrdersOrderIdMetaError {
-    Status400(models::Error),
-    Status401(models::GetV3DbwOrdersNew401Response),
-    Status402(models::GetV3DbwOrdersNew402Response),
-    Status403(models::Error),
-    Status404(models::Error),
-    Status429(models::GetV3DbwOrdersNew401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`patch_v3_dbw_orders_order_id_cancel`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -325,52 +312,6 @@ pub async fn get_v3_dbw_orders_new(configuration: &configuration::Configuration,
     }
 }
 
-/// Данный метод устарел. Он будет удалён [27 июля](/release-notes?id=508)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-#[deprecated]
-pub async fn get_v3_dbw_orders_order_id_meta(configuration: &configuration::Configuration, order_id: i64) -> Result<models::GetV3DbwOrdersOrderIdMeta200Response, Error<GetV3DbwOrdersOrderIdMetaError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_order_id = order_id;
-
-    let uri_str = format!("{}/api/v3/dbw/orders/{orderId}/meta", configuration.base_path, orderId=p_path_order_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetV3DbwOrdersOrderIdMeta200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetV3DbwOrdersOrderIdMeta200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetV3DbwOrdersOrderIdMetaError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
 /// Метод отменяет [сборочное задание](/openapi/orders-dbw#tag/dbwAssemblyOrders) и переводит в [статус](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `cancel` — отменено продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>управление сборочными заданиями</li> </ul>    | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Сервисный | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый с секретом | 1 мин | 300 запросов | 200 мс | 20 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn patch_v3_dbw_orders_order_id_cancel(configuration: &configuration::Configuration, order_id: i64) -> Result<(), Error<PatchV3DbwOrdersOrderIdCancelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
@@ -624,7 +565,7 @@ pub async fn post_v3_dbw_orders_meta_delete(configuration: &configuration::Confi
 }
 
 /// Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrders) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/getV3DbwOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei)   - `uin` — [УИН](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaUin)   - `gtin` — [GTIN](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaGtin)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaSgtin)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для следующих методов DBW: <ul>     <li>получение и обновление списка контактов</li>     <li>получение и удаление идентификаторов маркировки</li>     <li>методы сборочных заданий</li> </ul>   | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn post_v3_dbw_orders_meta_details(configuration: &configuration::Configuration, api_orders_request_v2: Option<models::ApiOrdersRequestV2>) -> Result<models::ApiOrdersMetaDetailsResponse, Error<PostV3DbwOrdersMetaDetailsError>> {
+pub async fn post_v3_dbw_orders_meta_details(configuration: &configuration::Configuration, api_orders_request_v2: models::ApiOrdersRequestV2) -> Result<models::ApiOrdersMetaDetailsResponse, Error<PostV3DbwOrdersMetaDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_api_orders_request_v2 = api_orders_request_v2;
 
@@ -860,7 +801,7 @@ pub async fn post_v3_dbw_orders_stickers(configuration: &configuration::Configur
 }
 
 /// Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один GTIN. <br> Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `gtin`. <br><br>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn put_v3_dbw_orders_order_id_meta_gtin(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_gtin_request: Option<models::PutV3DbwOrdersOrderIdMetaGtinRequest>) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaGtinError>> {
+pub async fn put_v3_dbw_orders_order_id_meta_gtin(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_gtin_request: models::PutV3DbwOrdersOrderIdMetaGtinRequest) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaGtinError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;
     let p_body_put_v3_dbw_orders_order_id_meta_gtin_request = put_v3_dbw_orders_order_id_meta_gtin_request;
@@ -896,7 +837,7 @@ pub async fn put_v3_dbw_orders_order_id_meta_gtin(configuration: &configuration:
 }
 
 /// Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). <br> У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — **IMEI** и **IMEI2** или **IMEI1** и **IMEI2** — укажите только **IMEI** или **IMEI1**. **IMEI2** указывать не нужно.<br> Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `imei`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn put_v3_dbw_orders_order_id_meta_imei(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_imei_request: Option<models::PutV3DbwOrdersOrderIdMetaImeiRequest>) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaImeiError>> {
+pub async fn put_v3_dbw_orders_order_id_meta_imei(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_imei_request: models::PutV3DbwOrdersOrderIdMetaImeiRequest) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaImeiError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;
     let p_body_put_v3_dbw_orders_order_id_meta_imei_request = put_v3_dbw_orders_order_id_meta_imei_request;
@@ -932,7 +873,7 @@ pub async fn put_v3_dbw_orders_order_id_meta_imei(configuration: &configuration:
 }
 
 /// Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails). У одного сборочного задания может быть только один УИН. <br> Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-dbw#tag/dbwAssemblyOrders/operation/postV3DbwOrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-dbw#tag/dbwLabelIdentifiers/operation/postV3DbwOrdersMetaDetails) есть поле `uin`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки DBW</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-pub async fn put_v3_dbw_orders_order_id_meta_uin(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_uin_request: Option<models::PutV3DbwOrdersOrderIdMetaUinRequest>) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaUinError>> {
+pub async fn put_v3_dbw_orders_order_id_meta_uin(configuration: &configuration::Configuration, order_id: i64, put_v3_dbw_orders_order_id_meta_uin_request: models::PutV3DbwOrdersOrderIdMetaUinRequest) -> Result<(), Error<PutV3DbwOrdersOrderIdMetaUinError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_order_id = order_id;
     let p_body_put_v3_dbw_orders_order_id_meta_uin_request = put_v3_dbw_orders_order_id_meta_uin_request;

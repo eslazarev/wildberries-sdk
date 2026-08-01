@@ -22,17 +22,19 @@ export interface ApiUIN {
     /**
      * ID сборочного задания
      */
-    orderId?: number;
+    orderId: number;
     /**
      * УИН
      */
-    uin?: string;
+    uin: string;
 }
 
 /**
  * Check if a given object implements the ApiUIN interface.
  */
 export function instanceOfApiUIN(value: object): value is ApiUIN {
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
+    if (!('uin' in value) || value['uin'] === undefined) return false;
     return true;
 }
 
@@ -46,8 +48,8 @@ export function ApiUINFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ap
     }
     return {
         
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
-        'uin': json['uin'] == null ? undefined : json['uin'],
+        'orderId': json['orderId'],
+        'uin': json['uin'],
     };
 }
 

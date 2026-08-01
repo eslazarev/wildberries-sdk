@@ -22,11 +22,11 @@ export interface ApiOrdersMetaDleteRequestV2 {
     /**
      * Название идентификатора маркировки для удаления. Передаётся только одно значение
      */
-    key?: ApiOrdersMetaDleteRequestV2KeyEnum;
+    key: ApiOrdersMetaDleteRequestV2KeyEnum;
     /**
      * Список ID сборочных заданий
      */
-    ordersIds?: Array<number>;
+    ordersIds: Array<number>;
 }
 
 
@@ -46,6 +46,8 @@ export type ApiOrdersMetaDleteRequestV2KeyEnum = typeof ApiOrdersMetaDleteReques
  * Check if a given object implements the ApiOrdersMetaDleteRequestV2 interface.
  */
 export function instanceOfApiOrdersMetaDleteRequestV2(value: object): value is ApiOrdersMetaDleteRequestV2 {
+    if (!('key' in value) || value['key'] === undefined) return false;
+    if (!('ordersIds' in value) || value['ordersIds'] === undefined) return false;
     return true;
 }
 
@@ -59,8 +61,8 @@ export function ApiOrdersMetaDleteRequestV2FromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'key': json['key'] == null ? undefined : json['key'],
-        'ordersIds': json['ordersIds'] == null ? undefined : json['ordersIds'],
+        'key': json['key'],
+        'ordersIds': json['ordersIds'],
     };
 }
 

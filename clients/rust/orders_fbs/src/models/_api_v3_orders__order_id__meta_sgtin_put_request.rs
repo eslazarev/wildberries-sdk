@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiV3OrdersOrderIdMetaSgtinPutRequest {
     /// Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#bfd5fce8-e0fd-4f15-9d8b-e616fac02c2e) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D` 
-    #[serde(rename = "sgtins", skip_serializing_if = "Option::is_none")]
-    pub sgtins: Option<Vec<String>>,
+    #[serde(rename = "sgtins")]
+    pub sgtins: Vec<String>,
 }
 
 impl ApiV3OrdersOrderIdMetaSgtinPutRequest {
-    pub fn new() -> ApiV3OrdersOrderIdMetaSgtinPutRequest {
+    pub fn new(sgtins: Vec<String>) -> ApiV3OrdersOrderIdMetaSgtinPutRequest {
         ApiV3OrdersOrderIdMetaSgtinPutRequest {
-            sgtins: None,
+            sgtins,
         }
     }
 }

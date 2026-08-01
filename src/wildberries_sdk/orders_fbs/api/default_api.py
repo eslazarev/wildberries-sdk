@@ -50,16 +50,16 @@ from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_post_reque
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post200_response import ApiV3SuppliesSupplyIdTrbxStickersPost200Response
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post_request import ApiV3SuppliesSupplyIdTrbxStickersPostRequest
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp
-from wildberries_sdk.orders_fbs.models.get_v3_settings_autoreturns200_response import GetV3SettingsAutoreturns200Response
-from wildberries_sdk.orders_fbs.models.get_v3_settings_autoreturns_subcategories_restricted200_response import GetV3SettingsAutoreturnsSubcategoriesRestricted200Response
+from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns200_response import GetMarketplaceV3FbsSettingsAutoreturns200Response
+from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted200_response import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response
 from wildberries_sdk.orders_fbs.models.model_pass import ModelPass
 from wildberries_sdk.orders_fbs.models.orders_request_api import OrdersRequestAPI
 from wildberries_sdk.orders_fbs.models.pass_office import PassOffice
-from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_items200_response import PatchV3SettingsAutoreturnsItems200Response
-from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_items_request import PatchV3SettingsAutoreturnsItemsRequest
-from wildberries_sdk.orders_fbs.models.patch_v3_settings_autoreturns_request import PatchV3SettingsAutoreturnsRequest
-from wildberries_sdk.orders_fbs.models.post_v3_settings_autoreturns_items200_response import PostV3SettingsAutoreturnsItems200Response
-from wildberries_sdk.orders_fbs.models.post_v3_settings_autoreturns_items_request import PostV3SettingsAutoreturnsItemsRequest
+from wildberries_sdk.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items200_response import PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response
+from wildberries_sdk.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_request import PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+from wildberries_sdk.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_request import PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items200_response import PostMarketplaceV3FbsSettingsAutoreturnsItems200Response
+from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_request import PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 from wildberries_sdk.orders_fbs.models.supply import Supply
 from wildberries_sdk.orders_fbs.models.v3_archive_orders import V3ArchiveOrders
 from wildberries_sdk.orders_fbs.models.v3_get_meta_multi_request import V3GetMetaMultiRequest
@@ -420,7 +420,7 @@ class DefaultApi:
     @validate_call
     def api_marketplace_v3_orders_meta_post(
         self,
-        v3_get_meta_multi_request: Optional[V3GetMetaMultiRequest] = None,
+        v3_get_meta_multi_request: V3GetMetaMultiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -438,7 +438,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)   - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1expiration/put)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param v3_get_meta_multi_request:
+        :param v3_get_meta_multi_request: (required)
         :type v3_get_meta_multi_request: V3GetMetaMultiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -493,7 +493,7 @@ class DefaultApi:
     @validate_call
     def api_marketplace_v3_orders_meta_post_with_http_info(
         self,
-        v3_get_meta_multi_request: Optional[V3GetMetaMultiRequest] = None,
+        v3_get_meta_multi_request: V3GetMetaMultiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -511,7 +511,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)   - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1expiration/put)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param v3_get_meta_multi_request:
+        :param v3_get_meta_multi_request: (required)
         :type v3_get_meta_multi_request: V3GetMetaMultiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -566,7 +566,7 @@ class DefaultApi:
     @validate_call
     def api_marketplace_v3_orders_meta_post_without_preload_content(
         self,
-        v3_get_meta_multi_request: Optional[V3GetMetaMultiRequest] = None,
+        v3_get_meta_multi_request: V3GetMetaMultiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -584,7 +584,7 @@ class DefaultApi:
 
         Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)   - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1expiration/put)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param v3_get_meta_multi_request:
+        :param v3_get_meta_multi_request: (required)
         :type v3_get_meta_multi_request: V3GetMetaMultiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -718,7 +718,7 @@ class DefaultApi:
     def api_marketplace_v3_orders_order_id_meta_customs_declaration_put(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: Optional[ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest] = None,
+        api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -738,7 +738,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request:
+        :param api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: (required)
         :type api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -796,7 +796,7 @@ class DefaultApi:
     def api_marketplace_v3_orders_order_id_meta_customs_declaration_put_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: Optional[ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest] = None,
+        api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -816,7 +816,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request:
+        :param api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: (required)
         :type api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -874,7 +874,7 @@ class DefaultApi:
     def api_marketplace_v3_orders_order_id_meta_customs_declaration_put_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: Optional[ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest] = None,
+        api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -894,7 +894,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request:
+        :param api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: (required)
         :type api_marketplace_v3_orders_order_id_meta_customs_declaration_put_request: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2813,7 +2813,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_delete(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[Optional[StrictStr], Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")] = None,
+        key: Annotated[StrictStr, Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2833,7 +2833,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param key: Название идентификаторов маркировки для удаления. Передаётся только одно значение.
+        :param key: Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
         :type key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2890,7 +2890,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_delete_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[Optional[StrictStr], Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")] = None,
+        key: Annotated[StrictStr, Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2910,7 +2910,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param key: Название идентификаторов маркировки для удаления. Передаётся только одно значение.
+        :param key: Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
         :type key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2967,7 +2967,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_delete_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[Optional[StrictStr], Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")] = None,
+        key: Annotated[StrictStr, Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2987,7 +2987,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param key: Название идентификаторов маркировки для удаления. Передаётся только одно значение.
+        :param key: Название идентификаторов маркировки для удаления. Передаётся только одно значение. (required)
         :type key: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3114,7 +3114,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_expiration_put(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_expiration_put_request: Optional[ApiV3OrdersOrderIdMetaExpirationPutRequest] = None,
+        api_v3_orders_order_id_meta_expiration_put_request: ApiV3OrdersOrderIdMetaExpirationPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3134,7 +3134,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_expiration_put_request:
+        :param api_v3_orders_order_id_meta_expiration_put_request: (required)
         :type api_v3_orders_order_id_meta_expiration_put_request: ApiV3OrdersOrderIdMetaExpirationPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3192,7 +3192,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_expiration_put_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_expiration_put_request: Optional[ApiV3OrdersOrderIdMetaExpirationPutRequest] = None,
+        api_v3_orders_order_id_meta_expiration_put_request: ApiV3OrdersOrderIdMetaExpirationPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3212,7 +3212,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_expiration_put_request:
+        :param api_v3_orders_order_id_meta_expiration_put_request: (required)
         :type api_v3_orders_order_id_meta_expiration_put_request: ApiV3OrdersOrderIdMetaExpirationPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3270,7 +3270,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_expiration_put_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_expiration_put_request: Optional[ApiV3OrdersOrderIdMetaExpirationPutRequest] = None,
+        api_v3_orders_order_id_meta_expiration_put_request: ApiV3OrdersOrderIdMetaExpirationPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3290,7 +3290,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_expiration_put_request:
+        :param api_v3_orders_order_id_meta_expiration_put_request: (required)
         :type api_v3_orders_order_id_meta_expiration_put_request: ApiV3OrdersOrderIdMetaExpirationPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3429,7 +3429,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_gtin_put(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_gtin_put_request: Optional[ApiV3OrdersOrderIdMetaGtinPutRequest] = None,
+        api_v3_orders_order_id_meta_gtin_put_request: ApiV3OrdersOrderIdMetaGtinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3449,7 +3449,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_gtin_put_request:
+        :param api_v3_orders_order_id_meta_gtin_put_request: (required)
         :type api_v3_orders_order_id_meta_gtin_put_request: ApiV3OrdersOrderIdMetaGtinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3506,7 +3506,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_gtin_put_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_gtin_put_request: Optional[ApiV3OrdersOrderIdMetaGtinPutRequest] = None,
+        api_v3_orders_order_id_meta_gtin_put_request: ApiV3OrdersOrderIdMetaGtinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3526,7 +3526,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_gtin_put_request:
+        :param api_v3_orders_order_id_meta_gtin_put_request: (required)
         :type api_v3_orders_order_id_meta_gtin_put_request: ApiV3OrdersOrderIdMetaGtinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3583,7 +3583,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_gtin_put_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_gtin_put_request: Optional[ApiV3OrdersOrderIdMetaGtinPutRequest] = None,
+        api_v3_orders_order_id_meta_gtin_put_request: ApiV3OrdersOrderIdMetaGtinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3603,7 +3603,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_gtin_put_request:
+        :param api_v3_orders_order_id_meta_gtin_put_request: (required)
         :type api_v3_orders_order_id_meta_gtin_put_request: ApiV3OrdersOrderIdMetaGtinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3741,7 +3741,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_imei_put(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_imei_put_request: Optional[ApiV3OrdersOrderIdMetaImeiPutRequest] = None,
+        api_v3_orders_order_id_meta_imei_put_request: ApiV3OrdersOrderIdMetaImeiPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3761,7 +3761,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_imei_put_request:
+        :param api_v3_orders_order_id_meta_imei_put_request: (required)
         :type api_v3_orders_order_id_meta_imei_put_request: ApiV3OrdersOrderIdMetaImeiPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3818,7 +3818,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_imei_put_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_imei_put_request: Optional[ApiV3OrdersOrderIdMetaImeiPutRequest] = None,
+        api_v3_orders_order_id_meta_imei_put_request: ApiV3OrdersOrderIdMetaImeiPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3838,7 +3838,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_imei_put_request:
+        :param api_v3_orders_order_id_meta_imei_put_request: (required)
         :type api_v3_orders_order_id_meta_imei_put_request: ApiV3OrdersOrderIdMetaImeiPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3895,7 +3895,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_imei_put_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_imei_put_request: Optional[ApiV3OrdersOrderIdMetaImeiPutRequest] = None,
+        api_v3_orders_order_id_meta_imei_put_request: ApiV3OrdersOrderIdMetaImeiPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3915,7 +3915,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_imei_put_request:
+        :param api_v3_orders_order_id_meta_imei_put_request: (required)
         :type api_v3_orders_order_id_meta_imei_put_request: ApiV3OrdersOrderIdMetaImeiPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4053,7 +4053,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_sgtin_put(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_sgtin_put_request: Optional[ApiV3OrdersOrderIdMetaSgtinPutRequest] = None,
+        api_v3_orders_order_id_meta_sgtin_put_request: ApiV3OrdersOrderIdMetaSgtinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4073,7 +4073,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_sgtin_put_request:
+        :param api_v3_orders_order_id_meta_sgtin_put_request: (required)
         :type api_v3_orders_order_id_meta_sgtin_put_request: ApiV3OrdersOrderIdMetaSgtinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4131,7 +4131,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_sgtin_put_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_sgtin_put_request: Optional[ApiV3OrdersOrderIdMetaSgtinPutRequest] = None,
+        api_v3_orders_order_id_meta_sgtin_put_request: ApiV3OrdersOrderIdMetaSgtinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4151,7 +4151,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_sgtin_put_request:
+        :param api_v3_orders_order_id_meta_sgtin_put_request: (required)
         :type api_v3_orders_order_id_meta_sgtin_put_request: ApiV3OrdersOrderIdMetaSgtinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4209,7 +4209,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_sgtin_put_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_sgtin_put_request: Optional[ApiV3OrdersOrderIdMetaSgtinPutRequest] = None,
+        api_v3_orders_order_id_meta_sgtin_put_request: ApiV3OrdersOrderIdMetaSgtinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4229,7 +4229,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_sgtin_put_request:
+        :param api_v3_orders_order_id_meta_sgtin_put_request: (required)
         :type api_v3_orders_order_id_meta_sgtin_put_request: ApiV3OrdersOrderIdMetaSgtinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4368,7 +4368,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_uin_put(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_uin_put_request: Optional[ApiV3OrdersOrderIdMetaUinPutRequest] = None,
+        api_v3_orders_order_id_meta_uin_put_request: ApiV3OrdersOrderIdMetaUinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4388,7 +4388,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_uin_put_request:
+        :param api_v3_orders_order_id_meta_uin_put_request: (required)
         :type api_v3_orders_order_id_meta_uin_put_request: ApiV3OrdersOrderIdMetaUinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4445,7 +4445,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_uin_put_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_uin_put_request: Optional[ApiV3OrdersOrderIdMetaUinPutRequest] = None,
+        api_v3_orders_order_id_meta_uin_put_request: ApiV3OrdersOrderIdMetaUinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4465,7 +4465,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_uin_put_request:
+        :param api_v3_orders_order_id_meta_uin_put_request: (required)
         :type api_v3_orders_order_id_meta_uin_put_request: ApiV3OrdersOrderIdMetaUinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4522,7 +4522,7 @@ class DefaultApi:
     def api_v3_orders_order_id_meta_uin_put_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        api_v3_orders_order_id_meta_uin_put_request: Optional[ApiV3OrdersOrderIdMetaUinPutRequest] = None,
+        api_v3_orders_order_id_meta_uin_put_request: ApiV3OrdersOrderIdMetaUinPutRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4542,7 +4542,7 @@ class DefaultApi:
 
         :param order_id: ID сборочного задания (required)
         :type order_id: int
-        :param api_v3_orders_order_id_meta_uin_put_request:
+        :param api_v3_orders_order_id_meta_uin_put_request: (required)
         :type api_v3_orders_order_id_meta_uin_put_request: ApiV3OrdersOrderIdMetaUinPutRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10581,7 +10581,7 @@ class DefaultApi:
 
 
     @validate_call
-    def get_v3_settings_autoreturns(
+    def get_marketplace_v3_fbs_settings_autoreturns(
         self,
         _request_timeout: Union[
             None,
@@ -10595,7 +10595,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetV3SettingsAutoreturns200Response:
+    ) -> GetMarketplaceV3FbsSettingsAutoreturns200Response:
         """Получить настройки автовозврата продавца
 
         Метод возвращает информацию о настройках автовозврата, установленных продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
@@ -10622,7 +10622,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_v3_settings_autoreturns_serialize(
+        _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10630,7 +10630,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SettingsAutoreturns200Response",
+            '200': "GetMarketplaceV3FbsSettingsAutoreturns200Response",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
@@ -10646,7 +10646,7 @@ class DefaultApi:
 
 
     @validate_call
-    def get_v3_settings_autoreturns_with_http_info(
+    def get_marketplace_v3_fbs_settings_autoreturns_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -10660,7 +10660,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetV3SettingsAutoreturns200Response]:
+    ) -> ApiResponse[GetMarketplaceV3FbsSettingsAutoreturns200Response]:
         """Получить настройки автовозврата продавца
 
         Метод возвращает информацию о настройках автовозврата, установленных продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
@@ -10687,7 +10687,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_v3_settings_autoreturns_serialize(
+        _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10695,7 +10695,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SettingsAutoreturns200Response",
+            '200': "GetMarketplaceV3FbsSettingsAutoreturns200Response",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
@@ -10711,7 +10711,7 @@ class DefaultApi:
 
 
     @validate_call
-    def get_v3_settings_autoreturns_without_preload_content(
+    def get_marketplace_v3_fbs_settings_autoreturns_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -10752,7 +10752,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_v3_settings_autoreturns_serialize(
+        _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10760,7 +10760,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SettingsAutoreturns200Response",
+            '200': "GetMarketplaceV3FbsSettingsAutoreturns200Response",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
@@ -10771,7 +10771,7 @@ class DefaultApi:
         return response_data.response
 
 
-    def _get_v3_settings_autoreturns_serialize(
+    def _get_marketplace_v3_fbs_settings_autoreturns_serialize(
         self,
         _request_auth,
         _content_type,
@@ -10836,7 +10836,7 @@ class DefaultApi:
 
 
     @validate_call
-    def get_v3_settings_autoreturns_subcategories_restricted(
+    def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted(
         self,
         next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
         limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество предметов в ответе")],
@@ -10852,7 +10852,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetV3SettingsAutoreturnsSubcategoriesRestricted200Response:
+    ) -> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response:
         """Получить предметы, которые не хранятся на складах WB
 
         Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
@@ -10883,7 +10883,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_v3_settings_autoreturns_subcategories_restricted_serialize(
+        _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
             next=next,
             limit=limit,
             _request_auth=_request_auth,
@@ -10893,7 +10893,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SettingsAutoreturnsSubcategoriesRestricted200Response",
+            '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -10910,7 +10910,7 @@ class DefaultApi:
 
 
     @validate_call
-    def get_v3_settings_autoreturns_subcategories_restricted_with_http_info(
+    def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_with_http_info(
         self,
         next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
         limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество предметов в ответе")],
@@ -10926,7 +10926,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetV3SettingsAutoreturnsSubcategoriesRestricted200Response]:
+    ) -> ApiResponse[GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response]:
         """Получить предметы, которые не хранятся на складах WB
 
         Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
@@ -10957,7 +10957,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_v3_settings_autoreturns_subcategories_restricted_serialize(
+        _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
             next=next,
             limit=limit,
             _request_auth=_request_auth,
@@ -10967,7 +10967,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SettingsAutoreturnsSubcategoriesRestricted200Response",
+            '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -10984,7 +10984,7 @@ class DefaultApi:
 
 
     @validate_call
-    def get_v3_settings_autoreturns_subcategories_restricted_without_preload_content(
+    def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_without_preload_content(
         self,
         next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
         limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество предметов в ответе")],
@@ -11031,7 +11031,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_v3_settings_autoreturns_subcategories_restricted_serialize(
+        _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
             next=next,
             limit=limit,
             _request_auth=_request_auth,
@@ -11041,7 +11041,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SettingsAutoreturnsSubcategoriesRestricted200Response",
+            '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11053,7 +11053,7 @@ class DefaultApi:
         return response_data.response
 
 
-    def _get_v3_settings_autoreturns_subcategories_restricted_serialize(
+    def _get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
         self,
         next,
         limit,
@@ -11129,9 +11129,9 @@ class DefaultApi:
 
 
     @validate_call
-    def patch_v3_settings_autoreturns(
+    def patch_marketplace_v3_fbs_settings_autoreturns(
         self,
-        patch_v3_settings_autoreturns_request: Optional[PatchV3SettingsAutoreturnsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11149,8 +11149,8 @@ class DefaultApi:
 
         Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param patch_v3_settings_autoreturns_request:
-        :type patch_v3_settings_autoreturns_request: PatchV3SettingsAutoreturnsRequest
+        :param patch_marketplace_v3_fbs_settings_autoreturns_request:
+        :type patch_marketplace_v3_fbs_settings_autoreturns_request: PatchMarketplaceV3FbsSettingsAutoreturnsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11173,8 +11173,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._patch_v3_settings_autoreturns_serialize(
-            patch_v3_settings_autoreturns_request=patch_v3_settings_autoreturns_request,
+        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
+            patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11199,9 +11199,9 @@ class DefaultApi:
 
 
     @validate_call
-    def patch_v3_settings_autoreturns_with_http_info(
+    def patch_marketplace_v3_fbs_settings_autoreturns_with_http_info(
         self,
-        patch_v3_settings_autoreturns_request: Optional[PatchV3SettingsAutoreturnsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11219,8 +11219,8 @@ class DefaultApi:
 
         Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param patch_v3_settings_autoreturns_request:
-        :type patch_v3_settings_autoreturns_request: PatchV3SettingsAutoreturnsRequest
+        :param patch_marketplace_v3_fbs_settings_autoreturns_request:
+        :type patch_marketplace_v3_fbs_settings_autoreturns_request: PatchMarketplaceV3FbsSettingsAutoreturnsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11243,8 +11243,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._patch_v3_settings_autoreturns_serialize(
-            patch_v3_settings_autoreturns_request=patch_v3_settings_autoreturns_request,
+        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
+            patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11269,9 +11269,9 @@ class DefaultApi:
 
 
     @validate_call
-    def patch_v3_settings_autoreturns_without_preload_content(
+    def patch_marketplace_v3_fbs_settings_autoreturns_without_preload_content(
         self,
-        patch_v3_settings_autoreturns_request: Optional[PatchV3SettingsAutoreturnsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11289,8 +11289,8 @@ class DefaultApi:
 
         Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param patch_v3_settings_autoreturns_request:
-        :type patch_v3_settings_autoreturns_request: PatchV3SettingsAutoreturnsRequest
+        :param patch_marketplace_v3_fbs_settings_autoreturns_request:
+        :type patch_marketplace_v3_fbs_settings_autoreturns_request: PatchMarketplaceV3FbsSettingsAutoreturnsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11313,8 +11313,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._patch_v3_settings_autoreturns_serialize(
-            patch_v3_settings_autoreturns_request=patch_v3_settings_autoreturns_request,
+        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
+            patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11334,9 +11334,9 @@ class DefaultApi:
         return response_data.response
 
 
-    def _patch_v3_settings_autoreturns_serialize(
+    def _patch_marketplace_v3_fbs_settings_autoreturns_serialize(
         self,
-        patch_v3_settings_autoreturns_request,
+        patch_marketplace_v3_fbs_settings_autoreturns_request,
         _request_auth,
         _content_type,
         _headers,
@@ -11365,8 +11365,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if patch_v3_settings_autoreturns_request is not None:
-            _body_params = patch_v3_settings_autoreturns_request
+        if patch_marketplace_v3_fbs_settings_autoreturns_request is not None:
+            _body_params = patch_marketplace_v3_fbs_settings_autoreturns_request
 
 
         # set the HTTP header `Accept`
@@ -11416,9 +11416,9 @@ class DefaultApi:
 
 
     @validate_call
-    def patch_v3_settings_autoreturns_items(
+    def patch_marketplace_v3_fbs_settings_autoreturns_items(
         self,
-        patch_v3_settings_autoreturns_items_request: Optional[PatchV3SettingsAutoreturnsItemsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11431,13 +11431,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> PatchV3SettingsAutoreturnsItems200Response:
+    ) -> PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response:
         """Обновить настройки автовозврата товаров
 
         Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param patch_v3_settings_autoreturns_items_request:
-        :type patch_v3_settings_autoreturns_items_request: PatchV3SettingsAutoreturnsItemsRequest
+        :param patch_marketplace_v3_fbs_settings_autoreturns_items_request:
+        :type patch_marketplace_v3_fbs_settings_autoreturns_items_request: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11460,8 +11460,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._patch_v3_settings_autoreturns_items_serialize(
-            patch_v3_settings_autoreturns_items_request=patch_v3_settings_autoreturns_items_request,
+        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+            patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11469,7 +11469,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchV3SettingsAutoreturnsItems200Response",
+            '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11486,9 +11486,9 @@ class DefaultApi:
 
 
     @validate_call
-    def patch_v3_settings_autoreturns_items_with_http_info(
+    def patch_marketplace_v3_fbs_settings_autoreturns_items_with_http_info(
         self,
-        patch_v3_settings_autoreturns_items_request: Optional[PatchV3SettingsAutoreturnsItemsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11501,13 +11501,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[PatchV3SettingsAutoreturnsItems200Response]:
+    ) -> ApiResponse[PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response]:
         """Обновить настройки автовозврата товаров
 
         Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param patch_v3_settings_autoreturns_items_request:
-        :type patch_v3_settings_autoreturns_items_request: PatchV3SettingsAutoreturnsItemsRequest
+        :param patch_marketplace_v3_fbs_settings_autoreturns_items_request:
+        :type patch_marketplace_v3_fbs_settings_autoreturns_items_request: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11530,8 +11530,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._patch_v3_settings_autoreturns_items_serialize(
-            patch_v3_settings_autoreturns_items_request=patch_v3_settings_autoreturns_items_request,
+        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+            patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11539,7 +11539,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchV3SettingsAutoreturnsItems200Response",
+            '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11556,9 +11556,9 @@ class DefaultApi:
 
 
     @validate_call
-    def patch_v3_settings_autoreturns_items_without_preload_content(
+    def patch_marketplace_v3_fbs_settings_autoreturns_items_without_preload_content(
         self,
-        patch_v3_settings_autoreturns_items_request: Optional[PatchV3SettingsAutoreturnsItemsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11576,8 +11576,8 @@ class DefaultApi:
 
         Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param patch_v3_settings_autoreturns_items_request:
-        :type patch_v3_settings_autoreturns_items_request: PatchV3SettingsAutoreturnsItemsRequest
+        :param patch_marketplace_v3_fbs_settings_autoreturns_items_request:
+        :type patch_marketplace_v3_fbs_settings_autoreturns_items_request: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11600,8 +11600,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._patch_v3_settings_autoreturns_items_serialize(
-            patch_v3_settings_autoreturns_items_request=patch_v3_settings_autoreturns_items_request,
+        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+            patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11609,7 +11609,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchV3SettingsAutoreturnsItems200Response",
+            '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11621,9 +11621,9 @@ class DefaultApi:
         return response_data.response
 
 
-    def _patch_v3_settings_autoreturns_items_serialize(
+    def _patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
         self,
-        patch_v3_settings_autoreturns_items_request,
+        patch_marketplace_v3_fbs_settings_autoreturns_items_request,
         _request_auth,
         _content_type,
         _headers,
@@ -11652,8 +11652,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if patch_v3_settings_autoreturns_items_request is not None:
-            _body_params = patch_v3_settings_autoreturns_items_request
+        if patch_marketplace_v3_fbs_settings_autoreturns_items_request is not None:
+            _body_params = patch_marketplace_v3_fbs_settings_autoreturns_items_request
 
 
         # set the HTTP header `Accept`
@@ -11703,9 +11703,9 @@ class DefaultApi:
 
 
     @validate_call
-    def post_v3_settings_autoreturns_items(
+    def post_marketplace_v3_fbs_settings_autoreturns_items(
         self,
-        post_v3_settings_autoreturns_items_request: Optional[PostV3SettingsAutoreturnsItemsRequest] = None,
+        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11718,13 +11718,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> PostV3SettingsAutoreturnsItems200Response:
+    ) -> PostMarketplaceV3FbsSettingsAutoreturnsItems200Response:
         """Получить настройки автовозврата товаров
 
         Метод возвращает настройки автовозврата товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_settings_autoreturns_items_request:
-        :type post_v3_settings_autoreturns_items_request: PostV3SettingsAutoreturnsItemsRequest
+        :param post_marketplace_v3_fbs_settings_autoreturns_items_request:
+        :type post_marketplace_v3_fbs_settings_autoreturns_items_request: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11747,8 +11747,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_v3_settings_autoreturns_items_serialize(
-            post_v3_settings_autoreturns_items_request=post_v3_settings_autoreturns_items_request,
+        _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+            post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11756,7 +11756,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3SettingsAutoreturnsItems200Response",
+            '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11773,9 +11773,9 @@ class DefaultApi:
 
 
     @validate_call
-    def post_v3_settings_autoreturns_items_with_http_info(
+    def post_marketplace_v3_fbs_settings_autoreturns_items_with_http_info(
         self,
-        post_v3_settings_autoreturns_items_request: Optional[PostV3SettingsAutoreturnsItemsRequest] = None,
+        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11788,13 +11788,13 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[PostV3SettingsAutoreturnsItems200Response]:
+    ) -> ApiResponse[PostMarketplaceV3FbsSettingsAutoreturnsItems200Response]:
         """Получить настройки автовозврата товаров
 
         Метод возвращает настройки автовозврата товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_settings_autoreturns_items_request:
-        :type post_v3_settings_autoreturns_items_request: PostV3SettingsAutoreturnsItemsRequest
+        :param post_marketplace_v3_fbs_settings_autoreturns_items_request:
+        :type post_marketplace_v3_fbs_settings_autoreturns_items_request: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11817,8 +11817,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_v3_settings_autoreturns_items_serialize(
-            post_v3_settings_autoreturns_items_request=post_v3_settings_autoreturns_items_request,
+        _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+            post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11826,7 +11826,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3SettingsAutoreturnsItems200Response",
+            '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11843,9 +11843,9 @@ class DefaultApi:
 
 
     @validate_call
-    def post_v3_settings_autoreturns_items_without_preload_content(
+    def post_marketplace_v3_fbs_settings_autoreturns_items_without_preload_content(
         self,
-        post_v3_settings_autoreturns_items_request: Optional[PostV3SettingsAutoreturnsItemsRequest] = None,
+        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11863,8 +11863,8 @@ class DefaultApi:
 
         Метод возвращает настройки автовозврата товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 
-        :param post_v3_settings_autoreturns_items_request:
-        :type post_v3_settings_autoreturns_items_request: PostV3SettingsAutoreturnsItemsRequest
+        :param post_marketplace_v3_fbs_settings_autoreturns_items_request:
+        :type post_marketplace_v3_fbs_settings_autoreturns_items_request: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11887,8 +11887,8 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_v3_settings_autoreturns_items_serialize(
-            post_v3_settings_autoreturns_items_request=post_v3_settings_autoreturns_items_request,
+        _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+            post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11896,7 +11896,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3SettingsAutoreturnsItems200Response",
+            '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11908,9 +11908,9 @@ class DefaultApi:
         return response_data.response
 
 
-    def _post_v3_settings_autoreturns_items_serialize(
+    def _post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
         self,
-        post_v3_settings_autoreturns_items_request,
+        post_marketplace_v3_fbs_settings_autoreturns_items_request,
         _request_auth,
         _content_type,
         _headers,
@@ -11939,8 +11939,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if post_v3_settings_autoreturns_items_request is not None:
-            _body_params = post_v3_settings_autoreturns_items_request
+        if post_marketplace_v3_fbs_settings_autoreturns_items_request is not None:
+            _body_params = post_marketplace_v3_fbs_settings_autoreturns_items_request
 
 
         # set the HTTP header `Accept`

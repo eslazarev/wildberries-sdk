@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest(BaseModel):
     """
     ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
     """ # noqa: E501
-    customs_declaration: Optional[Annotated[str, Field(min_length=17, strict=True, max_length=29)]] = Field(default=None, description="Номер ДТ", alias="customsDeclaration", json_schema_extra={"examples": ["10704010/010624/0000302"]})
+    customs_declaration: Annotated[str, Field(min_length=17, strict=True, max_length=29)] = Field(description="Номер ДТ", alias="customsDeclaration", json_schema_extra={"examples": ["10704010/010624/0000302"]})
     __properties: ClassVar[List[str]] = ["customsDeclaration"]
 
     model_config = ConfigDict(

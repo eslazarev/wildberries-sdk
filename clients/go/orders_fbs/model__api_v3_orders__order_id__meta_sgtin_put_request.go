@@ -12,6 +12,8 @@ package orders_fbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiV3OrdersOrderIdMetaSgtinPutRequest type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &ApiV3OrdersOrderIdMetaSgtinPutRequest{}
 // ApiV3OrdersOrderIdMetaSgtinPutRequest struct for ApiV3OrdersOrderIdMetaSgtinPutRequest
 type ApiV3OrdersOrderIdMetaSgtinPutRequest struct {
 	// Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#bfd5fce8-e0fd-4f15-9d8b-e616fac02c2e) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D` 
-	Sgtins []string `json:"sgtins,omitempty"`
+	Sgtins []string `json:"sgtins"`
 }
+
+type _ApiV3OrdersOrderIdMetaSgtinPutRequest ApiV3OrdersOrderIdMetaSgtinPutRequest
 
 // NewApiV3OrdersOrderIdMetaSgtinPutRequest instantiates a new ApiV3OrdersOrderIdMetaSgtinPutRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV3OrdersOrderIdMetaSgtinPutRequest() *ApiV3OrdersOrderIdMetaSgtinPutRequest {
+func NewApiV3OrdersOrderIdMetaSgtinPutRequest(sgtins []string) *ApiV3OrdersOrderIdMetaSgtinPutRequest {
 	this := ApiV3OrdersOrderIdMetaSgtinPutRequest{}
+	this.Sgtins = sgtins
 	return &this
 }
 
@@ -40,34 +45,26 @@ func NewApiV3OrdersOrderIdMetaSgtinPutRequestWithDefaults() *ApiV3OrdersOrderIdM
 	return &this
 }
 
-// GetSgtins returns the Sgtins field value if set, zero value otherwise.
+// GetSgtins returns the Sgtins field value
 func (o *ApiV3OrdersOrderIdMetaSgtinPutRequest) GetSgtins() []string {
-	if o == nil || IsNil(o.Sgtins) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.Sgtins
 }
 
-// GetSgtinsOk returns a tuple with the Sgtins field value if set, nil otherwise
+// GetSgtinsOk returns a tuple with the Sgtins field value
 // and a boolean to check if the value has been set.
 func (o *ApiV3OrdersOrderIdMetaSgtinPutRequest) GetSgtinsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Sgtins) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Sgtins, true
 }
 
-// HasSgtins returns a boolean if a field has been set.
-func (o *ApiV3OrdersOrderIdMetaSgtinPutRequest) HasSgtins() bool {
-	if o != nil && !IsNil(o.Sgtins) {
-		return true
-	}
-
-	return false
-}
-
-// SetSgtins gets a reference to the given []string and assigns it to the Sgtins field.
+// SetSgtins sets field value
 func (o *ApiV3OrdersOrderIdMetaSgtinPutRequest) SetSgtins(v []string) {
 	o.Sgtins = v
 }
@@ -82,10 +79,45 @@ func (o ApiV3OrdersOrderIdMetaSgtinPutRequest) MarshalJSON() ([]byte, error) {
 
 func (o ApiV3OrdersOrderIdMetaSgtinPutRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Sgtins) {
-		toSerialize["sgtins"] = o.Sgtins
-	}
+	toSerialize["sgtins"] = o.Sgtins
 	return toSerialize, nil
+}
+
+func (o *ApiV3OrdersOrderIdMetaSgtinPutRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sgtins",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiV3OrdersOrderIdMetaSgtinPutRequest := _ApiV3OrdersOrderIdMetaSgtinPutRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiV3OrdersOrderIdMetaSgtinPutRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiV3OrdersOrderIdMetaSgtinPutRequest(varApiV3OrdersOrderIdMetaSgtinPutRequest)
+
+	return err
 }
 
 type NullableApiV3OrdersOrderIdMetaSgtinPutRequest struct {

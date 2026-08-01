@@ -22,17 +22,19 @@ export interface ApiIMEI {
     /**
      * ID сборочного задания
      */
-    orderId?: number;
+    orderId: number;
     /**
      * IMEI
      */
-    imei?: string;
+    imei: string;
 }
 
 /**
  * Check if a given object implements the ApiIMEI interface.
  */
 export function instanceOfApiIMEI(value: object): value is ApiIMEI {
+    if (!('orderId' in value) || value['orderId'] === undefined) return false;
+    if (!('imei' in value) || value['imei'] === undefined) return false;
     return true;
 }
 
@@ -46,8 +48,8 @@ export function ApiIMEIFromJSONTyped(json: any, ignoreDiscriminator: boolean): A
     }
     return {
         
-        'orderId': json['orderId'] == null ? undefined : json['orderId'],
-        'imei': json['imei'] == null ? undefined : json['imei'],
+        'orderId': json['orderId'],
+        'imei': json['imei'],
     };
 }
 

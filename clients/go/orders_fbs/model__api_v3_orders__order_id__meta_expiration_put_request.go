@@ -12,6 +12,8 @@ package orders_fbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiV3OrdersOrderIdMetaExpirationPutRequest type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &ApiV3OrdersOrderIdMetaExpirationPutRequest{}
 // ApiV3OrdersOrderIdMetaExpirationPutRequest struct for ApiV3OrdersOrderIdMetaExpirationPutRequest
 type ApiV3OrdersOrderIdMetaExpirationPutRequest struct {
 	// Дата, до которой годен товар. Не менее 30 дней с текущей даты
-	Expiration *string `json:"expiration,omitempty"`
+	Expiration string `json:"expiration"`
 }
+
+type _ApiV3OrdersOrderIdMetaExpirationPutRequest ApiV3OrdersOrderIdMetaExpirationPutRequest
 
 // NewApiV3OrdersOrderIdMetaExpirationPutRequest instantiates a new ApiV3OrdersOrderIdMetaExpirationPutRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV3OrdersOrderIdMetaExpirationPutRequest() *ApiV3OrdersOrderIdMetaExpirationPutRequest {
+func NewApiV3OrdersOrderIdMetaExpirationPutRequest(expiration string) *ApiV3OrdersOrderIdMetaExpirationPutRequest {
 	this := ApiV3OrdersOrderIdMetaExpirationPutRequest{}
+	this.Expiration = expiration
 	return &this
 }
 
@@ -40,36 +45,28 @@ func NewApiV3OrdersOrderIdMetaExpirationPutRequestWithDefaults() *ApiV3OrdersOrd
 	return &this
 }
 
-// GetExpiration returns the Expiration field value if set, zero value otherwise.
+// GetExpiration returns the Expiration field value
 func (o *ApiV3OrdersOrderIdMetaExpirationPutRequest) GetExpiration() string {
-	if o == nil || IsNil(o.Expiration) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Expiration
+
+	return o.Expiration
 }
 
-// GetExpirationOk returns a tuple with the Expiration field value if set, nil otherwise
+// GetExpirationOk returns a tuple with the Expiration field value
 // and a boolean to check if the value has been set.
 func (o *ApiV3OrdersOrderIdMetaExpirationPutRequest) GetExpirationOk() (*string, bool) {
-	if o == nil || IsNil(o.Expiration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Expiration, true
+	return &o.Expiration, true
 }
 
-// HasExpiration returns a boolean if a field has been set.
-func (o *ApiV3OrdersOrderIdMetaExpirationPutRequest) HasExpiration() bool {
-	if o != nil && !IsNil(o.Expiration) {
-		return true
-	}
-
-	return false
-}
-
-// SetExpiration gets a reference to the given string and assigns it to the Expiration field.
+// SetExpiration sets field value
 func (o *ApiV3OrdersOrderIdMetaExpirationPutRequest) SetExpiration(v string) {
-	o.Expiration = &v
+	o.Expiration = v
 }
 
 func (o ApiV3OrdersOrderIdMetaExpirationPutRequest) MarshalJSON() ([]byte, error) {
@@ -82,10 +79,45 @@ func (o ApiV3OrdersOrderIdMetaExpirationPutRequest) MarshalJSON() ([]byte, error
 
 func (o ApiV3OrdersOrderIdMetaExpirationPutRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Expiration) {
-		toSerialize["expiration"] = o.Expiration
-	}
+	toSerialize["expiration"] = o.Expiration
 	return toSerialize, nil
+}
+
+func (o *ApiV3OrdersOrderIdMetaExpirationPutRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"expiration",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiV3OrdersOrderIdMetaExpirationPutRequest := _ApiV3OrdersOrderIdMetaExpirationPutRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiV3OrdersOrderIdMetaExpirationPutRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiV3OrdersOrderIdMetaExpirationPutRequest(varApiV3OrdersOrderIdMetaExpirationPutRequest)
+
+	return err
 }
 
 type NullableApiV3OrdersOrderIdMetaExpirationPutRequest struct {

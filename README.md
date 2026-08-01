@@ -146,11 +146,11 @@ SDK выпускается с security-first процессом:
 
 ### Заказы FBS (`03-orders-fbs.yaml`)
 - `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
-- `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца (getV3SettingsAutoreturns)
-- `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца (patchV3SettingsAutoreturns)
-- `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров (postV3SettingsAutoreturnsItems)
-- `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров (patchV3SettingsAutoreturnsItems)
-- `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB (getV3SettingsAutoreturnsSubcategoriesRestricted)
+- `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца (getMarketplaceV3FbsSettingsAutoreturns)
+- `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца (patchMarketplaceV3FbsSettingsAutoreturns)
+- `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров (postMarketplaceV3FbsSettingsAutoreturnsItems)
+- `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров (patchMarketplaceV3FbsSettingsAutoreturnsItems)
+- `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB (getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted)
 - `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки
@@ -200,7 +200,6 @@ SDK выпускается с security-first процессом:
 - `POST /api/v3/dbw/orders/stickers` — Получить стикеры сборочных заданий (postV3DbwOrdersStickers)
 - `PATCH /api/v3/dbw/orders/{orderId}/cancel` — Отменить сборочное задание (patchV3DbwOrdersOrderIdCancel)
 - `PATCH /api/v3/dbw/orders/{orderId}/confirm` — Перевести на сборку (patchV3DbwOrdersOrderIdConfirm)
-- `GET /api/v3/dbw/orders/{orderId}/meta` — Получить идентификаторы маркировки сборочного задания (getV3DbwOrdersOrderIdMeta)
 - `PUT /api/v3/dbw/orders/{orderId}/meta/gtin` — Закрепить GTIN за сборочным заданием (putV3DbwOrdersOrderIdMetaGtin)
 - `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием (putV3DbwOrdersOrderIdMetaImei)
 - `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием (putV3DbwOrdersOrderIdMetaUin)
@@ -212,7 +211,6 @@ SDK выпускается с security-first процессом:
 - `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaDetails)
 - `POST /api/marketplace/v3/dbs/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями (postV3DbsOrdersMetaGtin)
 - `POST /api/marketplace/v3/dbs/orders/meta/imei` — Закрепить IMEI за сборочными заданиями (postV3DbsOrdersMetaImei)
-- `POST /api/marketplace/v3/dbs/orders/meta/info` — Получить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaInfo)
 - `POST /api/marketplace/v3/dbs/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями (postV3DbsOrdersMetaSgtin)
 - `POST /api/marketplace/v3/dbs/orders/meta/uin` — Закрепить УИН за сборочными заданиями (postV3DbsOrdersMetaUin)
 - `POST /api/marketplace/v3/dbs/orders/status/cancel` — Отменить сборочные задания (postV3DbsOrdersStatusCancel)

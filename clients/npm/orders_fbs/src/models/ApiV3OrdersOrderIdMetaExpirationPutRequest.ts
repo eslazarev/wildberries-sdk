@@ -22,13 +22,14 @@ export interface ApiV3OrdersOrderIdMetaExpirationPutRequest {
     /**
      * Дата, до которой годен товар. Не менее 30 дней с текущей даты
      */
-    expiration?: string;
+    expiration: string;
 }
 
 /**
  * Check if a given object implements the ApiV3OrdersOrderIdMetaExpirationPutRequest interface.
  */
 export function instanceOfApiV3OrdersOrderIdMetaExpirationPutRequest(value: object): value is ApiV3OrdersOrderIdMetaExpirationPutRequest {
+    if (!('expiration' in value) || value['expiration'] === undefined) return false;
     return true;
 }
 
@@ -42,7 +43,7 @@ export function ApiV3OrdersOrderIdMetaExpirationPutRequestFromJSONTyped(json: an
     }
     return {
         
-        'expiration': json['expiration'] == null ? undefined : json['expiration'],
+        'expiration': json['expiration'],
     };
 }
 

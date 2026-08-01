@@ -12,6 +12,8 @@ package orders_fbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRe
 // ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest struct for ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
 type ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest struct {
 	// Номер ДТ
-	CustomsDeclaration *string `json:"customsDeclaration,omitempty"`
+	CustomsDeclaration string `json:"customsDeclaration"`
 }
+
+type _ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest
 
 // NewApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest instantiates a new ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest() *ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
+func NewApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest(customsDeclaration string) *ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest {
 	this := ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest{}
+	this.CustomsDeclaration = customsDeclaration
 	return &this
 }
 
@@ -40,36 +45,28 @@ func NewApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequestWithDefault
 	return &this
 }
 
-// GetCustomsDeclaration returns the CustomsDeclaration field value if set, zero value otherwise.
+// GetCustomsDeclaration returns the CustomsDeclaration field value
 func (o *ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) GetCustomsDeclaration() string {
-	if o == nil || IsNil(o.CustomsDeclaration) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CustomsDeclaration
+
+	return o.CustomsDeclaration
 }
 
-// GetCustomsDeclarationOk returns a tuple with the CustomsDeclaration field value if set, nil otherwise
+// GetCustomsDeclarationOk returns a tuple with the CustomsDeclaration field value
 // and a boolean to check if the value has been set.
 func (o *ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) GetCustomsDeclarationOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomsDeclaration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomsDeclaration, true
+	return &o.CustomsDeclaration, true
 }
 
-// HasCustomsDeclaration returns a boolean if a field has been set.
-func (o *ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) HasCustomsDeclaration() bool {
-	if o != nil && !IsNil(o.CustomsDeclaration) {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomsDeclaration gets a reference to the given string and assigns it to the CustomsDeclaration field.
+// SetCustomsDeclaration sets field value
 func (o *ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) SetCustomsDeclaration(v string) {
-	o.CustomsDeclaration = &v
+	o.CustomsDeclaration = v
 }
 
 func (o ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) MarshalJSON() ([]byte, error) {
@@ -82,10 +79,45 @@ func (o ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) MarshalJS
 
 func (o ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CustomsDeclaration) {
-		toSerialize["customsDeclaration"] = o.CustomsDeclaration
-	}
+	toSerialize["customsDeclaration"] = o.CustomsDeclaration
 	return toSerialize, nil
+}
+
+func (o *ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"customsDeclaration",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest := _ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest(varApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest)
+
+	return err
 }
 
 type NullableApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest struct {

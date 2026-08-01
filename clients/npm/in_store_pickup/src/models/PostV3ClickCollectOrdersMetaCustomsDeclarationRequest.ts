@@ -30,13 +30,14 @@ export interface PostV3ClickCollectOrdersMetaCustomsDeclarationRequest {
     /**
      * 
      */
-    orders?: Array<PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner>;
+    orders: Array<PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner>;
 }
 
 /**
  * Check if a given object implements the PostV3ClickCollectOrdersMetaCustomsDeclarationRequest interface.
  */
 export function instanceOfPostV3ClickCollectOrdersMetaCustomsDeclarationRequest(value: object): value is PostV3ClickCollectOrdersMetaCustomsDeclarationRequest {
+    if (!('orders' in value) || value['orders'] === undefined) return false;
     return true;
 }
 
@@ -50,7 +51,7 @@ export function PostV3ClickCollectOrdersMetaCustomsDeclarationRequestFromJSONTyp
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInnerFromJSON)),
+        'orders': ((json['orders'] as Array<any>).map(PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInnerFromJSON)),
     };
 }
 
@@ -65,7 +66,7 @@ export function PostV3ClickCollectOrdersMetaCustomsDeclarationRequestToJSONTyped
 
     return {
         
-        'orders': value['orders'] == null ? undefined : ((value['orders'] as Array<any>).map(PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInnerToJSON)),
+        'orders': ((value['orders'] as Array<any>).map(PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInnerToJSON)),
     };
 }
 

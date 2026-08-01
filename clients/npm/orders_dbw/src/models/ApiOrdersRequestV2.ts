@@ -22,13 +22,14 @@ export interface ApiOrdersRequestV2 {
     /**
      * Список ID сборочных заданий
      */
-    ordersIds?: Array<number>;
+    ordersIds: Array<number>;
 }
 
 /**
  * Check if a given object implements the ApiOrdersRequestV2 interface.
  */
 export function instanceOfApiOrdersRequestV2(value: object): value is ApiOrdersRequestV2 {
+    if (!('ordersIds' in value) || value['ordersIds'] === undefined) return false;
     return true;
 }
 
@@ -42,7 +43,7 @@ export function ApiOrdersRequestV2FromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'ordersIds': json['ordersIds'] == null ? undefined : json['ordersIds'],
+        'ordersIds': json['ordersIds'],
     };
 }
 

@@ -12,6 +12,8 @@ package orders_dbw
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiOrdersMetaDleteRequestV2 type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &ApiOrdersMetaDleteRequestV2{}
 // ApiOrdersMetaDleteRequestV2 struct for ApiOrdersMetaDleteRequestV2
 type ApiOrdersMetaDleteRequestV2 struct {
 	// Название идентификатора маркировки для удаления. Передаётся только одно значение
-	Key *string `json:"key,omitempty"`
+	Key string `json:"key"`
 	// Список ID сборочных заданий
-	OrdersIds []int32 `json:"ordersIds,omitempty"`
+	OrdersIds []int32 `json:"ordersIds"`
 }
+
+type _ApiOrdersMetaDleteRequestV2 ApiOrdersMetaDleteRequestV2
 
 // NewApiOrdersMetaDleteRequestV2 instantiates a new ApiOrdersMetaDleteRequestV2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiOrdersMetaDleteRequestV2() *ApiOrdersMetaDleteRequestV2 {
+func NewApiOrdersMetaDleteRequestV2(key string, ordersIds []int32) *ApiOrdersMetaDleteRequestV2 {
 	this := ApiOrdersMetaDleteRequestV2{}
+	this.Key = key
+	this.OrdersIds = ordersIds
 	return &this
 }
 
@@ -42,66 +48,50 @@ func NewApiOrdersMetaDleteRequestV2WithDefaults() *ApiOrdersMetaDleteRequestV2 {
 	return &this
 }
 
-// GetKey returns the Key field value if set, zero value otherwise.
+// GetKey returns the Key field value
 func (o *ApiOrdersMetaDleteRequestV2) GetKey() string {
-	if o == nil || IsNil(o.Key) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Key
+
+	return o.Key
 }
 
-// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
+// GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDleteRequestV2) GetKeyOk() (*string, bool) {
-	if o == nil || IsNil(o.Key) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Key, true
+	return &o.Key, true
 }
 
-// HasKey returns a boolean if a field has been set.
-func (o *ApiOrdersMetaDleteRequestV2) HasKey() bool {
-	if o != nil && !IsNil(o.Key) {
-		return true
-	}
-
-	return false
-}
-
-// SetKey gets a reference to the given string and assigns it to the Key field.
+// SetKey sets field value
 func (o *ApiOrdersMetaDleteRequestV2) SetKey(v string) {
-	o.Key = &v
+	o.Key = v
 }
 
-// GetOrdersIds returns the OrdersIds field value if set, zero value otherwise.
+// GetOrdersIds returns the OrdersIds field value
 func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIds() []int32 {
-	if o == nil || IsNil(o.OrdersIds) {
+	if o == nil {
 		var ret []int32
 		return ret
 	}
+
 	return o.OrdersIds
 }
 
-// GetOrdersIdsOk returns a tuple with the OrdersIds field value if set, nil otherwise
+// GetOrdersIdsOk returns a tuple with the OrdersIds field value
 // and a boolean to check if the value has been set.
 func (o *ApiOrdersMetaDleteRequestV2) GetOrdersIdsOk() ([]int32, bool) {
-	if o == nil || IsNil(o.OrdersIds) {
+	if o == nil {
 		return nil, false
 	}
 	return o.OrdersIds, true
 }
 
-// HasOrdersIds returns a boolean if a field has been set.
-func (o *ApiOrdersMetaDleteRequestV2) HasOrdersIds() bool {
-	if o != nil && !IsNil(o.OrdersIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrdersIds gets a reference to the given []int32 and assigns it to the OrdersIds field.
+// SetOrdersIds sets field value
 func (o *ApiOrdersMetaDleteRequestV2) SetOrdersIds(v []int32) {
 	o.OrdersIds = v
 }
@@ -116,13 +106,47 @@ func (o ApiOrdersMetaDleteRequestV2) MarshalJSON() ([]byte, error) {
 
 func (o ApiOrdersMetaDleteRequestV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Key) {
-		toSerialize["key"] = o.Key
-	}
-	if !IsNil(o.OrdersIds) {
-		toSerialize["ordersIds"] = o.OrdersIds
-	}
+	toSerialize["key"] = o.Key
+	toSerialize["ordersIds"] = o.OrdersIds
 	return toSerialize, nil
+}
+
+func (o *ApiOrdersMetaDleteRequestV2) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"key",
+		"ordersIds",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiOrdersMetaDleteRequestV2 := _ApiOrdersMetaDleteRequestV2{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiOrdersMetaDleteRequestV2)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiOrdersMetaDleteRequestV2(varApiOrdersMetaDleteRequestV2)
+
+	return err
 }
 
 type NullableApiOrdersMetaDleteRequestV2 struct {

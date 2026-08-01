@@ -12,6 +12,8 @@ package orders_dbs
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApiUIN type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &ApiUIN{}
 // ApiUIN struct for ApiUIN
 type ApiUIN struct {
 	// ID сборочного задания
-	OrderId *int32 `json:"orderId,omitempty"`
+	OrderId int32 `json:"orderId"`
 	// УИН
-	Uin *string `json:"uin,omitempty"`
+	Uin string `json:"uin"`
 }
+
+type _ApiUIN ApiUIN
 
 // NewApiUIN instantiates a new ApiUIN object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiUIN() *ApiUIN {
+func NewApiUIN(orderId int32, uin string) *ApiUIN {
 	this := ApiUIN{}
+	this.OrderId = orderId
+	this.Uin = uin
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewApiUINWithDefaults() *ApiUIN {
 	return &this
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *ApiUIN) GetOrderId() int32 {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *ApiUIN) GetOrderIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *ApiUIN) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given int32 and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *ApiUIN) SetOrderId(v int32) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
-// GetUin returns the Uin field value if set, zero value otherwise.
+// GetUin returns the Uin field value
 func (o *ApiUIN) GetUin() string {
-	if o == nil || IsNil(o.Uin) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Uin
+
+	return o.Uin
 }
 
-// GetUinOk returns a tuple with the Uin field value if set, nil otherwise
+// GetUinOk returns a tuple with the Uin field value
 // and a boolean to check if the value has been set.
 func (o *ApiUIN) GetUinOk() (*string, bool) {
-	if o == nil || IsNil(o.Uin) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Uin, true
+	return &o.Uin, true
 }
 
-// HasUin returns a boolean if a field has been set.
-func (o *ApiUIN) HasUin() bool {
-	if o != nil && !IsNil(o.Uin) {
-		return true
-	}
-
-	return false
-}
-
-// SetUin gets a reference to the given string and assigns it to the Uin field.
+// SetUin sets field value
 func (o *ApiUIN) SetUin(v string) {
-	o.Uin = &v
+	o.Uin = v
 }
 
 func (o ApiUIN) MarshalJSON() ([]byte, error) {
@@ -116,13 +106,47 @@ func (o ApiUIN) MarshalJSON() ([]byte, error) {
 
 func (o ApiUIN) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if !IsNil(o.Uin) {
-		toSerialize["uin"] = o.Uin
-	}
+	toSerialize["orderId"] = o.OrderId
+	toSerialize["uin"] = o.Uin
 	return toSerialize, nil
+}
+
+func (o *ApiUIN) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"orderId",
+		"uin",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApiUIN := _ApiUIN{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApiUIN)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApiUIN(varApiUIN)
+
+	return err
 }
 
 type NullableApiUIN struct {

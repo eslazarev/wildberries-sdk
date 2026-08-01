@@ -274,7 +274,10 @@ class ApiOrdersRequestV2 implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['orders_ids']) && (count($this->container['orders_ids']) > 1000)) {
+        if ($this->container['orders_ids'] === null) {
+            $invalidProperties[] = "'orders_ids' can't be null";
+        }
+        if ((count($this->container['orders_ids']) > 1000)) {
             $invalidProperties[] = "invalid value for 'orders_ids', number of items must be less than or equal to 1000.";
         }
 
@@ -296,7 +299,7 @@ class ApiOrdersRequestV2 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets orders_ids
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getOrdersIds()
     {
@@ -306,7 +309,7 @@ class ApiOrdersRequestV2 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets orders_ids
      *
-     * @param int[]|null $orders_ids Список ID сборочных заданий
+     * @param int[] $orders_ids Список ID сборочных заданий
      *
      * @return self
      */

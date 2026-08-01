@@ -24,42 +24,42 @@ import {
     AutoreturnError400ToJSON,
 } from '../models/AutoreturnError400';
 import {
-    type GetV3SettingsAutoreturns200Response,
-    GetV3SettingsAutoreturns200ResponseFromJSON,
-    GetV3SettingsAutoreturns200ResponseToJSON,
-} from '../models/GetV3SettingsAutoreturns200Response';
+    type GetMarketplaceV3FbsSettingsAutoreturns200Response,
+    GetMarketplaceV3FbsSettingsAutoreturns200ResponseFromJSON,
+    GetMarketplaceV3FbsSettingsAutoreturns200ResponseToJSON,
+} from '../models/GetMarketplaceV3FbsSettingsAutoreturns200Response';
 import {
-    type GetV3SettingsAutoreturnsSubcategoriesRestricted200Response,
-    GetV3SettingsAutoreturnsSubcategoriesRestricted200ResponseFromJSON,
-    GetV3SettingsAutoreturnsSubcategoriesRestricted200ResponseToJSON,
-} from '../models/GetV3SettingsAutoreturnsSubcategoriesRestricted200Response';
+    type GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response,
+    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseFromJSON,
+    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseToJSON,
+} from '../models/GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response';
 import {
-    type PatchV3SettingsAutoreturnsItems200Response,
-    PatchV3SettingsAutoreturnsItems200ResponseFromJSON,
-    PatchV3SettingsAutoreturnsItems200ResponseToJSON,
-} from '../models/PatchV3SettingsAutoreturnsItems200Response';
+    type PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response,
+    PatchMarketplaceV3FbsSettingsAutoreturnsItems200ResponseFromJSON,
+    PatchMarketplaceV3FbsSettingsAutoreturnsItems200ResponseToJSON,
+} from '../models/PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response';
 import {
-    type PatchV3SettingsAutoreturnsItemsRequest,
-    PatchV3SettingsAutoreturnsItemsRequestFromJSON,
-    PatchV3SettingsAutoreturnsItemsRequestToJSON,
-} from '../models/PatchV3SettingsAutoreturnsItemsRequest';
+    type PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestFromJSON,
+    PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestToJSON,
+} from '../models/PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest';
 import {
-    type PatchV3SettingsAutoreturnsRequest,
-    PatchV3SettingsAutoreturnsRequestFromJSON,
-    PatchV3SettingsAutoreturnsRequestToJSON,
-} from '../models/PatchV3SettingsAutoreturnsRequest';
+    type PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+    PatchMarketplaceV3FbsSettingsAutoreturnsRequestFromJSON,
+    PatchMarketplaceV3FbsSettingsAutoreturnsRequestToJSON,
+} from '../models/PatchMarketplaceV3FbsSettingsAutoreturnsRequest';
 import {
-    type PostV3SettingsAutoreturnsItems200Response,
-    PostV3SettingsAutoreturnsItems200ResponseFromJSON,
-    PostV3SettingsAutoreturnsItems200ResponseToJSON,
-} from '../models/PostV3SettingsAutoreturnsItems200Response';
+    type PostMarketplaceV3FbsSettingsAutoreturnsItems200Response,
+    PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseFromJSON,
+    PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseToJSON,
+} from '../models/PostMarketplaceV3FbsSettingsAutoreturnsItems200Response';
 import {
-    type PostV3SettingsAutoreturnsItemsRequest,
-    PostV3SettingsAutoreturnsItemsRequestFromJSON,
-    PostV3SettingsAutoreturnsItemsRequestToJSON,
-} from '../models/PostV3SettingsAutoreturnsItemsRequest';
+    type PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    PostMarketplaceV3FbsSettingsAutoreturnsItemsRequestFromJSON,
+    PostMarketplaceV3FbsSettingsAutoreturnsItemsRequestToJSON,
+} from '../models/PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest';
 
-export interface GetV3SettingsAutoreturnsSubcategoriesRestrictedRequest {
+export interface GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest {
     /**
      * Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
      */
@@ -70,25 +70,25 @@ export interface GetV3SettingsAutoreturnsSubcategoriesRestrictedRequest {
     limit: number;
 }
 
-export interface PatchV3SettingsAutoreturnsOperationRequest {
+export interface PatchMarketplaceV3FbsSettingsAutoreturnsOperationRequest {
     /**
      * 
      */
-    patchV3SettingsAutoreturnsRequest?: PatchV3SettingsAutoreturnsRequest;
+    patchMarketplaceV3FbsSettingsAutoreturnsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsRequest;
 }
 
-export interface PatchV3SettingsAutoreturnsItemsOperationRequest {
+export interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest {
     /**
      * 
      */
-    patchV3SettingsAutoreturnsItemsRequest?: PatchV3SettingsAutoreturnsItemsRequest;
+    patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
 }
 
-export interface PostV3SettingsAutoreturnsItemsOperationRequest {
+export interface PostMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest {
     /**
      * 
      */
-    postV3SettingsAutoreturnsItemsRequest?: PostV3SettingsAutoreturnsItemsRequest;
+    postMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
 }
 
 /**
@@ -97,9 +97,9 @@ export interface PostV3SettingsAutoreturnsItemsOperationRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for getV3SettingsAutoreturns without sending the request
+     * Creates request options for getMarketplaceV3FbsSettingsAutoreturns without sending the request
      */
-    async getV3SettingsAutoreturnsRequestOpts(): Promise<runtime.RequestOpts> {
+    async getMarketplaceV3FbsSettingsAutoreturnsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -123,37 +123,37 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает информацию о настройках автовозврата, установленных продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить настройки автовозврата продавца
      */
-    async getV3SettingsAutoreturnsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV3SettingsAutoreturns200Response>> {
-        const requestOptions = await this.getV3SettingsAutoreturnsRequestOpts();
+    async getMarketplaceV3FbsSettingsAutoreturnsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturns200Response>> {
+        const requestOptions = await this.getMarketplaceV3FbsSettingsAutoreturnsRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetV3SettingsAutoreturns200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetMarketplaceV3FbsSettingsAutoreturns200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает информацию о настройках автовозврата, установленных продавцом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить настройки автовозврата продавца
      */
-    async getV3SettingsAutoreturns(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3SettingsAutoreturns200Response> {
-        const response = await this.getV3SettingsAutoreturnsRaw(initOverrides);
+    async getMarketplaceV3FbsSettingsAutoreturns(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMarketplaceV3FbsSettingsAutoreturns200Response> {
+        const response = await this.getMarketplaceV3FbsSettingsAutoreturnsRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for getV3SettingsAutoreturnsSubcategoriesRestricted without sending the request
+     * Creates request options for getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted without sending the request
      */
-    async getV3SettingsAutoreturnsSubcategoriesRestrictedRequestOpts(requestParameters: GetV3SettingsAutoreturnsSubcategoriesRestrictedRequest): Promise<runtime.RequestOpts> {
+    async getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequestOpts(requestParameters: GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['next'] == null) {
             throw new runtime.RequiredError(
                 'next',
-                'Required parameter "next" was null or undefined when calling getV3SettingsAutoreturnsSubcategoriesRestricted().'
+                'Required parameter "next" was null or undefined when calling getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted().'
             );
         }
 
         if (requestParameters['limit'] == null) {
             throw new runtime.RequiredError(
                 'limit',
-                'Required parameter "limit" was null or undefined when calling getV3SettingsAutoreturnsSubcategoriesRestricted().'
+                'Required parameter "limit" was null or undefined when calling getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted().'
             );
         }
 
@@ -188,26 +188,26 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить предметы, которые не хранятся на складах WB
      */
-    async getV3SettingsAutoreturnsSubcategoriesRestrictedRaw(requestParameters: GetV3SettingsAutoreturnsSubcategoriesRestrictedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV3SettingsAutoreturnsSubcategoriesRestricted200Response>> {
-        const requestOptions = await this.getV3SettingsAutoreturnsSubcategoriesRestrictedRequestOpts(requestParameters);
+    async getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRaw(requestParameters: GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response>> {
+        const requestOptions = await this.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetV3SettingsAutoreturnsSubcategoriesRestricted200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить предметы, которые не хранятся на складах WB
      */
-    async getV3SettingsAutoreturnsSubcategoriesRestricted(requestParameters: GetV3SettingsAutoreturnsSubcategoriesRestrictedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV3SettingsAutoreturnsSubcategoriesRestricted200Response> {
-        const response = await this.getV3SettingsAutoreturnsSubcategoriesRestrictedRaw(requestParameters, initOverrides);
+    async getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(requestParameters: GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response> {
+        const response = await this.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for patchV3SettingsAutoreturns without sending the request
+     * Creates request options for patchMarketplaceV3FbsSettingsAutoreturns without sending the request
      */
-    async patchV3SettingsAutoreturnsRequestOpts(requestParameters: PatchV3SettingsAutoreturnsOperationRequest): Promise<runtime.RequestOpts> {
+    async patchMarketplaceV3FbsSettingsAutoreturnsRequestOpts(requestParameters: PatchMarketplaceV3FbsSettingsAutoreturnsOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -226,7 +226,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: PatchV3SettingsAutoreturnsRequestToJSON(requestParameters['patchV3SettingsAutoreturnsRequest']),
+            body: PatchMarketplaceV3FbsSettingsAutoreturnsRequestToJSON(requestParameters['patchMarketplaceV3FbsSettingsAutoreturnsRequest']),
         };
     }
 
@@ -234,8 +234,8 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Обновить настройки автовозврата продавца
      */
-    async patchV3SettingsAutoreturnsRaw(requestParameters: PatchV3SettingsAutoreturnsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.patchV3SettingsAutoreturnsRequestOpts(requestParameters);
+    async patchMarketplaceV3FbsSettingsAutoreturnsRaw(requestParameters: PatchMarketplaceV3FbsSettingsAutoreturnsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.patchMarketplaceV3FbsSettingsAutoreturnsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -245,14 +245,14 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Обновить настройки автовозврата продавца
      */
-    async patchV3SettingsAutoreturns(requestParameters: PatchV3SettingsAutoreturnsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.patchV3SettingsAutoreturnsRaw(requestParameters, initOverrides);
+    async patchMarketplaceV3FbsSettingsAutoreturns(requestParameters: PatchMarketplaceV3FbsSettingsAutoreturnsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.patchMarketplaceV3FbsSettingsAutoreturnsRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Creates request options for patchV3SettingsAutoreturnsItems without sending the request
+     * Creates request options for patchMarketplaceV3FbsSettingsAutoreturnsItems without sending the request
      */
-    async patchV3SettingsAutoreturnsItemsRequestOpts(requestParameters: PatchV3SettingsAutoreturnsItemsOperationRequest): Promise<runtime.RequestOpts> {
+    async patchMarketplaceV3FbsSettingsAutoreturnsItemsRequestOpts(requestParameters: PatchMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -271,7 +271,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: PatchV3SettingsAutoreturnsItemsRequestToJSON(requestParameters['patchV3SettingsAutoreturnsItemsRequest']),
+            body: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestToJSON(requestParameters['patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest']),
         };
     }
 
@@ -279,26 +279,26 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Обновить настройки автовозврата товаров
      */
-    async patchV3SettingsAutoreturnsItemsRaw(requestParameters: PatchV3SettingsAutoreturnsItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchV3SettingsAutoreturnsItems200Response>> {
-        const requestOptions = await this.patchV3SettingsAutoreturnsItemsRequestOpts(requestParameters);
+    async patchMarketplaceV3FbsSettingsAutoreturnsItemsRaw(requestParameters: PatchMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response>> {
+        const requestOptions = await this.patchMarketplaceV3FbsSettingsAutoreturnsItemsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PatchV3SettingsAutoreturnsItems200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PatchMarketplaceV3FbsSettingsAutoreturnsItems200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Обновить настройки автовозврата товаров
      */
-    async patchV3SettingsAutoreturnsItems(requestParameters: PatchV3SettingsAutoreturnsItemsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchV3SettingsAutoreturnsItems200Response> {
-        const response = await this.patchV3SettingsAutoreturnsItemsRaw(requestParameters, initOverrides);
+    async patchMarketplaceV3FbsSettingsAutoreturnsItems(requestParameters: PatchMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response> {
+        const response = await this.patchMarketplaceV3FbsSettingsAutoreturnsItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for postV3SettingsAutoreturnsItems without sending the request
+     * Creates request options for postMarketplaceV3FbsSettingsAutoreturnsItems without sending the request
      */
-    async postV3SettingsAutoreturnsItemsRequestOpts(requestParameters: PostV3SettingsAutoreturnsItemsOperationRequest): Promise<runtime.RequestOpts> {
+    async postMarketplaceV3FbsSettingsAutoreturnsItemsRequestOpts(requestParameters: PostMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -317,7 +317,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostV3SettingsAutoreturnsItemsRequestToJSON(requestParameters['postV3SettingsAutoreturnsItemsRequest']),
+            body: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequestToJSON(requestParameters['postMarketplaceV3FbsSettingsAutoreturnsItemsRequest']),
         };
     }
 
@@ -325,19 +325,19 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает настройки автовозврата товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить настройки автовозврата товаров
      */
-    async postV3SettingsAutoreturnsItemsRaw(requestParameters: PostV3SettingsAutoreturnsItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV3SettingsAutoreturnsItems200Response>> {
-        const requestOptions = await this.postV3SettingsAutoreturnsItemsRequestOpts(requestParameters);
+    async postMarketplaceV3FbsSettingsAutoreturnsItemsRaw(requestParameters: PostMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItems200Response>> {
+        const requestOptions = await this.postMarketplaceV3FbsSettingsAutoreturnsItemsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostV3SettingsAutoreturnsItems200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает настройки автовозврата товаров.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить настройки автовозврата товаров
      */
-    async postV3SettingsAutoreturnsItems(requestParameters: PostV3SettingsAutoreturnsItemsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV3SettingsAutoreturnsItems200Response> {
-        const response = await this.postV3SettingsAutoreturnsItemsRaw(requestParameters, initOverrides);
+    async postMarketplaceV3FbsSettingsAutoreturnsItems(requestParameters: PostMarketplaceV3FbsSettingsAutoreturnsItemsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostMarketplaceV3FbsSettingsAutoreturnsItems200Response> {
+        const response = await this.postMarketplaceV3FbsSettingsAutoreturnsItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

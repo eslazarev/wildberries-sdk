@@ -890,6 +890,9 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecut
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.postV3ClickCollectOrdersMetaCustomsDeclarationRequest == nil {
+		return localVarReturnValue, nil, reportError("postV3ClickCollectOrdersMetaCustomsDeclarationRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1072,6 +1075,9 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersMetaDeleteRequest == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersMetaDeleteRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1267,6 +1273,9 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPost
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.apiOrdersRequestV2 == nil {
+		return localVarReturnValue, nil, reportError("apiOrdersRequestV2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

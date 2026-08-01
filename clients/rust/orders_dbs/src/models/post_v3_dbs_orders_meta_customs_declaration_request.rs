@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PostV3DbsOrdersMetaCustomsDeclarationRequest {
-    #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Vec<models::PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner>>,
+    #[serde(rename = "orders")]
+    pub orders: Vec<models::PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner>,
 }
 
 impl PostV3DbsOrdersMetaCustomsDeclarationRequest {
-    pub fn new() -> PostV3DbsOrdersMetaCustomsDeclarationRequest {
+    pub fn new(orders: Vec<models::PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner>) -> PostV3DbsOrdersMetaCustomsDeclarationRequest {
         PostV3DbsOrdersMetaCustomsDeclarationRequest {
-            orders: None,
+            orders,
         }
     }
 }

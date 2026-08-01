@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiUin {
     /// ID сборочного задания
-    #[serde(rename = "orderId", skip_serializing_if = "Option::is_none")]
-    pub order_id: Option<i32>,
+    #[serde(rename = "orderId")]
+    pub order_id: i32,
     /// УИН
-    #[serde(rename = "uin", skip_serializing_if = "Option::is_none")]
-    pub uin: Option<String>,
+    #[serde(rename = "uin")]
+    pub uin: String,
 }
 
 impl ApiUin {
-    pub fn new() -> ApiUin {
+    pub fn new(order_id: i32, uin: String) -> ApiUin {
         ApiUin {
-            order_id: None,
-            uin: None,
+            order_id,
+            uin,
         }
     }
 }

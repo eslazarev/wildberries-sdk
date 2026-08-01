@@ -262,7 +262,7 @@ export interface ApiMarketplaceV3OrdersMetaPostRequest {
     /**
      * 
      */
-    v3GetMetaMultiRequest?: V3GetMetaMultiRequest;
+    v3GetMetaMultiRequest: V3GetMetaMultiRequest;
 }
 
 export interface ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutOperationRequest {
@@ -273,7 +273,7 @@ export interface ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutOperation
     /**
      * 
      */
-    apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest?: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest;
+    apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest;
 }
 
 export interface ApiMarketplaceV3SuppliesSupplyIdOrderIdsGetRequest {
@@ -336,7 +336,7 @@ export interface ApiV3OrdersOrderIdMetaDeleteRequest {
     /**
      * Название идентификаторов маркировки для удаления. Передаётся только одно значение.
      */
-    key?: ApiV3OrdersOrderIdMetaDeleteKeyEnum;
+    key: ApiV3OrdersOrderIdMetaDeleteKeyEnum;
 }
 
 export interface ApiV3OrdersOrderIdMetaExpirationPutOperationRequest {
@@ -347,7 +347,7 @@ export interface ApiV3OrdersOrderIdMetaExpirationPutOperationRequest {
     /**
      * 
      */
-    apiV3OrdersOrderIdMetaExpirationPutRequest?: ApiV3OrdersOrderIdMetaExpirationPutRequest;
+    apiV3OrdersOrderIdMetaExpirationPutRequest: ApiV3OrdersOrderIdMetaExpirationPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaGtinPutOperationRequest {
@@ -358,7 +358,7 @@ export interface ApiV3OrdersOrderIdMetaGtinPutOperationRequest {
     /**
      * 
      */
-    apiV3OrdersOrderIdMetaGtinPutRequest?: ApiV3OrdersOrderIdMetaGtinPutRequest;
+    apiV3OrdersOrderIdMetaGtinPutRequest: ApiV3OrdersOrderIdMetaGtinPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaImeiPutOperationRequest {
@@ -369,7 +369,7 @@ export interface ApiV3OrdersOrderIdMetaImeiPutOperationRequest {
     /**
      * 
      */
-    apiV3OrdersOrderIdMetaImeiPutRequest?: ApiV3OrdersOrderIdMetaImeiPutRequest;
+    apiV3OrdersOrderIdMetaImeiPutRequest: ApiV3OrdersOrderIdMetaImeiPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaSgtinPutOperationRequest {
@@ -380,7 +380,7 @@ export interface ApiV3OrdersOrderIdMetaSgtinPutOperationRequest {
     /**
      * 
      */
-    apiV3OrdersOrderIdMetaSgtinPutRequest?: ApiV3OrdersOrderIdMetaSgtinPutRequest;
+    apiV3OrdersOrderIdMetaSgtinPutRequest: ApiV3OrdersOrderIdMetaSgtinPutRequest;
 }
 
 export interface ApiV3OrdersOrderIdMetaUinPutOperationRequest {
@@ -391,7 +391,7 @@ export interface ApiV3OrdersOrderIdMetaUinPutOperationRequest {
     /**
      * 
      */
-    apiV3OrdersOrderIdMetaUinPutRequest?: ApiV3OrdersOrderIdMetaUinPutRequest;
+    apiV3OrdersOrderIdMetaUinPutRequest: ApiV3OrdersOrderIdMetaUinPutRequest;
 }
 
 export interface ApiV3OrdersStatusHistoryPostOperationRequest {
@@ -649,6 +649,13 @@ export class FBSApi extends runtime.BaseAPI {
      * Creates request options for apiMarketplaceV3OrdersMetaPost without sending the request
      */
     async apiMarketplaceV3OrdersMetaPostRequestOpts(requestParameters: ApiMarketplaceV3OrdersMetaPostRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v3GetMetaMultiRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v3GetMetaMultiRequest',
+                'Required parameter "v3GetMetaMultiRequest" was null or undefined when calling apiMarketplaceV3OrdersMetaPost().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -686,7 +693,7 @@ export class FBSApi extends runtime.BaseAPI {
      * Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) и статусы их проверки. <br><br> Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1new/get), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.<br> Возможные идентификаторы маркировки:   - `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1imei/put)   - `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1uin/put)   - `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1gtin/put)   - `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1sgtin/put)   - `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1v3~1orders~1%7BorderId%7D~1meta~1expiration/put)   - `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить идентификаторы маркировки сборочных заданий
      */
-    async apiMarketplaceV3OrdersMetaPost(requestParameters: ApiMarketplaceV3OrdersMetaPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V3OrdersMetaAPI> {
+    async apiMarketplaceV3OrdersMetaPost(requestParameters: ApiMarketplaceV3OrdersMetaPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V3OrdersMetaAPI> {
         const response = await this.apiMarketplaceV3OrdersMetaPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -699,6 +706,13 @@ export class FBSApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'orderId',
                 'Required parameter "orderId" was null or undefined when calling apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut().'
+            );
+        }
+
+        if (requestParameters['apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest',
+                'Required parameter "apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest" was null or undefined when calling apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut().'
             );
         }
 
@@ -1085,6 +1099,13 @@ export class FBSApi extends runtime.BaseAPI {
             );
         }
 
+        if (requestParameters['key'] == null) {
+            throw new runtime.RequiredError(
+                'key',
+                'Required parameter "key" was null or undefined when calling apiV3OrdersOrderIdMetaDelete().'
+            );
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters['key'] != null) {
@@ -1136,6 +1157,13 @@ export class FBSApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'orderId',
                 'Required parameter "orderId" was null or undefined when calling apiV3OrdersOrderIdMetaExpirationPut().'
+            );
+        }
+
+        if (requestParameters['apiV3OrdersOrderIdMetaExpirationPutRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiV3OrdersOrderIdMetaExpirationPutRequest',
+                'Required parameter "apiV3OrdersOrderIdMetaExpirationPutRequest" was null or undefined when calling apiV3OrdersOrderIdMetaExpirationPut().'
             );
         }
 
@@ -1192,6 +1220,13 @@ export class FBSApi extends runtime.BaseAPI {
             );
         }
 
+        if (requestParameters['apiV3OrdersOrderIdMetaGtinPutRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiV3OrdersOrderIdMetaGtinPutRequest',
+                'Required parameter "apiV3OrdersOrderIdMetaGtinPutRequest" was null or undefined when calling apiV3OrdersOrderIdMetaGtinPut().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1242,6 +1277,13 @@ export class FBSApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'orderId',
                 'Required parameter "orderId" was null or undefined when calling apiV3OrdersOrderIdMetaImeiPut().'
+            );
+        }
+
+        if (requestParameters['apiV3OrdersOrderIdMetaImeiPutRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiV3OrdersOrderIdMetaImeiPutRequest',
+                'Required parameter "apiV3OrdersOrderIdMetaImeiPutRequest" was null or undefined when calling apiV3OrdersOrderIdMetaImeiPut().'
             );
         }
 
@@ -1298,6 +1340,13 @@ export class FBSApi extends runtime.BaseAPI {
             );
         }
 
+        if (requestParameters['apiV3OrdersOrderIdMetaSgtinPutRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiV3OrdersOrderIdMetaSgtinPutRequest',
+                'Required parameter "apiV3OrdersOrderIdMetaSgtinPutRequest" was null or undefined when calling apiV3OrdersOrderIdMetaSgtinPut().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1348,6 +1397,13 @@ export class FBSApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'orderId',
                 'Required parameter "orderId" was null or undefined when calling apiV3OrdersOrderIdMetaUinPut().'
+            );
+        }
+
+        if (requestParameters['apiV3OrdersOrderIdMetaUinPutRequest'] == null) {
+            throw new runtime.RequiredError(
+                'apiV3OrdersOrderIdMetaUinPutRequest',
+                'Required parameter "apiV3OrdersOrderIdMetaUinPutRequest" was null or undefined when calling apiV3OrdersOrderIdMetaUinPut().'
             );
         }
 

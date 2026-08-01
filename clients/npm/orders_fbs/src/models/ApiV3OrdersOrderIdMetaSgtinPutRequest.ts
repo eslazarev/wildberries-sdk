@@ -28,13 +28,14 @@ export interface ApiV3OrdersOrderIdMetaSgtinPutRequest {
      *   GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\u001D`
      * 
      */
-    sgtins?: Array<string>;
+    sgtins: Array<string>;
 }
 
 /**
  * Check if a given object implements the ApiV3OrdersOrderIdMetaSgtinPutRequest interface.
  */
 export function instanceOfApiV3OrdersOrderIdMetaSgtinPutRequest(value: object): value is ApiV3OrdersOrderIdMetaSgtinPutRequest {
+    if (!('sgtins' in value) || value['sgtins'] === undefined) return false;
     return true;
 }
 
@@ -48,7 +49,7 @@ export function ApiV3OrdersOrderIdMetaSgtinPutRequestFromJSONTyped(json: any, ig
     }
     return {
         
-        'sgtins': json['sgtins'] == null ? undefined : json['sgtins'],
+        'sgtins': json['sgtins'],
     };
 }
 

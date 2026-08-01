@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ApiV3OrdersOrderIdMetaSgtinPutRequest(BaseModel):
     """
     ApiV3OrdersOrderIdMetaSgtinPutRequest
     """ # noqa: E501
-    sgtins: Optional[Annotated[List[StrictStr], Field(min_length=1, max_length=100)]] = Field(default=None, description="Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#bfd5fce8-e0fd-4f15-9d8b-e616fac02c2e) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D` ", json_schema_extra={"examples": [["0104630568317423215EirD_orEif7X\u001D91EE12\u001D92VygELprJ87wrc/qF/Vq/KEFUVpZm4vDPQt2kqUw308Y="]]})
+    sgtins: Annotated[List[StrictStr], Field(min_length=1, max_length=100)] = Field(description="Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). <br> Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#bfd5fce8-e0fd-4f15-9d8b-e616fac02c2e) коды маркировки:   - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом)   - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста)    GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D` ", json_schema_extra={"examples": [["0104630568317423215EirD_orEif7X\u001D91EE12\u001D92VygELprJ87wrc/qF/Vq/KEFUVpZm4vDPQt2kqUw308Y="]]})
     __properties: ClassVar[List[str]] = ["sgtins"]
 
     model_config = ConfigDict(
