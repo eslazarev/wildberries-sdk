@@ -606,6 +606,7 @@ paths:
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -713,6 +714,7 @@ paths:
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -970,10 +972,13 @@ paths:
         Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
         </div>
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+                - orders
               properties:
                 orders:
                   type: array
@@ -992,7 +997,8 @@ paths:
                         description: ID сборочного задания
                       originCountryCode:
                         type: string
-                        description: Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+                        description: |
+                          Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи "isB2b":true
                         example: '643'
                         maxLength: 3
                     required:
@@ -1661,6 +1667,9 @@ components:
           example: NotFound
       type: object
     api.OrdersRequestV2:
+      type: object
+      required:
+        - ordersIds
       properties:
         ordersIds:
           description: Список ID сборочных заданий
@@ -1672,7 +1681,6 @@ components:
           type: array
           items:
             type: integer
-      type: object
     api.StatusSetResponses:
       example:
         requestId: 03615778-eb9e-4f55-b4O4-fd3ac0fad2сc

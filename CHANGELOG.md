@@ -1,6 +1,31 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.08.01)
+- Orders FBS: для ряда методов добавлено обязательное тело запроса (`requestBody.required: true`)
+- Orders FBS: параметр query `key` сделан обязательным (`required: true`)
+- Orders FBS: в одном из запросов поле `sgtins` стало обязательным (добавлено в `schema.required`)
+- Orders FBS: в одном из запросов поле `expiration` стало обязательным (добавлено в `schema.required`)
+- Orders FBS: в одном из запросов поле `customsDeclaration` стало обязательным (добавлено в `schema.required`)
+- Orders FBS: переименованы `operationId` у методов настроек автовозвратов на префикс `get/patch/postMarketplaceV3Fbs...` (без изменения путей), обновлены ссылки в описаниях на новые operationId
+- Orders FBS: уточнено описание поля `success` в ответе обновления настроек автовозврата товара: теперь означает «настройки ... обновлены»
+
+- Orders DBW: удалён устаревший endpoint `GET /api/v3/dbw/orders/{orderId}/meta` (ранее `deprecated: true`, планировался к удалению 27 июля)
+- Orders DBW: удалена схема `Meta` (идентификаторы маркировки сборочного задания), использовавшаяся удалённым методом
+- Orders DBW: для ряда методов добавлено обязательное тело запроса (`requestBody.required: true`)
+- Orders DBW: в схемах запросов добавлены обязательные поля: `api.SGTINs` теперь требует `orderId` и `sgtins`; `api.OrdersRequestV2` требует `ordersIds`; `api.OrdersMetaDleteRequestV2` требует `key` и `ordersIds`
+
+- Orders DBS: удалён устаревший endpoint `POST /api/marketplace/v3/dbs/orders/meta/info` (ранее `deprecated: true`, планировался к удалению 27 июля) и связанные схемы ответа `api.OrdersMetaResponse`/`api.OrderMetaV2`
+- Orders DBS: для ряда методов добавлено обязательное тело запроса (`requestBody.required: true`)
+- Orders DBS: в методе закрепления ДТ уточнены условия применения: только для B2B (`isB2b:true`), статусы `confirm`/`deliver`, и наличие `customsDeclaration` в метаданных маркировки
+- Orders DBS: в запросе закрепления ДТ поле `orders` сделано обязательным (добавлено в `schema.required`)
+- Orders DBS: в схемах идентификаторов маркировки добавлены обязательные поля: `api.GTIN` (`orderId`, `gtin`), `api.IMEI` (`orderId`, `imei`), `api.SGTINs` (`orderId`, `sgtins`), `api.UIN` (`orderId`, `uin`); `api.OrdersRequestV2` требует `ordersIds`
+
+- In-store pickup: для ряда методов добавлено обязательное тело запроса (`requestBody.required: true`)
+- In-store pickup: в одном из запросов поле `orders` сделано обязательным (добавлено в `schema.required`)
+- In-store pickup: уточнено поле `originCountryCode` — указывать только для B2B-сборочных заданий (`"isB2b": true`)
+- In-store pickup: `api.OrdersRequestV2` теперь явно требует `ordersIds` (добавлено в `required`)
+
 ### Changed (2026.07.31)
 - Товары → Остатки на складах продавца: уточнены лимиты — общий лимит применяется ко всем методам, кроме `/api/v3/stocks/{warehouseId}/delete` (удаление остатков выделено отдельно).
 - Товары → Остатки на складах продавца: для одного из методов убрано примечание «запрос с 4XX учитывается как 10 запросов» (в описании лимитов).
