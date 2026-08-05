@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.08.05)
+- Самовывоз (Click&Collect) / Идентификаторы маркировки: удалён endpoint `POST /api/marketplace/v3/click-collect/orders/meta/info` (ранее помечен `deprecated`, `x-readonly-method: true`) для получения идентификаторов маркировки сборочных заданий
+- Самовывоз (Click&Collect) / Идентификаторы маркировки: удалены схемы ответов `api.OrdersMetaResponse` и `api.OrderMetaV2` (поля: `error`, `orderId`, `gtin`, `imei`, `sgtin[]`, `uin`, `customsDeclaration`) как связанные с удалённым методом
+
 ### Changed (2026.08.01)
 - Orders FBS: для ряда методов добавлено обязательное тело запроса (`requestBody.required: true`)
 - Orders FBS: параметр query `key` сделан обязательным (`required: true`)
