@@ -232,7 +232,6 @@ SDK выпускается с security-first процессом:
 - `POST /api/marketplace/v3/click-collect/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaDetails)
 - `POST /api/marketplace/v3/click-collect/orders/meta/gtin` — Закрепить GTIN за сборочными заданиями (postV3ClickCollectOrdersMetaGtin)
 - `POST /api/marketplace/v3/click-collect/orders/meta/imei` — Закрепить IMEI за сборочными заданиями (postV3ClickCollectOrdersMetaImei)
-- `POST /api/marketplace/v3/click-collect/orders/meta/info` — Получить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaInfo)
 - `POST /api/marketplace/v3/click-collect/orders/meta/sgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями (postV3ClickCollectOrdersMetaSgtin)
 - `POST /api/marketplace/v3/click-collect/orders/meta/uin` — Закрепить УИН за сборочными заданиями (postV3ClickCollectOrdersMetaUin)
 - `POST /api/marketplace/v3/click-collect/orders/status/cancel` — Отменить сборочные задания (postV3ClickCollectOrdersStatusCancel)

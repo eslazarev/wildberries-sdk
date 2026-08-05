@@ -215,7 +215,6 @@ main().catch(console.error);
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaDetails` — Получить идентификаторы маркировки сборочных заданий
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaGtin` — Закрепить GTIN за сборочными заданиями
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaImei` — Закрепить IMEI за сборочными заданиями
-- `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaInfo` — Получить идентификаторы маркировки сборочных заданий
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaSgtin` — Закрепить коды маркировки Честного знака за сборочными заданиями
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersMetaUin` — Закрепить УИН за сборочными заданиями
 - `in_store_pickup.DefaultApi.postV3ClickCollectOrdersStatusCancel` — Отменить сборочные задания

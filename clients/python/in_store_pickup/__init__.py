@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.136"
+__version__ = "0.1.137"
 
 # Define package exports
 __all__ = [
@@ -49,7 +49,6 @@ __all__ = [
     "ApiOrder",
     "ApiOrderClientInfo",
     "ApiOrderClientInfoResp",
-    "ApiOrderMetaV2",
     "ApiOrderOptions",
     "ApiOrderStatusV2",
     "ApiOrderStatusesV2",
@@ -62,7 +61,6 @@ __all__ = [
     "ApiOrdersMetaDetailsResponseOrdersInner",
     "ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner",
     "ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner",
-    "ApiOrdersMetaResponse",
     "ApiOrdersRequest",
     "ApiOrdersRequestV2",
     "ApiOrdersResponse",
@@ -118,7 +116,6 @@ from wildberries_sdk.in_store_pickup.models.api_new_orders import ApiNewOrders a
 from wildberries_sdk.in_store_pickup.models.api_order import ApiOrder as ApiOrder
 from wildberries_sdk.in_store_pickup.models.api_order_client_info import ApiOrderClientInfo as ApiOrderClientInfo
 from wildberries_sdk.in_store_pickup.models.api_order_client_info_resp import ApiOrderClientInfoResp as ApiOrderClientInfoResp
-from wildberries_sdk.in_store_pickup.models.api_order_meta_v2 import ApiOrderMetaV2 as ApiOrderMetaV2
 from wildberries_sdk.in_store_pickup.models.api_order_options import ApiOrderOptions as ApiOrderOptions
 from wildberries_sdk.in_store_pickup.models.api_order_status_v2 import ApiOrderStatusV2 as ApiOrderStatusV2
 from wildberries_sdk.in_store_pickup.models.api_order_statuses_v2 import ApiOrderStatusesV2 as ApiOrderStatusesV2
@@ -131,7 +128,6 @@ from wildberries_sdk.in_store_pickup.models.api_orders_meta_details_response imp
 from wildberries_sdk.in_store_pickup.models.api_orders_meta_details_response_orders_inner import ApiOrdersMetaDetailsResponseOrdersInner as ApiOrdersMetaDetailsResponseOrdersInner
 from wildberries_sdk.in_store_pickup.models.api_orders_meta_details_response_orders_inner_errors_inner import ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner as ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
 from wildberries_sdk.in_store_pickup.models.api_orders_meta_details_response_orders_inner_meta_details_inner import ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner as ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
-from wildberries_sdk.in_store_pickup.models.api_orders_meta_response import ApiOrdersMetaResponse as ApiOrdersMetaResponse
 from wildberries_sdk.in_store_pickup.models.api_orders_request import ApiOrdersRequest as ApiOrdersRequest
 from wildberries_sdk.in_store_pickup.models.api_orders_request_v2 import ApiOrdersRequestV2 as ApiOrdersRequestV2
 from wildberries_sdk.in_store_pickup.models.api_orders_response import ApiOrdersResponse as ApiOrdersResponse

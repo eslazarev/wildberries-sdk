@@ -89,11 +89,6 @@ import {
     ApiOrdersMetaDetailsResponseToJSON,
 } from '../models/ApiOrdersMetaDetailsResponse';
 import {
-    type ApiOrdersMetaResponse,
-    ApiOrdersMetaResponseFromJSON,
-    ApiOrdersMetaResponseToJSON,
-} from '../models/ApiOrdersMetaResponse';
-import {
     type ApiOrdersRequest,
     ApiOrdersRequestFromJSON,
     ApiOrdersRequestToJSON,
@@ -211,13 +206,6 @@ export interface PostV3ClickCollectOrdersMetaImeiRequest {
      * 
      */
     apiOrdersIMEISetRequest: ApiOrdersIMEISetRequest;
-}
-
-export interface PostV3ClickCollectOrdersMetaInfoRequest {
-    /**
-     * 
-     */
-    apiOrdersRequestV2?: ApiOrdersRequestV2;
 }
 
 export interface PostV3ClickCollectOrdersMetaSgtinRequest {
@@ -779,55 +767,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async postV3ClickCollectOrdersMetaImei(requestParameters: PostV3ClickCollectOrdersMetaImeiRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiMetaSetResponses> {
         const response = await this.postV3ClickCollectOrdersMetaImeiRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for postV3ClickCollectOrdersMetaInfo without sending the request
-     * @deprecated
-     */
-    async postV3ClickCollectOrdersMetaInfoRequestOpts(requestParameters: PostV3ClickCollectOrdersMetaInfoRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/marketplace/v3/click-collect/orders/meta/info`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiOrdersRequestV2ToJSON(requestParameters['apiOrdersRequestV2']),
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     * @deprecated
-     */
-    async postV3ClickCollectOrdersMetaInfoRaw(requestParameters: PostV3ClickCollectOrdersMetaInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersMetaResponse>> {
-        const requestOptions = await this.postV3ClickCollectOrdersMetaInfoRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersMetaResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [15 июля](/release-notes?id=536)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
-     * Получить идентификаторы маркировки сборочных заданий
-     * @deprecated
-     */
-    async postV3ClickCollectOrdersMetaInfo(requestParameters: PostV3ClickCollectOrdersMetaInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersMetaResponse> {
-        const response = await this.postV3ClickCollectOrdersMetaInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
