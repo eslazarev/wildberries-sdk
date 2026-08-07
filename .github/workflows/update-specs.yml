@@ -15,12 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node (for Playwright fallback)
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Download specs
+      - name: Download specs from S3
+        env:
+          S3_URL: ${{ secrets.S3_URL }}
         run: bash scripts/download-specs-from-config.sh
 
       - name: Check for spec changes
