@@ -31,7 +31,13 @@ if (urls.length === 0) {
 
 mkdirSync(specsDir, { recursive: true });
 
-const browser = await chromium.launch({ headless: true });
+// WB's WBAAS v2 anti-bot (rolled out Aug 2026) blocks headless browsers with a
+// "suspicious activity" challenge that never resolves. Running headful with the
+// real Google Chrome channel passes it. CI has no display, so the caller wraps
+// this in xvfb-run; locally the OS display is used. Override via env if needed.
+const channel = process.env.WB_BROWSER_CHANNEL || 'chrome';
+const headless = process.env.WB_HEADLESS === '1';
+const browser = await chromium.launch({ headless, channel });
 const context = await browser.newContext({
   userAgent:
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',

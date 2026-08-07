@@ -66,24 +66,35 @@ try_curl() {
   done
 }
 
-# Fallback: drive a headless Chromium via `patchright` (a Playwright fork
-# with deeper CDP patches) that can complete the WBAAS JS challenge.
+# Fallback: drive a real headful Google Chrome via `patchright` (a Playwright
+# fork with deeper CDP patches) that can complete the WBAAS JS challenge.
+# WB's v2 anti-bot blocks headless browsers, so we run Chrome headful — under a
+# virtual display (xvfb) on headless CI hosts.
 run_patchright() {
   if ! command -v node >/dev/null 2>&1 || ! command -v npm >/dev/null 2>&1; then
     echo "Error: node and npm are required for the patchright fallback." >&2
     exit 1
   fi
+  export PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-${SCRIPT_DIR}/.playwright-browsers}"
   (
     cd "${SCRIPT_DIR}"
     if [[ ! -d node_modules/patchright ]]; then
       echo "Installing patchright..."
       npm install --silent --no-audit --no-fund --no-save patchright@^1.59.4
     fi
-    export PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-${SCRIPT_DIR}/.playwright-browsers}"
-    npx --no-install patchright install chromium >/dev/null
+    # Install real Google Chrome (channel used by the downloader). Falls back to
+    # a system Chrome if the managed install is unavailable.
+    npx --no-install patchright install chrome >/dev/null 2>&1 || \
+      echo "Warning: 'patchright install chrome' failed; relying on system Chrome." >&2
   )
-  PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-${SCRIPT_DIR}/.playwright-browsers}" \
-    node "${SCRIPT_DIR}/download-specs.mjs"
+
+  # Headful Chrome needs a display. Use xvfb-run when there's no DISPLAY (CI).
+  local runner=(node "${SCRIPT_DIR}/download-specs.mjs")
+  if [[ -z "${DISPLAY:-}" ]] && command -v xvfb-run >/dev/null 2>&1; then
+    xvfb-run -a "${runner[@]}"
+  else
+    "${runner[@]}"
+  fi
 }
 
 if try_curl; then
