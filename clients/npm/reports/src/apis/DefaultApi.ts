@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -14,81 +14,6 @@
 
 import * as runtime from '../runtime';
 import {
-    type ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner,
-    ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInnerFromJSON,
-    ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInnerToJSON,
-} from '../models/ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner';
-import {
-    type ApiV1AnalyticsAntifraudDetailsGet200Response,
-    ApiV1AnalyticsAntifraudDetailsGet200ResponseFromJSON,
-    ApiV1AnalyticsAntifraudDetailsGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsAntifraudDetailsGet200Response';
-import {
-    type ApiV1AnalyticsBannedProductsBlockedGet200Response,
-    ApiV1AnalyticsBannedProductsBlockedGet200ResponseFromJSON,
-    ApiV1AnalyticsBannedProductsBlockedGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsBannedProductsBlockedGet200Response';
-import {
-    type ApiV1AnalyticsBannedProductsBlockedGet400Response,
-    ApiV1AnalyticsBannedProductsBlockedGet400ResponseFromJSON,
-    ApiV1AnalyticsBannedProductsBlockedGet400ResponseToJSON,
-} from '../models/ApiV1AnalyticsBannedProductsBlockedGet400Response';
-import {
-    type ApiV1AnalyticsBannedProductsShadowedGet200Response,
-    ApiV1AnalyticsBannedProductsShadowedGet200ResponseFromJSON,
-    ApiV1AnalyticsBannedProductsShadowedGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsBannedProductsShadowedGet200Response';
-import {
-    type ApiV1AnalyticsBrandShareBrandsGet200Response,
-    ApiV1AnalyticsBrandShareBrandsGet200ResponseFromJSON,
-    ApiV1AnalyticsBrandShareBrandsGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsBrandShareBrandsGet200Response';
-import {
-    type ApiV1AnalyticsBrandShareGet200Response,
-    ApiV1AnalyticsBrandShareGet200ResponseFromJSON,
-    ApiV1AnalyticsBrandShareGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsBrandShareGet200Response';
-import {
-    type ApiV1AnalyticsBrandShareParentSubjectsGet200Response,
-    ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseFromJSON,
-    ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsBrandShareParentSubjectsGet200Response';
-import {
-    type ApiV1AnalyticsGoodsLabelingGet200Response,
-    ApiV1AnalyticsGoodsLabelingGet200ResponseFromJSON,
-    ApiV1AnalyticsGoodsLabelingGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsGoodsLabelingGet200Response';
-import {
-    type ApiV1AnalyticsGoodsReturnGet200Response,
-    ApiV1AnalyticsGoodsReturnGet200ResponseFromJSON,
-    ApiV1AnalyticsGoodsReturnGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsGoodsReturnGet200Response';
-import {
-    type ApiV1AnalyticsRegionSaleGet200Response,
-    ApiV1AnalyticsRegionSaleGet200ResponseFromJSON,
-    ApiV1AnalyticsRegionSaleGet200ResponseToJSON,
-} from '../models/ApiV1AnalyticsRegionSaleGet200Response';
-import {
-    type ApiV1SupplierOrdersGet400Response,
-    ApiV1SupplierOrdersGet400ResponseFromJSON,
-    ApiV1SupplierOrdersGet400ResponseToJSON,
-} from '../models/ApiV1SupplierOrdersGet400Response';
-import {
-    type ApiV1SupplierOrdersGet401Response,
-    ApiV1SupplierOrdersGet401ResponseFromJSON,
-    ApiV1SupplierOrdersGet401ResponseToJSON,
-} from '../models/ApiV1SupplierOrdersGet401Response';
-import {
-    type ApiV1SupplierOrdersGet402Response,
-    ApiV1SupplierOrdersGet402ResponseFromJSON,
-    ApiV1SupplierOrdersGet402ResponseToJSON,
-} from '../models/ApiV1SupplierOrdersGet402Response';
-import {
-    type ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner,
-    ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerFromJSON,
-    ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerToJSON,
-} from '../models/ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner';
-import {
     type CreateTaskResponse,
     CreateTaskResponseFromJSON,
     CreateTaskResponseToJSON,
@@ -99,10 +24,85 @@ import {
     GetTasksResponseToJSON,
 } from '../models/GetTasksResponse';
 import {
+    type GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner,
+    GetV1AcceptanceReportTasksTaskIdDownload200ResponseInnerFromJSON,
+    GetV1AcceptanceReportTasksTaskIdDownload200ResponseInnerToJSON,
+} from '../models/GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner';
+import {
+    type GetV1AnalyticsAntifraudDetails200Response,
+    GetV1AnalyticsAntifraudDetails200ResponseFromJSON,
+    GetV1AnalyticsAntifraudDetails200ResponseToJSON,
+} from '../models/GetV1AnalyticsAntifraudDetails200Response';
+import {
+    type GetV1AnalyticsBannedProducsBlocked200Response,
+    GetV1AnalyticsBannedProducsBlocked200ResponseFromJSON,
+    GetV1AnalyticsBannedProducsBlocked200ResponseToJSON,
+} from '../models/GetV1AnalyticsBannedProducsBlocked200Response';
+import {
+    type GetV1AnalyticsBannedProducsBlocked400Response,
+    GetV1AnalyticsBannedProducsBlocked400ResponseFromJSON,
+    GetV1AnalyticsBannedProducsBlocked400ResponseToJSON,
+} from '../models/GetV1AnalyticsBannedProducsBlocked400Response';
+import {
+    type GetV1AnalyticsBannedProductsShadowed200Response,
+    GetV1AnalyticsBannedProductsShadowed200ResponseFromJSON,
+    GetV1AnalyticsBannedProductsShadowed200ResponseToJSON,
+} from '../models/GetV1AnalyticsBannedProductsShadowed200Response';
+import {
+    type GetV1AnalyticsBrandShare200Response,
+    GetV1AnalyticsBrandShare200ResponseFromJSON,
+    GetV1AnalyticsBrandShare200ResponseToJSON,
+} from '../models/GetV1AnalyticsBrandShare200Response';
+import {
+    type GetV1AnalyticsBrandShareBrands200Response,
+    GetV1AnalyticsBrandShareBrands200ResponseFromJSON,
+    GetV1AnalyticsBrandShareBrands200ResponseToJSON,
+} from '../models/GetV1AnalyticsBrandShareBrands200Response';
+import {
+    type GetV1AnalyticsBrandShareParentSubjects200Response,
+    GetV1AnalyticsBrandShareParentSubjects200ResponseFromJSON,
+    GetV1AnalyticsBrandShareParentSubjects200ResponseToJSON,
+} from '../models/GetV1AnalyticsBrandShareParentSubjects200Response';
+import {
+    type GetV1AnalyticsGoodsLabeling200Response,
+    GetV1AnalyticsGoodsLabeling200ResponseFromJSON,
+    GetV1AnalyticsGoodsLabeling200ResponseToJSON,
+} from '../models/GetV1AnalyticsGoodsLabeling200Response';
+import {
+    type GetV1AnalyticsGoodsReturn200Response,
+    GetV1AnalyticsGoodsReturn200ResponseFromJSON,
+    GetV1AnalyticsGoodsReturn200ResponseToJSON,
+} from '../models/GetV1AnalyticsGoodsReturn200Response';
+import {
+    type GetV1AnalyticsRegionSale200Response,
+    GetV1AnalyticsRegionSale200ResponseFromJSON,
+    GetV1AnalyticsRegionSale200ResponseToJSON,
+} from '../models/GetV1AnalyticsRegionSale200Response';
+import {
     type GetV1Deductions200Response,
     GetV1Deductions200ResponseFromJSON,
     GetV1Deductions200ResponseToJSON,
 } from '../models/GetV1Deductions200Response';
+import {
+    type GetV1SupplierOrders400Response,
+    GetV1SupplierOrders400ResponseFromJSON,
+    GetV1SupplierOrders400ResponseToJSON,
+} from '../models/GetV1SupplierOrders400Response';
+import {
+    type GetV1SupplierOrders401Response,
+    GetV1SupplierOrders401ResponseFromJSON,
+    GetV1SupplierOrders401ResponseToJSON,
+} from '../models/GetV1SupplierOrders401Response';
+import {
+    type GetV1SupplierOrders402Response,
+    GetV1SupplierOrders402ResponseFromJSON,
+    GetV1SupplierOrders402ResponseToJSON,
+} from '../models/GetV1SupplierOrders402Response';
+import {
+    type GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner,
+    GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerFromJSON,
+    GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerToJSON,
+} from '../models/GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner';
 import {
     type MeasurementPenalties,
     MeasurementPenaltiesFromJSON,
@@ -144,7 +144,7 @@ import {
     WHMToJSON,
 } from '../models/WHM';
 
-export interface ApiV1AcceptanceReportGetRequest {
+export interface GetV1AcceptanceReportRequest {
     /**
      * Начало отчётного периода, `ГГГГ-ММ-ДД`
      * 
@@ -157,7 +157,7 @@ export interface ApiV1AcceptanceReportGetRequest {
     dateTo: string;
 }
 
-export interface ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest {
+export interface GetV1AcceptanceReportTasksTaskIdDownloadRequest {
     /**
      * ID задания на генерацию
      * 
@@ -165,7 +165,7 @@ export interface ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest {
     taskId: string;
 }
 
-export interface ApiV1AcceptanceReportTasksTaskIdStatusGetRequest {
+export interface GetV1AcceptanceReportTasksTaskIdStatusRequest {
     /**
      * ID задания на генерацию
      * 
@@ -173,7 +173,7 @@ export interface ApiV1AcceptanceReportTasksTaskIdStatusGetRequest {
     taskId: string;
 }
 
-export interface ApiV1AnalyticsAntifraudDetailsGetRequest {
+export interface GetV1AnalyticsAntifraudDetailsRequest {
     /**
      * Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.
      * <br/>
@@ -183,7 +183,7 @@ export interface ApiV1AnalyticsAntifraudDetailsGetRequest {
     date?: string;
 }
 
-export interface ApiV1AnalyticsBannedProductsBlockedGetRequest {
+export interface GetV1AnalyticsBannedProducsBlockedRequest {
     /**
      * Сортировка
      * - `brand` — по бренду
@@ -193,17 +193,17 @@ export interface ApiV1AnalyticsBannedProductsBlockedGetRequest {
      * - `reason` — по причине блокировки
      * 
      */
-    sort: ApiV1AnalyticsBannedProductsBlockedGetSortEnum;
+    sort: GetV1AnalyticsBannedProducsBlockedSortEnum;
     /**
      * Порядок выдачи
      * - `desc` — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому
      * - `asc` — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
      * 
      */
-    order: ApiV1AnalyticsBannedProductsBlockedGetOrderEnum;
+    order: GetV1AnalyticsBannedProducsBlockedOrderEnum;
 }
 
-export interface ApiV1AnalyticsBannedProductsShadowedGetRequest {
+export interface GetV1AnalyticsBannedProductsShadowedRequest {
     /**
      * Сортировка
      * - `brand` — по бренду
@@ -213,17 +213,17 @@ export interface ApiV1AnalyticsBannedProductsShadowedGetRequest {
      * - `nmRating` — по рейтингу товара
      * 
      */
-    sort: ApiV1AnalyticsBannedProductsShadowedGetSortEnum;
+    sort: GetV1AnalyticsBannedProductsShadowedSortEnum;
     /**
      * Порядок выдачи
      * - `desc` — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому
      * - `asc` — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
      * 
      */
-    order: ApiV1AnalyticsBannedProductsShadowedGetOrderEnum;
+    order: GetV1AnalyticsBannedProductsShadowedOrderEnum;
 }
 
-export interface ApiV1AnalyticsBrandShareGetRequest {
+export interface GetV1AnalyticsBrandShareRequest {
     /**
      * ID родительской категории
      */
@@ -244,7 +244,7 @@ export interface ApiV1AnalyticsBrandShareGetRequest {
     dateTo: string;
 }
 
-export interface ApiV1AnalyticsBrandShareParentSubjectsGetRequest {
+export interface GetV1AnalyticsBrandShareParentSubjectsRequest {
     /**
      * Бренд
      */
@@ -269,7 +269,7 @@ export interface ApiV1AnalyticsBrandShareParentSubjectsGetRequest {
     locale?: string;
 }
 
-export interface ApiV1AnalyticsGoodsLabelingGetRequest {
+export interface GetV1AnalyticsGoodsLabelingRequest {
     /**
      * Начало отчётного периода, `ГГГГ-ММ-ДД`
      * 
@@ -282,7 +282,7 @@ export interface ApiV1AnalyticsGoodsLabelingGetRequest {
     dateTo: Date;
 }
 
-export interface ApiV1AnalyticsGoodsReturnGetRequest {
+export interface GetV1AnalyticsGoodsReturnRequest {
     /**
      * Дата начала отчётного периода
      */
@@ -293,7 +293,7 @@ export interface ApiV1AnalyticsGoodsReturnGetRequest {
     dateTo: Date;
 }
 
-export interface ApiV1AnalyticsRegionSaleGetRequest {
+export interface GetV1AnalyticsRegionSaleRequest {
     /**
      * Начало отчётного периода, `ГГГГ-ММ-ДД`
      * 
@@ -304,170 +304,6 @@ export interface ApiV1AnalyticsRegionSaleGetRequest {
      * 
      */
     dateTo: string;
-}
-
-export interface ApiV1PaidStorageGetRequest {
-    /**
-     * Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:
-     * 
-     *   * `2019-06-20`
-     *   * `2019-06-20T23:59:59`
-     *   * `2019-06-20T00:00:00.12345`
-     *   * `2017-03-25T00:00:00`
-     * 
-     */
-    dateFrom: string;
-    /**
-     * Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:
-     * 
-     *   * `2019-06-20`
-     *   * `2019-06-20T23:59:59`
-     *   * `2019-06-20T00:00:00.12345`
-     *   * `2017-03-25T00:00:00`
-     * 
-     */
-    dateTo: string;
-}
-
-export interface ApiV1PaidStorageTasksTaskIdDownloadGetRequest {
-    /**
-     * ID задания на генерацию
-     * 
-     */
-    taskId: string;
-}
-
-export interface ApiV1PaidStorageTasksTaskIdStatusGetRequest {
-    /**
-     * ID задания на генерацию
-     * 
-     */
-    taskId: string;
-}
-
-export interface ApiV1SupplierOrdersGetRequest {
-    /**
-     * Дата и время последнего изменения по заказу. <br>
-     * Дата в формате RFC3339. Можно передать дату или дату со временем.
-     * Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br>
-     * Время передаётся в часовом поясе Москва (UTC+3).
-     * <br>Примеры:
-     *   - `2019-06-20`
-     *   - `2019-06-20T23:59:59`
-     *   - `2019-06-20T00:00:00.12345`
-     *   - `2017-03-25T00:00:00`
-     * 
-     */
-    dateFrom: string;
-    /**
-     * Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
-     * у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше или равно переданному
-     * значению параметра `dateFrom`.
-     * При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
-     * <br>
-     * Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
-     * равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
-     * При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
-     * сделанных в указанную дату, переданную в параметре `dateFrom`.
-     * 
-     */
-    flag?: number;
-}
-
-export interface ApiV1SupplierSalesGetRequest {
-    /**
-     * Дата и время последнего изменения по продаже/возврату. <br>
-     * Дата в формате RFC3339. Можно передать дату или дату со временем.
-     * Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br>
-     * Время передаётся в часовом поясе Москва (UTC+3).
-     * <br>Примеры:
-     *   - `2019-06-20`
-     *   - `2019-06-20T23:59:59`
-     *   - `2019-06-20T00:00:00.12345`
-     *   - `2017-03-25T00:00:00`
-     * 
-     */
-    dateFrom: string;
-    /**
-     * Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
-     * у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше или равно переданному
-     * значению параметра `dateFrom`.
-     * При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
-     * <br>
-     * Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
-     * равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
-     * При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
-     * сделанных в указанную дату, переданную в параметре `dateFrom`.
-     * 
-     */
-    flag?: number;
-}
-
-export interface ApiV1WarehouseRemainsGetRequest {
-    /**
-     * Язык полей ответа `subjectName` и `warehouseName`:
-     *   - `ru` — русский
-     *   - `en` — английский
-     *   - `zh` — китайский. Значения `warehouseName` на английском
-     * 
-     */
-    locale?: string;
-    /**
-     * Разбивка по брендам
-     */
-    groupByBrand?: boolean;
-    /**
-     * Разбивка по предметам
-     */
-    groupBySubject?: boolean;
-    /**
-     * Разбивка по артикулам продавца
-     */
-    groupBySa?: boolean;
-    /**
-     * Разбивка по артикулам WB. Если `groupByNm=true`, в ответе будет поле `volume`
-     */
-    groupByNm?: boolean;
-    /**
-     * Разбивка по баркодам
-     */
-    groupByBarcode?: boolean;
-    /**
-     * Разбивка по размерам
-     */
-    groupBySize?: boolean;
-    /**
-     * Фильтр по фото:
-     *   - `-1` — без фото
-     *   - `0` — не применять фильтр
-     *   - `1` — с фото
-     * 
-     */
-    filterPics?: number;
-    /**
-     * Фильтр по объёму:
-     *   - `-1` — без габаритов
-     *   - `0` — не применять фильтр
-     *   - `3` — свыше трёх литров
-     * 
-     */
-    filterVolume?: number;
-}
-
-export interface ApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest {
-    /**
-     * ID задания на генерацию
-     * 
-     */
-    taskId: string;
-}
-
-export interface ApiV1WarehouseRemainsTasksTaskIdStatusGetRequest {
-    /**
-     * ID задания на генерацию
-     * 
-     */
-    taskId: string;
 }
 
 export interface GetV1DeductionsRequest {
@@ -523,6 +359,103 @@ export interface GetV1MeasurementPenaltiesRequest {
     offset?: number;
 }
 
+export interface GetV1PaidStorageRequest {
+    /**
+     * Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:
+     * 
+     *   * `2019-06-20`
+     *   * `2019-06-20T23:59:59`
+     *   * `2019-06-20T00:00:00.12345`
+     *   * `2017-03-25T00:00:00`
+     * 
+     */
+    dateFrom: string;
+    /**
+     * Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:
+     * 
+     *   * `2019-06-20`
+     *   * `2019-06-20T23:59:59`
+     *   * `2019-06-20T00:00:00.12345`
+     *   * `2017-03-25T00:00:00`
+     * 
+     */
+    dateTo: string;
+}
+
+export interface GetV1PaidStorageTasksTaskIdDownloadRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
+    taskId: string;
+}
+
+export interface GetV1PaidStorageTasksTaskIdStatusRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
+    taskId: string;
+}
+
+export interface GetV1SupplierOrdersRequest {
+    /**
+     * Дата и время последнего изменения по заказу. <br>
+     * Дата в формате RFC3339. Можно передать дату или дату со временем.
+     * Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br>
+     * Время передаётся в часовом поясе Москва (UTC+3).
+     * <br>Примеры:
+     *   - `2019-06-20`
+     *   - `2019-06-20T23:59:59`
+     *   - `2019-06-20T00:00:00.12345`
+     *   - `2017-03-25T00:00:00`
+     * 
+     */
+    dateFrom: string;
+    /**
+     * Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
+     * у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше или равно переданному
+     * значению параметра `dateFrom`.
+     * При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
+     * <br>
+     * Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
+     * равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
+     * При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
+     * сделанных в указанную дату, переданную в параметре `dateFrom`.
+     * 
+     */
+    flag?: number;
+}
+
+export interface GetV1SupplierSalesRequest {
+    /**
+     * Дата и время последнего изменения по продаже/возврату. <br>
+     * Дата в формате RFC3339. Можно передать дату или дату со временем.
+     * Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. <br>
+     * Время передаётся в часовом поясе Москва (UTC+3).
+     * <br>Примеры:
+     *   - `2019-06-20`
+     *   - `2019-06-20T23:59:59`
+     *   - `2019-06-20T00:00:00.12345`
+     *   - `2017-03-25T00:00:00`
+     * 
+     */
+    dateFrom: string;
+    /**
+     * Если параметр `flag=0` (или не указан в строке запроса), при вызове API возвращаются данные,
+     * у которых значение поля `lastChangeDate` (дата время обновления информации в сервисе) больше или равно переданному
+     * значению параметра `dateFrom`.
+     * При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000.
+     * <br>
+     * Если параметр `flag=1`, то будет выгружена информация обо всех заказах или продажах с датой,
+     * равной переданному параметру `dateFrom` (в данном случае время в дате значения не имеет).
+     * При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж,
+     * сделанных в указанную дату, переданную в параметре `dateFrom`.
+     * 
+     */
+    flag?: number;
+}
+
 export interface GetV1WarehouseMeasurementsRequest {
     /**
      * Конец отчётного периода
@@ -542,26 +475,93 @@ export interface GetV1WarehouseMeasurementsRequest {
     offset?: number;
 }
 
+export interface GetV1WarehouseRemainsRequest {
+    /**
+     * Язык полей ответа `subjectName` и `warehouseName`:
+     *   - `ru` — русский
+     *   - `en` — английский
+     *   - `zh` — китайский. Значения `warehouseName` на английском
+     * 
+     */
+    locale?: string;
+    /**
+     * Разбивка по брендам
+     */
+    groupByBrand?: boolean;
+    /**
+     * Разбивка по предметам
+     */
+    groupBySubject?: boolean;
+    /**
+     * Разбивка по артикулам продавца
+     */
+    groupBySa?: boolean;
+    /**
+     * Разбивка по артикулам WB. Если `groupByNm=true`, в ответе будет поле `volume`
+     */
+    groupByNm?: boolean;
+    /**
+     * Разбивка по баркодам
+     */
+    groupByBarcode?: boolean;
+    /**
+     * Разбивка по размерам
+     */
+    groupBySize?: boolean;
+    /**
+     * Фильтр по фото:
+     *   - `-1` — без фото
+     *   - `0` — не применять фильтр
+     *   - `1` — с фото
+     * 
+     */
+    filterPics?: number;
+    /**
+     * Фильтр по объёму:
+     *   - `-1` — без габаритов
+     *   - `0` — не применять фильтр
+     *   - `3` — свыше трёх литров
+     * 
+     */
+    filterVolume?: number;
+}
+
+export interface GetV1WarehouseRemainsTasksTaskIdDownloadRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
+    taskId: string;
+}
+
+export interface GetV1WarehouseRemainsTasksTaskIdStatusRequest {
+    /**
+     * ID задания на генерацию
+     * 
+     */
+    taskId: string;
+}
+
 /**
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiV1AcceptanceReportGet without sending the request
+     * Creates request options for getV1AcceptanceReport without sending the request
      */
-    async apiV1AcceptanceReportGetRequestOpts(requestParameters: ApiV1AcceptanceReportGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AcceptanceReportRequestOpts(requestParameters: GetV1AcceptanceReportRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1AcceptanceReportGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV1AcceptanceReport().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1AcceptanceReportGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV1AcceptanceReport().'
             );
         }
 
@@ -593,33 +593,33 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
      * Создать отчёт
      */
-    async apiV1AcceptanceReportGetRaw(requestParameters: ApiV1AcceptanceReportGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTaskResponse>> {
-        const requestOptions = await this.apiV1AcceptanceReportGetRequestOpts(requestParameters);
+    async getV1AcceptanceReportRaw(requestParameters: GetV1AcceptanceReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTaskResponse>> {
+        const requestOptions = await this.getV1AcceptanceReportRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreateTaskResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
      * Создать отчёт
      */
-    async apiV1AcceptanceReportGet(requestParameters: ApiV1AcceptanceReportGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTaskResponse> {
-        const response = await this.apiV1AcceptanceReportGetRaw(requestParameters, initOverrides);
+    async getV1AcceptanceReport(requestParameters: GetV1AcceptanceReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTaskResponse> {
+        const response = await this.getV1AcceptanceReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AcceptanceReportTasksTaskIdDownloadGet without sending the request
+     * Creates request options for getV1AcceptanceReportTasksTaskIdDownload without sending the request
      */
-    async apiV1AcceptanceReportTasksTaskIdDownloadGetRequestOpts(requestParameters: ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AcceptanceReportTasksTaskIdDownloadRequestOpts(requestParameters: GetV1AcceptanceReportTasksTaskIdDownloadRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['taskId'] == null) {
             throw new runtime.RequiredError(
                 'taskId',
-                'Required parameter "taskId" was null or undefined when calling apiV1AcceptanceReportTasksTaskIdDownloadGet().'
+                'Required parameter "taskId" was null or undefined when calling getV1AcceptanceReportTasksTaskIdDownload().'
             );
         }
 
@@ -644,22 +644,22 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AcceptanceReportTasksTaskIdDownloadGetRaw(requestParameters: ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner>>> {
-        const requestOptions = await this.apiV1AcceptanceReportTasksTaskIdDownloadGetRequestOpts(requestParameters);
+    async getV1AcceptanceReportTasksTaskIdDownloadRaw(requestParameters: GetV1AcceptanceReportTasksTaskIdDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner>>> {
+        const requestOptions = await this.getV1AcceptanceReportTasksTaskIdDownloadRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInnerFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetV1AcceptanceReportTasksTaskIdDownload200ResponseInnerFromJSON));
     }
 
     /**
-     * Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AcceptanceReportTasksTaskIdDownloadGet(requestParameters: ApiV1AcceptanceReportTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner> | null | undefined > {
-        const response = await this.apiV1AcceptanceReportTasksTaskIdDownloadGetRaw(requestParameters, initOverrides);
+    async getV1AcceptanceReportTasksTaskIdDownload(requestParameters: GetV1AcceptanceReportTasksTaskIdDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner> | null | undefined > {
+        const response = await this.getV1AcceptanceReportTasksTaskIdDownloadRaw(requestParameters, initOverrides);
         switch (response.raw.status) {
             case 200:
                 return await response.value();
@@ -671,13 +671,13 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for apiV1AcceptanceReportTasksTaskIdStatusGet without sending the request
+     * Creates request options for getV1AcceptanceReportTasksTaskIdStatus without sending the request
      */
-    async apiV1AcceptanceReportTasksTaskIdStatusGetRequestOpts(requestParameters: ApiV1AcceptanceReportTasksTaskIdStatusGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AcceptanceReportTasksTaskIdStatusRequestOpts(requestParameters: GetV1AcceptanceReportTasksTaskIdStatusRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['taskId'] == null) {
             throw new runtime.RequiredError(
                 'taskId',
-                'Required parameter "taskId" was null or undefined when calling apiV1AcceptanceReportTasksTaskIdStatusGet().'
+                'Required parameter "taskId" was null or undefined when calling getV1AcceptanceReportTasksTaskIdStatus().'
             );
         }
 
@@ -702,29 +702,29 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Проверить статус
      */
-    async apiV1AcceptanceReportTasksTaskIdStatusGetRaw(requestParameters: ApiV1AcceptanceReportTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTasksResponse>> {
-        const requestOptions = await this.apiV1AcceptanceReportTasksTaskIdStatusGetRequestOpts(requestParameters);
+    async getV1AcceptanceReportTasksTaskIdStatusRaw(requestParameters: GetV1AcceptanceReportTasksTaskIdStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTasksResponse>> {
+        const requestOptions = await this.getV1AcceptanceReportTasksTaskIdStatusRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetTasksResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Сервисный | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Проверить статус
      */
-    async apiV1AcceptanceReportTasksTaskIdStatusGet(requestParameters: ApiV1AcceptanceReportTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
-        const response = await this.apiV1AcceptanceReportTasksTaskIdStatusGetRaw(requestParameters, initOverrides);
+    async getV1AcceptanceReportTasksTaskIdStatus(requestParameters: GetV1AcceptanceReportTasksTaskIdStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
+        const response = await this.getV1AcceptanceReportTasksTaskIdStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsAntifraudDetailsGet without sending the request
+     * Creates request options for getV1AnalyticsAntifraudDetails without sending the request
      */
-    async apiV1AnalyticsAntifraudDetailsGetRequestOpts(requestParameters: ApiV1AnalyticsAntifraudDetailsGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsAntifraudDetailsRequestOpts(requestParameters: GetV1AnalyticsAntifraudDetailsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['date'] != null) {
@@ -752,37 +752,37 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.<br><br>  Удержание за самовыкуп — 30% от стоимости товаров.<br>Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.<br><br>  Данные доступны с августа 2023.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Самовыкупы
      */
-    async apiV1AnalyticsAntifraudDetailsGetRaw(requestParameters: ApiV1AnalyticsAntifraudDetailsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsAntifraudDetailsGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsAntifraudDetailsGetRequestOpts(requestParameters);
+    async getV1AnalyticsAntifraudDetailsRaw(requestParameters: GetV1AnalyticsAntifraudDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsAntifraudDetails200Response>> {
+        const requestOptions = await this.getV1AnalyticsAntifraudDetailsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsAntifraudDetailsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsAntifraudDetails200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.<br><br>  Удержание за самовыкуп — 30% от стоимости товаров.<br>Минимальная сумма всех удержаний — 100 000 ₽, если за неделю в ПВЗ привезли ваших товаров больше, чем на сумму 100 000 ₽.<br><br>  Данные доступны с августа 2023.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Сервисный | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Самовыкупы
      */
-    async apiV1AnalyticsAntifraudDetailsGet(requestParameters: ApiV1AnalyticsAntifraudDetailsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsAntifraudDetailsGet200Response> {
-        const response = await this.apiV1AnalyticsAntifraudDetailsGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsAntifraudDetails(requestParameters: GetV1AnalyticsAntifraudDetailsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsAntifraudDetails200Response> {
+        const response = await this.getV1AnalyticsAntifraudDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsBannedProductsBlockedGet without sending the request
+     * Creates request options for getV1AnalyticsBannedProducsBlocked without sending the request
      */
-    async apiV1AnalyticsBannedProductsBlockedGetRequestOpts(requestParameters: ApiV1AnalyticsBannedProductsBlockedGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsBannedProducsBlockedRequestOpts(requestParameters: GetV1AnalyticsBannedProducsBlockedRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['sort'] == null) {
             throw new runtime.RequiredError(
                 'sort',
-                'Required parameter "sort" was null or undefined when calling apiV1AnalyticsBannedProductsBlockedGet().'
+                'Required parameter "sort" was null or undefined when calling getV1AnalyticsBannedProducsBlocked().'
             );
         }
 
         if (requestParameters['order'] == null) {
             throw new runtime.RequiredError(
                 'order',
-                'Required parameter "order" was null or undefined when calling apiV1AnalyticsBannedProductsBlockedGet().'
+                'Required parameter "order" was null or undefined when calling getV1AnalyticsBannedProducsBlocked().'
             );
         }
 
@@ -817,38 +817,38 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsBannedProductsBlockedGetRaw(requestParameters: ApiV1AnalyticsBannedProductsBlockedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsBannedProductsBlockedGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsBannedProductsBlockedGetRequestOpts(requestParameters);
+    async getV1AnalyticsBannedProducsBlockedRaw(requestParameters: GetV1AnalyticsBannedProducsBlockedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsBannedProducsBlocked200Response>> {
+        const requestOptions = await this.getV1AnalyticsBannedProducsBlockedRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsBannedProductsBlockedGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsBannedProducsBlocked200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsBannedProductsBlockedGet(requestParameters: ApiV1AnalyticsBannedProductsBlockedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsBannedProductsBlockedGet200Response> {
-        const response = await this.apiV1AnalyticsBannedProductsBlockedGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsBannedProducsBlocked(requestParameters: GetV1AnalyticsBannedProducsBlockedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBannedProducsBlocked200Response> {
+        const response = await this.getV1AnalyticsBannedProducsBlockedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsBannedProductsShadowedGet without sending the request
+     * Creates request options for getV1AnalyticsBannedProductsShadowed without sending the request
      * @deprecated
      */
-    async apiV1AnalyticsBannedProductsShadowedGetRequestOpts(requestParameters: ApiV1AnalyticsBannedProductsShadowedGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsBannedProductsShadowedRequestOpts(requestParameters: GetV1AnalyticsBannedProductsShadowedRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['sort'] == null) {
             throw new runtime.RequiredError(
                 'sort',
-                'Required parameter "sort" was null or undefined when calling apiV1AnalyticsBannedProductsShadowedGet().'
+                'Required parameter "sort" was null or undefined when calling getV1AnalyticsBannedProductsShadowed().'
             );
         }
 
         if (requestParameters['order'] == null) {
             throw new runtime.RequiredError(
                 'order',
-                'Required parameter "order" was null or undefined when calling apiV1AnalyticsBannedProductsShadowedGet().'
+                'Required parameter "order" was null or undefined when calling getV1AnalyticsBannedProductsShadowed().'
             );
         }
 
@@ -880,99 +880,56 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Сервисный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый с секретом | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Скрытые из каталога
      * @deprecated
      */
-    async apiV1AnalyticsBannedProductsShadowedGetRaw(requestParameters: ApiV1AnalyticsBannedProductsShadowedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsBannedProductsShadowedGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsBannedProductsShadowedGetRequestOpts(requestParameters);
+    async getV1AnalyticsBannedProductsShadowedRaw(requestParameters: GetV1AnalyticsBannedProductsShadowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsBannedProductsShadowed200Response>> {
+        const requestOptions = await this.getV1AnalyticsBannedProductsShadowedRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsBannedProductsShadowedGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsBannedProductsShadowed200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Сервисный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый с секретом | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Скрытые из каталога
      * @deprecated
      */
-    async apiV1AnalyticsBannedProductsShadowedGet(requestParameters: ApiV1AnalyticsBannedProductsShadowedGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsBannedProductsShadowedGet200Response> {
-        const response = await this.apiV1AnalyticsBannedProductsShadowedGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsBannedProductsShadowed(requestParameters: GetV1AnalyticsBannedProductsShadowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBannedProductsShadowed200Response> {
+        const response = await this.getV1AnalyticsBannedProductsShadowedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsBrandShareBrandsGet without sending the request
+     * Creates request options for getV1AnalyticsBrandShare without sending the request
      */
-    async apiV1AnalyticsBrandShareBrandsGetRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/analytics/brand-share/brands`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней. - Есть на складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Бренды продавца
-     */
-    async apiV1AnalyticsBrandShareBrandsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsBrandShareBrandsGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsBrandShareBrandsGetRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsBrandShareBrandsGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней. - Есть на складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Бренды продавца
-     */
-    async apiV1AnalyticsBrandShareBrandsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsBrandShareBrandsGet200Response> {
-        const response = await this.apiV1AnalyticsBrandShareBrandsGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1AnalyticsBrandShareGet without sending the request
-     */
-    async apiV1AnalyticsBrandShareGetRequestOpts(requestParameters: ApiV1AnalyticsBrandShareGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsBrandShareRequestOpts(requestParameters: GetV1AnalyticsBrandShareRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['parentId'] == null) {
             throw new runtime.RequiredError(
                 'parentId',
-                'Required parameter "parentId" was null or undefined when calling apiV1AnalyticsBrandShareGet().'
+                'Required parameter "parentId" was null or undefined when calling getV1AnalyticsBrandShare().'
             );
         }
 
         if (requestParameters['brand'] == null) {
             throw new runtime.RequiredError(
                 'brand',
-                'Required parameter "brand" was null or undefined when calling apiV1AnalyticsBrandShareGet().'
+                'Required parameter "brand" was null or undefined when calling getV1AnalyticsBrandShare().'
             );
         }
 
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1AnalyticsBrandShareGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV1AnalyticsBrandShare().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1AnalyticsBrandShareGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV1AnalyticsBrandShare().'
             );
         }
 
@@ -1015,44 +972,87 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт о [доле бренда продавца в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsBrandShareGetRaw(requestParameters: ApiV1AnalyticsBrandShareGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsBrandShareGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsBrandShareGetRequestOpts(requestParameters);
+    async getV1AnalyticsBrandShareRaw(requestParameters: GetV1AnalyticsBrandShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsBrandShare200Response>> {
+        const requestOptions = await this.getV1AnalyticsBrandShareRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsBrandShareGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsBrandShare200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает отчёт о [доле бренда продавца в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsBrandShareGet(requestParameters: ApiV1AnalyticsBrandShareGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsBrandShareGet200Response> {
-        const response = await this.apiV1AnalyticsBrandShareGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsBrandShare(requestParameters: GetV1AnalyticsBrandShareRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBrandShare200Response> {
+        const response = await this.getV1AnalyticsBrandShareRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsBrandShareParentSubjectsGet without sending the request
+     * Creates request options for getV1AnalyticsBrandShareBrands without sending the request
      */
-    async apiV1AnalyticsBrandShareParentSubjectsGetRequestOpts(requestParameters: ApiV1AnalyticsBrandShareParentSubjectsGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsBrandShareBrandsRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/analytics/brand-share/brands`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней. - Есть на складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Бренды продавца
+     */
+    async getV1AnalyticsBrandShareBrandsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsBrandShareBrands200Response>> {
+        const requestOptions = await this.getV1AnalyticsBrandShareBrandsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsBrandShareBrands200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней. - Есть на складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Бренды продавца
+     */
+    async getV1AnalyticsBrandShareBrands(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBrandShareBrands200Response> {
+        const response = await this.getV1AnalyticsBrandShareBrandsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1AnalyticsBrandShareParentSubjects without sending the request
+     */
+    async getV1AnalyticsBrandShareParentSubjectsRequestOpts(requestParameters: GetV1AnalyticsBrandShareParentSubjectsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['brand'] == null) {
             throw new runtime.RequiredError(
                 'brand',
-                'Required parameter "brand" was null or undefined when calling apiV1AnalyticsBrandShareParentSubjectsGet().'
+                'Required parameter "brand" was null or undefined when calling getV1AnalyticsBrandShareParentSubjects().'
             );
         }
 
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1AnalyticsBrandShareParentSubjectsGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV1AnalyticsBrandShareParentSubjects().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1AnalyticsBrandShareParentSubjectsGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV1AnalyticsBrandShareParentSubjects().'
             );
         }
 
@@ -1095,37 +1095,37 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает родительские категории бренда продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).<br><br>  Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Родительские категории бренда
      */
-    async apiV1AnalyticsBrandShareParentSubjectsGetRaw(requestParameters: ApiV1AnalyticsBrandShareParentSubjectsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsBrandShareParentSubjectsGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsBrandShareParentSubjectsGetRequestOpts(requestParameters);
+    async getV1AnalyticsBrandShareParentSubjectsRaw(requestParameters: GetV1AnalyticsBrandShareParentSubjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsBrandShareParentSubjects200Response>> {
+        const requestOptions = await this.getV1AnalyticsBrandShareParentSubjectsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsBrandShareParentSubjectsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsBrandShareParentSubjects200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает родительские категории бренда продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).<br><br>  Можно получить отчёт максимум за 365 дней. Данные доступны с 1 ноября 2022.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Родительские категории бренда
      */
-    async apiV1AnalyticsBrandShareParentSubjectsGet(requestParameters: ApiV1AnalyticsBrandShareParentSubjectsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsBrandShareParentSubjectsGet200Response> {
-        const response = await this.apiV1AnalyticsBrandShareParentSubjectsGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsBrandShareParentSubjects(requestParameters: GetV1AnalyticsBrandShareParentSubjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBrandShareParentSubjects200Response> {
+        const response = await this.getV1AnalyticsBrandShareParentSubjectsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsGoodsLabelingGet without sending the request
+     * Creates request options for getV1AnalyticsGoodsLabeling without sending the request
      */
-    async apiV1AnalyticsGoodsLabelingGetRequestOpts(requestParameters: ApiV1AnalyticsGoodsLabelingGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsGoodsLabelingRequestOpts(requestParameters: GetV1AnalyticsGoodsLabelingRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1AnalyticsGoodsLabelingGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV1AnalyticsGoodsLabeling().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1AnalyticsGoodsLabelingGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV1AnalyticsGoodsLabeling().'
             );
         }
 
@@ -1160,37 +1160,37 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.<br>  В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.<br><br>  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Маркировка товара
      */
-    async apiV1AnalyticsGoodsLabelingGetRaw(requestParameters: ApiV1AnalyticsGoodsLabelingGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsGoodsLabelingGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsGoodsLabelingGetRequestOpts(requestParameters);
+    async getV1AnalyticsGoodsLabelingRaw(requestParameters: GetV1AnalyticsGoodsLabelingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsGoodsLabeling200Response>> {
+        const requestOptions = await this.getV1AnalyticsGoodsLabelingRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsGoodsLabelingGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsGoodsLabeling200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.<br>  В отчёте представлены фотографии товаров, на которых маркировка отсутствует либо не считывается.<br><br>  Можно получить данные максимум за 31 день. Данные доступны с марта 2024.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Маркировка товара
      */
-    async apiV1AnalyticsGoodsLabelingGet(requestParameters: ApiV1AnalyticsGoodsLabelingGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsGoodsLabelingGet200Response> {
-        const response = await this.apiV1AnalyticsGoodsLabelingGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsGoodsLabeling(requestParameters: GetV1AnalyticsGoodsLabelingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsGoodsLabeling200Response> {
+        const response = await this.getV1AnalyticsGoodsLabelingRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsGoodsReturnGet without sending the request
+     * Creates request options for getV1AnalyticsGoodsReturn without sending the request
      */
-    async apiV1AnalyticsGoodsReturnGetRequestOpts(requestParameters: ApiV1AnalyticsGoodsReturnGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsGoodsReturnRequestOpts(requestParameters: GetV1AnalyticsGoodsReturnRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1AnalyticsGoodsReturnGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV1AnalyticsGoodsReturn().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1AnalyticsGoodsReturnGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV1AnalyticsGoodsReturn().'
             );
         }
 
@@ -1225,37 +1225,37 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsGoodsReturnGetRaw(requestParameters: ApiV1AnalyticsGoodsReturnGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsGoodsReturnGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsGoodsReturnGetRequestOpts(requestParameters);
+    async getV1AnalyticsGoodsReturnRaw(requestParameters: GetV1AnalyticsGoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsGoodsReturn200Response>> {
+        const requestOptions = await this.getV1AnalyticsGoodsReturnRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsGoodsReturnGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsGoodsReturn200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsGoodsReturnGet(requestParameters: ApiV1AnalyticsGoodsReturnGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsGoodsReturnGet200Response> {
-        const response = await this.apiV1AnalyticsGoodsReturnGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsGoodsReturn(requestParameters: GetV1AnalyticsGoodsReturnRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsGoodsReturn200Response> {
+        const response = await this.getV1AnalyticsGoodsReturnRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1AnalyticsRegionSaleGet without sending the request
+     * Creates request options for getV1AnalyticsRegionSale without sending the request
      */
-    async apiV1AnalyticsRegionSaleGetRequestOpts(requestParameters: ApiV1AnalyticsRegionSaleGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AnalyticsRegionSaleRequestOpts(requestParameters: GetV1AnalyticsRegionSaleRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1AnalyticsRegionSaleGet().'
+                'Required parameter "dateFrom" was null or undefined when calling getV1AnalyticsRegionSale().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1AnalyticsRegionSaleGet().'
+                'Required parameter "dateTo" was null or undefined when calling getV1AnalyticsRegionSale().'
             );
         }
 
@@ -1290,497 +1290,19 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsRegionSaleGetRaw(requestParameters: ApiV1AnalyticsRegionSaleGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1AnalyticsRegionSaleGet200Response>> {
-        const requestOptions = await this.apiV1AnalyticsRegionSaleGetRequestOpts(requestParameters);
+    async getV1AnalyticsRegionSaleRaw(requestParameters: GetV1AnalyticsRegionSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsRegionSale200Response>> {
+        const requestOptions = await this.getV1AnalyticsRegionSaleRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1AnalyticsRegionSaleGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsRegionSale200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>  Можно получить отчёт максимум за 31 день.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsRegionSaleGet(requestParameters: ApiV1AnalyticsRegionSaleGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AnalyticsRegionSaleGet200Response> {
-        const response = await this.apiV1AnalyticsRegionSaleGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1PaidStorageGet without sending the request
-     */
-    async apiV1PaidStorageGetRequestOpts(requestParameters: ApiV1PaidStorageGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1PaidStorageGet().'
-            );
-        }
-
-        if (requestParameters['dateTo'] == null) {
-            throw new runtime.RequiredError(
-                'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1PaidStorageGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
-        }
-
-        if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = requestParameters['dateTo'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/paid_storage`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 8 дней.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Создать отчёт
-     */
-    async apiV1PaidStorageGetRaw(requestParameters: ApiV1PaidStorageGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTaskResponse>> {
-        const requestOptions = await this.apiV1PaidStorageGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateTaskResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Можно получить отчёт максимум за 8 дней.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Создать отчёт
-     */
-    async apiV1PaidStorageGet(requestParameters: ApiV1PaidStorageGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTaskResponse> {
-        const response = await this.apiV1PaidStorageGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1PaidStorageTasksTaskIdDownloadGet without sending the request
-     */
-    async apiV1PaidStorageTasksTaskIdDownloadGetRequestOpts(requestParameters: ApiV1PaidStorageTasksTaskIdDownloadGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['taskId'] == null) {
-            throw new runtime.RequiredError(
-                'taskId',
-                'Required parameter "taskId" was null or undefined when calling apiV1PaidStorageTasksTaskIdDownloadGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/paid_storage/tasks/{task_id}/download`;
-        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Получить отчёт
-     */
-    async apiV1PaidStorageTasksTaskIdDownloadGetRaw(requestParameters: ApiV1PaidStorageTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ResponsePaidStorageInner>>> {
-        const requestOptions = await this.apiV1PaidStorageTasksTaskIdDownloadGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ResponsePaidStorageInnerFromJSON));
-    }
-
-    /**
-     * Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Получить отчёт
-     */
-    async apiV1PaidStorageTasksTaskIdDownloadGet(requestParameters: ApiV1PaidStorageTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ResponsePaidStorageInner> | null | undefined > {
-        const response = await this.apiV1PaidStorageTasksTaskIdDownloadGetRaw(requestParameters, initOverrides);
-        switch (response.raw.status) {
-            case 200:
-                return await response.value();
-            case 204:
-                return null;
-            default:
-                return await response.value();
-        }
-    }
-
-    /**
-     * Creates request options for apiV1PaidStorageTasksTaskIdStatusGet without sending the request
-     */
-    async apiV1PaidStorageTasksTaskIdStatusGetRequestOpts(requestParameters: ApiV1PaidStorageTasksTaskIdStatusGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['taskId'] == null) {
-            throw new runtime.RequiredError(
-                'taskId',
-                'Required parameter "taskId" was null or undefined when calling apiV1PaidStorageTasksTaskIdStatusGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/paid_storage/tasks/{task_id}/status`;
-        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса | </div> 
-     * Проверить статус
-     */
-    async apiV1PaidStorageTasksTaskIdStatusGetRaw(requestParameters: ApiV1PaidStorageTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTasksResponse>> {
-        const requestOptions = await this.apiV1PaidStorageTasksTaskIdStatusGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetTasksResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса | </div> 
-     * Проверить статус
-     */
-    async apiV1PaidStorageTasksTaskIdStatusGet(requestParameters: ApiV1PaidStorageTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
-        const response = await this.apiV1PaidStorageTasksTaskIdStatusGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1SupplierOrdersGet without sending the request
-     */
-    async apiV1SupplierOrdersGetRequestOpts(requestParameters: ApiV1SupplierOrdersGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1SupplierOrdersGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
-        }
-
-        if (requestParameters['flag'] != null) {
-            queryParameters['flag'] = requestParameters['flag'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/supplier/orders`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о заказах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.<br><br>  В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br> Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://seller.wildberries.ru/content-analytics/order-feed) в личном кабинете.  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-     * Заказы
-     */
-    async apiV1SupplierOrdersGetRaw(requestParameters: ApiV1SupplierOrdersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrdersItem>>> {
-        const requestOptions = await this.apiV1SupplierOrdersGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OrdersItemFromJSON));
-    }
-
-    /**
-     * Метод возвращает информацию о заказах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.<br><br>  В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br> Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://seller.wildberries.ru/content-analytics/order-feed) в личном кабинете.  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
-     * Заказы
-     */
-    async apiV1SupplierOrdersGet(requestParameters: ApiV1SupplierOrdersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrdersItem>> {
-        const response = await this.apiV1SupplierOrdersGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1SupplierSalesGet without sending the request
-     */
-    async apiV1SupplierSalesGetRequestOpts(requestParameters: ApiV1SupplierSalesGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['dateFrom'] == null) {
-            throw new runtime.RequiredError(
-                'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1SupplierSalesGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
-        }
-
-        if (requestParameters['flag'] != null) {
-            queryParameters['flag'] = requestParameters['flag'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/supplier/sales`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о продажах и возвратах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>    - В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку   - Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail_price_withdisc_rub` и `ppvz_for_pay` соответственно в детализациях к отчётам реализации   - Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов   - Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют  Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
-     * Продажи
-     */
-    async apiV1SupplierSalesGetRaw(requestParameters: ApiV1SupplierSalesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesItem>>> {
-        const requestOptions = await this.apiV1SupplierSalesGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SalesItemFromJSON));
-    }
-
-    /**
-     * Метод возвращает информацию о продажах и возвратах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>    - В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку   - Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail_price_withdisc_rub` и `ppvz_for_pay` соответственно в детализациях к отчётам реализации   - Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов   - Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют  Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
-     * Продажи
-     */
-    async apiV1SupplierSalesGet(requestParameters: ApiV1SupplierSalesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesItem>> {
-        const response = await this.apiV1SupplierSalesGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1WarehouseRemainsGet without sending the request
-     */
-    async apiV1WarehouseRemainsGetRequestOpts(requestParameters: ApiV1WarehouseRemainsGetRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        if (requestParameters['locale'] != null) {
-            queryParameters['locale'] = requestParameters['locale'];
-        }
-
-        if (requestParameters['groupByBrand'] != null) {
-            queryParameters['groupByBrand'] = requestParameters['groupByBrand'];
-        }
-
-        if (requestParameters['groupBySubject'] != null) {
-            queryParameters['groupBySubject'] = requestParameters['groupBySubject'];
-        }
-
-        if (requestParameters['groupBySa'] != null) {
-            queryParameters['groupBySa'] = requestParameters['groupBySa'];
-        }
-
-        if (requestParameters['groupByNm'] != null) {
-            queryParameters['groupByNm'] = requestParameters['groupByNm'];
-        }
-
-        if (requestParameters['groupByBarcode'] != null) {
-            queryParameters['groupByBarcode'] = requestParameters['groupByBarcode'];
-        }
-
-        if (requestParameters['groupBySize'] != null) {
-            queryParameters['groupBySize'] = requestParameters['groupBySize'];
-        }
-
-        if (requestParameters['filterPics'] != null) {
-            queryParameters['filterPics'] = requestParameters['filterPics'];
-        }
-
-        if (requestParameters['filterVolume'] != null) {
-            queryParameters['filterVolume'] = requestParameters['filterVolume'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/warehouse_remains`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1status/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Создать отчёт
-     */
-    async apiV1WarehouseRemainsGetRaw(requestParameters: ApiV1WarehouseRemainsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTaskResponse>> {
-        const requestOptions = await this.apiV1WarehouseRemainsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateTaskResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод создаёт [задание на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1status/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).<br><br>  Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Создать отчёт
-     */
-    async apiV1WarehouseRemainsGet(requestParameters: ApiV1WarehouseRemainsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTaskResponse> {
-        const response = await this.apiV1WarehouseRemainsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1WarehouseRemainsTasksTaskIdDownloadGet without sending the request
-     */
-    async apiV1WarehouseRemainsTasksTaskIdDownloadGetRequestOpts(requestParameters: ApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['taskId'] == null) {
-            throw new runtime.RequiredError(
-                'taskId',
-                'Required parameter "taskId" was null or undefined when calling apiV1WarehouseRemainsTasksTaskIdDownloadGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/warehouse_remains/tasks/{task_id}/download`;
-        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Получить отчёт
-     */
-    async apiV1WarehouseRemainsTasksTaskIdDownloadGetRaw(requestParameters: ApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner>>> {
-        const requestOptions = await this.apiV1WarehouseRemainsTasksTaskIdDownloadGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Получить отчёт
-     */
-    async apiV1WarehouseRemainsTasksTaskIdDownloadGet(requestParameters: ApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner> | null | undefined > {
-        const response = await this.apiV1WarehouseRemainsTasksTaskIdDownloadGetRaw(requestParameters, initOverrides);
-        switch (response.raw.status) {
-            case 200:
-                return await response.value();
-            case 204:
-                return null;
-            default:
-                return await response.value();
-        }
-    }
-
-    /**
-     * Creates request options for apiV1WarehouseRemainsTasksTaskIdStatusGet without sending the request
-     */
-    async apiV1WarehouseRemainsTasksTaskIdStatusGetRequestOpts(requestParameters: ApiV1WarehouseRemainsTasksTaskIdStatusGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['taskId'] == null) {
-            throw new runtime.RequiredError(
-                'taskId',
-                'Required parameter "taskId" was null or undefined when calling apiV1WarehouseRemainsTasksTaskIdStatusGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/warehouse_remains/tasks/{task_id}/status`;
-        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Проверить статус
-     */
-    async apiV1WarehouseRemainsTasksTaskIdStatusGetRaw(requestParameters: ApiV1WarehouseRemainsTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTasksResponse>> {
-        const requestOptions = await this.apiV1WarehouseRemainsTasksTaskIdStatusGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetTasksResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Проверить статус
-     */
-    async apiV1WarehouseRemainsTasksTaskIdStatusGet(requestParameters: ApiV1WarehouseRemainsTasksTaskIdStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
-        const response = await this.apiV1WarehouseRemainsTasksTaskIdStatusGetRaw(requestParameters, initOverrides);
+    async getV1AnalyticsRegionSale(requestParameters: GetV1AnalyticsRegionSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsRegionSale200Response> {
+        const response = await this.getV1AnalyticsRegionSaleRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1939,6 +1461,296 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates request options for getV1PaidStorage without sending the request
+     */
+    async getV1PaidStorageRequestOpts(requestParameters: GetV1PaidStorageRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['dateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'dateFrom',
+                'Required parameter "dateFrom" was null or undefined when calling getV1PaidStorage().'
+            );
+        }
+
+        if (requestParameters['dateTo'] == null) {
+            throw new runtime.RequiredError(
+                'dateTo',
+                'Required parameter "dateTo" was null or undefined when calling getV1PaidStorage().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['dateFrom'] != null) {
+            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+        }
+
+        if (requestParameters['dateTo'] != null) {
+            queryParameters['dateTo'] = requestParameters['dateTo'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/paid_storage`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).<br><br>  Можно получить отчёт максимум за 8 дней.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Создать отчёт
+     */
+    async getV1PaidStorageRaw(requestParameters: GetV1PaidStorageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTaskResponse>> {
+        const requestOptions = await this.getV1PaidStorageRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateTaskResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).<br><br>  Можно получить отчёт максимум за 8 дней.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Создать отчёт
+     */
+    async getV1PaidStorage(requestParameters: GetV1PaidStorageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTaskResponse> {
+        const response = await this.getV1PaidStorageRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1PaidStorageTasksTaskIdDownload without sending the request
+     */
+    async getV1PaidStorageTasksTaskIdDownloadRequestOpts(requestParameters: GetV1PaidStorageTasksTaskIdDownloadRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['taskId'] == null) {
+            throw new runtime.RequiredError(
+                'taskId',
+                'Required parameter "taskId" was null or undefined when calling getV1PaidStorageTasksTaskIdDownload().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/paid_storage/tasks/{task_id}/download`;
+        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Получить отчёт
+     */
+    async getV1PaidStorageTasksTaskIdDownloadRaw(requestParameters: GetV1PaidStorageTasksTaskIdDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ResponsePaidStorageInner>>> {
+        const requestOptions = await this.getV1PaidStorageTasksTaskIdDownloadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ResponsePaidStorageInnerFromJSON));
+    }
+
+    /**
+     * Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Получить отчёт
+     */
+    async getV1PaidStorageTasksTaskIdDownload(requestParameters: GetV1PaidStorageTasksTaskIdDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ResponsePaidStorageInner> | null | undefined > {
+        const response = await this.getV1PaidStorageTasksTaskIdDownloadRaw(requestParameters, initOverrides);
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
+    }
+
+    /**
+     * Creates request options for getV1PaidStorageTasksTaskIdStatus without sending the request
+     */
+    async getV1PaidStorageTasksTaskIdStatusRequestOpts(requestParameters: GetV1PaidStorageTasksTaskIdStatusRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['taskId'] == null) {
+            throw new runtime.RequiredError(
+                'taskId',
+                'Required parameter "taskId" was null or undefined when calling getV1PaidStorageTasksTaskIdStatus().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/paid_storage/tasks/{task_id}/status`;
+        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса | </div> 
+     * Проверить статус
+     */
+    async getV1PaidStorageTasksTaskIdStatusRaw(requestParameters: GetV1PaidStorageTasksTaskIdStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTasksResponse>> {
+        const requestOptions = await this.getV1PaidStorageTasksTaskIdStatusRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetTasksResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса | </div> 
+     * Проверить статус
+     */
+    async getV1PaidStorageTasksTaskIdStatus(requestParameters: GetV1PaidStorageTasksTaskIdStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
+        const response = await this.getV1PaidStorageTasksTaskIdStatusRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1SupplierOrders without sending the request
+     */
+    async getV1SupplierOrdersRequestOpts(requestParameters: GetV1SupplierOrdersRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['dateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'dateFrom',
+                'Required parameter "dateFrom" was null or undefined when calling getV1SupplierOrders().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['dateFrom'] != null) {
+            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+        }
+
+        if (requestParameters['flag'] != null) {
+            queryParameters['flag'] = requestParameters['flag'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/supplier/orders`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о заказах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.<br><br>  В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br> Чтобы получить все оформленные заказы, используйте [Ленту заказов](/openapi/analytics#tag/orderFeed).  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
+     * Заказы
+     */
+    async getV1SupplierOrdersRaw(requestParameters: GetV1SupplierOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrdersItem>>> {
+        const requestOptions = await this.getV1SupplierOrdersRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OrdersItemFromJSON));
+    }
+
+    /**
+     * Метод возвращает информацию о заказах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.<br><br>  В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br> Чтобы получить все оформленные заказы, используйте [Ленту заказов](/openapi/analytics#tag/orderFeed).  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
+     * Заказы
+     */
+    async getV1SupplierOrders(requestParameters: GetV1SupplierOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrdersItem>> {
+        const response = await this.getV1SupplierOrdersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1SupplierSales without sending the request
+     */
+    async getV1SupplierSalesRequestOpts(requestParameters: GetV1SupplierSalesRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['dateFrom'] == null) {
+            throw new runtime.RequiredError(
+                'dateFrom',
+                'Required parameter "dateFrom" was null or undefined when calling getV1SupplierSales().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['dateFrom'] != null) {
+            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+        }
+
+        if (requestParameters['flag'] != null) {
+            queryParameters['flag'] = requestParameters['flag'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/supplier/sales`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о продажах и возвратах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>    - В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку   - Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail_price_withdisc_rub` и `ppvz_for_pay` соответственно в детализациях к отчётам реализации   - Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов   - Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют  Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
+     * Продажи
+     */
+    async getV1SupplierSalesRaw(requestParameters: GetV1SupplierSalesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<SalesItem>>> {
+        const requestOptions = await this.getV1SupplierSalesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(SalesItemFromJSON));
+    }
+
+    /**
+     * Метод возвращает информацию о продажах и возвратах.<br>Данные обновляются раз в 30 минут.<br><br>  1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>  Информация о заказе хранится 90 дней с момента оформления.  <div class=\"description_important\">   Данные этого отчёта являются предварительными и служат для оперативного мониторинга </div>    - В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку   - Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail_price_withdisc_rub` и `ppvz_for_pay` соответственно в детализациях к отчётам реализации   - Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов   - Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют  Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>  Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.<br><br>  В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | </div> 
+     * Продажи
+     */
+    async getV1SupplierSales(requestParameters: GetV1SupplierSalesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<SalesItem>> {
+        const response = await this.getV1SupplierSalesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Creates request options for getV1WarehouseMeasurements without sending the request
      */
     async getV1WarehouseMeasurementsRequestOpts(requestParameters: GetV1WarehouseMeasurementsRequest): Promise<runtime.RequestOpts> {
@@ -2011,46 +1823,234 @@ export class DefaultApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+    /**
+     * Creates request options for getV1WarehouseRemains without sending the request
+     */
+    async getV1WarehouseRemainsRequestOpts(requestParameters: GetV1WarehouseRemainsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['locale'] != null) {
+            queryParameters['locale'] = requestParameters['locale'];
+        }
+
+        if (requestParameters['groupByBrand'] != null) {
+            queryParameters['groupByBrand'] = requestParameters['groupByBrand'];
+        }
+
+        if (requestParameters['groupBySubject'] != null) {
+            queryParameters['groupBySubject'] = requestParameters['groupBySubject'];
+        }
+
+        if (requestParameters['groupBySa'] != null) {
+            queryParameters['groupBySa'] = requestParameters['groupBySa'];
+        }
+
+        if (requestParameters['groupByNm'] != null) {
+            queryParameters['groupByNm'] = requestParameters['groupByNm'];
+        }
+
+        if (requestParameters['groupByBarcode'] != null) {
+            queryParameters['groupByBarcode'] = requestParameters['groupByBarcode'];
+        }
+
+        if (requestParameters['groupBySize'] != null) {
+            queryParameters['groupBySize'] = requestParameters['groupBySize'];
+        }
+
+        if (requestParameters['filterPics'] != null) {
+            queryParameters['filterPics'] = requestParameters['filterPics'];
+        }
+
+        if (requestParameters['filterVolume'] != null) {
+            queryParameters['filterVolume'] = requestParameters['filterVolume'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/warehouse_remains`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).<br><br>  Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Создать отчёт
+     */
+    async getV1WarehouseRemainsRaw(requestParameters: GetV1WarehouseRemainsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateTaskResponse>> {
+        const requestOptions = await this.getV1WarehouseRemainsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateTaskResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод создаёт [задание на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).<br><br>  Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Создать отчёт
+     */
+    async getV1WarehouseRemains(requestParameters: GetV1WarehouseRemainsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateTaskResponse> {
+        const response = await this.getV1WarehouseRemainsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1WarehouseRemainsTasksTaskIdDownload without sending the request
+     */
+    async getV1WarehouseRemainsTasksTaskIdDownloadRequestOpts(requestParameters: GetV1WarehouseRemainsTasksTaskIdDownloadRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['taskId'] == null) {
+            throw new runtime.RequiredError(
+                'taskId',
+                'Required parameter "taskId" was null or undefined when calling getV1WarehouseRemainsTasksTaskIdDownload().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/warehouse_remains/tasks/{task_id}/download`;
+        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Получить отчёт
+     */
+    async getV1WarehouseRemainsTasksTaskIdDownloadRaw(requestParameters: GetV1WarehouseRemainsTasksTaskIdDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner>>> {
+        const requestOptions = await this.getV1WarehouseRemainsTasksTaskIdDownloadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Получить отчёт
+     */
+    async getV1WarehouseRemainsTasksTaskIdDownload(requestParameters: GetV1WarehouseRemainsTasksTaskIdDownloadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner> | null | undefined > {
+        const response = await this.getV1WarehouseRemainsTasksTaskIdDownloadRaw(requestParameters, initOverrides);
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
+    }
+
+    /**
+     * Creates request options for getV1WarehouseRemainsTasksTaskIdStatus without sending the request
+     */
+    async getV1WarehouseRemainsTasksTaskIdStatusRequestOpts(requestParameters: GetV1WarehouseRemainsTasksTaskIdStatusRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['taskId'] == null) {
+            throw new runtime.RequiredError(
+                'taskId',
+                'Required parameter "taskId" was null or undefined when calling getV1WarehouseRemainsTasksTaskIdStatus().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/warehouse_remains/tasks/{task_id}/status`;
+        urlPath = urlPath.replace('{task_id}', encodeURIComponent(String(requestParameters['taskId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Проверить статус
+     */
+    async getV1WarehouseRemainsTasksTaskIdStatusRaw(requestParameters: GetV1WarehouseRemainsTasksTaskIdStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTasksResponse>> {
+        const requestOptions = await this.getV1WarehouseRemainsTasksTaskIdStatusRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetTasksResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает статус [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Проверить статус
+     */
+    async getV1WarehouseRemainsTasksTaskIdStatus(requestParameters: GetV1WarehouseRemainsTasksTaskIdStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTasksResponse> {
+        const response = await this.getV1WarehouseRemainsTasksTaskIdStatusRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
 
 /**
  * @export
  */
-export const ApiV1AnalyticsBannedProductsBlockedGetSortEnum = {
+export const GetV1AnalyticsBannedProducsBlockedSortEnum = {
     Brand: 'brand',
     NmId: 'nmId',
     Title: 'title',
     VendorCode: 'vendorCode',
     Reason: 'reason'
 } as const;
-export type ApiV1AnalyticsBannedProductsBlockedGetSortEnum = typeof ApiV1AnalyticsBannedProductsBlockedGetSortEnum[keyof typeof ApiV1AnalyticsBannedProductsBlockedGetSortEnum];
+export type GetV1AnalyticsBannedProducsBlockedSortEnum = typeof GetV1AnalyticsBannedProducsBlockedSortEnum[keyof typeof GetV1AnalyticsBannedProducsBlockedSortEnum];
 /**
  * @export
  */
-export const ApiV1AnalyticsBannedProductsBlockedGetOrderEnum = {
+export const GetV1AnalyticsBannedProducsBlockedOrderEnum = {
     Desc: 'desc',
     Asc: 'asc'
 } as const;
-export type ApiV1AnalyticsBannedProductsBlockedGetOrderEnum = typeof ApiV1AnalyticsBannedProductsBlockedGetOrderEnum[keyof typeof ApiV1AnalyticsBannedProductsBlockedGetOrderEnum];
+export type GetV1AnalyticsBannedProducsBlockedOrderEnum = typeof GetV1AnalyticsBannedProducsBlockedOrderEnum[keyof typeof GetV1AnalyticsBannedProducsBlockedOrderEnum];
 /**
  * @export
  */
-export const ApiV1AnalyticsBannedProductsShadowedGetSortEnum = {
+export const GetV1AnalyticsBannedProductsShadowedSortEnum = {
     Brand: 'brand',
     NmId: 'nmId',
     Title: 'title',
     VendorCode: 'vendorCode',
     NmRating: 'nmRating'
 } as const;
-export type ApiV1AnalyticsBannedProductsShadowedGetSortEnum = typeof ApiV1AnalyticsBannedProductsShadowedGetSortEnum[keyof typeof ApiV1AnalyticsBannedProductsShadowedGetSortEnum];
+export type GetV1AnalyticsBannedProductsShadowedSortEnum = typeof GetV1AnalyticsBannedProductsShadowedSortEnum[keyof typeof GetV1AnalyticsBannedProductsShadowedSortEnum];
 /**
  * @export
  */
-export const ApiV1AnalyticsBannedProductsShadowedGetOrderEnum = {
+export const GetV1AnalyticsBannedProductsShadowedOrderEnum = {
     Desc: 'desc',
     Asc: 'asc'
 } as const;
-export type ApiV1AnalyticsBannedProductsShadowedGetOrderEnum = typeof ApiV1AnalyticsBannedProductsShadowedGetOrderEnum[keyof typeof ApiV1AnalyticsBannedProductsShadowedGetOrderEnum];
+export type GetV1AnalyticsBannedProductsShadowedOrderEnum = typeof GetV1AnalyticsBannedProductsShadowedOrderEnum[keyof typeof GetV1AnalyticsBannedProductsShadowedOrderEnum];
 /**
  * @export
  */

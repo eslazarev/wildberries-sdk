@@ -296,31 +296,31 @@ SDK выпускается с security-first процессом:
 - `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
 
 ### Общение с покупателями (`09-communications.yaml`)
-- `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
-- `POST /api/feedbacks/v1/pins` — Закрепить отзывы
-- `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
-- `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
-- `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
-- `PATCH /api/v1/claim` — Ответ на заявку покупателя
-- `GET /api/v1/claims` — Заявки покупателей на возврат
-- `GET /api/v1/feedback` — Получить отзыв по ID
-- `GET /api/v1/feedbacks` — Список отзывов
-- `POST /api/v1/feedbacks/answer` — Ответить на отзыв
-- `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
-- `GET /api/v1/feedbacks/archive` — Список архивных отзывов
-- `GET /api/v1/feedbacks/count` — Количество отзывов
-- `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
-- `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
-- `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
-- `GET /api/v1/question` — Получить вопрос по ID
-- `GET /api/v1/questions` — Список вопросов
-- `PATCH /api/v1/questions` — Работа с вопросами
-- `GET /api/v1/questions/count` — Количество вопросов
-- `GET /api/v1/questions/count-unanswered` — Неотвеченные вопросы
-- `GET /api/v1/seller/chats` — Список чатов
-- `GET /api/v1/seller/download/{id}` — Получить файл из сообщения
-- `GET /api/v1/seller/events` — События чатов
-- `POST /api/v1/seller/message` — Отправить сообщение
+- `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов (getFeedbacksV1Pins)
+- `POST /api/feedbacks/v1/pins` — Закрепить отзывы (postFeedbacksV1Pins)
+- `DELETE /api/feedbacks/v1/pins` — Открепить отзывы (deleteFeedbacksV1Pins)
+- `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов (getFeedbacksV1PinsCount)
+- `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов (getFeedbacksV1PinsLimits)
+- `PATCH /api/v1/claim` — Ответ на заявку покупателя (patchV1Claim)
+- `GET /api/v1/claims` — Заявки покупателей на возврат (getV1Claims)
+- `GET /api/v1/feedback` — Получить отзыв по ID (getV1Feedback)
+- `GET /api/v1/feedbacks` — Список отзывов (getV1Feedbacks)
+- `POST /api/v1/feedbacks/answer` — Ответить на отзыв (postV1FeedbacksAnswer)
+- `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв (patchV1FeedbacksAnswer)
+- `GET /api/v1/feedbacks/archive` — Список архивных отзывов (getV1FeedbacksArchive)
+- `GET /api/v1/feedbacks/count` — Количество отзывов (getV1FeedbacksCount)
+- `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы (getV1FeedbacksCountUnanswered)
+- `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва (postV1FeedbacksOrderReturn)
+- `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы (getV1NewFeedbacksQuestions)
+- `GET /api/v1/question` — Получить вопрос по ID (getV1Question)
+- `GET /api/v1/questions` — Список вопросов (getV1Questions)
+- `PATCH /api/v1/questions` — Работа с вопросами (patchV1Questions)
+- `GET /api/v1/questions/count` — Количество вопросов (getV1QuestionsCount)
+- `GET /api/v1/questions/count-unanswered` — Неотвеченные вопросы (getV1QuestionsCountUnanswered)
+- `GET /api/v1/seller/chats` — Список чатов (getV1SellerChats)
+- `GET /api/v1/seller/download/{id}` — Получить файл из сообщения (getV1SellerDownloadId)
+- `GET /api/v1/seller/events` — События чатов (getV1SellerEvents)
+- `POST /api/v1/seller/message` — Отправить сообщение (postV1SellerMessage)
 
 ### Тарифы (`10-rates.yaml`)
 - `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку (getV1AcceptanceCoefficients)
@@ -331,50 +331,51 @@ SDK выпускается с security-first процессом:
 
 ### Аналитика и данные (`11-analytics.yaml`)
 - `POST /api/analytics/v1/item-rating` — Получить отчёт (postV1ItemRating)
+- `POST /api/analytics/v1/order-feed` — Получить отчёт (postV1OrderFeed)
 - `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB (postV1StocksReportWbWarehouses)
 - `POST /api/analytics/v2/item-rating` — Получить отчёт (postV2ItemRating)
 - `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням (postV3SalesFunnelGroupedHistory)
 - `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период (postV3SalesFunnelProducts)
 - `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням (postV3SalesFunnelProductsHistory)
-- `GET /api/v2/nm-report/downloads` — Получить список отчётов
-- `POST /api/v2/nm-report/downloads` — Создать отчёт
-- `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
-- `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
-- `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
-- `POST /api/v2/search-report/product/search-texts` — Поисковые запросы по товару
-- `POST /api/v2/search-report/report` — Основная страница
-- `POST /api/v2/search-report/table/details` — Пагинация по товарам в группе
-- `POST /api/v2/search-report/table/groups` — Пагинация по группам
-- `POST /api/v2/stocks-report/offices` — Данные по складам
-- `POST /api/v2/stocks-report/products/groups` — Данные по группам
-- `POST /api/v2/stocks-report/products/products` — Данные по товарам
-- `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
+- `GET /api/v2/nm-report/downloads` — Получить список отчётов (getV2NmReportDownloads)
+- `POST /api/v2/nm-report/downloads` — Создать отчёт (postV2NmReportDownloads)
+- `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт (getV2NmReportDownloadsFileDownloadId)
+- `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно (postV2NmReportDownloadsRetry)
+- `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара (postV2SearchReportProductOrders)
+- `POST /api/v2/search-report/product/search-texts` — Поисковые запросы по товару (postV2SearchReportProductSearchTexts)
+- `POST /api/v2/search-report/report` — Основная страница (postV2SearchReportReport)
+- `POST /api/v2/search-report/table/details` — Пагинация по товарам в группе (postV2SearchReportTableDetails)
+- `POST /api/v2/search-report/table/groups` — Пагинация по группам (postV2SearchReportTableGroups)
+- `POST /api/v2/stocks-report/offices` — Данные по складам (postV2StocksReportOffices)
+- `POST /api/v2/stocks-report/products/groups` — Данные по группам (postV2StocksReportProductsGroups)
+- `POST /api/v2/stocks-report/products/products` — Данные по товарам (postV2StocksReportProductsProducts)
+- `POST /api/v2/stocks-report/products/sizes` — Данные по размерам (postV2StocksReportProductsSizes)
 
 ### Отчёты (`12-reports.yaml`)
 - `GET /api/analytics/v1/deductions` — Подмены и неверные вложения (getV1Deductions)
 - `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки (getV1MeasurementPenalties)
 - `GET /api/analytics/v1/warehouse-measurements` — Замеры склада (getV1WarehouseMeasurements)
-- `GET /api/v1/acceptance_report` — Создать отчёт
-- `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
-- `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
-- `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
-- `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
-- `GET /api/v1/analytics/brand-share` — Получить отчёт
-- `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
-- `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
-- `POST /api/v1/analytics/excise-report` — Получить отчёт
-- `GET /api/v1/analytics/goods-labeling` — Маркировка товара
-- `GET /api/v1/analytics/goods-return` — Получить отчёт
-- `GET /api/v1/analytics/region-sale` — Получить отчёт
-- `GET /api/v1/paid_storage` — Создать отчёт
-- `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
-- `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
-- `GET /api/v1/supplier/orders` — Заказы
-- `GET /api/v1/supplier/sales` — Продажи
-- `GET /api/v1/warehouse_remains` — Создать отчёт
-- `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
-- `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
+- `GET /api/v1/acceptance_report` — Создать отчёт (getV1AcceptanceReport)
+- `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт (getV1AcceptanceReportTasksTaskIdDownload)
+- `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус (getV1AcceptanceReportTasksTaskIdStatus)
+- `GET /api/v1/analytics/antifraud-details` — Самовыкупы (getV1AnalyticsAntifraudDetails)
+- `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт (getV1AnalyticsBannedProducsBlocked)
+- `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога (getV1AnalyticsBannedProductsShadowed)
+- `GET /api/v1/analytics/brand-share` — Получить отчёт (getV1AnalyticsBrandShare)
+- `GET /api/v1/analytics/brand-share/brands` — Бренды продавца (getV1AnalyticsBrandShareBrands)
+- `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда (getV1AnalyticsBrandShareParentSubjects)
+- `POST /api/v1/analytics/excise-report` — Получить отчёт (postV1AnalyticsExciseReport)
+- `GET /api/v1/analytics/goods-labeling` — Маркировка товара (getV1AnalyticsGoodsLabeling)
+- `GET /api/v1/analytics/goods-return` — Получить отчёт (getV1AnalyticsGoodsReturn)
+- `GET /api/v1/analytics/region-sale` — Получить отчёт (getV1AnalyticsRegionSale)
+- `GET /api/v1/paid_storage` — Создать отчёт (getV1PaidStorage)
+- `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт (getV1PaidStorageTasksTaskIdDownload)
+- `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус (getV1PaidStorageTasksTaskIdStatus)
+- `GET /api/v1/supplier/orders` — Заказы (getV1SupplierOrders)
+- `GET /api/v1/supplier/sales` — Продажи (getV1SupplierSales)
+- `GET /api/v1/warehouse_remains` — Создать отчёт (getV1WarehouseRemains)
+- `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт (getV1WarehouseRemainsTasksTaskIdDownload)
+- `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус (getV1WarehouseRemainsTasksTaskIdStatus)
 
 ### Документы и бухгалтерия (`13-finances.yaml`)
 - `POST /api/finance/v1/acquiring/detailed` — Детализации к отчётам об издержках на приём платежей за период (postV1AcquiringDetailed)

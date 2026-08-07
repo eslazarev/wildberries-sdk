@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Аналитика и данные
- * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)   2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)   3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)   4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)   5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)  </div> 
+ * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)   2. [Ленты заказов](/openapi/analytics#tag/orderFeed)   3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)   4. [Истории остатков](/openapi/analytics#tag/stocksReport)   5. [Оценки товара](/openapi/analytics#tag/itemRating)   6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)  </div> 
  *
  * The version of the OpenAPI document: analytics
  * 
@@ -14,25 +14,15 @@
 
 import * as runtime from '../runtime';
 import {
-    type ApiV2NmReportDownloadsGet400Response,
-    ApiV2NmReportDownloadsGet400ResponseFromJSON,
-    ApiV2NmReportDownloadsGet400ResponseToJSON,
-} from '../models/ApiV2NmReportDownloadsGet400Response';
+    type GetV2NmReportDownloads400Response,
+    GetV2NmReportDownloads400ResponseFromJSON,
+    GetV2NmReportDownloads400ResponseToJSON,
+} from '../models/GetV2NmReportDownloads400Response';
 import {
-    type ApiV2NmReportDownloadsGet403Response,
-    ApiV2NmReportDownloadsGet403ResponseFromJSON,
-    ApiV2NmReportDownloadsGet403ResponseToJSON,
-} from '../models/ApiV2NmReportDownloadsGet403Response';
-import {
-    type ApiV2NmReportDownloadsPost429Response,
-    ApiV2NmReportDownloadsPost429ResponseFromJSON,
-    ApiV2NmReportDownloadsPost429ResponseToJSON,
-} from '../models/ApiV2NmReportDownloadsPost429Response';
-import {
-    type ApiV2NmReportDownloadsPostRequest,
-    ApiV2NmReportDownloadsPostRequestFromJSON,
-    ApiV2NmReportDownloadsPostRequestToJSON,
-} from '../models/ApiV2NmReportDownloadsPostRequest';
+    type GetV2NmReportDownloads403Response,
+    GetV2NmReportDownloads403ResponseFromJSON,
+    GetV2NmReportDownloads403ResponseToJSON,
+} from '../models/GetV2NmReportDownloads403Response';
 import {
     type NmReportCreateReportResponse,
     NmReportCreateReportResponseFromJSON,
@@ -54,6 +44,16 @@ import {
     NmReportRetryReportResponseToJSON,
 } from '../models/NmReportRetryReportResponse';
 import {
+    type PostV2NmReportDownloads429Response,
+    PostV2NmReportDownloads429ResponseFromJSON,
+    PostV2NmReportDownloads429ResponseToJSON,
+} from '../models/PostV2NmReportDownloads429Response';
+import {
+    type PostV2NmReportDownloadsRequest,
+    PostV2NmReportDownloadsRequestFromJSON,
+    PostV2NmReportDownloadsRequestToJSON,
+} from '../models/PostV2NmReportDownloadsRequest';
+import {
     type PostV3SalesFunnelProducts401Response,
     PostV3SalesFunnelProducts401ResponseFromJSON,
     PostV3SalesFunnelProducts401ResponseToJSON,
@@ -64,28 +64,28 @@ import {
     PostV3SalesFunnelProducts402ResponseToJSON,
 } from '../models/PostV3SalesFunnelProducts402Response';
 
-export interface ApiV2NmReportDownloadsFileDownloadIdGetRequest {
-    /**
-     * ID отчёта
-     */
-    downloadId: string;
-}
-
-export interface ApiV2NmReportDownloadsGetRequest {
+export interface GetV2NmReportDownloadsRequest {
     /**
      * ID отчёта
      */
     filterDownloadIds?: Array<string>;
 }
 
-export interface ApiV2NmReportDownloadsPostOperationRequest {
+export interface GetV2NmReportDownloadsFileDownloadIdRequest {
+    /**
+     * ID отчёта
+     */
+    downloadId: string;
+}
+
+export interface PostV2NmReportDownloadsOperationRequest {
     /**
      * 
      */
-    apiV2NmReportDownloadsPostRequest?: ApiV2NmReportDownloadsPostRequest;
+    postV2NmReportDownloadsRequest?: PostV2NmReportDownloadsRequest;
 }
 
-export interface ApiV2NmReportDownloadsRetryPostRequest {
+export interface PostV2NmReportDownloadsRetryRequest {
     /**
      * 
      */
@@ -98,60 +98,9 @@ export interface ApiV2NmReportDownloadsRetryPostRequest {
 export class CSVApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiV2NmReportDownloadsFileDownloadIdGet without sending the request
+     * Creates request options for getV2NmReportDownloads without sending the request
      */
-    async apiV2NmReportDownloadsFileDownloadIdGetRequestOpts(requestParameters: ApiV2NmReportDownloadsFileDownloadIdGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['downloadId'] == null) {
-            throw new runtime.RequiredError(
-                'downloadId',
-                'Required parameter "downloadId" was null or undefined when calling apiV2NmReportDownloadsFileDownloadIdGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v2/nm-report/downloads/file/{downloadId}`;
-        urlPath = urlPath.replace('{downloadId}', encodeURIComponent(String(requestParameters['downloadId'])));
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получить отчёт
-     */
-    async apiV2NmReportDownloadsFileDownloadIdGetRaw(requestParameters: ApiV2NmReportDownloadsFileDownloadIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
-        const requestOptions = await this.apiV2NmReportDownloadsFileDownloadIdGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.BlobApiResponse(response);
-    }
-
-    /**
-     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получить отчёт
-     */
-    async apiV2NmReportDownloadsFileDownloadIdGet(requestParameters: ApiV2NmReportDownloadsFileDownloadIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
-        const response = await this.apiV2NmReportDownloadsFileDownloadIdGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV2NmReportDownloadsGet without sending the request
-     */
-    async apiV2NmReportDownloadsGetRequestOpts(requestParameters: ApiV2NmReportDownloadsGetRequest): Promise<runtime.RequestOpts> {
+    async getV2NmReportDownloadsRequestOpts(requestParameters: GetV2NmReportDownloadsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['filterDownloadIds'] != null) {
@@ -176,29 +125,80 @@ export class CSVApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) и статусы генерации.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить список отчётов
      */
-    async apiV2NmReportDownloadsGetRaw(requestParameters: ApiV2NmReportDownloadsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NmReportGetReportsResponse>> {
-        const requestOptions = await this.apiV2NmReportDownloadsGetRequestOpts(requestParameters);
+    async getV2NmReportDownloadsRaw(requestParameters: GetV2NmReportDownloadsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NmReportGetReportsResponse>> {
+        const requestOptions = await this.getV2NmReportDownloadsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NmReportGetReportsResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) и статусы генерации.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Получить список отчётов
      */
-    async apiV2NmReportDownloadsGet(requestParameters: ApiV2NmReportDownloadsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NmReportGetReportsResponse> {
-        const response = await this.apiV2NmReportDownloadsGetRaw(requestParameters, initOverrides);
+    async getV2NmReportDownloads(requestParameters: GetV2NmReportDownloadsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NmReportGetReportsResponse> {
+        const response = await this.getV2NmReportDownloadsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV2NmReportDownloadsPost without sending the request
+     * Creates request options for getV2NmReportDownloadsFileDownloadId without sending the request
      */
-    async apiV2NmReportDownloadsPostRequestOpts(requestParameters: ApiV2NmReportDownloadsPostOperationRequest): Promise<runtime.RequestOpts> {
+    async getV2NmReportDownloadsFileDownloadIdRequestOpts(requestParameters: GetV2NmReportDownloadsFileDownloadIdRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['downloadId'] == null) {
+            throw new runtime.RequiredError(
+                'downloadId',
+                'Required parameter "downloadId" was null or undefined when calling getV2NmReportDownloadsFileDownloadId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v2/nm-report/downloads/file/{downloadId}`;
+        urlPath = urlPath.replace('{downloadId}', encodeURIComponent(String(requestParameters['downloadId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Получить отчёт
+     */
+    async getV2NmReportDownloadsFileDownloadIdRaw(requestParameters: GetV2NmReportDownloadsFileDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
+        const requestOptions = await this.getV2NmReportDownloadsFileDownloadIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.BlobApiResponse(response);
+    }
+
+    /**
+     * Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Получить отчёт
+     */
+    async getV2NmReportDownloadsFileDownloadId(requestParameters: GetV2NmReportDownloadsFileDownloadIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
+        const response = await this.getV2NmReportDownloadsFileDownloadIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2NmReportDownloads without sending the request
+     */
+    async postV2NmReportDownloadsRequestOpts(requestParameters: PostV2NmReportDownloadsOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -217,38 +217,38 @@ export class CSVApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApiV2NmReportDownloadsPostRequestToJSON(requestParameters['apiV2NmReportDownloadsPostRequest']),
+            body: PostV2NmReportDownloadsRequestToJSON(requestParameters['postV2NmReportDownloadsRequest']),
         };
     }
 
     /**
-     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>  Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/Voronka-prodazh) или [параметрам поиска](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram) с группировкой по:   * артикулам WB   * предметам, брендам и ярлыкам  В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](/openapi/analytics#tag/Istoriya-ostatkov).<br><br>  Каждый новый отчёт должен иметь уникальный ID.  <div class=\"description_important\">   Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации </div>  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Если не удалось [получить отчёт](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1file~1%7BdownloadId%7D/get), можно создать [повторное задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1retry/post). Также можно [получить список и проверить статусы](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) отчётов.  <div class=\"description_important\">   Отчёты по <a href=\"https://seller.wildberries.ru/content-analytics/history-remains\">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href=\"https://seller.wildberries.ru/monetization/jam\">Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>  Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/salesFunnel) или [параметрам поиска](/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:   * артикулам WB   * предметам, брендам и ярлыкам  В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](/openapi/analytics#tag/stocksReport).<br><br>  Каждый новый отчёт должен иметь уникальный ID.  <div class=\"description_important\">   Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации </div>  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  <div class=\"description_important\">   Отчёты по <a href=\"https://seller.wildberries.ru/content-analytics/history-remains\">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href=\"https://seller.wildberries.ru/monetization/jam\">Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Создать отчёт
      */
-    async apiV2NmReportDownloadsPostRaw(requestParameters: ApiV2NmReportDownloadsPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NmReportCreateReportResponse>> {
-        const requestOptions = await this.apiV2NmReportDownloadsPostRequestOpts(requestParameters);
+    async postV2NmReportDownloadsRaw(requestParameters: PostV2NmReportDownloadsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NmReportCreateReportResponse>> {
+        const requestOptions = await this.postV2NmReportDownloadsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NmReportCreateReportResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>  Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/Voronka-prodazh) или [параметрам поиска](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram) с группировкой по:   * артикулам WB   * предметам, брендам и ярлыкам  В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](/openapi/analytics#tag/Istoriya-ostatkov).<br><br>  Каждый новый отчёт должен иметь уникальный ID.  <div class=\"description_important\">   Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации </div>  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Если не удалось [получить отчёт](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1file~1%7BdownloadId%7D/get), можно создать [повторное задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1retry/post). Также можно [получить список и проверить статусы](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) отчётов.  <div class=\"description_important\">   Отчёты по <a href=\"https://seller.wildberries.ru/content-analytics/history-remains\">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href=\"https://seller.wildberries.ru/monetization/jam\">Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>  Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/salesFunnel) или [параметрам поиска](/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:   * артикулам WB   * предметам, брендам и ярлыкам  В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](/openapi/analytics#tag/stocksReport).<br><br>  Каждый новый отчёт должен иметь уникальный ID.  <div class=\"description_important\">   Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации </div>  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  <div class=\"description_important\">   Отчёты по <a href=\"https://seller.wildberries.ru/content-analytics/history-remains\">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href=\"https://seller.wildberries.ru/monetization/jam\">Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Создать отчёт
      */
-    async apiV2NmReportDownloadsPost(requestParameters: ApiV2NmReportDownloadsPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NmReportCreateReportResponse> {
-        const response = await this.apiV2NmReportDownloadsPostRaw(requestParameters, initOverrides);
+    async postV2NmReportDownloads(requestParameters: PostV2NmReportDownloadsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NmReportCreateReportResponse> {
+        const response = await this.postV2NmReportDownloadsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV2NmReportDownloadsRetryPost without sending the request
+     * Creates request options for postV2NmReportDownloadsRetry without sending the request
      */
-    async apiV2NmReportDownloadsRetryPostRequestOpts(requestParameters: ApiV2NmReportDownloadsRetryPostRequest): Promise<runtime.RequestOpts> {
+    async postV2NmReportDownloadsRetryRequestOpts(requestParameters: PostV2NmReportDownloadsRetryRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['nmReportRetryReportRequest'] == null) {
             throw new runtime.RequiredError(
                 'nmReportRetryReportRequest',
-                'Required parameter "nmReportRetryReportRequest" was null or undefined when calling apiV2NmReportDownloadsRetryPost().'
+                'Required parameter "nmReportRetryReportRequest" was null or undefined when calling postV2NmReportDownloadsRetry().'
             );
         }
 
@@ -275,22 +275,22 @@ export class CSVApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод создает повторное [задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) `FAILED`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Сгенерировать отчёт повторно
      */
-    async apiV2NmReportDownloadsRetryPostRaw(requestParameters: ApiV2NmReportDownloadsRetryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NmReportRetryReportResponse>> {
-        const requestOptions = await this.apiV2NmReportDownloadsRetryPostRequestOpts(requestParameters);
+    async postV2NmReportDownloadsRetryRaw(requestParameters: PostV2NmReportDownloadsRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NmReportRetryReportResponse>> {
+        const requestOptions = await this.postV2NmReportDownloadsRetryRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NmReportRetryReportResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод создает повторное [задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) `FAILED`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Сгенерировать отчёт повторно
      */
-    async apiV2NmReportDownloadsRetryPost(requestParameters: ApiV2NmReportDownloadsRetryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NmReportRetryReportResponse> {
-        const response = await this.apiV2NmReportDownloadsRetryPostRaw(requestParameters, initOverrides);
+    async postV2NmReportDownloadsRetry(requestParameters: PostV2NmReportDownloadsRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NmReportRetryReportResponse> {
+        const response = await this.postV2NmReportDownloadsRetryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

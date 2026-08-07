@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Отчёты
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -14,16 +14,6 @@
 
 import * as runtime from '../runtime';
 import {
-    type ApiV1SupplierOrdersGet401Response,
-    ApiV1SupplierOrdersGet401ResponseFromJSON,
-    ApiV1SupplierOrdersGet401ResponseToJSON,
-} from '../models/ApiV1SupplierOrdersGet401Response';
-import {
-    type ApiV1SupplierOrdersGet402Response,
-    ApiV1SupplierOrdersGet402ResponseFromJSON,
-    ApiV1SupplierOrdersGet402ResponseToJSON,
-} from '../models/ApiV1SupplierOrdersGet402Response';
-import {
     type ExciseReportRequest,
     ExciseReportRequestFromJSON,
     ExciseReportRequestToJSON,
@@ -34,12 +24,22 @@ import {
     ExciseReportResponseToJSON,
 } from '../models/ExciseReportResponse';
 import {
+    type GetV1SupplierOrders401Response,
+    GetV1SupplierOrders401ResponseFromJSON,
+    GetV1SupplierOrders401ResponseToJSON,
+} from '../models/GetV1SupplierOrders401Response';
+import {
+    type GetV1SupplierOrders402Response,
+    GetV1SupplierOrders402ResponseFromJSON,
+    GetV1SupplierOrders402ResponseToJSON,
+} from '../models/GetV1SupplierOrders402Response';
+import {
     type Model4xxResponse,
     Model4xxResponseFromJSON,
     Model4xxResponseToJSON,
 } from '../models/Model4xxResponse';
 
-export interface ApiV1AnalyticsExciseReportPostRequest {
+export interface PostV1AnalyticsExciseReportRequest {
     /**
      * Начало отчётного периода, `ГГГГ-ММ-ДД`
      * 
@@ -62,20 +62,20 @@ export interface ApiV1AnalyticsExciseReportPostRequest {
 export class CApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for apiV1AnalyticsExciseReportPost without sending the request
+     * Creates request options for postV1AnalyticsExciseReport without sending the request
      */
-    async apiV1AnalyticsExciseReportPostRequestOpts(requestParameters: ApiV1AnalyticsExciseReportPostRequest): Promise<runtime.RequestOpts> {
+    async postV1AnalyticsExciseReportRequestOpts(requestParameters: PostV1AnalyticsExciseReportRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['dateFrom'] == null) {
             throw new runtime.RequiredError(
                 'dateFrom',
-                'Required parameter "dateFrom" was null or undefined when calling apiV1AnalyticsExciseReportPost().'
+                'Required parameter "dateFrom" was null or undefined when calling postV1AnalyticsExciseReport().'
             );
         }
 
         if (requestParameters['dateTo'] == null) {
             throw new runtime.RequiredError(
                 'dateTo',
-                'Required parameter "dateTo" was null or undefined when calling apiV1AnalyticsExciseReportPost().'
+                'Required parameter "dateTo" was null or undefined when calling postV1AnalyticsExciseReport().'
             );
         }
 
@@ -113,8 +113,8 @@ export class CApi extends runtime.BaseAPI {
      * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsExciseReportPostRaw(requestParameters: ApiV1AnalyticsExciseReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExciseReportResponse>> {
-        const requestOptions = await this.apiV1AnalyticsExciseReportPostRequestOpts(requestParameters);
+    async postV1AnalyticsExciseReportRaw(requestParameters: PostV1AnalyticsExciseReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExciseReportResponse>> {
+        const requestOptions = await this.postV1AnalyticsExciseReportRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExciseReportResponseFromJSON(jsonValue));
@@ -124,8 +124,8 @@ export class CApi extends runtime.BaseAPI {
      * Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
      * Получить отчёт
      */
-    async apiV1AnalyticsExciseReportPost(requestParameters: ApiV1AnalyticsExciseReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExciseReportResponse> {
-        const response = await this.apiV1AnalyticsExciseReportPostRaw(requestParameters, initOverrides);
+    async postV1AnalyticsExciseReport(requestParameters: PostV1AnalyticsExciseReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExciseReportResponse> {
+        const response = await this.postV1AnalyticsExciseReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

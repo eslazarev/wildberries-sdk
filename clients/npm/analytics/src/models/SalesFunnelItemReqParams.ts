@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Аналитика и данные
- * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)   2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)   3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)   4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)   5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)  </div> 
+ * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)   2. [Ленты заказов](/openapi/analytics#tag/orderFeed)   3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)   4. [Истории остатков](/openapi/analytics#tag/stocksReport)   5. [Оценки товара](/openapi/analytics#tag/itemRating)   6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)  </div> 
  *
  * The version of the OpenAPI document: analytics
  * 
@@ -45,8 +45,7 @@ export interface SalesFunnelItemReqParams {
      */
     endDate: Date;
     /**
-     * Временная зона, по умолчанию Europe/Moscow
-     * 
+     * Временная зона по формату [IANA](https://nodatime.org/TimeZones)
      */
     timezone?: string;
     /**

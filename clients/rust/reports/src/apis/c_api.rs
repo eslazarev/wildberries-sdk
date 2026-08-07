@@ -1,7 +1,7 @@
 /*
  * Отчёты
  *
- * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
+ * <div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
  *
  * The version of the OpenAPI document: reports
  * 
@@ -15,20 +15,20 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_v1_analytics_excise_report_post`]
+/// struct for typed errors of method [`post_v1_analytics_excise_report`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV1AnalyticsExciseReportPostError {
+pub enum PostV1AnalyticsExciseReportError {
     Status400(models::Model4xxResponse),
-    Status401(models::ApiV1SupplierOrdersGet401Response),
-    Status402(models::ApiV1SupplierOrdersGet402Response),
-    Status429(models::ApiV1SupplierOrdersGet401Response),
+    Status401(models::GetV1SupplierOrders401Response),
+    Status402(models::GetV1SupplierOrders402Response),
+    Status429(models::GetV1SupplierOrders401Response),
     UnknownValue(serde_json::Value),
 }
 
 
 /// Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>  Данный отчёт можно сохранить в [формате таблиц](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов | | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос | </div> 
-pub async fn api_v1_analytics_excise_report_post(configuration: &configuration::Configuration, date_from: &str, date_to: &str, excise_report_request: Option<models::ExciseReportRequest>) -> Result<models::ExciseReportResponse, Error<ApiV1AnalyticsExciseReportPostError>> {
+pub async fn post_v1_analytics_excise_report(configuration: &configuration::Configuration, date_from: &str, date_to: &str, excise_report_request: Option<models::ExciseReportRequest>) -> Result<models::ExciseReportResponse, Error<PostV1AnalyticsExciseReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_date_from = date_from;
     let p_query_date_to = date_to;
@@ -72,7 +72,7 @@ pub async fn api_v1_analytics_excise_report_post(configuration: &configuration::
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV1AnalyticsExciseReportPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<PostV1AnalyticsExciseReportError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

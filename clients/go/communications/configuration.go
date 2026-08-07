@@ -1,7 +1,7 @@
 /*
 Общение с покупателями
 
-<div class=\"description_important\">   Узнать больше об общении с покупателями можно в <a href=\"https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью методов общения с покупателями вы можете работать с:   1. [Вопросами](/openapi/user-communication#tag/Voprosy) и [отзывами](/openapi/user-communication#tag/Otzyvy) покупателей   2. [Закреплёнными отзывами](/openapi/user-communication#tag/Zakreplyonnye-otzyvy)   3. [Чатами с покупателями](/openapi/user-communication#tag/Chat-s-pokupatelyami)   4. [Заявками покупателей на возврат](/openapi/user-communication#tag/Vozvraty-pokupatelyami)  Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami\">инструкции</a> по работе с разделом <strong>Общение с покупателями</strong> </div> 
+<div class=\"description_important\">   Узнать больше об общении с покупателями можно в <a href=\"https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью методов общения с покупателями вы можете работать с:   1. [Вопросами](/openapi/user-communication#tag/questions) и [отзывами](/openapi/user-communication#tag/feedbacks) покупателей   2. [Закреплёнными отзывами](/openapi/user-communication#tag/pinnedFeedbacks)   3. [Чатами с покупателями](/openapi/user-communication#tag/buyersChat)   4. [Заявками покупателей на возврат](/openapi/user-communication#tag/buyersReturns)  Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami\">инструкции</a> по работе с разделом <strong>Общение с покупателями</strong> </div> 
 
 API version: communication
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.137/go",
+		UserAgent:        "OpenAPI-Generator/0.1.138/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,49 +98,161 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.ApiFeedbacksV1PinsCountGet": {
+			"DefaultApiService.DeleteFeedbacksV1Pins": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiFeedbacksV1PinsDelete": {
+			"DefaultApiService.GetFeedbacksV1Pins": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiFeedbacksV1PinsGet": {
+			"DefaultApiService.GetFeedbacksV1PinsCount": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiFeedbacksV1PinsLimitsGet": {
+			"DefaultApiService.GetFeedbacksV1PinsLimits": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiFeedbacksV1PinsPost": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV1ClaimPatch": {
+			"DefaultApiService.GetV1Claims": {
 				{
 					URL: "https://returns-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1ClaimsGet": {
+			"DefaultApiService.GetV1Feedback": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1Feedbacks": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1FeedbacksArchive": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1FeedbacksCount": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1FeedbacksCountUnanswered": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1NewFeedbacksQuestions": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1Question": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1Questions": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1QuestionsCount": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1QuestionsCountUnanswered": {
+				{
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1SellerChats": {
+				{
+					URL: "https://buyer-chat-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.GetV1SellerDownloadId": {
+				{
+					URL: "https://buyer-chat-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.GetV1SellerEvents": {
+				{
+					URL: "https://buyer-chat-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PatchV1Claim": {
 				{
 					URL: "https://returns-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1FeedbackGet": {
+			"DefaultApiService.PatchV1FeedbacksAnswer": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -150,7 +262,7 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.ApiV1FeedbacksAnswerPatch": {
+			"DefaultApiService.PatchV1Questions": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
 					Description: "**Prod** ",
@@ -160,145 +272,33 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.ApiV1FeedbacksAnswerPost": {
+			"DefaultApiService.PostFeedbacksV1Pins": {
 				{
 					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1FeedbacksArchiveGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1FeedbacksCountGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1FeedbacksCountUnansweredGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1FeedbacksGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1FeedbacksOrderReturnPost": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1NewFeedbacksQuestionsGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1QuestionGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1QuestionsCountGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1QuestionsCountUnansweredGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1QuestionsGet": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1QuestionsPatch": {
-				{
-					URL: "https://feedbacks-api.wildberries.ru",
-					Description: "**Prod** ",
-				},
-				{
-					URL: "https://feedbacks-api-sandbox.wildberries.ru",
-					Description: "**Sandbox** ",
-				},
-			},
-			"DefaultApiService.ApiV1SellerChatsGet": {
-				{
-					URL: "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"DefaultApiService.ApiV1SellerDownloadIdGet": {
+			"DefaultApiService.PostV1FeedbacksAnswer": {
 				{
-					URL: "https://buyer-chat-api.wildberries.ru",
-					Description: "No description provided",
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.ApiV1SellerEventsGet": {
+			"DefaultApiService.PostV1FeedbacksOrderReturn": {
 				{
-					URL: "https://buyer-chat-api.wildberries.ru",
-					Description: "No description provided",
+					URL: "https://feedbacks-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+				{
+					URL: "https://feedbacks-api-sandbox.wildberries.ru",
+					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.ApiV1SellerMessagePost": {
+			"DefaultApiService.PostV1SellerMessage": {
 				{
 					URL: "https://buyer-chat-api.wildberries.ru",
 					Description: "No description provided",

@@ -8,10 +8,10 @@ info:
     <div class="api-block">
 
     С помощью методов общения с покупателями вы можете работать с:
-      1. [Вопросами](/openapi/user-communication#tag/Voprosy) и [отзывами](/openapi/user-communication#tag/Otzyvy) покупателей
-      2. [Закреплёнными отзывами](/openapi/user-communication#tag/Zakreplyonnye-otzyvy)
-      3. [Чатами с покупателями](/openapi/user-communication#tag/Chat-s-pokupatelyami)
-      4. [Заявками покупателей на возврат](/openapi/user-communication#tag/Vozvraty-pokupatelyami)
+      1. [Вопросами](/openapi/user-communication#tag/questions) и [отзывами](/openapi/user-communication#tag/feedbacks) покупателей
+      2. [Закреплёнными отзывами](/openapi/user-communication#tag/pinnedFeedbacks)
+      3. [Чатами с покупателями](/openapi/user-communication#tag/buyersChat)
+      4. [Заявками покупателей на возврат](/openapi/user-communication#tag/buyersReturns)
 
     Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами
 
@@ -30,19 +30,24 @@ security:
 tags:
 - description: ""
   name: Вопросы
+  x-displayName: Вопросы
 - description: ""
   name: Отзывы
+  x-displayName: Отзывы
 - description: ""
   name: Закреплённые отзывы
+  x-displayName: Закреплённые отзывы
 - description: ""
   name: Чат с покупателями
+  x-displayName: Чат с покупателями
 - description: ""
   name: Возвраты покупателями
+  x-displayName: Возвраты покупателями
 paths:
   /api/v1/new-feedbacks-questions:
     get:
       description: |
-        Метод проверяет наличие непросмотренных [вопросов](/openapi/user-communication#tag/Voprosy/paths/~1api~1v1~1questions/get) и [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
+        Метод проверяет наличие непросмотренных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -55,12 +60,13 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1NewFeedbacksQuestions
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_200_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_200_response"
           description: Успешно
         "401":
           content:
@@ -76,7 +82,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -86,7 +92,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -110,7 +116,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -129,7 +135,7 @@ paths:
   /api/v1/questions/count-unanswered:
     get:
       description: |
-        Метод возвращает общее количество неотвеченных [вопросов](/openapi/user-communication#tag/Voprosy/paths/~1api~1v1~1questions/get) и количество неотвеченных вопросов за сегодня.
+        Метод возвращает общее количество неотвеченных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -142,12 +148,13 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1QuestionsCountUnanswered
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_questions_count_unanswered_get_200_response"
+                $ref: "#/components/schemas/getV1QuestionsCountUnanswered_200_response"
           description: Успешно
         "401":
           content:
@@ -163,7 +170,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -173,7 +180,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -197,7 +204,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -216,7 +223,7 @@ paths:
   /api/v1/questions/count:
     get:
       description: |
-        Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/user-communication#tag/Voprosy/paths/~1api~1v1~1questions/get) за заданный период.
+        Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/user-communication#tag/questions/operation/getV1Questions) за заданный период.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -229,6 +236,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1QuestionsCount
       parameters:
       - description: Дата начала периода в формате Unix timestamp
         explode: true
@@ -266,7 +274,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_questions_count_get_200_response"
+                $ref: "#/components/schemas/getV1QuestionsCount_200_response"
           description: Успешно
         "400":
           content:
@@ -295,7 +303,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -305,7 +313,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -329,7 +337,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -368,6 +376,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1Questions
       parameters:
       - description: |
           Есть ли ответ на вопрос:
@@ -462,7 +471,7 @@ paths:
                 errorText: ""
                 additionalErrors: null
               schema:
-                $ref: "#/components/schemas/_api_v1_questions_get_200_response"
+                $ref: "#/components/schemas/getV1Questions_200_response"
           description: Успешно
         "400":
           content:
@@ -487,7 +496,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -497,7 +506,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -521,7 +530,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -533,7 +542,7 @@ paths:
     patch:
       description: |
         В зависимости от тела запроса, метод позволяет:
-          - отметить [вопрос](/openapi/user-communication#tag/Voprosy/paths/~1api~1v1~1questions/get) как просмотренный
+          - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный
           - отклонить вопрос
           - ответить на вопрос или отредактировать ответ
 
@@ -552,6 +561,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: patchV1Questions
       requestBody:
         content:
           application/json:
@@ -576,7 +586,7 @@ paths:
                     text: текст ответа
                   state: wbRu
             schema:
-              $ref: "#/components/schemas/_api_v1_questions_patch_request"
+              $ref: "#/components/schemas/patchV1Questions_request"
       responses:
         "200":
           content:
@@ -587,7 +597,7 @@ paths:
                 errorText: ""
                 additionalErrors: null
               schema:
-                $ref: "#/components/schemas/_api_v1_questions_patch_200_response"
+                $ref: "#/components/schemas/patchV1Questions_200_response"
           description: Успешно
         "400":
           content:
@@ -612,7 +622,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -622,7 +632,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -664,7 +674,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -683,7 +693,7 @@ paths:
   /api/v1/question:
     get:
       description: |
-        Метод возвращает данные [вопроса](/openapi/user-communication#tag/Voprosy/paths/~1api~1v1~1questions/get) по его ID. Далее вы можете [работать с этим вопросом](/openapi/user-communication#tag/Voprosy/paths/~1api~1v1~1questions/patch).
+        Метод возвращает данные [вопроса](/openapi/user-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/user-communication#tag/questions/operation/patchV1Questions).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -696,6 +706,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1Question
       parameters:
       - description: ID вопроса
         explode: true
@@ -733,7 +744,7 @@ paths:
                 errorText: ""
                 additionalErrors: null
               schema:
-                $ref: "#/components/schemas/_api_v1_question_get_200_response"
+                $ref: "#/components/schemas/getV1Question_200_response"
           description: Успешно
         "401":
           content:
@@ -749,7 +760,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -759,7 +770,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -792,7 +803,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -812,7 +823,7 @@ paths:
     get:
       description: |
         Метод возвращает:
-          - количество необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за сегодня и за всё время
+          - количество необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -825,12 +836,13 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1FeedbacksCountUnanswered
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_feedbacks_count_unanswered_get_200_response"
+                $ref: "#/components/schemas/getV1FeedbacksCountUnanswered_200_response"
           description: Успешно
         "401":
           content:
@@ -846,7 +858,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -856,7 +868,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -880,7 +892,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -899,7 +911,7 @@ paths:
   /api/v1/feedbacks/count:
     get:
       description: |
-        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) за заданный период.
+        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -912,6 +924,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1FeedbacksCount
       parameters:
       - description: Дата начала периода в формате Unix timestamp
         explode: true
@@ -949,7 +962,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_feedbacks_count_get_200_response"
+                $ref: "#/components/schemas/getV1FeedbacksCount_200_response"
           description: Успешно
         "400":
           content:
@@ -978,7 +991,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -988,7 +1001,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1012,7 +1025,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1047,6 +1060,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1Feedbacks
       parameters:
       - description: |
           Обработан ли отзыв:
@@ -1178,7 +1192,7 @@ paths:
                 errorText: ""
                 additionalErrors: null
               schema:
-                $ref: "#/components/schemas/_api_v1_feedbacks_get_200_response"
+                $ref: "#/components/schemas/getV1Feedbacks_200_response"
           description: Успешно
         "400":
           content:
@@ -1203,7 +1217,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1213,7 +1227,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1237,7 +1251,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1256,7 +1270,7 @@ paths:
   /api/v1/feedbacks/answer:
     patch:
       description: |
-        Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks~1answer/post) покупателя.
+        Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/user-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
         <br><br>
         Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.
 
@@ -1275,11 +1289,12 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: patchV1FeedbacksAnswer
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v1_feedbacks_answer_patch_request"
+              $ref: "#/components/schemas/patchV1FeedbacksAnswer_request"
       responses:
         "204":
           description: Успешно
@@ -1297,7 +1312,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1307,7 +1322,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1322,7 +1337,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1333,7 +1348,7 @@ paths:
       x-category: questionsandfeedback
     post:
       description: |
-        Метод позволяет ответить на [отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) покупателя.
+        Метод позволяет ответить на [отзыв](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
 
         <div class="description_important">
           ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
@@ -1350,11 +1365,12 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV1FeedbacksAnswer
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_api_v1_feedbacks_answer_post_request"
+              $ref: "#/components/schemas/postV1FeedbacksAnswer_request"
       responses:
         "204":
           description: Успешно
@@ -1387,7 +1403,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1397,7 +1413,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1412,7 +1428,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1431,7 +1447,7 @@ paths:
   /api/v1/feedbacks/order/return:
     post:
       description: |
-        Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get).
+        Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks).
         <br><br>
         Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
 
@@ -1446,20 +1462,21 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV1FeedbacksOrderReturn
       requestBody:
         content:
           application/json:
             example:
               feedbackId: absdfgerrrfff1234
             schema:
-              $ref: "#/components/schemas/_api_v1_feedbacks_order_return_post_request"
+              $ref: "#/components/schemas/postV1FeedbacksOrderReturn_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_questions_patch_200_response"
+                $ref: "#/components/schemas/patchV1Questions_200_response"
           description: Успешно
         "400":
           content:
@@ -1488,7 +1505,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1498,7 +1515,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "422":
           content:
@@ -1524,7 +1541,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1543,7 +1560,7 @@ paths:
   /api/v1/feedback:
     get:
       description: |
-        Метод возвращает данные [отзыва](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get) по его ID.
+        Метод возвращает данные [отзыва](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -1556,6 +1573,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1Feedback
       parameters:
       - description: ID отзыва
         explode: true
@@ -1625,7 +1643,7 @@ paths:
                 errorText: ""
                 additionalErrors: null
               schema:
-                $ref: "#/components/schemas/_api_v1_feedback_get_200_response"
+                $ref: "#/components/schemas/getV1Feedback_200_response"
           description: Успешно
         "401":
           content:
@@ -1641,7 +1659,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1651,7 +1669,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "422":
           content:
@@ -1675,7 +1693,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1694,7 +1712,7 @@ paths:
   /api/v1/feedbacks/archive:
     get:
       description: |
-        Метод возвращает список архивных [отзывов](/openapi/user-communication#tag/Otzyvy/paths/~1api~1v1~1feedbacks/get).
+        Метод возвращает список архивных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks).
         <br><br>
         Отзыв становится архивным, если:
           - на отзыв получен ответ
@@ -1712,6 +1730,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1FeedbacksArchive
       parameters:
       - description: Артикул WB
         explode: true
@@ -1811,7 +1830,7 @@ paths:
                 errorText: ""
                 additionalErrors: null
               schema:
-                $ref: "#/components/schemas/_api_v1_feedbacks_archive_get_200_response"
+                $ref: "#/components/schemas/getV1FeedbacksArchive_200_response"
           description: Успешно
         "400":
           content:
@@ -1836,7 +1855,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1846,7 +1865,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1879,7 +1898,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1899,7 +1918,7 @@ paths:
     delete:
       description: |
         Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.<br>
-        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/Zakreplyonnye-otzyvy/paths/~1api~1feedbacks~1v1~1pins/get).<br>
+        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -1912,6 +1931,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: deleteFeedbacksV1Pins
       requestBody:
         content:
           application/json:
@@ -1931,7 +1951,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_feedbacks_v1_pins_delete_200_response"
+                $ref: "#/components/schemas/deleteFeedbacksV1Pins_200_response"
           description: Успешно
         "400":
           content:
@@ -1959,7 +1979,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1969,7 +1989,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1984,7 +2004,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2010,6 +2030,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getFeedbacksV1Pins
       parameters:
       - description: |
           Закреплён ли отзыв:
@@ -2114,7 +2135,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_feedbacks_v1_pins_get_200_response"
+                $ref: "#/components/schemas/getFeedbacksV1Pins_200_response"
           description: Успешно
         "400":
           content:
@@ -2142,7 +2163,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2152,7 +2173,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2167,7 +2188,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2179,7 +2200,7 @@ paths:
     post:
       description: |
         Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. <br>
-        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/Zakreplyonnye-otzyvy/paths/~1api~1feedbacks~1v1~1pins/get).<br>
+        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/user-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).<br>
         <br>
         Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) **Закрепление отзыва**.
 
@@ -2194,6 +2215,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postFeedbacksV1Pins
       requestBody:
         content:
           application/json:
@@ -2215,7 +2237,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_feedbacks_v1_pins_post_200_response"
+                $ref: "#/components/schemas/postFeedbacksV1Pins_200_response"
           description: Успешно
         "400":
           content:
@@ -2243,7 +2265,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2253,7 +2275,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -2280,7 +2302,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2307,6 +2329,7 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getFeedbacksV1PinsCount
       parameters:
       - description: |
           Закреплён ли отзыв:
@@ -2391,7 +2414,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_feedbacks_v1_pins_count_get_200_response"
+                $ref: "#/components/schemas/getFeedbacksV1PinsCount_200_response"
           description: Успешно
         "400":
           content:
@@ -2419,7 +2442,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2429,7 +2452,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2444,7 +2467,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2471,12 +2494,13 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getFeedbacksV1PinsLimits
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_feedbacks_v1_pins_limits_get_200_response"
+                $ref: "#/components/schemas/getFeedbacksV1PinsLimits_200_response"
           description: Успешно
         "401":
           content:
@@ -2492,7 +2516,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2502,7 +2526,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2517,7 +2541,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2531,7 +2555,7 @@ paths:
   /api/v1/seller/chats:
     get:
       description: |
-        Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1events/get) или [отправить сообщение покупателю](/openapi/user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1message/post).
+        Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/user-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/user-communication#tag/buyersChat/operation/postV1SellerMessage).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2544,6 +2568,7 @@ paths:
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1SellerChats
       responses:
         "200":
           content:
@@ -2565,7 +2590,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2575,7 +2600,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2590,7 +2615,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2604,7 +2629,7 @@ paths:
   /api/v1/seller/events:
     get:
       description: |
-        Метод возвращает список событий всех [чатов с покупателями](/openapi/user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1chats/get).
+        Метод возвращает список событий всех [чатов с покупателями](/openapi/user-communication#tag/buyersChat/operation/getV1SellerChats).
 
         Чтобы получить все события:
           1. Сделайте первый запрос без параметра `next`.
@@ -2621,6 +2646,7 @@ paths:
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1SellerEvents
       parameters:
       - description: |
           Пагинатор. С какого момента получить следующий пакет данных.<br>Формат Unix timestamp **с миллисекундами**
@@ -2726,7 +2752,7 @@ paths:
                     requestId: 62f59a4ce21064f20b1bbc28c85f38d8
                     error: Invalid value for "next"
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_events_get_400_response"
+                $ref: "#/components/schemas/getV1SellerEvents_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -2742,7 +2768,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2752,7 +2778,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2767,7 +2793,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2781,7 +2807,7 @@ paths:
   /api/v1/seller/message:
     post:
       description: |
-        Метод отправляет сообщения в [чат с покупателем](/openapi/user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1chats/get).
+        Метод отправляет сообщения в [чат с покупателем](/openapi/user-communication#tag/buyersChat/operation/getV1SellerChats).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2794,11 +2820,12 @@ paths:
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: postV1SellerMessage
       requestBody:
         content:
           multipart/form-data:
             schema:
-              $ref: "#/components/schemas/_api_v1_seller_message_post_request"
+              $ref: "#/components/schemas/postV1SellerMessage_request"
         required: true
       responses:
         "200":
@@ -2855,7 +2882,7 @@ paths:
                     requestId: 1b21cad4833a0c9244dc294a000f6149
                     error: Invalid value for "message"
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_events_get_400_response"
+                $ref: "#/components/schemas/getV1SellerEvents_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -2871,7 +2898,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2881,7 +2908,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2896,7 +2923,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2923,9 +2950,10 @@ paths:
         | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
         | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
         </div>
+      operationId: getV1SellerDownloadId
       parameters:
       - description: "ID файла, см. значение поля `downloadID` в методе [События ч\
-          атов](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1events/get)"
+          атов](./user-communication#tag/buyersChat/operation/getV1SellerEvents)"
         explode: false
         in: path
         name: id
@@ -2953,7 +2981,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_download__id__get_202_response"
+                $ref: "#/components/schemas/getV1SellerDownloadId_202_response"
           description: Файл на модерации
         "400":
           content:
@@ -2969,7 +2997,7 @@ paths:
                     requestId: 62f59a4ce21064f20b1bbc28c85f38d8
                     error: invalid fileID
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_events_get_400_response"
+                $ref: "#/components/schemas/getV1SellerEvents_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -2985,7 +3013,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2995,7 +3023,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3010,13 +3038,13 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
         "451":
           content:
             application/problem+json:
               schema:
-                $ref: "#/components/schemas/_api_v1_seller_download__id__get_451_response"
+                $ref: "#/components/schemas/getV1SellerDownloadId_451_response"
           description: Файл не прошёл модерацию
       security:
       - HeaderApiKey: []
@@ -3030,7 +3058,7 @@ paths:
   /api/v1/claims:
     get:
       description: |
-        Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).
+        Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/user-communication#tag/buyersReturns/operation/patchV1Claim).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3043,6 +3071,7 @@ paths:
         | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1Claims
       parameters:
       - description: |
           Состояние заявки:
@@ -3105,13 +3134,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_claims_get_200_response"
+                $ref: "#/components/schemas/getV1Claims_200_response"
           description: Успешно
         "400":
           content:
             application/problem+json:
               schema:
-                $ref: "#/components/schemas/_api_v1_claims_get_400_response"
+                $ref: "#/components/schemas/getV1Claims_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -3127,7 +3156,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -3137,7 +3166,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3152,7 +3181,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3166,7 +3195,7 @@ paths:
   /api/v1/claim:
     patch:
       description: |
-        Метод отправляет ответ на [заявку](/openapi/user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get) покупателя на возврат товаров.
+        Метод отправляет ответ на [заявку](/openapi/user-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3179,6 +3208,7 @@ paths:
         | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: patchV1Claim
       requestBody:
         $ref: "#/components/requestBodies/PatchClaimReq"
       responses:
@@ -3188,7 +3218,7 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: "#/components/schemas/_api_v1_claim_patch_400_response"
+                $ref: "#/components/schemas/patchV1Claim_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -3204,7 +3234,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Не авторизован
         "402":
           content:
@@ -3214,7 +3244,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3229,7 +3259,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+                $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3457,7 +3487,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_claim_patch_request"
+            $ref: "#/components/schemas/patchV1Claim_request"
       description: Ответ на заявку
       required: true
   responses:
@@ -3475,7 +3505,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+            $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
       description: Не авторизован
     "402":
       content:
@@ -3485,7 +3515,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_402_response"
+            $ref: "#/components/schemas/getV1NewFeedbacksQuestions_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -3500,25 +3530,25 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_401_response"
+            $ref: "#/components/schemas/getV1NewFeedbacksQuestions_401_response"
       description: Слишком много запросов
     GetClaimsSuccessResponse:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_claims_get_200_response"
+            $ref: "#/components/schemas/getV1Claims_200_response"
       description: Успешно
     Error400GetClaims:
       content:
         application/problem+json:
           schema:
-            $ref: "#/components/schemas/_api_v1_claims_get_400_response"
+            $ref: "#/components/schemas/getV1Claims_400_response"
       description: Неправильный запрос
     Error400PatchClaim:
       content:
         application/json; charset=utf-8:
           schema:
-            $ref: "#/components/schemas/_api_v1_claim_patch_400_response"
+            $ref: "#/components/schemas/patchV1Claim_400_response"
       description: Неправильный запрос
   schemas:
     standardizedFQError:
@@ -3594,7 +3624,7 @@ components:
           type: string
         replySign:
           description: |
-            Подпись чата. Требуется при [отправке сообщения](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1message/post)
+            Подпись чата. Требуется при [отправке сообщения](./user-communication#tag/buyersChat/operation/postV1SellerMessage)
           example: 1:4019cd7d-cca8-4e90-8b11-f78afbea42e3:54828159:bc3a4c04079f5956cff170b25e73523aa1208b5c0bd7aea1e520a64ae3e212b1ebae6712661f3afd27520fa785fa3042254e8a3100ce00644322054ae7cfcd0e
           type: string
         clientName:
@@ -3723,7 +3753,7 @@ components:
           type: string
         replySign:
           description: |
-            Подпись чата. Доступна только при `"isNewChat": true`. Требуется при [отправке сообщения](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1message/post)
+            Подпись чата. Доступна только при `"isNewChat": true`. Требуется при [отправке сообщения](./user-communication#tag/buyersChat/operation/postV1SellerMessage)
           type: string
         sender:
           $ref: "#/components/schemas/Sender"
@@ -3797,7 +3827,7 @@ components:
           description: Дата загрузки файла
           type: string
         downloadID:
-          description: "ID файла. [Получить файл](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1download~1%7Bid%7D/get)"
+          description: "ID файла. [Получить файл](./user-communication#tag/buyersChat/operation/getV1SellerDownloadId)"
           type: string
         name:
           description: Название файла
@@ -3832,10 +3862,11 @@ components:
           description: |
             Уникальный ID заказа. <br>
             Примечание: `rid` — это `srid` в ответах методов:
-             - [Заявки покупателей на возврат](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)
-              - [Заказы](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1orders/get)
-              - [Продажи](./reports#tag/Osnovnye-otchyoty/paths/~1api~1v1~1supplier~1sales/get)
-              - [Отчёт о возвратах и перемещении товаров](./reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
+              - [Заявки покупателей на возврат](./user-communication#tag/buyersReturns/operation/getV1Claims)
+              - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed)
+              - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders)
+              - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales)
+              - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport)
               - [Детализации к отчётам реализации по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId)
               - [Детализации к отчётам реализации за период](./financial-reports-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed)
               - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./financial-reports-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId)
@@ -3868,7 +3899,7 @@ components:
           description: Дата загрузки изображения
           type: string
         downloadID:
-          description: "ID файла. [Получить файл](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1download~1%7Bid%7D/get)"
+          description: "ID файла. [Получить файл](./user-communication#tag/buyersChat/operation/getV1SellerDownloadId)"
           type: string
         url:
           description: URL для получения изображения
@@ -4386,7 +4417,7 @@ components:
       required:
       - data
       type: object
-    _api_v1_new_feedbacks_questions_get_200_response_data:
+    getV1NewFeedbacksQuestions_200_response_data:
       example:
         hasNewQuestions: true
         hasNewFeedbacks: false
@@ -4406,7 +4437,7 @@ components:
           example: false
           type: boolean
       type: object
-    _api_v1_new_feedbacks_questions_get_200_response:
+    getV1NewFeedbacksQuestions_200_response:
       example:
         data:
           hasNewQuestions: true
@@ -4418,7 +4449,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_new_feedbacks_questions_get_200_response_data"
+          $ref: "#/components/schemas/getV1NewFeedbacksQuestions_200_response_data"
         error:
           description: Есть ли ошибка
           example: false
@@ -4435,7 +4466,7 @@ components:
           type: array
           example: null
       type: object
-    _api_v1_new_feedbacks_questions_get_401_response:
+    getV1NewFeedbacksQuestions_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -4463,7 +4494,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v1_new_feedbacks_questions_get_402_response:
+    getV1NewFeedbacksQuestions_402_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -4473,7 +4504,7 @@ components:
             алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
-    _api_v1_questions_count_unanswered_get_200_response_data:
+    getV1QuestionsCountUnanswered_200_response_data:
       example:
         countUnanswered: 24
         countUnansweredToday: 0
@@ -4487,7 +4518,7 @@ components:
           example: 0
           type: integer
       type: object
-    _api_v1_questions_count_unanswered_get_200_response:
+    getV1QuestionsCountUnanswered_200_response:
       example:
         data:
           countUnanswered: 24
@@ -4499,7 +4530,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_questions_count_unanswered_get_200_response_data"
+          $ref: "#/components/schemas/getV1QuestionsCountUnanswered_200_response_data"
         error:
           description: Есть ли ошибка
           example: false
@@ -4516,7 +4547,7 @@ components:
           type: array
           example: null
       type: object
-    _api_v1_questions_count_get_200_response:
+    getV1QuestionsCount_200_response:
       example:
         data: 77
         error: false
@@ -4545,7 +4576,7 @@ components:
           type: array
           example: null
       type: object
-    _api_v1_questions_get_200_response_data_questions_inner_answer:
+    getV1Questions_200_response_data_questions_inner_answer:
       description: Структура ответа
       example:
         text: text
@@ -4565,7 +4596,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v1_questions_get_200_response_data_questions_inner_productDetails:
+    getV1Questions_200_response_data_questions_inner_productDetails:
       description: Информация о товаре
       example:
         nmId: 1
@@ -4595,7 +4626,7 @@ components:
           description: Название бренда
           type: string
       type: object
-    _api_v1_questions_get_200_response_data_questions_inner:
+    getV1Questions_200_response_data_questions_inner:
       example:
         id: id
         text: text
@@ -4633,9 +4664,9 @@ components:
               - `suppliersPortalSynch` - новый вопрос
           type: string
         answer:
-          $ref: "#/components/schemas/_api_v1_questions_get_200_response_data_questions_inner_answer"
+          $ref: "#/components/schemas/getV1Questions_200_response_data_questions_inner_answer"
         productDetails:
-          $ref: "#/components/schemas/_api_v1_questions_get_200_response_data_questions_inner_productDetails"
+          $ref: "#/components/schemas/getV1Questions_200_response_data_questions_inner_productDetails"
         wasViewed:
           description: Просмотрен ли вопрос
           type: boolean
@@ -4645,7 +4676,7 @@ components:
             Если `true`, то вопрос опубликован, но на портале продавцов вы увидите баннер **Сообщение подозрительное**
           type: boolean
       type: object
-    _api_v1_questions_get_200_response_data:
+    getV1Questions_200_response_data:
       example:
         countUnanswered: 0
         countArchive: 6
@@ -4694,10 +4725,10 @@ components:
         questions:
           description: Вопросы
           items:
-            $ref: "#/components/schemas/_api_v1_questions_get_200_response_data_questions_inner"
+            $ref: "#/components/schemas/getV1Questions_200_response_data_questions_inner"
           type: array
       type: object
-    _api_v1_questions_get_200_response:
+    getV1Questions_200_response:
       example:
         data:
           countUnanswered: 0
@@ -4744,7 +4775,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_questions_get_200_response_data"
+          $ref: "#/components/schemas/getV1Questions_200_response_data"
         error:
           description: Есть ли ошибка
           example: false
@@ -4760,7 +4791,7 @@ components:
           nullable: true
           type: array
       type: object
-    _api_v1_questions_patch_request_oneOf:
+    patchV1Questions_request_oneOf:
       properties:
         id:
           description: Id вопроса
@@ -4774,7 +4805,7 @@ components:
       - id
       - wasViewed
       type: object
-    _api_v1_questions_patch_request_oneOf_1_answer:
+    patchV1Questions_request_oneOf_1_answer:
       properties:
         text:
           description: Текст ответа
@@ -4783,14 +4814,14 @@ components:
       required:
       - text
       type: object
-    _api_v1_questions_patch_request_oneOf_1:
+    patchV1Questions_request_oneOf_1:
       properties:
         id:
           description: Id вопроса
           example: n5um6IUBQOOSTxXoo0gV
           type: string
         answer:
-          $ref: "#/components/schemas/_api_v1_questions_patch_request_oneOf_1_answer"
+          $ref: "#/components/schemas/patchV1Questions_request_oneOf_1_answer"
         state:
           description: |
             Статус вопроса:
@@ -4802,11 +4833,11 @@ components:
       - id
       - state
       type: object
-    _api_v1_questions_patch_request:
+    patchV1Questions_request:
       oneOf:
-      - $ref: "#/components/schemas/_api_v1_questions_patch_request_oneOf"
-      - $ref: "#/components/schemas/_api_v1_questions_patch_request_oneOf_1"
-    _api_v1_questions_patch_200_response:
+      - $ref: "#/components/schemas/patchV1Questions_request_oneOf"
+      - $ref: "#/components/schemas/patchV1Questions_request_oneOf_1"
+    patchV1Questions_200_response:
       example:
         data: "{}"
         error: true
@@ -4831,7 +4862,7 @@ components:
           nullable: true
           type: array
       type: object
-    _api_v1_question_get_200_response_data_answer:
+    getV1Question_200_response_data_answer:
       description: Ответ
       example:
         text: text
@@ -4851,7 +4882,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v1_question_get_200_response_data_productDetails:
+    getV1Question_200_response_data_productDetails:
       description: Item information
       example:
         nmId: 0
@@ -4881,7 +4912,7 @@ components:
           description: Название бренда
           type: string
       type: object
-    _api_v1_question_get_200_response_data:
+    getV1Question_200_response_data:
       example:
         id: id
         text: text
@@ -4919,9 +4950,9 @@ components:
               - `suppliersPortalSynch` - новый вопрос
           type: string
         answer:
-          $ref: "#/components/schemas/_api_v1_question_get_200_response_data_answer"
+          $ref: "#/components/schemas/getV1Question_200_response_data_answer"
         productDetails:
-          $ref: "#/components/schemas/_api_v1_question_get_200_response_data_productDetails"
+          $ref: "#/components/schemas/getV1Question_200_response_data_productDetails"
         wasViewed:
           description: Просмотрен ли вопрос
           type: boolean
@@ -4931,7 +4962,7 @@ components:
             Если `true`, то вопрос опубликован, но на портале продавцов вы увидите баннер **Сообщение подозрительное**
           type: boolean
       type: object
-    _api_v1_question_get_200_response:
+    getV1Question_200_response:
       example:
         data:
           id: id
@@ -4958,7 +4989,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_question_get_200_response_data"
+          $ref: "#/components/schemas/getV1Question_200_response_data"
         error:
           description: Есть ли ошибка
           example: false
@@ -4975,7 +5006,7 @@ components:
           type: array
           example: null
       type: object
-    _api_v1_feedbacks_count_unanswered_get_200_response_data:
+    getV1FeedbacksCountUnanswered_200_response_data:
       example:
         countUnanswered: 1
         countUnansweredToday: 0
@@ -4989,7 +5020,7 @@ components:
           example: 0
           type: integer
       type: object
-    _api_v1_feedbacks_count_unanswered_get_200_response:
+    getV1FeedbacksCountUnanswered_200_response:
       example:
         data:
           countUnanswered: 1
@@ -5001,7 +5032,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_feedbacks_count_unanswered_get_200_response_data"
+          $ref: "#/components/schemas/getV1FeedbacksCountUnanswered_200_response_data"
         error:
           description: Есть ли ошибка
           example: false
@@ -5018,7 +5049,7 @@ components:
           type: array
           example: null
       type: object
-    _api_v1_feedbacks_count_get_200_response:
+    getV1FeedbacksCount_200_response:
       example:
         data: 724583
         error: false
@@ -5047,7 +5078,7 @@ components:
           type: array
           example: null
       type: object
-    _api_v1_feedbacks_get_200_response_data:
+    getV1Feedbacks_200_response_data:
       example:
         countUnanswered: 0
         countArchive: 6
@@ -5161,7 +5192,7 @@ components:
             $ref: "#/components/schemas/responseFeedback_inner"
           type: array
       type: object
-    _api_v1_feedbacks_get_200_response:
+    getV1Feedbacks_200_response:
       example:
         data:
           countUnanswered: 0
@@ -5270,7 +5301,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_feedbacks_get_200_response_data"
+          $ref: "#/components/schemas/getV1Feedbacks_200_response_data"
         error:
           description: Есть ли ошибка
           type: boolean
@@ -5284,7 +5315,7 @@ components:
           nullable: true
           type: array
       type: object
-    _api_v1_feedbacks_answer_post_request:
+    postV1FeedbacksAnswer_request:
       properties:
         id:
           description: ID отзыва
@@ -5300,7 +5331,7 @@ components:
       - id
       - text
       type: object
-    _api_v1_feedbacks_answer_patch_request:
+    patchV1FeedbacksAnswer_request:
       properties:
         id:
           description: ID отзыва
@@ -5316,13 +5347,13 @@ components:
       - id
       - text
       type: object
-    _api_v1_feedbacks_order_return_post_request:
+    postV1FeedbacksOrderReturn_request:
       properties:
         feedbackId:
           description: ID отзыва
           type: string
       type: object
-    _api_v1_feedback_get_200_response_data_answer:
+    getV1Feedback_200_response_data_answer:
       description: Структура ответа
       example:
         text: text
@@ -5348,7 +5379,7 @@ components:
               - `true` — да
           type: boolean
       type: object
-    _api_v1_feedback_get_200_response_data_productDetails:
+    getV1Feedback_200_response_data_productDetails:
       description: Item information
       example:
         nmId: 6
@@ -5385,7 +5416,7 @@ components:
           description: Размер товара (`techSize` в КТ)
           type: string
       type: object
-    _api_v1_feedback_get_200_response_data_photoLinks_inner:
+    getV1Feedback_200_response_data_photoLinks_inner:
       example:
         fullSize: fullSize
         miniSize: miniSize
@@ -5397,7 +5428,7 @@ components:
           description: Адрес фотографии маленького размера
           type: string
       type: object
-    _api_v1_feedback_get_200_response_data_video:
+    getV1Feedback_200_response_data_video:
       description: Структура видео
       example:
         previewImage: previewImage
@@ -5415,7 +5446,7 @@ components:
           description: Общая продолжительность видео
           type: integer
       type: object
-    _api_v1_feedback_get_200_response_data:
+    getV1Feedback_200_response_data:
       example:
         id: id
         text: text
@@ -5497,7 +5528,7 @@ components:
           format: date-time
           type: string
         answer:
-          $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_answer"
+          $ref: "#/components/schemas/getV1Feedback_200_response_data_answer"
         state:
           description: |
             Статус отзыва:
@@ -5505,11 +5536,11 @@ components:
               - `wbRu` - обработан
           type: string
         productDetails:
-          $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_productDetails"
+          $ref: "#/components/schemas/getV1Feedback_200_response_data_productDetails"
         photoLinks:
           description: Массив структур фотографий
           items:
-            $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_photoLinks_inner"
+            $ref: "#/components/schemas/getV1Feedback_200_response_data_photoLinks_inner"
           nullable: true
           type: array
         userName:
@@ -5526,7 +5557,7 @@ components:
             - `notSpecified` — статус не присвоен
           type: string
         video:
-          $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_video"
+          $ref: "#/components/schemas/getV1Feedback_200_response_data_video"
         wasViewed:
           description: Просмотрен ли отзыв
           type: boolean
@@ -5590,7 +5621,7 @@ components:
           nullable: true
           type: string
       type: object
-    _api_v1_feedback_get_200_response:
+    getV1Feedback_200_response:
       example:
         data:
           id: id
@@ -5648,7 +5679,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data"
+          $ref: "#/components/schemas/getV1Feedback_200_response_data"
         error:
           description: Есть ли ошибка
           type: boolean
@@ -5662,7 +5693,7 @@ components:
           nullable: true
           type: array
       type: object
-    _api_v1_feedbacks_archive_get_200_response_data:
+    getV1FeedbacksArchive_200_response_data:
       example:
         feedbacks:
         - id: id
@@ -5768,7 +5799,7 @@ components:
             $ref: "#/components/schemas/responseFeedback_inner"
           type: array
       type: object
-    _api_v1_feedbacks_archive_get_200_response:
+    getV1FeedbacksArchive_200_response:
       example:
         data:
           feedbacks:
@@ -5875,7 +5906,7 @@ components:
         - additionalErrors
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_feedbacks_archive_get_200_response_data"
+          $ref: "#/components/schemas/getV1FeedbacksArchive_200_response_data"
         error:
           description: Есть ли ошибка
           type: boolean
@@ -5889,7 +5920,7 @@ components:
           nullable: true
           type: array
       type: object
-    _api_feedbacks_v1_pins_get_200_response:
+    getFeedbacksV1Pins_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - properties:
@@ -5925,7 +5956,7 @@ components:
           state: unpinned
           unpinnedCause: sysTariffUnpinned
         next: 200
-    _api_feedbacks_v1_pins_post_200_response:
+    postFeedbacksV1Pins_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - $ref: "#/components/schemas/openapi.PinReviewItemResult"
@@ -5953,7 +5984,7 @@ components:
             detail: item not found or does not belong to seller
             requestId: 0414dс48df701618e0а3bfc414fe3136
             origin: pin-open-api
-    _api_feedbacks_v1_pins_delete_200_response:
+    deleteFeedbacksV1Pins_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - properties:
@@ -5973,7 +6004,7 @@ components:
         - 123456
         - 234567
         - 345678
-    _api_feedbacks_v1_pins_count_get_200_response:
+    getFeedbacksV1PinsCount_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - properties:
@@ -5983,7 +6014,7 @@ components:
         type: object
       example:
         data: 0
-    _api_feedbacks_v1_pins_limits_get_200_response:
+    getFeedbacksV1PinsLimits_200_response:
       allOf:
       - $ref: "#/components/schemas/respond.SuccessResponse"
       - $ref: "#/components/schemas/openapi.SellerLimitsResponse"
@@ -5991,7 +6022,7 @@ components:
         data:
           subscription: "{}"
           tariff: "{}"
-    _api_v1_seller_events_get_400_response:
+    getV1SellerEvents_400_response:
       example:
         status: 5.637376656633329
         title: title
@@ -6019,11 +6050,11 @@ components:
           description: Текст ошибки
           type: string
       type: object
-    _api_v1_seller_message_post_request:
+    postV1SellerMessage_request:
       properties:
         replySign:
           description: |
-            Подпись чата. Можно получить из [информации по чату](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1chats/get) или [данных события](./user-communication#tag/Chat-s-pokupatelyami/paths/~1api~1v1~1seller~1events/get), если в событии есть поле `"isNewChat": true`.
+            Подпись чата. Можно получить из [информации по чату](./user-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./user-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле `"isNewChat": true`.
           maxLength: 255
           type: string
         message:
@@ -6040,7 +6071,7 @@ components:
       required:
       - replySign
       type: object
-    _api_v1_seller_download__id__get_202_response:
+    getV1SellerDownloadId_202_response:
       example:
         moderationState: pending
         retrySeconds: 30
@@ -6057,7 +6088,7 @@ components:
       - moderationState
       - retrySeconds
       type: object
-    _api_v1_seller_download__id__get_451_response:
+    getV1SellerDownloadId_451_response:
       properties:
         status:
           description: HTTP статус-код
@@ -6080,7 +6111,7 @@ components:
           example: 62f59a4ce21064f20b1bbc28c85f38d8
           type: string
       type: object
-    _api_v1_claims_get_200_response_claims_inner:
+    getV1Claims_200_response_claims_inner:
       properties:
         id:
           description: ID заявки
@@ -6153,7 +6184,7 @@ components:
           type: array
         actions:
           description: |
-            Варианты [ответа продавца на заявку](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>Отклонённые заявки можно пересмотреть. Если массив пуст, с заявкой работать нельзя.
+            Варианты [ответа продавца на заявку](./user-communication#tag/buyersReturns/operation/patchV1Claim).<br>Отклонённые заявки можно пересмотреть. Если массив пуст, с заявкой работать нельзя.
               * `approve1` — одобрить с проверкой брака.<br>Деньги вернутся покупателю после возврата товара. Товар будет проверен на складе. При подтверждении брака/ошибки вложения товар будет отправлен продавцу. Если брак/ошибка вложения не подтвердятся, товар будет возвращён в продажу.<br>Неприменимо при модели <strong>[Самовывоз](./in-store-pickup)</strong>.
               * `approve2` — одобрить и забрать товар.<br> Деньги вернутся покупателю после возврата товара. Товар будет отправлен продавцу.<br>Неприменимо при модели <strong>[Самовывоз](./in-store-pickup)</strong>.
               * `autorefund1` — одобрить без возврата товара.<br> Товар останется у покупателя. Деньги за него будут возвращены покупателю без возврата товара.
@@ -6180,7 +6211,7 @@ components:
             \ для возврата через ПВЗ Wildberries.<br>Значение показывает, совпадае\
             т ли IMEI, который был указан продавцом или отсканирован при приёмке н\
             а складе Wildberries, с IMEI из заявки покупателя, что позволяет эффек\
-            тивнее [обрабатывать заявки](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claim/patch).<br>П\
+            тивнее [обрабатывать заявки](./user-communication#tag/buyersReturns/operation/patchV1Claim).<br>П\
             рименимо только для товаров **Apple** предмета `Смартфоны` (`\"subjectId\"\
             :515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1upload~1task/post)\
             \ параметры и поля `price` и `discount`)"
@@ -6190,7 +6221,7 @@ components:
           description: Дата и время получения заказа покупателем
           type: string
       type: object
-    _api_v1_claims_get_200_response:
+    getV1Claims_200_response:
       example:
         claims:
         - id: fe3e9337-e9f9-423c-8930-946a8ebef80
@@ -6226,14 +6257,14 @@ components:
         claims:
           description: Заявки
           items:
-            $ref: "#/components/schemas/_api_v1_claims_get_200_response_claims_inner"
+            $ref: "#/components/schemas/getV1Claims_200_response_claims_inner"
           type: array
         total:
           description: "Количество заявок, соответствующих параметрам запроса. Без\
             \ учёта `limit` и `offset`"
           type: integer
       type: object
-    _api_v1_claims_get_400_response:
+    getV1Claims_400_response:
       properties:
         title:
           description: ID ошибки
@@ -6248,7 +6279,7 @@ components:
           example: e0aedc10-9789-49c1-9a83-d8422b4703dc
           type: string
       type: object
-    _api_v1_claim_patch_request:
+    patchV1Claim_request:
       properties:
         id:
           description: ID заявки
@@ -6257,7 +6288,7 @@ components:
           type: string
         action:
           description: "Действие с заявкой.<br>Используйте одно из значений массив\
-            а `actions` — ответа [метода получения заявок](./user-communication#tag/Vozvraty-pokupatelyami/paths/~1api~1v1~1claims/get)"
+            а `actions` — ответа [метода получения заявок](./user-communication#tag/buyersReturns/operation/getV1Claims)"
           example: rejectcustom
           type: string
         comment:
@@ -6271,7 +6302,7 @@ components:
       - action
       - id
       type: object
-    _api_v1_claim_patch_400_response:
+    patchV1Claim_400_response:
       example:
         title: Validation error
         detail: "Input model is not valid; Details: The Action field is required."
@@ -6457,7 +6488,7 @@ components:
         photoLinks:
           description: Массив структур фотографий
           items:
-            $ref: "#/components/schemas/_api_v1_feedback_get_200_response_data_photoLinks_inner"
+            $ref: "#/components/schemas/getV1Feedback_200_response_data_photoLinks_inner"
           nullable: true
           type: array
         video:

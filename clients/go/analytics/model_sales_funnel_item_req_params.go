@@ -1,7 +1,7 @@
 /*
 Аналитика и данные
 
-<div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)   2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)   3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)   4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)   5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)  </div> 
+<div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)   2. [Ленты заказов](/openapi/analytics#tag/orderFeed)   3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)   4. [Истории остатков](/openapi/analytics#tag/stocksReport)   5. [Оценки товара](/openapi/analytics#tag/itemRating)   6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)  </div> 
 
 API version: analytics
 */
@@ -33,7 +33,7 @@ type SalesFunnelItemReqParams struct {
 	StartDate string `json:"startDate"`
 	// Конец периода
 	EndDate string `json:"endDate"`
-	// Временная зона, по умолчанию Europe/Moscow 
+	// Временная зона по формату [IANA](https://nodatime.org/TimeZones)
 	Timezone *string `json:"timezone,omitempty"`
 	// Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам 
 	AggregationLevel *string `json:"aggregationLevel,omitempty"`
@@ -51,6 +51,8 @@ func NewSalesFunnelItemReqParams(startDate string, endDate string) *SalesFunnelI
 	this := SalesFunnelItemReqParams{}
 	this.StartDate = startDate
 	this.EndDate = endDate
+	var timezone string = "Europe/Moscow"
+	this.Timezone = &timezone
 	return &this
 }
 
@@ -59,6 +61,8 @@ func NewSalesFunnelItemReqParams(startDate string, endDate string) *SalesFunnelI
 // but it doesn't guarantee that properties required by API are set
 func NewSalesFunnelItemReqParamsWithDefaults() *SalesFunnelItemReqParams {
 	this := SalesFunnelItemReqParams{}
+	var timezone string = "Europe/Moscow"
+	this.Timezone = &timezone
 	return &this
 }
 

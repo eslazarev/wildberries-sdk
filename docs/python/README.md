@@ -287,31 +287,31 @@ print(feedbacks)
 - `promotion.DefaultApi.post_v1_normquery_bids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 
 ### communications (`communications`)
-- `communications.DefaultApi.api_feedbacks_v1_pins_count_get` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApi.api_feedbacks_v1_pins_delete` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
-- `communications.DefaultApi.api_feedbacks_v1_pins_get` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApi.api_feedbacks_v1_pins_limits_get` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
-- `communications.DefaultApi.api_feedbacks_v1_pins_post` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
-- `communications.DefaultApi.api_v1_claim_patch` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
-- `communications.DefaultApi.api_v1_claims_get` — `GET /api/v1/claims` — Заявки покупателей на возврат
-- `communications.DefaultApi.api_v1_feedback_get` — `GET /api/v1/feedback` — Получить отзыв по ID
-- `communications.DefaultApi.api_v1_feedbacks_answer_patch` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
-- `communications.DefaultApi.api_v1_feedbacks_answer_post` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
-- `communications.DefaultApi.api_v1_feedbacks_archive_get` — `GET /api/v1/feedbacks/archive` — Список архивных отзывов
-- `communications.DefaultApi.api_v1_feedbacks_count_get` — `GET /api/v1/feedbacks/count` — Количество отзывов
-- `communications.DefaultApi.api_v1_feedbacks_count_unanswered_get` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
-- `communications.DefaultApi.api_v1_feedbacks_get` — `GET /api/v1/feedbacks` — Список отзывов
-- `communications.DefaultApi.api_v1_feedbacks_order_return_post` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
-- `communications.DefaultApi.api_v1_new_feedbacks_questions_get` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
-- `communications.DefaultApi.api_v1_question_get` — `GET /api/v1/question` — Получить вопрос по ID
-- `communications.DefaultApi.api_v1_questions_count_get` — `GET /api/v1/questions/count` — Количество вопросов
-- `communications.DefaultApi.api_v1_questions_count_unanswered_get` — `GET /api/v1/questions/count-unanswered` — Неотвеченные вопросы
-- `communications.DefaultApi.api_v1_questions_get` — `GET /api/v1/questions` — Список вопросов
-- `communications.DefaultApi.api_v1_questions_patch` — `PATCH /api/v1/questions` — Работа с вопросами
-- `communications.DefaultApi.api_v1_seller_chats_get` — `GET /api/v1/seller/chats` — Список чатов
-- `communications.DefaultApi.api_v1_seller_download_id_get` — `GET /api/v1/seller/download/{id}` — Получить файл из сообщения
-- `communications.DefaultApi.api_v1_seller_events_get` — `GET /api/v1/seller/events` — События чатов
-- `communications.DefaultApi.api_v1_seller_message_post` — `POST /api/v1/seller/message` — Отправить сообщение
+- `communications.DefaultApi.delete_feedbacks_v1_pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
+- `communications.DefaultApi.get_feedbacks_v1_pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApi.get_feedbacks_v1_pins_count` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApi.get_feedbacks_v1_pins_limits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
+- `communications.DefaultApi.get_v1_claims` — `GET /api/v1/claims` — Заявки покупателей на возврат
+- `communications.DefaultApi.get_v1_feedback` — `GET /api/v1/feedback` — Получить отзыв по ID
+- `communications.DefaultApi.get_v1_feedbacks` — `GET /api/v1/feedbacks` — Список отзывов
+- `communications.DefaultApi.get_v1_feedbacks_archive` — `GET /api/v1/feedbacks/archive` — Список архивных отзывов
+- `communications.DefaultApi.get_v1_feedbacks_count` — `GET /api/v1/feedbacks/count` — Количество отзывов
+- `communications.DefaultApi.get_v1_feedbacks_count_unanswered` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
+- `communications.DefaultApi.get_v1_new_feedbacks_questions` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApi.get_v1_question` — `GET /api/v1/question` — Получить вопрос по ID
+- `communications.DefaultApi.get_v1_questions` — `GET /api/v1/questions` — Список вопросов
+- `communications.DefaultApi.get_v1_questions_count` — `GET /api/v1/questions/count` — Количество вопросов
+- `communications.DefaultApi.get_v1_questions_count_unanswered` — `GET /api/v1/questions/count-unanswered` — Неотвеченные вопросы
+- `communications.DefaultApi.get_v1_seller_chats` — `GET /api/v1/seller/chats` — Список чатов
+- `communications.DefaultApi.get_v1_seller_download_id` — `GET /api/v1/seller/download/{id}` — Получить файл из сообщения
+- `communications.DefaultApi.get_v1_seller_events` — `GET /api/v1/seller/events` — События чатов
+- `communications.DefaultApi.patch_v1_claim` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
+- `communications.DefaultApi.patch_v1_feedbacks_answer` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
+- `communications.DefaultApi.patch_v1_questions` — `PATCH /api/v1/questions` — Работа с вопросами
+- `communications.DefaultApi.post_feedbacks_v1_pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
+- `communications.DefaultApi.post_v1_feedbacks_answer` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
+- `communications.DefaultApi.post_v1_feedbacks_order_return` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
+- `communications.DefaultApi.post_v1_seller_message` — `POST /api/v1/seller/message` — Отправить сообщение
 
 ### rates (`rates`)
 - `rates.DefaultApi.get_v1_acceptance_coefficients` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
@@ -321,51 +321,52 @@ print(feedbacks)
 - `rates.DefaultApi.get_v1_tariffs_return` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
-- `analytics.DefaultApi.api_v2_nm_report_downloads_file_download_id_get` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
-- `analytics.DefaultApi.api_v2_nm_report_downloads_get` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
-- `analytics.DefaultApi.api_v2_nm_report_downloads_post` — `POST /api/v2/nm-report/downloads` — Создать отчёт
-- `analytics.DefaultApi.api_v2_nm_report_downloads_retry_post` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
-- `analytics.DefaultApi.api_v2_search_report_product_orders_post` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
-- `analytics.DefaultApi.api_v2_search_report_product_search_texts_post` — `POST /api/v2/search-report/product/search-texts` — Поисковые запросы по товару
-- `analytics.DefaultApi.api_v2_search_report_report_post` — `POST /api/v2/search-report/report` — Основная страница
-- `analytics.DefaultApi.api_v2_search_report_table_details_post` — `POST /api/v2/search-report/table/details` — Пагинация по товарам в группе
-- `analytics.DefaultApi.api_v2_search_report_table_groups_post` — `POST /api/v2/search-report/table/groups` — Пагинация по группам
-- `analytics.DefaultApi.api_v2_stocks_report_offices_post` — `POST /api/v2/stocks-report/offices` — Данные по складам
-- `analytics.DefaultApi.api_v2_stocks_report_products_groups_post` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
-- `analytics.DefaultApi.api_v2_stocks_report_products_products_post` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
-- `analytics.DefaultApi.api_v2_stocks_report_products_sizes_post` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
+- `analytics.DefaultApi.get_v2_nm_report_downloads` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
+- `analytics.DefaultApi.get_v2_nm_report_downloads_file_download_id` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
 - `analytics.DefaultApi.post_v1_item_rating` — `POST /api/analytics/v1/item-rating` — (Deprecated) Получить отчёт
+- `analytics.DefaultApi.post_v1_order_feed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
 - `analytics.DefaultApi.post_v1_stocks_report_wb_warehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApi.post_v2_item_rating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
+- `analytics.DefaultApi.post_v2_nm_report_downloads` — `POST /api/v2/nm-report/downloads` — Создать отчёт
+- `analytics.DefaultApi.post_v2_nm_report_downloads_retry` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
+- `analytics.DefaultApi.post_v2_search_report_product_orders` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
+- `analytics.DefaultApi.post_v2_search_report_product_search_texts` — `POST /api/v2/search-report/product/search-texts` — Поисковые запросы по товару
+- `analytics.DefaultApi.post_v2_search_report_report` — `POST /api/v2/search-report/report` — Основная страница
+- `analytics.DefaultApi.post_v2_search_report_table_details` — `POST /api/v2/search-report/table/details` — Пагинация по товарам в группе
+- `analytics.DefaultApi.post_v2_search_report_table_groups` — `POST /api/v2/search-report/table/groups` — Пагинация по группам
+- `analytics.DefaultApi.post_v2_stocks_report_offices` — `POST /api/v2/stocks-report/offices` — Данные по складам
+- `analytics.DefaultApi.post_v2_stocks_report_products_groups` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
+- `analytics.DefaultApi.post_v2_stocks_report_products_products` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
+- `analytics.DefaultApi.post_v2_stocks_report_products_sizes` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
 - `analytics.DefaultApi.post_v3_sales_funnel_grouped_history` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
 - `analytics.DefaultApi.post_v3_sales_funnel_products` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
 - `analytics.DefaultApi.post_v3_sales_funnel_products_history` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
 
 ### reports (`reports`)
-- `reports.DefaultApi.api_v1_acceptance_report_get` — `GET /api/v1/acceptance_report` — Создать отчёт
-- `reports.DefaultApi.api_v1_acceptance_report_tasks_task_id_download_get` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApi.api_v1_acceptance_report_tasks_task_id_status_get` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApi.api_v1_analytics_antifraud_details_get` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `reports.DefaultApi.api_v1_analytics_banned_products_blocked_get` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
-- `reports.DefaultApi.api_v1_analytics_banned_products_shadowed_get` — `GET /api/v1/analytics/banned-products/shadowed` — (Deprecated) Скрытые из каталога
-- `reports.DefaultApi.api_v1_analytics_brand_share_brands_get` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
-- `reports.DefaultApi.api_v1_analytics_brand_share_get` — `GET /api/v1/analytics/brand-share` — Получить отчёт
-- `reports.DefaultApi.api_v1_analytics_brand_share_parent_subjects_get` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
-- `reports.DefaultApi.api_v1_analytics_excise_report_post` — `POST /api/v1/analytics/excise-report` — Получить отчёт
-- `reports.DefaultApi.api_v1_analytics_goods_labeling_get` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
-- `reports.DefaultApi.api_v1_analytics_goods_return_get` — `GET /api/v1/analytics/goods-return` — Получить отчёт
-- `reports.DefaultApi.api_v1_analytics_region_sale_get` — `GET /api/v1/analytics/region-sale` — Получить отчёт
-- `reports.DefaultApi.api_v1_paid_storage_get` — `GET /api/v1/paid_storage` — Создать отчёт
-- `reports.DefaultApi.api_v1_paid_storage_tasks_task_id_download_get` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApi.api_v1_paid_storage_tasks_task_id_status_get` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApi.api_v1_supplier_orders_get` — `GET /api/v1/supplier/orders` — Заказы
-- `reports.DefaultApi.api_v1_supplier_sales_get` — `GET /api/v1/supplier/sales` — Продажи
-- `reports.DefaultApi.api_v1_warehouse_remains_get` — `GET /api/v1/warehouse_remains` — Создать отчёт
-- `reports.DefaultApi.api_v1_warehouse_remains_tasks_task_id_download_get` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApi.api_v1_warehouse_remains_tasks_task_id_status_get` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
+- `reports.DefaultApi.get_v1_acceptance_report` — `GET /api/v1/acceptance_report` — Создать отчёт
+- `reports.DefaultApi.get_v1_acceptance_report_tasks_task_id_download` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
+- `reports.DefaultApi.get_v1_acceptance_report_tasks_task_id_status` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
+- `reports.DefaultApi.get_v1_analytics_antifraud_details` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
+- `reports.DefaultApi.get_v1_analytics_banned_producs_blocked` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
+- `reports.DefaultApi.get_v1_analytics_banned_products_shadowed` — `GET /api/v1/analytics/banned-products/shadowed` — (Deprecated) Скрытые из каталога
+- `reports.DefaultApi.get_v1_analytics_brand_share` — `GET /api/v1/analytics/brand-share` — Получить отчёт
+- `reports.DefaultApi.get_v1_analytics_brand_share_brands` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
+- `reports.DefaultApi.get_v1_analytics_brand_share_parent_subjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
+- `reports.DefaultApi.get_v1_analytics_goods_labeling` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
+- `reports.DefaultApi.get_v1_analytics_goods_return` — `GET /api/v1/analytics/goods-return` — Получить отчёт
+- `reports.DefaultApi.get_v1_analytics_region_sale` — `GET /api/v1/analytics/region-sale` — Получить отчёт
 - `reports.DefaultApi.get_v1_deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
 - `reports.DefaultApi.get_v1_measurement_penalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
+- `reports.DefaultApi.get_v1_paid_storage` — `GET /api/v1/paid_storage` — Создать отчёт
+- `reports.DefaultApi.get_v1_paid_storage_tasks_task_id_download` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
+- `reports.DefaultApi.get_v1_paid_storage_tasks_task_id_status` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
+- `reports.DefaultApi.get_v1_supplier_orders` — `GET /api/v1/supplier/orders` — Заказы
+- `reports.DefaultApi.get_v1_supplier_sales` — `GET /api/v1/supplier/sales` — Продажи
 - `reports.DefaultApi.get_v1_warehouse_measurements` — `GET /api/analytics/v1/warehouse-measurements` — Замеры склада
+- `reports.DefaultApi.get_v1_warehouse_remains` — `GET /api/v1/warehouse_remains` — Создать отчёт
+- `reports.DefaultApi.get_v1_warehouse_remains_tasks_task_id_download` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
+- `reports.DefaultApi.get_v1_warehouse_remains_tasks_task_id_status` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
+- `reports.DefaultApi.post_v1_analytics_excise_report` — `POST /api/v1/analytics/excise-report` — Получить отчёт
 
 ### finances (`finances`)
 - `finances.DefaultApi.get_v1_account_balance` — `GET /api/v1/account/balance` — Получить баланс продавца

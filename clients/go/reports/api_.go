@@ -1,7 +1,7 @@
 /*
 Отчёты
 
-<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
+<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
 
 API version: reports
 */
@@ -24,7 +24,7 @@ import (
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
-type ApiApiV1AcceptanceReportGetRequest struct {
+type ApiGetV1AcceptanceReportRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	dateFrom *string
@@ -32,25 +32,25 @@ type ApiApiV1AcceptanceReportGetRequest struct {
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AcceptanceReportGetRequest) DateFrom(dateFrom string) ApiApiV1AcceptanceReportGetRequest {
+func (r ApiGetV1AcceptanceReportRequest) DateFrom(dateFrom string) ApiGetV1AcceptanceReportRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AcceptanceReportGetRequest) DateTo(dateTo string) ApiApiV1AcceptanceReportGetRequest {
+func (r ApiGetV1AcceptanceReportRequest) DateTo(dateTo string) ApiGetV1AcceptanceReportRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiApiV1AcceptanceReportGetRequest) Execute() (*CreateTaskResponse, *http.Response, error) {
-	return r.ApiService.ApiV1AcceptanceReportGetExecute(r)
+func (r ApiGetV1AcceptanceReportRequest) Execute() (*CreateTaskResponse, *http.Response, error) {
+	return r.ApiService.GetV1AcceptanceReportExecute(r)
 }
 
 /*
-ApiV1AcceptanceReportGet Создать отчёт
+GetV1AcceptanceReport Создать отчёт
 
-Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>
 
 Можно получить отчёт максимум за 31 день.
 
@@ -68,10 +68,10 @@ ApiV1AcceptanceReportGet Создать отчёт
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AcceptanceReportGetRequest
+ @return ApiGetV1AcceptanceReportRequest
 */
-func (a *DefaultApiService) ApiV1AcceptanceReportGet(ctx context.Context) ApiApiV1AcceptanceReportGetRequest {
-	return ApiApiV1AcceptanceReportGetRequest{
+func (a *DefaultApiService) GetV1AcceptanceReport(ctx context.Context) ApiGetV1AcceptanceReportRequest {
+	return ApiGetV1AcceptanceReportRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -79,7 +79,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGet(ctx context.Context) ApiApi
 
 // Execute executes the request
 //  @return CreateTaskResponse
-func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1AcceptanceReportGetRequest) (*CreateTaskResponse, *http.Response, error) {
+func (a *DefaultApiService) GetV1AcceptanceReportExecute(r ApiGetV1AcceptanceReportRequest) (*CreateTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -87,7 +87,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 		localVarReturnValue  *CreateTaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AcceptanceReportGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AcceptanceReport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -171,7 +171,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -182,7 +182,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -193,7 +193,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -217,20 +217,20 @@ func (a *DefaultApiService) ApiV1AcceptanceReportGetExecute(r ApiApiV1Acceptance
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AcceptanceReportTasksTaskIdDownloadGetRequest struct {
+type ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	taskId string
 }
 
-func (r ApiApiV1AcceptanceReportTasksTaskIdDownloadGetRequest) Execute() ([]ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner, *http.Response, error) {
-	return r.ApiService.ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r)
+func (r ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest) Execute() ([]GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner, *http.Response, error) {
+	return r.ApiService.GetV1AcceptanceReportTasksTaskIdDownloadExecute(r)
 }
 
 /*
-ApiV1AcceptanceReportTasksTaskIdDownloadGet Получить отчёт
+GetV1AcceptanceReportTasksTaskIdDownload Получить отчёт
 
-Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).
+Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -247,10 +247,10 @@ ApiV1AcceptanceReportTasksTaskIdDownloadGet Получить отчёт
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskId ID задания на генерацию 
- @return ApiApiV1AcceptanceReportTasksTaskIdDownloadGetRequest
+ @return ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest
 */
-func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGet(ctx context.Context, taskId string) ApiApiV1AcceptanceReportTasksTaskIdDownloadGetRequest {
-	return ApiApiV1AcceptanceReportTasksTaskIdDownloadGetRequest{
+func (a *DefaultApiService) GetV1AcceptanceReportTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest {
+	return ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskId: taskId,
@@ -258,16 +258,16 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGet(ctx cont
 }
 
 // Execute executes the request
-//  @return []ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
-func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r ApiApiV1AcceptanceReportTasksTaskIdDownloadGetRequest) ([]ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner, *http.Response, error) {
+//  @return []GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner
+func (a *DefaultApiService) GetV1AcceptanceReportTasksTaskIdDownloadExecute(r ApiGetV1AcceptanceReportTasksTaskIdDownloadRequest) ([]GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ApiV1AcceptanceReportTasksTaskIdDownloadGet200ResponseInner
+		localVarReturnValue  []GetV1AcceptanceReportTasksTaskIdDownload200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AcceptanceReportTasksTaskIdDownloadGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AcceptanceReportTasksTaskIdDownload")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -344,7 +344,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -355,7 +355,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -377,7 +377,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -401,20 +401,20 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdDownloadGetExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AcceptanceReportTasksTaskIdStatusGetRequest struct {
+type ApiGetV1AcceptanceReportTasksTaskIdStatusRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	taskId string
 }
 
-func (r ApiApiV1AcceptanceReportTasksTaskIdStatusGetRequest) Execute() (*GetTasksResponse, *http.Response, error) {
-	return r.ApiService.ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r)
+func (r ApiGetV1AcceptanceReportTasksTaskIdStatusRequest) Execute() (*GetTasksResponse, *http.Response, error) {
+	return r.ApiService.GetV1AcceptanceReportTasksTaskIdStatusExecute(r)
 }
 
 /*
-ApiV1AcceptanceReportTasksTaskIdStatusGet Проверить статус
+GetV1AcceptanceReportTasksTaskIdStatus Проверить статус
 
-Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
+Метод возвращает статус [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -431,10 +431,10 @@ ApiV1AcceptanceReportTasksTaskIdStatusGet Проверить статус
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskId ID задания на генерацию 
- @return ApiApiV1AcceptanceReportTasksTaskIdStatusGetRequest
+ @return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest
 */
-func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGet(ctx context.Context, taskId string) ApiApiV1AcceptanceReportTasksTaskIdStatusGetRequest {
-	return ApiApiV1AcceptanceReportTasksTaskIdStatusGetRequest{
+func (a *DefaultApiService) GetV1AcceptanceReportTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1AcceptanceReportTasksTaskIdStatusRequest {
+	return ApiGetV1AcceptanceReportTasksTaskIdStatusRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskId: taskId,
@@ -443,7 +443,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGet(ctx contex
 
 // Execute executes the request
 //  @return GetTasksResponse
-func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r ApiApiV1AcceptanceReportTasksTaskIdStatusGetRequest) (*GetTasksResponse, *http.Response, error) {
+func (a *DefaultApiService) GetV1AcceptanceReportTasksTaskIdStatusExecute(r ApiGetV1AcceptanceReportTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -451,7 +451,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r A
 		localVarReturnValue  *GetTasksResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AcceptanceReportTasksTaskIdStatusGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AcceptanceReportTasksTaskIdStatus")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -528,7 +528,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -550,7 +550,7 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -574,24 +574,24 @@ func (a *DefaultApiService) ApiV1AcceptanceReportTasksTaskIdStatusGetExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsAntifraudDetailsGetRequest struct {
+type ApiGetV1AnalyticsAntifraudDetailsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	date *string
 }
 
 // Дата, которая входит в отчётный период, &#x60;ГГГГ-ММ-ДД&#x60;. &lt;br/&gt; Чтобы получить данные за всё время с августа 2023,  не указывайте этот параметр 
-func (r ApiApiV1AnalyticsAntifraudDetailsGetRequest) Date(date string) ApiApiV1AnalyticsAntifraudDetailsGetRequest {
+func (r ApiGetV1AnalyticsAntifraudDetailsRequest) Date(date string) ApiGetV1AnalyticsAntifraudDetailsRequest {
 	r.date = &date
 	return r
 }
 
-func (r ApiApiV1AnalyticsAntifraudDetailsGetRequest) Execute() (*ApiV1AnalyticsAntifraudDetailsGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsAntifraudDetailsGetExecute(r)
+func (r ApiGetV1AnalyticsAntifraudDetailsRequest) Execute() (*GetV1AnalyticsAntifraudDetails200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsAntifraudDetailsExecute(r)
 }
 
 /*
-ApiV1AnalyticsAntifraudDetailsGet Самовыкупы
+GetV1AnalyticsAntifraudDetails Самовыкупы
 
 Метод возвращает отчёт об удержаниях за самовыкупы. Отчёт формируется каждую неделю по средам, до 7:00 по московскому времени, и содержит данные за одну неделю.<br><br>
 
@@ -613,26 +613,26 @@ ApiV1AnalyticsAntifraudDetailsGet Самовыкупы
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsAntifraudDetailsGetRequest
+ @return ApiGetV1AnalyticsAntifraudDetailsRequest
 */
-func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGet(ctx context.Context) ApiApiV1AnalyticsAntifraudDetailsGetRequest {
-	return ApiApiV1AnalyticsAntifraudDetailsGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsAntifraudDetails(ctx context.Context) ApiGetV1AnalyticsAntifraudDetailsRequest {
+	return ApiGetV1AnalyticsAntifraudDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsAntifraudDetailsGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1AnalyticsAntifraudDetailsGetRequest) (*ApiV1AnalyticsAntifraudDetailsGet200Response, *http.Response, error) {
+//  @return GetV1AnalyticsAntifraudDetails200Response
+func (a *DefaultApiService) GetV1AnalyticsAntifraudDetailsExecute(r ApiGetV1AnalyticsAntifraudDetailsRequest) (*GetV1AnalyticsAntifraudDetails200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsAntifraudDetailsGet200Response
+		localVarReturnValue  *GetV1AnalyticsAntifraudDetails200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsAntifraudDetailsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsAntifraudDetails")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -711,7 +711,7 @@ func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -722,7 +722,7 @@ func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -733,7 +733,7 @@ func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -757,7 +757,7 @@ func (a *DefaultApiService) ApiV1AnalyticsAntifraudDetailsGetExecute(r ApiApiV1A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsBannedProductsBlockedGetRequest struct {
+type ApiGetV1AnalyticsBannedProducsBlockedRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	sort *string
@@ -765,23 +765,23 @@ type ApiApiV1AnalyticsBannedProductsBlockedGetRequest struct {
 }
 
 // Сортировка - &#x60;brand&#x60; — по бренду - &#x60;nmId&#x60; — по артикулу WB - &#x60;title&#x60; — по наименованию товара - &#x60;vendorCode&#x60; — по артикулу продавца - &#x60;reason&#x60; — по причине блокировки 
-func (r ApiApiV1AnalyticsBannedProductsBlockedGetRequest) Sort(sort string) ApiApiV1AnalyticsBannedProductsBlockedGetRequest {
+func (r ApiGetV1AnalyticsBannedProducsBlockedRequest) Sort(sort string) ApiGetV1AnalyticsBannedProducsBlockedRequest {
 	r.sort = &sort
 	return r
 }
 
 // Порядок выдачи - &#x60;desc&#x60; — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому - &#x60;asc&#x60; — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему 
-func (r ApiApiV1AnalyticsBannedProductsBlockedGetRequest) Order(order string) ApiApiV1AnalyticsBannedProductsBlockedGetRequest {
+func (r ApiGetV1AnalyticsBannedProducsBlockedRequest) Order(order string) ApiGetV1AnalyticsBannedProducsBlockedRequest {
 	r.order = &order
 	return r
 }
 
-func (r ApiApiV1AnalyticsBannedProductsBlockedGetRequest) Execute() (*ApiV1AnalyticsBannedProductsBlockedGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsBannedProductsBlockedGetExecute(r)
+func (r ApiGetV1AnalyticsBannedProducsBlockedRequest) Execute() (*GetV1AnalyticsBannedProducsBlocked200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsBannedProducsBlockedExecute(r)
 }
 
 /*
-ApiV1AnalyticsBannedProductsBlockedGet Получить отчёт
+GetV1AnalyticsBannedProducsBlocked Получить отчёт
 
 Метод возвращает список [заблокированных карточек товаров продавца](https://seller.wildberries.ru/analytics-reports/banned-products) с причинами блокировки.
 
@@ -799,26 +799,26 @@ ApiV1AnalyticsBannedProductsBlockedGet Получить отчёт
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsBannedProductsBlockedGetRequest
+ @return ApiGetV1AnalyticsBannedProducsBlockedRequest
 */
-func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGet(ctx context.Context) ApiApiV1AnalyticsBannedProductsBlockedGetRequest {
-	return ApiApiV1AnalyticsBannedProductsBlockedGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsBannedProducsBlocked(ctx context.Context) ApiGetV1AnalyticsBannedProducsBlockedRequest {
+	return ApiGetV1AnalyticsBannedProducsBlockedRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsBannedProductsBlockedGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiApiV1AnalyticsBannedProductsBlockedGetRequest) (*ApiV1AnalyticsBannedProductsBlockedGet200Response, *http.Response, error) {
+//  @return GetV1AnalyticsBannedProducsBlocked200Response
+func (a *DefaultApiService) GetV1AnalyticsBannedProducsBlockedExecute(r ApiGetV1AnalyticsBannedProducsBlockedRequest) (*GetV1AnalyticsBannedProducsBlocked200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsBannedProductsBlockedGet200Response
+		localVarReturnValue  *GetV1AnalyticsBannedProducsBlocked200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsBannedProductsBlockedGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsBannedProducsBlocked")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -891,7 +891,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1AnalyticsBannedProductsBlockedGet400Response
+			var v GetV1AnalyticsBannedProducsBlocked400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -902,7 +902,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -913,7 +913,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -924,7 +924,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -948,7 +948,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsBlockedGetExecute(r ApiA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsBannedProductsShadowedGetRequest struct {
+type ApiGetV1AnalyticsBannedProductsShadowedRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	sort *string
@@ -956,23 +956,23 @@ type ApiApiV1AnalyticsBannedProductsShadowedGetRequest struct {
 }
 
 // Сортировка - &#x60;brand&#x60; — по бренду - &#x60;nmId&#x60; — по артикулу WB - &#x60;title&#x60; — по наименованию товара - &#x60;vendorCode&#x60; — по артикулу продавца - &#x60;nmRating&#x60; — по рейтингу товара 
-func (r ApiApiV1AnalyticsBannedProductsShadowedGetRequest) Sort(sort string) ApiApiV1AnalyticsBannedProductsShadowedGetRequest {
+func (r ApiGetV1AnalyticsBannedProductsShadowedRequest) Sort(sort string) ApiGetV1AnalyticsBannedProductsShadowedRequest {
 	r.sort = &sort
 	return r
 }
 
 // Порядок выдачи - &#x60;desc&#x60; — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому - &#x60;asc&#x60; — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему 
-func (r ApiApiV1AnalyticsBannedProductsShadowedGetRequest) Order(order string) ApiApiV1AnalyticsBannedProductsShadowedGetRequest {
+func (r ApiGetV1AnalyticsBannedProductsShadowedRequest) Order(order string) ApiGetV1AnalyticsBannedProductsShadowedRequest {
 	r.order = &order
 	return r
 }
 
-func (r ApiApiV1AnalyticsBannedProductsShadowedGetRequest) Execute() (*ApiV1AnalyticsBannedProductsShadowedGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsBannedProductsShadowedGetExecute(r)
+func (r ApiGetV1AnalyticsBannedProductsShadowedRequest) Execute() (*GetV1AnalyticsBannedProductsShadowed200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsBannedProductsShadowedExecute(r)
 }
 
 /*
-ApiV1AnalyticsBannedProductsShadowedGet Скрытые из каталога
+GetV1AnalyticsBannedProductsShadowed Скрытые из каталога
 
 Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).
 
@@ -982,37 +982,37 @@ ApiV1AnalyticsBannedProductsShadowedGet Скрытые из каталога
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-| Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-| Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
+| Персональный | 24 ч | 1 запрос | 24 ч | 1 запрос |
+| Сервисный | 24 ч | 1 запрос | 24 ч | 1 запрос |
+| Базовый с секретом | 24 ч | 1 запрос | 24 ч | 1 запрос |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 </div>
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsBannedProductsShadowedGetRequest
+ @return ApiGetV1AnalyticsBannedProductsShadowedRequest
 
 Deprecated
 */
-func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGet(ctx context.Context) ApiApiV1AnalyticsBannedProductsShadowedGetRequest {
-	return ApiApiV1AnalyticsBannedProductsShadowedGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsBannedProductsShadowed(ctx context.Context) ApiGetV1AnalyticsBannedProductsShadowedRequest {
+	return ApiGetV1AnalyticsBannedProductsShadowedRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsBannedProductsShadowedGet200Response
+//  @return GetV1AnalyticsBannedProductsShadowed200Response
 // Deprecated
-func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r ApiApiV1AnalyticsBannedProductsShadowedGetRequest) (*ApiV1AnalyticsBannedProductsShadowedGet200Response, *http.Response, error) {
+func (a *DefaultApiService) GetV1AnalyticsBannedProductsShadowedExecute(r ApiGetV1AnalyticsBannedProductsShadowedRequest) (*GetV1AnalyticsBannedProductsShadowed200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsBannedProductsShadowedGet200Response
+		localVarReturnValue  *GetV1AnalyticsBannedProductsShadowed200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsBannedProductsShadowedGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsBannedProductsShadowed")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1085,7 +1085,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1AnalyticsBannedProductsBlockedGet400Response
+			var v GetV1AnalyticsBannedProducsBlocked400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1096,7 +1096,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1107,7 +1107,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1118,7 +1118,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1142,169 +1142,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBannedProductsShadowedGetExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsBrandShareBrandsGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-}
-
-func (r ApiApiV1AnalyticsBrandShareBrandsGetRequest) Execute() (*ApiV1AnalyticsBrandShareBrandsGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsBrandShareBrandsGetExecute(r)
-}
-
-/*
-ApiV1AnalyticsBrandShareBrandsGet Бренды продавца
-
-Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>
-
-Можно получить только бренды, которые:
-- Продавались за последние 90 дней.
-- Есть на складе WB.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsBrandShareBrandsGetRequest
-*/
-func (a *DefaultApiService) ApiV1AnalyticsBrandShareBrandsGet(ctx context.Context) ApiApiV1AnalyticsBrandShareBrandsGetRequest {
-	return ApiApiV1AnalyticsBrandShareBrandsGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return ApiV1AnalyticsBrandShareBrandsGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsBrandShareBrandsGetExecute(r ApiApiV1AnalyticsBrandShareBrandsGetRequest) (*ApiV1AnalyticsBrandShareBrandsGet200Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsBrandShareBrandsGet200Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsBrandShareBrandsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/analytics/brand-share/brands"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1AnalyticsBrandShareGetRequest struct {
+type ApiGetV1AnalyticsBrandShareRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	parentId *int32
@@ -1314,35 +1152,35 @@ type ApiApiV1AnalyticsBrandShareGetRequest struct {
 }
 
 // ID родительской категории
-func (r ApiApiV1AnalyticsBrandShareGetRequest) ParentId(parentId int32) ApiApiV1AnalyticsBrandShareGetRequest {
+func (r ApiGetV1AnalyticsBrandShareRequest) ParentId(parentId int32) ApiGetV1AnalyticsBrandShareRequest {
 	r.parentId = &parentId
 	return r
 }
 
 // Бренд
-func (r ApiApiV1AnalyticsBrandShareGetRequest) Brand(brand string) ApiApiV1AnalyticsBrandShareGetRequest {
+func (r ApiGetV1AnalyticsBrandShareRequest) Brand(brand string) ApiGetV1AnalyticsBrandShareRequest {
 	r.brand = &brand
 	return r
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsBrandShareGetRequest) DateFrom(dateFrom string) ApiApiV1AnalyticsBrandShareGetRequest {
+func (r ApiGetV1AnalyticsBrandShareRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsBrandShareRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsBrandShareGetRequest) DateTo(dateTo string) ApiApiV1AnalyticsBrandShareGetRequest {
+func (r ApiGetV1AnalyticsBrandShareRequest) DateTo(dateTo string) ApiGetV1AnalyticsBrandShareRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiApiV1AnalyticsBrandShareGetRequest) Execute() (*ApiV1AnalyticsBrandShareGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsBrandShareGetExecute(r)
+func (r ApiGetV1AnalyticsBrandShareRequest) Execute() (*GetV1AnalyticsBrandShare200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsBrandShareExecute(r)
 }
 
 /*
-ApiV1AnalyticsBrandShareGet Получить отчёт
+GetV1AnalyticsBrandShare Получить отчёт
 
 Метод возвращает отчёт о [доле бренда продавца в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>
 
@@ -1362,26 +1200,26 @@ ApiV1AnalyticsBrandShareGet Получить отчёт
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsBrandShareGetRequest
+ @return ApiGetV1AnalyticsBrandShareRequest
 */
-func (a *DefaultApiService) ApiV1AnalyticsBrandShareGet(ctx context.Context) ApiApiV1AnalyticsBrandShareGetRequest {
-	return ApiApiV1AnalyticsBrandShareGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsBrandShare(ctx context.Context) ApiGetV1AnalyticsBrandShareRequest {
+	return ApiGetV1AnalyticsBrandShareRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsBrandShareGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1AnalyticsBrandShareGetRequest) (*ApiV1AnalyticsBrandShareGet200Response, *http.Response, error) {
+//  @return GetV1AnalyticsBrandShare200Response
+func (a *DefaultApiService) GetV1AnalyticsBrandShareExecute(r ApiGetV1AnalyticsBrandShareRequest) (*GetV1AnalyticsBrandShare200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsBrandShareGet200Response
+		localVarReturnValue  *GetV1AnalyticsBrandShare200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsBrandShareGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsBrandShare")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1473,7 +1311,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1484,7 +1322,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1495,7 +1333,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1519,7 +1357,169 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareGetExecute(r ApiApiV1Analyti
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest struct {
+type ApiGetV1AnalyticsBrandShareBrandsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+}
+
+func (r ApiGetV1AnalyticsBrandShareBrandsRequest) Execute() (*GetV1AnalyticsBrandShareBrands200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsBrandShareBrandsExecute(r)
+}
+
+/*
+GetV1AnalyticsBrandShareBrands Бренды продавца
+
+Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>
+
+Можно получить только бренды, которые:
+- Продавались за последние 90 дней.
+- Есть на складе WB.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1AnalyticsBrandShareBrandsRequest
+*/
+func (a *DefaultApiService) GetV1AnalyticsBrandShareBrands(ctx context.Context) ApiGetV1AnalyticsBrandShareBrandsRequest {
+	return ApiGetV1AnalyticsBrandShareBrandsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetV1AnalyticsBrandShareBrands200Response
+func (a *DefaultApiService) GetV1AnalyticsBrandShareBrandsExecute(r ApiGetV1AnalyticsBrandShareBrandsRequest) (*GetV1AnalyticsBrandShareBrands200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetV1AnalyticsBrandShareBrands200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsBrandShareBrands")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/analytics/brand-share/brands"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1AnalyticsBrandShareParentSubjectsRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	brand *string
@@ -1529,35 +1529,35 @@ type ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest struct {
 }
 
 // Бренд
-func (r ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest) Brand(brand string) ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest {
+func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) Brand(brand string) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	r.brand = &brand
 	return r
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest) DateFrom(dateFrom string) ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest {
+func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest) DateTo(dateTo string) ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest {
+func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) DateTo(dateTo string) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
 // Язык поля ответа &#x60;parentName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский 
-func (r ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest) Locale(locale string) ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest {
+func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) Locale(locale string) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
 	r.locale = &locale
 	return r
 }
 
-func (r ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest) Execute() (*ApiV1AnalyticsBrandShareParentSubjectsGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r)
+func (r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) Execute() (*GetV1AnalyticsBrandShareParentSubjects200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsBrandShareParentSubjectsExecute(r)
 }
 
 /*
-ApiV1AnalyticsBrandShareParentSubjectsGet Родительские категории бренда
+GetV1AnalyticsBrandShareParentSubjects Родительские категории бренда
 
 Метод возвращает родительские категории бренда продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share).<br><br>
 
@@ -1577,26 +1577,26 @@ ApiV1AnalyticsBrandShareParentSubjectsGet Родительские катего�
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest
+ @return ApiGetV1AnalyticsBrandShareParentSubjectsRequest
 */
-func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGet(ctx context.Context) ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest {
-	return ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsBrandShareParentSubjects(ctx context.Context) ApiGetV1AnalyticsBrandShareParentSubjectsRequest {
+	return ApiGetV1AnalyticsBrandShareParentSubjectsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsBrandShareParentSubjectsGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r ApiApiV1AnalyticsBrandShareParentSubjectsGetRequest) (*ApiV1AnalyticsBrandShareParentSubjectsGet200Response, *http.Response, error) {
+//  @return GetV1AnalyticsBrandShareParentSubjects200Response
+func (a *DefaultApiService) GetV1AnalyticsBrandShareParentSubjectsExecute(r ApiGetV1AnalyticsBrandShareParentSubjectsRequest) (*GetV1AnalyticsBrandShareParentSubjects200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsBrandShareParentSubjectsGet200Response
+		localVarReturnValue  *GetV1AnalyticsBrandShareParentSubjects200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsBrandShareParentSubjectsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsBrandShareParentSubjects")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1691,7 +1691,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1702,7 +1702,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1713,7 +1713,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1737,7 +1737,7 @@ func (a *DefaultApiService) ApiV1AnalyticsBrandShareParentSubjectsGetExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsGoodsLabelingGetRequest struct {
+type ApiGetV1AnalyticsGoodsLabelingRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	dateFrom *string
@@ -1745,23 +1745,23 @@ type ApiApiV1AnalyticsGoodsLabelingGetRequest struct {
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsGoodsLabelingGetRequest) DateFrom(dateFrom string) ApiApiV1AnalyticsGoodsLabelingGetRequest {
+func (r ApiGetV1AnalyticsGoodsLabelingRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsGoodsLabelingRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsGoodsLabelingGetRequest) DateTo(dateTo string) ApiApiV1AnalyticsGoodsLabelingGetRequest {
+func (r ApiGetV1AnalyticsGoodsLabelingRequest) DateTo(dateTo string) ApiGetV1AnalyticsGoodsLabelingRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiApiV1AnalyticsGoodsLabelingGetRequest) Execute() (*ApiV1AnalyticsGoodsLabelingGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsGoodsLabelingGetExecute(r)
+func (r ApiGetV1AnalyticsGoodsLabelingRequest) Execute() (*GetV1AnalyticsGoodsLabeling200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsGoodsLabelingExecute(r)
 }
 
 /*
-ApiV1AnalyticsGoodsLabelingGet Маркировка товара
+GetV1AnalyticsGoodsLabeling Маркировка товара
 
 Метод возвращает отчёт о штрафах за отсутствие обязательной маркировки товаров.<br>
 
@@ -1783,26 +1783,26 @@ ApiV1AnalyticsGoodsLabelingGet Маркировка товара
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsGoodsLabelingGetRequest
+ @return ApiGetV1AnalyticsGoodsLabelingRequest
 */
-func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGet(ctx context.Context) ApiApiV1AnalyticsGoodsLabelingGetRequest {
-	return ApiApiV1AnalyticsGoodsLabelingGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsGoodsLabeling(ctx context.Context) ApiGetV1AnalyticsGoodsLabelingRequest {
+	return ApiGetV1AnalyticsGoodsLabelingRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsGoodsLabelingGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1AnalyticsGoodsLabelingGetRequest) (*ApiV1AnalyticsGoodsLabelingGet200Response, *http.Response, error) {
+//  @return GetV1AnalyticsGoodsLabeling200Response
+func (a *DefaultApiService) GetV1AnalyticsGoodsLabelingExecute(r ApiGetV1AnalyticsGoodsLabelingRequest) (*GetV1AnalyticsGoodsLabeling200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsGoodsLabelingGet200Response
+		localVarReturnValue  *GetV1AnalyticsGoodsLabeling200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsGoodsLabelingGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsGoodsLabeling")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1886,7 +1886,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1Anal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1897,7 +1897,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1Anal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1908,7 +1908,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1Anal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1932,7 +1932,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsLabelingGetExecute(r ApiApiV1Anal
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsGoodsReturnGetRequest struct {
+type ApiGetV1AnalyticsGoodsReturnRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	dateFrom *string
@@ -1940,23 +1940,23 @@ type ApiApiV1AnalyticsGoodsReturnGetRequest struct {
 }
 
 // Дата начала отчётного периода
-func (r ApiApiV1AnalyticsGoodsReturnGetRequest) DateFrom(dateFrom string) ApiApiV1AnalyticsGoodsReturnGetRequest {
+func (r ApiGetV1AnalyticsGoodsReturnRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsGoodsReturnRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата окончания отчётного периода
-func (r ApiApiV1AnalyticsGoodsReturnGetRequest) DateTo(dateTo string) ApiApiV1AnalyticsGoodsReturnGetRequest {
+func (r ApiGetV1AnalyticsGoodsReturnRequest) DateTo(dateTo string) ApiGetV1AnalyticsGoodsReturnRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiApiV1AnalyticsGoodsReturnGetRequest) Execute() (*ApiV1AnalyticsGoodsReturnGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsGoodsReturnGetExecute(r)
+func (r ApiGetV1AnalyticsGoodsReturnRequest) Execute() (*GetV1AnalyticsGoodsReturn200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsGoodsReturnExecute(r)
 }
 
 /*
-ApiV1AnalyticsGoodsReturnGet Получить отчёт
+GetV1AnalyticsGoodsReturn Получить отчёт
 
 Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). <br><br>
 
@@ -1976,26 +1976,26 @@ ApiV1AnalyticsGoodsReturnGet Получить отчёт
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsGoodsReturnGetRequest
+ @return ApiGetV1AnalyticsGoodsReturnRequest
 */
-func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGet(ctx context.Context) ApiApiV1AnalyticsGoodsReturnGetRequest {
-	return ApiApiV1AnalyticsGoodsReturnGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsGoodsReturn(ctx context.Context) ApiGetV1AnalyticsGoodsReturnRequest {
+	return ApiGetV1AnalyticsGoodsReturnRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsGoodsReturnGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1AnalyticsGoodsReturnGetRequest) (*ApiV1AnalyticsGoodsReturnGet200Response, *http.Response, error) {
+//  @return GetV1AnalyticsGoodsReturn200Response
+func (a *DefaultApiService) GetV1AnalyticsGoodsReturnExecute(r ApiGetV1AnalyticsGoodsReturnRequest) (*GetV1AnalyticsGoodsReturn200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsGoodsReturnGet200Response
+		localVarReturnValue  *GetV1AnalyticsGoodsReturn200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsGoodsReturnGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsGoodsReturn")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2079,7 +2079,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1Analyt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2090,7 +2090,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1Analyt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2101,7 +2101,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1Analyt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2125,7 +2125,7 @@ func (a *DefaultApiService) ApiV1AnalyticsGoodsReturnGetExecute(r ApiApiV1Analyt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV1AnalyticsRegionSaleGetRequest struct {
+type ApiGetV1AnalyticsRegionSaleRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
 	dateFrom *string
@@ -2133,23 +2133,23 @@ type ApiApiV1AnalyticsRegionSaleGetRequest struct {
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsRegionSaleGetRequest) DateFrom(dateFrom string) ApiApiV1AnalyticsRegionSaleGetRequest {
+func (r ApiGetV1AnalyticsRegionSaleRequest) DateFrom(dateFrom string) ApiGetV1AnalyticsRegionSaleRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsRegionSaleGetRequest) DateTo(dateTo string) ApiApiV1AnalyticsRegionSaleGetRequest {
+func (r ApiGetV1AnalyticsRegionSaleRequest) DateTo(dateTo string) ApiGetV1AnalyticsRegionSaleRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiApiV1AnalyticsRegionSaleGetRequest) Execute() (*ApiV1AnalyticsRegionSaleGet200Response, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsRegionSaleGetExecute(r)
+func (r ApiGetV1AnalyticsRegionSaleRequest) Execute() (*GetV1AnalyticsRegionSale200Response, *http.Response, error) {
+	return r.ApiService.GetV1AnalyticsRegionSaleExecute(r)
 }
 
 /*
-ApiV1AnalyticsRegionSaleGet Получить отчёт
+GetV1AnalyticsRegionSale Получить отчёт
 
 Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).<br><br>
 
@@ -2169,26 +2169,26 @@ ApiV1AnalyticsRegionSaleGet Получить отчёт
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsRegionSaleGetRequest
+ @return ApiGetV1AnalyticsRegionSaleRequest
 */
-func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGet(ctx context.Context) ApiApiV1AnalyticsRegionSaleGetRequest {
-	return ApiApiV1AnalyticsRegionSaleGetRequest{
+func (a *DefaultApiService) GetV1AnalyticsRegionSale(ctx context.Context) ApiGetV1AnalyticsRegionSaleRequest {
+	return ApiGetV1AnalyticsRegionSaleRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiV1AnalyticsRegionSaleGet200Response
-func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGetExecute(r ApiApiV1AnalyticsRegionSaleGetRequest) (*ApiV1AnalyticsRegionSaleGet200Response, *http.Response, error) {
+//  @return GetV1AnalyticsRegionSale200Response
+func (a *DefaultApiService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsRegionSaleRequest) (*GetV1AnalyticsRegionSale200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiV1AnalyticsRegionSaleGet200Response
+		localVarReturnValue  *GetV1AnalyticsRegionSale200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1AnalyticsRegionSaleGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1AnalyticsRegionSale")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2272,7 +2272,7 @@ func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2283,7 +2283,7 @@ func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2294,1633 +2294,7 @@ func (a *DefaultApiService) ApiV1AnalyticsRegionSaleGetExecute(r ApiApiV1Analyti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1PaidStorageGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	dateFrom *string
-	dateTo *string
-}
-
-// Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60; 
-func (r ApiApiV1PaidStorageGetRequest) DateFrom(dateFrom string) ApiApiV1PaidStorageGetRequest {
-	r.dateFrom = &dateFrom
-	return r
-}
-
-// Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60; 
-func (r ApiApiV1PaidStorageGetRequest) DateTo(dateTo string) ApiApiV1PaidStorageGetRequest {
-	r.dateTo = &dateTo
-	return r
-}
-
-func (r ApiApiV1PaidStorageGetRequest) Execute() (*CreateTaskResponse, *http.Response, error) {
-	return r.ApiService.ApiV1PaidStorageGetExecute(r)
-}
-
-/*
-ApiV1PaidStorageGet Создать отчёт
-
-Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).<br><br>
-
-Можно получить отчёт максимум за 8 дней.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1PaidStorageGetRequest
-*/
-func (a *DefaultApiService) ApiV1PaidStorageGet(ctx context.Context) ApiApiV1PaidStorageGetRequest {
-	return ApiApiV1PaidStorageGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return CreateTaskResponse
-func (a *DefaultApiService) ApiV1PaidStorageGetExecute(r ApiApiV1PaidStorageGetRequest) (*CreateTaskResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateTaskResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1PaidStorageGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/paid_storage"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.dateFrom == nil {
-		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
-	}
-	if r.dateTo == nil {
-		return localVarReturnValue, nil, reportError("dateTo is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1PaidStorageTasksTaskIdDownloadGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	taskId string
-}
-
-func (r ApiApiV1PaidStorageTasksTaskIdDownloadGetRequest) Execute() ([]ResponsePaidStorageInner, *http.Response, error) {
-	return r.ApiService.ApiV1PaidStorageTasksTaskIdDownloadGetExecute(r)
-}
-
-/*
-ApiV1PaidStorageTasksTaskIdDownloadGet Получить отчёт
-
-Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get).
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param taskId ID задания на генерацию 
- @return ApiApiV1PaidStorageTasksTaskIdDownloadGetRequest
-*/
-func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdDownloadGet(ctx context.Context, taskId string) ApiApiV1PaidStorageTasksTaskIdDownloadGetRequest {
-	return ApiApiV1PaidStorageTasksTaskIdDownloadGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		taskId: taskId,
-	}
-}
-
-// Execute executes the request
-//  @return []ResponsePaidStorageInner
-func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdDownloadGetExecute(r ApiApiV1PaidStorageTasksTaskIdDownloadGetRequest) ([]ResponsePaidStorageInner, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ResponsePaidStorageInner
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1PaidStorageTasksTaskIdDownloadGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/paid_storage/tasks/{task_id}/download"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1PaidStorageTasksTaskIdStatusGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	taskId string
-}
-
-func (r ApiApiV1PaidStorageTasksTaskIdStatusGetRequest) Execute() (*GetTasksResponse, *http.Response, error) {
-	return r.ApiService.ApiV1PaidStorageTasksTaskIdStatusGetExecute(r)
-}
-
-/*
-ApiV1PaidStorageTasksTaskIdStatusGet Проверить статус
-
-Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
-| Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param taskId ID задания на генерацию 
- @return ApiApiV1PaidStorageTasksTaskIdStatusGetRequest
-*/
-func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdStatusGet(ctx context.Context, taskId string) ApiApiV1PaidStorageTasksTaskIdStatusGetRequest {
-	return ApiApiV1PaidStorageTasksTaskIdStatusGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		taskId: taskId,
-	}
-}
-
-// Execute executes the request
-//  @return GetTasksResponse
-func (a *DefaultApiService) ApiV1PaidStorageTasksTaskIdStatusGetExecute(r ApiApiV1PaidStorageTasksTaskIdStatusGetRequest) (*GetTasksResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetTasksResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1PaidStorageTasksTaskIdStatusGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/paid_storage/tasks/{task_id}/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1SupplierOrdersGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	dateFrom *string
-	flag *int32
-}
-
-// Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
-func (r ApiApiV1SupplierOrdersGetRequest) DateFrom(dateFrom string) ApiApiV1SupplierOrdersGetRequest {
-	r.dateFrom = &dateFrom
-	return r
-}
-
-// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
-func (r ApiApiV1SupplierOrdersGetRequest) Flag(flag int32) ApiApiV1SupplierOrdersGetRequest {
-	r.flag = &flag
-	return r
-}
-
-func (r ApiApiV1SupplierOrdersGetRequest) Execute() ([]OrdersItem, *http.Response, error) {
-	return r.ApiService.ApiV1SupplierOrdersGetExecute(r)
-}
-
-/*
-ApiV1SupplierOrdersGet Заказы
-
-Метод возвращает информацию о заказах.<br>Данные обновляются раз в 30 минут.<br><br>
-
-1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>
-
-Информация о заказе хранится 90 дней с момента оформления.<br><br>
-
-В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br>
-Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://seller.wildberries.ru/content-analytics/order-feed) в личном кабинете.
-
-<div class="description_important">
-  Данные этого отчёта являются предварительными и служат для оперативного мониторинга
-</div>
-
-Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.<br><br>
-
-В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1SupplierOrdersGetRequest
-*/
-func (a *DefaultApiService) ApiV1SupplierOrdersGet(ctx context.Context) ApiApiV1SupplierOrdersGetRequest {
-	return ApiApiV1SupplierOrdersGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []OrdersItem
-func (a *DefaultApiService) ApiV1SupplierOrdersGetExecute(r ApiApiV1SupplierOrdersGetRequest) ([]OrdersItem, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []OrdersItem
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1SupplierOrdersGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/supplier/orders"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.dateFrom == nil {
-		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
-	if r.flag != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", r.flag, "form", "")
-	} else {
-		var defaultValue int32 = 0
-		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", defaultValue, "form", "")
-		r.flag = &defaultValue
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1SupplierOrdersGet400Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1SupplierSalesGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	dateFrom *string
-	flag *int32
-}
-
-// Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
-func (r ApiApiV1SupplierSalesGetRequest) DateFrom(dateFrom string) ApiApiV1SupplierSalesGetRequest {
-	r.dateFrom = &dateFrom
-	return r
-}
-
-// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
-func (r ApiApiV1SupplierSalesGetRequest) Flag(flag int32) ApiApiV1SupplierSalesGetRequest {
-	r.flag = &flag
-	return r
-}
-
-func (r ApiApiV1SupplierSalesGetRequest) Execute() ([]SalesItem, *http.Response, error) {
-	return r.ApiService.ApiV1SupplierSalesGetExecute(r)
-}
-
-/*
-ApiV1SupplierSalesGet Продажи
-
-Метод возвращает информацию о продажах и возвратах.<br>Данные обновляются раз в 30 минут.<br><br>
-
-1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>
-
-Информация о заказе хранится 90 дней с момента оформления.
-
-<div class="description_important">
-  Данные этого отчёта являются предварительными и служат для оперативного мониторинга
-</div>
-
-  - В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку
-  - Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail_price_withdisc_rub` и `ppvz_for_pay` соответственно в детализациях к отчётам реализации
-  - Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов
-  - Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют
-
-Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>
-
-Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.<br><br>
-
-В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1SupplierSalesGetRequest
-*/
-func (a *DefaultApiService) ApiV1SupplierSalesGet(ctx context.Context) ApiApiV1SupplierSalesGetRequest {
-	return ApiApiV1SupplierSalesGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []SalesItem
-func (a *DefaultApiService) ApiV1SupplierSalesGetExecute(r ApiApiV1SupplierSalesGetRequest) ([]SalesItem, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SalesItem
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1SupplierSalesGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/supplier/sales"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.dateFrom == nil {
-		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
-	if r.flag != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", r.flag, "form", "")
-	} else {
-		var defaultValue int32 = 0
-		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", defaultValue, "form", "")
-		r.flag = &defaultValue
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV1SupplierOrdersGet400Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1WarehouseRemainsGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	locale *string
-	groupByBrand *bool
-	groupBySubject *bool
-	groupBySa *bool
-	groupByNm *bool
-	groupByBarcode *bool
-	groupBySize *bool
-	filterPics *int32
-	filterVolume *int32
-}
-
-// Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский. Значения &#x60;warehouseName&#x60; на английском 
-func (r ApiApiV1WarehouseRemainsGetRequest) Locale(locale string) ApiApiV1WarehouseRemainsGetRequest {
-	r.locale = &locale
-	return r
-}
-
-// Разбивка по брендам
-func (r ApiApiV1WarehouseRemainsGetRequest) GroupByBrand(groupByBrand bool) ApiApiV1WarehouseRemainsGetRequest {
-	r.groupByBrand = &groupByBrand
-	return r
-}
-
-// Разбивка по предметам
-func (r ApiApiV1WarehouseRemainsGetRequest) GroupBySubject(groupBySubject bool) ApiApiV1WarehouseRemainsGetRequest {
-	r.groupBySubject = &groupBySubject
-	return r
-}
-
-// Разбивка по артикулам продавца
-func (r ApiApiV1WarehouseRemainsGetRequest) GroupBySa(groupBySa bool) ApiApiV1WarehouseRemainsGetRequest {
-	r.groupBySa = &groupBySa
-	return r
-}
-
-// Разбивка по артикулам WB. Если &#x60;groupByNm&#x3D;true&#x60;, в ответе будет поле &#x60;volume&#x60;
-func (r ApiApiV1WarehouseRemainsGetRequest) GroupByNm(groupByNm bool) ApiApiV1WarehouseRemainsGetRequest {
-	r.groupByNm = &groupByNm
-	return r
-}
-
-// Разбивка по баркодам
-func (r ApiApiV1WarehouseRemainsGetRequest) GroupByBarcode(groupByBarcode bool) ApiApiV1WarehouseRemainsGetRequest {
-	r.groupByBarcode = &groupByBarcode
-	return r
-}
-
-// Разбивка по размерам
-func (r ApiApiV1WarehouseRemainsGetRequest) GroupBySize(groupBySize bool) ApiApiV1WarehouseRemainsGetRequest {
-	r.groupBySize = &groupBySize
-	return r
-}
-
-// Фильтр по фото:   - &#x60;-1&#x60; — без фото   - &#x60;0&#x60; — не применять фильтр   - &#x60;1&#x60; — с фото 
-func (r ApiApiV1WarehouseRemainsGetRequest) FilterPics(filterPics int32) ApiApiV1WarehouseRemainsGetRequest {
-	r.filterPics = &filterPics
-	return r
-}
-
-// Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров 
-func (r ApiApiV1WarehouseRemainsGetRequest) FilterVolume(filterVolume int32) ApiApiV1WarehouseRemainsGetRequest {
-	r.filterVolume = &filterVolume
-	return r
-}
-
-func (r ApiApiV1WarehouseRemainsGetRequest) Execute() (*CreateTaskResponse, *http.Response, error) {
-	return r.ApiService.ApiV1WarehouseRemainsGetExecute(r)
-}
-
-/*
-ApiV1WarehouseRemainsGet Создать отчёт
-
-Метод создаёт [задание на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1status/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).<br><br>
-
-Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
-| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1WarehouseRemainsGetRequest
-*/
-func (a *DefaultApiService) ApiV1WarehouseRemainsGet(ctx context.Context) ApiApiV1WarehouseRemainsGetRequest {
-	return ApiApiV1WarehouseRemainsGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return CreateTaskResponse
-func (a *DefaultApiService) ApiV1WarehouseRemainsGetExecute(r ApiApiV1WarehouseRemainsGetRequest) (*CreateTaskResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateTaskResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1WarehouseRemainsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/warehouse_remains"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.locale != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
-	} else {
-		var defaultValue string = "ru"
-		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", defaultValue, "form", "")
-		r.locale = &defaultValue
-	}
-	if r.groupByBrand != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBrand", r.groupByBrand, "form", "")
-	} else {
-		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBrand", defaultValue, "form", "")
-		r.groupByBrand = &defaultValue
-	}
-	if r.groupBySubject != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySubject", r.groupBySubject, "form", "")
-	} else {
-		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySubject", defaultValue, "form", "")
-		r.groupBySubject = &defaultValue
-	}
-	if r.groupBySa != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySa", r.groupBySa, "form", "")
-	} else {
-		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySa", defaultValue, "form", "")
-		r.groupBySa = &defaultValue
-	}
-	if r.groupByNm != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByNm", r.groupByNm, "form", "")
-	} else {
-		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByNm", defaultValue, "form", "")
-		r.groupByNm = &defaultValue
-	}
-	if r.groupByBarcode != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBarcode", r.groupByBarcode, "form", "")
-	} else {
-		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBarcode", defaultValue, "form", "")
-		r.groupByBarcode = &defaultValue
-	}
-	if r.groupBySize != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySize", r.groupBySize, "form", "")
-	} else {
-		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySize", defaultValue, "form", "")
-		r.groupBySize = &defaultValue
-	}
-	if r.filterPics != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "filterPics", r.filterPics, "form", "")
-	} else {
-		var defaultValue int32 = 0
-		parameterAddToHeaderOrQuery(localVarQueryParams, "filterPics", defaultValue, "form", "")
-		r.filterPics = &defaultValue
-	}
-	if r.filterVolume != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "filterVolume", r.filterVolume, "form", "")
-	} else {
-		var defaultValue int32 = 0
-		parameterAddToHeaderOrQuery(localVarQueryParams, "filterVolume", defaultValue, "form", "")
-		r.filterVolume = &defaultValue
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	taskId string
-}
-
-func (r ApiApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest) Execute() ([]ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner, *http.Response, error) {
-	return r.ApiService.ApiV1WarehouseRemainsTasksTaskIdDownloadGetExecute(r)
-}
-
-/*
-ApiV1WarehouseRemainsTasksTaskIdDownloadGet Получить отчёт
-
-Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get).
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
-| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param taskId ID задания на генерацию 
- @return ApiApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest
-*/
-func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdDownloadGet(ctx context.Context, taskId string) ApiApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest {
-	return ApiApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		taskId: taskId,
-	}
-}
-
-// Execute executes the request
-//  @return []ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
-func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdDownloadGetExecute(r ApiApiV1WarehouseRemainsTasksTaskIdDownloadGetRequest) ([]ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ApiV1WarehouseRemainsTasksTaskIdDownloadGet200ResponseInner
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdDownloadGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/warehouse_remains/tasks/{task_id}/download"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV1WarehouseRemainsTasksTaskIdStatusGetRequest struct {
-	ctx context.Context
-	ApiService *DefaultApiService
-	taskId string
-}
-
-func (r ApiApiV1WarehouseRemainsTasksTaskIdStatusGetRequest) Execute() (*GetTasksResponse, *http.Response, error) {
-	return r.ApiService.ApiV1WarehouseRemainsTasksTaskIdStatusGetExecute(r)
-}
-
-/*
-ApiV1WarehouseRemainsTasksTaskIdStatusGet Проверить статус
-
-Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
-| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
-| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param taskId ID задания на генерацию 
- @return ApiApiV1WarehouseRemainsTasksTaskIdStatusGetRequest
-*/
-func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdStatusGet(ctx context.Context, taskId string) ApiApiV1WarehouseRemainsTasksTaskIdStatusGetRequest {
-	return ApiApiV1WarehouseRemainsTasksTaskIdStatusGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		taskId: taskId,
-	}
-}
-
-// Execute executes the request
-//  @return GetTasksResponse
-func (a *DefaultApiService) ApiV1WarehouseRemainsTasksTaskIdStatusGetExecute(r ApiApiV1WarehouseRemainsTasksTaskIdStatusGetRequest) (*GetTasksResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetTasksResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdStatusGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/warehouse_remains/tasks/{task_id}/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Model4xxResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4144,7 +2518,7 @@ func (a *DefaultApiService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4155,7 +2529,7 @@ func (a *DefaultApiService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4177,7 +2551,7 @@ func (a *DefaultApiService) GetV1DeductionsExecute(r ApiGetV1DeductionsRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4373,7 +2747,7 @@ func (a *DefaultApiService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4384,7 +2758,7 @@ func (a *DefaultApiService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4406,7 +2780,979 @@ func (a *DefaultApiService) GetV1MeasurementPenaltiesExecute(r ApiGetV1Measureme
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1PaidStorageRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	dateFrom *string
+	dateTo *string
+}
+
+// Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60; 
+func (r ApiGetV1PaidStorageRequest) DateFrom(dateFrom string) ApiGetV1PaidStorageRequest {
+	r.dateFrom = &dateFrom
+	return r
+}
+
+// Конец отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:    * &#x60;2019-06-20&#x60;   * &#x60;2019-06-20T23:59:59&#x60;   * &#x60;2019-06-20T00:00:00.12345&#x60;   * &#x60;2017-03-25T00:00:00&#x60; 
+func (r ApiGetV1PaidStorageRequest) DateTo(dateTo string) ApiGetV1PaidStorageRequest {
+	r.dateTo = &dateTo
+	return r
+}
+
+func (r ApiGetV1PaidStorageRequest) Execute() (*CreateTaskResponse, *http.Response, error) {
+	return r.ApiService.GetV1PaidStorageExecute(r)
+}
+
+/*
+GetV1PaidStorage Создать отчёт
+
+Метод создаёт [задание на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).<br><br>
+
+Можно получить отчёт максимум за 8 дней.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1PaidStorageRequest
+*/
+func (a *DefaultApiService) GetV1PaidStorage(ctx context.Context) ApiGetV1PaidStorageRequest {
+	return ApiGetV1PaidStorageRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return CreateTaskResponse
+func (a *DefaultApiService) GetV1PaidStorageExecute(r ApiGetV1PaidStorageRequest) (*CreateTaskResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateTaskResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1PaidStorage")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/paid_storage"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.dateFrom == nil {
+		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
+	}
+	if r.dateTo == nil {
+		return localVarReturnValue, nil, reportError("dateTo is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1PaidStorageTasksTaskIdDownloadRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	taskId string
+}
+
+func (r ApiGetV1PaidStorageTasksTaskIdDownloadRequest) Execute() ([]ResponsePaidStorageInner, *http.Response, error) {
+	return r.ApiService.GetV1PaidStorageTasksTaskIdDownloadExecute(r)
+}
+
+/*
+GetV1PaidStorageTasksTaskIdDownload Получить отчёт
+
+Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1PaidStorageTasksTaskIdDownloadRequest
+*/
+func (a *DefaultApiService) GetV1PaidStorageTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1PaidStorageTasksTaskIdDownloadRequest {
+	return ApiGetV1PaidStorageTasksTaskIdDownloadRequest{
+		ApiService: a,
+		ctx: ctx,
+		taskId: taskId,
+	}
+}
+
+// Execute executes the request
+//  @return []ResponsePaidStorageInner
+func (a *DefaultApiService) GetV1PaidStorageTasksTaskIdDownloadExecute(r ApiGetV1PaidStorageTasksTaskIdDownloadRequest) ([]ResponsePaidStorageInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ResponsePaidStorageInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1PaidStorageTasksTaskIdDownload")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/paid_storage/tasks/{task_id}/download"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1PaidStorageTasksTaskIdStatusRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	taskId string
+}
+
+func (r ApiGetV1PaidStorageTasksTaskIdStatusRequest) Execute() (*GetTasksResponse, *http.Response, error) {
+	return r.ApiService.GetV1PaidStorageTasksTaskIdStatusExecute(r)
+}
+
+/*
+GetV1PaidStorageTasksTaskIdStatus Проверить статус
+
+Метод возвращает статус [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1PaidStorageTasksTaskIdStatusRequest
+*/
+func (a *DefaultApiService) GetV1PaidStorageTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1PaidStorageTasksTaskIdStatusRequest {
+	return ApiGetV1PaidStorageTasksTaskIdStatusRequest{
+		ApiService: a,
+		ctx: ctx,
+		taskId: taskId,
+	}
+}
+
+// Execute executes the request
+//  @return GetTasksResponse
+func (a *DefaultApiService) GetV1PaidStorageTasksTaskIdStatusExecute(r ApiGetV1PaidStorageTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTasksResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1PaidStorageTasksTaskIdStatus")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/paid_storage/tasks/{task_id}/status"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1SupplierOrdersRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	dateFrom *string
+	flag *int32
+}
+
+// Дата и время последнего изменения по заказу. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
+func (r ApiGetV1SupplierOrdersRequest) DateFrom(dateFrom string) ApiGetV1SupplierOrdersRequest {
+	r.dateFrom = &dateFrom
+	return r
+}
+
+// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
+func (r ApiGetV1SupplierOrdersRequest) Flag(flag int32) ApiGetV1SupplierOrdersRequest {
+	r.flag = &flag
+	return r
+}
+
+func (r ApiGetV1SupplierOrdersRequest) Execute() ([]OrdersItem, *http.Response, error) {
+	return r.ApiService.GetV1SupplierOrdersExecute(r)
+}
+
+/*
+GetV1SupplierOrders Заказы
+
+Метод возвращает информацию о заказах.<br>Данные обновляются раз в 30 минут.<br><br>
+
+1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>
+
+Информация о заказе хранится 90 дней с момента оформления.<br><br>
+
+В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br>
+Чтобы получить все оформленные заказы, используйте [Ленту заказов](/openapi/analytics#tag/orderFeed).
+
+<div class="description_important">
+  Данные этого отчёта являются предварительными и служат для оперативного мониторинга
+</div>
+
+Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все заказы, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom` используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все заказы уже выгружены.<br><br>
+
+В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+| Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1SupplierOrdersRequest
+*/
+func (a *DefaultApiService) GetV1SupplierOrders(ctx context.Context) ApiGetV1SupplierOrdersRequest {
+	return ApiGetV1SupplierOrdersRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []OrdersItem
+func (a *DefaultApiService) GetV1SupplierOrdersExecute(r ApiGetV1SupplierOrdersRequest) ([]OrdersItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OrdersItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SupplierOrders")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/supplier/orders"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.dateFrom == nil {
+		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
+	if r.flag != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", r.flag, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", defaultValue, "form", "")
+		r.flag = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GetV1SupplierOrders400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1SupplierSalesRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	dateFrom *string
+	flag *int32
+}
+
+// Дата и время последнего изменения по продаже/возврату. &lt;br&gt; Дата в формате RFC3339. Можно передать дату или дату со временем. Время можно указывать с точностью до [секунд](./api-information#tag/introduction/Limity-zaprosov) или миллисекунд. &lt;br&gt; Время передаётся в часовом поясе Москва (UTC+3). &lt;br&gt;Примеры:   - &#x60;2019-06-20&#x60;   - &#x60;2019-06-20T23:59:59&#x60;   - &#x60;2019-06-20T00:00:00.12345&#x60;   - &#x60;2017-03-25T00:00:00&#x60; 
+func (r ApiGetV1SupplierSalesRequest) DateFrom(dateFrom string) ApiGetV1SupplierSalesRequest {
+	r.dateFrom = &dateFrom
+	return r
+}
+
+// Если параметр &#x60;flag&#x3D;0&#x60; (или не указан в строке запроса), при вызове API возвращаются данные, у которых значение поля &#x60;lastChangeDate&#x60; (дата время обновления информации в сервисе) больше или равно переданному значению параметра &#x60;dateFrom&#x60;. При этом количество возвращенных строк данных варьируется в интервале от 0 до примерно 80000. &lt;br&gt; Если параметр &#x60;flag&#x3D;1&#x60;, то будет выгружена информация обо всех заказах или продажах с датой, равной переданному параметру &#x60;dateFrom&#x60; (в данном случае время в дате значения не имеет). При этом количество возвращенных строк данных будет равно количеству всех заказов или продаж, сделанных в указанную дату, переданную в параметре &#x60;dateFrom&#x60;. 
+func (r ApiGetV1SupplierSalesRequest) Flag(flag int32) ApiGetV1SupplierSalesRequest {
+	r.flag = &flag
+	return r
+}
+
+func (r ApiGetV1SupplierSalesRequest) Execute() ([]SalesItem, *http.Response, error) {
+	return r.ApiService.GetV1SupplierSalesExecute(r)
+}
+
+/*
+GetV1SupplierSales Продажи
+
+Метод возвращает информацию о продажах и возвратах.<br>Данные обновляются раз в 30 минут.<br><br>
+
+1 строка = 1 заказ = 1 сборочное задание = 1 единица товара.<br>Для определения заказа рекомендуем использовать поле `srid`.<br><br>
+
+Информация о заказе хранится 90 дней с момента оформления.
+
+<div class="description_important">
+  Данные этого отчёта являются предварительными и служат для оперативного мониторинга
+</div>
+
+  - В ответах могут отсутствовать заказы, по которым не подтверждена оплата, даже если эти заказы есть в детализациях к отчётам реализации. Например, заказы с отложенными платежами или оплатой в рассрочку
+  - Значения полей `priceWithDisc` и `forPay` рассчитываются по упрощённой логике и могут отличаться от `retail_price_withdisc_rub` и `ppvz_for_pay` соответственно в детализациях к отчётам реализации
+  - Поля `finishedPrice`, `priceWithDisc`, `forPay` могут временно иметь значение `0`: данные заполняются асинхронно, актуализируются в течение 24 часов
+  - Для заказов, которые оплачены в валюте, отличной от валюты продавца, возможны округления цен из-за конвертации валют
+
+Для точных финансовых расчётов, сверки и отчётности используйте [детализации к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>
+
+Для одного ответа на запрос с `flag=0` или без `flag` в системе установлено условное ограничение 80000 строк. Поэтому, чтобы получить все продажи и возвраты, может потребоваться более, чем один запрос. Во втором и далее запросе в параметре `dateFrom `используйте полное значение поля `lastChangeDate` из последней строки ответа на предыдущий запрос.<br> Если в ответе отдаётся пустой массив `[]`, все продажи и возвраты уже выгружены.<br><br>
+
+В песочнице для параметров `dateFrom` и `dateTo` можно задать диапазон только за последние 4 месяца от текущей даты.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1SupplierSalesRequest
+*/
+func (a *DefaultApiService) GetV1SupplierSales(ctx context.Context) ApiGetV1SupplierSalesRequest {
+	return ApiGetV1SupplierSalesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []SalesItem
+func (a *DefaultApiService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesRequest) ([]SalesItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []SalesItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SupplierSales")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/supplier/sales"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.dateFrom == nil {
+		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
+	if r.flag != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", r.flag, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "flag", defaultValue, "form", "")
+		r.flag = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GetV1SupplierOrders400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4602,7 +3948,7 @@ func (a *DefaultApiService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4613,7 +3959,7 @@ func (a *DefaultApiService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4635,7 +3981,661 @@ func (a *DefaultApiService) GetV1WarehouseMeasurementsExecute(r ApiGetV1Warehous
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1WarehouseRemainsRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	locale *string
+	groupByBrand *bool
+	groupBySubject *bool
+	groupBySa *bool
+	groupByNm *bool
+	groupByBarcode *bool
+	groupBySize *bool
+	filterPics *int32
+	filterVolume *int32
+}
+
+// Язык полей ответа &#x60;subjectName&#x60; и &#x60;warehouseName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский. Значения &#x60;warehouseName&#x60; на английском 
+func (r ApiGetV1WarehouseRemainsRequest) Locale(locale string) ApiGetV1WarehouseRemainsRequest {
+	r.locale = &locale
+	return r
+}
+
+// Разбивка по брендам
+func (r ApiGetV1WarehouseRemainsRequest) GroupByBrand(groupByBrand bool) ApiGetV1WarehouseRemainsRequest {
+	r.groupByBrand = &groupByBrand
+	return r
+}
+
+// Разбивка по предметам
+func (r ApiGetV1WarehouseRemainsRequest) GroupBySubject(groupBySubject bool) ApiGetV1WarehouseRemainsRequest {
+	r.groupBySubject = &groupBySubject
+	return r
+}
+
+// Разбивка по артикулам продавца
+func (r ApiGetV1WarehouseRemainsRequest) GroupBySa(groupBySa bool) ApiGetV1WarehouseRemainsRequest {
+	r.groupBySa = &groupBySa
+	return r
+}
+
+// Разбивка по артикулам WB. Если &#x60;groupByNm&#x3D;true&#x60;, в ответе будет поле &#x60;volume&#x60;
+func (r ApiGetV1WarehouseRemainsRequest) GroupByNm(groupByNm bool) ApiGetV1WarehouseRemainsRequest {
+	r.groupByNm = &groupByNm
+	return r
+}
+
+// Разбивка по баркодам
+func (r ApiGetV1WarehouseRemainsRequest) GroupByBarcode(groupByBarcode bool) ApiGetV1WarehouseRemainsRequest {
+	r.groupByBarcode = &groupByBarcode
+	return r
+}
+
+// Разбивка по размерам
+func (r ApiGetV1WarehouseRemainsRequest) GroupBySize(groupBySize bool) ApiGetV1WarehouseRemainsRequest {
+	r.groupBySize = &groupBySize
+	return r
+}
+
+// Фильтр по фото:   - &#x60;-1&#x60; — без фото   - &#x60;0&#x60; — не применять фильтр   - &#x60;1&#x60; — с фото 
+func (r ApiGetV1WarehouseRemainsRequest) FilterPics(filterPics int32) ApiGetV1WarehouseRemainsRequest {
+	r.filterPics = &filterPics
+	return r
+}
+
+// Фильтр по объёму:   - &#x60;-1&#x60; — без габаритов   - &#x60;0&#x60; — не применять фильтр   - &#x60;3&#x60; — свыше трёх литров 
+func (r ApiGetV1WarehouseRemainsRequest) FilterVolume(filterVolume int32) ApiGetV1WarehouseRemainsRequest {
+	r.filterVolume = &filterVolume
+	return r
+}
+
+func (r ApiGetV1WarehouseRemainsRequest) Execute() (*CreateTaskResponse, *http.Response, error) {
+	return r.ApiService.GetV1WarehouseRemainsExecute(r)
+}
+
+/*
+GetV1WarehouseRemains Создать отчёт
+
+Метод создаёт [задание на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).<br><br>
+
+Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV1WarehouseRemainsRequest
+*/
+func (a *DefaultApiService) GetV1WarehouseRemains(ctx context.Context) ApiGetV1WarehouseRemainsRequest {
+	return ApiGetV1WarehouseRemainsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return CreateTaskResponse
+func (a *DefaultApiService) GetV1WarehouseRemainsExecute(r ApiGetV1WarehouseRemainsRequest) (*CreateTaskResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateTaskResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1WarehouseRemains")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/warehouse_remains"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.locale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", r.locale, "form", "")
+	} else {
+		var defaultValue string = "ru"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locale", defaultValue, "form", "")
+		r.locale = &defaultValue
+	}
+	if r.groupByBrand != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBrand", r.groupByBrand, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBrand", defaultValue, "form", "")
+		r.groupByBrand = &defaultValue
+	}
+	if r.groupBySubject != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySubject", r.groupBySubject, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySubject", defaultValue, "form", "")
+		r.groupBySubject = &defaultValue
+	}
+	if r.groupBySa != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySa", r.groupBySa, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySa", defaultValue, "form", "")
+		r.groupBySa = &defaultValue
+	}
+	if r.groupByNm != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByNm", r.groupByNm, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByNm", defaultValue, "form", "")
+		r.groupByNm = &defaultValue
+	}
+	if r.groupByBarcode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBarcode", r.groupByBarcode, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupByBarcode", defaultValue, "form", "")
+		r.groupByBarcode = &defaultValue
+	}
+	if r.groupBySize != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySize", r.groupBySize, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "groupBySize", defaultValue, "form", "")
+		r.groupBySize = &defaultValue
+	}
+	if r.filterPics != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filterPics", r.filterPics, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filterPics", defaultValue, "form", "")
+		r.filterPics = &defaultValue
+	}
+	if r.filterVolume != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filterVolume", r.filterVolume, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filterVolume", defaultValue, "form", "")
+		r.filterVolume = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	taskId string
+}
+
+func (r ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest) Execute() ([]GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner, *http.Response, error) {
+	return r.ApiService.GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r)
+}
+
+/*
+GetV1WarehouseRemainsTasksTaskIdDownload Получить отчёт
+
+Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest
+*/
+func (a *DefaultApiService) GetV1WarehouseRemainsTasksTaskIdDownload(ctx context.Context, taskId string) ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest {
+	return ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest{
+		ApiService: a,
+		ctx: ctx,
+		taskId: taskId,
+	}
+}
+
+// Execute executes the request
+//  @return []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner
+func (a *DefaultApiService) GetV1WarehouseRemainsTasksTaskIdDownloadExecute(r ApiGetV1WarehouseRemainsTasksTaskIdDownloadRequest) ([]GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetV1WarehouseRemainsTasksTaskIdDownload200ResponseInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1WarehouseRemainsTasksTaskIdDownload")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/warehouse_remains/tasks/{task_id}/download"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v GetV1SupplierOrders402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	taskId string
+}
+
+func (r ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest) Execute() (*GetTasksResponse, *http.Response, error) {
+	return r.ApiService.GetV1WarehouseRemainsTasksTaskIdStatusExecute(r)
+}
+
+/*
+GetV1WarehouseRemainsTasksTaskIdStatus Проверить статус
+
+Метод возвращает статус [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Сервисный | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
+| Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param taskId ID задания на генерацию 
+ @return ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest
+*/
+func (a *DefaultApiService) GetV1WarehouseRemainsTasksTaskIdStatus(ctx context.Context, taskId string) ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest {
+	return ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest{
+		ApiService: a,
+		ctx: ctx,
+		taskId: taskId,
+	}
+}
+
+// Execute executes the request
+//  @return GetTasksResponse
+func (a *DefaultApiService) GetV1WarehouseRemainsTasksTaskIdStatusExecute(r ApiGetV1WarehouseRemainsTasksTaskIdStatusRequest) (*GetTasksResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTasksResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1WarehouseRemainsTasksTaskIdStatus")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/warehouse_remains/tasks/{task_id}/status"
+	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", url.PathEscape(parameterValueToString(r.taskId, "taskId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV1SupplierOrders401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Model4xxResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

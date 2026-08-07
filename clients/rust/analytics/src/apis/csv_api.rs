@@ -1,7 +1,7 @@
 /*
  * Аналитика и данные
  *
- * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)   2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)   3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)   4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)   5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)  </div> 
+ * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)   2. [Ленты заказов](/openapi/analytics#tag/orderFeed)   3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)   4. [Истории остатков](/openapi/analytics#tag/stocksReport)   5. [Оценки товара](/openapi/analytics#tag/itemRating)   6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)  </div> 
  *
  * The version of the OpenAPI document: analytics
  * 
@@ -15,89 +15,55 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_v2_nm_report_downloads_file_download_id_get`]
+/// struct for typed errors of method [`get_v2_nm_report_downloads`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2NmReportDownloadsFileDownloadIdGetError {
-    Status400(models::ApiV2NmReportDownloadsGet400Response),
+pub enum GetV2NmReportDownloadsError {
+    Status400(models::GetV2NmReportDownloads400Response),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status403(models::GetV2NmReportDownloads403Response),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_v2_nm_report_downloads_file_download_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetV2NmReportDownloadsFileDownloadIdError {
+    Status400(models::GetV2NmReportDownloads400Response),
     Status401(models::PostV3SalesFunnelProducts401Response),
     Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ApiV2NmReportDownloadsGet403Response),
+    Status403(models::GetV2NmReportDownloads403Response),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_nm_report_downloads_get`]
+/// struct for typed errors of method [`post_v2_nm_report_downloads`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2NmReportDownloadsGetError {
-    Status400(models::ApiV2NmReportDownloadsGet400Response),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status403(models::ApiV2NmReportDownloadsGet403Response),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_nm_report_downloads_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2NmReportDownloadsPostError {
-    Status400(models::ApiV2NmReportDownloadsGet400Response),
+pub enum PostV2NmReportDownloadsError {
+    Status400(models::GetV2NmReportDownloads400Response),
     Status401(models::PostV3SalesFunnelProducts401Response),
     Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ApiV2NmReportDownloadsGet403Response),
-    Status429(models::ApiV2NmReportDownloadsPost429Response),
+    Status403(models::GetV2NmReportDownloads403Response),
+    Status429(models::PostV2NmReportDownloads429Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_v2_nm_report_downloads_retry_post`]
+/// struct for typed errors of method [`post_v2_nm_report_downloads_retry`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiV2NmReportDownloadsRetryPostError {
-    Status400(models::ApiV2NmReportDownloadsGet400Response),
+pub enum PostV2NmReportDownloadsRetryError {
+    Status400(models::GetV2NmReportDownloads400Response),
     Status401(models::PostV3SalesFunnelProducts401Response),
-    Status403(models::ApiV2NmReportDownloadsGet403Response),
+    Status403(models::GetV2NmReportDownloads403Response),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_nm_report_downloads_file_download_id_get(configuration: &configuration::Configuration, download_id: &str) -> Result<reqwest::Response, Error<ApiV2NmReportDownloadsFileDownloadIdGetError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_download_id = download_id;
-
-    let uri_str = format!("{}/api/v2/nm-report/downloads/file/{downloadId}", configuration.base_path, downloadId=crate::apis::urlencode(p_path_download_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(resp)
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2NmReportDownloadsFileDownloadIdGetError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) и статусы генерации.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_nm_report_downloads_get(configuration: &configuration::Configuration, filter_left_square_bracket_download_ids_right_square_bracket: Option<Vec<uuid::Uuid>>) -> Result<models::NmReportGetReportsResponse, Error<ApiV2NmReportDownloadsGetError>> {
+/// Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn get_v2_nm_report_downloads(configuration: &configuration::Configuration, filter_left_square_bracket_download_ids_right_square_bracket: Option<Vec<uuid::Uuid>>) -> Result<models::NmReportGetReportsResponse, Error<GetV2NmReportDownloadsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_filter_left_square_bracket_download_ids_right_square_bracket = filter_left_square_bracket_download_ids_right_square_bracket;
 
@@ -142,15 +108,49 @@ pub async fn api_v2_nm_report_downloads_get(configuration: &configuration::Confi
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV2NmReportDownloadsGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetV2NmReportDownloadsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>  Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/Voronka-prodazh) или [параметрам поиска](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram) с группировкой по:   * артикулам WB   * предметам, брендам и ярлыкам  В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](/openapi/analytics#tag/Istoriya-ostatkov).<br><br>  Каждый новый отчёт должен иметь уникальный ID.  <div class=\"description_important\">   Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации </div>  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Если не удалось [получить отчёт](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1file~1%7BdownloadId%7D/get), можно создать [повторное задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1retry/post). Также можно [получить список и проверить статусы](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) отчётов.  <div class=\"description_important\">   Отчёты по <a href=\"https://seller.wildberries.ru/content-analytics/history-remains\">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href=\"https://seller.wildberries.ru/monetization/jam\">Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_nm_report_downloads_post(configuration: &configuration::Configuration, api_v2_nm_report_downloads_post_request: Option<models::ApiV2NmReportDownloadsPostRequest>) -> Result<models::NmReportCreateReportResponse, Error<ApiV2NmReportDownloadsPostError>> {
+/// Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads). <br><br> Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn get_v2_nm_report_downloads_file_download_id(configuration: &configuration::Configuration, download_id: &str) -> Result<reqwest::Response, Error<GetV2NmReportDownloadsFileDownloadIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_api_v2_nm_report_downloads_post_request = api_v2_nm_report_downloads_post_request;
+    let p_path_download_id = download_id;
+
+    let uri_str = format!("{}/api/v2/nm-report/downloads/file/{downloadId}", configuration.base_path, downloadId=crate::apis::urlencode(p_path_download_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(resp)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetV2NmReportDownloadsFileDownloadIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>  Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/salesFunnel) или [параметрам поиска](/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:   * артикулам WB   * предметам, брендам и ярлыкам  В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>  Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](/openapi/analytics#tag/stocksReport).<br><br>  Каждый новый отчёт должен иметь уникальный ID.  <div class=\"description_important\">   Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации </div>  Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.  <div class=\"description_important\">   Отчёты по <a href=\"https://seller.wildberries.ru/content-analytics/history-remains\">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href=\"https://seller.wildberries.ru/monetization/jam\">Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn post_v2_nm_report_downloads(configuration: &configuration::Configuration, post_v2_nm_report_downloads_request: Option<models::PostV2NmReportDownloadsRequest>) -> Result<models::NmReportCreateReportResponse, Error<PostV2NmReportDownloadsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_post_v2_nm_report_downloads_request = post_v2_nm_report_downloads_request;
 
     let uri_str = format!("{}/api/v2/nm-report/downloads", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -166,7 +166,7 @@ pub async fn api_v2_nm_report_downloads_post(configuration: &configuration::Conf
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_body_api_v2_nm_report_downloads_post_request);
+    req_builder = req_builder.json(&p_body_post_v2_nm_report_downloads_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -188,13 +188,13 @@ pub async fn api_v2_nm_report_downloads_post(configuration: &configuration::Conf
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV2NmReportDownloadsPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<PostV2NmReportDownloadsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Метод создает повторное [задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) `FAILED`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_nm_report_downloads_retry_post(configuration: &configuration::Configuration, nm_report_retry_report_request: models::NmReportRetryReportRequest) -> Result<models::NmReportRetryReportResponse, Error<ApiV2NmReportDownloadsRetryPostError>> {
+/// Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn post_v2_nm_report_downloads_retry(configuration: &configuration::Configuration, nm_report_retry_report_request: models::NmReportRetryReportRequest) -> Result<models::NmReportRetryReportResponse, Error<PostV2NmReportDownloadsRetryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_nm_report_retry_report_request = nm_report_retry_report_request;
 
@@ -234,7 +234,7 @@ pub async fn api_v2_nm_report_downloads_retry_post(configuration: &configuration
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiV2NmReportDownloadsRetryPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<PostV2NmReportDownloadsRetryError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

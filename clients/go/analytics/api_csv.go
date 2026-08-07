@@ -1,7 +1,7 @@
 /*
 Аналитика и данные
 
-<div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)   2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)   3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)   4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)   5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)  </div> 
+<div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)   2. [Ленты заказов](/openapi/analytics#tag/orderFeed)   3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)   4. [Истории остатков](/openapi/analytics#tag/stocksReport)   5. [Оценки товара](/openapi/analytics#tag/itemRating)   6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)  </div> 
 
 API version: analytics
 */
@@ -17,220 +17,34 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"os"
 	"reflect"
+	"os"
 )
 
 
 // CSVAPIService CSVAPI service
 type CSVAPIService service
 
-type ApiApiV2NmReportDownloadsFileDownloadIdGetRequest struct {
-	ctx context.Context
-	ApiService *CSVAPIService
-	downloadId string
-}
-
-func (r ApiApiV2NmReportDownloadsFileDownloadIdGetRequest) Execute() (*os.File, *http.Response, error) {
-	return r.ApiService.ApiV2NmReportDownloadsFileDownloadIdGetExecute(r)
-}
-
-/*
-ApiV2NmReportDownloadsFileDownloadIdGet Получить отчёт
-
-Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post).
-<br><br>
-Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.
-
-<div class="description_limit">
-<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
-
-
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
-| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
-</div>
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param downloadId ID отчёта
- @return ApiApiV2NmReportDownloadsFileDownloadIdGetRequest
-*/
-func (a *CSVAPIService) ApiV2NmReportDownloadsFileDownloadIdGet(ctx context.Context, downloadId string) ApiApiV2NmReportDownloadsFileDownloadIdGetRequest {
-	return ApiApiV2NmReportDownloadsFileDownloadIdGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		downloadId: downloadId,
-	}
-}
-
-// Execute executes the request
-//  @return *os.File
-func (a *CSVAPIService) ApiV2NmReportDownloadsFileDownloadIdGetExecute(r ApiApiV2NmReportDownloadsFileDownloadIdGetRequest) (*os.File, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.ApiV2NmReportDownloadsFileDownloadIdGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/nm-report/downloads/file/{downloadId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"downloadId"+"}", url.PathEscape(parameterValueToString(r.downloadId, "downloadId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV2NmReportDownloadsGet400Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostV3SalesFunnelProducts401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v PostV3SalesFunnelProducts402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiV2NmReportDownloadsGet403Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v PostV3SalesFunnelProducts401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV2NmReportDownloadsGetRequest struct {
+type ApiGetV2NmReportDownloadsRequest struct {
 	ctx context.Context
 	ApiService *CSVAPIService
 	filterDownloadIds *[]string
 }
 
 // ID отчёта
-func (r ApiApiV2NmReportDownloadsGetRequest) FilterDownloadIds(filterDownloadIds []string) ApiApiV2NmReportDownloadsGetRequest {
+func (r ApiGetV2NmReportDownloadsRequest) FilterDownloadIds(filterDownloadIds []string) ApiGetV2NmReportDownloadsRequest {
 	r.filterDownloadIds = &filterDownloadIds
 	return r
 }
 
-func (r ApiApiV2NmReportDownloadsGetRequest) Execute() (*NmReportGetReportsResponse, *http.Response, error) {
-	return r.ApiService.ApiV2NmReportDownloadsGetExecute(r)
+func (r ApiGetV2NmReportDownloadsRequest) Execute() (*NmReportGetReportsResponse, *http.Response, error) {
+	return r.ApiService.GetV2NmReportDownloadsExecute(r)
 }
 
 /*
-ApiV2NmReportDownloadsGet Получить список отчётов
+GetV2NmReportDownloads Получить список отчётов
 
-Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) и статусы генерации.
+Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -246,10 +60,10 @@ ApiV2NmReportDownloadsGet Получить список отчётов
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV2NmReportDownloadsGetRequest
+ @return ApiGetV2NmReportDownloadsRequest
 */
-func (a *CSVAPIService) ApiV2NmReportDownloadsGet(ctx context.Context) ApiApiV2NmReportDownloadsGetRequest {
-	return ApiApiV2NmReportDownloadsGetRequest{
+func (a *CSVAPIService) GetV2NmReportDownloads(ctx context.Context) ApiGetV2NmReportDownloadsRequest {
+	return ApiGetV2NmReportDownloadsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -257,7 +71,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsGet(ctx context.Context) ApiApiV2N
 
 // Execute executes the request
 //  @return NmReportGetReportsResponse
-func (a *CSVAPIService) ApiV2NmReportDownloadsGetExecute(r ApiApiV2NmReportDownloadsGetRequest) (*NmReportGetReportsResponse, *http.Response, error) {
+func (a *CSVAPIService) GetV2NmReportDownloadsExecute(r ApiGetV2NmReportDownloadsRequest) (*NmReportGetReportsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -265,7 +79,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsGetExecute(r ApiApiV2NmReportDownl
 		localVarReturnValue  *NmReportGetReportsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.ApiV2NmReportDownloadsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.GetV2NmReportDownloads")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -341,7 +155,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsGetExecute(r ApiApiV2NmReportDownl
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV2NmReportDownloadsGet400Response
+			var v GetV2NmReportDownloads400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -363,7 +177,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsGetExecute(r ApiApiV2NmReportDownl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiV2NmReportDownloadsGet403Response
+			var v GetV2NmReportDownloads403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -398,49 +212,22 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsGetExecute(r ApiApiV2NmReportDownl
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV2NmReportDownloadsPostRequest struct {
+type ApiGetV2NmReportDownloadsFileDownloadIdRequest struct {
 	ctx context.Context
 	ApiService *CSVAPIService
-	apiV2NmReportDownloadsPostRequest *ApiV2NmReportDownloadsPostRequest
+	downloadId string
 }
 
-func (r ApiApiV2NmReportDownloadsPostRequest) ApiV2NmReportDownloadsPostRequest(apiV2NmReportDownloadsPostRequest ApiV2NmReportDownloadsPostRequest) ApiApiV2NmReportDownloadsPostRequest {
-	r.apiV2NmReportDownloadsPostRequest = &apiV2NmReportDownloadsPostRequest
-	return r
-}
-
-func (r ApiApiV2NmReportDownloadsPostRequest) Execute() (*NmReportCreateReportResponse, *http.Response, error) {
-	return r.ApiService.ApiV2NmReportDownloadsPostExecute(r)
+func (r ApiGetV2NmReportDownloadsFileDownloadIdRequest) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.GetV2NmReportDownloadsFileDownloadIdExecute(r)
 }
 
 /*
-ApiV2NmReportDownloadsPost Создать отчёт
+GetV2NmReportDownloadsFileDownloadId Получить отчёт
 
-Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>
-
-Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/Voronka-prodazh) или [параметрам поиска](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram) с группировкой по:
-  * артикулам WB
-  * предметам, брендам и ярлыкам
-
-В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>
-
-Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](/openapi/analytics#tag/Istoriya-ostatkov).<br><br>
-
-Каждый новый отчёт должен иметь уникальный ID.
-
-<div class="description_important">
-  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
-</div>
-
-Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>
-
-Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
-
-Если не удалось [получить отчёт](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1file~1%7BdownloadId%7D/get), можно создать [повторное задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1retry/post). Также можно [получить список и проверить статусы](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) отчётов.
-
-<div class="description_important">
-  Отчёты по <a href="https://seller.wildberries.ru/content-analytics/history-remains">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href="https://seller.wildberries.ru/monetization/jam">Джем</a>
-</div>
+Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
+<br><br>
+Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -456,38 +243,41 @@ ApiV2NmReportDownloadsPost Создать отчёт
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV2NmReportDownloadsPostRequest
+ @param downloadId ID отчёта
+ @return ApiGetV2NmReportDownloadsFileDownloadIdRequest
 */
-func (a *CSVAPIService) ApiV2NmReportDownloadsPost(ctx context.Context) ApiApiV2NmReportDownloadsPostRequest {
-	return ApiApiV2NmReportDownloadsPostRequest{
+func (a *CSVAPIService) GetV2NmReportDownloadsFileDownloadId(ctx context.Context, downloadId string) ApiGetV2NmReportDownloadsFileDownloadIdRequest {
+	return ApiGetV2NmReportDownloadsFileDownloadIdRequest{
 		ApiService: a,
 		ctx: ctx,
+		downloadId: downloadId,
 	}
 }
 
 // Execute executes the request
-//  @return NmReportCreateReportResponse
-func (a *CSVAPIService) ApiV2NmReportDownloadsPostExecute(r ApiApiV2NmReportDownloadsPostRequest) (*NmReportCreateReportResponse, *http.Response, error) {
+//  @return *os.File
+func (a *CSVAPIService) GetV2NmReportDownloadsFileDownloadIdExecute(r ApiGetV2NmReportDownloadsFileDownloadIdRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *NmReportCreateReportResponse
+		localVarReturnValue  *os.File
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.ApiV2NmReportDownloadsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.GetV2NmReportDownloadsFileDownloadId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v2/nm-report/downloads"
+	localVarPath := localBasePath + "/api/v2/nm-report/downloads/file/{downloadId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"downloadId"+"}", url.PathEscape(parameterValueToString(r.downloadId, "downloadId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -496,15 +286,13 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsPostExecute(r ApiApiV2NmReportDown
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json", "application/problem+json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.apiV2NmReportDownloadsPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -542,7 +330,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsPostExecute(r ApiApiV2NmReportDown
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV2NmReportDownloadsGet400Response
+			var v GetV2NmReportDownloads400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -575,7 +363,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsPostExecute(r ApiApiV2NmReportDown
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiV2NmReportDownloadsGet403Response
+			var v GetV2NmReportDownloads403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -586,7 +374,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsPostExecute(r ApiApiV2NmReportDown
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV2NmReportDownloadsPost429Response
+			var v PostV3SalesFunnelProducts401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -610,25 +398,49 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsPostExecute(r ApiApiV2NmReportDown
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiV2NmReportDownloadsRetryPostRequest struct {
+type ApiPostV2NmReportDownloadsRequest struct {
 	ctx context.Context
 	ApiService *CSVAPIService
-	nmReportRetryReportRequest *NmReportRetryReportRequest
+	postV2NmReportDownloadsRequest *PostV2NmReportDownloadsRequest
 }
 
-func (r ApiApiV2NmReportDownloadsRetryPostRequest) NmReportRetryReportRequest(nmReportRetryReportRequest NmReportRetryReportRequest) ApiApiV2NmReportDownloadsRetryPostRequest {
-	r.nmReportRetryReportRequest = &nmReportRetryReportRequest
+func (r ApiPostV2NmReportDownloadsRequest) PostV2NmReportDownloadsRequest(postV2NmReportDownloadsRequest PostV2NmReportDownloadsRequest) ApiPostV2NmReportDownloadsRequest {
+	r.postV2NmReportDownloadsRequest = &postV2NmReportDownloadsRequest
 	return r
 }
 
-func (r ApiApiV2NmReportDownloadsRetryPostRequest) Execute() (*NmReportRetryReportResponse, *http.Response, error) {
-	return r.ApiService.ApiV2NmReportDownloadsRetryPostExecute(r)
+func (r ApiPostV2NmReportDownloadsRequest) Execute() (*NmReportCreateReportResponse, *http.Response, error) {
+	return r.ApiService.PostV2NmReportDownloadsExecute(r)
 }
 
 /*
-ApiV2NmReportDownloadsRetryPost Сгенерировать отчёт повторно
+PostV2NmReportDownloads Создать отчёт
 
-Метод создает повторное [задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) `FAILED`.
+Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>
+
+Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/salesFunnel) или [параметрам поиска](/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
+  * артикулам WB
+  * предметам, брендам и ярлыкам
+
+В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>
+
+Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](/openapi/analytics#tag/stocksReport).<br><br>
+
+Каждый новый отчёт должен иметь уникальный ID.
+
+<div class="description_important">
+  Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
+</div>
+
+Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.<br><br>
+
+Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
+
+Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.
+
+<div class="description_important">
+  Отчёты по <a href="https://seller.wildberries.ru/content-analytics/history-remains">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href="https://seller.wildberries.ru/monetization/jam">Джем</a>
+</div>
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -644,10 +456,198 @@ ApiV2NmReportDownloadsRetryPost Сгенерировать отчёт повто
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV2NmReportDownloadsRetryPostRequest
+ @return ApiPostV2NmReportDownloadsRequest
 */
-func (a *CSVAPIService) ApiV2NmReportDownloadsRetryPost(ctx context.Context) ApiApiV2NmReportDownloadsRetryPostRequest {
-	return ApiApiV2NmReportDownloadsRetryPostRequest{
+func (a *CSVAPIService) PostV2NmReportDownloads(ctx context.Context) ApiPostV2NmReportDownloadsRequest {
+	return ApiPostV2NmReportDownloadsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return NmReportCreateReportResponse
+func (a *CSVAPIService) PostV2NmReportDownloadsExecute(r ApiPostV2NmReportDownloadsRequest) (*NmReportCreateReportResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *NmReportCreateReportResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.PostV2NmReportDownloads")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/nm-report/downloads"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postV2NmReportDownloadsRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GetV2NmReportDownloads400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v PostV3SalesFunnelProducts401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v PostV3SalesFunnelProducts402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetV2NmReportDownloads403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v PostV2NmReportDownloads429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV2NmReportDownloadsRetryRequest struct {
+	ctx context.Context
+	ApiService *CSVAPIService
+	nmReportRetryReportRequest *NmReportRetryReportRequest
+}
+
+func (r ApiPostV2NmReportDownloadsRetryRequest) NmReportRetryReportRequest(nmReportRetryReportRequest NmReportRetryReportRequest) ApiPostV2NmReportDownloadsRetryRequest {
+	r.nmReportRetryReportRequest = &nmReportRetryReportRequest
+	return r
+}
+
+func (r ApiPostV2NmReportDownloadsRetryRequest) Execute() (*NmReportRetryReportResponse, *http.Response, error) {
+	return r.ApiService.PostV2NmReportDownloadsRetryExecute(r)
+}
+
+/*
+PostV2NmReportDownloadsRetry Сгенерировать отчёт повторно
+
+Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+| Тип | Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- | --- |
+| Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса |
+| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV2NmReportDownloadsRetryRequest
+*/
+func (a *CSVAPIService) PostV2NmReportDownloadsRetry(ctx context.Context) ApiPostV2NmReportDownloadsRetryRequest {
+	return ApiPostV2NmReportDownloadsRetryRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -655,7 +655,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsRetryPost(ctx context.Context) Api
 
 // Execute executes the request
 //  @return NmReportRetryReportResponse
-func (a *CSVAPIService) ApiV2NmReportDownloadsRetryPostExecute(r ApiApiV2NmReportDownloadsRetryPostRequest) (*NmReportRetryReportResponse, *http.Response, error) {
+func (a *CSVAPIService) PostV2NmReportDownloadsRetryExecute(r ApiPostV2NmReportDownloadsRetryRequest) (*NmReportRetryReportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -663,7 +663,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsRetryPostExecute(r ApiApiV2NmRepor
 		localVarReturnValue  *NmReportRetryReportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.ApiV2NmReportDownloadsRetryPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CSVAPIService.PostV2NmReportDownloadsRetry")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -733,7 +733,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsRetryPostExecute(r ApiApiV2NmRepor
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ApiV2NmReportDownloadsGet400Response
+			var v GetV2NmReportDownloads400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -755,7 +755,7 @@ func (a *CSVAPIService) ApiV2NmReportDownloadsRetryPostExecute(r ApiApiV2NmRepor
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ApiV2NmReportDownloadsGet403Response
+			var v GetV2NmReportDownloads403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

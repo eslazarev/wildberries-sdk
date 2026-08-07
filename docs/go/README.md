@@ -275,31 +275,31 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `promotion.DefaultApiService.PostV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 
 ### communications (`communications`)
-- `communications.DefaultApiService.ApiFeedbacksV1PinsCountGet` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApiService.ApiFeedbacksV1PinsDelete` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
-- `communications.DefaultApiService.ApiFeedbacksV1PinsGet` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApiService.ApiFeedbacksV1PinsLimitsGet` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
-- `communications.DefaultApiService.ApiFeedbacksV1PinsPost` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
-- `communications.DefaultApiService.ApiV1ClaimPatch` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
-- `communications.DefaultApiService.ApiV1ClaimsGet` — `GET /api/v1/claims` — Заявки покупателей на возврат
-- `communications.DefaultApiService.ApiV1FeedbackGet` — `GET /api/v1/feedback` — Получить отзыв по ID
-- `communications.DefaultApiService.ApiV1FeedbacksAnswerPatch` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
-- `communications.DefaultApiService.ApiV1FeedbacksAnswerPost` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
-- `communications.DefaultApiService.ApiV1FeedbacksArchiveGet` — `GET /api/v1/feedbacks/archive` — Список архивных отзывов
-- `communications.DefaultApiService.ApiV1FeedbacksCountGet` — `GET /api/v1/feedbacks/count` — Количество отзывов
-- `communications.DefaultApiService.ApiV1FeedbacksCountUnansweredGet` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
-- `communications.DefaultApiService.ApiV1FeedbacksGet` — `GET /api/v1/feedbacks` — Список отзывов
-- `communications.DefaultApiService.ApiV1FeedbacksOrderReturnPost` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
-- `communications.DefaultApiService.ApiV1NewFeedbacksQuestionsGet` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
-- `communications.DefaultApiService.ApiV1QuestionGet` — `GET /api/v1/question` — Получить вопрос по ID
-- `communications.DefaultApiService.ApiV1QuestionsCountGet` — `GET /api/v1/questions/count` — Количество вопросов
-- `communications.DefaultApiService.ApiV1QuestionsCountUnansweredGet` — `GET /api/v1/questions/count-unanswered` — Неотвеченные вопросы
-- `communications.DefaultApiService.ApiV1QuestionsGet` — `GET /api/v1/questions` — Список вопросов
-- `communications.DefaultApiService.ApiV1QuestionsPatch` — `PATCH /api/v1/questions` — Работа с вопросами
-- `communications.DefaultApiService.ApiV1SellerChatsGet` — `GET /api/v1/seller/chats` — Список чатов
-- `communications.DefaultApiService.ApiV1SellerDownloadIdGet` — `GET /api/v1/seller/download/{id}` — Получить файл из сообщения
-- `communications.DefaultApiService.ApiV1SellerEventsGet` — `GET /api/v1/seller/events` — События чатов
-- `communications.DefaultApiService.ApiV1SellerMessagePost` — `POST /api/v1/seller/message` — Отправить сообщение
+- `communications.DefaultApiService.DeleteFeedbacksV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
+- `communications.DefaultApiService.GetFeedbacksV1Pins` — `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApiService.GetFeedbacksV1PinsCount` — `GET /api/feedbacks/v1/pins/count` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApiService.GetFeedbacksV1PinsLimits` — `GET /api/feedbacks/v1/pins/limits` — Лимиты закреплённых отзывов
+- `communications.DefaultApiService.GetV1Claims` — `GET /api/v1/claims` — Заявки покупателей на возврат
+- `communications.DefaultApiService.GetV1Feedback` — `GET /api/v1/feedback` — Получить отзыв по ID
+- `communications.DefaultApiService.GetV1Feedbacks` — `GET /api/v1/feedbacks` — Список отзывов
+- `communications.DefaultApiService.GetV1FeedbacksArchive` — `GET /api/v1/feedbacks/archive` — Список архивных отзывов
+- `communications.DefaultApiService.GetV1FeedbacksCount` — `GET /api/v1/feedbacks/count` — Количество отзывов
+- `communications.DefaultApiService.GetV1FeedbacksCountUnanswered` — `GET /api/v1/feedbacks/count-unanswered` — Необработанные отзывы
+- `communications.DefaultApiService.GetV1NewFeedbacksQuestions` — `GET /api/v1/new-feedbacks-questions` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApiService.GetV1Question` — `GET /api/v1/question` — Получить вопрос по ID
+- `communications.DefaultApiService.GetV1Questions` — `GET /api/v1/questions` — Список вопросов
+- `communications.DefaultApiService.GetV1QuestionsCount` — `GET /api/v1/questions/count` — Количество вопросов
+- `communications.DefaultApiService.GetV1QuestionsCountUnanswered` — `GET /api/v1/questions/count-unanswered` — Неотвеченные вопросы
+- `communications.DefaultApiService.GetV1SellerChats` — `GET /api/v1/seller/chats` — Список чатов
+- `communications.DefaultApiService.GetV1SellerDownloadId` — `GET /api/v1/seller/download/{id}` — Получить файл из сообщения
+- `communications.DefaultApiService.GetV1SellerEvents` — `GET /api/v1/seller/events` — События чатов
+- `communications.DefaultApiService.PatchV1Claim` — `PATCH /api/v1/claim` — Ответ на заявку покупателя
+- `communications.DefaultApiService.PatchV1FeedbacksAnswer` — `PATCH /api/v1/feedbacks/answer` — Отредактировать ответ на отзыв
+- `communications.DefaultApiService.PatchV1Questions` — `PATCH /api/v1/questions` — Работа с вопросами
+- `communications.DefaultApiService.PostFeedbacksV1Pins` — `POST /api/feedbacks/v1/pins` — Закрепить отзывы
+- `communications.DefaultApiService.PostV1FeedbacksAnswer` — `POST /api/v1/feedbacks/answer` — Ответить на отзыв
+- `communications.DefaultApiService.PostV1FeedbacksOrderReturn` — `POST /api/v1/feedbacks/order/return` — Возврат товара по ID отзыва
+- `communications.DefaultApiService.PostV1SellerMessage` — `POST /api/v1/seller/message` — Отправить сообщение
 
 ### rates (`rates`)
 - `rates.DefaultApiService.GetV1AcceptanceCoefficients` — `GET /api/tariffs/v1/acceptance/coefficients` — Тарифы на поставку
@@ -309,51 +309,52 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `rates.DefaultApiService.GetV1TariffsReturn` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
-- `analytics.DefaultApiService.ApiV2SearchReportProductOrdersPost` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
-- `analytics.DefaultApiService.ApiV2SearchReportProductSearchTextsPost` — `POST /api/v2/search-report/product/search-texts` — Поисковые запросы по товару
-- `analytics.DefaultApiService.ApiV2SearchReportReportPost` — `POST /api/v2/search-report/report` — Основная страница
-- `analytics.DefaultApiService.ApiV2SearchReportTableDetailsPost` — `POST /api/v2/search-report/table/details` — Пагинация по товарам в группе
-- `analytics.DefaultApiService.ApiV2SearchReportTableGroupsPost` — `POST /api/v2/search-report/table/groups` — Пагинация по группам
-- `analytics.DefaultApiService.ApiV2StocksReportOfficesPost` — `POST /api/v2/stocks-report/offices` — Данные по складам
-- `analytics.DefaultApiService.ApiV2StocksReportProductsGroupsPost` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
-- `analytics.DefaultApiService.ApiV2StocksReportProductsProductsPost` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
-- `analytics.DefaultApiService.ApiV2StocksReportProductsSizesPost` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
 - `analytics.DefaultApiService.PostV1ItemRating` — `POST /api/analytics/v1/item-rating` — Получить отчёт
+- `analytics.DefaultApiService.PostV1OrderFeed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
 - `analytics.DefaultApiService.PostV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApiService.PostV2ItemRating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
+- `analytics.DefaultApiService.PostV2SearchReportProductOrders` — `POST /api/v2/search-report/product/orders` — Заказы и позиции по поисковым запросам товара
+- `analytics.DefaultApiService.PostV2SearchReportProductSearchTexts` — `POST /api/v2/search-report/product/search-texts` — Поисковые запросы по товару
+- `analytics.DefaultApiService.PostV2SearchReportReport` — `POST /api/v2/search-report/report` — Основная страница
+- `analytics.DefaultApiService.PostV2SearchReportTableDetails` — `POST /api/v2/search-report/table/details` — Пагинация по товарам в группе
+- `analytics.DefaultApiService.PostV2SearchReportTableGroups` — `POST /api/v2/search-report/table/groups` — Пагинация по группам
+- `analytics.DefaultApiService.PostV2StocksReportOffices` — `POST /api/v2/stocks-report/offices` — Данные по складам
+- `analytics.DefaultApiService.PostV2StocksReportProductsGroups` — `POST /api/v2/stocks-report/products/groups` — Данные по группам
+- `analytics.DefaultApiService.PostV2StocksReportProductsProducts` — `POST /api/v2/stocks-report/products/products` — Данные по товарам
+- `analytics.DefaultApiService.PostV2StocksReportProductsSizes` — `POST /api/v2/stocks-report/products/sizes` — Данные по размерам
 - `analytics.DefaultApiService.PostV3SalesFunnelGroupedHistory` — `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням
 - `analytics.DefaultApiService.PostV3SalesFunnelProducts` — `POST /api/analytics/v3/sales-funnel/products` — Статистика карточек товаров за период
 - `analytics.DefaultApiService.PostV3SalesFunnelProductsHistory` — `POST /api/analytics/v3/sales-funnel/products/history` — Статистика карточек товаров по дням
-- `analytics.CSVAPIService.ApiV2NmReportDownloadsFileDownloadIdGet` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
-- `analytics.CSVAPIService.ApiV2NmReportDownloadsGet` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
-- `analytics.CSVAPIService.ApiV2NmReportDownloadsPost` — `POST /api/v2/nm-report/downloads` — Создать отчёт
-- `analytics.CSVAPIService.ApiV2NmReportDownloadsRetryPost` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
+- `analytics.CSVAPIService.GetV2NmReportDownloads` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
+- `analytics.CSVAPIService.GetV2NmReportDownloadsFileDownloadId` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
+- `analytics.CSVAPIService.PostV2NmReportDownloads` — `POST /api/v2/nm-report/downloads` — Создать отчёт
+- `analytics.CSVAPIService.PostV2NmReportDownloadsRetry` — `POST /api/v2/nm-report/downloads/retry` — Сгенерировать отчёт повторно
 
 ### reports (`reports`)
-- `reports.DefaultApiService.ApiV1AcceptanceReportGet` — `GET /api/v1/acceptance_report` — Создать отчёт
-- `reports.DefaultApiService.ApiV1AcceptanceReportTasksTaskIdDownloadGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApiService.ApiV1AcceptanceReportTasksTaskIdStatusGet` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApiService.ApiV1AnalyticsAntifraudDetailsGet` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
-- `reports.DefaultApiService.ApiV1AnalyticsBannedProductsBlockedGet` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
-- `reports.DefaultApiService.ApiV1AnalyticsBannedProductsShadowedGet` — `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
-- `reports.DefaultApiService.ApiV1AnalyticsBrandShareBrandsGet` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
-- `reports.DefaultApiService.ApiV1AnalyticsBrandShareGet` — `GET /api/v1/analytics/brand-share` — Получить отчёт
-- `reports.DefaultApiService.ApiV1AnalyticsBrandShareParentSubjectsGet` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
-- `reports.DefaultApiService.ApiV1AnalyticsGoodsLabelingGet` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
-- `reports.DefaultApiService.ApiV1AnalyticsGoodsReturnGet` — `GET /api/v1/analytics/goods-return` — Получить отчёт
-- `reports.DefaultApiService.ApiV1AnalyticsRegionSaleGet` — `GET /api/v1/analytics/region-sale` — Получить отчёт
-- `reports.DefaultApiService.ApiV1PaidStorageGet` — `GET /api/v1/paid_storage` — Создать отчёт
-- `reports.DefaultApiService.ApiV1PaidStorageTasksTaskIdDownloadGet` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApiService.ApiV1PaidStorageTasksTaskIdStatusGet` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
-- `reports.DefaultApiService.ApiV1SupplierOrdersGet` — `GET /api/v1/supplier/orders` — Заказы
-- `reports.DefaultApiService.ApiV1SupplierSalesGet` — `GET /api/v1/supplier/sales` — Продажи
-- `reports.DefaultApiService.ApiV1WarehouseRemainsGet` — `GET /api/v1/warehouse_remains` — Создать отчёт
-- `reports.DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdDownloadGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
-- `reports.DefaultApiService.ApiV1WarehouseRemainsTasksTaskIdStatusGet` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
+- `reports.DefaultApiService.GetV1AcceptanceReport` — `GET /api/v1/acceptance_report` — Создать отчёт
+- `reports.DefaultApiService.GetV1AcceptanceReportTasksTaskIdDownload` — `GET /api/v1/acceptance_report/tasks/{task_id}/download` — Получить отчёт
+- `reports.DefaultApiService.GetV1AcceptanceReportTasksTaskIdStatus` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
+- `reports.DefaultApiService.GetV1AnalyticsAntifraudDetails` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
+- `reports.DefaultApiService.GetV1AnalyticsBannedProducsBlocked` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
+- `reports.DefaultApiService.GetV1AnalyticsBannedProductsShadowed` — `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
+- `reports.DefaultApiService.GetV1AnalyticsBrandShare` — `GET /api/v1/analytics/brand-share` — Получить отчёт
+- `reports.DefaultApiService.GetV1AnalyticsBrandShareBrands` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
+- `reports.DefaultApiService.GetV1AnalyticsBrandShareParentSubjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда
+- `reports.DefaultApiService.GetV1AnalyticsGoodsLabeling` — `GET /api/v1/analytics/goods-labeling` — Маркировка товара
+- `reports.DefaultApiService.GetV1AnalyticsGoodsReturn` — `GET /api/v1/analytics/goods-return` — Получить отчёт
+- `reports.DefaultApiService.GetV1AnalyticsRegionSale` — `GET /api/v1/analytics/region-sale` — Получить отчёт
 - `reports.DefaultApiService.GetV1Deductions` — `GET /api/analytics/v1/deductions` — Подмены и неверные вложения
 - `reports.DefaultApiService.GetV1MeasurementPenalties` — `GET /api/analytics/v1/measurement-penalties` — Удержания за занижение габаритов упаковки
+- `reports.DefaultApiService.GetV1PaidStorage` — `GET /api/v1/paid_storage` — Создать отчёт
+- `reports.DefaultApiService.GetV1PaidStorageTasksTaskIdDownload` — `GET /api/v1/paid_storage/tasks/{task_id}/download` — Получить отчёт
+- `reports.DefaultApiService.GetV1PaidStorageTasksTaskIdStatus` — `GET /api/v1/paid_storage/tasks/{task_id}/status` — Проверить статус
+- `reports.DefaultApiService.GetV1SupplierOrders` — `GET /api/v1/supplier/orders` — Заказы
+- `reports.DefaultApiService.GetV1SupplierSales` — `GET /api/v1/supplier/sales` — Продажи
 - `reports.DefaultApiService.GetV1WarehouseMeasurements` — `GET /api/analytics/v1/warehouse-measurements` — Замеры склада
-- `reports.CAPIService.ApiV1AnalyticsExciseReportPost` — `POST /api/v1/analytics/excise-report` — Получить отчёт
+- `reports.DefaultApiService.GetV1WarehouseRemains` — `GET /api/v1/warehouse_remains` — Создать отчёт
+- `reports.DefaultApiService.GetV1WarehouseRemainsTasksTaskIdDownload` — `GET /api/v1/warehouse_remains/tasks/{task_id}/download` — Получить отчёт
+- `reports.DefaultApiService.GetV1WarehouseRemainsTasksTaskIdStatus` — `GET /api/v1/warehouse_remains/tasks/{task_id}/status` — Проверить статус
+- `reports.CAPIService.PostV1AnalyticsExciseReport` — `POST /api/v1/analytics/excise-report` — Получить отчёт
 
 ### finances (`finances`)
 - `finances.DefaultApiService.GetV1AccountBalance` — `GET /api/v1/account/balance` — Получить баланс продавца

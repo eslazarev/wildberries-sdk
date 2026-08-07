@@ -1,7 +1,7 @@
 /*
 Аналитика и данные
 
-<div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)   2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)   3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)   4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)   5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)  </div> 
+<div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)   2. [Ленты заказов](/openapi/analytics#tag/orderFeed)   3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)   4. [Истории остатков](/openapi/analytics#tag/stocksReport)   5. [Оценки товара](/openapi/analytics#tag/itemRating)   6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)  </div> 
 
 API version: analytics
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.137/go",
+		UserAgent:        "OpenAPI-Generator/0.1.138/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -98,61 +98,13 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.ApiV2SearchReportProductOrdersPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2SearchReportProductSearchTextsPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2SearchReportReportPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2SearchReportTableDetailsPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2SearchReportTableGroupsPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2StocksReportOfficesPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2StocksReportProductsGroupsPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2StocksReportProductsProductsPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.ApiV2StocksReportProductsSizesPost": {
-				{
-					URL: "https://seller-analytics-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"DefaultApiService.PostV1ItemRating": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV1OrderFeed": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
@@ -165,6 +117,60 @@ func NewConfiguration() *Configuration {
 				},
 			},
 			"DefaultApiService.PostV2ItemRating": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2SearchReportProductOrders": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2SearchReportProductSearchTexts": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2SearchReportReport": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2SearchReportTableDetails": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2SearchReportTableGroups": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2StocksReportOffices": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2StocksReportProductsGroups": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2StocksReportProductsProducts": {
+				{
+					URL: "https://seller-analytics-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PostV2StocksReportProductsSizes": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
@@ -188,25 +194,25 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
-			"CSVAPIService.ApiV2NmReportDownloadsFileDownloadIdGet": {
+			"CSVAPIService.GetV2NmReportDownloads": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"CSVAPIService.ApiV2NmReportDownloadsGet": {
+			"CSVAPIService.GetV2NmReportDownloadsFileDownloadId": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"CSVAPIService.ApiV2NmReportDownloadsPost": {
+			"CSVAPIService.PostV2NmReportDownloads": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
-			"CSVAPIService.ApiV2NmReportDownloadsRetryPost": {
+			"CSVAPIService.PostV2NmReportDownloadsRetry": {
 				{
 					URL: "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",

@@ -275,31 +275,31 @@ main().catch(console.error);
 - `promotion.DefaultApi.postV1NormqueryBids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
 
 ### communications (`communications`)
-- `communications.DefaultApi.apiFeedbacksV1PinsCountGet` — Количество закреплённых и откреплённых отзывов
-- `communications.DefaultApi.apiFeedbacksV1PinsDelete` — Открепить отзывы
-- `communications.DefaultApi.apiFeedbacksV1PinsGet` — Список закреплённых и откреплённых отзывов
-- `communications.DefaultApi.apiFeedbacksV1PinsLimitsGet` — Лимиты закреплённых отзывов
-- `communications.DefaultApi.apiFeedbacksV1PinsPost` — Закрепить отзывы
-- `communications.DefaultApi.apiV1ClaimPatch` — Ответ на заявку покупателя
-- `communications.DefaultApi.apiV1ClaimsGet` — Заявки покупателей на возврат
-- `communications.DefaultApi.apiV1FeedbackGet` — Получить отзыв по ID
-- `communications.DefaultApi.apiV1FeedbacksAnswerPatch` — Отредактировать ответ на отзыв
-- `communications.DefaultApi.apiV1FeedbacksAnswerPost` — Ответить на отзыв
-- `communications.DefaultApi.apiV1FeedbacksArchiveGet` — Список архивных отзывов
-- `communications.DefaultApi.apiV1FeedbacksCountGet` — Количество отзывов
-- `communications.DefaultApi.apiV1FeedbacksCountUnansweredGet` — Необработанные отзывы
-- `communications.DefaultApi.apiV1FeedbacksGet` — Список отзывов
-- `communications.DefaultApi.apiV1FeedbacksOrderReturnPost` — Возврат товара по ID отзыва
-- `communications.DefaultApi.apiV1NewFeedbacksQuestionsGet` — Непросмотренные отзывы и вопросы
-- `communications.DefaultApi.apiV1QuestionGet` — Получить вопрос по ID
-- `communications.DefaultApi.apiV1QuestionsCountGet` — Количество вопросов
-- `communications.DefaultApi.apiV1QuestionsCountUnansweredGet` — Неотвеченные вопросы
-- `communications.DefaultApi.apiV1QuestionsGet` — Список вопросов
-- `communications.DefaultApi.apiV1QuestionsPatch` — Работа с вопросами
-- `communications.DefaultApi.apiV1SellerChatsGet` — Список чатов
-- `communications.DefaultApi.apiV1SellerDownloadIdGet` — Получить файл из сообщения
-- `communications.DefaultApi.apiV1SellerEventsGet` — События чатов
-- `communications.DefaultApi.apiV1SellerMessagePost` — Отправить сообщение
+- `communications.DefaultApi.deleteFeedbacksV1Pins` — Открепить отзывы
+- `communications.DefaultApi.getFeedbacksV1Pins` — Список закреплённых и откреплённых отзывов
+- `communications.DefaultApi.getFeedbacksV1PinsCount` — Количество закреплённых и откреплённых отзывов
+- `communications.DefaultApi.getFeedbacksV1PinsLimits` — Лимиты закреплённых отзывов
+- `communications.DefaultApi.getV1Claims` — Заявки покупателей на возврат
+- `communications.DefaultApi.getV1Feedback` — Получить отзыв по ID
+- `communications.DefaultApi.getV1Feedbacks` — Список отзывов
+- `communications.DefaultApi.getV1FeedbacksArchive` — Список архивных отзывов
+- `communications.DefaultApi.getV1FeedbacksCount` — Количество отзывов
+- `communications.DefaultApi.getV1FeedbacksCountUnanswered` — Необработанные отзывы
+- `communications.DefaultApi.getV1NewFeedbacksQuestions` — Непросмотренные отзывы и вопросы
+- `communications.DefaultApi.getV1Question` — Получить вопрос по ID
+- `communications.DefaultApi.getV1Questions` — Список вопросов
+- `communications.DefaultApi.getV1QuestionsCount` — Количество вопросов
+- `communications.DefaultApi.getV1QuestionsCountUnanswered` — Неотвеченные вопросы
+- `communications.DefaultApi.getV1SellerChats` — Список чатов
+- `communications.DefaultApi.getV1SellerDownloadId` — Получить файл из сообщения
+- `communications.DefaultApi.getV1SellerEvents` — События чатов
+- `communications.DefaultApi.patchV1Claim` — Ответ на заявку покупателя
+- `communications.DefaultApi.patchV1FeedbacksAnswer` — Отредактировать ответ на отзыв
+- `communications.DefaultApi.patchV1Questions` — Работа с вопросами
+- `communications.DefaultApi.postFeedbacksV1Pins` — Закрепить отзывы
+- `communications.DefaultApi.postV1FeedbacksAnswer` — Ответить на отзыв
+- `communications.DefaultApi.postV1FeedbacksOrderReturn` — Возврат товара по ID отзыва
+- `communications.DefaultApi.postV1SellerMessage` — Отправить сообщение
 
 ### rates (`rates`)
 - `rates.DefaultApi.getV1AcceptanceCoefficients` — Тарифы на поставку
@@ -309,51 +309,52 @@ main().catch(console.error);
 - `rates.DefaultApi.getV1TariffsReturn` — Тарифы на возврат
 
 ### analytics (`analytics`)
-- `analytics.CSVApi.apiV2NmReportDownloadsFileDownloadIdGet` — Получить отчёт
-- `analytics.CSVApi.apiV2NmReportDownloadsGet` — Получить список отчётов
-- `analytics.CSVApi.apiV2NmReportDownloadsPost` — Создать отчёт
-- `analytics.CSVApi.apiV2NmReportDownloadsRetryPost` — Сгенерировать отчёт повторно
-- `analytics.DefaultApi.apiV2SearchReportProductOrdersPost` — Заказы и позиции по поисковым запросам товара
-- `analytics.DefaultApi.apiV2SearchReportProductSearchTextsPost` — Поисковые запросы по товару
-- `analytics.DefaultApi.apiV2SearchReportReportPost` — Основная страница
-- `analytics.DefaultApi.apiV2SearchReportTableDetailsPost` — Пагинация по товарам в группе
-- `analytics.DefaultApi.apiV2SearchReportTableGroupsPost` — Пагинация по группам
-- `analytics.DefaultApi.apiV2StocksReportOfficesPost` — Данные по складам
-- `analytics.DefaultApi.apiV2StocksReportProductsGroupsPost` — Данные по группам
-- `analytics.DefaultApi.apiV2StocksReportProductsProductsPost` — Данные по товарам
-- `analytics.DefaultApi.apiV2StocksReportProductsSizesPost` — Данные по размерам
+- `analytics.CSVApi.getV2NmReportDownloads` — Получить список отчётов
+- `analytics.CSVApi.getV2NmReportDownloadsFileDownloadId` — Получить отчёт
+- `analytics.CSVApi.postV2NmReportDownloads` — Создать отчёт
+- `analytics.CSVApi.postV2NmReportDownloadsRetry` — Сгенерировать отчёт повторно
 - `analytics.DefaultApi.postV1ItemRating` — Получить отчёт
+- `analytics.DefaultApi.postV1OrderFeed` — Получить отчёт
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — Остатки на складах WB
 - `analytics.DefaultApi.postV2ItemRating` — Получить отчёт
+- `analytics.DefaultApi.postV2SearchReportProductOrders` — Заказы и позиции по поисковым запросам товара
+- `analytics.DefaultApi.postV2SearchReportProductSearchTexts` — Поисковые запросы по товару
+- `analytics.DefaultApi.postV2SearchReportReport` — Основная страница
+- `analytics.DefaultApi.postV2SearchReportTableDetails` — Пагинация по товарам в группе
+- `analytics.DefaultApi.postV2SearchReportTableGroups` — Пагинация по группам
+- `analytics.DefaultApi.postV2StocksReportOffices` — Данные по складам
+- `analytics.DefaultApi.postV2StocksReportProductsGroups` — Данные по группам
+- `analytics.DefaultApi.postV2StocksReportProductsProducts` — Данные по товарам
+- `analytics.DefaultApi.postV2StocksReportProductsSizes` — Данные по размерам
 - `analytics.DefaultApi.postV3SalesFunnelGroupedHistory` — Статистика групп карточек товаров по дням
 - `analytics.DefaultApi.postV3SalesFunnelProducts` — Статистика карточек товаров за период
 - `analytics.DefaultApi.postV3SalesFunnelProductsHistory` — Статистика карточек товаров по дням
 
 ### reports (`reports`)
-- `reports.CApi.apiV1AnalyticsExciseReportPost` — Получить отчёт
-- `reports.DefaultApi.apiV1AcceptanceReportGet` — Создать отчёт
-- `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdDownloadGet` — Получить отчёт
-- `reports.DefaultApi.apiV1AcceptanceReportTasksTaskIdStatusGet` — Проверить статус
-- `reports.DefaultApi.apiV1AnalyticsAntifraudDetailsGet` — Самовыкупы
-- `reports.DefaultApi.apiV1AnalyticsBannedProductsBlockedGet` — Получить отчёт
-- `reports.DefaultApi.apiV1AnalyticsBannedProductsShadowedGet` — Скрытые из каталога
-- `reports.DefaultApi.apiV1AnalyticsBrandShareBrandsGet` — Бренды продавца
-- `reports.DefaultApi.apiV1AnalyticsBrandShareGet` — Получить отчёт
-- `reports.DefaultApi.apiV1AnalyticsBrandShareParentSubjectsGet` — Родительские категории бренда
-- `reports.DefaultApi.apiV1AnalyticsGoodsLabelingGet` — Маркировка товара
-- `reports.DefaultApi.apiV1AnalyticsGoodsReturnGet` — Получить отчёт
-- `reports.DefaultApi.apiV1AnalyticsRegionSaleGet` — Получить отчёт
-- `reports.DefaultApi.apiV1PaidStorageGet` — Создать отчёт
-- `reports.DefaultApi.apiV1PaidStorageTasksTaskIdDownloadGet` — Получить отчёт
-- `reports.DefaultApi.apiV1PaidStorageTasksTaskIdStatusGet` — Проверить статус
-- `reports.DefaultApi.apiV1SupplierOrdersGet` — Заказы
-- `reports.DefaultApi.apiV1SupplierSalesGet` — Продажи
-- `reports.DefaultApi.apiV1WarehouseRemainsGet` — Создать отчёт
-- `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdDownloadGet` — Получить отчёт
-- `reports.DefaultApi.apiV1WarehouseRemainsTasksTaskIdStatusGet` — Проверить статус
+- `reports.CApi.postV1AnalyticsExciseReport` — Получить отчёт
+- `reports.DefaultApi.getV1AcceptanceReport` — Создать отчёт
+- `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdDownload` — Получить отчёт
+- `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdStatus` — Проверить статус
+- `reports.DefaultApi.getV1AnalyticsAntifraudDetails` — Самовыкупы
+- `reports.DefaultApi.getV1AnalyticsBannedProducsBlocked` — Получить отчёт
+- `reports.DefaultApi.getV1AnalyticsBannedProductsShadowed` — Скрытые из каталога
+- `reports.DefaultApi.getV1AnalyticsBrandShare` — Получить отчёт
+- `reports.DefaultApi.getV1AnalyticsBrandShareBrands` — Бренды продавца
+- `reports.DefaultApi.getV1AnalyticsBrandShareParentSubjects` — Родительские категории бренда
+- `reports.DefaultApi.getV1AnalyticsGoodsLabeling` — Маркировка товара
+- `reports.DefaultApi.getV1AnalyticsGoodsReturn` — Получить отчёт
+- `reports.DefaultApi.getV1AnalyticsRegionSale` — Получить отчёт
 - `reports.DefaultApi.getV1Deductions` — Подмены и неверные вложения
 - `reports.DefaultApi.getV1MeasurementPenalties` — Удержания за занижение габаритов упаковки
+- `reports.DefaultApi.getV1PaidStorage` — Создать отчёт
+- `reports.DefaultApi.getV1PaidStorageTasksTaskIdDownload` — Получить отчёт
+- `reports.DefaultApi.getV1PaidStorageTasksTaskIdStatus` — Проверить статус
+- `reports.DefaultApi.getV1SupplierOrders` — Заказы
+- `reports.DefaultApi.getV1SupplierSales` — Продажи
 - `reports.DefaultApi.getV1WarehouseMeasurements` — Замеры склада
+- `reports.DefaultApi.getV1WarehouseRemains` — Создать отчёт
+- `reports.DefaultApi.getV1WarehouseRemainsTasksTaskIdDownload` — Получить отчёт
+- `reports.DefaultApi.getV1WarehouseRemainsTasksTaskIdStatus` — Проверить статус
 
 ### finances (`finances`)
 - `finances.DefaultApi.getV1AccountBalance` — Получить баланс продавца

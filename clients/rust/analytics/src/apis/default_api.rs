@@ -1,7 +1,7 @@
 /*
  * Аналитика и данные
  *
- * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)   2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)   3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)   4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)   5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)  </div> 
+ * <div class=\"description_important\">   Узнать больше об аналитике и данных можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics\">справочном центре</a> </div>  <div class=\"api-block\">  В разделе описаны методы получения:   1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)   2. [Ленты заказов](/openapi/analytics#tag/orderFeed)   3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)   4. [Истории остатков](/openapi/analytics#tag/stocksReport)   5. [Оценки товара](/openapi/analytics#tag/itemRating)   6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)  </div> 
  *
  * The version of the OpenAPI document: analytics
  * 
@@ -15,114 +15,6 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_v2_search_report_product_orders_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2SearchReportProductOrdersPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_search_report_product_search_texts_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2SearchReportProductSearchTextsPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_search_report_report_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2SearchReportReportPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_search_report_table_details_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2SearchReportTableDetailsPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_search_report_table_groups_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2SearchReportTableGroupsPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_stocks_report_offices_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2StocksReportOfficesPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_stocks_report_products_groups_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2StocksReportProductsGroupsPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_stocks_report_products_products_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2StocksReportProductsProductsPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_v2_stocks_report_products_sizes_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiV2StocksReportProductsSizesPostError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`post_v1_item_rating`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -130,6 +22,17 @@ pub enum PostV1ItemRatingError {
     Status400(models::ErrorObject400),
     Status401(models::PostV3SalesFunnelProducts401Response),
     Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v1_order_feed`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV1OrderFeedError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
     Status403(models::ErrorObject403),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
@@ -153,6 +56,114 @@ pub enum PostV1StocksReportWbWarehousesError {
 pub enum PostV2ItemRatingError {
     Status400(models::ErrorObject400),
     Status401(models::PostV3SalesFunnelProducts401Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_search_report_product_orders`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2SearchReportProductOrdersError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_search_report_product_search_texts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2SearchReportProductSearchTextsError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_search_report_report`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2SearchReportReportError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_search_report_table_details`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2SearchReportTableDetailsError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_search_report_table_groups`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2SearchReportTableGroupsError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_stocks_report_offices`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2StocksReportOfficesError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_stocks_report_products_groups`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2StocksReportProductsGroupsError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_stocks_report_products_products`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2StocksReportProductsProductsError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
+    Status403(models::ErrorObject403),
+    Status429(models::PostV3SalesFunnelProducts401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v2_stocks_report_products_sizes`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV2StocksReportProductsSizesError {
+    Status400(models::ErrorObject400),
+    Status401(models::PostV3SalesFunnelProducts401Response),
+    Status402(models::PostV3SalesFunnelProducts402Response),
     Status403(models::ErrorObject403),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),
@@ -194,420 +205,6 @@ pub enum PostV3SalesFunnelProductsHistoryError {
     UnknownValue(serde_json::Value),
 }
 
-
-/// Метод формирует данные для таблицы:   - о заказах по каждому поисковому запросу для конкретного товара   - о позициях товара в результатах поиска по каждому запросу  Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_important\">   Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_search_report_product_orders_post(configuration: &configuration::Configuration, item_orders_request: models::ItemOrdersRequest) -> Result<models::ApiV2SearchReportProductOrdersPost200Response, Error<ApiV2SearchReportProductOrdersPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_item_orders_request = item_orders_request;
-
-    let uri_str = format!("{}/api/v2/search-report/product/orders", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_item_orders_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2SearchReportProductOrdersPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2SearchReportProductOrdersPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2SearchReportProductOrdersPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100.  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_search_report_product_search_texts_post(configuration: &configuration::Configuration, item_search_texts_request: models::ItemSearchTextsRequest) -> Result<models::ApiV2SearchReportProductSearchTextsPost200Response, Error<ApiV2SearchReportProductSearchTextsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_item_search_texts_request = item_search_texts_request;
-
-    let uri_str = format!("{}/api/v2/search-report/product/search-texts", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_item_search_texts_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2SearchReportProductSearchTextsPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2SearchReportProductSearchTextsPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2SearchReportProductSearchTextsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует набор данных для основной страницы отчёта по поисковым запросам с:  - общей информацией  - позициями товаров  - данными по видимости и переходам в карточку  - данными для таблицы по группам  Для получения дополнительных данных в таблице используйте отдельный запрос для:  - [пагинации по группам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1groups/post)  - [получения по товарам в группе](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1details/post)  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_search_report_report_post(configuration: &configuration::Configuration, main_request: models::MainRequest) -> Result<models::ApiV2SearchReportReportPost200Response, Error<ApiV2SearchReportReportPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_main_request = main_request;
-
-    let uri_str = format!("{}/api/v2/search-report/report", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_main_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2SearchReportReportPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2SearchReportReportPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2SearchReportReportPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.<br><br>  Фильтры для пагинации по товарам в группе или без фильтров:  - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы  - `nmIds` — фильтр по карточке товара  Дополнительный параметр выбора списка товаров:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_search_report_table_details_post(configuration: &configuration::Configuration, table_details_request: models::TableDetailsRequest) -> Result<models::ApiV2SearchReportTableDetailsPost200Response, Error<ApiV2SearchReportTableDetailsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_table_details_request = table_details_request;
-
-    let uri_str = format!("{}/api/v2/search-report/table/details", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_table_details_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2SearchReportTableDetailsPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2SearchReportTableDetailsPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2SearchReportTableDetailsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.<br><br>  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-pub async fn api_v2_search_report_table_groups_post(configuration: &configuration::Configuration, table_group_request: models::TableGroupRequest) -> Result<models::ApiV2SearchReportTableGroupsPost200Response, Error<ApiV2SearchReportTableGroupsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_table_group_request = table_group_request;
-
-    let uri_str = format!("{}/api/v2/search-report/table/groups", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_table_group_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2SearchReportTableGroupsPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2SearchReportTableGroupsPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2SearchReportTableGroupsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v2_stocks_report_offices_post(configuration: &configuration::Configuration, body: models::CommonShippingOfficeFilters) -> Result<models::ApiV2StocksReportOfficesPost200Response, Error<ApiV2StocksReportOfficesPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/api/v2/stocks-report/offices", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2StocksReportOfficesPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2StocksReportOfficesPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2StocksReportOfficesPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует набор данных об остатках по группам товаров. <br><br> Группа товаров описывается кортежем `subjectID, brandName, tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v2_stocks_report_products_groups_post(configuration: &configuration::Configuration, table_group_request_st: models::TableGroupRequestSt) -> Result<models::ApiV2StocksReportProductsGroupsPost200Response, Error<ApiV2StocksReportProductsGroupsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_table_group_request_st = table_group_request_st;
-
-    let uri_str = format!("{}/api/v2/stocks-report/products/groups", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_table_group_request_st);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2StocksReportProductsGroupsPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2StocksReportProductsGroupsPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2StocksReportProductsGroupsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v2_stocks_report_products_products_post(configuration: &configuration::Configuration, table_item_request: models::TableItemRequest) -> Result<models::ApiV2StocksReportProductsProductsPost200Response, Error<ApiV2StocksReportProductsProductsPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_table_item_request = table_item_request;
-
-    let uri_str = format!("{}/api/v2/stocks-report/products/products", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_table_item_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2StocksReportProductsProductsPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2StocksReportProductsProductsPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2StocksReportProductsProductsPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/Istoriya-ostatkov/paths/~1api~1v2~1stocks-report~1products~1products/post) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"officeName\":\"\"`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-pub async fn api_v2_stocks_report_products_sizes_post(configuration: &configuration::Configuration, body: models::CommonSizeFilters) -> Result<models::ApiV2StocksReportProductsSizesPost200Response, Error<ApiV2StocksReportProductsSizesPostError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/api/v2/stocks-report/products/sizes", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiV2StocksReportProductsSizesPost200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiV2StocksReportProductsSizesPost200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ApiV2StocksReportProductsSizesPostError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
 
 ///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
 #[deprecated]
@@ -652,6 +249,52 @@ pub async fn post_v1_item_rating(configuration: &configuration::Configuration, i
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV1ItemRatingError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует набор данных о заказах и продажах. <br><br> Данные отчёта обновляются в режиме реального времени. <br><br> > 1 заказ = 1 сборочное задание = 1 единица товара  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца.<br> Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`. <br><br> Можно получить отчёт максимум за последние 31 день. <br><br> Заказы отдаются по времени текущего статуса, от самого нового к самому раннему. <br><br> Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
+pub async fn post_v1_order_feed(configuration: &configuration::Configuration, order_feed_request: Option<models::OrderFeedRequest>) -> Result<models::PostV1OrderFeed200Response, Error<PostV1OrderFeedError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_order_feed_request = order_feed_request;
+
+    let uri_str = format!("{}/api/analytics/v1/order-feed", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_order_feed_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV1OrderFeed200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV1OrderFeed200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV1OrderFeedError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -748,7 +391,421 @@ pub async fn post_v2_item_rating(configuration: &configuration::Configuration, i
     }
 }
 
-/// Метод возвращает статистику карточек товаров по дням или неделям.<br> Карточки товаров сгруппированы по предметам, брендам и ярлыкам.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.<br><br>  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>GROUPED_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+/// Метод формирует данные для таблицы:   - о заказах по каждому поисковому запросу для конкретного товара   - о позициях товара в результатах поиска по каждому запросу  Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_important\">   Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn post_v2_search_report_product_orders(configuration: &configuration::Configuration, item_orders_request: models::ItemOrdersRequest) -> Result<models::PostV2SearchReportProductOrders200Response, Error<PostV2SearchReportProductOrdersError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_item_orders_request = item_orders_request;
+
+    let uri_str = format!("{}/api/v2/search-report/product/orders", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_item_orders_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2SearchReportProductOrders200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2SearchReportProductOrders200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2SearchReportProductOrdersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует топ поисковых запросов по товару.  Параметры выбора поисковых запросов:  - `limit` — количество запросов, максимум 30. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100.  - `topOrderBy` — способ выбора топа запросов  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn post_v2_search_report_product_search_texts(configuration: &configuration::Configuration, item_search_texts_request: models::ItemSearchTextsRequest) -> Result<models::PostV2SearchReportProductSearchTexts200Response, Error<PostV2SearchReportProductSearchTextsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_item_search_texts_request = item_search_texts_request;
+
+    let uri_str = format!("{}/api/v2/search-report/product/search-texts", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_item_search_texts_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2SearchReportProductSearchTexts200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2SearchReportProductSearchTexts200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2SearchReportProductSearchTextsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует набор данных для основной страницы отчёта по поисковым запросам с:  - общей информацией  - позициями товаров  - данными по видимости и переходам в карточку  - данными для таблицы по группам  Для получения дополнительных данных в таблице используйте отдельный запрос для:  - [пагинации по группам](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)  - [получения по товарам в группе](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn post_v2_search_report_report(configuration: &configuration::Configuration, main_request: models::MainRequest) -> Result<models::PostV2SearchReportReport200Response, Error<PostV2SearchReportReportError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_main_request = main_request;
+
+    let uri_str = format!("{}/api/v2/search-report/report", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_main_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2SearchReportReport200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2SearchReportReport200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2SearchReportReportError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.<br><br>  Фильтры для пагинации по товарам в группе или без фильтров:  - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы  - `nmIds` — фильтр по карточке товара  Дополнительный параметр выбора списка товаров:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn post_v2_search_report_table_details(configuration: &configuration::Configuration, table_details_request: models::TableDetailsRequest) -> Result<models::PostV2SearchReportTableDetails200Response, Error<PostV2SearchReportTableDetailsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_table_details_request = table_details_request;
+
+    let uri_str = format!("{}/api/v2/search-report/table/details", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_table_details_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2SearchReportTableDetails200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2SearchReportTableDetails200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2SearchReportTableDetailsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.<br><br>  Дополнительный параметр выбора списка товаров в таблице:  - `positionCluster` — средняя позиция в поиске  Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+pub async fn post_v2_search_report_table_groups(configuration: &configuration::Configuration, table_group_request: models::TableGroupRequest) -> Result<models::PostV2SearchReportTableGroups200Response, Error<PostV2SearchReportTableGroupsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_table_group_request = table_group_request;
+
+    let uri_str = format!("{}/api/v2/search-report/table/groups", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_table_group_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2SearchReportTableGroups200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2SearchReportTableGroups200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2SearchReportTableGroupsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v2_stocks_report_offices(configuration: &configuration::Configuration, body: models::CommonShippingOfficeFilters) -> Result<models::PostV2StocksReportOffices200Response, Error<PostV2StocksReportOfficesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/api/v2/stocks-report/offices", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2StocksReportOffices200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2StocksReportOffices200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2StocksReportOfficesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует набор данных об остатках по группам товаров. <br><br> Группа товаров описывается кортежем `subjectID, brandName, tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v2_stocks_report_products_groups(configuration: &configuration::Configuration, table_group_request_st: models::TableGroupRequestSt) -> Result<models::PostV2StocksReportProductsGroups200Response, Error<PostV2StocksReportProductsGroupsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_table_group_request_st = table_group_request_st;
+
+    let uri_str = format!("{}/api/v2/stocks-report/products/groups", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_table_group_request_st);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2StocksReportProductsGroups200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2StocksReportProductsGroups200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2StocksReportProductsGroupsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует набор данных об остатках по товарам. <br><br> Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v2_stocks_report_products_products(configuration: &configuration::Configuration, table_item_request: models::TableItemRequest) -> Result<models::PostV2StocksReportProductsProducts200Response, Error<PostV2StocksReportProductsProductsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_table_item_request = table_item_request;
+
+    let uri_str = format!("{}/api/v2/stocks-report/products/products", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_table_item_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2StocksReportProductsProducts200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2StocksReportProductsProducts200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2StocksReportProductsProductsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"officeName\":\"\"`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+pub async fn post_v2_stocks_report_products_sizes(configuration: &configuration::Configuration, body: models::CommonSizeFilters) -> Result<models::PostV2StocksReportProductsSizes200Response, Error<PostV2StocksReportProductsSizesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/api/v2/stocks-report/products/sizes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV2StocksReportProductsSizes200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV2StocksReportProductsSizes200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV2StocksReportProductsSizesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает статистику карточек товаров по дням или неделям.<br> Карточки товаров сгруппированы по предметам, брендам и ярлыкам.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br><br>  Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.<br><br>  Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/sellerAnalyticsCsv\">Аналитика продавца CSV</a> — тип <code>GROUPED_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn post_v3_sales_funnel_grouped_history(configuration: &configuration::Configuration, grouped_history_request: models::GroupedHistoryRequest) -> Result<models::PostV3SalesFunnelGroupedHistory200Response, Error<PostV3SalesFunnelGroupedHistoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_grouped_history_request = grouped_history_request;
@@ -840,7 +897,7 @@ pub async fn post_v3_sales_funnel_products(configuration: &configuration::Config
     }
 }
 
-/// Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/Analitika-prodavca-CSV\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+/// Метод возвращает статистику карточек товаров по дням или неделям.<br> Можно получить данные максимум за последнюю неделю.<br><br>  Данные отчёта обновляются 1 раз в час.<br><br>  В течение часа после события появляется большая часть данных:   - о заказах   - о переходах в карточку товара   - о добавлениях товаров в корзину  Малая часть этих данных может появляться в течение нескольких дней.<br><br>  Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.<br> Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).  <div class=\"description_important\">   Чтобы получать отчёты за период до года, используйте методы <a href=\"/openapi/analytics#tag/sellerAnalyticsCsv\">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a> </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 pub async fn post_v3_sales_funnel_products_history(configuration: &configuration::Configuration, item_history_request: models::ItemHistoryRequest) -> Result<Vec<models::ItemHistoryResponseInner>, Error<PostV3SalesFunnelProductsHistoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_item_history_request = item_history_request;

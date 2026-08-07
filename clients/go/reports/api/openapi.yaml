@@ -7,16 +7,16 @@ info:
 
     <div class="api-block">
 
-    С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:
-      1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)
-      2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)
-      3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)
-      4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)
-      5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)
-      6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)
-      7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)
-      8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)
-      9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
+    С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:
+      1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)
+      2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)
+      3. [Удержаниях](/openapi/reports#tag/retentionReports)
+      4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)
+      5. [Платном хранении](/openapi/reports#tag/paidStorage)
+      6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)
+      7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)
+      8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)
+      9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)
 
     </div>
   title: Отчёты
@@ -29,24 +29,34 @@ security:
 tags:
 - description: ""
   name: Основные отчёты
+  x-displayName: Основные отчёты
 - description: ""
   name: Отчёт об остатках на складах
+  x-displayName: Отчёт об остатках на складах
 - description: ""
   name: Отчёт о товарах c обязательной маркировкой
+  x-displayName: Отчёт о товарах c обязательной маркировкой
 - description: ""
   name: Отчёты об удержаниях
+  x-displayName: Отчёты об удержаниях
 - description: ""
   name: Операции при приёмке
+  x-displayName: Операции при приёмке
 - description: ""
   name: Платное хранение
+  x-displayName: Платное хранение
 - description: ""
   name: Продажи по регионам
+  x-displayName: Продажи по регионам
 - description: ""
   name: Доля бренда в продажах
+  x-displayName: Доля бренда в продажах
 - description: ""
   name: Заблокированные карточки
+  x-displayName: Заблокированные карточки
 - description: ""
   name: Отчёт о возвратах и перемещении товаров
+  x-displayName: Отчёт о возвратах и перемещении товаров
 paths:
   /api/v1/supplier/orders:
     get:
@@ -58,7 +68,7 @@ paths:
         Информация о заказе хранится 90 дней с момента оформления.<br><br>
 
         В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br>
-        Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://seller.wildberries.ru/content-analytics/order-feed) в личном кабинете.
+        Чтобы получить все оформленные заказы, используйте [Ленту заказов](/openapi/analytics#tag/orderFeed).
 
         <div class="description_important">
           Данные этого отчёта являются предварительными и служат для оперативного мониторинга
@@ -79,6 +89,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
         </div>
+      operationId: getV1SupplierOrders
       parameters:
       - description: |
           Дата и время последнего изменения по заказу. <br>
@@ -161,7 +172,7 @@ paths:
                 DateFromValueNotValidated:
                   $ref: "#/components/examples/DateFromValueNotValidated"
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_400_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -177,7 +188,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -187,7 +198,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -202,7 +213,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -253,6 +264,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос |
         </div>
+      operationId: getV1SupplierSales
       parameters:
       - description: |
           Дата и время последнего изменения по продаже/возврату. <br>
@@ -336,7 +348,7 @@ paths:
                 DateFromValueNotValidated:
                   $ref: "#/components/examples/DateFromValueNotValidated"
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_400_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -352,7 +364,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -362,7 +374,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -377,7 +389,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -411,6 +423,7 @@ paths:
         | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
         | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
         </div>
+      operationId: postV1AnalyticsExciseReport
       parameters:
       - description: |
           Начало отчётного периода, `ГГГГ-ММ-ДД`
@@ -472,7 +485,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -482,7 +495,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -497,7 +510,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       summary: Получить отчёт
       tags:
@@ -509,7 +522,7 @@ paths:
   /api/v1/warehouse_remains:
     get:
       description: |
-        Метод создаёт [задание на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1status/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+        Метод создаёт [задание на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).<br><br>
 
         Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
 
@@ -524,6 +537,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
         </div>
+      operationId: getV1WarehouseRemains
       parameters:
       - description: |
           Язык полей ответа `subjectName` и `warehouseName`:
@@ -664,7 +678,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -674,7 +688,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -689,7 +703,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -703,7 +717,7 @@ paths:
   /api/v1/warehouse_remains/tasks/{task_id}/status:
     get:
       description: |
-        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).
+        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -716,6 +730,7 @@ paths:
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
         </div>
+      operationId: getV1WarehouseRemainsTasksTaskIdStatus
       parameters:
       - description: |
           ID задания на генерацию
@@ -764,7 +779,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "404":
           content:
@@ -790,7 +805,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -804,7 +819,7 @@ paths:
   /api/v1/warehouse_remains/tasks/{task_id}/download:
     get:
       description: |
-        Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get).
+        Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -817,6 +832,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
         </div>
+      operationId: getV1WarehouseRemainsTasksTaskIdDownload
       parameters:
       - description: |
           ID задания на генерацию
@@ -853,7 +869,7 @@ paths:
                   quantity: 133
               schema:
                 items:
-                  $ref: "#/components/schemas/_api_v1_warehouse_remains_tasks__task_id__download_get_200_response_inner"
+                  $ref: "#/components/schemas/getV1WarehouseRemainsTasksTaskIdDownload_200_response_inner"
                 type: array
           description: Успешно
         "204":
@@ -885,7 +901,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -895,7 +911,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "404":
           content:
@@ -921,7 +937,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1022,7 +1038,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1032,7 +1048,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1053,7 +1069,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1154,7 +1170,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1164,7 +1180,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1185,7 +1201,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1317,7 +1333,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1327,7 +1343,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "403":
           content:
@@ -1348,7 +1364,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1379,6 +1395,7 @@ paths:
         | Базовый с секретом | 10 мин | 1 запрос | 10 мин | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsAntifraudDetails
       parameters:
       - description: |
           Дата, которая входит в отчётный период, `ГГГГ-ММ-ДД`.
@@ -1397,7 +1414,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_antifraud_details_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsAntifraudDetails_200_response"
           description: Успешно
         "400":
           content:
@@ -1422,7 +1439,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1432,7 +1449,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1447,7 +1464,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1478,6 +1495,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsGoodsLabeling
       parameters:
       - description: |
           Начало отчётного периода, `ГГГГ-ММ-ДД`
@@ -1518,7 +1536,7 @@ paths:
                   shkID: 17346434621
                   sku: "4630153500834"
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_goods_labeling_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsGoodsLabeling_200_response"
           description: Успешно
         "400":
           content:
@@ -1553,7 +1571,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1563,7 +1581,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1578,7 +1596,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1592,7 +1610,7 @@ paths:
   /api/v1/acceptance_report:
     get:
       description: |
-        Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+        Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>
 
         Можно получить отчёт максимум за 31 день.
 
@@ -1607,6 +1625,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
         </div>
+      operationId: getV1AcceptanceReport
       parameters:
       - description: |
           Начало отчётного периода, `ГГГГ-ММ-ДД`
@@ -1671,7 +1690,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1681,7 +1700,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -1696,7 +1715,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1710,7 +1729,7 @@ paths:
   /api/v1/acceptance_report/tasks/{task_id}/status:
     get:
       description: |
-        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
+        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1723,6 +1742,7 @@ paths:
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: getV1AcceptanceReportTasksTaskIdStatus
       parameters:
       - description: |
           ID задания на генерацию
@@ -1771,7 +1791,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "404":
           content:
@@ -1797,7 +1817,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1811,7 +1831,7 @@ paths:
   /api/v1/acceptance_report/tasks/{task_id}/download:
     get:
       description: |
-        Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).
+        Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1824,6 +1844,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: getV1AcceptanceReportTasksTaskIdDownload
       parameters:
       - description: |
           ID задания на генерацию
@@ -1841,7 +1862,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/_api_v1_acceptance_report_tasks__task_id__download_get_200_response_inner"
+                  $ref: "#/components/schemas/getV1AcceptanceReportTasksTaskIdDownload_200_response_inner"
                 type: array
           description: Успешно
         "204":
@@ -1873,7 +1894,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -1883,7 +1904,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "404":
           content:
@@ -1909,7 +1930,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1923,7 +1944,7 @@ paths:
   /api/v1/paid_storage:
     get:
       description: |
-        Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+        Метод создаёт [задание на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).<br><br>
 
         Можно получить отчёт максимум за 8 дней.
 
@@ -1938,6 +1959,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1PaidStorage
       parameters:
       - description: |
           Начало отчётного периода в формате RFC3339. Можно передать дату или дату со временем. Примеры:
@@ -2012,7 +2034,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2022,7 +2044,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2037,7 +2059,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2051,7 +2073,7 @@ paths:
   /api/v1/paid_storage/tasks/{task_id}/status:
     get:
       description: |
-        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).
+        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2064,6 +2086,7 @@ paths:
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 2 запроса |
         </div>
+      operationId: getV1PaidStorageTasksTaskIdStatus
       parameters:
       - description: |
           ID задания на генерацию
@@ -2112,7 +2135,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "404":
           content:
@@ -2138,7 +2161,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2152,7 +2175,7 @@ paths:
   /api/v1/paid_storage/tasks/{task_id}/download:
     get:
       description: |
-        Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get).
+        Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2165,6 +2188,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: getV1PaidStorageTasksTaskIdDownload
       parameters:
       - description: |
           ID задания на генерацию
@@ -2236,7 +2260,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2246,7 +2270,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "404":
           content:
@@ -2272,7 +2296,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2301,6 +2325,7 @@ paths:
         | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsRegionSale
       parameters:
       - description: |
           Начало отчётного периода, `ГГГГ-ММ-ДД`
@@ -2327,7 +2352,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_region_sale_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsRegionSale_200_response"
           description: Успешно
         "400":
           content:
@@ -2362,7 +2387,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2372,7 +2397,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2387,7 +2412,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2418,12 +2443,13 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsBrandShareBrands
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_brand_share_brands_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsBrandShareBrands_200_response"
           description: Успешно
         "401":
           content:
@@ -2439,7 +2465,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2449,7 +2475,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2464,7 +2490,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2493,6 +2519,7 @@ paths:
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsBrandShareParentSubjects
       parameters:
       - description: |
           Язык поля ответа `parentName`:
@@ -2552,7 +2579,7 @@ paths:
                 - parentId: 239
                   parentName: Спортивный товар
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_brand_share_parent_subjects_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsBrandShareParentSubjects_200_response"
           description: Успешно
         "400":
           content:
@@ -2593,7 +2620,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2603,7 +2630,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2618,7 +2645,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2647,6 +2674,7 @@ paths:
         | Базовый с секретом | 5 сек | 1 запрос | 5 сек | 20 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsBrandShare
       parameters:
       - description: ID родительской категории
         explode: true
@@ -2709,7 +2737,7 @@ paths:
                   pricePercent: 0.76
                   qtyPercent: 1.39
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_brand_share_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsBrandShare_200_response"
           description: Успешно
         "400":
           content:
@@ -2750,7 +2778,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2760,7 +2788,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2775,7 +2803,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2802,6 +2830,7 @@ paths:
         | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsBannedProducsBlocked
       parameters:
       - description: |
           Сортировка
@@ -2844,7 +2873,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_banned_products_blocked_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsBannedProducsBlocked_200_response"
           description: Успешно
         "400":
           content:
@@ -2856,7 +2885,7 @@ paths:
                 requestId: 94b52fca-8403-49fb-85dd-95dfb73160ad
                 origin: banreportsvc-api
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_banned_products_blocked_get_400_response"
+                $ref: "#/components/schemas/getV1AnalyticsBannedProducsBlocked_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -2872,7 +2901,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -2882,7 +2911,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -2897,7 +2926,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -2920,11 +2949,12 @@ paths:
 
         | Тип | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- | --- |
-        | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-        | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-        | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
+        | Персональный | 24 ч | 1 запрос | 24 ч | 1 запрос |
+        | Сервисный | 24 ч | 1 запрос | 24 ч | 1 запрос |
+        | Базовый с секретом | 24 ч | 1 запрос | 24 ч | 1 запрос |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1AnalyticsBannedProductsShadowed
       parameters:
       - description: |
           Сортировка
@@ -2967,7 +2997,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_banned_products_shadowed_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsBannedProductsShadowed_200_response"
           description: Успешно
         "400":
           content:
@@ -2979,7 +3009,7 @@ paths:
                 requestId: 064f6c9e-924e-4e13-b551-0b89e3077938
                 origin: banreportsvc-api
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_banned_products_blocked_get_400_response"
+                $ref: "#/components/schemas/getV1AnalyticsBannedProducsBlocked_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -2995,7 +3025,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -3005,7 +3035,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3020,7 +3050,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3049,6 +3079,7 @@ paths:
         | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: getV1AnalyticsGoodsReturn
       parameters:
       - description: Дата начала отчётного периода
         explode: true
@@ -3075,7 +3106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_analytics_goods_return_get_200_response"
+                $ref: "#/components/schemas/getV1AnalyticsGoodsReturn_200_response"
           description: Успешно
         "400":
           content:
@@ -3110,7 +3141,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Не авторизован
         "402":
           content:
@@ -3120,7 +3151,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -3135,7 +3166,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+                $ref: "#/components/schemas/getV1SupplierOrders_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3455,7 +3486,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+            $ref: "#/components/schemas/getV1SupplierOrders_401_response"
       description: Не авторизован
     "402":
       content:
@@ -3465,7 +3496,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v1_supplier_orders_get_402_response"
+            $ref: "#/components/schemas/getV1SupplierOrders_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -3480,19 +3511,19 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_api_v1_supplier_orders_get_401_response"
+            $ref: "#/components/schemas/getV1SupplierOrders_401_response"
       description: Слишком много запросов
     SuccessRegionSaleResponse:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_analytics_region_sale_get_200_response"
+            $ref: "#/components/schemas/getV1AnalyticsRegionSale_200_response"
       description: Успешно
     SuccessTaskResponse:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_analytics_antifraud_details_get_200_response"
+            $ref: "#/components/schemas/getV1AnalyticsAntifraudDetails_200_response"
       description: Успешно
     SuccessSubstIncorAttachResponse:
       content:
@@ -3516,13 +3547,13 @@ components:
               shkID: 17346434621
               sku: "4630153500834"
           schema:
-            $ref: "#/components/schemas/_api_v1_analytics_goods_labeling_get_200_response"
+            $ref: "#/components/schemas/getV1AnalyticsGoodsLabeling_200_response"
       description: Успешно
     SuccessBrandsResponse:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_analytics_brand_share_brands_get_200_response"
+            $ref: "#/components/schemas/getV1AnalyticsBrandShareBrands_200_response"
       description: Успешно
     SuccessParentsResponse:
       content:
@@ -3538,7 +3569,7 @@ components:
             - parentId: 239
               parentName: Спортивный товар
           schema:
-            $ref: "#/components/schemas/_api_v1_analytics_brand_share_parent_subjects_get_200_response"
+            $ref: "#/components/schemas/getV1AnalyticsBrandShareParentSubjects_200_response"
       description: Успешно
     SuccessBrandShareResponse:
       content:
@@ -3562,7 +3593,7 @@ components:
               pricePercent: 0.76
               qtyPercent: 1.39
           schema:
-            $ref: "#/components/schemas/_api_v1_analytics_brand_share_get_200_response"
+            $ref: "#/components/schemas/getV1AnalyticsBrandShare_200_response"
       description: Успешно
   schemas:
     OrdersItem:
@@ -4194,11 +4225,11 @@ components:
           description: Заголовок ошибки
           type: string
       type: object
-    _api_v1_supplier_orders_get_400_response:
+    getV1SupplierOrders_400_response:
       oneOf:
       - $ref: "#/components/schemas/responseErrorStatistics"
       - $ref: "#/components/schemas/responseErrorStatistics2"
-    _api_v1_supplier_orders_get_401_response:
+    getV1SupplierOrders_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -4226,7 +4257,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_v1_supplier_orders_get_402_response:
+    getV1SupplierOrders_402_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -4236,7 +4267,7 @@ components:
             алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
-    _api_v1_warehouse_remains_tasks__task_id__download_get_200_response_inner_warehouses_inner:
+    getV1WarehouseRemainsTasksTaskIdDownload_200_response_inner_warehouses_inner:
       example:
         warehouseName: Невинномысск
         quantity: 134
@@ -4251,7 +4282,7 @@ components:
           example: 134
           type: integer
       type: object
-    _api_v1_warehouse_remains_tasks__task_id__download_get_200_response_inner:
+    getV1WarehouseRemainsTasksTaskIdDownload_200_response_inner:
       example:
         brand: Wonderful
         subjectName: Фотоальбомы
@@ -4298,7 +4329,7 @@ components:
           description: Остатки на складах и товары в пути. Будут в ответе только при
             ненулевом `quantity`
           items:
-            $ref: "#/components/schemas/_api_v1_warehouse_remains_tasks__task_id__download_get_200_response_inner_warehouses_inner"
+            $ref: "#/components/schemas/getV1WarehouseRemainsTasksTaskIdDownload_200_response_inner_warehouses_inner"
           type: array
       type: object
     getV1Deductions_200_response_data_reports_inner:
@@ -4485,7 +4516,7 @@ components:
       required:
       - data
       type: object
-    _api_v1_analytics_antifraud_details_get_200_response_details_inner:
+    getV1AnalyticsAntifraudDetails_200_response_details_inner:
       example:
         nmID: 123456789
         sum: 3540
@@ -4514,7 +4545,7 @@ components:
           example: 2023-08-29
           type: string
       type: object
-    _api_v1_analytics_antifraud_details_get_200_response:
+    getV1AnalyticsAntifraudDetails_200_response:
       example:
         details:
         - nmID: 123456789
@@ -4530,10 +4561,10 @@ components:
       properties:
         details:
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_antifraud_details_get_200_response_details_inner"
+            $ref: "#/components/schemas/getV1AnalyticsAntifraudDetails_200_response_details_inner"
           type: array
       type: object
-    _api_v1_analytics_goods_labeling_get_200_response_report_inner:
+    getV1AnalyticsGoodsLabeling_200_response_report_inner:
       example:
         amount: 0.8008281904610115
         date: 2000-01-23T04:56:07.000+00:00
@@ -4570,7 +4601,7 @@ components:
           description: Баркод из карточки товара
           type: string
       type: object
-    _api_v1_analytics_goods_labeling_get_200_response:
+    getV1AnalyticsGoodsLabeling_200_response:
       example:
         report:
         - amount: 0.8008281904610115
@@ -4594,10 +4625,10 @@ components:
       properties:
         report:
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_goods_labeling_get_200_response_report_inner"
+            $ref: "#/components/schemas/getV1AnalyticsGoodsLabeling_200_response_report_inner"
           type: array
       type: object
-    _api_v1_acceptance_report_tasks__task_id__download_get_200_response_inner:
+    getV1AcceptanceReportTasksTaskIdDownload_200_response_inner:
       example:
         count: 40
         giCreateDate: 2025-03-04
@@ -4638,7 +4669,7 @@ components:
           example: 873.04
           type: number
       type: object
-    _api_v1_analytics_region_sale_get_200_response_report_inner:
+    getV1AnalyticsRegionSale_200_response_report_inner:
       example:
         cityName: деревня Суханово
         countryName: Россия
@@ -4689,7 +4720,7 @@ components:
           example: 4
           type: integer
       type: object
-    _api_v1_analytics_region_sale_get_200_response:
+    getV1AnalyticsRegionSale_200_response:
       example:
         report:
         - cityName: деревня Суханово
@@ -4713,10 +4744,10 @@ components:
       properties:
         report:
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_region_sale_get_200_response_report_inner"
+            $ref: "#/components/schemas/getV1AnalyticsRegionSale_200_response_report_inner"
           type: array
       type: object
-    _api_v1_analytics_brand_share_brands_get_200_response:
+    getV1AnalyticsBrandShareBrands_200_response:
       example:
         data:
         - 1000 | Каталог
@@ -4753,7 +4784,7 @@ components:
             type: string
           type: array
       type: object
-    _api_v1_analytics_brand_share_parent_subjects_get_200_response_data_inner:
+    getV1AnalyticsBrandShareParentSubjects_200_response_data_inner:
       example:
         parentId: 0
         parentName: parentName
@@ -4765,7 +4796,7 @@ components:
           description: Название родительской категории
           type: string
       type: object
-    _api_v1_analytics_brand_share_parent_subjects_get_200_response:
+    getV1AnalyticsBrandShareParentSubjects_200_response:
       example:
         data:
         - parentId: 0
@@ -4776,10 +4807,10 @@ components:
         data:
           description: Категории бренда
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_brand_share_parent_subjects_get_200_response_data_inner"
+            $ref: "#/components/schemas/getV1AnalyticsBrandShareParentSubjects_200_response_data_inner"
           type: array
       type: object
-    _api_v1_analytics_brand_share_get_200_response_report_inner:
+    getV1AnalyticsBrandShare_200_response_report_inner:
       example:
         applyDate: applyDate
         brandRating: 0
@@ -4802,7 +4833,7 @@ components:
           format: float
           type: number
       type: object
-    _api_v1_analytics_brand_share_get_200_response:
+    getV1AnalyticsBrandShare_200_response:
       example:
         report:
         - applyDate: applyDate
@@ -4817,10 +4848,10 @@ components:
         report:
           description: Отчёт
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_brand_share_get_200_response_report_inner"
+            $ref: "#/components/schemas/getV1AnalyticsBrandShare_200_response_report_inner"
           type: array
       type: object
-    _api_v1_analytics_banned_products_blocked_get_200_response_report_inner:
+    getV1AnalyticsBannedProducsBlocked_200_response_report_inner:
       example:
         brand: Тест22
         nmId: 82722944
@@ -4851,7 +4882,7 @@ components:
             на фотографиях Товара
           type: string
       type: object
-    _api_v1_analytics_banned_products_blocked_get_200_response:
+    getV1AnalyticsBannedProducsBlocked_200_response:
       example:
         report:
         - brand: Тест22
@@ -4870,10 +4901,10 @@ components:
         report:
           description: Отчёт
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_banned_products_blocked_get_200_response_report_inner"
+            $ref: "#/components/schemas/getV1AnalyticsBannedProducsBlocked_200_response_report_inner"
           type: array
       type: object
-    _api_v1_analytics_banned_products_blocked_get_400_response:
+    getV1AnalyticsBannedProducsBlocked_400_response:
       example:
         title: title
         status: 0.8008281904610115
@@ -4897,7 +4928,7 @@ components:
           description: ID внутреннего сервиса WB
           type: string
       type: object
-    _api_v1_analytics_banned_products_shadowed_get_200_response_report_inner:
+    getV1AnalyticsBannedProductsShadowed_200_response_report_inner:
       example:
         brand: Трикотаж
         nmId: 166658151
@@ -4926,7 +4957,7 @@ components:
           example: 3.1
           type: number
       type: object
-    _api_v1_analytics_banned_products_shadowed_get_200_response:
+    getV1AnalyticsBannedProductsShadowed_200_response:
       example:
         report:
         - brand: Трикотаж
@@ -4943,10 +4974,10 @@ components:
         report:
           description: Отчёт
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_banned_products_shadowed_get_200_response_report_inner"
+            $ref: "#/components/schemas/getV1AnalyticsBannedProductsShadowed_200_response_report_inner"
           type: array
       type: object
-    _api_v1_analytics_goods_return_get_200_response_report_inner:
+    getV1AnalyticsGoodsReturn_200_response_report_inner:
       example:
         barcode: "1680063403480"
         brand: dub
@@ -5056,7 +5087,7 @@ components:
           example: "0"
           type: string
       type: object
-    _api_v1_analytics_goods_return_get_200_response:
+    getV1AnalyticsGoodsReturn_200_response:
       example:
         report:
         - barcode: "1680063403480"
@@ -5101,7 +5132,7 @@ components:
         report:
           description: Отчёт
           items:
-            $ref: "#/components/schemas/_api_v1_analytics_goods_return_get_200_response_report_inner"
+            $ref: "#/components/schemas/getV1AnalyticsGoodsReturn_200_response_report_inner"
           type: array
       type: object
     models_ExciseReportResponseData_inner:

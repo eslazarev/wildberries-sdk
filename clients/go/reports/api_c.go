@@ -1,7 +1,7 @@
 /*
 Отчёты
 
-<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)   3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)   4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)   5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)   6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)   7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)   8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)  </div> 
+<div class=\"description_important\">   Узнать больше об отчётах можно в <a href=\"https://seller.wildberries.ru/instructions/subcategory/5f2162c5-069b-416d-a4e1-48da2a76e6b0\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:   1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)   2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)   3. [Удержаниях](/openapi/reports#tag/retentionReports)   4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)   5. [Платном хранении](/openapi/reports#tag/paidStorage)   6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)   7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)   8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)   9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)  </div> 
 
 API version: reports
 */
@@ -22,7 +22,7 @@ import (
 // CAPIService CAPI service
 type CAPIService service
 
-type ApiApiV1AnalyticsExciseReportPostRequest struct {
+type ApiPostV1AnalyticsExciseReportRequest struct {
 	ctx context.Context
 	ApiService *CAPIService
 	dateFrom *string
@@ -31,28 +31,28 @@ type ApiApiV1AnalyticsExciseReportPostRequest struct {
 }
 
 // Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsExciseReportPostRequest) DateFrom(dateFrom string) ApiApiV1AnalyticsExciseReportPostRequest {
+func (r ApiPostV1AnalyticsExciseReportRequest) DateFrom(dateFrom string) ApiPostV1AnalyticsExciseReportRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
-func (r ApiApiV1AnalyticsExciseReportPostRequest) DateTo(dateTo string) ApiApiV1AnalyticsExciseReportPostRequest {
+func (r ApiPostV1AnalyticsExciseReportRequest) DateTo(dateTo string) ApiPostV1AnalyticsExciseReportRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiApiV1AnalyticsExciseReportPostRequest) ExciseReportRequest(exciseReportRequest ExciseReportRequest) ApiApiV1AnalyticsExciseReportPostRequest {
+func (r ApiPostV1AnalyticsExciseReportRequest) ExciseReportRequest(exciseReportRequest ExciseReportRequest) ApiPostV1AnalyticsExciseReportRequest {
 	r.exciseReportRequest = &exciseReportRequest
 	return r
 }
 
-func (r ApiApiV1AnalyticsExciseReportPostRequest) Execute() (*ExciseReportResponse, *http.Response, error) {
-	return r.ApiService.ApiV1AnalyticsExciseReportPostExecute(r)
+func (r ApiPostV1AnalyticsExciseReportRequest) Execute() (*ExciseReportResponse, *http.Response, error) {
+	return r.ApiService.PostV1AnalyticsExciseReportExecute(r)
 }
 
 /*
-ApiV1AnalyticsExciseReportPost Получить отчёт
+PostV1AnalyticsExciseReport Получить отчёт
 
 Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).<br><br>
 
@@ -72,10 +72,10 @@ ApiV1AnalyticsExciseReportPost Получить отчёт
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV1AnalyticsExciseReportPostRequest
+ @return ApiPostV1AnalyticsExciseReportRequest
 */
-func (a *CAPIService) ApiV1AnalyticsExciseReportPost(ctx context.Context) ApiApiV1AnalyticsExciseReportPostRequest {
-	return ApiApiV1AnalyticsExciseReportPostRequest{
+func (a *CAPIService) PostV1AnalyticsExciseReport(ctx context.Context) ApiPostV1AnalyticsExciseReportRequest {
+	return ApiPostV1AnalyticsExciseReportRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -83,7 +83,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPost(ctx context.Context) ApiApi
 
 // Execute executes the request
 //  @return ExciseReportResponse
-func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsExciseReportPostRequest) (*ExciseReportResponse, *http.Response, error) {
+func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExciseReportRequest) (*ExciseReportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -91,7 +91,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsE
 		localVarReturnValue  *ExciseReportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CAPIService.ApiV1AnalyticsExciseReportPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CAPIService.PostV1AnalyticsExciseReport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -177,7 +177,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -188,7 +188,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v ApiV1SupplierOrdersGet402Response
+			var v GetV1SupplierOrders402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -199,7 +199,7 @@ func (a *CAPIService) ApiV1AnalyticsExciseReportPostExecute(r ApiApiV1AnalyticsE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v ApiV1SupplierOrdersGet401Response
+			var v GetV1SupplierOrders401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
