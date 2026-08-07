@@ -58,7 +58,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'selected_period' => '\Wildberries\Sdk\Analytics\Model\OrderFeedRequestSelectedPeriod',
-        'timezone' => 'string',
         'nm_ids' => 'int[]',
         'subject_ids' => 'int[]',
         'brand_names' => 'string[]',
@@ -75,7 +74,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'selected_period' => null,
-        'timezone' => null,
         'nm_ids' => 'uint64',
         'subject_ids' => 'uint64',
         'brand_names' => null,
@@ -90,7 +88,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'selected_period' => false,
-        'timezone' => false,
         'nm_ids' => false,
         'subject_ids' => false,
         'brand_names' => false,
@@ -185,7 +182,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'selected_period' => 'selectedPeriod',
-        'timezone' => 'timezone',
         'nm_ids' => 'nmIds',
         'subject_ids' => 'subjectIds',
         'brand_names' => 'brandNames',
@@ -200,7 +196,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'selected_period' => 'setSelectedPeriod',
-        'timezone' => 'setTimezone',
         'nm_ids' => 'setNmIds',
         'subject_ids' => 'setSubjectIds',
         'brand_names' => 'setBrandNames',
@@ -215,7 +210,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'selected_period' => 'getSelectedPeriod',
-        'timezone' => 'getTimezone',
         'nm_ids' => 'getNmIds',
         'subject_ids' => 'getSubjectIds',
         'brand_names' => 'getBrandNames',
@@ -281,7 +275,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('selected_period', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], 'Europe/Moscow');
         $this->setIfExists('nm_ids', $data ?? [], null);
         $this->setIfExists('subject_ids', $data ?? [], null);
         $this->setIfExists('brand_names', $data ?? [], null);
@@ -373,33 +366,6 @@ class OrderFeedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable selected_period cannot be null');
         }
         $this->container['selected_period'] = $selected_period;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string|null
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string|null $timezone Временная зона по формату [IANA](https://nodatime.org/TimeZones)
-     *
-     * @return self
-     */
-    public function setTimezone($timezone)
-    {
-        if (is_null($timezone)) {
-            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
-        }
-        $this->container['timezone'] = $timezone;
 
         return $this;
     }

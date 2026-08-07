@@ -22,8 +22,6 @@ var _ MappedNullable = &OrderFeedRequest{}
 // OrderFeedRequest struct for OrderFeedRequest
 type OrderFeedRequest struct {
 	SelectedPeriod OrderFeedRequestSelectedPeriod `json:"selectedPeriod"`
-	// Временная зона по формату [IANA](https://nodatime.org/TimeZones)
-	Timezone *string `json:"timezone,omitempty"`
 	// Список артикулов WB для фильтрации
 	NmIds []int32 `json:"nmIds,omitempty"`
 	// Список ID предметов для фильтрации
@@ -44,8 +42,6 @@ type _OrderFeedRequest OrderFeedRequest
 func NewOrderFeedRequest(selectedPeriod OrderFeedRequestSelectedPeriod) *OrderFeedRequest {
 	this := OrderFeedRequest{}
 	this.SelectedPeriod = selectedPeriod
-	var timezone string = "Europe/Moscow"
-	this.Timezone = &timezone
 	return &this
 }
 
@@ -54,8 +50,6 @@ func NewOrderFeedRequest(selectedPeriod OrderFeedRequestSelectedPeriod) *OrderFe
 // but it doesn't guarantee that properties required by API are set
 func NewOrderFeedRequestWithDefaults() *OrderFeedRequest {
 	this := OrderFeedRequest{}
-	var timezone string = "Europe/Moscow"
-	this.Timezone = &timezone
 	return &this
 }
 
@@ -81,38 +75,6 @@ func (o *OrderFeedRequest) GetSelectedPeriodOk() (*OrderFeedRequestSelectedPerio
 // SetSelectedPeriod sets field value
 func (o *OrderFeedRequest) SetSelectedPeriod(v OrderFeedRequestSelectedPeriod) {
 	o.SelectedPeriod = v
-}
-
-// GetTimezone returns the Timezone field value if set, zero value otherwise.
-func (o *OrderFeedRequest) GetTimezone() string {
-	if o == nil || IsNil(o.Timezone) {
-		var ret string
-		return ret
-	}
-	return *o.Timezone
-}
-
-// GetTimezoneOk returns a tuple with the Timezone field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OrderFeedRequest) GetTimezoneOk() (*string, bool) {
-	if o == nil || IsNil(o.Timezone) {
-		return nil, false
-	}
-	return o.Timezone, true
-}
-
-// HasTimezone returns a boolean if a field has been set.
-func (o *OrderFeedRequest) HasTimezone() bool {
-	if o != nil && !IsNil(o.Timezone) {
-		return true
-	}
-
-	return false
-}
-
-// SetTimezone gets a reference to the given string and assigns it to the Timezone field.
-func (o *OrderFeedRequest) SetTimezone(v string) {
-	o.Timezone = &v
 }
 
 // GetNmIds returns the NmIds field value if set, zero value otherwise.
@@ -286,9 +248,6 @@ func (o OrderFeedRequest) MarshalJSON() ([]byte, error) {
 func (o OrderFeedRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["selectedPeriod"] = o.SelectedPeriod
-	if !IsNil(o.Timezone) {
-		toSerialize["timezone"] = o.Timezone
-	}
 	if !IsNil(o.NmIds) {
 		toSerialize["nmIds"] = o.NmIds
 	}

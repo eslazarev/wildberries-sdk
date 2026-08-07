@@ -31,13 +31,12 @@ class OrderFeedRequest(BaseModel):
     OrderFeedRequest
     """ # noqa: E501
     selected_period: OrderFeedRequestSelectedPeriod = Field(alias="selectedPeriod")
-    timezone: Optional[StrictStr] = Field(default='Europe/Moscow', description="Временная зона по формату [IANA](https://nodatime.org/TimeZones)", json_schema_extra={"examples": ["Europe/Moscow"]})
     nm_ids: Optional[Annotated[List[StrictInt], Field(max_length=1000)]] = Field(default=None, description="Список артикулов WB для фильтрации", alias="nmIds", json_schema_extra={"examples": [[162579635, 166699779]]})
     subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds", json_schema_extra={"examples": [[232, 1364]]})
     brand_names: Optional[Annotated[List[StrictStr], Field(max_length=50)]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames", json_schema_extra={"examples": [["Abikas", "Tike"]]})
     tag_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds", json_schema_extra={"examples": [[3, 5, 6]]})
     pagination: Optional[OrderFeedRequestPagination] = None
-    __properties: ClassVar[List[str]] = ["selectedPeriod", "timezone", "nmIds", "subjectIds", "brandNames", "tagIds", "pagination"]
+    __properties: ClassVar[List[str]] = ["selectedPeriod", "nmIds", "subjectIds", "brandNames", "tagIds", "pagination"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -97,7 +96,6 @@ class OrderFeedRequest(BaseModel):
 
         _obj = cls.model_validate({
             "selectedPeriod": OrderFeedRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
-            "timezone": obj.get("timezone") if obj.get("timezone") is not None else 'Europe/Moscow',
             "nmIds": obj.get("nmIds"),
             "subjectIds": obj.get("subjectIds"),
             "brandNames": obj.get("brandNames"),

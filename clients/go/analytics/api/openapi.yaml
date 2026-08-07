@@ -8148,7 +8148,6 @@ components:
         selectedPeriod:
           start: 2026-07-23T00:00:00+03:00
           end: 2026-07-31T00:00:00+03:00
-        timezone: Europe/Moscow
         nmIds:
         - 162579635
         - 166699779
@@ -8169,11 +8168,6 @@ components:
       properties:
         selectedPeriod:
           $ref: "#/components/schemas/OrderFeedRequest_selectedPeriod"
-        timezone:
-          default: Europe/Moscow
-          description: "Временная зона по формату [IANA](https://nodatime.org/TimeZones)"
-          example: Europe/Moscow
-          type: string
         nmIds:
           description: Список артикулов WB для фильтрации
           example:

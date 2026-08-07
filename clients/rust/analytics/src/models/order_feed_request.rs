@@ -15,9 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct OrderFeedRequest {
     #[serde(rename = "selectedPeriod")]
     pub selected_period: Box<models::OrderFeedRequestSelectedPeriod>,
-    /// Временная зона по формату [IANA](https://nodatime.org/TimeZones)
-    #[serde(rename = "timezone", skip_serializing_if = "Option::is_none")]
-    pub timezone: Option<String>,
     /// Список артикулов WB для фильтрации
     #[serde(rename = "nmIds", skip_serializing_if = "Option::is_none")]
     pub nm_ids: Option<Vec<i32>>,
@@ -38,7 +35,6 @@ impl OrderFeedRequest {
     pub fn new(selected_period: models::OrderFeedRequestSelectedPeriod) -> OrderFeedRequest {
         OrderFeedRequest {
             selected_period: Box::new(selected_period),
-            timezone: None,
             nm_ids: None,
             subject_ids: None,
             brand_names: None,

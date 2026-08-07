@@ -39,10 +39,6 @@ export interface OrderFeedRequest {
      */
     selectedPeriod: OrderFeedRequestSelectedPeriod;
     /**
-     * Временная зона по формату [IANA](https://nodatime.org/TimeZones)
-     */
-    timezone?: string;
-    /**
      * Список артикулов WB для фильтрации
      */
     nmIds?: Array<number>;
@@ -83,7 +79,6 @@ export function OrderFeedRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'selectedPeriod': OrderFeedRequestSelectedPeriodFromJSON(json['selectedPeriod']),
-        'timezone': json['timezone'] == null ? undefined : json['timezone'],
         'nmIds': json['nmIds'] == null ? undefined : json['nmIds'],
         'subjectIds': json['subjectIds'] == null ? undefined : json['subjectIds'],
         'brandNames': json['brandNames'] == null ? undefined : json['brandNames'],
@@ -104,7 +99,6 @@ export function OrderFeedRequestToJSONTyped(value?: OrderFeedRequest | null, ign
     return {
         
         'selectedPeriod': OrderFeedRequestSelectedPeriodToJSON(value['selectedPeriod']),
-        'timezone': value['timezone'],
         'nmIds': value['nmIds'],
         'subjectIds': value['subjectIds'],
         'brandNames': value['brandNames'],
