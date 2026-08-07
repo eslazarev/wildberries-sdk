@@ -31,6 +31,39 @@ if [[ "${#specs[@]}" -eq 0 ]]; then
   exit 1
 fi
 
+# Preferred source: the public S3 mirror populated out-of-band by the
+# wb-spec-downloader (which runs headful Chrome from a non-flagged IP). Plain
+# HTTPS, no anti-bot, no creds. The spec list in generation.yaml stays the source
+# of truth for the filenames — the downloader names each object by basename(url),
+# so <S3_URL>/<basename> lines up with what it uploaded.
+try_s3() {
+  local base="${S3_URL%/}"
+  local tmp_dir
+  tmp_dir="$(mktemp -d)"
+  trap "rm -rf '${tmp_dir}'" RETURN
+
+  for spec in "${specs[@]}"; do
+    if [[ ! "${spec}" =~ ^https?:// ]]; then
+      echo "Skipping non-URL spec: ${spec}"
+      continue
+    fi
+    local filename tmp_file url
+    filename="$(basename "${spec%%\?*}")"
+    url="${base}/${filename}"
+    tmp_file="${tmp_dir}/${filename}"
+    if ! curl -fsSL --max-time 60 -o "${tmp_file}" "${url}"; then
+      echo "Error: failed to fetch ${url}" >&2
+      return 1
+    fi
+    if ! head -c 16 "${tmp_file}" | grep -q '^openapi:'; then
+      echo "Error: ${url} did not return OpenAPI YAML" >&2
+      return 1
+    fi
+    mv "${tmp_file}" "${SPECS_DIR}/${filename}"
+    echo "s3: ${filename}"
+  done
+}
+
 # Try plain curl first — it's fast and works from hosts that aren't flagged
 # by Wildberries' WBAAS anti-bot (e.g. most CI runners).
 try_curl() {
@@ -96,6 +129,19 @@ run_patchright() {
     "${runner[@]}"
   fi
 }
+
+# When S3_URL is set (CI), use the S3 mirror only — no anti-bot fallback — and
+# fail loudly if a spec is missing, so a stale/broken mirror is visible rather
+# than silently falling back to the WB path that anti-bot blocks in CI.
+if [[ -n "${S3_URL:-}" ]]; then
+  echo "Downloading specs from S3 mirror: ${S3_URL%/}"
+  if try_s3; then
+    echo "All specs downloaded from S3."
+    exit 0
+  fi
+  echo "Error: failed to download specs from S3 (${S3_URL%/})." >&2
+  exit 1
+fi
 
 if try_curl; then
   echo "All specs downloaded via curl."
