@@ -10,11 +10,12 @@ info:
     <div class="api-block">
 
     В разделе описаны методы получения:
-      1. [Воронки продаж](/openapi/analytics#tag/Voronka-prodazh)
-      2. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram)
-      3. [Истории остатков](/openapi/analytics#tag/Istoriya-ostatkov)
-      4. [Оценки товара](/openapi/analytics#tag/Ocenka-tovara)
-      5. [Аналитики продавца в формате CSV](/openapi/analytics#tag/Analitika-prodavca-CSV)
+      1. [Воронки продаж](/openapi/analytics#tag/salesFunnel)
+      2. [Ленты заказов](/openapi/analytics#tag/orderFeed)
+      3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems)
+      4. [Истории остатков](/openapi/analytics#tag/stocksReport)
+      5. [Оценки товара](/openapi/analytics#tag/itemRating)
+      6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)
 
     </div>
   x-file-name: analytics
@@ -22,14 +23,22 @@ security:
   - HeaderApiKey: []
 tags:
   - name: Воронка продаж
+    x-displayName: Воронка продаж
+    description: ''
+  - name: Лента заказов
+    x-displayName: Лента заказов
     description: ''
   - name: Поисковые запросы по вашим товарам
+    x-displayName: Поисковые запросы по вашим товарам
     description: ''
   - name: История остатков
+    x-displayName: История остатков
     description: ''
   - name: Оценка товара
+    x-displayName: Оценка товара
     description: ''
   - name: Аналитика продавца CSV
+    x-displayName: Аналитика продавца CSV
     description: ''
 paths:
   /api/analytics/v3/sales-funnel/products:
@@ -138,7 +147,7 @@ paths:
         Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).
 
         <div class="description_important">
-          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
+          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/sellerAnalyticsCsv">Аналитика продавца CSV</a> — тип <code>DETAIL_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
         </div>
 
         <div class="description_limit">
@@ -207,7 +216,7 @@ paths:
         Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
 
         <div class="description_important">
-          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/Analitika-prodavca-CSV">Аналитика продавца CSV</a> — тип <code>GROUPED_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
+          Чтобы получать отчёты за период до года, используйте методы <a href="/openapi/analytics#tag/sellerAnalyticsCsv">Аналитика продавца CSV</a> — тип <code>GROUPED_HISTORY_REPORT</code>. Отчёты этого типа доступны только с подпиской <a href='https://seller.wildberries.ru/monetization/jam'>Джем</a>
         </div>
 
         <div class="description_limit">
@@ -252,6 +261,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2NmReportDownloads
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -262,13 +272,13 @@ paths:
       description: |
         Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца. <br><br>
 
-        Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/Voronka-prodazh) или [параметрам поиска](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram) с группировкой по:
+        Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/salesFunnel) или [параметрам поиска](/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
           * артикулам WB
           * предметам, брендам и ярлыкам
 
         В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.<br><br>
 
-        Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и [остаткам](/openapi/analytics#tag/Istoriya-ostatkov).<br><br>
+        Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](/openapi/analytics#tag/stocksReport).<br><br>
 
         Каждый новый отчёт должен иметь уникальный ID.
 
@@ -280,7 +290,7 @@ paths:
 
         Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.<br><br>
 
-        Если не удалось [получить отчёт](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1file~1%7BdownloadId%7D/get), можно создать [повторное задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads~1retry/post). Также можно [получить список и проверить статусы](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) отчётов.
+        Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.
 
         <div class="description_important">
           Отчёты по <a href="https://seller.wildberries.ru/content-analytics/history-remains">остаткам</a> — типы <code>STOCK_HISTORY_REPORT_CSV</code> и <code>STOCK_HISTORY_DAILY_CSV</code> — можно создать без подписки <a href="https://seller.wildberries.ru/monetization/jam">Джем</a>
@@ -579,6 +589,7 @@ paths:
                   - $ref: '#/components/schemas/response429Download'
                   - $ref: '#/components/schemas/response429DownloadDaily'
     get:
+      operationId: getV2NmReportDownloads
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -587,7 +598,7 @@ paths:
         - HeaderApiKey: []
       summary: Получить список отчётов
       description: |
-        Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) и статусы генерации.
+        Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -681,6 +692,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2NmReportDownloadsRetry
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -689,7 +701,7 @@ paths:
         - HeaderApiKey: []
       summary: Сгенерировать отчёт повторно
       description: |
-        Метод создает повторное [задание на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/get) `FAILED`.
+        Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -780,6 +792,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV2NmReportDownloadsFileDownloadId
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -788,7 +801,7 @@ paths:
         - HeaderApiKey: []
       summary: Получить отчёт
       description: |
-        Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/Analitika-prodavca-CSV/paths/~1api~1v2~1nm-report~1downloads/post).
+        Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
         <br><br>
         Можно получить отчёт, который сгенерирован за последние 48 часов.<br>Отчёт будет загружен внутри архива ZIP в формате CSV.
 
@@ -902,6 +915,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2SearchReportReport
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -915,8 +929,8 @@ paths:
          - данными для таблицы по группам
 
         Для получения дополнительных данных в таблице используйте отдельный запрос для:
-         - [пагинации по группам](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1groups/post)
-         - [получения по товарам в группе](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1table~1details/post)
+         - [пагинации по группам](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)
+         - [получения по товарам в группе](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
 
         Дополнительный параметр выбора списка товаров в таблице:
          - `positionCluster` — средняя позиция в поиске
@@ -978,13 +992,14 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2SearchReportTableGroups
       x-readonly-method: true
       x-category: contentanalytics
       tags:
         - Поисковые запросы по вашим товарам
       summary: Пагинация по группам
       description: |
-        Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.<br><br>
+        Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.<br><br>
 
         Дополнительный параметр выбора списка товаров в таблице:
          - `positionCluster` — средняя позиция в поиске
@@ -1046,13 +1061,14 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2SearchReportTableDetails
       x-readonly-method: true
       x-category: contentanalytics
       tags:
         - Поисковые запросы по вашим товарам
       summary: Пагинация по товарам в группе
       description: |
-        Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1report/post) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.<br><br>
+        Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.<br><br>
 
         Фильтры для пагинации по товарам в группе или без фильтров:
          - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы
@@ -1118,6 +1134,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2SearchReportProductSearchTexts
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -1187,6 +1204,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2SearchReportProductOrders
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -1197,7 +1215,7 @@ paths:
           - о заказах по каждому поисковому запросу для конкретного товара
           - о позициях товара в результатах поиска по каждому запросу
 
-        Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/Poiskovye-zaprosy-po-vashim-tovaram/paths/~1api~1v2~1search-report~1product~1search-texts/post) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>
+        Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.<br><br>
 
         Данные отчёта обновляются 1 раз в час.
 
@@ -1333,6 +1351,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2StocksReportProductsGroups
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -1396,6 +1415,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2StocksReportProductsProducts
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -1460,6 +1480,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2StocksReportProductsSizes
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -1473,7 +1494,7 @@ paths:
         2. Товар имеет размеры и `"includeOffice":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам.
         3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
         4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.<br></br>
-        Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/Istoriya-ostatkov/paths/~1api~1v2~1stocks-report~1products~1products/post) у таких товаров `"hasSizes":false`.<br></br>
+        Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.<br></br>
         Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Маркетплейс"` и `"officeName":""`.<br><br>
 
         Данные отчёта обновляются 1 раз в час.
@@ -1529,6 +1550,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV2StocksReportOffices
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -1716,6 +1738,79 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response403General'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/analytics/v1/order-feed:
+    servers:
+      - url: https://seller-analytics-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: contentanalytics
+      tags:
+        - Лента заказов
+      summary: Получить отчёт
+      operationId: postV1OrderFeed
+      description: |
+        Метод формирует набор данных о заказах и продажах.
+        <br><br>
+        Данные отчёта обновляются в режиме реального времени.
+        <br><br>
+        > 1 заказ = 1 сборочное задание = 1 единица товара
+
+        Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца.<br>
+        Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.
+        <br><br>
+        Можно получить отчёт максимум за последние 31 день.
+        <br><br>
+        Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.
+        <br><br>
+        Можно использовать пагинацию.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+
+        | Тип | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- | --- |
+        | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+        | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос |
+        | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос |
+        | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
+        </div>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderFeedRequest'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/OrderFeedResponse'
+                required:
+                  - data
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorObject400'
+        '401':
+          $ref: '#/components/responses/401'
         '403':
           description: Доступ запрещён
           content:
@@ -3290,8 +3385,9 @@ components:
               format: date
             timezone:
               type: string
-              description: |
-                Временная зона, по умолчанию Europe/Moscow
+              description: Временная зона по формату [IANA](https://nodatime.org/TimeZones)
+              default: Europe/Moscow
+              example: Europe/Moscow
             aggregationLevel:
               type: string
               description: |
@@ -3367,8 +3463,9 @@ components:
               format: date
             timezone:
               type: string
-              description: |
-                Временная зона, по умолчанию Europe/Moscow
+              description: Временная зона по формату [IANA](https://nodatime.org/TimeZones)
+              default: Europe/Moscow
+              example: Europe/Moscow
             aggregationLevel:
               type: string
               description: |
@@ -6478,6 +6575,216 @@ components:
       type: string
       example: RUB
       description: Валюта отчёта
+    OrderFeedRequest:
+      type: object
+      required:
+        - selectedPeriod
+      properties:
+        selectedPeriod:
+          type: object
+          required:
+            - start
+          description: Запрашиваемый период. По дате текущего статуса заказа
+          properties:
+            start:
+              type: string
+              format: date-time
+              description: Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее `end`
+              example: '2026-07-23T00:00:00.00000+03:00'
+            end:
+              type: string
+              format: date-time
+              description: Дата и время конца периода. Не ранее 31 суток от текущей даты
+              example: '2026-07-31T00:00:00.00000+03:00'
+        nmIds:
+          example:
+            - 162579635
+            - 166699779
+          type: array
+          maxItems: 1000
+          items:
+            type: integer
+            format: uint64
+          description: Список артикулов WB для фильтрации
+        subjectIds:
+          example:
+            - 232
+            - 1364
+          type: array
+          maxItems: 50
+          items:
+            type: integer
+            format: uint64
+          description: Список ID предметов для фильтрации
+        brandNames:
+          example:
+            - Abikas
+            - Tike
+          type: array
+          maxItems: 50
+          items:
+            type: string
+          description: Список брендов для фильтрации
+        tagIds:
+          example:
+            - 3
+            - 5
+            - 6
+          type: array
+          maxItems: 50
+          items:
+            type: integer
+            format: uint64
+          description: Список ID ярлыков для фильтрации
+        pagination:
+          type: object
+          description: Пагинация
+          properties:
+            snapshotTime:
+              type: string
+              format: date-time
+              description: Метка снимка данных, в рамках которого выполняется пагинация.<br>Данные отчёта обновляются асинхронно. Чтобы не пропускать и не дублировать заказы, запросы одной выборки должны быть с одним и тем же `snapshotTime`.<br>В первом запросе выборки (`"offset":0`) параметр не указывается, в каждом последующем запросе (`offset`>`0`) указывайте значение поля `snapshotTime` из ответа на <strong>первый</strong> запрос.<br>При изменении значений периода и фильтров начинайте выборку заново с `"offset":0` и без `snapshotTime`
+              example: '2026-07-28T15:04:05Z'
+            offset:
+              type: integer
+              format: int32
+              description: Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
+              default: 0
+              example: 211
+            limit:
+              type: integer
+              format: int32
+              description: Количество заказов в ответе
+              maximum: 10000
+              default: 50
+              example: 4030
+    OrderFeedResponse:
+      type: object
+      required:
+        - snapshotTime
+        - orders
+        - currency
+      description: Данные ответа
+      properties:
+        snapshotTime:
+          type: string
+          format: date-time
+          description: Метка снимка данных, в рамках которого выполняется пагинация
+          example: '2026-07-03T15:04:05Z'
+        currency:
+          $ref: '#/components/schemas/Currency'
+        orders:
+          type: array
+          description: Заказы
+          items:
+            $ref: '#/components/schemas/Order'
+    Order:
+      type: object
+      required:
+        - nmId
+        - chrtId
+        - srid
+        - createdAt
+        - updatedAt
+        - status
+        - warehouseName
+        - warehouseRegion
+        - isMp
+        - destinationCity
+        - destinationDistrict
+        - sellerPrice
+        - isB2b
+      description: Заказ
+      properties:
+        nmId:
+          type: integer
+          description: Артикул WB
+          example: 47254354
+          format: int64
+        chrtId:
+          type: integer
+          description: ID размера
+          example: 91663228
+          format: int64
+        srid:
+          type: string
+          description: ID заказа
+          example: 7513432034713632943.1.0
+        createdAt:
+          type: string
+          format: date-time
+          description: Дата и время оформления заказа
+          example: '2026-06-24T12:57:26+03:00'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Дата и время текущего статуса. При `"status":"created"` возвращается значение поля `createdAt`
+          example: '2026-06-26T19:19:38+03:00'
+        status:
+          type: string
+          description: |
+            Статус заказа:
+              - `created` — оформлен
+              - `buyout` — продан
+              - `cancel` — отменён
+              - `return` — возвращён
+              - `returnDefective` — возвращён по причине брака
+          enum:
+            - created
+            - buyout
+            - cancel
+            - return
+            - returnDefective
+          example: cancel
+        cancelType:
+          type: string
+          description: |
+            Тип отмены (при `"status":"cancel"`):
+              - `app` — отказ до получения
+              - `receipt` — отказ при получении
+              - `expire` — истёк срок получения
+              - `other` — техническая отмена
+          enum:
+            - app
+            - receipt
+            - expire
+            - other
+          example: app
+        warehouseName:
+          type: string
+          description: Название склада
+          example: Склад продавца Ростов-на-Дону
+        warehouseRegion:
+          type: string
+          description: Федеральный округ склада. Если склад не в России, возвращается страна
+          example: Южный и Северо-Кавказский
+        isMp:
+          type: boolean
+          description: |
+            Тип склада:
+              - `true` — склад продавца
+              - `false` — склад WB
+          example: true
+        destinationCity:
+          type: string
+          description: Населённый пункт доставки
+          example: Санкт-Петербург
+        destinationDistrict:
+          type: string
+          description: Федеральный округ доставки. Если доставка не по России, возвращается страна
+          example: Северо-Западный
+        sellerPrice:
+          type: number
+          format: float64
+          description: Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж)
+          example: 4328
+        isB2b:
+          type: boolean
+          description: |
+            Тип продажи:
+              - `true` — B2B
+              - `false` — B2C
+          example: false
     Response403General:
       type: object
       properties:

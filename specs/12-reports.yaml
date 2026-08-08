@@ -9,16 +9,16 @@ info:
 
     <div class="api-block">
 
-    С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/Osnovnye-otchyoty) и отчёты о:
-      1. [Остатках на складах](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah)
-      2. [Товарах с обязательной маркировкой](/openapi/reports#tag/Otchyot-o-tovarah-c-obyazatelnoj-markirovkoj)
-      3. [Удержаниях](/openapi/reports#tag/Otchyoty-ob-uderzhaniyah)
-      4. [Операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke)
-      5. [Платном хранении](/openapi/reports#tag/Platnoe-hranenie)
-      6. [Продажах по регионам](/openapi/reports#tag/Prodazhi-po-regionam)
-      7. [Доле бренда в продажах](/openapi/reports#tag/Dolya-brenda-v-prodazhah)
-      8. [Заблокированных карточках](/openapi/reports#tag/Zablokirovannye-kartochki)
-      9. [Возвратах и перемещении товаров](/openapi/reports#tag/Otchyot-o-vozvratah-i-peremeshenii-tovarov)
+    С помощью этих методов вы можете получать [основные отчёты](/openapi/reports#tag/mainReports) и отчёты о:
+      1. [Остатках на складах](/openapi/reports#tag/warehousesInventoryReport)
+      2. [Товарах с обязательной маркировкой](/openapi/reports#tag/reportOnItemsWithMandatoryLabeling)
+      3. [Удержаниях](/openapi/reports#tag/retentionReports)
+      4. [Операциях при приёмке](/openapi/reports#tag/acceptanceExpenses)
+      5. [Платном хранении](/openapi/reports#tag/paidStorage)
+      6. [Продажах по регионам](/openapi/reports#tag/salesByRegions)
+      7. [Доле бренда в продажах](/openapi/reports#tag/shareOfBrandInSales)
+      8. [Заблокированных карточках](/openapi/reports#tag/blockedItems)
+      9. [Возвратах и перемещении товаров](/openapi/reports#tag/returnsAndItemMovementReport)
 
     </div>
   x-file-name: reports
@@ -26,24 +26,34 @@ security:
   - HeaderApiKey: []
 tags:
   - name: Основные отчёты
+    x-displayName: Основные отчёты
     description: ''
   - name: Отчёт об остатках на складах
+    x-displayName: Отчёт об остатках на складах
     description: ''
   - name: Отчёт о товарах c обязательной маркировкой
+    x-displayName: Отчёт о товарах c обязательной маркировкой
     description: ''
   - name: Отчёты об удержаниях
+    x-displayName: Отчёты об удержаниях
     description: ''
   - name: Операции при приёмке
+    x-displayName: Операции при приёмке
     description: ''
   - name: Платное хранение
+    x-displayName: Платное хранение
     description: ''
   - name: Продажи по регионам
+    x-displayName: Продажи по регионам
     description: ''
   - name: Доля бренда в продажах
+    x-displayName: Доля бренда в продажах
     description: ''
   - name: Заблокированные карточки
+    x-displayName: Заблокированные карточки
     description: ''
   - name: Отчёт о возвратах и перемещении товаров
+    x-displayName: Отчёт о возвратах и перемещении товаров
     description: ''
 paths:
   /api/v1/supplier/orders:
@@ -55,6 +65,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1SupplierOrders
       x-readonly-method: true
       x-category: statistics
       security:
@@ -68,7 +79,7 @@ paths:
         Информация о заказе хранится 90 дней с момента оформления.<br><br>
 
         В ответах могут отсутствовать заказы, по которым не подтверждена оплата. Например, заказы с отложенными платежами или оплатой в рассрочку. При этом, если по таким заказам есть продажи, вы можете получить их с помощью [детализаций к отчётам реализации](/openapi/financial-reports-and-accounting#tag/financialReports).<br>
-        Чтобы получить все оформленные заказы, используйте [Ленту заказов](https://seller.wildberries.ru/content-analytics/order-feed) в личном кабинете.
+        Чтобы получить все оформленные заказы, используйте [Ленту заказов](/openapi/analytics#tag/orderFeed).
 
         <div class="description_important">
           Данные этого отчёта являются предварительными и служат для оперативного мониторинга
@@ -173,6 +184,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1SupplierSales
       x-readonly-method: true
       x-category: statistics
       security:
@@ -291,6 +303,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     post:
+      operationId: postV1AnalyticsExciseReport
       x-readonly-method: true
       x-category: contentanalytics
       tags:
@@ -349,6 +362,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1WarehouseRemains
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -357,7 +371,7 @@ paths:
         - Отчёт об остатках на складах
       summary: Создать отчёт
       description: |
-        Метод создаёт [задание на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1status/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+        Метод создаёт [задание на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdStatus) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).<br><br>
 
         Параметры `groupBy` и `filter` (группировки и фильтры) можно задать в любой комбинации — аналогично [версии](https://seller.wildberries.ru/analytics-reports/warehouse-remains) в личном кабинете.
 
@@ -479,6 +493,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1WarehouseRemainsTasksTaskIdStatus
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -487,7 +502,7 @@ paths:
         - Отчёт об остатках на складах
       summary: Проверить статус
       description: |
-        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get) отчёта об [остатках на складах WB](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains~1tasks~1%7Btask_id%7D~1download/get).
+        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains) отчёта об [остатках на складах WB](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemainsTasksTaskIdDownload).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -549,6 +564,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1WarehouseRemainsTasksTaskIdDownload
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -557,7 +573,7 @@ paths:
         - Отчёт об остатках на складах
       summary: Получить отчёт
       description: |
-        Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/Otchyot-ob-ostatkah-na-skladah/paths/~1api~1v1~1warehouse_remains/get).
+        Метод возвращает отчёт об [остатках на складах WB](https://seller.wildberries.ru/analytics-reports/warehouse-remains) по ID [задания на генерацию](/openapi/reports#tag/warehousesInventoryReport/operation/getV1WarehouseRemains).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -961,6 +977,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsAntifraudDetails
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1010,6 +1027,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsGoodsLabeling
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1070,6 +1088,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AcceptanceReport
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1078,7 +1097,7 @@ paths:
         - Операции при приёмке
       summary: Создать отчёт
       description: |
-        Метод создаёт [задание на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1status/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+        Метод создаёт [задание на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).<br><br>
 
         Можно получить отчёт максимум за 31 день.
 
@@ -1135,6 +1154,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AcceptanceReportTasksTaskIdStatus
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1143,7 +1163,7 @@ paths:
         - Операции при приёмке
       summary: Проверить статус
       description: |
-        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get) отчёта об [операциях при приёмке](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report~1tasks~1%7Btask_id%7D~1download/get).
+        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport) отчёта об [операциях при приёмке](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1205,6 +1225,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AcceptanceReportTasksTaskIdDownload
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1213,7 +1234,7 @@ paths:
         - Операции при приёмке
       summary: Получить отчёт
       description: |
-        Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/Operacii-pri-priyomke/paths/~1api~1v1~1acceptance_report/get).
+        Метод возвращает отчёт об [операциях при приёмке](https://seller.wildberries.ru/analytics-reports/acceptance-report) по ID [задания на генерацию](/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReport).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1309,6 +1330,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1PaidStorage
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1317,7 +1339,7 @@ paths:
         - Платное хранение
       summary: Создать отчёт
       description: |
-        Метод создаёт [задание на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1status/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).<br><br>
+        Метод создаёт [задание на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).<br><br>
 
         Можно получить отчёт максимум за 8 дней.
 
@@ -1398,6 +1420,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1PaidStorageTasksTaskIdStatus
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1406,7 +1429,7 @@ paths:
         - Платное хранение
       summary: Проверить статус
       description: |
-        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get) отчёта о [платном хранении](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage~1tasks~1%7Btask_id%7D~1download/get).
+        Метод возвращает статус [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage) отчёта о [платном хранении](/openapi/reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1468,6 +1491,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1PaidStorageTasksTaskIdDownload
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1476,7 +1500,7 @@ paths:
         - Платное хранение
       summary: Получить отчёт
       description: |
-        Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/Platnoe-hranenie/paths/~1api~1v1~1paid_storage/get).
+        Метод возвращает отчёт о [платном хранении](https://seller.wildberries.ru/analytics-reports/paid-storage/storage) по ID [задания на генерацию](/openapi/reports#tag/paidStorage/operation/getV1PaidStorage).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1563,6 +1587,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsRegionSale
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1621,6 +1646,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsBrandShareBrands
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1659,6 +1685,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsBrandShareParentSubjects
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1741,6 +1768,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsBrandShare
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1819,6 +1847,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsBannedProducsBlocked
       x-readonly-method: true
       x-category: contentanalytics
       security:
@@ -1945,6 +1974,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsBannedProductsShadowed
       deprecated: true
       x-readonly-method: true
       x-category: contentanalytics
@@ -1962,9 +1992,9 @@ paths:
 
         | Тип | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- | --- |
-        | Персональный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-        | Сервисный | 10 сек | 1 запрос | 10 сек | 6 запросов |
-        | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 6 запросов |
+        | Персональный | 24 ч | 1 запрос | 24 ч | 1 запрос |
+        | Сервисный | 24 ч | 1 запрос | 24 ч | 1 запрос |
+        | Базовый с секретом | 24 ч | 1 запрос | 24 ч | 1 запрос |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
       parameters:
@@ -2072,6 +2102,7 @@ paths:
     servers:
       - url: https://seller-analytics-api.wildberries.ru
     get:
+      operationId: getV1AnalyticsGoodsReturn
       x-readonly-method: true
       x-category: contentanalytics
       security:
