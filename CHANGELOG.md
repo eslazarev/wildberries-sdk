@@ -1,6 +1,17 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.08.08)
+- Orders FBS/DBW/DBS/Самовывоз: в описаниях поля `rid` обновлены ссылки на методы-источники `srid` и добавлена ссылка на новый отчёт «Лента заказов» (analytics `postV1OrderFeed`)
+- Коммуникации: переименованы/нормализованы теги в ссылках документации (questions/feedbacks/pinnedFeedbacks/buyersChat/buyersReturns), добавлены `x-displayName` для тегов
+- Коммуникации: для существующих методов добавлены `operationId` (в т.ч. `getV1NewFeedbacksQuestions`, `getV1Questions*`, `patchV1Questions`, `getV1Feedbacks*`, `postV1FeedbacksAnswer`, `patchV1FeedbacksAnswer`, `postV1FeedbacksOrderReturn`, `getFeedbacksV1Pins*`, `getV1SellerChats`, `getV1SellerEvents`, `postV1SellerMessage`, `getV1SellerDownloadId`, `getV1Claims`, `patchV1Claim`); функционально эндпоинты не изменены
+- Analytics: добавлен новый эндпоинт «Лента заказов» `POST /api/analytics/v1/order-feed` (`postV1OrderFeed`) с фильтрами `nmIds/subjectIds/brandNames/tagIds`, периодом до 31 дня, пагинацией через `snapshotTime/offset/limit` и статусами заказов (`created/buyout/cancel/return/returnDefective`) + `cancelType`
+- Analytics: для «Ленты заказов» введены новые схемы `OrderFeedRequest`, `OrderFeedResponse`, `Order`
+- Analytics: обновлено описание поля `timezone` — теперь явно формат IANA, задан `default: Europe/Moscow` и пример
+- Analytics/Reports/Коммуникации: массово добавлены `operationId` к существующим операциям и обновлены внутренние ссылки на новые идентификаторы тегов/операций
+- Reports: в описании отчёта заказов добавлена ссылка на API-версию «Ленты заказов» (/openapi/analytics#tag/orderFeed) вместо ссылки на ЛК
+- Reports: метод `GET /api/v1/analytics/banned-products/shadowed` (`getV1AnalyticsBannedProductsShadowed`) помечен как `deprecated: true` и изменены лимиты: персональный/сервисный/базовый с секретом с 1 запроса/10 сек (burst 6) на 1 запрос/24 ч (burst 1); базовый без изменений (1 запрос/1 ч)
+
 ### Changed (2026.08.05)
 - Самовывоз (Click&Collect) / Идентификаторы маркировки: удалён endpoint `POST /api/marketplace/v3/click-collect/orders/meta/info` (ранее помечен `deprecated`, `x-readonly-method: true`) для получения идентификаторов маркировки сборочных заданий
 - Самовывоз (Click&Collect) / Идентификаторы маркировки: удалены схемы ответов `api.OrdersMetaResponse` и `api.OrderMetaV2` (поля: `error`, `orderId`, `gtin`, `imei`, `sgtin[]`, `uin`, `customsDeclaration`) как связанные с удалённым методом
