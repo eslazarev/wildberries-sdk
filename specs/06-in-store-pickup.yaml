@@ -1,13 +1,13 @@
 openapi: 3.0.1
 info:
-  title: Заказы Самовывоз
+  title: Самовывоз
   x-file-name: in-store-pickup
   description: |
     <div class="api-block">
 
-    Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>
+    Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>
 
-    Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя
+    Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя
 
     </div>
   version: instorepickup
@@ -66,6 +66,135 @@ paths:
           $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/AccessDenied'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/v3/click-collect/orders:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+        description: |
+          **Prod**
+      - url: https://marketplace-api-sandbox.wildberries.ru
+        description: |
+          **Sandbox**
+    get:
+      operationId: getV3ClickCollectOrders
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Получить информацию о завершённых сборочных заданиях
+      description: |
+        Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
+        <br><br>
+        Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      parameters:
+        - name: limit
+          in: query
+          description: |
+            Количество элементов в ответе
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+        - name: next
+          in: query
+          description: |
+            Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа
+          required: true
+          schema:
+            type: integer
+        - name: dateFrom
+          in: query
+          description: Дата начала периода в формате Unix timestamp
+          required: true
+          schema:
+            type: integer
+        - name: dateTo
+          in: query
+          description: Дата конца периода в формате Unix timestamp
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.Orders'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                IncorrectParameter:
+                  $ref: '#/components/examples/IncorrectParameter'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/AccessDenied'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/marketplace/v3/click-collect/orders/final-price:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+    post:
+      operationId: postV3ClickCollectOrdersFinalPrice
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Сборочные задания Самовывоз
+      summary: Получить цены продавца и суммы к оплате
+      description: |
+        Метод возвращает:
+          - цены продавца без учёта скидок
+          - суммы к оплате покупателем с учетом всех скидок и кэшбека
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 150 запросов | 400 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+        </div>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.OrdersRequest'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.OrdersFinalPriceResponse'
+              examples:
+                GetFinalPriceSuccess:
+                  $ref: '#/components/examples/GetFinalPriceSuccess'
+        '400':
+          $ref: '#/components/responses/IncorrectRequest'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/AccessDeniedBatch'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/click-collect/orders/status/confirm:
@@ -441,92 +570,6 @@ paths:
           $ref: '#/components/responses/AccessDeniedBatch'
         '429':
           $ref: '#/components/responses/429'
-  /api/v3/click-collect/orders:
-    servers:
-      - url: https://marketplace-api.wildberries.ru
-        description: |
-          **Prod**
-      - url: https://marketplace-api-sandbox.wildberries.ru
-        description: |
-          **Sandbox**
-    get:
-      operationId: getV3ClickCollectOrders
-      x-readonly-method: true
-      x-category: marketplace
-      tags:
-        - Сборочные задания Самовывоз
-      summary: Получить информацию о завершённых сборочных заданиях
-      description: |
-        Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
-
-        Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
-
-        <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:
-
-        | Период | Лимит | Интервал | Всплеск |
-        | --- | --- | --- | --- |
-        | 1 мин | 300 запросов | 200 мс | 20 запросов |
-
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
-        </div>
-      parameters:
-        - name: limit
-          in: query
-          description: |
-            Параметр пагинации. Устанавливает предельное количество возвращаемых
-            данных.
-          required: true
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 1000
-        - name: next
-          in: query
-          description: |
-            Параметр пагинации. Устанавливает значение, с которого необходимо получить
-            следующий пакет данных. Для получения полного списка данных должен
-            быть равен `0` в первом запросе. Для следующих запросов необходимо
-            брать значения из одноимённого поля в ответе
-          required: true
-          schema:
-            type: integer
-        - name: dateFrom
-          in: query
-          description: Дата начала периода в формате Unix timestamp
-          required: true
-          schema:
-            type: integer
-        - name: dateTo
-          in: query
-          description: Дата конца периода в формате Unix timestamp
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: Успешно
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/api.Orders'
-        '400':
-          description: Неправильный запрос
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              examples:
-                IncorrectParameter:
-                  $ref: '#/components/examples/IncorrectParameter'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/AccessDenied'
-        '429':
-          $ref: '#/components/responses/429'
   /api/marketplace/v3/click-collect/orders/status/cancel:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -620,9 +663,6 @@ paths:
                 $ref: '#/components/schemas/api.OrdersMetaDetailsResponse'
         '400':
           $ref: '#/components/responses/IncorrectRequest'
-          examples:
-            IncorrectRequest:
-              $ref: '#/components/examples/IncorrectRequest'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -980,6 +1020,19 @@ components:
       name: Authorization
       in: header
   examples:
+    GetFinalPriceSuccess:
+      value:
+        requestId: f1787bd2d1fdc35d6f537316514y4a05
+        results:
+          - orderId: 1234567890
+            data:
+              originalPrice: 29000
+              convertedOriginalPrice: 29000
+              originalFinalPrice: 27000
+              convertedOriginalFinalPrice: 27000
+              currencyCode: 643
+              convertedCurrencyCode: 643
+            isError: false
     NewOrderClick:
       value:
         orders:
@@ -1047,6 +1100,77 @@ components:
         code: IncorrectParameter
         message: Передан некорректный параметр
   schemas:
+    api.OrdersFinalPriceResponse:
+      type: object
+      required:
+        - requestId
+        - results
+      properties:
+        requestId:
+          type: string
+          description: Уникальный ID запроса
+        results:
+          type: array
+          description: Данные ответа
+          items:
+            $ref: '#/components/schemas/api.OrderFinalPriceResult'
+    api.OrderFinalPriceResult:
+      type: object
+      required:
+        - orderId
+      properties:
+        orderId:
+          description: ID сборочного задания
+          type: integer
+          nullable: false
+        data:
+          description: |
+            Данные сборочного задания.
+            <br><br>
+            Если `"data":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 3 минут.
+            <br><br>
+            Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:
+              - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
+              - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
+          type: object
+          nullable: false
+          properties:
+            originalPrice:
+              description: Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях
+              type: integer
+              nullable: false
+            convertedOriginalPrice:
+              description: Цена продавца в валюте страны продавца без учёта скидок, умноженная на 100. Предоставляется в информационных целях
+              type: integer
+              nullable: false
+            originalFinalPrice:
+              description: Сумма к оплате покупателем в валюте продажи с учетом всех скидок и кэшбека, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+              type: integer
+              nullable: false
+            convertedOriginalFinalPrice:
+              description: Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях
+              type: integer
+              nullable: false
+            currencyCode:
+              type: integer
+              nullable: false
+              format: ISO 4217
+              description: Код валюты продажи
+            convertedCurrencyCode:
+              type: integer
+              nullable: false
+              format: ISO 4217
+              description: Код валюты страны продавца
+        errors:
+          description: Детали ошибки
+          nullable: false
+          type: array
+          items:
+            $ref: '#/components/schemas/api.BatchErrorFinalPriceResponse'
+        isError:
+          type: boolean
+          description: Есть ли ошибки
+          nullable: false
     api.CheckedIdentity:
       type: object
       properties:
@@ -1175,7 +1299,14 @@ components:
             Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100.
             Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
         finalPrice:
-          description: Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          description: |
+            Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.
+            <br>
+            Код валюты продажи указан в поле `currencyCode`.
+            <br>
+            Предоставляется в информационных целях.
+            <br><br>
+            Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
           type: integer
           example: 5000
         convertedPrice:
@@ -1183,7 +1314,12 @@ components:
           type: integer
           example: 5000
         convertedFinalPrice:
-          description: Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
+          description: |
+            Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.
+            <br>
+            Предоставляется в информационных целях.
+            <br><br>
+             Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
           type: integer
           example: 5000
         currencyCode:
@@ -1268,7 +1404,14 @@ components:
             Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
           example: 5000
         finalPrice:
-          description: Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+          description: |
+            Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.
+            <br>
+            Код валюты продажи указан в поле `currencyCode`.
+            <br>
+            Предоставляется в информационных целях.
+            <br><br>
+            Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
           type: integer
           example: 5000
         convertedPrice:
@@ -1276,7 +1419,12 @@ components:
           type: integer
           example: 5000
         convertedFinalPrice:
-          description: Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
+          description: |
+            Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.
+            <br>
+            Предоставляется в информационных целях.
+            <br><br>
+             Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
           type: integer
           example: 5000
         currencyCode:
@@ -1545,9 +1693,6 @@ components:
           description: Заголовок ошибки
           example: IncorrectRequest
     api.BatchErrorResponse:
-      required:
-        - code
-        - detail
       properties:
         code:
           type: integer
@@ -1562,6 +1707,30 @@ components:
           description: |
             - `NotFound` — сборочное задание не найдено
             - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
+            - `ImeiIsNotFilled` — не заполнен IMEI
+            - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `"isB2b":true`
+            - `InvalidOriginCountryCode` — некорректный код страны происхождения товара
+          example: NotFound
+      type: object
+    api.BatchErrorFinalPriceResponse:
+      required:
+        - code
+        - detail
+      properties:
+        code:
+          type: integer
+          description: |
+            Код ошибки:
+              - `404` — `NotFound`
+              - `400` — `StatusMismatch`
+              - `422` — `PriceNotCalculated`
+          example: 404
+        detail:
+          type: string
+          description: |
+            - `NotFound` — сборочное задание не найдено (`404`)
+            - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`)
+            - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`)
           example: NotFound
       type: object
     api.BatchCustomsDeclarationErrorResponse:
@@ -1770,9 +1939,10 @@ components:
                         - `StatusMismatch` — операция невозможна для этого статуса сборочного задания
                         - `MetaValidationFail` — идентификаторы маркировки не прошли проверку
                     metaDetails:
-                      description: Ошибки проверки идентификаторов маркировки
-                      $ref: '#/components/schemas/MetaDetailsErrors'
-                      type: array
+                      allOf:
+                        - $ref: '#/components/schemas/MetaDetailsErrors'
+                        - description: Ошибки проверки идентификаторов маркировки
+                        - {}
                   type: object
                 type: array
                 description: Детали ошибки

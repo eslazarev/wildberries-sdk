@@ -742,7 +742,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseAdvError1'
+                $ref: '#/components/schemas/ResponseAdvError1'
               examples:
                 ResponseInvalidCampaignID:
                   $ref: '#/components/examples/ResponseInvalidCampaignID'
@@ -1797,7 +1797,7 @@ paths:
                       type: integer
                     cardStatus:
                       description: |
-                        Статус операции(при оплате картой):
+                        Статус операции при оплате картой:
                         - `success` — успех
                         - `fail` — неуспех
                         - `pending` — в ожидании ответа
@@ -3788,10 +3788,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseAdvError1'
+                $ref: '#/components/schemas/ResponseAdvError1'
               examples:
                 invalidAdvert:
-                  $ref: '#/components/examples/incorrectRequestBody'
+                  $ref: '#/components/examples/IncorrectRequestBody'
         '401':
           $ref: '#/components/responses/401'
         '429':
@@ -4905,7 +4905,7 @@ components:
           type: string
           description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
-    responseAdvError1:
+    ResponseAdvError1:
       type: object
       properties:
         error:
@@ -5523,9 +5523,10 @@ components:
           type: integer
           description: Количество добавлений товаров в корзину
         boosterStats:
-          type: array
-          description: Статистика по бустеру
-          $ref: '#/components/schemas/BoosterStatsV3'
+          allOf:
+            - $ref: '#/components/schemas/BoosterStatsV3'
+            - description: Статистика по бустеру
+            - {}
         canceled:
           type: integer
           description: Отмены, шт.
@@ -5545,9 +5546,10 @@ components:
           format: double
           description: CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
         days:
-          type: array
-          description: Статистика с разбивкой по дням
-          $ref: '#/components/schemas/DaysV3'
+          allOf:
+            - $ref: '#/components/schemas/DaysV3'
+            - description: Статистика с разбивкой по дням
+            - {}
         orders:
           type: integer
           description: Количество заказов
@@ -5570,6 +5572,7 @@ components:
           description: Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     DaysV3:
+      type: array
       description: Статистка по дням
       items:
         type: object
@@ -5749,6 +5752,7 @@ components:
             type: integer
             description: Количество просмотров
     BoosterStatsV3:
+      type: array
       description: Статистика по средней позиции товара (для кампаний с единой ставкой)
       items:
         type: object
@@ -6333,7 +6337,7 @@ components:
       value: Ошибка обработки тела запроса
     CampaignNotBelongSeller:
       value: кампания не принадлежит продавцу
-    incorrectRequestBody:
+    IncorrectRequestBody:
       value:
         error: Некорректное тело запроса
     RequestWithoutParam:

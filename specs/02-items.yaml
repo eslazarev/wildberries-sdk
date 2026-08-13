@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Работа с товарами
   version: items
-  description: |
+  description: |+
     <div class="api-block">
 
     С помощью методов этого раздела вы можете:
@@ -18,9 +18,11 @@ info:
 
     </div>
 
+
     <div class="description_ref">
       Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami">инструкции</a> по <strong>работе с товарами</strong>
     </div>
+
   x-file-name: items
 security:
   - HeaderApiKey: []
@@ -7608,7 +7610,7 @@ components:
         - code: StoreIsProcessing
           message: The store is processing
     ItemPropertyConflict:
-      description: Продажа оптового товара возможна только по схеме DBS
+      description: Продажа оптового товара невозможна по этой схеме
       value:
         - code: ProductPropertyConflict
           message: Products are not allowed for sale under the selected supply scheme.

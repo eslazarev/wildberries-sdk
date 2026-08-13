@@ -4566,8 +4566,10 @@ components:
         - items
         - currency
     TableSizeRequest:
-      description: Параметры запроса об остатках по размерам товара
-      $ref: '#/components/schemas/CommonSizeFilters'
+      allOf:
+        - $ref: '#/components/schemas/CommonSizeFilters'
+        - description: Параметры запроса об остатках по размерам товара
+        - {}
     CommonSizeFilters:
       type: object
       description: Общие фильтры по размеру
@@ -4681,8 +4683,10 @@ components:
         - officeName
         - metrics
     TableShippingOfficeRequest:
-      description: Параметры запроса об остатках по складам
-      $ref: '#/components/schemas/CommonShippingOfficeFilters'
+      allOf:
+        - $ref: '#/components/schemas/CommonShippingOfficeFilters'
+        - description: Параметры запроса об остатках по складам
+        - {}
     CommonShippingOfficeFilters:
       type: object
       description: Общие фильтры по регионам отгрузки

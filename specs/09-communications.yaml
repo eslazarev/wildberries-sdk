@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Общение с покупателями
   version: communication
-  description: |
+  description: |+
     <div class="description_important">
       Узнать больше об общении с покупателями можно в <a href="https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b">справочном центре</a>
     </div>
@@ -19,9 +19,11 @@ info:
 
     </div>
 
+
     <div class="description_ref">
       Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami">инструкции</a> по работе с разделом <strong>Общение с покупателями</strong>
     </div>
+
   x-file-name: communications
 security:
   - HeaderApiKey: []

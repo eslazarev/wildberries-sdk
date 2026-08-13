@@ -15,9 +15,11 @@ info:
 
     </div>
 
+
     <div class="description_ref">
       Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs">инструкции</a> по работе с <strong>заказами FBS</strong>
     </div>
+
 
     <div class="description_important">
       Узнать больше о заказах FBS можно в <a href="https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d">справочном центре</a>
@@ -810,17 +812,14 @@ paths:
         - Сборочные задания FBS
       summary: Получить стикеры сборочных заданий
       description: |
-        Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS).
-
+        Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке. <br><br>
+        Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put), получить стикеры для этого сборочного задания невозможно.<br><br>
+        За один запрос можно получить максимум 100 стикеров. <br>
         Можно получить стикер в форматах:
           - SVG
           - ZPLV (вертикальный)
           - ZPLH (горизонтальный)
           - PNG
-
-        Ограничения:
-          - За один запрос можно получить максимум 100 стикеров.
-          - Стикеры можно получить только для сборочных заданий в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке.
 
         Доступны размеры:
           - 580x400 px при `width=58&height=40` в запросе
@@ -940,6 +939,15 @@ paths:
           $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/AccessDenied'
+        '409':
+          description: Конфликт
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                CustomsDeclarationIsRequired:
+                  $ref: '#/components/examples/CustomsDeclarationIsRequired'
         '429':
           $ref: '#/components/responses/429'
   /api/marketplace/v3/orders/meta:
@@ -1557,8 +1565,11 @@ paths:
       summary: Закрепить номер ДТ за сборочным заданием
       description: |
         Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br>
-        Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.<br>
-        Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.
+        Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.
+
+        <div class="description_important">
+        Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.
+        </div>
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -2395,7 +2406,7 @@ paths:
         Передать поставку в доставку можно, только если в ней:
           - есть хотя бы одно сборочное задание
           - для всех сборочных заданий указана обязательная маркировка
-          - маркировка всех сборочных заданий прошла валидацию
+          - маркировка всех сборочных заданий прошла проверку
 
         Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.
 
@@ -3436,6 +3447,10 @@ components:
       value:
         code: MetaKeyNotRequired
         message: Order doesn't require ID
+    CustomsDeclarationIsRequired:
+      value:
+        code: CustomsDeclarationIsRequired
+        message: Customs declaration is required
     FailedToUpdateMeta:
       value:
         code: FailedToUpdateMeta
@@ -3797,9 +3812,10 @@ components:
           type: boolean
           example: false
         metaDetails:
-          description: Идентификаторы маркировки сборочного задания
-          $ref: '#/components/schemas/MetaDetails'
-          type: array
+          allOf:
+            - $ref: '#/components/schemas/MetaDetails'
+            - description: Идентификаторы маркировки сборочного задания
+            - {}
         options:
           description: Опции заказа
           type: object
@@ -4746,9 +4762,13 @@ components:
                 - `required` — Маркировка обязательна и не закреплена за сборочным заданием. Проверка не пройдена
 
               <br><br>
+              Статусы проверки `customsDeclaration`, с которыми поставку нельзя перевести в доставку:
+                - `required` — Маркировка обязательна и не закреплена за сборочным заданием. Проверка не пройдена
+
+              <br><br>
               Статусы проверки `customsDeclaration`, с которыми поставку можно перевести в доставку:
                 - `filled` — Маркировка закреплена за сборочным заданием, проверка не требуется
-                - `required` — Маркировка обязательна и не закреплена за сборочным заданием. Проверка не пройдена
+                - `optional` — Маркировка не закреплена за сборочным заданием и не обязательна
     v3.GetMetaMultiRequest:
       type: object
       description: ID сборочных заданий
@@ -4772,15 +4792,16 @@ components:
           type: array
       type: object
     v3.OrderMetaAPI:
+      type: object
       properties:
         id:
           type: integer
           description: ID сборочного задания
         metaDetails:
-          description: Идентификаторы маркировки сборочного задания
-          $ref: '#/components/schemas/MetaDetails'
-          type: array
-      type: object
+          allOf:
+            - $ref: '#/components/schemas/MetaDetails'
+            - description: Идентификаторы маркировки сборочного задания
+            - {}
     Pass:
       type: object
       description: Данные о пропуске продавца
