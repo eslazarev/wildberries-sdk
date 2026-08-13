@@ -1,6 +1,22 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.08.13)
+- General: поле `promotion` в схеме опций планов переведено на `allOf` (сохранён `$ref` на `PlanBuilderPromotion`, уточнено описание; поведение «не возвращается без акции/после истечения» без изменений).
+- Товары (Items): обновлено описание ошибки `ItemPropertyConflict` — теперь «Продажа оптового товара невозможна по этой схеме» (вместо привязки к DBS).
+- Заказы FBS: в методе получения стикеров сборочных заданий уточнены ограничения — доступны только статусы `confirm`/`complete`, максимум 100 стикеров за запрос; добавлено требование обязательного номера ДТ (customs declaration), иначе стикеры не выдаются.
+- Заказы FBS: для метода получения стикеров добавлен ответ `409 Conflict` с примером ошибки `CustomsDeclarationIsRequired`.
+- Заказы FBS: в методе закрепления номера ДТ изменено ограничение по статусу — теперь только `confirm` (статус `complete` больше не допускается); добавлено важное примечание для продавцов из Армении (обязательность ДТ при доставке в РФ для товаров вне ЕАЭС).
+- Заказы FBS: в требованиях к передаче поставки в доставку термин «валидация» заменён на «проверка»; обновлена логика по статусам проверки `customsDeclaration`: запрещён `required`, разрешён `optional` (вместо разрешения `required`).
+- Заказы FBS: поля `metaDetails` в схемах (`v3.Order`, `v3.OrderMetaAPI`) переведены на `allOf` (сохранён `$ref` на `MetaDetails`, уточнено описание).
+- Заказы DBW: схема ответа удаления метаданных (`api.MetaDeleteResponses`) обёрнута в `allOf` для корректного примера (структура ответа без изменений).
+- Самовывоз (In-store pickup): добавлен новый метод `POST /api/marketplace/v3/click-collect/orders/final-price` для получения «цены продавца» и «суммы к оплате» с учётом скидок/кэшбека; добавлены схемы `api.OrdersFinalPriceResponse`, `api.OrderFinalPriceResult` и ошибки `api.BatchErrorFinalPriceResponse` (в т.ч. `422 PriceNotCalculated` для заказов, созданных ранее 23.07.2026).
+- Самовывоз (In-store pickup): обновлены описания полей `finalPrice`/`convertedFinalPrice` в ответах — теперь указано, что их следует использовать только если `POST .../final-price` вернул `"data": null`, иначе брать `originalFinalPrice`/`convertedOriginalFinalPrice`.
+- Самовывоз (In-store pickup): расширен список `detail` в `api.BatchErrorResponse` (добавлены `ImeiIsNotFilled`, `OrderNotB2B`, `InvalidOriginCountryCode`); у `api.BatchErrorResponse` снята обязательность `code`/`detail`.
+- Самовывоз (In-store pickup): в ответе `400` для метода получения metaDetails убраны inline-examples (используется общий response `IncorrectRequest`); добавлен пример `GetFinalPriceSuccess`.
+- Продвижение (Promotion/Ads): переименованы схемы/примеры для ошибок (`responseAdvError1` → `ResponseAdvError1`, `incorrectRequestBody` → `IncorrectRequestBody`), обновлены ссылки в ответах; `DaysV3` и `BoosterStatsV3` явно объявлены как `type: array`, а поля `days`/`boosterStats` переведены на `allOf` с сохранением `$ref`.
+- Аналитика (Analytics): `TableSizeRequest` и `TableShippingOfficeRequest` переведены на `allOf` (сохранены `$ref` на общие фильтры, уточнены описания).
+
 ### Changed (2026.08.08)
 - Orders FBS/DBW/DBS/Самовывоз: в описаниях поля `rid` обновлены ссылки на методы-источники `srid` и добавлена ссылка на новый отчёт «Лента заказов» (analytics `postV1OrderFeed`)
 - Коммуникации: переименованы/нормализованы теги в ссылках документации (questions/feedbacks/pinnedFeedbacks/buyersChat/buyersReturns), добавлены `x-displayName` для тегов

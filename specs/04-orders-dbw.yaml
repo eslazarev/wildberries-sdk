@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Заказы DBW
   version: ordersdbw
-  description: |
+  description: |+
     <div class="api-block">
 
     С помощью методов Заказы DBW (Доставка курьером WB) вы можете:
@@ -11,9 +11,11 @@ info:
 
     </div>
 
+
     <div class="description_ref">
       Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw">инструкции</a> по работе с <strong>заказами DBW</strong>
     </div>
+
   x-file-name: orders-dbw
 security:
   - HeaderApiKey: []
@@ -950,17 +952,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/api.MetaDeleteResponses'
-                example:
-                  requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
-                  results:
-                    - orderId: 42131238
-                      isError: true
-                      errors:
-                        - code: 409
-                          detail: FailedToUpdateMeta
-                    - orderId: 4279781545
-                      isError: false
+                allOf:
+                  - $ref: '#/components/schemas/api.MetaDeleteResponses'
+                  - example:
+                      requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
+                      results:
+                        - orderId: 42131238
+                          isError: true
+                          errors:
+                            - code: 409
+                              detail: FailedToUpdateMeta
+                        - orderId: 4279781545
+                          isError: false
         '400':
           description: Неправильный запрос
           content:
