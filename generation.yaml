@@ -5,7 +5,7 @@ specs:
   - https://dev.wildberries.ru/api/swagger/yaml/ru/02-items.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/03-orders-fbs.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/04-orders-dbw.yaml?region=ru
-  - https://dev.wildberries.ru/api/swagger/yaml/ru/05-orders-dbs.yaml?region=ru
+  - https://dev.wildberries.ru/api/swagger/yaml/ru/05-dbs.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/06-in-store-pickup.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/07-orders-fbw.yaml?region=ru
   - https://dev.wildberries.ru/api/swagger/yaml/ru/08-promotion.yaml?region=ru

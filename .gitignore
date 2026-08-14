@@ -15,9 +15,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Playwright (used by scripts/download-specs.mjs)
-.playwright-browsers/
-
 # Python
 .venv/
 __pycache__/
