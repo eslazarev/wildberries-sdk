@@ -204,8 +204,9 @@ SDK выпускается с security-first процессом:
 - `PUT /api/v3/dbw/orders/{orderId}/meta/imei` — Закрепить IMEI за сборочным заданием (putV3DbwOrdersOrderIdMetaImei)
 - `PUT /api/v3/dbw/orders/{orderId}/meta/uin` — Закрепить УИН за сборочным заданием (putV3DbwOrdersOrderIdMetaUin)
 
-### Заказы DBS (`05-orders-dbs.yaml`)
+### DBS (`05-dbs.yaml`)
 - `POST /api/marketplace/v3/dbs/orders/b2b/info` — Информация о покупателе B2B (postV3DbsOrdersB2bInfo)
+- `POST /api/marketplace/v3/dbs/orders/final-price` — Получить цены продавца и суммы к оплате (postV3DbsOrdersFinalPrice)
 - `POST /api/marketplace/v3/dbs/orders/meta/customs-declaration` — Закрепить номера ДТ за сборочными заданиями (postV3DbsOrdersMetaCustomsDeclaration)
 - `POST /api/marketplace/v3/dbs/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaDelete)
 - `POST /api/marketplace/v3/dbs/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3DbsOrdersMetaDetails)
@@ -226,7 +227,8 @@ SDK выпускается с security-first процессом:
 - `POST /api/v3/dbs/orders/delivery-date` — Получить дату и время доставки (postV3DbsOrdersDeliveryDate)
 - `GET /api/v3/dbs/orders/new` — Получить список новых сборочных заданий (getV3DbsOrdersNew)
 
-### Заказы Самовывоз (`06-in-store-pickup.yaml`)
+### Самовывоз (`06-in-store-pickup.yaml`)
+- `POST /api/marketplace/v3/click-collect/orders/final-price` — Получить цены продавца и суммы к оплате (postV3ClickCollectOrdersFinalPrice)
 - `POST /api/marketplace/v3/click-collect/orders/meta/customs-declaration` — Закрепить номера ДТ за сборочными заданиями (postV3ClickCollectOrdersMetaCustomsDeclaration)
 - `POST /api/marketplace/v3/click-collect/orders/meta/delete` — Удалить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaDelete)
 - `POST /api/marketplace/v3/click-collect/orders/meta/details` — Получить идентификаторы маркировки сборочных заданий (postV3ClickCollectOrdersMetaDetails)

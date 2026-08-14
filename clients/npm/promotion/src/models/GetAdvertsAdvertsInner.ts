@@ -102,7 +102,7 @@ export const GetAdvertsAdvertsInnerStatusEnum = {
     NUMBER_7: 7,
     NUMBER_8: 8,
     NUMBER_9: 9,
-    NUMBER_11: 11
+    NUMBER_11: 11,
 } as const;
 export type GetAdvertsAdvertsInnerStatusEnum = typeof GetAdvertsAdvertsInnerStatusEnum[keyof typeof GetAdvertsAdvertsInnerStatusEnum];
 

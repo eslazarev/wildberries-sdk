@@ -37,6 +37,7 @@ pub struct PlanBuilderOption {
     /// Минимальный срок действия опции в днях
     #[serde(rename = "periodDuration", skip_serializing_if = "Option::is_none")]
     pub period_duration: Option<f64>,
+    /// Акция, по которой подключена опция. Не возвращается, если опция подключена без акции или срок действия акции истёк
     #[serde(rename = "promotion", skip_serializing_if = "Option::is_none")]
     pub promotion: Option<Box<models::PlanBuilderPromotion>>,
 }

@@ -46,7 +46,7 @@ export const ModelsDateFilterRequestTypeEnum = {
     FactDate: 'factDate',
     CreateDate: 'createDate',
     SupplyDate: 'supplyDate',
-    UpdatedDate: 'updatedDate'
+    UpdatedDate: 'updatedDate',
 } as const;
 export type ModelsDateFilterRequestTypeEnum = typeof ModelsDateFilterRequestTypeEnum[keyof typeof ModelsDateFilterRequestTypeEnum];
 

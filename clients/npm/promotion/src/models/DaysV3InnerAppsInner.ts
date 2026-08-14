@@ -92,7 +92,7 @@ export interface DaysV3InnerAppsInner {
 export const DaysV3InnerAppsInnerAppTypeEnum = {
     NUMBER_1: 1,
     NUMBER_32: 32,
-    NUMBER_64: 64
+    NUMBER_64: 64,
 } as const;
 export type DaysV3InnerAppsInnerAppTypeEnum = typeof DaysV3InnerAppsInnerAppTypeEnum[keyof typeof DaysV3InnerAppsInnerAppTypeEnum];
 

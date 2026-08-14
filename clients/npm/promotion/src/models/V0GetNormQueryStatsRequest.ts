@@ -61,8 +61,8 @@ export function V0GetNormQueryStatsRequestFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'from': (new Date(json['from'])),
-        'to': (new Date(json['to'])),
+        'from': (json['from'] == null ? json['from'] : new Date(json['from'])),
+        'to': (json['to'] == null ? json['to'] : new Date(json['to'])),
         'items': ((json['items'] as Array<any>).map(V0GetNormQueryStatsRequestItemsInnerFromJSON)),
     };
 }
@@ -78,8 +78,8 @@ export function V0GetNormQueryStatsRequestToJSONTyped(value?: V0GetNormQueryStat
 
     return {
         
-        'from': value['from'].toISOString().substring(0,10),
-        'to': value['to'].toISOString().substring(0,10),
+        'from': value['from'] == null ? value['from'] : value['from'].toISOString().substring(0,10),
+        'to': value['to'] == null ? value['to'] : value['to'].toISOString().substring(0,10),
         'items': ((value['items'] as Array<any>).map(V0GetNormQueryStatsRequestItemsInnerToJSON)),
     };
 }

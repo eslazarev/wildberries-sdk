@@ -1,7 +1,7 @@
 /*
-Заказы Самовывоз
+Самовывоз
 
-<div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+<div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
 
 API version: instorepickup
 */
@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.140/go",
+		UserAgent:        "OpenAPI-Generator/0.1.141/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -136,6 +136,12 @@ func NewConfiguration() *Configuration {
 				{
 					URL: "https://marketplace-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV3ClickCollectOrdersFinalPrice": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV3ClickCollectOrdersMetaCustomsDeclaration": {

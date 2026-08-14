@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Заказы Самовывоз
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * Самовывоз
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -68,6 +68,11 @@ import {
     ApiOrdersFromJSON,
     ApiOrdersToJSON,
 } from '../models/ApiOrders';
+import {
+    type ApiOrdersFinalPriceResponse,
+    ApiOrdersFinalPriceResponseFromJSON,
+    ApiOrdersFinalPriceResponseToJSON,
+} from '../models/ApiOrdersFinalPriceResponse';
 import {
     type ApiOrdersGTINSetRequest,
     ApiOrdersGTINSetRequestFromJSON,
@@ -136,16 +141,12 @@ import {
 
 export interface GetV3ClickCollectOrdersRequest {
     /**
-     * Параметр пагинации. Устанавливает предельное количество возвращаемых
-     * данных.
+     * Количество элементов в ответе
      * 
      */
     limit: number;
     /**
-     * Параметр пагинации. Устанавливает значение, с которого необходимо получить
-     * следующий пакет данных. Для получения полного списка данных должен
-     * быть равен `0` в первом запросе. Для следующих запросов необходимо
-     * брать значения из одноимённого поля в ответе
+     * Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа
      * 
      */
     next: number;
@@ -171,6 +172,13 @@ export interface PostV3ClickCollectOrdersClientIdentityRequest {
      * 
      */
     apiCheckIdentityRequest: ApiCheckIdentityRequest;
+}
+
+export interface PostV3ClickCollectOrdersFinalPriceRequest {
+    /**
+     * 
+     */
+    apiOrdersRequest?: ApiOrdersRequest;
 }
 
 export interface PostV3ClickCollectOrdersMetaCustomsDeclarationOperationRequest {
@@ -337,7 +345,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа. <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить информацию о завершённых сборочных заданиях
      */
     async getV3ClickCollectOrdersRaw(requestParameters: GetV3ClickCollectOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrders>> {
@@ -348,7 +356,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа. <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить информацию о завершённых сборочных заданиях
      */
     async getV3ClickCollectOrders(requestParameters: GetV3ClickCollectOrdersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrders> {
@@ -502,6 +510,52 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async postV3ClickCollectOrdersClientIdentity(requestParameters: PostV3ClickCollectOrdersClientIdentityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiCheckedIdentity> {
         const response = await this.postV3ClickCollectOrdersClientIdentityRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3ClickCollectOrdersFinalPrice without sending the request
+     */
+    async postV3ClickCollectOrdersFinalPriceRequestOpts(requestParameters: PostV3ClickCollectOrdersFinalPriceRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/click-collect/orders/final-price`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ApiOrdersRequestToJSON(requestParameters['apiOrdersRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает:   - цены продавца без учёта скидок   - суммы к оплате покупателем с учетом всех скидок и кэшбека  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить цены продавца и суммы к оплате
+     */
+    async postV3ClickCollectOrdersFinalPriceRaw(requestParameters: PostV3ClickCollectOrdersFinalPriceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiOrdersFinalPriceResponse>> {
+        const requestOptions = await this.postV3ClickCollectOrdersFinalPriceRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApiOrdersFinalPriceResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает:   - цены продавца без учёта скидок   - суммы к оплате покупателем с учетом всех скидок и кэшбека  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Получить цены продавца и суммы к оплате
+     */
+    async postV3ClickCollectOrdersFinalPrice(requestParameters: PostV3ClickCollectOrdersFinalPriceRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiOrdersFinalPriceResponse> {
+        const response = await this.postV3ClickCollectOrdersFinalPriceRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

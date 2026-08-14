@@ -96,7 +96,7 @@ export interface ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInner
  */
 export const ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerTypeEnum = {
     Regular: 'regular',
-    Auto: 'auto'
+    Auto: 'auto',
 } as const;
 export type ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerTypeEnum = typeof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerTypeEnum[keyof typeof ApiV1CalendarPromotionsDetailsGet200ResponseDataPromotionsInnerTypeEnum];
 

@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  description: |
+  description: |+
     <div class="api-block">
 
     С помощью методов Заказы DBW (Доставка курьером WB) вы можете:
@@ -9,9 +9,11 @@ info:
 
     </div>
 
+
     <div class="description_ref">
       Узнать, как использовать методы в бизнес-кейсах, можно в <a href="/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw">инструкции</a> по работе с <strong>заказами DBW</strong>
     </div>
+
   title: Заказы DBW
   version: ordersdbw
   x-file-name: orders-dbw
@@ -1250,7 +1252,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api.MetaDeleteResponses"
+                allOf:
+                - $ref: "#/components/schemas/api.MetaDeleteResponses"
+                example:
+                  requestId: 03615778-eb9e-4f55-b4Of-fd3ac0fad2сc
+                  results:
+                  - orderId: 42131238
+                    isError: true
+                    errors:
+                    - code: 409
+                      detail: FailedToUpdateMeta
+                  - orderId: 4279781545
+                    isError: false
           description: Успешно
         "400":
           content:
@@ -2044,23 +2057,6 @@ components:
       - detail
       type: object
     api.MetaDeleteResponses:
-      example:
-        requestId: requestId
-        results:
-        - errors:
-          - code: 0
-            detail: detail
-          - code: 0
-            detail: detail
-          isError: true
-          orderId: 6
-        - errors:
-          - code: 0
-            detail: detail
-          - code: 0
-            detail: detail
-          isError: true
-          orderId: 6
       properties:
         requestId:
           description: Уникальный ID запроса. Отображается для ответов с ошибками
@@ -3147,9 +3143,6 @@ components:
       - key
       type: object
     api_MetaDeleteResponses_results_inner_errors_inner:
-      example:
-        code: 0
-        detail: detail
       properties:
         code:
           description: |
@@ -3168,14 +3161,6 @@ components:
       - detail
       type: object
     api_MetaDeleteResponses_results_inner:
-      example:
-        errors:
-        - code: 0
-          detail: detail
-        - code: 0
-          detail: detail
-        isError: true
-        orderId: 6
       properties:
         errors:
           description: Детали ошибки

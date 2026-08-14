@@ -51,7 +51,7 @@ export const OrderByGrTeFieldEnum = {
     OpenToCart: 'openToCart',
     Orders: 'orders',
     CartToOrder: 'cartToOrder',
-    Visibility: 'visibility'
+    Visibility: 'visibility',
 } as const;
 export type OrderByGrTeFieldEnum = typeof OrderByGrTeFieldEnum[keyof typeof OrderByGrTeFieldEnum];
 
@@ -60,7 +60,7 @@ export type OrderByGrTeFieldEnum = typeof OrderByGrTeFieldEnum[keyof typeof Orde
  */
 export const OrderByGrTeModeEnum = {
     Asc: 'asc',
-    Desc: 'desc'
+    Desc: 'desc',
 } as const;
 export type OrderByGrTeModeEnum = typeof OrderByGrTeModeEnum[keyof typeof OrderByGrTeModeEnum];
 

@@ -116,7 +116,7 @@ export interface SalesReportListRes {
 export const SalesReportListResReportTypeEnum = {
     NUMBER_1: 1,
     NUMBER_2: 2,
-    NUMBER_3: 3
+    NUMBER_3: 3,
 } as const;
 export type SalesReportListResReportTypeEnum = typeof SalesReportListResReportTypeEnum[keyof typeof SalesReportListResReportTypeEnum];
 
@@ -161,9 +161,9 @@ export function SalesReportListResFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'reportId': json['reportId'],
         'sellerFinanceName': json['sellerFinanceName'],
-        'dateFrom': (new Date(json['dateFrom'])),
-        'dateTo': (new Date(json['dateTo'])),
-        'createDate': (new Date(json['createDate'])),
+        'dateFrom': (json['dateFrom'] == null ? json['dateFrom'] : new Date(json['dateFrom'])),
+        'dateTo': (json['dateTo'] == null ? json['dateTo'] : new Date(json['dateTo'])),
+        'createDate': (json['createDate'] == null ? json['createDate'] : new Date(json['createDate'])),
         'currency': json['currency'],
         'reportType': json['reportType'],
         'retailAmountSum': json['retailAmountSum'],
@@ -196,9 +196,9 @@ export function SalesReportListResToJSONTyped(value?: SalesReportListRes | null,
         
         'reportId': value['reportId'],
         'sellerFinanceName': value['sellerFinanceName'],
-        'dateFrom': value['dateFrom'].toISOString().substring(0,10),
-        'dateTo': value['dateTo'].toISOString().substring(0,10),
-        'createDate': value['createDate'].toISOString().substring(0,10),
+        'dateFrom': value['dateFrom'] == null ? value['dateFrom'] : value['dateFrom'].toISOString().substring(0,10),
+        'dateTo': value['dateTo'] == null ? value['dateTo'] : value['dateTo'].toISOString().substring(0,10),
+        'createDate': value['createDate'] == null ? value['createDate'] : value['createDate'].toISOString().substring(0,10),
         'currency': value['currency'],
         'reportType': value['reportType'],
         'retailAmountSum': value['retailAmountSum'],

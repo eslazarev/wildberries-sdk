@@ -2,6 +2,7 @@
 /* eslint-disable */
 export * from './ApiBatchCustomsDeclarationErrorResponse';
 export * from './ApiBatchError';
+export * from './ApiBatchErrorFinalPriceResponse';
 export * from './ApiBatchErrorResponse';
 export * from './ApiCheckIdentityRequest';
 export * from './ApiCheckedIdentity';
@@ -21,11 +22,14 @@ export * from './ApiNewOrders';
 export * from './ApiOrder';
 export * from './ApiOrderClientInfo';
 export * from './ApiOrderClientInfoResp';
+export * from './ApiOrderFinalPriceResult';
+export * from './ApiOrderFinalPriceResultData';
 export * from './ApiOrderOptions';
 export * from './ApiOrderStatusV2';
 export * from './ApiOrderStatusesV2';
 export * from './ApiOrders';
 export * from './ApiOrdersErrorResponse';
+export * from './ApiOrdersFinalPriceResponse';
 export * from './ApiOrdersGTINSetRequest';
 export * from './ApiOrdersIMEISetRequest';
 export * from './ApiOrdersMetaDeleteRequest';

@@ -76,7 +76,7 @@ export interface PlanBuilderPackage {
 export const PlanBuilderPackageStatusEnum = {
     Active: 'active',
     PendingActivation: 'pendingActivation',
-    PendingDeactivation: 'pendingDeactivation'
+    PendingDeactivation: 'pendingDeactivation',
 } as const;
 export type PlanBuilderPackageStatusEnum = typeof PlanBuilderPackageStatusEnum[keyof typeof PlanBuilderPackageStatusEnum];
 

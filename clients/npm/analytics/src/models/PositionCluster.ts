@@ -26,7 +26,7 @@ export const PositionCluster = {
     All: 'all',
     FirstHundred: 'firstHundred',
     SecondHundred: 'secondHundred',
-    Below: 'below'
+    Below: 'below',
 } as const;
 export type PositionCluster = typeof PositionCluster[keyof typeof PositionCluster];
 

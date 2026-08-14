@@ -48,8 +48,8 @@ export function DatePeriodFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'start': (new Date(json['start'])),
-        'end': (new Date(json['end'])),
+        'start': (json['start'] == null ? json['start'] : new Date(json['start'])),
+        'end': (json['end'] == null ? json['end'] : new Date(json['end'])),
     };
 }
 
@@ -64,8 +64,8 @@ export function DatePeriodToJSONTyped(value?: DatePeriod | null, ignoreDiscrimin
 
     return {
         
-        'start': value['start'].toISOString().substring(0,10),
-        'end': value['end'].toISOString().substring(0,10),
+        'start': value['start'] == null ? value['start'] : value['start'].toISOString().substring(0,10),
+        'end': value['end'] == null ? value['end'] : value['end'].toISOString().substring(0,10),
     };
 }
 

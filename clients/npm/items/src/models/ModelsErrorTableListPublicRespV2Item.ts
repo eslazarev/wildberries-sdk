@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Работа с товарами
- * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/work-with-products#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div> 
+ * <div class=\"api-block\">  С помощью методов этого раздела вы можете:   - [создавать](/openapi/work-with-products#tag/listingItems) и [редактировать](/openapi/work-with-products#tag/listings) карточки товаров   - получать [категории, предметы, характеристики и бренды товаров](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics)   - загружать [медиафайлы](/openapi/work-with-products#tag/mediaFiles) в карточки товаров   - настраивать [ярлыки](/openapi/work-with-products#tag/labels) для поиска товаров   - работать с [рекомендациями](/openapi/work-with-products#tag/recommendations) для товаров   - устанавливать [цены и скидки](/openapi/work-with-products#tag/Ceny-i-skidki)   - управлять [остатками товаров](/openapi/work-with-products#tag/Ostatki-na-skladah-prodavca) и [складами](/openapi/work-with-products#tag/Sklady-prodavca), если вы работаете по модели продаж со склада продавца  Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Rabota-s-tovarami) для управления карточками товаров  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami\">инструкции</a> по <strong>работе с товарами</strong> </div>  
  *
  * The version of the OpenAPI document: items
  * 
@@ -88,7 +88,7 @@ export function ModelsErrorTableListPublicRespV2ItemFromJSONTyped(json: any, ign
         'brands': (mapValues(json['brands'], ModelsErrorBrandFromJSON)),
         'vendorCodes': json['vendorCodes'],
         'errors': json['errors'],
-        'updatedAt': (new Date(json['updatedAt'])),
+        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : new Date(json['updatedAt'])),
     };
 }
 
@@ -108,7 +108,7 @@ export function ModelsErrorTableListPublicRespV2ItemToJSONTyped(value?: ModelsEr
         'brands': (mapValues(value['brands'], ModelsErrorBrandToJSON)),
         'vendorCodes': value['vendorCodes'],
         'errors': value['errors'],
-        'updatedAt': value['updatedAt'].toISOString(),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
     };
 }
 

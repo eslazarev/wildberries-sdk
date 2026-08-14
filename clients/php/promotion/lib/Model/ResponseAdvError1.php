@@ -49,7 +49,7 @@ class ResponseAdvError1 implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @var string
      */
-    protected static $openAPIModelName = 'responseAdvError1';
+    protected static $openAPIModelName = 'ResponseAdvError1';
 
     /**
      * Array of property to type mappings. Used for (de)serialization

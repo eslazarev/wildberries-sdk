@@ -479,7 +479,7 @@ class AdvV1PaymentsGet200ResponseInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets card_status
      *
-     * @param string|null $card_status Статус операции(при оплате картой): - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно
+     * @param string|null $card_status Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно
      *
      * @return self
      */

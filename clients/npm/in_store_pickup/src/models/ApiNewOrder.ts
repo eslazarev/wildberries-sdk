@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Заказы Самовывоз
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * Самовывоз
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -112,7 +112,14 @@ export interface ApiNewOrder {
      */
     price?: number;
     /**
-     * Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+     * Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.
+     * <br>
+     * Код валюты продажи указан в поле `currencyCode`.
+     * <br>
+     * Предоставляется в информационных целях.
+     * <br><br>
+     * Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
+     * 
      */
     finalPrice?: number;
     /**
@@ -120,7 +127,12 @@ export interface ApiNewOrder {
      */
     convertedPrice?: number;
     /**
-     * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
+     * Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.
+     * <br>
+     * Предоставляется в информационных целях.
+     * <br><br>
+     *  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода
+     * 
      */
     convertedFinalPrice?: number;
     /**
@@ -159,7 +171,7 @@ export interface ApiNewOrder {
 export const ApiNewOrderCargoTypeEnum = {
     NUMBER_1: 1,
     NUMBER_2: 2,
-    NUMBER_3: 3
+    NUMBER_3: 3,
 } as const;
 export type ApiNewOrderCargoTypeEnum = typeof ApiNewOrderCargoTypeEnum[keyof typeof ApiNewOrderCargoTypeEnum];
 

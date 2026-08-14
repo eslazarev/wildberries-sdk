@@ -50,7 +50,7 @@ export interface ApiAdvertV1BidsMinPostRequest {
  */
 export const ApiAdvertV1BidsMinPostRequestPaymentTypeEnum = {
     Cpm: 'cpm',
-    Cpc: 'cpc'
+    Cpc: 'cpc',
 } as const;
 export type ApiAdvertV1BidsMinPostRequestPaymentTypeEnum = typeof ApiAdvertV1BidsMinPostRequestPaymentTypeEnum[keyof typeof ApiAdvertV1BidsMinPostRequestPaymentTypeEnum];
 
@@ -60,7 +60,7 @@ export type ApiAdvertV1BidsMinPostRequestPaymentTypeEnum = typeof ApiAdvertV1Bid
 export const ApiAdvertV1BidsMinPostRequestPlacementTypesEnum = {
     Combined: 'combined',
     Search: 'search',
-    Recommendation: 'recommendation'
+    Recommendation: 'recommendation',
 } as const;
 export type ApiAdvertV1BidsMinPostRequestPlacementTypesEnum = typeof ApiAdvertV1BidsMinPostRequestPlacementTypesEnum[keyof typeof ApiAdvertV1BidsMinPostRequestPlacementTypesEnum];
 

@@ -34,7 +34,7 @@ export interface GetPing200Response {
  * @export
  */
 export const GetPing200ResponseStatusEnum = {
-    Ok: 'OK'
+    Ok: 'OK',
 } as const;
 export type GetPing200ResponseStatusEnum = typeof GetPing200ResponseStatusEnum[keyof typeof GetPing200ResponseStatusEnum];
 

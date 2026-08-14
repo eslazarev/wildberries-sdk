@@ -14,16 +14,6 @@
 
 import * as runtime from '../runtime';
 import {
-    type CommonShippingOfficeFilters,
-    CommonShippingOfficeFiltersFromJSON,
-    CommonShippingOfficeFiltersToJSON,
-} from '../models/CommonShippingOfficeFilters';
-import {
-    type CommonSizeFilters,
-    CommonSizeFiltersFromJSON,
-    CommonSizeFiltersToJSON,
-} from '../models/CommonSizeFilters';
-import {
     type ErrorObject,
     ErrorObjectFromJSON,
     ErrorObjectToJSON,
@@ -203,6 +193,16 @@ import {
     TableItemRequestFromJSON,
     TableItemRequestToJSON,
 } from '../models/TableItemRequest';
+import {
+    type TableShippingOfficeRequest,
+    TableShippingOfficeRequestFromJSON,
+    TableShippingOfficeRequestToJSON,
+} from '../models/TableShippingOfficeRequest';
+import {
+    type TableSizeRequest,
+    TableSizeRequestFromJSON,
+    TableSizeRequestToJSON,
+} from '../models/TableSizeRequest';
 
 export interface PostV1ItemRatingRequest {
     /**
@@ -271,7 +271,7 @@ export interface PostV2StocksReportOfficesRequest {
     /**
      * 
      */
-    body: CommonShippingOfficeFilters;
+    tableShippingOfficeRequest: TableShippingOfficeRequest;
 }
 
 export interface PostV2StocksReportProductsGroupsRequest {
@@ -292,7 +292,7 @@ export interface PostV2StocksReportProductsSizesRequest {
     /**
      * 
      */
-    body: CommonSizeFilters;
+    tableSizeRequest: TableSizeRequest;
 }
 
 export interface PostV3SalesFunnelGroupedHistoryRequest {
@@ -798,10 +798,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postV2StocksReportOffices without sending the request
      */
     async postV2StocksReportOfficesRequestOpts(requestParameters: PostV2StocksReportOfficesRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['body'] == null) {
+        if (requestParameters['tableShippingOfficeRequest'] == null) {
             throw new runtime.RequiredError(
-                'body',
-                'Required parameter "body" was null or undefined when calling postV2StocksReportOffices().'
+                'tableShippingOfficeRequest',
+                'Required parameter "tableShippingOfficeRequest" was null or undefined when calling postV2StocksReportOffices().'
             );
         }
 
@@ -823,7 +823,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['body'] as any,
+            body: TableShippingOfficeRequestToJSON(requestParameters['tableShippingOfficeRequest']),
         };
     }
 
@@ -957,10 +957,10 @@ export class DefaultApi extends runtime.BaseAPI {
      * Creates request options for postV2StocksReportProductsSizes without sending the request
      */
     async postV2StocksReportProductsSizesRequestOpts(requestParameters: PostV2StocksReportProductsSizesRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['body'] == null) {
+        if (requestParameters['tableSizeRequest'] == null) {
             throw new runtime.RequiredError(
-                'body',
-                'Required parameter "body" was null or undefined when calling postV2StocksReportProductsSizes().'
+                'tableSizeRequest',
+                'Required parameter "tableSizeRequest" was null or undefined when calling postV2StocksReportProductsSizes().'
             );
         }
 
@@ -982,7 +982,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters['body'] as any,
+            body: TableSizeRequestToJSON(requestParameters['tableSizeRequest']),
         };
     }
 

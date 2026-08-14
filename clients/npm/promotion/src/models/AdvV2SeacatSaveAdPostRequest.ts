@@ -59,7 +59,7 @@ export interface AdvV2SeacatSaveAdPostRequest {
  */
 export const AdvV2SeacatSaveAdPostRequestBidTypeEnum = {
     Manual: 'manual',
-    Unified: 'unified'
+    Unified: 'unified',
 } as const;
 export type AdvV2SeacatSaveAdPostRequestBidTypeEnum = typeof AdvV2SeacatSaveAdPostRequestBidTypeEnum[keyof typeof AdvV2SeacatSaveAdPostRequestBidTypeEnum];
 
@@ -68,7 +68,7 @@ export type AdvV2SeacatSaveAdPostRequestBidTypeEnum = typeof AdvV2SeacatSaveAdPo
  */
 export const AdvV2SeacatSaveAdPostRequestPaymentTypeEnum = {
     Cpm: 'cpm',
-    Cpc: 'cpc'
+    Cpc: 'cpc',
 } as const;
 export type AdvV2SeacatSaveAdPostRequestPaymentTypeEnum = typeof AdvV2SeacatSaveAdPostRequestPaymentTypeEnum[keyof typeof AdvV2SeacatSaveAdPostRequestPaymentTypeEnum];
 
@@ -77,7 +77,7 @@ export type AdvV2SeacatSaveAdPostRequestPaymentTypeEnum = typeof AdvV2SeacatSave
  */
 export const AdvV2SeacatSaveAdPostRequestPlacementTypesEnum = {
     Search: 'search',
-    Recommendations: 'recommendations'
+    Recommendations: 'recommendations',
 } as const;
 export type AdvV2SeacatSaveAdPostRequestPlacementTypesEnum = typeof AdvV2SeacatSaveAdPostRequestPlacementTypesEnum[keyof typeof AdvV2SeacatSaveAdPostRequestPlacementTypesEnum];
 

@@ -97,7 +97,7 @@ export interface GetUsersResponseUsersInner {
  */
 export const GetUsersResponseUsersInnerRoleEnum = {
     User: 'user',
-    Empty: ''
+    Empty: '',
 } as const;
 export type GetUsersResponseUsersInnerRoleEnum = typeof GetUsersResponseUsersInnerRoleEnum[keyof typeof GetUsersResponseUsersInnerRoleEnum];
 

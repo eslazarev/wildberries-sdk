@@ -1,7 +1,7 @@
 /*
 Заказы FBS
 
-<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>  <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+<div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
 
 API version: order
 */
@@ -488,8 +488,11 @@ func (r ApiApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest) Execut
 ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut Закрепить номер ДТ за сборочным заданием
 
 Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br>
-Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.<br>
-Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.
+Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.
+
+<div class="description_important">
+Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.
+</div>
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:
@@ -3739,17 +3742,14 @@ func (r ApiApiV3OrdersStickersPostRequest) Execute() (*ApiV3OrdersStickersPost20
 /*
 ApiV3OrdersStickersPost Получить стикеры сборочных заданий
 
-Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS).
-
+Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке. <br><br>
+Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put), получить стикеры для этого сборочного задания невозможно.<br><br>
+За один запрос можно получить максимум 100 стикеров. <br>
 Можно получить стикер в форматах:
   - SVG
   - ZPLV (вертикальный)
   - ZPLH (горизонтальный)
   - PNG
-
-Ограничения:
-  - За один запрос можно получить максимум 100 стикеров.
-  - Стикеры можно получить только для сборочных заданий в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке.
 
 Доступны размеры:
   - 580x400 px при `width=58&height=40` в запросе
@@ -3898,6 +3898,17 @@ func (a *FBSAPIService) ApiV3OrdersStickersPostExecute(r ApiApiV3OrdersStickersP
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -5852,7 +5863,7 @@ ApiV3SuppliesSupplyIdDeliverPatch Передать поставку в дост�
 Передать поставку в доставку можно, только если в ней:
   - есть хотя бы одно сборочное задание
   - для всех сборочных заданий указана обязательная маркировка
-  - маркировка всех сборочных заданий прошла валидацию
+  - маркировка всех сборочных заданий прошла проверку
 
 Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.
 

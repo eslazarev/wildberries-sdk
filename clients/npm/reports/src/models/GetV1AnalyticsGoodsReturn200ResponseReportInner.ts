@@ -107,7 +107,7 @@ export interface GetV1AnalyticsGoodsReturn200ResponseReportInner {
  */
 export const GetV1AnalyticsGoodsReturn200ResponseReportInnerIsStatusActiveEnum = {
     NUMBER_0: 0,
-    NUMBER_1: 1
+    NUMBER_1: 1,
 } as const;
 export type GetV1AnalyticsGoodsReturn200ResponseReportInnerIsStatusActiveEnum = typeof GetV1AnalyticsGoodsReturn200ResponseReportInnerIsStatusActiveEnum[keyof typeof GetV1AnalyticsGoodsReturn200ResponseReportInnerIsStatusActiveEnum];
 

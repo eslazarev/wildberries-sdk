@@ -44,7 +44,7 @@ export interface ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInner {
 export const ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInnerPlacementEnum = {
     Search: 'search',
     Recommendations: 'recommendations',
-    Combined: 'combined'
+    Combined: 'combined',
 } as const;
 export type ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInnerPlacementEnum = typeof ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInnerPlacementEnum[keyof typeof ApiAdvertV1BidsPatchRequestBidsInnerNmBidsInnerPlacementEnum];
 

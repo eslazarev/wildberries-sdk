@@ -23,7 +23,7 @@ export const ModelsHandySupplyStatus = {
     AllowUnload: 3,
     Accepting: 4,
     Accepted: 5,
-    Virtual: 6
+    Virtual: 6,
 } as const;
 export type ModelsHandySupplyStatus = typeof ModelsHandySupplyStatus[keyof typeof ModelsHandySupplyStatus];
 

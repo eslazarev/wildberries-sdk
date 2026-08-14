@@ -24,7 +24,7 @@
 export const PlacementType = {
     Combined: 'combined',
     Search: 'search',
-    Recommendation: 'recommendation'
+    Recommendation: 'recommendation',
 } as const;
 export type PlacementType = typeof PlacementType[keyof typeof PlacementType];
 

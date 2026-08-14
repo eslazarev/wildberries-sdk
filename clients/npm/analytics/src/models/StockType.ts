@@ -24,7 +24,7 @@
 export const StockType = {
     Empty: '',
     Wb: 'wb',
-    Mp: 'mp'
+    Mp: 'mp',
 } as const;
 export type StockType = typeof StockType[keyof typeof StockType];
 

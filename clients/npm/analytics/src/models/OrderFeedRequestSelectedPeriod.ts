@@ -47,7 +47,7 @@ export function OrderFeedRequestSelectedPeriodFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'start': (new Date(json['start'])),
+        'start': (json['start'] == null ? json['start'] : new Date(json['start'])),
         'end': json['end'] == null ? undefined : (new Date(json['end'])),
     };
 }
@@ -63,7 +63,7 @@ export function OrderFeedRequestSelectedPeriodToJSONTyped(value?: OrderFeedReque
 
     return {
         
-        'start': value['start'].toISOString(),
+        'start': value['start'] == null ? value['start'] : value['start'].toISOString(),
         'end': value['end'] == null ? value['end'] : value['end'].toISOString(),
     };
 }

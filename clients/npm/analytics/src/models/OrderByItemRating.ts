@@ -53,7 +53,7 @@ export const OrderByItemRatingFieldEnum = {
     ThreeStar: 'threeStar',
     TwoStar: 'twoStar',
     OneStar: 'oneStar',
-    Disqualified: 'disqualified'
+    Disqualified: 'disqualified',
 } as const;
 export type OrderByItemRatingFieldEnum = typeof OrderByItemRatingFieldEnum[keyof typeof OrderByItemRatingFieldEnum];
 
@@ -62,7 +62,7 @@ export type OrderByItemRatingFieldEnum = typeof OrderByItemRatingFieldEnum[keyof
  */
 export const OrderByItemRatingModeEnum = {
     Asc: 'asc',
-    Desc: 'desc'
+    Desc: 'desc',
 } as const;
 export type OrderByItemRatingModeEnum = typeof OrderByItemRatingModeEnum[keyof typeof OrderByItemRatingModeEnum];
 

@@ -22,7 +22,7 @@
  */
 export const OrderByMode = {
     Asc: 'asc',
-    Desc: 'desc'
+    Desc: 'desc',
 } as const;
 export type OrderByMode = typeof OrderByMode[keyof typeof OrderByMode];
 

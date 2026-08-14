@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.140"
+__version__ = "0.1.141"
 
 # Define package exports
 __all__ = [
@@ -210,7 +210,9 @@ __all__ = [
     "TableShippingOfficeItem",
     "TableShippingOfficeItemOfficesInner",
     "TableShippingOfficeMetrics",
+    "TableShippingOfficeRequest",
     "TableShippingOfficeResponse",
+    "TableSizeRequest",
     "TableSizeResponse",
     "TableSizeResponseSizesInner",
     "TableSizeResponseSizesInnerMetrics",
@@ -422,7 +424,9 @@ from wildberries_sdk.analytics.models.table_search_text_item_all_of_visibility i
 from wildberries_sdk.analytics.models.table_shipping_office_item import TableShippingOfficeItem as TableShippingOfficeItem
 from wildberries_sdk.analytics.models.table_shipping_office_item_offices_inner import TableShippingOfficeItemOfficesInner as TableShippingOfficeItemOfficesInner
 from wildberries_sdk.analytics.models.table_shipping_office_metrics import TableShippingOfficeMetrics as TableShippingOfficeMetrics
+from wildberries_sdk.analytics.models.table_shipping_office_request import TableShippingOfficeRequest as TableShippingOfficeRequest
 from wildberries_sdk.analytics.models.table_shipping_office_response import TableShippingOfficeResponse as TableShippingOfficeResponse
+from wildberries_sdk.analytics.models.table_size_request import TableSizeRequest as TableSizeRequest
 from wildberries_sdk.analytics.models.table_size_response import TableSizeResponse as TableSizeResponse
 from wildberries_sdk.analytics.models.table_size_response_sizes_inner import TableSizeResponseSizesInner as TableSizeResponseSizesInner
 from wildberries_sdk.analytics.models.table_size_response_sizes_inner_metrics import TableSizeResponseSizesInnerMetrics as TableSizeResponseSizesInnerMetrics

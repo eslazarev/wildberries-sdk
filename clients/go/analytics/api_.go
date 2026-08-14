@@ -1802,11 +1802,11 @@ func (a *DefaultApiService) PostV2SearchReportTableGroupsExecute(r ApiPostV2Sear
 type ApiPostV2StocksReportOfficesRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	body *CommonShippingOfficeFilters
+	tableShippingOfficeRequest *TableShippingOfficeRequest
 }
 
-func (r ApiPostV2StocksReportOfficesRequest) Body(body CommonShippingOfficeFilters) ApiPostV2StocksReportOfficesRequest {
-	r.body = &body
+func (r ApiPostV2StocksReportOfficesRequest) TableShippingOfficeRequest(tableShippingOfficeRequest TableShippingOfficeRequest) ApiPostV2StocksReportOfficesRequest {
+	r.tableShippingOfficeRequest = &tableShippingOfficeRequest
 	return r
 }
 
@@ -1866,8 +1866,8 @@ func (a *DefaultApiService) PostV2StocksReportOfficesExecute(r ApiPostV2StocksRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.body == nil {
-		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	if r.tableShippingOfficeRequest == nil {
+		return localVarReturnValue, nil, reportError("tableShippingOfficeRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1888,7 +1888,7 @@ func (a *DefaultApiService) PostV2StocksReportOfficesExecute(r ApiPostV2StocksRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.tableShippingOfficeRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2387,11 +2387,11 @@ func (a *DefaultApiService) PostV2StocksReportProductsProductsExecute(r ApiPostV
 type ApiPostV2StocksReportProductsSizesRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
-	body *CommonSizeFilters
+	tableSizeRequest *TableSizeRequest
 }
 
-func (r ApiPostV2StocksReportProductsSizesRequest) Body(body CommonSizeFilters) ApiPostV2StocksReportProductsSizesRequest {
-	r.body = &body
+func (r ApiPostV2StocksReportProductsSizesRequest) TableSizeRequest(tableSizeRequest TableSizeRequest) ApiPostV2StocksReportProductsSizesRequest {
+	r.tableSizeRequest = &tableSizeRequest
 	return r
 }
 
@@ -2457,8 +2457,8 @@ func (a *DefaultApiService) PostV2StocksReportProductsSizesExecute(r ApiPostV2St
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.body == nil {
-		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	if r.tableSizeRequest == nil {
+		return localVarReturnValue, nil, reportError("tableSizeRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2479,7 +2479,7 @@ func (a *DefaultApiService) PostV2StocksReportProductsSizesExecute(r ApiPostV2St
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.tableSizeRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

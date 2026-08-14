@@ -139,7 +139,7 @@ export interface OrdersItem {
  */
 export const OrdersItemWarehouseTypeEnum = {
     Wb: 'Склад WB',
-    Value1: 'Склад продавца'
+    Value1: 'Склад продавца',
 } as const;
 export type OrdersItemWarehouseTypeEnum = typeof OrdersItemWarehouseTypeEnum[keyof typeof OrdersItemWarehouseTypeEnum];
 

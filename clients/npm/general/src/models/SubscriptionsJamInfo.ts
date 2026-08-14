@@ -57,7 +57,7 @@ export interface SubscriptionsJamInfo {
  */
 export const SubscriptionsJamInfoStateEnum = {
     Active: 'active',
-    Inactive: 'inactive'
+    Inactive: 'inactive',
 } as const;
 export type SubscriptionsJamInfoStateEnum = typeof SubscriptionsJamInfoStateEnum[keyof typeof SubscriptionsJamInfoStateEnum];
 
@@ -66,7 +66,7 @@ export type SubscriptionsJamInfoStateEnum = typeof SubscriptionsJamInfoStateEnum
  */
 export const SubscriptionsJamInfoActivationSourceEnum = {
     Constructor: 'constructor',
-    Jam: 'jam'
+    Jam: 'jam',
 } as const;
 export type SubscriptionsJamInfoActivationSourceEnum = typeof SubscriptionsJamInfoActivationSourceEnum[keyof typeof SubscriptionsJamInfoActivationSourceEnum];
 
@@ -76,7 +76,7 @@ export type SubscriptionsJamInfoActivationSourceEnum = typeof SubscriptionsJamIn
 export const SubscriptionsJamInfoLevelEnum = {
     Standard: 'standard',
     Advanced: 'advanced',
-    Premium: 'premium'
+    Premium: 'premium',
 } as const;
 export type SubscriptionsJamInfoLevelEnum = typeof SubscriptionsJamInfoLevelEnum[keyof typeof SubscriptionsJamInfoLevelEnum];
 
@@ -106,8 +106,8 @@ export function SubscriptionsJamInfoFromJSONTyped(json: any, ignoreDiscriminator
         'state': json['state'],
         'activationSource': json['activationSource'],
         'level': json['level'],
-        'since': (new Date(json['since'])),
-        'till': (new Date(json['till'])),
+        'since': (json['since'] == null ? json['since'] : new Date(json['since'])),
+        'till': (json['till'] == null ? json['till'] : new Date(json['till'])),
     };
 }
 
@@ -125,8 +125,8 @@ export function SubscriptionsJamInfoToJSONTyped(value?: SubscriptionsJamInfo | n
         'state': value['state'],
         'activationSource': value['activationSource'],
         'level': value['level'],
-        'since': value['since'].toISOString(),
-        'till': value['till'].toISOString(),
+        'since': value['since'] == null ? value['since'] : value['since'].toISOString(),
+        'till': value['till'] == null ? value['till'] : value['till'].toISOString(),
     };
 }
 

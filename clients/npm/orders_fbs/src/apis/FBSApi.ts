@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы FBS
- * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>  <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+ * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
  *
  * The version of the OpenAPI document: order
  * 
@@ -740,7 +740,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br> Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.<br> Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.  <div class=\"description_important\"> Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить номер ДТ за сборочным заданием
      */
     async apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRaw(requestParameters: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -751,7 +751,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br> Указывать ДТ обязательно для товаров, произведённых вне ЕАЭС.<br> Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` или `complete` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post). У одного сборочного задания может быть только один номер ДТ. <br> Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1meta/post) есть поле `customsDeclaration`.  <div class=\"description_important\"> Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>закрепления идентификаторов маркировки FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1000 запросов | 60 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Закрепить номер ДТ за сборочным заданием
      */
     async apiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPut(requestParameters: ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -1647,7 +1647,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS).  Можно получить стикер в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Ограничения:   - За один запрос можно получить максимум 100 стикеров.   - Стикеры можно получить только для сборочных заданий в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке.  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке. <br><br> Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put), получить стикеры для этого сборочного задания невозможно.<br><br> За один запрос можно получить максимум 100 стикеров. <br> Можно получить стикер в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить стикеры сборочных заданий
      */
     async apiV3OrdersStickersPostRaw(requestParameters: ApiV3OrdersStickersPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3OrdersStickersPost200Response>> {
@@ -1658,7 +1658,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS).  Можно получить стикер в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Ограничения:   - За один запрос можно получить максимум 100 стикеров.   - Стикеры можно получить только для сборочных заданий в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке.  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) в [статусах](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `confirm` — на сборке и `complete` — в доставке. <br><br> Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/paths/~1api~1marketplace~1v3~1orders~1%7BorderId%7D~1meta~1customs-declaration/put), получить стикеры для этого сборочного задания невозможно.<br><br> За один запрос можно получить максимум 100 стикеров. <br> Можно получить стикер в форматах:   - SVG   - ZPLV (вертикальный)   - ZPLH (горизонтальный)   - PNG  Доступны размеры:   - 580x400 px при `width=58&height=40` в запросе   - 400x300 px при `width=40&height=30` в запросе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Получить стикеры сборочных заданий
      */
     async apiV3OrdersStickersPost(requestParameters: ApiV3OrdersStickersPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3OrdersStickersPost200Response> {
@@ -2220,7 +2220,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла валидацию  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Передать поставку в доставку
      */
     async apiV3SuppliesSupplyIdDeliverPatchRaw(requestParameters: ApiV3SuppliesSupplyIdDeliverPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -2231,7 +2231,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла валидацию  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
      * Передать поставку в доставку
      */
     async apiV3SuppliesSupplyIdDeliverPatch(requestParameters: ApiV3SuppliesSupplyIdDeliverPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2522,7 +2522,7 @@ export const ApiV3OrdersOrderIdMetaDeleteKeyEnum = {
     Uin: 'uin',
     Gtin: 'gtin',
     Sgtin: 'sgtin',
-    CustomsDeclaration: 'customsDeclaration'
+    CustomsDeclaration: 'customsDeclaration',
 } as const;
 export type ApiV3OrdersOrderIdMetaDeleteKeyEnum = typeof ApiV3OrdersOrderIdMetaDeleteKeyEnum[keyof typeof ApiV3OrdersOrderIdMetaDeleteKeyEnum];
 /**
@@ -2532,7 +2532,7 @@ export const ApiV3OrdersStickersPostOperationTypeEnum = {
     Svg: 'svg',
     Zplv: 'zplv',
     Zplh: 'zplh',
-    Png: 'png'
+    Png: 'png',
 } as const;
 export type ApiV3OrdersStickersPostOperationTypeEnum = typeof ApiV3OrdersStickersPostOperationTypeEnum[keyof typeof ApiV3OrdersStickersPostOperationTypeEnum];
 /**
@@ -2540,7 +2540,7 @@ export type ApiV3OrdersStickersPostOperationTypeEnum = typeof ApiV3OrdersSticker
  */
 export const ApiV3OrdersStickersPostOperationWidthEnum = {
     NUMBER_58: 58,
-    NUMBER_40: 40
+    NUMBER_40: 40,
 } as const;
 export type ApiV3OrdersStickersPostOperationWidthEnum = typeof ApiV3OrdersStickersPostOperationWidthEnum[keyof typeof ApiV3OrdersStickersPostOperationWidthEnum];
 /**
@@ -2548,7 +2548,7 @@ export type ApiV3OrdersStickersPostOperationWidthEnum = typeof ApiV3OrdersSticke
  */
 export const ApiV3OrdersStickersPostOperationHeightEnum = {
     NUMBER_40: 40,
-    NUMBER_30: 30
+    NUMBER_30: 30,
 } as const;
 export type ApiV3OrdersStickersPostOperationHeightEnum = typeof ApiV3OrdersStickersPostOperationHeightEnum[keyof typeof ApiV3OrdersStickersPostOperationHeightEnum];
 /**
@@ -2558,7 +2558,7 @@ export const ApiV3SuppliesSupplyIdBarcodeGetTypeEnum = {
     Svg: 'svg',
     Zplv: 'zplv',
     Zplh: 'zplh',
-    Png: 'png'
+    Png: 'png',
 } as const;
 export type ApiV3SuppliesSupplyIdBarcodeGetTypeEnum = typeof ApiV3SuppliesSupplyIdBarcodeGetTypeEnum[keyof typeof ApiV3SuppliesSupplyIdBarcodeGetTypeEnum];
 /**
@@ -2568,6 +2568,6 @@ export const ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum = {
     Svg: 'svg',
     Zplv: 'zplv',
     Zplh: 'zplh',
-    Png: 'png'
+    Png: 'png',
 } as const;
 export type ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum = typeof ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum[keyof typeof ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum];

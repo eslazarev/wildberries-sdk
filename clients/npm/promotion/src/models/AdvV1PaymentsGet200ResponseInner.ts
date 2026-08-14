@@ -47,7 +47,7 @@ export interface AdvV1PaymentsGet200ResponseInner {
      */
     statusId?: number;
     /**
-     * Статус операции(при оплате картой):
+     * Статус операции при оплате картой:
      * - `success` — успех
      * - `fail` — неуспех
      * - `pending` — в ожидании ответа

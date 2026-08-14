@@ -85,7 +85,7 @@ export const OrderByFieldEnum = {
     WbClubAvgPrice: 'wbClub.avgPrice',
     WbClubBuyoutPercent: 'wbClub.buyoutPercent',
     WbClubAvgOrderCountPerDay: 'wbClub.avgOrderCountPerDay',
-    WbClubCancelCount: 'wbClub.cancelCount'
+    WbClubCancelCount: 'wbClub.cancelCount',
 } as const;
 export type OrderByFieldEnum = typeof OrderByFieldEnum[keyof typeof OrderByFieldEnum];
 
@@ -94,7 +94,7 @@ export type OrderByFieldEnum = typeof OrderByFieldEnum[keyof typeof OrderByField
  */
 export const OrderByModeEnum = {
     Asc: 'asc',
-    Desc: 'desc'
+    Desc: 'desc',
 } as const;
 export type OrderByModeEnum = typeof OrderByModeEnum[keyof typeof OrderByModeEnum];
 

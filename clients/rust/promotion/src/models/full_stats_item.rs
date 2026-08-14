@@ -20,7 +20,7 @@ pub struct FullStatsItem {
     /// Количество добавлений товаров в корзину
     #[serde(rename = "atbs")]
     pub atbs: i32,
-    /// Статистика по средней позиции товара (для кампаний с единой ставкой)
+    /// Статистика по бустеру
     #[serde(rename = "boosterStats", skip_serializing_if = "Option::is_none")]
     pub booster_stats: Option<Vec<models::BoosterStatsV3Inner>>,
     /// Отмены, шт.
@@ -38,7 +38,7 @@ pub struct FullStatsItem {
     /// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
     #[serde(rename = "ctr")]
     pub ctr: f64,
-    /// Статистка по дням
+    /// Статистика с разбивкой по дням
     #[serde(rename = "days")]
     pub days: Vec<models::DaysV3Inner>,
     /// Количество заказов

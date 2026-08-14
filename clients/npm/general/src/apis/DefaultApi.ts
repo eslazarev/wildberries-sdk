@@ -529,6 +529,6 @@ export class DefaultApi extends runtime.BaseAPI {
  */
 export const GetV1TariffConstructorOptionsLocaleEnum = {
     Ru: 'ru',
-    En: 'en'
+    En: 'en',
 } as const;
 export type GetV1TariffConstructorOptionsLocaleEnum = typeof GetV1TariffConstructorOptionsLocaleEnum[keyof typeof GetV1TariffConstructorOptionsLocaleEnum];

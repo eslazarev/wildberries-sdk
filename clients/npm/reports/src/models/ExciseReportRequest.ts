@@ -36,7 +36,7 @@ export const ExciseReportRequestCountriesEnum = {
     Kg: 'KG',
     Kz: 'KZ',
     Ru: 'RU',
-    Uz: 'UZ'
+    Uz: 'UZ',
 } as const;
 export type ExciseReportRequestCountriesEnum = typeof ExciseReportRequestCountriesEnum[keyof typeof ExciseReportRequestCountriesEnum];
 

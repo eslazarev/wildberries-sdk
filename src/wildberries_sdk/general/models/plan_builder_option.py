@@ -37,7 +37,7 @@ class PlanBuilderOption(BaseModel):
     expires_at: Optional[datetime] = Field(default=None, description="Дата окончания минимального срока действия опции. До этого дня опцию нельзя отключить", alias="expiresAt", json_schema_extra={"examples": ["2006-01-02T15:04:05.999+03:00"]})
     commission_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Стоимость подключения опции, % от оборота. Возвращается, если в ответе нет объекта `promotion`", alias="commissionRate", json_schema_extra={"examples": [2.1]})
     period_duration: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Минимальный срок действия опции в днях", alias="periodDuration", json_schema_extra={"examples": [90]})
-    promotion: Optional[PlanBuilderPromotion] = None
+    promotion: Optional[PlanBuilderPromotion] = Field(default=None, description="Акция, по которой подключена опция. Не возвращается, если опция подключена без акции или срок действия акции истёк")
     __properties: ClassVar[List[str]] = ["id", "slug", "name", "status", "activatedAt", "expiresAt", "commissionRate", "periodDuration", "promotion"]
 
     @field_validator('status')

@@ -29,7 +29,7 @@ type AdvV1PaymentsGet200ResponseInner struct {
 	Type *int32 `json:"type,omitempty"`
 	// Статус: - `0` — ошибка - `1` — обработано 
 	StatusId *int32 `json:"statusId,omitempty"`
-	// Статус операции(при оплате картой): - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно 
+	// Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно 
 	CardStatus *string `json:"cardStatus,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`

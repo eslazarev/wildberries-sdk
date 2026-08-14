@@ -60,7 +60,7 @@ export interface SalesReportListReq {
  */
 export const SalesReportListReqPeriodEnum = {
     Daily: 'daily',
-    Weekly: 'weekly'
+    Weekly: 'weekly',
 } as const;
 export type SalesReportListReqPeriodEnum = typeof SalesReportListReqPeriodEnum[keyof typeof SalesReportListReqPeriodEnum];
 

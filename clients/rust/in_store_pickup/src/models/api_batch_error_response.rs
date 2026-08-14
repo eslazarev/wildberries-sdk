@@ -1,7 +1,7 @@
 /*
- * Заказы Самовывоз
+ * Самовывоз
  *
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiBatchErrorResponse {
     /// Код ошибки:   - `404`   - `409`   - `400` 
-    #[serde(rename = "code")]
-    pub code: i32,
-    /// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания 
-    #[serde(rename = "detail")]
-    pub detail: String,
+    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
+    pub code: Option<i32>,
+    /// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара 
+    #[serde(rename = "detail", skip_serializing_if = "Option::is_none")]
+    pub detail: Option<String>,
 }
 
 impl ApiBatchErrorResponse {
-    pub fn new(code: i32, detail: String) -> ApiBatchErrorResponse {
+    pub fn new() -> ApiBatchErrorResponse {
         ApiBatchErrorResponse {
-            code,
-            detail,
+            code: None,
+            detail: None,
         }
     }
 }

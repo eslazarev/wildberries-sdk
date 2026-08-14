@@ -100,7 +100,7 @@ export const ItemSearchTextsRequestTopOrderByEnum = {
     AddToCart: 'addToCart',
     OpenToCart: 'openToCart',
     Orders: 'orders',
-    CartToOrder: 'cartToOrder'
+    CartToOrder: 'cartToOrder',
 } as const;
 export type ItemSearchTextsRequestTopOrderByEnum = typeof ItemSearchTextsRequestTopOrderByEnum[keyof typeof ItemSearchTextsRequestTopOrderByEnum];
 

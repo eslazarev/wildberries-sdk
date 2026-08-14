@@ -1,7 +1,7 @@
 /*
- * Заказы Самовывоз
+ * Самовывоз
  *
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -60,6 +60,17 @@ pub enum PostV3ClickCollectOrdersClientIdentityError {
     Status403(models::Error),
     Status404(models::ApiError),
     Status409(models::ApiError),
+    Status429(models::GetV3ClickCollectOrdersNew401Response),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_v3_click_collect_orders_final_price`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostV3ClickCollectOrdersFinalPriceError {
+    Status400(models::ApiBatchError),
+    Status401(models::GetV3ClickCollectOrdersNew401Response),
+    Status403(models::ApiBatchError),
     Status429(models::GetV3ClickCollectOrdersNew401Response),
     UnknownValue(serde_json::Value),
 }
@@ -219,7 +230,7 @@ pub enum PostV3ClickCollectOrdersStatusRejectError {
 }
 
 
-/// Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.  Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+/// Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа. <br><br> Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
 pub async fn get_v3_click_collect_orders(configuration: &configuration::Configuration, limit: i32, next: i32, date_from: i32, date_to: i32) -> Result<models::ApiOrders, Error<GetV3ClickCollectOrdersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_limit = limit;
@@ -402,6 +413,52 @@ pub async fn post_v3_click_collect_orders_client_identity(configuration: &config
     } else {
         let content = resp.text().await?;
         let entity: Option<PostV3ClickCollectOrdersClientIdentityError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Метод возвращает:   - цены продавца без учёта скидок   - суммы к оплате покупателем с учетом всех скидок и кэшбека  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 150 запросов | 400 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов </div> 
+pub async fn post_v3_click_collect_orders_final_price(configuration: &configuration::Configuration, api_orders_request: Option<models::ApiOrdersRequest>) -> Result<models::ApiOrdersFinalPriceResponse, Error<PostV3ClickCollectOrdersFinalPriceError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_api_orders_request = api_orders_request;
+
+    let uri_str = format!("{}/api/marketplace/v3/click-collect/orders/final-price", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("Authorization", value);
+    };
+    req_builder = req_builder.json(&p_body_api_orders_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiOrdersFinalPriceResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiOrdersFinalPriceResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostV3ClickCollectOrdersFinalPriceError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

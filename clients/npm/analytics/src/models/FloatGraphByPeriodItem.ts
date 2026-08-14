@@ -53,8 +53,8 @@ export function FloatGraphByPeriodItemFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'start': (new Date(json['start'])),
-        'end': (new Date(json['end'])),
+        'start': (json['start'] == null ? json['start'] : new Date(json['start'])),
+        'end': (json['end'] == null ? json['end'] : new Date(json['end'])),
         'value': json['value'],
     };
 }
@@ -70,8 +70,8 @@ export function FloatGraphByPeriodItemToJSONTyped(value?: FloatGraphByPeriodItem
 
     return {
         
-        'start': value['start'].toISOString().substring(0,10),
-        'end': value['end'].toISOString().substring(0,10),
+        'start': value['start'] == null ? value['start'] : value['start'].toISOString().substring(0,10),
+        'end': value['end'] == null ? value['end'] : value['end'].toISOString().substring(0,10),
         'value': value['value'],
     };
 }

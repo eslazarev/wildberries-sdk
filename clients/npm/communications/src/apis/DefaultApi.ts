@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Общение с покупателями
- * <div class=\"description_important\">   Узнать больше об общении с покупателями можно в <a href=\"https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью методов общения с покупателями вы можете работать с:   1. [Вопросами](/openapi/user-communication#tag/questions) и [отзывами](/openapi/user-communication#tag/feedbacks) покупателей   2. [Закреплёнными отзывами](/openapi/user-communication#tag/pinnedFeedbacks)   3. [Чатами с покупателями](/openapi/user-communication#tag/buyersChat)   4. [Заявками покупателей на возврат](/openapi/user-communication#tag/buyersReturns)  Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami\">инструкции</a> по работе с разделом <strong>Общение с покупателями</strong> </div> 
+ * <div class=\"description_important\">   Узнать больше об общении с покупателями можно в <a href=\"https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b\">справочном центре</a> </div>  <div class=\"api-block\">  С помощью методов общения с покупателями вы можете работать с:   1. [Вопросами](/openapi/user-communication#tag/questions) и [отзывами](/openapi/user-communication#tag/feedbacks) покупателей   2. [Закреплёнными отзывами](/openapi/user-communication#tag/pinnedFeedbacks)   3. [Чатами с покупателями](/openapi/user-communication#tag/buyersChat)   4. [Заявками покупателей на возврат](/openapi/user-communication#tag/buyersReturns)  Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Voprosy-i-otzyvy) для управления тестовыми вопросами и отзывами  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami\">инструкции</a> по работе с разделом <strong>Общение с покупателями</strong> </div>  
  *
  * The version of the OpenAPI document: communication
  * 
@@ -1972,7 +1972,7 @@ export class DefaultApi extends runtime.BaseAPI {
  */
 export const GetFeedbacksV1PinsStateEnum = {
     Pinned: 'pinned',
-    Unpinned: 'unpinned'
+    Unpinned: 'unpinned',
 } as const;
 export type GetFeedbacksV1PinsStateEnum = typeof GetFeedbacksV1PinsStateEnum[keyof typeof GetFeedbacksV1PinsStateEnum];
 /**
@@ -1980,7 +1980,7 @@ export type GetFeedbacksV1PinsStateEnum = typeof GetFeedbacksV1PinsStateEnum[key
  */
 export const GetFeedbacksV1PinsPinOnEnum = {
     Nm: 'nm',
-    Imt: 'imt'
+    Imt: 'imt',
 } as const;
 export type GetFeedbacksV1PinsPinOnEnum = typeof GetFeedbacksV1PinsPinOnEnum[keyof typeof GetFeedbacksV1PinsPinOnEnum];
 /**
@@ -1988,7 +1988,7 @@ export type GetFeedbacksV1PinsPinOnEnum = typeof GetFeedbacksV1PinsPinOnEnum[key
  */
 export const GetFeedbacksV1PinsCountStateEnum = {
     Pinned: 'pinned',
-    Unpinned: 'unpinned'
+    Unpinned: 'unpinned',
 } as const;
 export type GetFeedbacksV1PinsCountStateEnum = typeof GetFeedbacksV1PinsCountStateEnum[keyof typeof GetFeedbacksV1PinsCountStateEnum];
 /**
@@ -1996,7 +1996,7 @@ export type GetFeedbacksV1PinsCountStateEnum = typeof GetFeedbacksV1PinsCountSta
  */
 export const GetFeedbacksV1PinsCountPinOnEnum = {
     Nm: 'nm',
-    Imt: 'imt'
+    Imt: 'imt',
 } as const;
 export type GetFeedbacksV1PinsCountPinOnEnum = typeof GetFeedbacksV1PinsCountPinOnEnum[keyof typeof GetFeedbacksV1PinsCountPinOnEnum];
 /**
@@ -2004,7 +2004,7 @@ export type GetFeedbacksV1PinsCountPinOnEnum = typeof GetFeedbacksV1PinsCountPin
  */
 export const GetV1FeedbacksOrderEnum = {
     DateAsc: 'dateAsc',
-    DateDesc: 'dateDesc'
+    DateDesc: 'dateDesc',
 } as const;
 export type GetV1FeedbacksOrderEnum = typeof GetV1FeedbacksOrderEnum[keyof typeof GetV1FeedbacksOrderEnum];
 /**
@@ -2012,6 +2012,6 @@ export type GetV1FeedbacksOrderEnum = typeof GetV1FeedbacksOrderEnum[keyof typeo
  */
 export const GetV1FeedbacksArchiveOrderEnum = {
     DateAsc: 'dateAsc',
-    DateDesc: 'dateDesc'
+    DateDesc: 'dateDesc',
 } as const;
 export type GetV1FeedbacksArchiveOrderEnum = typeof GetV1FeedbacksArchiveOrderEnum[keyof typeof GetV1FeedbacksArchiveOrderEnum];

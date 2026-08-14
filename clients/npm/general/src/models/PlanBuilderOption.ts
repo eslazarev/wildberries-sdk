@@ -64,7 +64,7 @@ export interface PlanBuilderOption {
      */
     periodDuration?: number;
     /**
-     * 
+     * Акция, по которой подключена опция. Не возвращается, если опция подключена без акции или срок действия акции истёк
      */
     promotion?: PlanBuilderPromotion;
 }
@@ -76,7 +76,7 @@ export interface PlanBuilderOption {
 export const PlanBuilderOptionStatusEnum = {
     Active: 'active',
     PendingActivation: 'pendingActivation',
-    PendingDeactivation: 'pendingDeactivation'
+    PendingDeactivation: 'pendingDeactivation',
 } as const;
 export type PlanBuilderOptionStatusEnum = typeof PlanBuilderOptionStatusEnum[keyof typeof PlanBuilderOptionStatusEnum];
 

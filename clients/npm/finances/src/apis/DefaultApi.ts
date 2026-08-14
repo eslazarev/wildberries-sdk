@@ -914,7 +914,7 @@ export class DefaultApi extends runtime.BaseAPI {
  */
 export const GetV1DocumentsListSortEnum = {
     Date: 'date',
-    Category: 'category'
+    Category: 'category',
 } as const;
 export type GetV1DocumentsListSortEnum = typeof GetV1DocumentsListSortEnum[keyof typeof GetV1DocumentsListSortEnum];
 /**
@@ -922,6 +922,6 @@ export type GetV1DocumentsListSortEnum = typeof GetV1DocumentsListSortEnum[keyof
  */
 export const GetV1DocumentsListOrderEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type GetV1DocumentsListOrderEnum = typeof GetV1DocumentsListOrderEnum[keyof typeof GetV1DocumentsListOrderEnum];

@@ -96,7 +96,7 @@ export const CommonItemFiltersAvailabilityFiltersEnum = {
     Balanced: 'balanced',
     NonActual: 'nonActual',
     NonLiquid: 'nonLiquid',
-    InvalidData: 'invalidData'
+    InvalidData: 'invalidData',
 } as const;
 export type CommonItemFiltersAvailabilityFiltersEnum = typeof CommonItemFiltersAvailabilityFiltersEnum[keyof typeof CommonItemFiltersAvailabilityFiltersEnum];
 

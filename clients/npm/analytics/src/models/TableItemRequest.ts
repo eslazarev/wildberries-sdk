@@ -104,7 +104,7 @@ export const TableItemRequestAvailabilityFiltersEnum = {
     Balanced: 'balanced',
     NonActual: 'nonActual',
     NonLiquid: 'nonLiquid',
-    InvalidData: 'invalidData'
+    InvalidData: 'invalidData',
 } as const;
 export type TableItemRequestAvailabilityFiltersEnum = typeof TableItemRequestAvailabilityFiltersEnum[keyof typeof TableItemRequestAvailabilityFiltersEnum];
 

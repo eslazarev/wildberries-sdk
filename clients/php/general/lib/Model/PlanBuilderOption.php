@@ -610,7 +610,7 @@ class PlanBuilderOption implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets promotion
      *
-     * @param \Wildberries\Sdk\General\Model\PlanBuilderPromotion|null $promotion promotion
+     * @param \Wildberries\Sdk\General\Model\PlanBuilderPromotion|null $promotion Акция, по которой подключена опция. Не возвращается, если опция подключена без акции или срок действия акции истёк
      *
      * @return self
      */

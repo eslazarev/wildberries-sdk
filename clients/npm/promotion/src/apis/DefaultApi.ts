@@ -2836,6 +2836,6 @@ export class DefaultApi extends runtime.BaseAPI {
  */
 export const ApiAdvertV2AdvertsGetPaymentTypeEnum = {
     Cpm: 'cpm',
-    Cpc: 'cpc'
+    Cpc: 'cpc',
 } as const;
 export type ApiAdvertV2AdvertsGetPaymentTypeEnum = typeof ApiAdvertV2AdvertsGetPaymentTypeEnum[keyof typeof ApiAdvertV2AdvertsGetPaymentTypeEnum];

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы FBS
- * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>  <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
+ * <div class=\"api-block\">  С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS) и их статусах, отменять сборочные задания, получать стикеры   - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий   - управлять [поставками](/openapi/orders-fbs#tag/Postavki-FBS)   - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/Propuska-FBS) на склады WB  Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-FBS) для эмуляции действий пользователя  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs\">инструкции</a> по работе с <strong>заказами FBS</strong> </div>   <div class=\"description_important\">   Узнать больше о заказах FBS можно в <a href=\"https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d\">справочном центре</a> </div> 
  *
  * The version of the OpenAPI document: order
  * 
@@ -204,7 +204,7 @@ export interface OrderNew {
  * @export
  */
 export const OrderNewDeliveryTypeEnum = {
-    Fbs: 'fbs'
+    Fbs: 'fbs',
 } as const;
 export type OrderNewDeliveryTypeEnum = typeof OrderNewDeliveryTypeEnum[keyof typeof OrderNewDeliveryTypeEnum];
 
@@ -214,7 +214,7 @@ export type OrderNewDeliveryTypeEnum = typeof OrderNewDeliveryTypeEnum[keyof typ
 export const OrderNewCargoTypeEnum = {
     NUMBER_1: 1,
     NUMBER_2: 2,
-    NUMBER_3: 3
+    NUMBER_3: 3,
 } as const;
 export type OrderNewCargoTypeEnum = typeof OrderNewCargoTypeEnum[keyof typeof OrderNewCargoTypeEnum];
 
@@ -223,7 +223,7 @@ export type OrderNewCargoTypeEnum = typeof OrderNewCargoTypeEnum[keyof typeof Or
  */
 export const OrderNewCrossBorderTypeEnum = {
     NUMBER_0: 0,
-    NUMBER_1: 1
+    NUMBER_1: 1,
 } as const;
 export type OrderNewCrossBorderTypeEnum = typeof OrderNewCrossBorderTypeEnum[keyof typeof OrderNewCrossBorderTypeEnum];
 

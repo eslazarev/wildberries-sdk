@@ -166,7 +166,7 @@ export const TableItemItemStMetricsAvailabilityEnum = {
     Balanced: 'balanced',
     NonActual: 'nonActual',
     NonLiquid: 'nonLiquid',
-    InvalidData: 'invalidData'
+    InvalidData: 'invalidData',
 } as const;
 export type TableItemItemStMetricsAvailabilityEnum = typeof TableItemItemStMetricsAvailabilityEnum[keyof typeof TableItemItemStMetricsAvailabilityEnum];
 

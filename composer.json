@@ -29,7 +29,7 @@
       "Wildberries\\Sdk\\Items\\": "clients/php/items/lib/",
       "Wildberries\\Sdk\\OrdersFbs\\": "clients/php/orders_fbs/lib/",
       "Wildberries\\Sdk\\OrdersDbw\\": "clients/php/orders_dbw/lib/",
-      "Wildberries\\Sdk\\OrdersDbs\\": "clients/php/orders_dbs/lib/",
+      "Wildberries\\Sdk\\Dbs\\": "clients/php/dbs/lib/",
       "Wildberries\\Sdk\\InStorePickup\\": "clients/php/in_store_pickup/lib/",
       "Wildberries\\Sdk\\OrdersFbw\\": "clients/php/orders_fbw/lib/",
       "Wildberries\\Sdk\\Promotion\\": "clients/php/promotion/lib/",

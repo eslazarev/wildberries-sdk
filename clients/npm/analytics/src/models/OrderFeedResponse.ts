@@ -61,7 +61,7 @@ export function OrderFeedResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'snapshotTime': (new Date(json['snapshotTime'])),
+        'snapshotTime': (json['snapshotTime'] == null ? json['snapshotTime'] : new Date(json['snapshotTime'])),
         'currency': json['currency'],
         'orders': ((json['orders'] as Array<any>).map(OrderFromJSON)),
     };
@@ -78,7 +78,7 @@ export function OrderFeedResponseToJSONTyped(value?: OrderFeedResponse | null, i
 
     return {
         
-        'snapshotTime': value['snapshotTime'].toISOString(),
+        'snapshotTime': value['snapshotTime'] == null ? value['snapshotTime'] : value['snapshotTime'].toISOString(),
         'currency': value['currency'],
         'orders': ((value['orders'] as Array<any>).map(OrderToJSON)),
     };

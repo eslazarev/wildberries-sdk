@@ -53,7 +53,7 @@ export function ItemOrdersMetricsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'dt': (new Date(json['dt'])),
+        'dt': (json['dt'] == null ? json['dt'] : new Date(json['dt'])),
         'avgPosition': json['avgPosition'],
         'orders': json['orders'],
     };
@@ -70,7 +70,7 @@ export function ItemOrdersMetricsToJSONTyped(value?: ItemOrdersMetrics | null, i
 
     return {
         
-        'dt': value['dt'].toISOString().substring(0,10),
+        'dt': value['dt'] == null ? value['dt'] : value['dt'].toISOString().substring(0,10),
         'avgPosition': value['avgPosition'],
         'orders': value['orders'],
     };

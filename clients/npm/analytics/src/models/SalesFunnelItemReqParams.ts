@@ -70,7 +70,7 @@ export interface SalesFunnelItemReqParams {
 export const SalesFunnelItemReqParamsAggregationLevelEnum = {
     Day: 'day',
     Week: 'week',
-    Month: 'month'
+    Month: 'month',
 } as const;
 export type SalesFunnelItemReqParamsAggregationLevelEnum = typeof SalesFunnelItemReqParamsAggregationLevelEnum[keyof typeof SalesFunnelItemReqParamsAggregationLevelEnum];
 
@@ -98,8 +98,8 @@ export function SalesFunnelItemReqParamsFromJSONTyped(json: any, ignoreDiscrimin
         'subjectIds': json['subjectIds'] == null ? undefined : json['subjectIds'],
         'brandNames': json['brandNames'] == null ? undefined : json['brandNames'],
         'tagIds': json['tagIds'] == null ? undefined : json['tagIds'],
-        'startDate': (new Date(json['startDate'])),
-        'endDate': (new Date(json['endDate'])),
+        'startDate': (json['startDate'] == null ? json['startDate'] : new Date(json['startDate'])),
+        'endDate': (json['endDate'] == null ? json['endDate'] : new Date(json['endDate'])),
         'timezone': json['timezone'] == null ? undefined : json['timezone'],
         'aggregationLevel': json['aggregationLevel'] == null ? undefined : json['aggregationLevel'],
         'skipDeletedNm': json['skipDeletedNm'] == null ? undefined : json['skipDeletedNm'],
@@ -121,8 +121,8 @@ export function SalesFunnelItemReqParamsToJSONTyped(value?: SalesFunnelItemReqPa
         'subjectIds': value['subjectIds'],
         'brandNames': value['brandNames'],
         'tagIds': value['tagIds'],
-        'startDate': value['startDate'].toISOString().substring(0,10),
-        'endDate': value['endDate'].toISOString().substring(0,10),
+        'startDate': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
+        'endDate': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
         'timezone': value['timezone'],
         'aggregationLevel': value['aggregationLevel'],
         'skipDeletedNm': value['skipDeletedNm'],

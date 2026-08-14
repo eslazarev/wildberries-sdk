@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Заказы DBW
- * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>  <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div> 
+ * <div class=\"api-block\">  С помощью методов Заказы DBW (Доставка курьером WB) вы можете:   - получать информацию о [сборочных заданиях](/openapi/orders-dbw#tag/dbwAssemblyOrders), управлять статусами и отменять сборочные задания   - получать, добавлять, редактировать и удалять [метаданные](/openapi/orders-dbw#tag/dbwLabelIdentifiers) сборочных заданий  </div>   <div class=\"description_ref\">   Узнать, как использовать методы в бизнес-кейсах, можно в <a href=\"/knowledge-base/articles/019d49a4-036a-7721-98e8-bed5f1a4f72d/zakazy-dbw\">инструкции</a> по работе с <strong>заказами DBW</strong> </div>  
  *
  * The version of the OpenAPI document: ordersdbw
  * 
@@ -1196,7 +1196,7 @@ export const PostV3DbwOrdersStickersOperationTypeEnum = {
     Svg: 'svg',
     Zplv: 'zplv',
     Zplh: 'zplh',
-    Png: 'png'
+    Png: 'png',
 } as const;
 export type PostV3DbwOrdersStickersOperationTypeEnum = typeof PostV3DbwOrdersStickersOperationTypeEnum[keyof typeof PostV3DbwOrdersStickersOperationTypeEnum];
 /**
@@ -1204,7 +1204,7 @@ export type PostV3DbwOrdersStickersOperationTypeEnum = typeof PostV3DbwOrdersSti
  */
 export const PostV3DbwOrdersStickersOperationWidthEnum = {
     NUMBER_58: 58,
-    NUMBER_40: 40
+    NUMBER_40: 40,
 } as const;
 export type PostV3DbwOrdersStickersOperationWidthEnum = typeof PostV3DbwOrdersStickersOperationWidthEnum[keyof typeof PostV3DbwOrdersStickersOperationWidthEnum];
 /**
@@ -1212,6 +1212,6 @@ export type PostV3DbwOrdersStickersOperationWidthEnum = typeof PostV3DbwOrdersSt
  */
 export const PostV3DbwOrdersStickersOperationHeightEnum = {
     NUMBER_40: 40,
-    NUMBER_30: 30
+    NUMBER_30: 30,
 } as const;
 export type PostV3DbwOrdersStickersOperationHeightEnum = typeof PostV3DbwOrdersStickersOperationHeightEnum[keyof typeof PostV3DbwOrdersStickersOperationHeightEnum];

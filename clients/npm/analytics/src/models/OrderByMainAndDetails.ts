@@ -55,7 +55,7 @@ export const OrderByMainAndDetailsFieldEnum = {
     CartToOrder: 'cartToOrder',
     Visibility: 'visibility',
     MinPrice: 'minPrice',
-    MaxPrice: 'maxPrice'
+    MaxPrice: 'maxPrice',
 } as const;
 export type OrderByMainAndDetailsFieldEnum = typeof OrderByMainAndDetailsFieldEnum[keyof typeof OrderByMainAndDetailsFieldEnum];
 
@@ -64,7 +64,7 @@ export type OrderByMainAndDetailsFieldEnum = typeof OrderByMainAndDetailsFieldEn
  */
 export const OrderByMainAndDetailsModeEnum = {
     Asc: 'asc',
-    Desc: 'desc'
+    Desc: 'desc',
 } as const;
 export type OrderByMainAndDetailsModeEnum = typeof OrderByMainAndDetailsModeEnum[keyof typeof OrderByMainAndDetailsModeEnum];
 

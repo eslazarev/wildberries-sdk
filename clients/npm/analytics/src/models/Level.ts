@@ -20,7 +20,7 @@
  */
 export const Level = {
     Day: 'day',
-    Week: 'week'
+    Week: 'week',
 } as const;
 export type Level = typeof Level[keyof typeof Level];
 

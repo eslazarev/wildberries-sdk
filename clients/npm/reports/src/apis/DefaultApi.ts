@@ -2021,7 +2021,7 @@ export const GetV1AnalyticsBannedProducsBlockedSortEnum = {
     NmId: 'nmId',
     Title: 'title',
     VendorCode: 'vendorCode',
-    Reason: 'reason'
+    Reason: 'reason',
 } as const;
 export type GetV1AnalyticsBannedProducsBlockedSortEnum = typeof GetV1AnalyticsBannedProducsBlockedSortEnum[keyof typeof GetV1AnalyticsBannedProducsBlockedSortEnum];
 /**
@@ -2029,7 +2029,7 @@ export type GetV1AnalyticsBannedProducsBlockedSortEnum = typeof GetV1AnalyticsBa
  */
 export const GetV1AnalyticsBannedProducsBlockedOrderEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type GetV1AnalyticsBannedProducsBlockedOrderEnum = typeof GetV1AnalyticsBannedProducsBlockedOrderEnum[keyof typeof GetV1AnalyticsBannedProducsBlockedOrderEnum];
 /**
@@ -2040,7 +2040,7 @@ export const GetV1AnalyticsBannedProductsShadowedSortEnum = {
     NmId: 'nmId',
     Title: 'title',
     VendorCode: 'vendorCode',
-    NmRating: 'nmRating'
+    NmRating: 'nmRating',
 } as const;
 export type GetV1AnalyticsBannedProductsShadowedSortEnum = typeof GetV1AnalyticsBannedProductsShadowedSortEnum[keyof typeof GetV1AnalyticsBannedProductsShadowedSortEnum];
 /**
@@ -2048,7 +2048,7 @@ export type GetV1AnalyticsBannedProductsShadowedSortEnum = typeof GetV1Analytics
  */
 export const GetV1AnalyticsBannedProductsShadowedOrderEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type GetV1AnalyticsBannedProductsShadowedOrderEnum = typeof GetV1AnalyticsBannedProductsShadowedOrderEnum[keyof typeof GetV1AnalyticsBannedProductsShadowedOrderEnum];
 /**
@@ -2057,7 +2057,7 @@ export type GetV1AnalyticsBannedProductsShadowedOrderEnum = typeof GetV1Analytic
 export const GetV1DeductionsSortEnum = {
     NmId: 'nmId',
     DtBonus: 'dtBonus',
-    BonusSumm: 'bonusSumm'
+    BonusSumm: 'bonusSumm',
 } as const;
 export type GetV1DeductionsSortEnum = typeof GetV1DeductionsSortEnum[keyof typeof GetV1DeductionsSortEnum];
 /**
@@ -2065,6 +2065,6 @@ export type GetV1DeductionsSortEnum = typeof GetV1DeductionsSortEnum[keyof typeo
  */
 export const GetV1DeductionsOrderEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type GetV1DeductionsOrderEnum = typeof GetV1DeductionsOrderEnum[keyof typeof GetV1DeductionsOrderEnum];

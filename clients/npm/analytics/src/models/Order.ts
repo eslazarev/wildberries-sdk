@@ -103,7 +103,7 @@ export const OrderStatusEnum = {
     Buyout: 'buyout',
     Cancel: 'cancel',
     Return: 'return',
-    ReturnDefective: 'returnDefective'
+    ReturnDefective: 'returnDefective',
 } as const;
 export type OrderStatusEnum = typeof OrderStatusEnum[keyof typeof OrderStatusEnum];
 
@@ -114,7 +114,7 @@ export const OrderCancelTypeEnum = {
     App: 'app',
     Receipt: 'receipt',
     Expire: 'expire',
-    Other: 'other'
+    Other: 'other',
 } as const;
 export type OrderCancelTypeEnum = typeof OrderCancelTypeEnum[keyof typeof OrderCancelTypeEnum];
 
@@ -152,8 +152,8 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'nmId': json['nmId'],
         'chrtId': json['chrtId'],
         'srid': json['srid'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': (json['createdAt'] == null ? json['createdAt'] : new Date(json['createdAt'])),
+        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : new Date(json['updatedAt'])),
         'status': json['status'],
         'cancelType': json['cancelType'] == null ? undefined : json['cancelType'],
         'warehouseName': json['warehouseName'],
@@ -180,8 +180,8 @@ export function OrderToJSONTyped(value?: Order | null, ignoreDiscriminator: bool
         'nmId': value['nmId'],
         'chrtId': value['chrtId'],
         'srid': value['srid'],
-        'createdAt': value['createdAt'].toISOString(),
-        'updatedAt': value['updatedAt'].toISOString(),
+        'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
         'status': value['status'],
         'cancelType': value['cancelType'],
         'warehouseName': value['warehouseName'],

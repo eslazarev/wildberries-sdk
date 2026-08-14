@@ -1,7 +1,7 @@
 /*
- * Заказы Самовывоз
+ * Самовывоз
  *
- * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+ * <div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -30,13 +30,13 @@ pub struct ApiOrder {
     /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях 
     #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
     pub price: Option<i32>,
-    /// Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
+    /// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100. <br> Код валюты продажи указан в поле `currencyCode`. <br> Предоставляется в информационных целях. <br><br> Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода 
     #[serde(rename = "finalPrice", skip_serializing_if = "Option::is_none")]
     pub final_price: Option<i32>,
     /// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
     #[serde(rename = "convertedPrice", skip_serializing_if = "Option::is_none")]
     pub converted_price: Option<i32>,
-    /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. Предоставляется в информационных целях
+    /// Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100. <br> Предоставляется в информационных целях. <br><br>  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода 
     #[serde(rename = "convertedFinalPrice", skip_serializing_if = "Option::is_none")]
     pub converted_final_price: Option<i32>,
     /// Код валюты продажи

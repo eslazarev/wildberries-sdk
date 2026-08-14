@@ -107,7 +107,7 @@ export const TableDetailsRequestPositionClusterEnum = {
     All: 'all',
     FirstHundred: 'firstHundred',
     SecondHundred: 'secondHundred',
-    Below: 'below'
+    Below: 'below',
 } as const;
 export type TableDetailsRequestPositionClusterEnum = typeof TableDetailsRequestPositionClusterEnum[keyof typeof TableDetailsRequestPositionClusterEnum];
 

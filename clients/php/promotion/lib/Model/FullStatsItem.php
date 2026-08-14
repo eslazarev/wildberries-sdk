@@ -497,7 +497,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets booster_stats
      *
-     * @param \Wildberries\Sdk\Promotion\Model\BoosterStatsV3Inner[]|null $booster_stats Статистика по средней позиции товара (для кампаний с единой ставкой)
+     * @param \Wildberries\Sdk\Promotion\Model\BoosterStatsV3Inner[]|null $booster_stats Статистика по бустеру
      *
      * @return self
      */
@@ -659,7 +659,7 @@ class FullStatsItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets days
      *
-     * @param \Wildberries\Sdk\Promotion\Model\DaysV3Inner[] $days Статистка по дням
+     * @param \Wildberries\Sdk\Promotion\Model\DaysV3Inner[] $days Статистика с разбивкой по дням
      *
      * @return self
      */

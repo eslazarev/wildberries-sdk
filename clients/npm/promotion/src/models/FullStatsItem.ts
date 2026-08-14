@@ -43,7 +43,7 @@ export interface FullStatsItem {
      */
     atbs: number;
     /**
-     * Статистика по средней позиции товара (для кампаний с единой ставкой)
+     * Статистика по бустеру
      */
     boosterStats?: Array<BoosterStatsV3Inner>;
     /**
@@ -67,7 +67,7 @@ export interface FullStatsItem {
      */
     ctr: number;
     /**
-     * Статистка по дням
+     * Статистика с разбивкой по дням
      */
     days: Array<DaysV3Inner>;
     /**

@@ -58,10 +58,10 @@ export function TimestampsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'created': (new Date(json['created'])),
-        'updated': (new Date(json['updated'])),
+        'created': (json['created'] == null ? json['created'] : new Date(json['created'])),
+        'updated': (json['updated'] == null ? json['updated'] : new Date(json['updated'])),
         'started': (json['started'] == null ? null : new Date(json['started'])),
-        'deleted': (new Date(json['deleted'])),
+        'deleted': (json['deleted'] == null ? json['deleted'] : new Date(json['deleted'])),
     };
 }
 
@@ -76,10 +76,10 @@ export function TimestampsToJSONTyped(value?: Timestamps | null, ignoreDiscrimin
 
     return {
         
-        'created': value['created'].toISOString(),
-        'updated': value['updated'].toISOString(),
+        'created': value['created'] == null ? value['created'] : value['created'].toISOString(),
+        'updated': value['updated'] == null ? value['updated'] : value['updated'].toISOString(),
         'started': value['started'] == null ? value['started'] : value['started'].toISOString(),
-        'deleted': value['deleted'].toISOString(),
+        'deleted': value['deleted'] == null ? value['deleted'] : value['deleted'].toISOString(),
     };
 }
 

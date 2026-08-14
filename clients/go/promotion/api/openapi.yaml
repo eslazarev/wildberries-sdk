@@ -725,7 +725,7 @@ paths:
                 ResponseInvalidCampaignID:
                   $ref: "#/components/examples/ResponseInvalidCampaignID"
               schema:
-                $ref: "#/components/schemas/responseAdvError1"
+                $ref: "#/components/schemas/ResponseAdvError1"
           description: Неправильный запрос
         "401":
           content:
@@ -3895,9 +3895,9 @@ paths:
             application/json:
               examples:
                 invalidAdvert:
-                  $ref: "#/components/examples/incorrectRequestBody"
+                  $ref: "#/components/examples/IncorrectRequestBody"
               schema:
-                $ref: "#/components/schemas/responseAdvError1"
+                $ref: "#/components/schemas/ResponseAdvError1"
           description: Неправильный запрос
         "401":
           content:
@@ -4677,7 +4677,7 @@ components:
       value: Ошибка обработки тела запроса
     CampaignNotBelongSeller:
       value: кампания не принадлежит продавцу
-    incorrectRequestBody:
+    IncorrectRequestBody:
       value:
         error: Некорректное тело запроса
     RequestWithoutParam:
@@ -6489,7 +6489,7 @@ components:
           format: ISO 4217
           type: string
       type: object
-    responseAdvError1:
+    ResponseAdvError1:
       example:
         error: error
       properties:
@@ -7229,206 +7229,18 @@ components:
       example:
         advertId: 0
         atbs: 6
-        boosterStats:
-        - avg_position: 1
-          date: 2000-01-23
-          nm: 5
-        - avg_position: 1
-          date: 2000-01-23
-          nm: 5
-        canceled: 5
-        clicks: 2
-        cpc: 7.061401241503109
-        cr: 9.301444243932576
-        ctr: 3.616076749251911
-        days:
-        - apps:
-          - appType: 2
-            atbs: 4
-            canceled: 7
-            clicks: 1
-            cpc: 1.0246457001441578
-            cr: 1.4894159098541704
-            ctr: 6.84685269835264
-            nms:
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            orders: 1
-            shks: 2
-            sum: 6.778324963048013
-            sum_price: 6.878052220127876
-            views: 5
-          - appType: 2
-            atbs: 4
-            canceled: 7
-            clicks: 1
-            cpc: 1.0246457001441578
-            cr: 1.4894159098541704
-            ctr: 6.84685269835264
-            nms:
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            orders: 1
-            shks: 2
-            sum: 6.778324963048013
-            sum_price: 6.878052220127876
-            views: 5
-          atbs: 6
-          canceled: 3
-          date: 2000-01-23T04:56:07.000+00:00
-          clicks: 3
-          cpc: 7.143538047012306
-          cr: 0.8851374739011653
-          ctr: 7.058770351582356
-          orders: 6
-          shks: 0
-          sum: 4.652396432933246
-          sum_price: 8.969578798196912
-          views: 7
-        - apps:
-          - appType: 2
-            atbs: 4
-            canceled: 7
-            clicks: 1
-            cpc: 1.0246457001441578
-            cr: 1.4894159098541704
-            ctr: 6.84685269835264
-            nms:
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            orders: 1
-            shks: 2
-            sum: 6.778324963048013
-            sum_price: 6.878052220127876
-            views: 5
-          - appType: 2
-            atbs: 4
-            canceled: 7
-            clicks: 1
-            cpc: 1.0246457001441578
-            cr: 1.4894159098541704
-            ctr: 6.84685269835264
-            nms:
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            - atbs: 7
-              canceled: 1
-              clicks: 4
-              cpc: 5.025004791520295
-              cr: 9.965781217890562
-              ctr: 9.369310271410669
-              name: name
-              nmId: 6
-              orders: 8
-              shks: 9
-              sum: 6.438423552598547
-              sum_price: 3.5571952270680973
-              views: 6
-            orders: 1
-            shks: 2
-            sum: 6.778324963048013
-            sum_price: 6.878052220127876
-            views: 5
-          atbs: 6
-          canceled: 3
-          date: 2000-01-23T04:56:07.000+00:00
-          clicks: 3
-          cpc: 7.143538047012306
-          cr: 0.8851374739011653
-          ctr: 7.058770351582356
-          orders: 6
-          shks: 0
-          sum: 4.652396432933246
-          sum_price: 8.969578798196912
-          views: 7
-        orders: 3
+        boosterStats: ""
+        canceled: 1
+        clicks: 5
+        cpc: 5.637376656633329
+        cr: 2.3021358869347655
+        ctr: 7.061401241503109
+        days: ""
+        orders: 9
         shks: 3
-        sum: 7.04836565559697
-        sum_price: 5.533258397034986
-        views: 3
+        sum: 2.027123023002322
+        sum_price: 4.145608029883936
+        views: 7
         currency: currency
       properties:
         advertId:
@@ -7438,11 +7250,9 @@ components:
           description: Количество добавлений товаров в корзину
           type: integer
         boosterStats:
-          description: Статистика по средней позиции товара (для кампаний с единой
-            ставкой)
-          items:
-            $ref: "#/components/schemas/BoosterStatsV3_inner"
-          type: array
+          allOf:
+          - $ref: "#/components/schemas/BoosterStatsV3"
+          description: Статистика по бустеру
         canceled:
           description: "Отмены, шт."
           type: integer
@@ -7465,10 +7275,9 @@ components:
           format: double
           type: number
         days:
-          description: Статистка по дням
-          items:
-            $ref: "#/components/schemas/DaysV3_inner"
-          type: array
+          allOf:
+          - $ref: "#/components/schemas/DaysV3"
+          description: Статистика с разбивкой по дням
         orders:
           description: Количество заказов
           type: integer
@@ -7528,7 +7337,7 @@ components:
         detail: detail
         origin: origin
         request_id: request_id
-        status: 4
+        status: 1
         title: title
         type: type
       properties:
@@ -8267,7 +8076,7 @@ components:
           type: integer
         cardStatus:
           description: |
-            Статус операции(при оплате картой):
+            Статус операции при оплате картой:
             - `success` — успех
             - `fail` — неуспех
             - `pending` — в ожидании ответа
@@ -9532,20 +9341,6 @@ components:
           type: string
       type: object
     DaysV3_inner_apps_inner_nms_inner:
-      example:
-        atbs: 7
-        canceled: 1
-        clicks: 4
-        cpc: 5.025004791520295
-        cr: 9.965781217890562
-        ctr: 9.369310271410669
-        name: name
-        nmId: 6
-        orders: 8
-        shks: 9
-        sum: 6.438423552598547
-        sum_price: 3.5571952270680973
-        views: 6
       properties:
         atbs:
           description: Количество добавлений товаров в корзину
@@ -9606,46 +9401,6 @@ components:
       - views
       type: object
     DaysV3_inner_apps_inner:
-      example:
-        appType: 2
-        atbs: 4
-        canceled: 7
-        clicks: 1
-        cpc: 1.0246457001441578
-        cr: 1.4894159098541704
-        ctr: 6.84685269835264
-        nms:
-        - atbs: 7
-          canceled: 1
-          clicks: 4
-          cpc: 5.025004791520295
-          cr: 9.965781217890562
-          ctr: 9.369310271410669
-          name: name
-          nmId: 6
-          orders: 8
-          shks: 9
-          sum: 6.438423552598547
-          sum_price: 3.5571952270680973
-          views: 6
-        - atbs: 7
-          canceled: 1
-          clicks: 4
-          cpc: 5.025004791520295
-          cr: 9.965781217890562
-          ctr: 9.369310271410669
-          name: name
-          nmId: 6
-          orders: 8
-          shks: 9
-          sum: 6.438423552598547
-          sum_price: 3.5571952270680973
-          views: 6
-        orders: 1
-        shks: 2
-        sum: 6.778324963048013
-        sum_price: 6.878052220127876
-        views: 5
       properties:
         appType:
           description: |
@@ -9716,98 +9471,6 @@ components:
       - views
       type: object
     DaysV3_inner:
-      example:
-        apps:
-        - appType: 2
-          atbs: 4
-          canceled: 7
-          clicks: 1
-          cpc: 1.0246457001441578
-          cr: 1.4894159098541704
-          ctr: 6.84685269835264
-          nms:
-          - atbs: 7
-            canceled: 1
-            clicks: 4
-            cpc: 5.025004791520295
-            cr: 9.965781217890562
-            ctr: 9.369310271410669
-            name: name
-            nmId: 6
-            orders: 8
-            shks: 9
-            sum: 6.438423552598547
-            sum_price: 3.5571952270680973
-            views: 6
-          - atbs: 7
-            canceled: 1
-            clicks: 4
-            cpc: 5.025004791520295
-            cr: 9.965781217890562
-            ctr: 9.369310271410669
-            name: name
-            nmId: 6
-            orders: 8
-            shks: 9
-            sum: 6.438423552598547
-            sum_price: 3.5571952270680973
-            views: 6
-          orders: 1
-          shks: 2
-          sum: 6.778324963048013
-          sum_price: 6.878052220127876
-          views: 5
-        - appType: 2
-          atbs: 4
-          canceled: 7
-          clicks: 1
-          cpc: 1.0246457001441578
-          cr: 1.4894159098541704
-          ctr: 6.84685269835264
-          nms:
-          - atbs: 7
-            canceled: 1
-            clicks: 4
-            cpc: 5.025004791520295
-            cr: 9.965781217890562
-            ctr: 9.369310271410669
-            name: name
-            nmId: 6
-            orders: 8
-            shks: 9
-            sum: 6.438423552598547
-            sum_price: 3.5571952270680973
-            views: 6
-          - atbs: 7
-            canceled: 1
-            clicks: 4
-            cpc: 5.025004791520295
-            cr: 9.965781217890562
-            ctr: 9.369310271410669
-            name: name
-            nmId: 6
-            orders: 8
-            shks: 9
-            sum: 6.438423552598547
-            sum_price: 3.5571952270680973
-            views: 6
-          orders: 1
-          shks: 2
-          sum: 6.778324963048013
-          sum_price: 6.878052220127876
-          views: 5
-        atbs: 6
-        canceled: 3
-        date: 2000-01-23T04:56:07.000+00:00
-        clicks: 3
-        cpc: 7.143538047012306
-        cr: 0.8851374739011653
-        ctr: 7.058770351582356
-        orders: 6
-        shks: 0
-        sum: 4.652396432933246
-        sum_price: 8.969578798196912
-        views: 7
       properties:
         apps:
           description: Блок информации о платформе
@@ -9871,10 +9534,6 @@ components:
       - views
       type: object
     BoosterStatsV3_inner:
-      example:
-        avg_position: 1
-        date: 2000-01-23
-        nm: 5
       properties:
         avg_position:
           description: Средняя позиция товара

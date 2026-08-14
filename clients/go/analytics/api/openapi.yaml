@@ -6003,9 +6003,9 @@ components:
       - items
       type: object
     TableSizeRequest:
-      $ref: "#/components/schemas/CommonSizeFilters"
-    CommonSizeFilters:
-      description: Общие фильтры по размеру
+      allOf:
+      - $ref: "#/components/schemas/CommonSizeFilters"
+      description: Параметры запроса об остатках по размерам товара
       example:
         nmID: 123456789
         currentPeriod:
@@ -6016,6 +6016,8 @@ components:
           field: avgOrders
           mode: asc
         includeOffice: true
+    CommonSizeFilters:
+      description: Общие фильтры по размеру
       properties:
         nmID:
           description: Артикул WB
@@ -6192,9 +6194,9 @@ components:
       - regionName
       type: object
     TableShippingOfficeRequest:
-      $ref: "#/components/schemas/CommonShippingOfficeFilters"
-    CommonShippingOfficeFilters:
-      description: Общие фильтры по регионам отгрузки
+      allOf:
+      - $ref: "#/components/schemas/CommonShippingOfficeFilters"
+      description: Параметры запроса об остатках по складам
       example:
         nmIDs:
         - 111222333
@@ -6216,6 +6218,8 @@ components:
           end: 2024-02-10
         stockType: mp
         skipDeletedNm: false
+    CommonShippingOfficeFilters:
+      description: Общие фильтры по регионам отгрузки
       properties:
         nmIDs:
           description: Список артикулов WB для фильтрации

@@ -19,8 +19,6 @@ from pydantic import Field, StrictBytes, StrictStr
 from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from uuid import UUID
-from wildberries_sdk.analytics.models.common_shipping_office_filters import CommonShippingOfficeFilters
-from wildberries_sdk.analytics.models.common_size_filters import CommonSizeFilters
 from wildberries_sdk.analytics.models.grouped_history_request import GroupedHistoryRequest
 from wildberries_sdk.analytics.models.inventory_request import InventoryRequest
 from wildberries_sdk.analytics.models.item_history_request import ItemHistoryRequest
@@ -56,6 +54,8 @@ from wildberries_sdk.analytics.models.table_details_request import TableDetailsR
 from wildberries_sdk.analytics.models.table_group_request import TableGroupRequest
 from wildberries_sdk.analytics.models.table_group_request_st import TableGroupRequestSt
 from wildberries_sdk.analytics.models.table_item_request import TableItemRequest
+from wildberries_sdk.analytics.models.table_shipping_office_request import TableShippingOfficeRequest
+from wildberries_sdk.analytics.models.table_size_request import TableSizeRequest
 
 from wildberries_sdk.analytics.api_client import ApiClient, RequestSerialized
 from wildberries_sdk.analytics.api_response import ApiResponse
@@ -3856,7 +3856,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_offices(
         self,
-        body: CommonShippingOfficeFilters,
+        table_shipping_office_request: TableShippingOfficeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3874,8 +3874,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param body: (required)
-        :type body: CommonShippingOfficeFilters
+        :param table_shipping_office_request: (required)
+        :type table_shipping_office_request: TableShippingOfficeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3899,7 +3899,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_offices_serialize(
-            body=body,
+            table_shipping_office_request=table_shipping_office_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3928,7 +3928,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_offices_with_http_info(
         self,
-        body: CommonShippingOfficeFilters,
+        table_shipping_office_request: TableShippingOfficeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3946,8 +3946,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param body: (required)
-        :type body: CommonShippingOfficeFilters
+        :param table_shipping_office_request: (required)
+        :type table_shipping_office_request: TableShippingOfficeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3971,7 +3971,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_offices_serialize(
-            body=body,
+            table_shipping_office_request=table_shipping_office_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4000,7 +4000,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_offices_without_preload_content(
         self,
-        body: CommonShippingOfficeFilters,
+        table_shipping_office_request: TableShippingOfficeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4018,8 +4018,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по складам. <br><br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"offices\":[]`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param body: (required)
-        :type body: CommonShippingOfficeFilters
+        :param table_shipping_office_request: (required)
+        :type table_shipping_office_request: TableShippingOfficeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4043,7 +4043,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_offices_serialize(
-            body=body,
+            table_shipping_office_request=table_shipping_office_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4067,7 +4067,7 @@ class DefaultApi:
 
     def _post_v2_stocks_report_offices_serialize(
         self,
-        body,
+        table_shipping_office_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4096,8 +4096,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if table_shipping_office_request is not None:
+            _body_params = table_shipping_office_request
 
 
         # set the HTTP header `Accept`
@@ -4735,7 +4735,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_products_sizes(
         self,
-        body: CommonSizeFilters,
+        table_size_request: TableSizeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4753,8 +4753,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"officeName\":\"\"`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param body: (required)
-        :type body: CommonSizeFilters
+        :param table_size_request: (required)
+        :type table_size_request: TableSizeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4778,7 +4778,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_products_sizes_serialize(
-            body=body,
+            table_size_request=table_size_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4807,7 +4807,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_products_sizes_with_http_info(
         self,
-        body: CommonSizeFilters,
+        table_size_request: TableSizeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4825,8 +4825,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"officeName\":\"\"`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param body: (required)
-        :type body: CommonSizeFilters
+        :param table_size_request: (required)
+        :type table_size_request: TableSizeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4850,7 +4850,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_products_sizes_serialize(
-            body=body,
+            table_size_request=table_size_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4879,7 +4879,7 @@ class DefaultApi:
     @validate_call
     def post_v2_stocks_report_products_sizes_without_preload_content(
         self,
-        body: CommonSizeFilters,
+        table_size_request: TableSizeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4897,8 +4897,8 @@ class DefaultApi:
 
         Метод формирует набор данных об остатках по размерам товара. <br><br> Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым.<br></br> Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`.<br></br> Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Маркетплейс\"` и `\"officeName\":\"\"`.<br><br>  Данные отчёта обновляются 1 раз в час.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
 
-        :param body: (required)
-        :type body: CommonSizeFilters
+        :param table_size_request: (required)
+        :type table_size_request: TableSizeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4922,7 +4922,7 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._post_v2_stocks_report_products_sizes_serialize(
-            body=body,
+            table_size_request=table_size_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4946,7 +4946,7 @@ class DefaultApi:
 
     def _post_v2_stocks_report_products_sizes_serialize(
         self,
-        body,
+        table_size_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4975,8 +4975,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if table_size_request is not None:
+            _body_params = table_size_request
 
 
         # set the HTTP header `Accept`

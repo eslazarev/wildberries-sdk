@@ -1,7 +1,7 @@
 /*
-Заказы Самовывоз
+Самовывоз
 
-<div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) заказов модели Самовывоз.<br><br>  Вы можете протестировать методы заказов Самовывоз в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
+<div class=\"api-block\">  Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.<br><br>  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Marketplejs-Samovyvoz) для эмуляции действий пользователя  </div> 
 
 API version: instorepickup
 */
@@ -31,13 +31,13 @@ type ApiGetV3ClickCollectOrdersRequest struct {
 	dateTo *int32
 }
 
-// Параметр пагинации. Устанавливает предельное количество возвращаемых данных. 
+// Количество элементов в ответе 
 func (r ApiGetV3ClickCollectOrdersRequest) Limit(limit int32) ApiGetV3ClickCollectOrdersRequest {
 	r.limit = &limit
 	return r
 }
 
-// Параметр пагинации. Устанавливает значение, с которого необходимо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе 
+// Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в первом запросе. Чтобы получить следующий пакет данных, используйте значение &#x60;next&#x60; из ответа 
 func (r ApiGetV3ClickCollectOrdersRequest) Next(next int32) ApiGetV3ClickCollectOrdersRequest {
 	r.next = &next
 	return r
@@ -63,7 +63,7 @@ func (r ApiGetV3ClickCollectOrdersRequest) Execute() (*ApiOrders, *http.Response
 GetV3ClickCollectOrders Получить информацию о завершённых сборочных заданиях
 
 Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
-
+<br><br>
 Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
 <div class="description_limit">
@@ -791,6 +791,183 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ApiError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v GetV3ClickCollectOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3ClickCollectOrdersFinalPriceRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	apiOrdersRequest *ApiOrdersRequest
+}
+
+func (r ApiPostV3ClickCollectOrdersFinalPriceRequest) ApiOrdersRequest(apiOrdersRequest ApiOrdersRequest) ApiPostV3ClickCollectOrdersFinalPriceRequest {
+	r.apiOrdersRequest = &apiOrdersRequest
+	return r
+}
+
+func (r ApiPostV3ClickCollectOrdersFinalPriceRequest) Execute() (*ApiOrdersFinalPriceResponse, *http.Response, error) {
+	return r.ApiService.PostV3ClickCollectOrdersFinalPriceExecute(r)
+}
+
+/*
+PostV3ClickCollectOrdersFinalPrice Получить цены продавца и суммы к оплате
+
+Метод возвращает:
+  - цены продавца без учёта скидок
+  - суммы к оплате покупателем с учетом всех скидок и кэшбека
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов <strong>получения и удаления идентификаторов маркировки Самовывоз</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 150 запросов | 400 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3ClickCollectOrdersFinalPriceRequest
+*/
+func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPrice(ctx context.Context) ApiPostV3ClickCollectOrdersFinalPriceRequest {
+	return ApiPostV3ClickCollectOrdersFinalPriceRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApiOrdersFinalPriceResponse
+func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV3ClickCollectOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiOrdersFinalPriceResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersFinalPrice")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/click-collect/orders/final-price"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiOrdersRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiBatchError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetV3ClickCollectOrdersNew401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ApiBatchError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -53,7 +53,7 @@ export function VisibilityInfoByDayInnerFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'dt': (new Date(json['dt'])),
+        'dt': (json['dt'] == null ? json['dt'] : new Date(json['dt'])),
         'visibility': json['visibility'],
         'open': json['open'],
     };
@@ -70,7 +70,7 @@ export function VisibilityInfoByDayInnerToJSONTyped(value?: VisibilityInfoByDayI
 
     return {
         
-        'dt': value['dt'].toISOString().substring(0,10),
+        'dt': value['dt'] == null ? value['dt'] : value['dt'].toISOString().substring(0,10),
         'visibility': value['visibility'],
         'open': value['open'],
     };

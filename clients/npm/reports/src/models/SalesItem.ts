@@ -144,7 +144,7 @@ export interface SalesItem {
  */
 export const SalesItemWarehouseTypeEnum = {
     Wb: 'Склад WB',
-    Value1: 'Склад продавца'
+    Value1: 'Склад продавца',
 } as const;
 export type SalesItemWarehouseTypeEnum = typeof SalesItemWarehouseTypeEnum[keyof typeof SalesItemWarehouseTypeEnum];
 

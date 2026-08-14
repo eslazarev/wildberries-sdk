@@ -76,7 +76,7 @@ export const AccessInnerCodeEnum = {
     PretrialClaims: 'pretrialClaims',
     SellersChat: 'sellersChat',
     Brandzone: 'brandzone',
-    BrandzoneSubscribe: 'brandzoneSubscribe'
+    BrandzoneSubscribe: 'brandzoneSubscribe',
 } as const;
 export type AccessInnerCodeEnum = typeof AccessInnerCodeEnum[keyof typeof AccessInnerCodeEnum];
 

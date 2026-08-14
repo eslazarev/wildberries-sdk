@@ -110,7 +110,7 @@ export const SearchReportTextReqParamsTopOrderByEnum = {
     AddToCart: 'addToCart',
     OpenToCart: 'openToCart',
     Orders: 'orders',
-    CartToOrder: 'cartToOrder'
+    CartToOrder: 'cartToOrder',
 } as const;
 export type SearchReportTextReqParamsTopOrderByEnum = typeof SearchReportTextReqParamsTopOrderByEnum[keyof typeof SearchReportTextReqParamsTopOrderByEnum];
 

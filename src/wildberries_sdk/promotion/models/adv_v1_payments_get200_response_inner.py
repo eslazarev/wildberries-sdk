@@ -32,7 +32,7 @@ class AdvV1PaymentsGet200ResponseInner(BaseModel):
     sum: Optional[StrictInt] = Field(default=None, description="Сумма платежа")
     type: Optional[StrictInt] = Field(default=None, description="Тип источника списания: - `0` — Счёт - `1` — Баланс - `3` — Картой ")
     status_id: Optional[StrictInt] = Field(default=None, description="Статус: - `0` — ошибка - `1` — обработано ", alias="statusId")
-    card_status: Optional[StrictStr] = Field(default=None, description="Статус операции(при оплате картой): - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно ", alias="cardStatus")
+    card_status: Optional[StrictStr] = Field(default=None, description="Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно ", alias="cardStatus")
     currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
     __properties: ClassVar[List[str]] = ["id", "date", "sum", "type", "statusId", "cardStatus", "currency"]
 

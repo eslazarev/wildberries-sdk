@@ -25,7 +25,7 @@ type FullStatsItem struct {
 	AdvertId int32 `json:"advertId"`
 	// Количество добавлений товаров в корзину
 	Atbs int32 `json:"atbs"`
-	// Статистика по средней позиции товара (для кампаний с единой ставкой)
+	// Статистика по бустеру
 	BoosterStats []BoosterStatsV3Inner `json:"boosterStats,omitempty"`
 	// Отмены, шт.
 	Canceled int32 `json:"canceled"`
@@ -37,7 +37,7 @@ type FullStatsItem struct {
 	Cr float64 `json:"cr"`
 	// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
 	Ctr float64 `json:"ctr"`
-	// Статистка по дням
+	// Статистика с разбивкой по дням
 	Days []DaysV3Inner `json:"days"`
 	// Количество заказов
 	Orders int32 `json:"orders"`

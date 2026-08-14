@@ -492,7 +492,11 @@ class DefaultApi
         if (isset($item_rating_request_v1)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_rating_request_v1));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($item_rating_request_v1), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $item_rating_request_v1;
             }
@@ -513,7 +517,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -871,7 +879,11 @@ class DefaultApi
         if (isset($order_feed_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($order_feed_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($order_feed_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $order_feed_request;
             }
@@ -892,7 +904,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1270,7 +1286,11 @@ class DefaultApi
         if (isset($inventory_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inventory_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($inventory_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $inventory_request;
             }
@@ -1291,7 +1311,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -1655,7 +1679,11 @@ class DefaultApi
         if (isset($item_rating_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_rating_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($item_rating_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $item_rating_request;
             }
@@ -1676,7 +1704,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2054,7 +2086,11 @@ class DefaultApi
         if (isset($item_orders_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_orders_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($item_orders_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $item_orders_request;
             }
@@ -2075,7 +2111,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2453,7 +2493,11 @@ class DefaultApi
         if (isset($item_search_texts_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_search_texts_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($item_search_texts_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $item_search_texts_request;
             }
@@ -2474,7 +2518,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -2852,7 +2900,11 @@ class DefaultApi
         if (isset($main_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($main_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($main_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $main_request;
             }
@@ -2873,7 +2925,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -3251,7 +3307,11 @@ class DefaultApi
         if (isset($table_details_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_details_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($table_details_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $table_details_request;
             }
@@ -3272,7 +3332,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -3650,7 +3714,11 @@ class DefaultApi
         if (isset($table_group_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_group_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($table_group_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $table_group_request;
             }
@@ -3671,7 +3739,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -3741,7 +3813,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonShippingOfficeFilters $body body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableShippingOfficeRequest $table_shipping_office_request table_shipping_office_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportOffices'] to see the possible values for this operation
@@ -3750,9 +3822,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Analytics\Model\PostV2StocksReportOffices200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
-    public function postV2StocksReportOffices($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
+    public function postV2StocksReportOffices($table_shipping_office_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
     {
-        list($response) = $this->postV2StocksReportOfficesWithHttpInfo($body, $hostIndex, $variables, $contentType);
+        list($response) = $this->postV2StocksReportOfficesWithHttpInfo($table_shipping_office_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -3765,7 +3837,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonShippingOfficeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableShippingOfficeRequest $table_shipping_office_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportOffices'] to see the possible values for this operation
@@ -3774,9 +3846,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Analytics\Model\PostV2StocksReportOffices200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV2StocksReportOfficesWithHttpInfo($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
+    public function postV2StocksReportOfficesWithHttpInfo($table_shipping_office_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
     {
-        $request = $this->postV2StocksReportOfficesRequest($body, $hostIndex, $variables, $contentType);
+        $request = $this->postV2StocksReportOfficesRequest($table_shipping_office_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3926,7 +3998,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonShippingOfficeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableShippingOfficeRequest $table_shipping_office_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportOffices'] to see the possible values for this operation
@@ -3934,9 +4006,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV2StocksReportOfficesAsync($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
+    public function postV2StocksReportOfficesAsync($table_shipping_office_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
     {
-        return $this->postV2StocksReportOfficesAsyncWithHttpInfo($body, $hostIndex, $variables, $contentType)
+        return $this->postV2StocksReportOfficesAsyncWithHttpInfo($table_shipping_office_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3953,7 +4025,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonShippingOfficeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableShippingOfficeRequest $table_shipping_office_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportOffices'] to see the possible values for this operation
@@ -3961,10 +4033,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV2StocksReportOfficesAsyncWithHttpInfo($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
+    public function postV2StocksReportOfficesAsyncWithHttpInfo($table_shipping_office_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
     {
         $returnType = '\Wildberries\Sdk\Analytics\Model\PostV2StocksReportOffices200Response';
-        $request = $this->postV2StocksReportOfficesRequest($body, $hostIndex, $variables, $contentType);
+        $request = $this->postV2StocksReportOfficesRequest($table_shipping_office_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4009,7 +4081,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonShippingOfficeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableShippingOfficeRequest $table_shipping_office_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportOffices'] to see the possible values for this operation
@@ -4017,13 +4089,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV2StocksReportOfficesRequest($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
+    public function postV2StocksReportOfficesRequest($table_shipping_office_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportOffices'][0])
     {
 
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'table_shipping_office_request' is set
+        if ($table_shipping_office_request === null || (is_array($table_shipping_office_request) && count($table_shipping_office_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling postV2StocksReportOffices'
+                'Missing the required parameter $table_shipping_office_request when calling postV2StocksReportOffices'
             );
         }
 
@@ -4046,12 +4118,16 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($body)) {
+        if (isset($table_shipping_office_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($table_shipping_office_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
-                $httpBody = $body;
+                $httpBody = $table_shipping_office_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4070,7 +4146,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -4448,7 +4528,11 @@ class DefaultApi
         if (isset($table_group_request_st)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_group_request_st));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($table_group_request_st), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $table_group_request_st;
             }
@@ -4469,7 +4553,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -4847,7 +4935,11 @@ class DefaultApi
         if (isset($table_item_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($table_item_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($table_item_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $table_item_request;
             }
@@ -4868,7 +4960,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -4938,7 +5034,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonSizeFilters $body body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableSizeRequest $table_size_request table_size_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportProductsSizes'] to see the possible values for this operation
@@ -4947,9 +5043,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wildberries\Sdk\Analytics\Model\PostV2StocksReportProductsSizes200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response
      */
-    public function postV2StocksReportProductsSizes($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
+    public function postV2StocksReportProductsSizes($table_size_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
     {
-        list($response) = $this->postV2StocksReportProductsSizesWithHttpInfo($body, $hostIndex, $variables, $contentType);
+        list($response) = $this->postV2StocksReportProductsSizesWithHttpInfo($table_size_request, $hostIndex, $variables, $contentType);
         return $response;
     }
 
@@ -4962,7 +5058,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonSizeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableSizeRequest $table_size_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportProductsSizes'] to see the possible values for this operation
@@ -4971,9 +5067,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wildberries\Sdk\Analytics\Model\PostV2StocksReportProductsSizes200Response|\Wildberries\Sdk\Analytics\Model\ErrorObject400|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts402Response|\Wildberries\Sdk\Analytics\Model\ErrorObject403|\Wildberries\Sdk\Analytics\Model\PostV3SalesFunnelProducts401Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postV2StocksReportProductsSizesWithHttpInfo($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
+    public function postV2StocksReportProductsSizesWithHttpInfo($table_size_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
     {
-        $request = $this->postV2StocksReportProductsSizesRequest($body, $hostIndex, $variables, $contentType);
+        $request = $this->postV2StocksReportProductsSizesRequest($table_size_request, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5123,7 +5219,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonSizeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableSizeRequest $table_size_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportProductsSizes'] to see the possible values for this operation
@@ -5131,9 +5227,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV2StocksReportProductsSizesAsync($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
+    public function postV2StocksReportProductsSizesAsync($table_size_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
     {
-        return $this->postV2StocksReportProductsSizesAsyncWithHttpInfo($body, $hostIndex, $variables, $contentType)
+        return $this->postV2StocksReportProductsSizesAsyncWithHttpInfo($table_size_request, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5150,7 +5246,7 @@ class DefaultApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonSizeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableSizeRequest $table_size_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportProductsSizes'] to see the possible values for this operation
@@ -5158,10 +5254,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postV2StocksReportProductsSizesAsyncWithHttpInfo($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
+    public function postV2StocksReportProductsSizesAsyncWithHttpInfo($table_size_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
     {
         $returnType = '\Wildberries\Sdk\Analytics\Model\PostV2StocksReportProductsSizes200Response';
-        $request = $this->postV2StocksReportProductsSizesRequest($body, $hostIndex, $variables, $contentType);
+        $request = $this->postV2StocksReportProductsSizesRequest($table_size_request, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5206,7 +5302,7 @@ class DefaultApi
     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://seller-analytics-api.wildberries.ru
      *
-     * @param  \Wildberries\Sdk\Analytics\Model\CommonSizeFilters $body (required)
+     * @param  \Wildberries\Sdk\Analytics\Model\TableSizeRequest $table_size_request (required)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV2StocksReportProductsSizes'] to see the possible values for this operation
@@ -5214,13 +5310,13 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postV2StocksReportProductsSizesRequest($body, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
+    public function postV2StocksReportProductsSizesRequest($table_size_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV2StocksReportProductsSizes'][0])
     {
 
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'table_size_request' is set
+        if ($table_size_request === null || (is_array($table_size_request) && count($table_size_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling postV2StocksReportProductsSizes'
+                'Missing the required parameter $table_size_request when calling postV2StocksReportProductsSizes'
             );
         }
 
@@ -5243,12 +5339,16 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($body)) {
+        if (isset($table_size_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($table_size_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
-                $httpBody = $body;
+                $httpBody = $table_size_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5267,7 +5367,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -5645,7 +5749,11 @@ class DefaultApi
         if (isset($grouped_history_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($grouped_history_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($grouped_history_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $grouped_history_request;
             }
@@ -5666,7 +5774,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -6044,7 +6156,11 @@ class DefaultApi
         if (isset($items_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($items_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($items_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $items_request;
             }
@@ -6065,7 +6181,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
@@ -6443,7 +6563,11 @@ class DefaultApi
         if (isset($item_history_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($item_history_request));
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($item_history_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 $httpBody = $item_history_request;
             }
@@ -6464,7 +6588,11 @@ class DefaultApi
 
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);

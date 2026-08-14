@@ -56,7 +56,7 @@ export const TableGroupField = {
     LostOrdersCount: 'lostOrdersCount',
     LostOrdersSum: 'lostOrdersSum',
     LostBuyoutsCount: 'lostBuyoutsCount',
-    LostBuyoutsSum: 'lostBuyoutsSum'
+    LostBuyoutsSum: 'lostBuyoutsSum',
 } as const;
 export type TableGroupField = typeof TableGroupField[keyof typeof TableGroupField];
 

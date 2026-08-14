@@ -36,6 +36,7 @@ type PlanBuilderOption struct {
 	CommissionRate *float32 `json:"commissionRate,omitempty"`
 	// Минимальный срок действия опции в днях
 	PeriodDuration *float32 `json:"periodDuration,omitempty"`
+	// Акция, по которой подключена опция. Не возвращается, если опция подключена без акции или срок действия акции истёк
 	Promotion *PlanBuilderPromotion `json:"promotion,omitempty"`
 }
 
