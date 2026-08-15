@@ -10,10 +10,10 @@ info:
     <div class="api-block">
 
     Методы маркетинга и продвижения позволяют:
-      1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)
-      2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями
-      3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний
-      4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний
+      1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/campaigns) и [медиакампаниях](/openapi/promotion#tag/media)
+      2. [Создавать](/openapi/promotion#tag/creatingCampaigns) и [управлять](/openapi/promotion#tag/campaignManagement) кампаниями
+      3. Управлять [финансами](/openapi/promotion#tag/finances) кампаний
+      4. Выгружать [статистику](/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний
       5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)
 
     Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>
@@ -26,18 +26,25 @@ security:
   - HeaderApiKey: []
 tags:
   - name: Кампании
+    x-displayName: Кампании
     description: ''
   - name: Создание кампаний
+    x-displayName: Создание кампаний
     description: ''
   - name: Управление кампаниями
+    x-displayName: Управление кампаниями
     description: ''
   - name: Поисковые кластеры
+    x-displayName: Поисковые кластеры
     description: ''
   - name: Финансы
+    x-displayName: Финансы
     description: ''
   - name: Медиа
+    x-displayName: Медиа
     description: ''
   - name: Статистика
+    x-displayName: Статистика
     description: ''
   - name: Календарь акций
     x-displayName: Календарь акций
@@ -52,13 +59,14 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1PromotionCount
       x-readonly-method: true
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Списки кампаний
       description: |
-        Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
+        Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -92,7 +100,7 @@ paths:
                           description: |
                             Тип кампании:
                               - `8` — кампания с единой ставкой (**устаревший тип**)
-                              - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get), поле `bid_type`
+                              - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type`
                           type: integer
                         status:
                           description: Статус кампании
@@ -137,6 +145,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     get:
+      operationId: getV2Adverts
       x-readonly-method: true
       x-category: advert
       security:
@@ -275,6 +284,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     post:
+      operationId: postV1BidsMin
       x-readonly-method: true
       x-category: advert
       tags:
@@ -436,6 +446,7 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV2SeacatSaveAd
       x-readonly-method: false
       x-category: advert
       security:
@@ -473,7 +484,7 @@ paths:
                 nms:
                   type: array
                   description: |
-                    Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/Sozdanie-kampanij/paths/~1adv~1v2~1supplier~1nms/post). Максимум 50 товаров (`nm`)
+                    Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (`nm`)
                   items:
                     type: integer
                     description: Артикул WB (`nmId`)
@@ -550,13 +561,14 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1SupplierSubjects
       x-readonly-method: true
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Предметы для кампаний
       description: |
-        Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get).
+        Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -626,13 +638,14 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV2SupplierNms
       x-readonly-method: true
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Карточки товаров для кампаний
       description: |
-        Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/Sozdanie-kampanij/paths/~1adv~1v1~1supplier~1subjects/get), также доступных для добавления в кампанию.
+        Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -704,13 +717,14 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV0Delete
       x-readonly-method: false
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Удаление кампании
       description: |
-        Метод удаляет [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `4` — готова к запуску.<br><br>
+        Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>
 
         После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
 
@@ -759,13 +773,14 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV0Rename
       x-readonly-method: false
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Переименование кампании
       description: |
-        Метод меняет название [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Это можно сделать в любой момент существования кампании.
+        Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -838,14 +853,15 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV0Start
       x-readonly-method: false
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Запуск кампании
       description: |
-        Метод запускает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах `4` — готово к запуску — или `11` — пауза.
-        Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).
+        Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
+        Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -906,13 +922,14 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV0Pause
       x-readonly-method: false
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Пауза кампании
       description: |
-        Метод ставит [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `9` — активна — на паузу.
+        Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -971,13 +988,14 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV0Stop
       x-readonly-method: false
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Завершение кампании
       description: |
-        Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:
+        Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:
           - `9` — активна
           - `11` — пауза
 
@@ -1033,6 +1051,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     put:
+      operationId: putV0AuctionPlacements
       x-readonly-method: false
       x-category: advert
       security:
@@ -1136,6 +1155,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     patch:
+      operationId: patchV1Bids
       x-readonly-method: false
       x-category: advert
       security:
@@ -1311,6 +1331,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1Balance
       x-readonly-method: true
       x-category: advert
       security:
@@ -1322,7 +1343,7 @@ paths:
           - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.
           - бонусных начислениях WB.
 
-        Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get).
+        Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/finances/operation/getV1Budget).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1405,13 +1426,14 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1Budget
       x-readonly-method: true
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Бюджет кампании
       description: |
-        Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).
+        Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1482,14 +1504,15 @@ paths:
         description: |
           **Sandbox**
     post:
+      operationId: postV1BudgetDeposit
       x-readonly-method: false
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Пополнение бюджета кампании
       description: |
-        Метод пополняет [бюджет](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get) кампании. <br>
-        Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/Upravlenie-kampaniyami/paths/~1adv~1v0~1start/get).
+        Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/getV1Budget) кампании. <br>
+        Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1527,10 +1550,10 @@ paths:
                   description: |
                     Сумма пополнения бюджета промо-бонусами.
                     <br>
-                    Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get).
+                    Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).
                     <br>
                     Оставшаяся часть общей суммы спишется с указанного источника пополнения.
-                    Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get).
+                    Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).
                     <br>
                     Оставшаяся часть общей суммы спишется с указанного источника пополнения.
                     <br>
@@ -1541,7 +1564,7 @@ paths:
                   example: 1000
                 cashback_percent:
                   description: |
-                    Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get)
+                    Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)
                     <br>
                     Если вы указали `cashback_sum`, параметр `cashback_percent` становится обязательным
                   example: 50
@@ -1597,6 +1620,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1Upd
       x-readonly-method: true
       x-category: advert
       security:
@@ -1724,6 +1748,7 @@ paths:
         description: |
           **Sandbox**
     get:
+      operationId: getV1Payments
       x-readonly-method: true
       x-category: advert
       security:
@@ -1841,6 +1866,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     patch:
+      operationId: patchV0AuctionNms
       x-readonly-method: false
       x-category: advert
       security:
@@ -1980,6 +2006,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     get:
+      operationId: getV0BidsRecommendations
       x-readonly-method: true
       x-category: advert
       tags:
@@ -1987,7 +2014,7 @@ paths:
       summary: Рекомендуемые ставки для карточек товаров и поисковых кластеров
       description: |
         Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании.
-        Только для кампаний с типом оплаты `cpm` — за показы.
+        Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.
 
          <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2023,26 +2050,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/V0BidsRecommendationsResponse'
-              example:
-                advertId: 987654321
-                base:
-                  competitiveBid:
-                    bidKopecks: 39500
-                  leadersBid:
-                    bidKopecks: 66900
-                  top2:
-                    bidKopecks: 0
-                nmId: 123456789
-                normQueries:
-                  - normQuery: футболка
-                    reachMax:
-                      bidKopecks: 50500
-                      bidKopecksMin: 49500
-                    reachMedium:
-                      bidKopecks: 32000
-                    reachMin:
-                      bidKopecks: 32000
+                oneOf:
+                  - $ref: '#/components/schemas/V0BidsRecommendationsCpmResponse'
+                  - $ref: '#/components/schemas/V0BidsRecommendationsCpcResponse'
+              examples:
+                V0BidsRecommendationsCpmResponse:
+                  $ref: '#/components/examples/V0BidsRecommendationsCpmResponse'
+                V0BidsRecommendationsCpcResponse:
+                  $ref: '#/components/examples/V0BidsRecommendationsCpcResponse'
         '400':
           description: Неправильный запрос
           content:
@@ -2062,6 +2077,7 @@ paths:
           $ref: '#/components/responses/429'
   /adv/v0/normquery/stats:
     post:
+      operationId: postV0NormqueryStats
       x-readonly-method: true
       servers:
         - url: https://advert-api.wildberries.ru
@@ -2337,6 +2353,7 @@ paths:
           $ref: '#/components/responses/429'
   /adv/v0/normquery/get-bids:
     post:
+      operationId: postV0NormqueryGetBids
       x-readonly-method: true
       x-category: advert
       servers:
@@ -2429,7 +2446,7 @@ paths:
         - Управление кампаниями
       summary: Конфигурационные значения продвижения
       description: |
-        Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)
+        Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
 
 
         <div class="description_token">
@@ -2526,6 +2543,7 @@ paths:
           $ref: '#/components/responses/429'
   /adv/v0/normquery/bids:
     post:
+      operationId: postV0NormqueryBids
       x-readonly-method: false
       x-category: advert
       servers:
@@ -2585,6 +2603,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
     delete:
+      operationId: deleteV0NormqueryBids
       x-readonly-method: false
       x-category: advert
       servers:
@@ -2597,8 +2616,6 @@ paths:
         Можно использовать только для кампаний с:
           - ручной ставкой
           - моделью оплаты `cpm` — за показы
-
-
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
@@ -2644,6 +2661,7 @@ paths:
           $ref: '#/components/responses/429'
   /adv/v0/normquery/get-minus:
     post:
+      operationId: postV0NormqueryGetMinus
       x-readonly-method: true
       x-category: advert
       servers:
@@ -2711,6 +2729,7 @@ paths:
           $ref: '#/components/responses/429'
   /adv/v0/normquery/set-minus:
     post:
+      operationId: postV0NormquerySetMinus
       x-readonly-method: false
       x-category: advert
       servers:
@@ -2772,13 +2791,14 @@ paths:
     servers:
       - url: https://advert-media-api.wildberries.ru
     get:
+      operationId: getV1Count
       x-readonly-method: true
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Количество медиакампаний
       description: |
-        Метод возвращает количество [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца с группировкой по статусам.
+        Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2846,13 +2866,14 @@ paths:
     servers:
       - url: https://advert-media-api.wildberries.ru
     get:
+      operationId: getV1Adverts
       x-readonly-method: true
       x-category: advert
       security:
         - HeaderApiKey: []
       summary: Список медиакампаний
       description: |
-        Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца по их типам и статусам.
+        Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2997,6 +3018,7 @@ paths:
     servers:
       - url: https://advert-media-api.wildberries.ru
     get:
+      operationId: getV1Advert
       x-readonly-method: true
       x-category: advert
       security:
@@ -3291,6 +3313,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     get:
+      operationId: getV3Fullstats
       x-readonly-method: true
       x-category: advert
       security:
@@ -3716,6 +3739,7 @@ paths:
     servers:
       - url: https://advert-media-api.wildberries.ru
     post:
+      operationId: postV1Stats
       x-readonly-method: true
       x-category: advert
       security:
@@ -3800,6 +3824,7 @@ paths:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
     get:
+      operationId: getV1CalendarPromotions
       x-readonly-method: true
       x-category: discountsandprices
       tags:
@@ -3808,7 +3833,7 @@ paths:
         - HeaderApiKey: []
       summary: Список акций
       description: |
-        Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
+        Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -3842,6 +3867,7 @@ paths:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
     get:
+      operationId: getV1CalendarPromotionsDetails
       x-readonly-method: true
       x-category: discountsandprices
       tags:
@@ -3850,7 +3876,7 @@ paths:
         - HeaderApiKey: []
       summary: Детальная информация об акциях
       description: |
-        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
+        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -3880,6 +3906,7 @@ paths:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
     get:
+      operationId: getV1CalendarPromotionsNomenclatures
       x-readonly-method: true
       x-category: discountsandprices
       tags:
@@ -3888,7 +3915,7 @@ paths:
         - HeaderApiKey: []
       summary: Список товаров для участия в акции
       description: |
-        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1upload/post).
+        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).
 
         <div class="description_important">
           Данный метод неприменим для автоакций.
@@ -3924,6 +3951,7 @@ paths:
     servers:
       - url: https://dp-calendar-api.wildberries.ru
     post:
+      operationId: postV1CalendarPromotionsUpload
       x-readonly-method: false
       x-category: discountsandprices
       tags:
@@ -3932,7 +3960,7 @@ paths:
         - HeaderApiKey: []
       summary: Добавить товар в акцию
       description: |
-        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
+        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br>
         Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).
 
         <div class="description_important">
@@ -3969,6 +3997,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     post:
+      operationId: postV0NormqueryList
       x-readonly-method: true
       x-category: advert
       tags:
@@ -4044,6 +4073,7 @@ paths:
     servers:
       - url: https://advert-api.wildberries.ru
     post:
+      operationId: postV1NormqueryStats
       x-readonly-method: true
       x-category: advert
       tags:
@@ -4166,7 +4196,7 @@ components:
           type: integer
           description: |
             Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
-            Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config)
+            Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
     V1SetNormQueryBidsRequest:
       type: object
       required:
@@ -4262,7 +4292,7 @@ components:
           description: |
             Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
              Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
-    V0BidsRecommendationsResponse:
+    V0BidsRecommendationsCpmResponse:
       type: object
       properties:
         advertId:
@@ -4280,6 +4310,61 @@ components:
           description: Рекомендуемые ставки для поисковых кластеров
           items:
             $ref: '#/components/schemas/V0BidRecommendationNormQuery'
+        paymentType:
+          type: string
+          enum:
+            - cpm
+          description: |
+            Тип оплаты:
+              - `cpm` — за показы
+    V0BidsRecommendationsCpcResponse:
+      type: object
+      properties:
+        advertId:
+          type: integer
+          format: int64
+          description: ID кампании
+        levels:
+          type: array
+          description: Рекомендуемые ставки для карточек товаров
+          items:
+            $ref: '#/components/schemas/V0BidRecommendationCPCLevels'
+        nmId:
+          type: integer
+          format: int64
+          description: Артикул WB
+        paymentType:
+          type: string
+          enum:
+            - cpc
+          description: |
+            Тип оплаты:
+              - `cpc` — за клики
+    V0BidRecommendationCPCLevels:
+      type: object
+      required:
+        - range1To2
+        - range3To10
+        - range11To34
+      properties:
+        range1To2:
+          allOf:
+            - $ref: '#/components/schemas/V0BidRecommendationBaseBid'
+          description: Ставка для попадания в позиции 1-2
+        range3To10:
+          allOf:
+            - $ref: '#/components/schemas/V0BidRecommendationBaseBid'
+          description: Ставка для попадания в позиции 3-10
+        range11To34:
+          allOf:
+            - $ref: '#/components/schemas/V0BidRecommendationBaseBid'
+          description: Ставка для попадания в позиции 11-34
+    V0BidRecommendationBaseBid:
+      type: object
+      properties:
+        bidKopecks:
+          type: integer
+          description: Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
     V0BidRecommendationBase:
       type: object
       description: Рекомендуемые ставки для карточек товаров
@@ -6298,6 +6383,39 @@ components:
   examples:
     InvalidRcIdAdv:
       value: Некорректный ID РК
+    V0BidsRecommendationsCpmResponse:
+      value:
+        advertId: 987654321
+        base:
+          competitiveBid:
+            bidKopecks: 39500
+          leadersBid:
+            bidKopecks: 66900
+          top2:
+            bidKopecks: 0
+        nmId: 123456789
+        normQueries:
+          - normQuery: футболка
+            reachMax:
+              bidKopecks: 50500
+              bidKopecksMin: 49500
+            reachMedium:
+              bidKopecks: 32000
+            reachMin:
+              bidKopecks: 32000
+        paymentType: cpm
+    V0BidsRecommendationsCpcResponse:
+      value:
+        advertId: 12345678
+        levels:
+          - range11To34:
+              bidKopecks: 628
+            range1To2:
+              bidKopecks: 2138
+            range3To10:
+              bidKopecks: 830
+        nmId: 123456789
+        paymentType: cpc
     IncorrectTypeAdv:
       value: Некорректное значение параметра type
     IncorrectUsingMethods:
