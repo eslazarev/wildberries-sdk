@@ -248,45 +248,45 @@ print(feedbacks)
 - `orders_fbw.DefaultApi.post_v1_supplies` — `POST /api/v1/supplies` — Список поставок
 
 ### promotion (`promotion`)
-- `promotion.DefaultApi.adv_v0_auction_nms_patch` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
-- `promotion.DefaultApi.adv_v0_auction_placements_put` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
-- `promotion.DefaultApi.adv_v0_delete_get` — `GET /adv/v0/delete` — Удаление кампании
-- `promotion.DefaultApi.adv_v0_normquery_bids_delete` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
-- `promotion.DefaultApi.adv_v0_normquery_bids_post` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров
-- `promotion.DefaultApi.adv_v0_normquery_get_bids_post` — `POST /adv/v0/normquery/get-bids` — Список ставок поисковых кластеров
-- `promotion.DefaultApi.adv_v0_normquery_get_minus_post` — `POST /adv/v0/normquery/get-minus` — Список минус-фраз кампаний
-- `promotion.DefaultApi.adv_v0_normquery_list_post` — `POST /adv/v0/normquery/list` — Списки активных и неактивных поисковых кластеров
-- `promotion.DefaultApi.adv_v0_normquery_set_minus_post` — `POST /adv/v0/normquery/set-minus` — Установка и удаление минус-фраз
-- `promotion.DefaultApi.adv_v0_normquery_stats_post` — `POST /adv/v0/normquery/stats` — Статистика поисковых кластеров
-- `promotion.DefaultApi.adv_v0_pause_get` — `GET /adv/v0/pause` — Пауза кампании
-- `promotion.DefaultApi.adv_v0_rename_post` — `POST /adv/v0/rename` — Переименование кампании
-- `promotion.DefaultApi.adv_v0_start_get` — `GET /adv/v0/start` — Запуск кампании
-- `promotion.DefaultApi.adv_v0_stop_get` — `GET /adv/v0/stop` — Завершение кампании
-- `promotion.DefaultApi.adv_v1_advert_get` — `GET /adv/v1/advert` — Информация о медиакампании
-- `promotion.DefaultApi.adv_v1_adverts_get` — `GET /adv/v1/adverts` — Список медиакампаний
-- `promotion.DefaultApi.adv_v1_balance_get` — `GET /adv/v1/balance` — Баланс
-- `promotion.DefaultApi.adv_v1_budget_deposit_post` — `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
-- `promotion.DefaultApi.adv_v1_budget_get` — `GET /adv/v1/budget` — Бюджет кампании
-- `promotion.DefaultApi.adv_v1_count_get` — `GET /adv/v1/count` — Количество медиакампаний
-- `promotion.DefaultApi.adv_v1_normquery_stats_post` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
-- `promotion.DefaultApi.adv_v1_payments_get` — `GET /adv/v1/payments` — Получение истории пополнений счёта
-- `promotion.DefaultApi.adv_v1_promotion_count_get` — `GET /adv/v1/promotion/count` — Списки кампаний
-- `promotion.DefaultApi.adv_v1_stats_post` — `POST /adv/v1/stats` — Статистика медиакампаний
-- `promotion.DefaultApi.adv_v1_supplier_subjects_get` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
-- `promotion.DefaultApi.adv_v1_upd_get` — `GET /adv/v1/upd` — Получение истории затрат
-- `promotion.DefaultApi.adv_v2_seacat_save_ad_post` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
-- `promotion.DefaultApi.adv_v2_supplier_nms_post` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
-- `promotion.DefaultApi.adv_v3_fullstats_get` — `GET /adv/v3/fullstats` — Статистика кампаний
-- `promotion.DefaultApi.api_advert_v0_bids_recommendations_get` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
-- `promotion.DefaultApi.api_advert_v1_bids_min_post` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
-- `promotion.DefaultApi.api_advert_v1_bids_patch` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
-- `promotion.DefaultApi.api_advert_v2_adverts_get` — `GET /api/advert/v2/adverts` — Информация о кампаниях
-- `promotion.DefaultApi.api_v1_calendar_promotions_details_get` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
-- `promotion.DefaultApi.api_v1_calendar_promotions_get` — `GET /api/v1/calendar/promotions` — Список акций
-- `promotion.DefaultApi.api_v1_calendar_promotions_nomenclatures_get` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
-- `promotion.DefaultApi.api_v1_calendar_promotions_upload_post` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
+- `promotion.DefaultApi.delete_v0_normquery_bids` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
+- `promotion.DefaultApi.get_v0_bids_recommendations` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
+- `promotion.DefaultApi.get_v0_delete` — `GET /adv/v0/delete` — Удаление кампании
+- `promotion.DefaultApi.get_v0_pause` — `GET /adv/v0/pause` — Пауза кампании
+- `promotion.DefaultApi.get_v0_start` — `GET /adv/v0/start` — Запуск кампании
+- `promotion.DefaultApi.get_v0_stop` — `GET /adv/v0/stop` — Завершение кампании
+- `promotion.DefaultApi.get_v1_advert` — `GET /adv/v1/advert` — Информация о медиакампании
+- `promotion.DefaultApi.get_v1_adverts` — `GET /adv/v1/adverts` — Список медиакампаний
+- `promotion.DefaultApi.get_v1_balance` — `GET /adv/v1/balance` — Баланс
+- `promotion.DefaultApi.get_v1_budget` — `GET /adv/v1/budget` — Бюджет кампании
+- `promotion.DefaultApi.get_v1_calendar_promotions` — `GET /api/v1/calendar/promotions` — Список акций
+- `promotion.DefaultApi.get_v1_calendar_promotions_details` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
+- `promotion.DefaultApi.get_v1_calendar_promotions_nomenclatures` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
 - `promotion.DefaultApi.get_v1_config` — `GET /api/advert/v1/config` — Конфигурационные значения продвижения
+- `promotion.DefaultApi.get_v1_count` — `GET /adv/v1/count` — Количество медиакампаний
+- `promotion.DefaultApi.get_v1_payments` — `GET /adv/v1/payments` — Получение истории пополнений счёта
+- `promotion.DefaultApi.get_v1_promotion_count` — `GET /adv/v1/promotion/count` — Списки кампаний
+- `promotion.DefaultApi.get_v1_supplier_subjects` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
+- `promotion.DefaultApi.get_v1_upd` — `GET /adv/v1/upd` — Получение истории затрат
+- `promotion.DefaultApi.get_v2_adverts` — `GET /api/advert/v2/adverts` — Информация о кампаниях
+- `promotion.DefaultApi.get_v3_fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
+- `promotion.DefaultApi.patch_v0_auction_nms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
+- `promotion.DefaultApi.patch_v1_bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
+- `promotion.DefaultApi.post_v0_normquery_bids` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров
+- `promotion.DefaultApi.post_v0_normquery_get_bids` — `POST /adv/v0/normquery/get-bids` — Список ставок поисковых кластеров
+- `promotion.DefaultApi.post_v0_normquery_get_minus` — `POST /adv/v0/normquery/get-minus` — Список минус-фраз кампаний
+- `promotion.DefaultApi.post_v0_normquery_list` — `POST /adv/v0/normquery/list` — Списки активных и неактивных поисковых кластеров
+- `promotion.DefaultApi.post_v0_normquery_set_minus` — `POST /adv/v0/normquery/set-minus` — Установка и удаление минус-фраз
+- `promotion.DefaultApi.post_v0_normquery_stats` — `POST /adv/v0/normquery/stats` — Статистика поисковых кластеров
+- `promotion.DefaultApi.post_v0_rename` — `POST /adv/v0/rename` — Переименование кампании
+- `promotion.DefaultApi.post_v1_bids_min` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
+- `promotion.DefaultApi.post_v1_budget_deposit` — `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
+- `promotion.DefaultApi.post_v1_calendar_promotions_upload` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
 - `promotion.DefaultApi.post_v1_normquery_bids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
+- `promotion.DefaultApi.post_v1_normquery_stats` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
+- `promotion.DefaultApi.post_v1_stats` — `POST /adv/v1/stats` — Статистика медиакампаний
+- `promotion.DefaultApi.post_v2_seacat_save_ad` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
+- `promotion.DefaultApi.post_v2_supplier_nms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
+- `promotion.DefaultApi.put_v0_auction_placements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
 
 ### communications (`communications`)
 - `communications.DefaultApi.delete_feedbacks_v1_pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
@@ -325,7 +325,6 @@ print(feedbacks)
 ### analytics (`analytics`)
 - `analytics.DefaultApi.get_v2_nm_report_downloads` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
 - `analytics.DefaultApi.get_v2_nm_report_downloads_file_download_id` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
-- `analytics.DefaultApi.post_v1_item_rating` — `POST /api/analytics/v1/item-rating` — (Deprecated) Получить отчёт
 - `analytics.DefaultApi.post_v1_order_feed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
 - `analytics.DefaultApi.post_v1_stocks_report_wb_warehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApi.post_v2_item_rating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
@@ -350,7 +349,6 @@ print(feedbacks)
 - `reports.DefaultApi.get_v1_acceptance_report_tasks_task_id_status` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApi.get_v1_analytics_antifraud_details` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
 - `reports.DefaultApi.get_v1_analytics_banned_producs_blocked` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
-- `reports.DefaultApi.get_v1_analytics_banned_products_shadowed` — `GET /api/v1/analytics/banned-products/shadowed` — (Deprecated) Скрытые из каталога
 - `reports.DefaultApi.get_v1_analytics_brand_share` — `GET /api/v1/analytics/brand-share` — Получить отчёт
 - `reports.DefaultApi.get_v1_analytics_brand_share_brands` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApi.get_v1_analytics_brand_share_parent_subjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда

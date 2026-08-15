@@ -14681,6 +14681,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "PostV1RecommendationsList403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -14751,6 +14752,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "PostV1RecommendationsList403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -14821,6 +14823,7 @@ class DefaultApi:
             '200': "GetRecomRes",
             '400': "Response400GetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "PostV1RecommendationsList403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -14969,6 +14972,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "PostV1RecommendationsList403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -15040,6 +15044,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "PostV1RecommendationsList403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -15111,6 +15116,7 @@ class DefaultApi:
             '208': "Response208SetRecom",
             '400': "Response400SetRecom",
             '401': "ContentV2ObjectParentAllGet401Response",
+            '403': "PostV1RecommendationsList403Response",
             '429': "ContentV2ObjectParentAllGet401Response",
         }
         response_data = self.api_client.call_api(

@@ -12,8 +12,6 @@ export * from './GetV1AnalyticsAntifraudDetails200ResponseDetailsInner';
 export * from './GetV1AnalyticsBannedProducsBlocked200Response';
 export * from './GetV1AnalyticsBannedProducsBlocked200ResponseReportInner';
 export * from './GetV1AnalyticsBannedProducsBlocked400Response';
-export * from './GetV1AnalyticsBannedProductsShadowed200Response';
-export * from './GetV1AnalyticsBannedProductsShadowed200ResponseReportInner';
 export * from './GetV1AnalyticsBrandShare200Response';
 export * from './GetV1AnalyticsBrandShare200ResponseReportInner';
 export * from './GetV1AnalyticsBrandShareBrands200Response';

@@ -16,7 +16,7 @@ pub struct SetRecomReqRecListInner {
     /// Артикул WB
     #[serde(rename = "nmId", skip_serializing_if = "Option::is_none")]
     pub nm_id: Option<i32>,
-    /// Рекомендуемые товары
+    /// Рекомендуемые товары. <br> Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`. <br> При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены. 
     #[serde(rename = "recommendations", skip_serializing_if = "Option::is_none")]
     pub recommendations: Option<Vec<models::SetRecomReqRecListInnerRecommendationsInner>>,
 }

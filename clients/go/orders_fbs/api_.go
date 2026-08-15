@@ -34,6 +34,11 @@ func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest) Execute() (*GetMarketp
 /*
 GetMarketplaceV3FbsSettingsAutoreturns Получить настройки автовозврата продавца
 
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
+</div>
+
 Метод возвращает информацию о настройках автовозврата, установленных продавцом.
 
 <div class="description_limit">
@@ -192,6 +197,11 @@ func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest)
 
 /*
 GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предметы, которые не хранятся на складах WB
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
+</div>
 
 Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
 
@@ -369,6 +379,11 @@ func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest) Execute() (*http.Res
 /*
 PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки автовозврата продавца
 
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
+</div>
+
 Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
 
 <div class="description_limit">
@@ -521,6 +536,11 @@ func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) Execute() (*Pat
 
 /*
 PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройки автовозврата товаров
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
+</div>
 
 Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
 
@@ -685,6 +705,11 @@ func (r ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) Execute() (*Post
 
 /*
 PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки автовозврата товаров
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену
+</div>
 
 Метод возвращает настройки автовозврата товаров.
 

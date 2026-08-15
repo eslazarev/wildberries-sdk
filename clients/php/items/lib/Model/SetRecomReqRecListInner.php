@@ -344,7 +344,7 @@ class SetRecomReqRecListInner implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets recommendations
      *
-     * @param \Wildberries\Sdk\Items\Model\SetRecomReqRecListInnerRecommendationsInner[]|null $recommendations Рекомендуемые товары
+     * @param \Wildberries\Sdk\Items\Model\SetRecomReqRecListInnerRecommendationsInner[]|null $recommendations Рекомендуемые товары. <br> Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`. <br> При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены.
      *
      * @return self
      */

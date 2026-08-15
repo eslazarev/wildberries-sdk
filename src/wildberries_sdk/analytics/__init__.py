@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.141"
+__version__ = "0.1.142"
 
 # Define package exports
 __all__ = [
@@ -42,14 +42,13 @@ __all__ = [
     "Conversions",
     "DatePeriod",
     "DistributionTableItem",
-    "DistributionTableItemV1",
-    "DistributionTableItemV1FeedbackCount",
-    "DistributionTableItemV1FeedbackRating",
-    "DistributionTableItemV1FiveStar",
-    "DistributionTableItemV1FourStar",
-    "DistributionTableItemV1OneStar",
-    "DistributionTableItemV1ThreeStar",
-    "DistributionTableItemV1TwoStar",
+    "DistributionTableItemFeedbackCount",
+    "DistributionTableItemFeedbackRating",
+    "DistributionTableItemFiveStar",
+    "DistributionTableItemFourStar",
+    "DistributionTableItemOneStar",
+    "DistributionTableItemThreeStar",
+    "DistributionTableItemTwoStar",
     "ErrorObject",
     "ErrorObject400",
     "ErrorObject403",
@@ -80,9 +79,7 @@ __all__ = [
     "ItemOrdersResponse",
     "ItemOrdersTextItem",
     "ItemRatingRequest",
-    "ItemRatingRequestV1",
     "ItemRatingResponse",
-    "ItemRatingResponseV1",
     "ItemSearchTextsRequest",
     "ItemSearchTextsResponse",
     "ItemStocks",
@@ -121,7 +118,6 @@ __all__ = [
     "PositionInfo",
     "PositionInfoAverage",
     "PositionInfoMedian",
-    "PostV1ItemRating200Response",
     "PostV1OrderFeed200Response",
     "PostV1StocksReportWbWarehouses200Response",
     "PostV2ItemRating200Response",
@@ -256,14 +252,13 @@ from wildberries_sdk.analytics.models.comparison_wb_club_dynamic import Comparis
 from wildberries_sdk.analytics.models.conversions import Conversions as Conversions
 from wildberries_sdk.analytics.models.date_period import DatePeriod as DatePeriod
 from wildberries_sdk.analytics.models.distribution_table_item import DistributionTableItem as DistributionTableItem
-from wildberries_sdk.analytics.models.distribution_table_item_v1 import DistributionTableItemV1 as DistributionTableItemV1
-from wildberries_sdk.analytics.models.distribution_table_item_v1_feedback_count import DistributionTableItemV1FeedbackCount as DistributionTableItemV1FeedbackCount
-from wildberries_sdk.analytics.models.distribution_table_item_v1_feedback_rating import DistributionTableItemV1FeedbackRating as DistributionTableItemV1FeedbackRating
-from wildberries_sdk.analytics.models.distribution_table_item_v1_five_star import DistributionTableItemV1FiveStar as DistributionTableItemV1FiveStar
-from wildberries_sdk.analytics.models.distribution_table_item_v1_four_star import DistributionTableItemV1FourStar as DistributionTableItemV1FourStar
-from wildberries_sdk.analytics.models.distribution_table_item_v1_one_star import DistributionTableItemV1OneStar as DistributionTableItemV1OneStar
-from wildberries_sdk.analytics.models.distribution_table_item_v1_three_star import DistributionTableItemV1ThreeStar as DistributionTableItemV1ThreeStar
-from wildberries_sdk.analytics.models.distribution_table_item_v1_two_star import DistributionTableItemV1TwoStar as DistributionTableItemV1TwoStar
+from wildberries_sdk.analytics.models.distribution_table_item_feedback_count import DistributionTableItemFeedbackCount as DistributionTableItemFeedbackCount
+from wildberries_sdk.analytics.models.distribution_table_item_feedback_rating import DistributionTableItemFeedbackRating as DistributionTableItemFeedbackRating
+from wildberries_sdk.analytics.models.distribution_table_item_five_star import DistributionTableItemFiveStar as DistributionTableItemFiveStar
+from wildberries_sdk.analytics.models.distribution_table_item_four_star import DistributionTableItemFourStar as DistributionTableItemFourStar
+from wildberries_sdk.analytics.models.distribution_table_item_one_star import DistributionTableItemOneStar as DistributionTableItemOneStar
+from wildberries_sdk.analytics.models.distribution_table_item_three_star import DistributionTableItemThreeStar as DistributionTableItemThreeStar
+from wildberries_sdk.analytics.models.distribution_table_item_two_star import DistributionTableItemTwoStar as DistributionTableItemTwoStar
 from wildberries_sdk.analytics.models.error_object import ErrorObject as ErrorObject
 from wildberries_sdk.analytics.models.error_object400 import ErrorObject400 as ErrorObject400
 from wildberries_sdk.analytics.models.error_object403 import ErrorObject403 as ErrorObject403
@@ -294,9 +289,7 @@ from wildberries_sdk.analytics.models.item_orders_request import ItemOrdersReque
 from wildberries_sdk.analytics.models.item_orders_response import ItemOrdersResponse as ItemOrdersResponse
 from wildberries_sdk.analytics.models.item_orders_text_item import ItemOrdersTextItem as ItemOrdersTextItem
 from wildberries_sdk.analytics.models.item_rating_request import ItemRatingRequest as ItemRatingRequest
-from wildberries_sdk.analytics.models.item_rating_request_v1 import ItemRatingRequestV1 as ItemRatingRequestV1
 from wildberries_sdk.analytics.models.item_rating_response import ItemRatingResponse as ItemRatingResponse
-from wildberries_sdk.analytics.models.item_rating_response_v1 import ItemRatingResponseV1 as ItemRatingResponseV1
 from wildberries_sdk.analytics.models.item_search_texts_request import ItemSearchTextsRequest as ItemSearchTextsRequest
 from wildberries_sdk.analytics.models.item_search_texts_response import ItemSearchTextsResponse as ItemSearchTextsResponse
 from wildberries_sdk.analytics.models.item_stocks import ItemStocks as ItemStocks
@@ -335,7 +328,6 @@ from wildberries_sdk.analytics.models.position_cluster import PositionCluster as
 from wildberries_sdk.analytics.models.position_info import PositionInfo as PositionInfo
 from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage as PositionInfoAverage
 from wildberries_sdk.analytics.models.position_info_median import PositionInfoMedian as PositionInfoMedian
-from wildberries_sdk.analytics.models.post_v1_item_rating200_response import PostV1ItemRating200Response as PostV1ItemRating200Response
 from wildberries_sdk.analytics.models.post_v1_order_feed200_response import PostV1OrderFeed200Response as PostV1OrderFeed200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response as PostV1StocksReportWbWarehouses200Response
 from wildberries_sdk.analytics.models.post_v2_item_rating200_response import PostV2ItemRating200Response as PostV2ItemRating200Response

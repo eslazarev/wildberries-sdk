@@ -116,6 +116,7 @@ export * from './ModelsErrorSubcategory';
 export * from './ModelsErrorTableListPublicRespV2';
 export * from './ModelsErrorTableListPublicRespV2Item';
 export * from './Office';
+export * from './PostV1RecommendationsList403Response';
 export * from './PostV1UploadTaskB2bWholesale200Response';
 export * from './PostV1UploadTaskB2bWholesale200ResponseResultsInner';
 export * from './PostV1UploadTaskB2bWholesale200ResponseResultsInnerError';

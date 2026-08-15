@@ -59,11 +59,6 @@ import {
     ItemRatingRequestToJSON,
 } from '../models/ItemRatingRequest';
 import {
-    type ItemRatingRequestV1,
-    ItemRatingRequestV1FromJSON,
-    ItemRatingRequestV1ToJSON,
-} from '../models/ItemRatingRequestV1';
-import {
     type ItemSearchTextsRequest,
     ItemSearchTextsRequestFromJSON,
     ItemSearchTextsRequestToJSON,
@@ -83,11 +78,6 @@ import {
     OrderFeedRequestFromJSON,
     OrderFeedRequestToJSON,
 } from '../models/OrderFeedRequest';
-import {
-    type PostV1ItemRating200Response,
-    PostV1ItemRating200ResponseFromJSON,
-    PostV1ItemRating200ResponseToJSON,
-} from '../models/PostV1ItemRating200Response';
 import {
     type PostV1OrderFeed200Response,
     PostV1OrderFeed200ResponseFromJSON,
@@ -204,13 +194,6 @@ import {
     TableSizeRequestToJSON,
 } from '../models/TableSizeRequest';
 
-export interface PostV1ItemRatingRequest {
-    /**
-     * 
-     */
-    itemRatingRequestV1: ItemRatingRequestV1;
-}
-
 export interface PostV1OrderFeedRequest {
     /**
      * 
@@ -320,62 +303,6 @@ export interface PostV3SalesFunnelProductsHistoryRequest {
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
-
-    /**
-     * Creates request options for postV1ItemRating without sending the request
-     * @deprecated
-     */
-    async postV1ItemRatingRequestOpts(requestParameters: PostV1ItemRatingRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['itemRatingRequestV1'] == null) {
-            throw new runtime.RequiredError(
-                'itemRatingRequestV1',
-                'Required parameter "itemRatingRequestV1" was null or undefined when calling postV1ItemRating().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/analytics/v1/item-rating`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ItemRatingRequestV1ToJSON(requestParameters['itemRatingRequestV1']),
-        };
-    }
-
-    /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
-     * Получить отчёт
-     * @deprecated
-     */
-    async postV1ItemRatingRaw(requestParameters: PostV1ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1ItemRating200Response>> {
-        const requestOptions = await this.postV1ItemRatingRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostV1ItemRating200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     *  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
-     * Получить отчёт
-     * @deprecated
-     */
-    async postV1ItemRating(requestParameters: PostV1ItemRatingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1ItemRating200Response> {
-        const response = await this.postV1ItemRatingRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
 
     /**
      * Creates request options for postV1OrderFeed without sending the request

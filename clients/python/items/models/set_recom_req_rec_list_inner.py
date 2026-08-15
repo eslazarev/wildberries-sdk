@@ -30,7 +30,7 @@ class SetRecomReqRecListInner(BaseModel):
     SetRecomReqRecListInner
     """ # noqa: E501
     nm_id: Optional[StrictInt] = Field(default=0, description="Артикул WB", alias="nmId", json_schema_extra={"examples": [5870243]})
-    recommendations: Optional[Annotated[List[SetRecomReqRecListInnerRecommendationsInner], Field(min_length=0, max_length=20)]] = Field(default=None, description="Рекомендуемые товары")
+    recommendations: Optional[Annotated[List[SetRecomReqRecListInnerRecommendationsInner], Field(min_length=0, max_length=20)]] = Field(default=None, description="Рекомендуемые товары. <br> Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`. <br> При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены. ")
     __properties: ClassVar[List[str]] = ["nmId", "recommendations"]
 
     model_config = ConfigDict(

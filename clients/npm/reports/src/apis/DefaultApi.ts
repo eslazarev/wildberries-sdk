@@ -44,11 +44,6 @@ import {
     GetV1AnalyticsBannedProducsBlocked400ResponseToJSON,
 } from '../models/GetV1AnalyticsBannedProducsBlocked400Response';
 import {
-    type GetV1AnalyticsBannedProductsShadowed200Response,
-    GetV1AnalyticsBannedProductsShadowed200ResponseFromJSON,
-    GetV1AnalyticsBannedProductsShadowed200ResponseToJSON,
-} from '../models/GetV1AnalyticsBannedProductsShadowed200Response';
-import {
     type GetV1AnalyticsBrandShare200Response,
     GetV1AnalyticsBrandShare200ResponseFromJSON,
     GetV1AnalyticsBrandShare200ResponseToJSON,
@@ -201,26 +196,6 @@ export interface GetV1AnalyticsBannedProducsBlockedRequest {
      * 
      */
     order: GetV1AnalyticsBannedProducsBlockedOrderEnum;
-}
-
-export interface GetV1AnalyticsBannedProductsShadowedRequest {
-    /**
-     * Сортировка
-     * - `brand` — по бренду
-     * - `nmId` — по артикулу WB
-     * - `title` — по наименованию товара
-     * - `vendorCode` — по артикулу продавца
-     * - `nmRating` — по рейтингу товара
-     * 
-     */
-    sort: GetV1AnalyticsBannedProductsShadowedSortEnum;
-    /**
-     * Порядок выдачи
-     * - `desc` — от наибольшего числового значения к наименьшему, от последнего по алфавиту значения к первому
-     * - `asc` — от наименьшего числового значения к наибольшему, от первого по алфавиту значения к последнему
-     * 
-     */
-    order: GetV1AnalyticsBannedProductsShadowedOrderEnum;
 }
 
 export interface GetV1AnalyticsBrandShareRequest {
@@ -830,74 +805,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async getV1AnalyticsBannedProducsBlocked(requestParameters: GetV1AnalyticsBannedProducsBlockedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBannedProducsBlocked200Response> {
         const response = await this.getV1AnalyticsBannedProducsBlockedRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for getV1AnalyticsBannedProductsShadowed without sending the request
-     * @deprecated
-     */
-    async getV1AnalyticsBannedProductsShadowedRequestOpts(requestParameters: GetV1AnalyticsBannedProductsShadowedRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['sort'] == null) {
-            throw new runtime.RequiredError(
-                'sort',
-                'Required parameter "sort" was null or undefined when calling getV1AnalyticsBannedProductsShadowed().'
-            );
-        }
-
-        if (requestParameters['order'] == null) {
-            throw new runtime.RequiredError(
-                'order',
-                'Required parameter "order" was null or undefined when calling getV1AnalyticsBannedProductsShadowed().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['sort'] != null) {
-            queryParameters['sort'] = requestParameters['sort'];
-        }
-
-        if (requestParameters['order'] != null) {
-            queryParameters['order'] = requestParameters['order'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/analytics/banned-products/shadowed`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Сервисный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый с секретом | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Скрытые из каталога
-     * @deprecated
-     */
-    async getV1AnalyticsBannedProductsShadowedRaw(requestParameters: GetV1AnalyticsBannedProductsShadowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsBannedProductsShadowed200Response>> {
-        const requestOptions = await this.getV1AnalyticsBannedProductsShadowedRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1AnalyticsBannedProductsShadowed200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Сервисный | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый с секретом | 24 ч | 1 запрос | 24 ч | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Скрытые из каталога
-     * @deprecated
-     */
-    async getV1AnalyticsBannedProductsShadowed(requestParameters: GetV1AnalyticsBannedProductsShadowedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBannedProductsShadowed200Response> {
-        const response = await this.getV1AnalyticsBannedProductsShadowedRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2032,25 +1939,6 @@ export const GetV1AnalyticsBannedProducsBlockedOrderEnum = {
     Asc: 'asc',
 } as const;
 export type GetV1AnalyticsBannedProducsBlockedOrderEnum = typeof GetV1AnalyticsBannedProducsBlockedOrderEnum[keyof typeof GetV1AnalyticsBannedProducsBlockedOrderEnum];
-/**
- * @export
- */
-export const GetV1AnalyticsBannedProductsShadowedSortEnum = {
-    Brand: 'brand',
-    NmId: 'nmId',
-    Title: 'title',
-    VendorCode: 'vendorCode',
-    NmRating: 'nmRating',
-} as const;
-export type GetV1AnalyticsBannedProductsShadowedSortEnum = typeof GetV1AnalyticsBannedProductsShadowedSortEnum[keyof typeof GetV1AnalyticsBannedProductsShadowedSortEnum];
-/**
- * @export
- */
-export const GetV1AnalyticsBannedProductsShadowedOrderEnum = {
-    Desc: 'desc',
-    Asc: 'asc',
-} as const;
-export type GetV1AnalyticsBannedProductsShadowedOrderEnum = typeof GetV1AnalyticsBannedProductsShadowedOrderEnum[keyof typeof GetV1AnalyticsBannedProductsShadowedOrderEnum];
 /**
  * @export
  */

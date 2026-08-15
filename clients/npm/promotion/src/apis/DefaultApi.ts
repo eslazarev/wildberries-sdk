@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Маркетинг и продвижение
- * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
+ * <div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/campaigns) и [медиакампаниях](/openapi/promotion#tag/media)   2. [Создавать](/openapi/promotion#tag/creatingCampaigns) и [управлять](/openapi/promotion#tag/campaignManagement) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/finances) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
  *
  * The version of the OpenAPI document: promotion
  * 
@@ -13,176 +13,6 @@
  */
 
 import * as runtime from '../runtime';
-import {
-    type AdvV0AuctionNmsPatch200Response,
-    AdvV0AuctionNmsPatch200ResponseFromJSON,
-    AdvV0AuctionNmsPatch200ResponseToJSON,
-} from '../models/AdvV0AuctionNmsPatch200Response';
-import {
-    type AdvV0AuctionNmsPatchRequest,
-    AdvV0AuctionNmsPatchRequestFromJSON,
-    AdvV0AuctionNmsPatchRequestToJSON,
-} from '../models/AdvV0AuctionNmsPatchRequest';
-import {
-    type AdvV0AuctionPlacementsPutRequest,
-    AdvV0AuctionPlacementsPutRequestFromJSON,
-    AdvV0AuctionPlacementsPutRequestToJSON,
-} from '../models/AdvV0AuctionPlacementsPutRequest';
-import {
-    type AdvV0RenamePostRequest,
-    AdvV0RenamePostRequestFromJSON,
-    AdvV0RenamePostRequestToJSON,
-} from '../models/AdvV0RenamePostRequest';
-import {
-    type AdvV1AdvertGet200Response,
-    AdvV1AdvertGet200ResponseFromJSON,
-    AdvV1AdvertGet200ResponseToJSON,
-} from '../models/AdvV1AdvertGet200Response';
-import {
-    type AdvV1AdvertsGet200ResponseInner,
-    AdvV1AdvertsGet200ResponseInnerFromJSON,
-    AdvV1AdvertsGet200ResponseInnerToJSON,
-} from '../models/AdvV1AdvertsGet200ResponseInner';
-import {
-    type AdvV1BalanceGet200Response,
-    AdvV1BalanceGet200ResponseFromJSON,
-    AdvV1BalanceGet200ResponseToJSON,
-} from '../models/AdvV1BalanceGet200Response';
-import {
-    type AdvV1BudgetDepositPost400Response,
-    AdvV1BudgetDepositPost400ResponseFromJSON,
-    AdvV1BudgetDepositPost400ResponseToJSON,
-} from '../models/AdvV1BudgetDepositPost400Response';
-import {
-    type AdvV1BudgetDepositPostRequest,
-    AdvV1BudgetDepositPostRequestFromJSON,
-    AdvV1BudgetDepositPostRequestToJSON,
-} from '../models/AdvV1BudgetDepositPostRequest';
-import {
-    type AdvV1BudgetGet200Response,
-    AdvV1BudgetGet200ResponseFromJSON,
-    AdvV1BudgetGet200ResponseToJSON,
-} from '../models/AdvV1BudgetGet200Response';
-import {
-    type AdvV1CountGet200Response,
-    AdvV1CountGet200ResponseFromJSON,
-    AdvV1CountGet200ResponseToJSON,
-} from '../models/AdvV1CountGet200Response';
-import {
-    type AdvV1PaymentsGet200ResponseInner,
-    AdvV1PaymentsGet200ResponseInnerFromJSON,
-    AdvV1PaymentsGet200ResponseInnerToJSON,
-} from '../models/AdvV1PaymentsGet200ResponseInner';
-import {
-    type AdvV1PromotionCountGet200Response,
-    AdvV1PromotionCountGet200ResponseFromJSON,
-    AdvV1PromotionCountGet200ResponseToJSON,
-} from '../models/AdvV1PromotionCountGet200Response';
-import {
-    type AdvV1PromotionCountGet401Response,
-    AdvV1PromotionCountGet401ResponseFromJSON,
-    AdvV1PromotionCountGet401ResponseToJSON,
-} from '../models/AdvV1PromotionCountGet401Response';
-import {
-    type AdvV1StatsPost200ResponseInner,
-    AdvV1StatsPost200ResponseInnerFromJSON,
-    AdvV1StatsPost200ResponseInnerToJSON,
-} from '../models/AdvV1StatsPost200ResponseInner';
-import {
-    type AdvV1StatsPostRequestInner,
-    AdvV1StatsPostRequestInnerFromJSON,
-    AdvV1StatsPostRequestInnerToJSON,
-} from '../models/AdvV1StatsPostRequestInner';
-import {
-    type AdvV1SupplierSubjectsGet200ResponseInner,
-    AdvV1SupplierSubjectsGet200ResponseInnerFromJSON,
-    AdvV1SupplierSubjectsGet200ResponseInnerToJSON,
-} from '../models/AdvV1SupplierSubjectsGet200ResponseInner';
-import {
-    type AdvV1UpdGet200ResponseInner,
-    AdvV1UpdGet200ResponseInnerFromJSON,
-    AdvV1UpdGet200ResponseInnerToJSON,
-} from '../models/AdvV1UpdGet200ResponseInner';
-import {
-    type AdvV2SeacatSaveAdPostRequest,
-    AdvV2SeacatSaveAdPostRequestFromJSON,
-    AdvV2SeacatSaveAdPostRequestToJSON,
-} from '../models/AdvV2SeacatSaveAdPostRequest';
-import {
-    type AdvV2SupplierNmsPost200ResponseInner,
-    AdvV2SupplierNmsPost200ResponseInnerFromJSON,
-    AdvV2SupplierNmsPost200ResponseInnerToJSON,
-} from '../models/AdvV2SupplierNmsPost200ResponseInner';
-import {
-    type ApiAdvertV1BidsMinPost200Response,
-    ApiAdvertV1BidsMinPost200ResponseFromJSON,
-    ApiAdvertV1BidsMinPost200ResponseToJSON,
-} from '../models/ApiAdvertV1BidsMinPost200Response';
-import {
-    type ApiAdvertV1BidsMinPostRequest,
-    ApiAdvertV1BidsMinPostRequestFromJSON,
-    ApiAdvertV1BidsMinPostRequestToJSON,
-} from '../models/ApiAdvertV1BidsMinPostRequest';
-import {
-    type ApiAdvertV1BidsPatch200Response,
-    ApiAdvertV1BidsPatch200ResponseFromJSON,
-    ApiAdvertV1BidsPatch200ResponseToJSON,
-} from '../models/ApiAdvertV1BidsPatch200Response';
-import {
-    type ApiAdvertV1BidsPatchRequest,
-    ApiAdvertV1BidsPatchRequestFromJSON,
-    ApiAdvertV1BidsPatchRequestToJSON,
-} from '../models/ApiAdvertV1BidsPatchRequest';
-import {
-    type ApiV1CalendarPromotionsDetailsGet200Response,
-    ApiV1CalendarPromotionsDetailsGet200ResponseFromJSON,
-    ApiV1CalendarPromotionsDetailsGet200ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsDetailsGet200Response';
-import {
-    type ApiV1CalendarPromotionsGet200Response,
-    ApiV1CalendarPromotionsGet200ResponseFromJSON,
-    ApiV1CalendarPromotionsGet200ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsGet200Response';
-import {
-    type ApiV1CalendarPromotionsGet400Response,
-    ApiV1CalendarPromotionsGet400ResponseFromJSON,
-    ApiV1CalendarPromotionsGet400ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsGet400Response';
-import {
-    type ApiV1CalendarPromotionsGet402Response,
-    ApiV1CalendarPromotionsGet402ResponseFromJSON,
-    ApiV1CalendarPromotionsGet402ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsGet402Response';
-import {
-    type ApiV1CalendarPromotionsNomenclaturesGet200Response,
-    ApiV1CalendarPromotionsNomenclaturesGet200ResponseFromJSON,
-    ApiV1CalendarPromotionsNomenclaturesGet200ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsNomenclaturesGet200Response';
-import {
-    type ApiV1CalendarPromotionsNomenclaturesGet400Response,
-    ApiV1CalendarPromotionsNomenclaturesGet400ResponseFromJSON,
-    ApiV1CalendarPromotionsNomenclaturesGet400ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsNomenclaturesGet400Response';
-import {
-    type ApiV1CalendarPromotionsNomenclaturesGet422Response,
-    ApiV1CalendarPromotionsNomenclaturesGet422ResponseFromJSON,
-    ApiV1CalendarPromotionsNomenclaturesGet422ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsNomenclaturesGet422Response';
-import {
-    type ApiV1CalendarPromotionsUploadPost200Response,
-    ApiV1CalendarPromotionsUploadPost200ResponseFromJSON,
-    ApiV1CalendarPromotionsUploadPost200ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsUploadPost200Response';
-import {
-    type ApiV1CalendarPromotionsUploadPost422Response,
-    ApiV1CalendarPromotionsUploadPost422ResponseFromJSON,
-    ApiV1CalendarPromotionsUploadPost422ResponseToJSON,
-} from '../models/ApiV1CalendarPromotionsUploadPost422Response';
-import {
-    type ApiV1CalendarPromotionsUploadPostRequest,
-    ApiV1CalendarPromotionsUploadPostRequestFromJSON,
-    ApiV1CalendarPromotionsUploadPostRequestToJSON,
-} from '../models/ApiV1CalendarPromotionsUploadPostRequest';
 import {
     type FullStatsError,
     FullStatsErrorFromJSON,
@@ -199,10 +29,185 @@ import {
     GetAdvertsToJSON,
 } from '../models/GetAdverts';
 import {
+    type GetV0BidsRecommendations200Response,
+    GetV0BidsRecommendations200ResponseFromJSON,
+    GetV0BidsRecommendations200ResponseToJSON,
+} from '../models/GetV0BidsRecommendations200Response';
+import {
+    type GetV1Advert200Response,
+    GetV1Advert200ResponseFromJSON,
+    GetV1Advert200ResponseToJSON,
+} from '../models/GetV1Advert200Response';
+import {
+    type GetV1Adverts200ResponseInner,
+    GetV1Adverts200ResponseInnerFromJSON,
+    GetV1Adverts200ResponseInnerToJSON,
+} from '../models/GetV1Adverts200ResponseInner';
+import {
+    type GetV1Balance200Response,
+    GetV1Balance200ResponseFromJSON,
+    GetV1Balance200ResponseToJSON,
+} from '../models/GetV1Balance200Response';
+import {
+    type GetV1Budget200Response,
+    GetV1Budget200ResponseFromJSON,
+    GetV1Budget200ResponseToJSON,
+} from '../models/GetV1Budget200Response';
+import {
+    type GetV1CalendarPromotions200Response,
+    GetV1CalendarPromotions200ResponseFromJSON,
+    GetV1CalendarPromotions200ResponseToJSON,
+} from '../models/GetV1CalendarPromotions200Response';
+import {
+    type GetV1CalendarPromotions400Response,
+    GetV1CalendarPromotions400ResponseFromJSON,
+    GetV1CalendarPromotions400ResponseToJSON,
+} from '../models/GetV1CalendarPromotions400Response';
+import {
+    type GetV1CalendarPromotions402Response,
+    GetV1CalendarPromotions402ResponseFromJSON,
+    GetV1CalendarPromotions402ResponseToJSON,
+} from '../models/GetV1CalendarPromotions402Response';
+import {
+    type GetV1CalendarPromotionsDetails200Response,
+    GetV1CalendarPromotionsDetails200ResponseFromJSON,
+    GetV1CalendarPromotionsDetails200ResponseToJSON,
+} from '../models/GetV1CalendarPromotionsDetails200Response';
+import {
+    type GetV1CalendarPromotionsNomenclatures200Response,
+    GetV1CalendarPromotionsNomenclatures200ResponseFromJSON,
+    GetV1CalendarPromotionsNomenclatures200ResponseToJSON,
+} from '../models/GetV1CalendarPromotionsNomenclatures200Response';
+import {
+    type GetV1CalendarPromotionsNomenclatures400Response,
+    GetV1CalendarPromotionsNomenclatures400ResponseFromJSON,
+    GetV1CalendarPromotionsNomenclatures400ResponseToJSON,
+} from '../models/GetV1CalendarPromotionsNomenclatures400Response';
+import {
+    type GetV1CalendarPromotionsNomenclatures422Response,
+    GetV1CalendarPromotionsNomenclatures422ResponseFromJSON,
+    GetV1CalendarPromotionsNomenclatures422ResponseToJSON,
+} from '../models/GetV1CalendarPromotionsNomenclatures422Response';
+import {
+    type GetV1Count200Response,
+    GetV1Count200ResponseFromJSON,
+    GetV1Count200ResponseToJSON,
+} from '../models/GetV1Count200Response';
+import {
+    type GetV1Payments200ResponseInner,
+    GetV1Payments200ResponseInnerFromJSON,
+    GetV1Payments200ResponseInnerToJSON,
+} from '../models/GetV1Payments200ResponseInner';
+import {
+    type GetV1PromotionCount200Response,
+    GetV1PromotionCount200ResponseFromJSON,
+    GetV1PromotionCount200ResponseToJSON,
+} from '../models/GetV1PromotionCount200Response';
+import {
+    type GetV1PromotionCount401Response,
+    GetV1PromotionCount401ResponseFromJSON,
+    GetV1PromotionCount401ResponseToJSON,
+} from '../models/GetV1PromotionCount401Response';
+import {
+    type GetV1SupplierSubjects200ResponseInner,
+    GetV1SupplierSubjects200ResponseInnerFromJSON,
+    GetV1SupplierSubjects200ResponseInnerToJSON,
+} from '../models/GetV1SupplierSubjects200ResponseInner';
+import {
+    type GetV1Upd200ResponseInner,
+    GetV1Upd200ResponseInnerFromJSON,
+    GetV1Upd200ResponseInnerToJSON,
+} from '../models/GetV1Upd200ResponseInner';
+import {
     type Model400Response,
     Model400ResponseFromJSON,
     Model400ResponseToJSON,
 } from '../models/Model400Response';
+import {
+    type PatchV0AuctionNms200Response,
+    PatchV0AuctionNms200ResponseFromJSON,
+    PatchV0AuctionNms200ResponseToJSON,
+} from '../models/PatchV0AuctionNms200Response';
+import {
+    type PatchV0AuctionNmsRequest,
+    PatchV0AuctionNmsRequestFromJSON,
+    PatchV0AuctionNmsRequestToJSON,
+} from '../models/PatchV0AuctionNmsRequest';
+import {
+    type PatchV1Bids200Response,
+    PatchV1Bids200ResponseFromJSON,
+    PatchV1Bids200ResponseToJSON,
+} from '../models/PatchV1Bids200Response';
+import {
+    type PatchV1BidsRequest,
+    PatchV1BidsRequestFromJSON,
+    PatchV1BidsRequestToJSON,
+} from '../models/PatchV1BidsRequest';
+import {
+    type PostV0RenameRequest,
+    PostV0RenameRequestFromJSON,
+    PostV0RenameRequestToJSON,
+} from '../models/PostV0RenameRequest';
+import {
+    type PostV1BidsMin200Response,
+    PostV1BidsMin200ResponseFromJSON,
+    PostV1BidsMin200ResponseToJSON,
+} from '../models/PostV1BidsMin200Response';
+import {
+    type PostV1BidsMinRequest,
+    PostV1BidsMinRequestFromJSON,
+    PostV1BidsMinRequestToJSON,
+} from '../models/PostV1BidsMinRequest';
+import {
+    type PostV1BudgetDeposit400Response,
+    PostV1BudgetDeposit400ResponseFromJSON,
+    PostV1BudgetDeposit400ResponseToJSON,
+} from '../models/PostV1BudgetDeposit400Response';
+import {
+    type PostV1BudgetDepositRequest,
+    PostV1BudgetDepositRequestFromJSON,
+    PostV1BudgetDepositRequestToJSON,
+} from '../models/PostV1BudgetDepositRequest';
+import {
+    type PostV1CalendarPromotionsUpload200Response,
+    PostV1CalendarPromotionsUpload200ResponseFromJSON,
+    PostV1CalendarPromotionsUpload200ResponseToJSON,
+} from '../models/PostV1CalendarPromotionsUpload200Response';
+import {
+    type PostV1CalendarPromotionsUpload422Response,
+    PostV1CalendarPromotionsUpload422ResponseFromJSON,
+    PostV1CalendarPromotionsUpload422ResponseToJSON,
+} from '../models/PostV1CalendarPromotionsUpload422Response';
+import {
+    type PostV1CalendarPromotionsUploadRequest,
+    PostV1CalendarPromotionsUploadRequestFromJSON,
+    PostV1CalendarPromotionsUploadRequestToJSON,
+} from '../models/PostV1CalendarPromotionsUploadRequest';
+import {
+    type PostV1Stats200ResponseInner,
+    PostV1Stats200ResponseInnerFromJSON,
+    PostV1Stats200ResponseInnerToJSON,
+} from '../models/PostV1Stats200ResponseInner';
+import {
+    type PostV1StatsRequestInner,
+    PostV1StatsRequestInnerFromJSON,
+    PostV1StatsRequestInnerToJSON,
+} from '../models/PostV1StatsRequestInner';
+import {
+    type PostV2SeacatSaveAdRequest,
+    PostV2SeacatSaveAdRequestFromJSON,
+    PostV2SeacatSaveAdRequestToJSON,
+} from '../models/PostV2SeacatSaveAdRequest';
+import {
+    type PostV2SupplierNms200ResponseInner,
+    PostV2SupplierNms200ResponseInnerFromJSON,
+    PostV2SupplierNms200ResponseInnerToJSON,
+} from '../models/PostV2SupplierNms200ResponseInner';
+import {
+    type PutV0AuctionPlacementsRequest,
+    PutV0AuctionPlacementsRequestFromJSON,
+    PutV0AuctionPlacementsRequestToJSON,
+} from '../models/PutV0AuctionPlacementsRequest';
 import {
     type Response400,
     Response400FromJSON,
@@ -223,11 +228,6 @@ import {
     StandardizedBatchErrorFromJSON,
     StandardizedBatchErrorToJSON,
 } from '../models/StandardizedBatchError';
-import {
-    type V0BidsRecommendationsResponse,
-    V0BidsRecommendationsResponseFromJSON,
-    V0BidsRecommendationsResponseToJSON,
-} from '../models/V0BidsRecommendationsResponse';
 import {
     type V0DeleteNormQueryBidsRequest,
     V0DeleteNormQueryBidsRequestFromJSON,
@@ -309,112 +309,60 @@ import {
     V2GetConfigResponseToJSON,
 } from '../models/V2GetConfigResponse';
 
-export interface AdvV0AuctionNmsPatchOperationRequest {
-    /**
-     * 
-     */
-    advV0AuctionNmsPatchRequest: AdvV0AuctionNmsPatchRequest;
-}
-
-export interface AdvV0AuctionPlacementsPutOperationRequest {
-    /**
-     * 
-     */
-    advV0AuctionPlacementsPutRequest: AdvV0AuctionPlacementsPutRequest;
-}
-
-export interface AdvV0DeleteGetRequest {
-    /**
-     * ID кампании
-     */
-    id: number;
-}
-
-export interface AdvV0NormqueryBidsDeleteRequest {
+export interface DeleteV0NormqueryBidsRequest {
     /**
      * 
      */
     v0DeleteNormQueryBidsRequest: V0DeleteNormQueryBidsRequest;
 }
 
-export interface AdvV0NormqueryBidsPostRequest {
+export interface GetV0BidsRecommendationsRequest {
     /**
-     * 
+     * Артикул WB
      */
-    v0SetNormQueryBidsRequest: V0SetNormQueryBidsRequest;
+    nmId: number;
+    /**
+     * ID кампании
+     */
+    advertId: number;
 }
 
-export interface AdvV0NormqueryGetBidsPostRequest {
-    /**
-     * 
-     */
-    v0GetNormQueryBidsRequest: V0GetNormQueryBidsRequest;
-}
-
-export interface AdvV0NormqueryGetMinusPostRequest {
-    /**
-     * 
-     */
-    v0GetNormQueryMinusRequest: V0GetNormQueryMinusRequest;
-}
-
-export interface AdvV0NormqueryListPostRequest {
-    /**
-     * 
-     */
-    v0GetNormQueryListRequest: V0GetNormQueryListRequest;
-}
-
-export interface AdvV0NormquerySetMinusPostRequest {
-    /**
-     * 
-     */
-    v0SetMinusNormQueryRequest: V0SetMinusNormQueryRequest;
-}
-
-export interface AdvV0NormqueryStatsPostRequest {
-    /**
-     * 
-     */
-    v0GetNormQueryStatsRequest: V0GetNormQueryStatsRequest;
-}
-
-export interface AdvV0PauseGetRequest {
+export interface GetV0DeleteRequest {
     /**
      * ID кампании
      */
     id: number;
 }
 
-export interface AdvV0RenamePostOperationRequest {
-    /**
-     * 
-     */
-    advV0RenamePostRequest?: AdvV0RenamePostRequest;
-}
-
-export interface AdvV0StartGetRequest {
+export interface GetV0PauseRequest {
     /**
      * ID кампании
      */
     id: number;
 }
 
-export interface AdvV0StopGetRequest {
+export interface GetV0StartRequest {
     /**
      * ID кампании
      */
     id: number;
 }
 
-export interface AdvV1AdvertGetRequest {
+export interface GetV0StopRequest {
+    /**
+     * ID кампании
+     */
+    id: number;
+}
+
+export interface GetV1AdvertRequest {
     /**
      * ID медиакампании
      */
     id: number;
 }
 
-export interface AdvV1AdvertsGetRequest {
+export interface GetV1AdvertsRequest {
     /**
      * Статус медиакампании:
      *   - `1` — черновик
@@ -462,161 +410,14 @@ export interface AdvV1AdvertsGetRequest {
     direction?: string;
 }
 
-export interface AdvV1BudgetDepositPostOperationRequest {
-    /**
-     * ID кампании
-     */
-    id: number;
-    /**
-     * 
-     */
-    advV1BudgetDepositPostRequest: AdvV1BudgetDepositPostRequest;
-}
-
-export interface AdvV1BudgetGetRequest {
+export interface GetV1BudgetRequest {
     /**
      * ID кампании
      */
     id: number;
 }
 
-export interface AdvV1NormqueryStatsPostRequest {
-    /**
-     * 
-     */
-    v1GetNormQueryStatsRequest: V1GetNormQueryStatsRequest;
-}
-
-export interface AdvV1PaymentsGetRequest {
-    /**
-     * Начало интервала
-     */
-    from?: Date;
-    /**
-     * Конец интервала. <br>
-     * (Минимальный интервал 1 день, максимальный 31)
-     * 
-     */
-    to?: Date;
-}
-
-export interface AdvV1StatsPostRequest {
-    /**
-     * 
-     */
-    advV1StatsPostRequestInner: Array<AdvV1StatsPostRequestInner>;
-}
-
-export interface AdvV1SupplierSubjectsGetRequest {
-    /**
-     * Тип оплаты:
-     * - `cpm` — за показы
-     * - `cpc` — за клик
-     * 
-     */
-    paymentType?: string;
-}
-
-export interface AdvV1UpdGetRequest {
-    /**
-     * Начало интервала
-     */
-    from: Date;
-    /**
-     * Конец интервала. <br>
-     * (Минимальный интервал 1 день, максимальный 31)
-     * 
-     */
-    to: Date;
-}
-
-export interface AdvV2SeacatSaveAdPostOperationRequest {
-    /**
-     * 
-     */
-    advV2SeacatSaveAdPostRequest?: AdvV2SeacatSaveAdPostRequest;
-}
-
-export interface AdvV2SupplierNmsPostRequest {
-    /**
-     * 
-     */
-    requestBody?: Array<number>;
-}
-
-export interface AdvV3FullstatsGetRequest {
-    /**
-     * ID кампаний, максимум 50 значений
-     */
-    ids: string;
-    /**
-     * Дата начала интервала
-     */
-    beginDate: Date;
-    /**
-     * Дата окончания интервала
-     */
-    endDate: Date;
-}
-
-export interface ApiAdvertV0BidsRecommendationsGetRequest {
-    /**
-     * Артикул WB
-     */
-    nmId: number;
-    /**
-     * ID кампании
-     */
-    advertId: number;
-}
-
-export interface ApiAdvertV1BidsMinPostOperationRequest {
-    /**
-     * 
-     */
-    apiAdvertV1BidsMinPostRequest: ApiAdvertV1BidsMinPostRequest;
-}
-
-export interface ApiAdvertV1BidsPatchOperationRequest {
-    /**
-     * 
-     */
-    apiAdvertV1BidsPatchRequest: ApiAdvertV1BidsPatchRequest;
-}
-
-export interface ApiAdvertV2AdvertsGetRequest {
-    /**
-     * ID кампаний, максимум 50
-     */
-    ids?: string;
-    /**
-     * Статусы кампаний:
-     * - `-1` — удалена, процесс удаления будет завершён в течение 10 минут
-     * - `4` — готова к запуску
-     * - `7` — завершена
-     * - `8` — отменена
-     * - `9` — активна
-     * - `11` — на паузе
-     * 
-     */
-    statuses?: string;
-    /**
-     * Тип оплаты:
-     * - `cpm` — за показы
-     * - `cpc` — за клик
-     * 
-     */
-    paymentType?: ApiAdvertV2AdvertsGetPaymentTypeEnum;
-}
-
-export interface ApiV1CalendarPromotionsDetailsGetRequest {
-    /**
-     * ID акций, по которым нужно вернуть информацию
-     */
-    promotionIDs: Set<number>;
-}
-
-export interface ApiV1CalendarPromotionsGetRequest {
+export interface GetV1CalendarPromotionsRequest {
     /**
      * Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`
      */
@@ -642,7 +443,14 @@ export interface ApiV1CalendarPromotionsGetRequest {
     offset?: number;
 }
 
-export interface ApiV1CalendarPromotionsNomenclaturesGetRequest {
+export interface GetV1CalendarPromotionsDetailsRequest {
+    /**
+     * ID акций, по которым нужно вернуть информацию
+     */
+    promotionIDs: Set<number>;
+}
+
+export interface GetV1CalendarPromotionsNomenclaturesRequest {
     /**
      * ID акции
      */
@@ -664,11 +472,168 @@ export interface ApiV1CalendarPromotionsNomenclaturesGetRequest {
     offset?: number;
 }
 
-export interface ApiV1CalendarPromotionsUploadPostOperationRequest {
+export interface GetV1PaymentsRequest {
+    /**
+     * Начало интервала
+     */
+    from?: Date;
+    /**
+     * Конец интервала. <br>
+     * (Минимальный интервал 1 день, максимальный 31)
+     * 
+     */
+    to?: Date;
+}
+
+export interface GetV1SupplierSubjectsRequest {
+    /**
+     * Тип оплаты:
+     * - `cpm` — за показы
+     * - `cpc` — за клик
+     * 
+     */
+    paymentType?: string;
+}
+
+export interface GetV1UpdRequest {
+    /**
+     * Начало интервала
+     */
+    from: Date;
+    /**
+     * Конец интервала. <br>
+     * (Минимальный интервал 1 день, максимальный 31)
+     * 
+     */
+    to: Date;
+}
+
+export interface GetV2AdvertsRequest {
+    /**
+     * ID кампаний, максимум 50
+     */
+    ids?: string;
+    /**
+     * Статусы кампаний:
+     * - `-1` — удалена, процесс удаления будет завершён в течение 10 минут
+     * - `4` — готова к запуску
+     * - `7` — завершена
+     * - `8` — отменена
+     * - `9` — активна
+     * - `11` — на паузе
+     * 
+     */
+    statuses?: string;
+    /**
+     * Тип оплаты:
+     * - `cpm` — за показы
+     * - `cpc` — за клик
+     * 
+     */
+    paymentType?: GetV2AdvertsPaymentTypeEnum;
+}
+
+export interface GetV3FullstatsRequest {
+    /**
+     * ID кампаний, максимум 50 значений
+     */
+    ids: string;
+    /**
+     * Дата начала интервала
+     */
+    beginDate: Date;
+    /**
+     * Дата окончания интервала
+     */
+    endDate: Date;
+}
+
+export interface PatchV0AuctionNmsOperationRequest {
     /**
      * 
      */
-    apiV1CalendarPromotionsUploadPostRequest: ApiV1CalendarPromotionsUploadPostRequest;
+    patchV0AuctionNmsRequest: PatchV0AuctionNmsRequest;
+}
+
+export interface PatchV1BidsOperationRequest {
+    /**
+     * 
+     */
+    patchV1BidsRequest: PatchV1BidsRequest;
+}
+
+export interface PostV0NormqueryBidsRequest {
+    /**
+     * 
+     */
+    v0SetNormQueryBidsRequest: V0SetNormQueryBidsRequest;
+}
+
+export interface PostV0NormqueryGetBidsRequest {
+    /**
+     * 
+     */
+    v0GetNormQueryBidsRequest: V0GetNormQueryBidsRequest;
+}
+
+export interface PostV0NormqueryGetMinusRequest {
+    /**
+     * 
+     */
+    v0GetNormQueryMinusRequest: V0GetNormQueryMinusRequest;
+}
+
+export interface PostV0NormqueryListRequest {
+    /**
+     * 
+     */
+    v0GetNormQueryListRequest: V0GetNormQueryListRequest;
+}
+
+export interface PostV0NormquerySetMinusRequest {
+    /**
+     * 
+     */
+    v0SetMinusNormQueryRequest: V0SetMinusNormQueryRequest;
+}
+
+export interface PostV0NormqueryStatsRequest {
+    /**
+     * 
+     */
+    v0GetNormQueryStatsRequest: V0GetNormQueryStatsRequest;
+}
+
+export interface PostV0RenameOperationRequest {
+    /**
+     * 
+     */
+    postV0RenameRequest?: PostV0RenameRequest;
+}
+
+export interface PostV1BidsMinOperationRequest {
+    /**
+     * 
+     */
+    postV1BidsMinRequest: PostV1BidsMinRequest;
+}
+
+export interface PostV1BudgetDepositOperationRequest {
+    /**
+     * ID кампании
+     */
+    id: number;
+    /**
+     * 
+     */
+    postV1BudgetDepositRequest: PostV1BudgetDepositRequest;
+}
+
+export interface PostV1CalendarPromotionsUploadOperationRequest {
+    /**
+     * 
+     */
+    postV1CalendarPromotionsUploadRequest: PostV1CalendarPromotionsUploadRequest;
 }
 
 export interface PostV1NormqueryBidsRequest {
@@ -678,19 +643,54 @@ export interface PostV1NormqueryBidsRequest {
     v1SetNormQueryBidsRequest: V1SetNormQueryBidsRequest;
 }
 
+export interface PostV1NormqueryStatsRequest {
+    /**
+     * 
+     */
+    v1GetNormQueryStatsRequest: V1GetNormQueryStatsRequest;
+}
+
+export interface PostV1StatsRequest {
+    /**
+     * 
+     */
+    postV1StatsRequestInner: Array<PostV1StatsRequestInner>;
+}
+
+export interface PostV2SeacatSaveAdOperationRequest {
+    /**
+     * 
+     */
+    postV2SeacatSaveAdRequest?: PostV2SeacatSaveAdRequest;
+}
+
+export interface PostV2SupplierNmsRequest {
+    /**
+     * 
+     */
+    requestBody?: Array<number>;
+}
+
+export interface PutV0AuctionPlacementsOperationRequest {
+    /**
+     * 
+     */
+    putV0AuctionPlacementsRequest: PutV0AuctionPlacementsRequest;
+}
+
 /**
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Creates request options for advV0AuctionNmsPatch without sending the request
+     * Creates request options for deleteV0NormqueryBids without sending the request
      */
-    async advV0AuctionNmsPatchRequestOpts(requestParameters: AdvV0AuctionNmsPatchOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['advV0AuctionNmsPatchRequest'] == null) {
+    async deleteV0NormqueryBidsRequestOpts(requestParameters: DeleteV0NormqueryBidsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0DeleteNormQueryBidsRequest'] == null) {
             throw new runtime.RequiredError(
-                'advV0AuctionNmsPatchRequest',
-                'Required parameter "advV0AuctionNmsPatchRequest" was null or undefined when calling advV0AuctionNmsPatch().'
+                'v0DeleteNormQueryBidsRequest',
+                'Required parameter "v0DeleteNormQueryBidsRequest" was null or undefined when calling deleteV0NormqueryBids().'
             );
         }
 
@@ -705,97 +705,109 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
 
-        let urlPath = `/adv/v0/auction/nms`;
+        let urlPath = `/adv/v0/normquery/bids`;
 
         return {
             path: urlPath,
-            method: 'PATCH',
+            method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: AdvV0AuctionNmsPatchRequestToJSON(requestParameters['advV0AuctionNmsPatchRequest']),
+            body: V0DeleteNormQueryBidsRequestToJSON(requestParameters['v0DeleteNormQueryBidsRequest']),
         };
     }
 
     /**
-     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Изменение списка карточек товаров в кампаниях
+     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Удалить ставки поисковых кластеров
      */
-    async advV0AuctionNmsPatchRaw(requestParameters: AdvV0AuctionNmsPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvV0AuctionNmsPatch200Response>> {
-        const requestOptions = await this.advV0AuctionNmsPatchRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdvV0AuctionNmsPatch200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Изменение списка карточек товаров в кампаниях
-     */
-    async advV0AuctionNmsPatch(requestParameters: AdvV0AuctionNmsPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvV0AuctionNmsPatch200Response> {
-        const response = await this.advV0AuctionNmsPatchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV0AuctionPlacementsPut without sending the request
-     */
-    async advV0AuctionPlacementsPutRequestOpts(requestParameters: AdvV0AuctionPlacementsPutOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['advV0AuctionPlacementsPutRequest'] == null) {
-            throw new runtime.RequiredError(
-                'advV0AuctionPlacementsPutRequest',
-                'Required parameter "advV0AuctionPlacementsPutRequest" was null or undefined when calling advV0AuctionPlacementsPut().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/auction/placements`;
-
-        return {
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AdvV0AuctionPlacementsPutRequestToJSON(requestParameters['advV0AuctionPlacementsPutRequest']),
-        };
-    }
-
-    /**
-     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Изменение мест размещения в кампаниях с ручной ставкой
-     */
-    async advV0AuctionPlacementsPutRaw(requestParameters: AdvV0AuctionPlacementsPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0AuctionPlacementsPutRequestOpts(requestParameters);
+    async deleteV0NormqueryBidsRaw(requestParameters: DeleteV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.deleteV0NormqueryBidsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Изменение мест размещения в кампаниях с ручной ставкой
+     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Удалить ставки поисковых кластеров
      */
-    async advV0AuctionPlacementsPut(requestParameters: AdvV0AuctionPlacementsPutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0AuctionPlacementsPutRaw(requestParameters, initOverrides);
+    async deleteV0NormqueryBids(requestParameters: DeleteV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteV0NormqueryBidsRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Creates request options for advV0DeleteGet without sending the request
+     * Creates request options for getV0BidsRecommendations without sending the request
      */
-    async advV0DeleteGetRequestOpts(requestParameters: AdvV0DeleteGetRequest): Promise<runtime.RequestOpts> {
+    async getV0BidsRecommendationsRequestOpts(requestParameters: GetV0BidsRecommendationsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['nmId'] == null) {
+            throw new runtime.RequiredError(
+                'nmId',
+                'Required parameter "nmId" was null or undefined when calling getV0BidsRecommendations().'
+            );
+        }
+
+        if (requestParameters['advertId'] == null) {
+            throw new runtime.RequiredError(
+                'advertId',
+                'Required parameter "advertId" was null or undefined when calling getV0BidsRecommendations().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['nmId'] != null) {
+            queryParameters['nmId'] = requestParameters['nmId'];
+        }
+
+        if (requestParameters['advertId'] != null) {
+            queryParameters['advertId'] = requestParameters['advertId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v0/bids/recommendations`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
+     * Рекомендуемые ставки для карточек товаров и поисковых кластеров
+     */
+    async getV0BidsRecommendationsRaw(requestParameters: GetV0BidsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV0BidsRecommendations200Response>> {
+        const requestOptions = await this.getV0BidsRecommendationsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV0BidsRecommendations200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
+     * Рекомендуемые ставки для карточек товаров и поисковых кластеров
+     */
+    async getV0BidsRecommendations(requestParameters: GetV0BidsRecommendationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV0BidsRecommendations200Response> {
+        const response = await this.getV0BidsRecommendationsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV0Delete without sending the request
+     */
+    async getV0DeleteRequestOpts(requestParameters: GetV0DeleteRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling advV0DeleteGet().'
+                'Required parameter "id" was null or undefined when calling getV0Delete().'
             );
         }
 
@@ -823,400 +835,32 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод удаляет [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удаление кампании
      */
-    async advV0DeleteGetRaw(requestParameters: AdvV0DeleteGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0DeleteGetRequestOpts(requestParameters);
+    async getV0DeleteRaw(requestParameters: GetV0DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.getV0DeleteRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * Метод удаляет [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Удаление кампании
      */
-    async advV0DeleteGet(requestParameters: AdvV0DeleteGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0DeleteGetRaw(requestParameters, initOverrides);
+    async getV0Delete(requestParameters: GetV0DeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.getV0DeleteRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Creates request options for advV0NormqueryBidsDelete without sending the request
+     * Creates request options for getV0Pause without sending the request
      */
-    async advV0NormqueryBidsDeleteRequestOpts(requestParameters: AdvV0NormqueryBidsDeleteRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v0DeleteNormQueryBidsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v0DeleteNormQueryBidsRequest',
-                'Required parameter "v0DeleteNormQueryBidsRequest" was null or undefined when calling advV0NormqueryBidsDelete().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/normquery/bids`;
-
-        return {
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V0DeleteNormQueryBidsRequestToJSON(requestParameters['v0DeleteNormQueryBidsRequest']),
-        };
-    }
-
-    /**
-     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Удалить ставки поисковых кластеров
-     */
-    async advV0NormqueryBidsDeleteRaw(requestParameters: AdvV0NormqueryBidsDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0NormqueryBidsDeleteRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод удаляет ставки с поисковых кластеров.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Удалить ставки поисковых кластеров
-     */
-    async advV0NormqueryBidsDelete(requestParameters: AdvV0NormqueryBidsDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0NormqueryBidsDeleteRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for advV0NormqueryBidsPost without sending the request
-     */
-    async advV0NormqueryBidsPostRequestOpts(requestParameters: AdvV0NormqueryBidsPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v0SetNormQueryBidsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v0SetNormQueryBidsRequest',
-                'Required parameter "v0SetNormQueryBidsRequest" was null or undefined when calling advV0NormqueryBidsPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/normquery/bids`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V0SetNormQueryBidsRequestToJSON(requestParameters['v0SetNormQueryBidsRequest']),
-        };
-    }
-
-    /**
-     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Установить ставки для поисковых кластеров
-     */
-    async advV0NormqueryBidsPostRaw(requestParameters: AdvV0NormqueryBidsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0NormqueryBidsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Установить ставки для поисковых кластеров
-     */
-    async advV0NormqueryBidsPost(requestParameters: AdvV0NormqueryBidsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0NormqueryBidsPostRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for advV0NormqueryGetBidsPost without sending the request
-     */
-    async advV0NormqueryGetBidsPostRequestOpts(requestParameters: AdvV0NormqueryGetBidsPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v0GetNormQueryBidsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v0GetNormQueryBidsRequest',
-                'Required parameter "v0GetNormQueryBidsRequest" was null or undefined when calling advV0NormqueryGetBidsPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/normquery/get-bids`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V0GetNormQueryBidsRequestToJSON(requestParameters['v0GetNormQueryBidsRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Список ставок поисковых кластеров
-     */
-    async advV0NormqueryGetBidsPostRaw(requestParameters: AdvV0NormqueryGetBidsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryBidsResponse>> {
-        const requestOptions = await this.advV0NormqueryGetBidsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryBidsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Список ставок поисковых кластеров
-     */
-    async advV0NormqueryGetBidsPost(requestParameters: AdvV0NormqueryGetBidsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryBidsResponse> {
-        const response = await this.advV0NormqueryGetBidsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV0NormqueryGetMinusPost without sending the request
-     */
-    async advV0NormqueryGetMinusPostRequestOpts(requestParameters: AdvV0NormqueryGetMinusPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v0GetNormQueryMinusRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v0GetNormQueryMinusRequest',
-                'Required parameter "v0GetNormQueryMinusRequest" was null or undefined when calling advV0NormqueryGetMinusPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/normquery/get-minus`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V0GetNormQueryMinusRequestToJSON(requestParameters['v0GetNormQueryMinusRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Список минус-фраз кампаний
-     */
-    async advV0NormqueryGetMinusPostRaw(requestParameters: AdvV0NormqueryGetMinusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryMinusResponse>> {
-        const requestOptions = await this.advV0NormqueryGetMinusPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryMinusResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Список минус-фраз кампаний
-     */
-    async advV0NormqueryGetMinusPost(requestParameters: AdvV0NormqueryGetMinusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryMinusResponse> {
-        const response = await this.advV0NormqueryGetMinusPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV0NormqueryListPost without sending the request
-     */
-    async advV0NormqueryListPostRequestOpts(requestParameters: AdvV0NormqueryListPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v0GetNormQueryListRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v0GetNormQueryListRequest',
-                'Required parameter "v0GetNormQueryListRequest" was null or undefined when calling advV0NormqueryListPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/normquery/list`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V0GetNormQueryListRequestToJSON(requestParameters['v0GetNormQueryListRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Списки активных и неактивных поисковых кластеров
-     */
-    async advV0NormqueryListPostRaw(requestParameters: AdvV0NormqueryListPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryListResponse>> {
-        const requestOptions = await this.advV0NormqueryListPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryListResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Списки активных и неактивных поисковых кластеров
-     */
-    async advV0NormqueryListPost(requestParameters: AdvV0NormqueryListPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryListResponse> {
-        const response = await this.advV0NormqueryListPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV0NormquerySetMinusPost without sending the request
-     */
-    async advV0NormquerySetMinusPostRequestOpts(requestParameters: AdvV0NormquerySetMinusPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v0SetMinusNormQueryRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v0SetMinusNormQueryRequest',
-                'Required parameter "v0SetMinusNormQueryRequest" was null or undefined when calling advV0NormquerySetMinusPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/normquery/set-minus`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V0SetMinusNormQueryRequestToJSON(requestParameters['v0SetMinusNormQueryRequest']),
-        };
-    }
-
-    /**
-     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Установка и удаление минус-фраз
-     */
-    async advV0NormquerySetMinusPostRaw(requestParameters: AdvV0NormquerySetMinusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0NormquerySetMinusPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Установка и удаление минус-фраз
-     */
-    async advV0NormquerySetMinusPost(requestParameters: AdvV0NormquerySetMinusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0NormquerySetMinusPostRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for advV0NormqueryStatsPost without sending the request
-     */
-    async advV0NormqueryStatsPostRequestOpts(requestParameters: AdvV0NormqueryStatsPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v0GetNormQueryStatsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v0GetNormQueryStatsRequest',
-                'Required parameter "v0GetNormQueryStatsRequest" was null or undefined when calling advV0NormqueryStatsPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/normquery/stats`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V0GetNormQueryStatsRequestToJSON(requestParameters['v0GetNormQueryStatsRequest']),
-        };
-    }
-
-    /**
-     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Статистика поисковых кластеров
-     */
-    async advV0NormqueryStatsPostRaw(requestParameters: AdvV0NormqueryStatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryStatsResponse>> {
-        const requestOptions = await this.advV0NormqueryStatsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryStatsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Статистика поисковых кластеров
-     */
-    async advV0NormqueryStatsPost(requestParameters: AdvV0NormqueryStatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryStatsResponse> {
-        const response = await this.advV0NormqueryStatsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV0PauseGet without sending the request
-     */
-    async advV0PauseGetRequestOpts(requestParameters: AdvV0PauseGetRequest): Promise<runtime.RequestOpts> {
+    async getV0PauseRequestOpts(requestParameters: GetV0PauseRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling advV0PauseGet().'
+                'Required parameter "id" was null or undefined when calling getV0Pause().'
             );
         }
 
@@ -1244,77 +888,32 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод ставит [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Пауза кампании
      */
-    async advV0PauseGetRaw(requestParameters: AdvV0PauseGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0PauseGetRequestOpts(requestParameters);
+    async getV0PauseRaw(requestParameters: GetV0PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.getV0PauseRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * Метод ставит [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Пауза кампании
      */
-    async advV0PauseGet(requestParameters: AdvV0PauseGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0PauseGetRaw(requestParameters, initOverrides);
+    async getV0Pause(requestParameters: GetV0PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.getV0PauseRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Creates request options for advV0RenamePost without sending the request
+     * Creates request options for getV0Start without sending the request
      */
-    async advV0RenamePostRequestOpts(requestParameters: AdvV0RenamePostOperationRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v0/rename`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AdvV0RenamePostRequestToJSON(requestParameters['advV0RenamePostRequest']),
-        };
-    }
-
-    /**
-     * Метод меняет название [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Переименование кампании
-     */
-    async advV0RenamePostRaw(requestParameters: AdvV0RenamePostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0RenamePostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Метод меняет название [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Переименование кампании
-     */
-    async advV0RenamePost(requestParameters: AdvV0RenamePostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0RenamePostRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Creates request options for advV0StartGet without sending the request
-     */
-    async advV0StartGetRequestOpts(requestParameters: AdvV0StartGetRequest): Promise<runtime.RequestOpts> {
+    async getV0StartRequestOpts(requestParameters: GetV0StartRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling advV0StartGet().'
+                'Required parameter "id" was null or undefined when calling getV0Start().'
             );
         }
 
@@ -1342,32 +941,32 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод запускает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Запуск кампании
      */
-    async advV0StartGetRaw(requestParameters: AdvV0StartGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0StartGetRequestOpts(requestParameters);
+    async getV0StartRaw(requestParameters: GetV0StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.getV0StartRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * Метод запускает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Запуск кампании
      */
-    async advV0StartGet(requestParameters: AdvV0StartGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0StartGetRaw(requestParameters, initOverrides);
+    async getV0Start(requestParameters: GetV0StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.getV0StartRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Creates request options for advV0StopGet without sending the request
+     * Creates request options for getV0Stop without sending the request
      */
-    async advV0StopGetRequestOpts(requestParameters: AdvV0StopGetRequest): Promise<runtime.RequestOpts> {
+    async getV0StopRequestOpts(requestParameters: GetV0StopRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling advV0StopGet().'
+                'Required parameter "id" was null or undefined when calling getV0Stop().'
             );
         }
 
@@ -1395,32 +994,32 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Завершение кампании
      */
-    async advV0StopGetRaw(requestParameters: AdvV0StopGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        const requestOptions = await this.advV0StopGetRequestOpts(requestParameters);
+    async getV0StopRaw(requestParameters: GetV0StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.getV0StopRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:   - `9` — активна   - `11` — пауза  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Завершение кампании
      */
-    async advV0StopGet(requestParameters: AdvV0StopGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.advV0StopGetRaw(requestParameters, initOverrides);
+    async getV0Stop(requestParameters: GetV0StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.getV0StopRaw(requestParameters, initOverrides);
     }
 
     /**
-     * Creates request options for advV1AdvertGet without sending the request
+     * Creates request options for getV1Advert without sending the request
      */
-    async advV1AdvertGetRequestOpts(requestParameters: AdvV1AdvertGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AdvertRequestOpts(requestParameters: GetV1AdvertRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling advV1AdvertGet().'
+                'Required parameter "id" was null or undefined when calling getV1Advert().'
             );
         }
 
@@ -1451,19 +1050,19 @@ export class DefaultApi extends runtime.BaseAPI {
      * Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Информация о медиакампании
      */
-    async advV1AdvertGetRaw(requestParameters: AdvV1AdvertGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvV1AdvertGet200Response>> {
-        const requestOptions = await this.advV1AdvertGetRequestOpts(requestParameters);
+    async getV1AdvertRaw(requestParameters: GetV1AdvertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Advert200Response>> {
+        const requestOptions = await this.getV1AdvertRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdvV1AdvertGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1Advert200ResponseFromJSON(jsonValue));
     }
 
     /**
      * Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
      * Информация о медиакампании
      */
-    async advV1AdvertGet(requestParameters: AdvV1AdvertGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvV1AdvertGet200Response | null | undefined > {
-        const response = await this.advV1AdvertGetRaw(requestParameters, initOverrides);
+    async getV1Advert(requestParameters: GetV1AdvertRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Advert200Response | null | undefined > {
+        const response = await this.getV1AdvertRaw(requestParameters, initOverrides);
         switch (response.raw.status) {
             case 200:
                 return await response.value();
@@ -1475,9 +1074,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for advV1AdvertsGet without sending the request
+     * Creates request options for getV1Adverts without sending the request
      */
-    async advV1AdvertsGetRequestOpts(requestParameters: AdvV1AdvertsGetRequest): Promise<runtime.RequestOpts> {
+    async getV1AdvertsRequestOpts(requestParameters: GetV1AdvertsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['status'] != null) {
@@ -1522,22 +1121,22 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список медиакампаний
      */
-    async advV1AdvertsGetRaw(requestParameters: AdvV1AdvertsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdvV1AdvertsGet200ResponseInner>>> {
-        const requestOptions = await this.advV1AdvertsGetRequestOpts(requestParameters);
+    async getV1AdvertsRaw(requestParameters: GetV1AdvertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1Adverts200ResponseInner>>> {
+        const requestOptions = await this.getV1AdvertsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvV1AdvertsGet200ResponseInnerFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetV1Adverts200ResponseInnerFromJSON));
     }
 
     /**
-     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список медиакампаний
      */
-    async advV1AdvertsGet(requestParameters: AdvV1AdvertsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdvV1AdvertsGet200ResponseInner> | null | undefined > {
-        const response = await this.advV1AdvertsGetRaw(requestParameters, initOverrides);
+    async getV1Adverts(requestParameters: GetV1AdvertsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1Adverts200ResponseInner> | null | undefined > {
+        const response = await this.getV1AdvertsRaw(requestParameters, initOverrides);
         switch (response.raw.status) {
             case 200:
                 return await response.value();
@@ -1549,9 +1148,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates request options for advV1BalanceGet without sending the request
+     * Creates request options for getV1Balance without sending the request
      */
-    async advV1BalanceGetRequestOpts(): Promise<runtime.RequestOpts> {
+    async getV1BalanceRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1572,97 +1171,33 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/finances/operation/getV1Budget).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Баланс
      */
-    async advV1BalanceGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvV1BalanceGet200Response>> {
-        const requestOptions = await this.advV1BalanceGetRequestOpts();
+    async getV1BalanceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Balance200Response>> {
+        const requestOptions = await this.getV1BalanceRequestOpts();
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdvV1BalanceGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1Balance200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о:   - счёте кабинета Продвижения WB. Его пополняет продавец.   - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.   - бонусных начислениях WB.  Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/finances/operation/getV1Budget).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
      * Баланс
      */
-    async advV1BalanceGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvV1BalanceGet200Response> {
-        const response = await this.advV1BalanceGetRaw(initOverrides);
+    async getV1Balance(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Balance200Response> {
+        const response = await this.getV1BalanceRaw(initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for advV1BudgetDepositPost without sending the request
+     * Creates request options for getV1Budget without sending the request
      */
-    async advV1BudgetDepositPostRequestOpts(requestParameters: AdvV1BudgetDepositPostOperationRequest): Promise<runtime.RequestOpts> {
+    async getV1BudgetRequestOpts(requestParameters: GetV1BudgetRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling advV1BudgetDepositPost().'
-            );
-        }
-
-        if (requestParameters['advV1BudgetDepositPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'advV1BudgetDepositPostRequest',
-                'Required parameter "advV1BudgetDepositPostRequest" was null or undefined when calling advV1BudgetDepositPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['id'] != null) {
-            queryParameters['id'] = requestParameters['id'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/budget/deposit`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AdvV1BudgetDepositPostRequestToJSON(requestParameters['advV1BudgetDepositPostRequest']),
-        };
-    }
-
-    /**
-     * Метод пополняет [бюджет](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/Upravlenie-kampaniyami/paths/~1adv~1v0~1start/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Пополнение бюджета кампании
-     */
-    async advV1BudgetDepositPostRaw(requestParameters: AdvV1BudgetDepositPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseWithReturn>> {
-        const requestOptions = await this.advV1BudgetDepositPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseWithReturnFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод пополняет [бюджет](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/Upravlenie-kampaniyami/paths/~1adv~1v0~1start/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Пополнение бюджета кампании
-     */
-    async advV1BudgetDepositPost(requestParameters: AdvV1BudgetDepositPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseWithReturn> {
-        const response = await this.advV1BudgetDepositPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV1BudgetGet without sending the request
-     */
-    async advV1BudgetGetRequestOpts(requestParameters: AdvV1BudgetGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling advV1BudgetGet().'
+                'Required parameter "id" was null or undefined when calling getV1Budget().'
             );
         }
 
@@ -1690,861 +1225,47 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Бюджет кампании
      */
-    async advV1BudgetGetRaw(requestParameters: AdvV1BudgetGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvV1BudgetGet200Response>> {
-        const requestOptions = await this.advV1BudgetGetRequestOpts(requestParameters);
+    async getV1BudgetRaw(requestParameters: GetV1BudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Budget200Response>> {
+        const requestOptions = await this.getV1BudgetRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdvV1BudgetGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1Budget200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
      * Бюджет кампании
      */
-    async advV1BudgetGet(requestParameters: AdvV1BudgetGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvV1BudgetGet200Response> {
-        const response = await this.advV1BudgetGetRaw(requestParameters, initOverrides);
+    async getV1Budget(requestParameters: GetV1BudgetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Budget200Response> {
+        const response = await this.getV1BudgetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for advV1CountGet without sending the request
+     * Creates request options for getV1CalendarPromotions without sending the request
      */
-    async advV1CountGetRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/count`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Количество медиакампаний
-     */
-    async advV1CountGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvV1CountGet200Response>> {
-        const requestOptions = await this.advV1CountGetRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdvV1CountGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Количество медиакампаний
-     */
-    async advV1CountGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvV1CountGet200Response> {
-        const response = await this.advV1CountGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV1NormqueryStatsPost without sending the request
-     */
-    async advV1NormqueryStatsPostRequestOpts(requestParameters: AdvV1NormqueryStatsPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['v1GetNormQueryStatsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'v1GetNormQueryStatsRequest',
-                'Required parameter "v1GetNormQueryStatsRequest" was null or undefined when calling advV1NormqueryStatsPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/normquery/stats`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1GetNormQueryStatsRequestToJSON(requestParameters['v1GetNormQueryStatsRequest']),
-        };
-    }
-
-    /**
-     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Статистика по поисковым кластерам с детализацией по дням
-     */
-    async advV1NormqueryStatsPostRaw(requestParameters: AdvV1NormqueryStatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1GetNormQueryStatsResponse>> {
-        const requestOptions = await this.advV1NormqueryStatsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1GetNormQueryStatsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Статистика по поисковым кластерам с детализацией по дням
-     */
-    async advV1NormqueryStatsPost(requestParameters: AdvV1NormqueryStatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1GetNormQueryStatsResponse> {
-        const response = await this.advV1NormqueryStatsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV1PaymentsGet without sending the request
-     */
-    async advV1PaymentsGetRequestOpts(requestParameters: AdvV1PaymentsGetRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        if (requestParameters['from'] != null) {
-            queryParameters['from'] = (requestParameters['from'] as any).toISOString().substring(0,10);
-        }
-
-        if (requestParameters['to'] != null) {
-            queryParameters['to'] = (requestParameters['to'] as any).toISOString().substring(0,10);
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/payments`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получение истории пополнений счёта
-     */
-    async advV1PaymentsGetRaw(requestParameters: AdvV1PaymentsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdvV1PaymentsGet200ResponseInner>>> {
-        const requestOptions = await this.advV1PaymentsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvV1PaymentsGet200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получение истории пополнений счёта
-     */
-    async advV1PaymentsGet(requestParameters: AdvV1PaymentsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdvV1PaymentsGet200ResponseInner> | null | undefined > {
-        const response = await this.advV1PaymentsGetRaw(requestParameters, initOverrides);
-        switch (response.raw.status) {
-            case 200:
-                return await response.value();
-            case 204:
-                return null;
-            default:
-                return await response.value();
-        }
-    }
-
-    /**
-     * Creates request options for advV1PromotionCountGet without sending the request
-     */
-    async advV1PromotionCountGetRequestOpts(): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/promotion/count`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Списки кампаний
-     */
-    async advV1PromotionCountGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvV1PromotionCountGet200Response>> {
-        const requestOptions = await this.advV1PromotionCountGetRequestOpts();
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdvV1PromotionCountGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
-     * Списки кампаний
-     */
-    async advV1PromotionCountGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvV1PromotionCountGet200Response> {
-        const response = await this.advV1PromotionCountGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV1StatsPost without sending the request
-     */
-    async advV1StatsPostRequestOpts(requestParameters: AdvV1StatsPostRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['advV1StatsPostRequestInner'] == null) {
-            throw new runtime.RequiredError(
-                'advV1StatsPostRequestInner',
-                'Required parameter "advV1StatsPostRequestInner" was null or undefined when calling advV1StatsPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/stats`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['advV1StatsPostRequestInner']!.map(AdvV1StatsPostRequestInnerToJSON),
-        };
-    }
-
-    /**
-     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Статистика медиакампаний
-     */
-    async advV1StatsPostRaw(requestParameters: AdvV1StatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdvV1StatsPost200ResponseInner>>> {
-        const requestOptions = await this.advV1StatsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvV1StatsPost200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Статистика медиакампаний
-     */
-    async advV1StatsPost(requestParameters: AdvV1StatsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdvV1StatsPost200ResponseInner>> {
-        const response = await this.advV1StatsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV1SupplierSubjectsGet without sending the request
-     */
-    async advV1SupplierSubjectsGetRequestOpts(requestParameters: AdvV1SupplierSubjectsGetRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        if (requestParameters['paymentType'] != null) {
-            queryParameters['payment_type'] = requestParameters['paymentType'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/supplier/subjects`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Предметы для кампаний
-     */
-    async advV1SupplierSubjectsGetRaw(requestParameters: AdvV1SupplierSubjectsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdvV1SupplierSubjectsGet200ResponseInner>>> {
-        const requestOptions = await this.advV1SupplierSubjectsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvV1SupplierSubjectsGet200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Предметы для кампаний
-     */
-    async advV1SupplierSubjectsGet(requestParameters: AdvV1SupplierSubjectsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdvV1SupplierSubjectsGet200ResponseInner>> {
-        const response = await this.advV1SupplierSubjectsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV1UpdGet without sending the request
-     */
-    async advV1UpdGetRequestOpts(requestParameters: AdvV1UpdGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['from'] == null) {
-            throw new runtime.RequiredError(
-                'from',
-                'Required parameter "from" was null or undefined when calling advV1UpdGet().'
-            );
-        }
-
-        if (requestParameters['to'] == null) {
-            throw new runtime.RequiredError(
-                'to',
-                'Required parameter "to" was null or undefined when calling advV1UpdGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['from'] != null) {
-            queryParameters['from'] = (requestParameters['from'] as any).toISOString().substring(0,10);
-        }
-
-        if (requestParameters['to'] != null) {
-            queryParameters['to'] = (requestParameters['to'] as any).toISOString().substring(0,10);
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v1/upd`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получение истории затрат
-     */
-    async advV1UpdGetRaw(requestParameters: AdvV1UpdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdvV1UpdGet200ResponseInner>>> {
-        const requestOptions = await this.advV1UpdGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvV1UpdGet200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Получение истории затрат
-     */
-    async advV1UpdGet(requestParameters: AdvV1UpdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdvV1UpdGet200ResponseInner>> {
-        const response = await this.advV1UpdGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV2SeacatSaveAdPost without sending the request
-     */
-    async advV2SeacatSaveAdPostRequestOpts(requestParameters: AdvV2SeacatSaveAdPostOperationRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v2/seacat/save-ad`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AdvV2SeacatSaveAdPostRequestToJSON(requestParameters['advV2SeacatSaveAdPostRequest']),
-        };
-    }
-
-    /**
-     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Создать кампанию
-     */
-    async advV2SeacatSaveAdPostRaw(requestParameters: AdvV2SeacatSaveAdPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<number>> {
-        const requestOptions = await this.advV2SeacatSaveAdPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<number>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Создать кампанию
-     */
-    async advV2SeacatSaveAdPost(requestParameters: AdvV2SeacatSaveAdPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number> {
-        const response = await this.advV2SeacatSaveAdPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV2SupplierNmsPost without sending the request
-     */
-    async advV2SupplierNmsPostRequestOpts(requestParameters: AdvV2SupplierNmsPostRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v2/supplier/nms`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters['requestBody'],
-        };
-    }
-
-    /**
-     * Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/Sozdanie-kampanij/paths/~1adv~1v1~1supplier~1subjects/get), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Карточки товаров для кампаний
-     */
-    async advV2SupplierNmsPostRaw(requestParameters: AdvV2SupplierNmsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdvV2SupplierNmsPost200ResponseInner>>> {
-        const requestOptions = await this.advV2SupplierNmsPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdvV2SupplierNmsPost200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/Sozdanie-kampanij/paths/~1adv~1v1~1supplier~1subjects/get), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Карточки товаров для кампаний
-     */
-    async advV2SupplierNmsPost(requestParameters: AdvV2SupplierNmsPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdvV2SupplierNmsPost200ResponseInner>> {
-        const response = await this.advV2SupplierNmsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for advV3FullstatsGet without sending the request
-     */
-    async advV3FullstatsGetRequestOpts(requestParameters: AdvV3FullstatsGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['ids'] == null) {
-            throw new runtime.RequiredError(
-                'ids',
-                'Required parameter "ids" was null or undefined when calling advV3FullstatsGet().'
-            );
-        }
-
-        if (requestParameters['beginDate'] == null) {
-            throw new runtime.RequiredError(
-                'beginDate',
-                'Required parameter "beginDate" was null or undefined when calling advV3FullstatsGet().'
-            );
-        }
-
-        if (requestParameters['endDate'] == null) {
-            throw new runtime.RequiredError(
-                'endDate',
-                'Required parameter "endDate" was null or undefined when calling advV3FullstatsGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['ids'] != null) {
-            queryParameters['ids'] = requestParameters['ids'];
-        }
-
-        if (requestParameters['beginDate'] != null) {
-            queryParameters['beginDate'] = (requestParameters['beginDate'] as any).toISOString().substring(0,10);
-        }
-
-        if (requestParameters['endDate'] != null) {
-            queryParameters['endDate'] = (requestParameters['endDate'] as any).toISOString().substring(0,10);
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/adv/v3/fullstats`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Статистика кампаний
-     */
-    async advV3FullstatsGetRaw(requestParameters: AdvV3FullstatsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FullStatsItem>>> {
-        const requestOptions = await this.advV3FullstatsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(FullStatsItemFromJSON));
-    }
-
-    /**
-     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Статистика кампаний
-     */
-    async advV3FullstatsGet(requestParameters: AdvV3FullstatsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FullStatsItem>> {
-        const response = await this.advV3FullstatsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiAdvertV0BidsRecommendationsGet without sending the request
-     */
-    async apiAdvertV0BidsRecommendationsGetRequestOpts(requestParameters: ApiAdvertV0BidsRecommendationsGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['nmId'] == null) {
-            throw new runtime.RequiredError(
-                'nmId',
-                'Required parameter "nmId" was null or undefined when calling apiAdvertV0BidsRecommendationsGet().'
-            );
-        }
-
-        if (requestParameters['advertId'] == null) {
-            throw new runtime.RequiredError(
-                'advertId',
-                'Required parameter "advertId" was null or undefined when calling apiAdvertV0BidsRecommendationsGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['nmId'] != null) {
-            queryParameters['nmId'] = requestParameters['nmId'];
-        }
-
-        if (requestParameters['advertId'] != null) {
-            queryParameters['advertId'] = requestParameters['advertId'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/advert/v0/bids/recommendations`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Только для кампаний с типом оплаты `cpm` — за показы.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
-     * Рекомендуемые ставки для карточек товаров и поисковых кластеров
-     */
-    async apiAdvertV0BidsRecommendationsGetRaw(requestParameters: ApiAdvertV0BidsRecommendationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0BidsRecommendationsResponse>> {
-        const requestOptions = await this.apiAdvertV0BidsRecommendationsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V0BidsRecommendationsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании. Только для кампаний с типом оплаты `cpm` — за показы.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос | </div> 
-     * Рекомендуемые ставки для карточек товаров и поисковых кластеров
-     */
-    async apiAdvertV0BidsRecommendationsGet(requestParameters: ApiAdvertV0BidsRecommendationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0BidsRecommendationsResponse> {
-        const response = await this.apiAdvertV0BidsRecommendationsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiAdvertV1BidsMinPost without sending the request
-     */
-    async apiAdvertV1BidsMinPostRequestOpts(requestParameters: ApiAdvertV1BidsMinPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiAdvertV1BidsMinPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiAdvertV1BidsMinPostRequest',
-                'Required parameter "apiAdvertV1BidsMinPostRequest" was null or undefined when calling apiAdvertV1BidsMinPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/advert/v1/bids/min`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiAdvertV1BidsMinPostRequestToJSON(requestParameters['apiAdvertV1BidsMinPostRequest']),
-        };
-    }
-
-    /**
-     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Минимальные ставки для карточек товаров
-     */
-    async apiAdvertV1BidsMinPostRaw(requestParameters: ApiAdvertV1BidsMinPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiAdvertV1BidsMinPost200Response>> {
-        const requestOptions = await this.apiAdvertV1BidsMinPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiAdvertV1BidsMinPost200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-     * Минимальные ставки для карточек товаров
-     */
-    async apiAdvertV1BidsMinPost(requestParameters: ApiAdvertV1BidsMinPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiAdvertV1BidsMinPost200Response> {
-        const response = await this.apiAdvertV1BidsMinPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiAdvertV1BidsPatch without sending the request
-     */
-    async apiAdvertV1BidsPatchRequestOpts(requestParameters: ApiAdvertV1BidsPatchOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiAdvertV1BidsPatchRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiAdvertV1BidsPatchRequest',
-                'Required parameter "apiAdvertV1BidsPatchRequest" was null or undefined when calling apiAdvertV1BidsPatch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/advert/v1/bids`;
-
-        return {
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiAdvertV1BidsPatchRequestToJSON(requestParameters['apiAdvertV1BidsPatchRequest']),
-        };
-    }
-
-    /**
-     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Изменение ставок в кампаниях
-     */
-    async apiAdvertV1BidsPatchRaw(requestParameters: ApiAdvertV1BidsPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiAdvertV1BidsPatch200Response>> {
-        const requestOptions = await this.apiAdvertV1BidsPatchRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiAdvertV1BidsPatch200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
-     * Изменение ставок в кампаниях
-     */
-    async apiAdvertV1BidsPatch(requestParameters: ApiAdvertV1BidsPatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiAdvertV1BidsPatch200Response> {
-        const response = await this.apiAdvertV1BidsPatchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiAdvertV2AdvertsGet without sending the request
-     */
-    async apiAdvertV2AdvertsGetRequestOpts(requestParameters: ApiAdvertV2AdvertsGetRequest): Promise<runtime.RequestOpts> {
-        const queryParameters: any = {};
-
-        if (requestParameters['ids'] != null) {
-            queryParameters['ids'] = requestParameters['ids'];
-        }
-
-        if (requestParameters['statuses'] != null) {
-            queryParameters['statuses'] = requestParameters['statuses'];
-        }
-
-        if (requestParameters['paymentType'] != null) {
-            queryParameters['payment_type'] = requestParameters['paymentType'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/advert/v2/adverts`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Информация о кампаниях
-     */
-    async apiAdvertV2AdvertsGetRaw(requestParameters: ApiAdvertV2AdvertsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAdverts>> {
-        const requestOptions = await this.apiAdvertV2AdvertsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAdvertsFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Информация о кампаниях
-     */
-    async apiAdvertV2AdvertsGet(requestParameters: ApiAdvertV2AdvertsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAdverts> {
-        const response = await this.apiAdvertV2AdvertsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1CalendarPromotionsDetailsGet without sending the request
-     */
-    async apiV1CalendarPromotionsDetailsGetRequestOpts(requestParameters: ApiV1CalendarPromotionsDetailsGetRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['promotionIDs'] == null) {
-            throw new runtime.RequiredError(
-                'promotionIDs',
-                'Required parameter "promotionIDs" was null or undefined when calling apiV1CalendarPromotionsDetailsGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['promotionIDs'] != null) {
-            queryParameters['promotionIDs'] = requestParameters['promotionIDs'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/calendar/promotions/details`;
-
-        return {
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        };
-    }
-
-    /**
-     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Детальная информация об акциях
-     */
-    async apiV1CalendarPromotionsDetailsGetRaw(requestParameters: ApiV1CalendarPromotionsDetailsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1CalendarPromotionsDetailsGet200Response>> {
-        const requestOptions = await this.apiV1CalendarPromotionsDetailsGetRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1CalendarPromotionsDetailsGet200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Детальная информация об акциях
-     */
-    async apiV1CalendarPromotionsDetailsGet(requestParameters: ApiV1CalendarPromotionsDetailsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1CalendarPromotionsDetailsGet200Response> {
-        const response = await this.apiV1CalendarPromotionsDetailsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1CalendarPromotionsGet without sending the request
-     */
-    async apiV1CalendarPromotionsGetRequestOpts(requestParameters: ApiV1CalendarPromotionsGetRequest): Promise<runtime.RequestOpts> {
+    async getV1CalendarPromotionsRequestOpts(requestParameters: GetV1CalendarPromotionsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['startDateTime'] == null) {
             throw new runtime.RequiredError(
                 'startDateTime',
-                'Required parameter "startDateTime" was null or undefined when calling apiV1CalendarPromotionsGet().'
+                'Required parameter "startDateTime" was null or undefined when calling getV1CalendarPromotions().'
             );
         }
 
         if (requestParameters['endDateTime'] == null) {
             throw new runtime.RequiredError(
                 'endDateTime',
-                'Required parameter "endDateTime" was null or undefined when calling apiV1CalendarPromotionsGet().'
+                'Required parameter "endDateTime" was null or undefined when calling getV1CalendarPromotions().'
             );
         }
 
         if (requestParameters['allPromo'] == null) {
             throw new runtime.RequiredError(
                 'allPromo',
-                'Required parameter "allPromo" was null or undefined when calling apiV1CalendarPromotionsGet().'
+                'Required parameter "allPromo" was null or undefined when calling getV1CalendarPromotions().'
             );
         }
 
@@ -2588,40 +1309,94 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список акций
      */
-    async apiV1CalendarPromotionsGetRaw(requestParameters: ApiV1CalendarPromotionsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1CalendarPromotionsGet200Response>> {
-        const requestOptions = await this.apiV1CalendarPromotionsGetRequestOpts(requestParameters);
+    async getV1CalendarPromotionsRaw(requestParameters: GetV1CalendarPromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1CalendarPromotions200Response>> {
+        const requestOptions = await this.getV1CalendarPromotionsRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1CalendarPromotionsGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1CalendarPromotions200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Список акций
      */
-    async apiV1CalendarPromotionsGet(requestParameters: ApiV1CalendarPromotionsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1CalendarPromotionsGet200Response> {
-        const response = await this.apiV1CalendarPromotionsGetRaw(requestParameters, initOverrides);
+    async getV1CalendarPromotions(requestParameters: GetV1CalendarPromotionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1CalendarPromotions200Response> {
+        const response = await this.getV1CalendarPromotionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates request options for apiV1CalendarPromotionsNomenclaturesGet without sending the request
+     * Creates request options for getV1CalendarPromotionsDetails without sending the request
      */
-    async apiV1CalendarPromotionsNomenclaturesGetRequestOpts(requestParameters: ApiV1CalendarPromotionsNomenclaturesGetRequest): Promise<runtime.RequestOpts> {
+    async getV1CalendarPromotionsDetailsRequestOpts(requestParameters: GetV1CalendarPromotionsDetailsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['promotionIDs'] == null) {
+            throw new runtime.RequiredError(
+                'promotionIDs',
+                'Required parameter "promotionIDs" was null or undefined when calling getV1CalendarPromotionsDetails().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['promotionIDs'] != null) {
+            queryParameters['promotionIDs'] = requestParameters['promotionIDs'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/calendar/promotions/details`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Детальная информация об акциях
+     */
+    async getV1CalendarPromotionsDetailsRaw(requestParameters: GetV1CalendarPromotionsDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1CalendarPromotionsDetails200Response>> {
+        const requestOptions = await this.getV1CalendarPromotionsDetailsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1CalendarPromotionsDetails200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Детальная информация об акциях
+     */
+    async getV1CalendarPromotionsDetails(requestParameters: GetV1CalendarPromotionsDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1CalendarPromotionsDetails200Response> {
+        const response = await this.getV1CalendarPromotionsDetailsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1CalendarPromotionsNomenclatures without sending the request
+     */
+    async getV1CalendarPromotionsNomenclaturesRequestOpts(requestParameters: GetV1CalendarPromotionsNomenclaturesRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['promotionID'] == null) {
             throw new runtime.RequiredError(
                 'promotionID',
-                'Required parameter "promotionID" was null or undefined when calling apiV1CalendarPromotionsNomenclaturesGet().'
+                'Required parameter "promotionID" was null or undefined when calling getV1CalendarPromotionsNomenclatures().'
             );
         }
 
         if (requestParameters['inAction'] == null) {
             throw new runtime.RequiredError(
                 'inAction',
-                'Required parameter "inAction" was null or undefined when calling apiV1CalendarPromotionsNomenclaturesGet().'
+                'Required parameter "inAction" was null or undefined when calling getV1CalendarPromotionsNomenclatures().'
             );
         }
 
@@ -2661,75 +1436,22 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1upload/post).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
+     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
      * Список товаров для участия в акции
      */
-    async apiV1CalendarPromotionsNomenclaturesGetRaw(requestParameters: ApiV1CalendarPromotionsNomenclaturesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1CalendarPromotionsNomenclaturesGet200Response>> {
-        const requestOptions = await this.apiV1CalendarPromotionsNomenclaturesGetRequestOpts(requestParameters);
+    async getV1CalendarPromotionsNomenclaturesRaw(requestParameters: GetV1CalendarPromotionsNomenclaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1CalendarPromotionsNomenclatures200Response>> {
+        const requestOptions = await this.getV1CalendarPromotionsNomenclaturesRequestOpts(requestParameters);
         const response = await this.request(requestOptions, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1CalendarPromotionsNomenclaturesGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1CalendarPromotionsNomenclatures200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1upload/post).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
+     * Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 6 сек | 10 запросов | 600 мс | 5 запросов |  </div> 
      * Список товаров для участия в акции
      */
-    async apiV1CalendarPromotionsNomenclaturesGet(requestParameters: ApiV1CalendarPromotionsNomenclaturesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1CalendarPromotionsNomenclaturesGet200Response> {
-        const response = await this.apiV1CalendarPromotionsNomenclaturesGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1CalendarPromotionsUploadPost without sending the request
-     */
-    async apiV1CalendarPromotionsUploadPostRequestOpts(requestParameters: ApiV1CalendarPromotionsUploadPostOperationRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['apiV1CalendarPromotionsUploadPostRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV1CalendarPromotionsUploadPostRequest',
-                'Required parameter "apiV1CalendarPromotionsUploadPostRequest" was null or undefined when calling apiV1CalendarPromotionsUploadPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
-        }
-
-
-        let urlPath = `/api/v1/calendar/promotions/upload`;
-
-        return {
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV1CalendarPromotionsUploadPostRequestToJSON(requestParameters['apiV1CalendarPromotionsUploadPostRequest']),
-        };
-    }
-
-    /**
-     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Добавить товар в акцию
-     */
-    async apiV1CalendarPromotionsUploadPostRaw(requestParameters: ApiV1CalendarPromotionsUploadPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1CalendarPromotionsUploadPost200Response>> {
-        const requestOptions = await this.apiV1CalendarPromotionsUploadPostRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1CalendarPromotionsUploadPost200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
-     * Добавить товар в акцию
-     */
-    async apiV1CalendarPromotionsUploadPost(requestParameters: ApiV1CalendarPromotionsUploadPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1CalendarPromotionsUploadPost200Response> {
-        const response = await this.apiV1CalendarPromotionsUploadPostRaw(requestParameters, initOverrides);
+    async getV1CalendarPromotionsNomenclatures(requestParameters: GetV1CalendarPromotionsNomenclaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1CalendarPromotionsNomenclatures200Response> {
+        const response = await this.getV1CalendarPromotionsNomenclaturesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2757,7 +1479,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
      * Конфигурационные значения продвижения
      */
     async getV1ConfigRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V2GetConfigResponse>> {
@@ -2768,11 +1490,1035 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
+     * Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)   <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов | </div> 
      * Конфигурационные значения продвижения
      */
     async getV1Config(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V2GetConfigResponse> {
         const response = await this.getV1ConfigRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Count without sending the request
+     */
+    async getV1CountRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/count`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Количество медиакампаний
+     */
+    async getV1CountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1Count200Response>> {
+        const requestOptions = await this.getV1CountRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1Count200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Количество медиакампаний
+     */
+    async getV1Count(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1Count200Response> {
+        const response = await this.getV1CountRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Payments without sending the request
+     */
+    async getV1PaymentsRequestOpts(requestParameters: GetV1PaymentsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['from'] != null) {
+            queryParameters['from'] = (requestParameters['from'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['to'] != null) {
+            queryParameters['to'] = (requestParameters['to'] as any).toISOString().substring(0,10);
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/payments`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Получение истории пополнений счёта
+     */
+    async getV1PaymentsRaw(requestParameters: GetV1PaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1Payments200ResponseInner>>> {
+        const requestOptions = await this.getV1PaymentsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetV1Payments200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Метод возвращает историю пополнений счёта **WB Продвижение** за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Получение истории пополнений счёта
+     */
+    async getV1Payments(requestParameters: GetV1PaymentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1Payments200ResponseInner> | null | undefined > {
+        const response = await this.getV1PaymentsRaw(requestParameters, initOverrides);
+        switch (response.raw.status) {
+            case 200:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
+    }
+
+    /**
+     * Creates request options for getV1PromotionCount without sending the request
+     */
+    async getV1PromotionCountRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/promotion/count`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Списки кампаний
+     */
+    async getV1PromotionCountRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1PromotionCount200Response>> {
+        const requestOptions = await this.getV1PromotionCountRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetV1PromotionCount200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос | </div> 
+     * Списки кампаний
+     */
+    async getV1PromotionCount(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1PromotionCount200Response> {
+        const response = await this.getV1PromotionCountRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1SupplierSubjects without sending the request
+     */
+    async getV1SupplierSubjectsRequestOpts(requestParameters: GetV1SupplierSubjectsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['paymentType'] != null) {
+            queryParameters['payment_type'] = requestParameters['paymentType'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/supplier/subjects`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Предметы для кампаний
+     */
+    async getV1SupplierSubjectsRaw(requestParameters: GetV1SupplierSubjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1SupplierSubjects200ResponseInner>>> {
+        const requestOptions = await this.getV1SupplierSubjectsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetV1SupplierSubjects200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Предметы для кампаний
+     */
+    async getV1SupplierSubjects(requestParameters: GetV1SupplierSubjectsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1SupplierSubjects200ResponseInner>> {
+        const response = await this.getV1SupplierSubjectsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV1Upd without sending the request
+     */
+    async getV1UpdRequestOpts(requestParameters: GetV1UpdRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['from'] == null) {
+            throw new runtime.RequiredError(
+                'from',
+                'Required parameter "from" was null or undefined when calling getV1Upd().'
+            );
+        }
+
+        if (requestParameters['to'] == null) {
+            throw new runtime.RequiredError(
+                'to',
+                'Required parameter "to" was null or undefined when calling getV1Upd().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['from'] != null) {
+            queryParameters['from'] = (requestParameters['from'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['to'] != null) {
+            queryParameters['to'] = (requestParameters['to'] as any).toISOString().substring(0,10);
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/upd`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Получение истории затрат
+     */
+    async getV1UpdRaw(requestParameters: GetV1UpdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetV1Upd200ResponseInner>>> {
+        const requestOptions = await this.getV1UpdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetV1Upd200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Метод формирует список фактических затрат на рекламные кампании за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Получение истории затрат
+     */
+    async getV1Upd(requestParameters: GetV1UpdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetV1Upd200ResponseInner>> {
+        const response = await this.getV1UpdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV2Adverts without sending the request
+     */
+    async getV2AdvertsRequestOpts(requestParameters: GetV2AdvertsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
+        }
+
+        if (requestParameters['statuses'] != null) {
+            queryParameters['statuses'] = requestParameters['statuses'];
+        }
+
+        if (requestParameters['paymentType'] != null) {
+            queryParameters['payment_type'] = requestParameters['paymentType'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v2/adverts`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Информация о кампаниях
+     */
+    async getV2AdvertsRaw(requestParameters: GetV2AdvertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAdverts>> {
+        const requestOptions = await this.getV2AdvertsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetAdvertsFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Информация о кампаниях
+     */
+    async getV2Adverts(requestParameters: GetV2AdvertsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAdverts> {
+        const response = await this.getV2AdvertsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV3Fullstats without sending the request
+     */
+    async getV3FullstatsRequestOpts(requestParameters: GetV3FullstatsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['ids'] == null) {
+            throw new runtime.RequiredError(
+                'ids',
+                'Required parameter "ids" was null or undefined when calling getV3Fullstats().'
+            );
+        }
+
+        if (requestParameters['beginDate'] == null) {
+            throw new runtime.RequiredError(
+                'beginDate',
+                'Required parameter "beginDate" was null or undefined when calling getV3Fullstats().'
+            );
+        }
+
+        if (requestParameters['endDate'] == null) {
+            throw new runtime.RequiredError(
+                'endDate',
+                'Required parameter "endDate" was null or undefined when calling getV3Fullstats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
+        }
+
+        if (requestParameters['beginDate'] != null) {
+            queryParameters['beginDate'] = (requestParameters['beginDate'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['endDate'] != null) {
+            queryParameters['endDate'] = (requestParameters['endDate'] as any).toISOString().substring(0,10);
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v3/fullstats`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Статистика кампаний
+     */
+    async getV3FullstatsRaw(requestParameters: GetV3FullstatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FullStatsItem>>> {
+        const requestOptions = await this.getV3FullstatsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(FullStatsItemFromJSON));
+    }
+
+    /**
+     * Метод формирует статистику для кампаний независимо от типа. <br><br> Максимальный период в запросе — 31 день. <br><br> Для кампаний в статусах `7`, `9` и `11`. <br><br> В песочнице статистика кампаний доступна за последние 30 дней. Генерируется только для компаний в статусе `9`, тип `8`, 9 раз в сутки  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Статистика кампаний
+     */
+    async getV3Fullstats(requestParameters: GetV3FullstatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FullStatsItem>> {
+        const response = await this.getV3FullstatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for patchV0AuctionNms without sending the request
+     */
+    async patchV0AuctionNmsRequestOpts(requestParameters: PatchV0AuctionNmsOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['patchV0AuctionNmsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'patchV0AuctionNmsRequest',
+                'Required parameter "patchV0AuctionNmsRequest" was null or undefined when calling patchV0AuctionNms().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/auction/nms`;
+
+        return {
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchV0AuctionNmsRequestToJSON(requestParameters['patchV0AuctionNmsRequest']),
+        };
+    }
+
+    /**
+     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Изменение списка карточек товаров в кампаниях
+     */
+    async patchV0AuctionNmsRaw(requestParameters: PatchV0AuctionNmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchV0AuctionNms200Response>> {
+        const requestOptions = await this.patchV0AuctionNmsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PatchV0AuctionNms200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод добавляет и удаляет карточки товаров в кампаниях. <br><br> Для кампаний в статусах `4`, `9` и `11`. <br><br> Для добавляемых товаров устанавливается текущая минимальная ставка.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Изменение списка карточек товаров в кампаниях
+     */
+    async patchV0AuctionNms(requestParameters: PatchV0AuctionNmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchV0AuctionNms200Response> {
+        const response = await this.patchV0AuctionNmsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for patchV1Bids without sending the request
+     */
+    async patchV1BidsRequestOpts(requestParameters: PatchV1BidsOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['patchV1BidsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'patchV1BidsRequest',
+                'Required parameter "patchV1BidsRequest" was null or undefined when calling patchV1Bids().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v1/bids`;
+
+        return {
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchV1BidsRequestToJSON(requestParameters['patchV1BidsRequest']),
+        };
+    }
+
+    /**
+     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Изменение ставок в кампаниях
+     */
+    async patchV1BidsRaw(requestParameters: PatchV1BidsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchV1Bids200Response>> {
+        const requestOptions = await this.patchV1BidsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PatchV1Bids200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод меняет ставки карточек товаров по артикулам WB в кампаниях:   - с единой ставкой   - с ручной ставкой   - с моделью оплаты `cpc` — за клики  Для кампаний в статусах `4`, `9` и `11`. <br><br> В запросе укажите место размещения в параметре `placement`:   - `combined` — в поиске и рекомендациях для кампаний с единой ставкой   - `search `или `recommendations` — в поиске или рекомендациях для кампаний с ручной ставкой  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Изменение ставок в кампаниях
+     */
+    async patchV1Bids(requestParameters: PatchV1BidsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchV1Bids200Response> {
+        const response = await this.patchV1BidsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV0NormqueryBids without sending the request
+     */
+    async postV0NormqueryBidsRequestOpts(requestParameters: PostV0NormqueryBidsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0SetNormQueryBidsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v0SetNormQueryBidsRequest',
+                'Required parameter "v0SetNormQueryBidsRequest" was null or undefined when calling postV0NormqueryBids().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/normquery/bids`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V0SetNormQueryBidsRequestToJSON(requestParameters['v0SetNormQueryBidsRequest']),
+        };
+    }
+
+    /**
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Установить ставки для поисковых кластеров
+     */
+    async postV0NormqueryBidsRaw(requestParameters: PostV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.postV0NormqueryBidsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод устанавливает ставки в рублях на поисковые кластеры.<br> Можно использовать только для кампаний с:   - ручной ставкой   - моделью оплаты `cpm` — за показы   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Установить ставки для поисковых кластеров
+     */
+    async postV0NormqueryBids(requestParameters: PostV0NormqueryBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postV0NormqueryBidsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for postV0NormqueryGetBids without sending the request
+     */
+    async postV0NormqueryGetBidsRequestOpts(requestParameters: PostV0NormqueryGetBidsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0GetNormQueryBidsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v0GetNormQueryBidsRequest',
+                'Required parameter "v0GetNormQueryBidsRequest" was null or undefined when calling postV0NormqueryGetBids().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/normquery/get-bids`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V0GetNormQueryBidsRequestToJSON(requestParameters['v0GetNormQueryBidsRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Список ставок поисковых кластеров
+     */
+    async postV0NormqueryGetBidsRaw(requestParameters: PostV0NormqueryGetBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryBidsResponse>> {
+        const requestOptions = await this.postV0NormqueryGetBidsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryBidsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список поисковых кластеров со ставками по:   - ID кампаний   - артикулам WB  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Список ставок поисковых кластеров
+     */
+    async postV0NormqueryGetBids(requestParameters: PostV0NormqueryGetBidsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryBidsResponse> {
+        const response = await this.postV0NormqueryGetBidsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV0NormqueryGetMinus without sending the request
+     */
+    async postV0NormqueryGetMinusRequestOpts(requestParameters: PostV0NormqueryGetMinusRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0GetNormQueryMinusRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v0GetNormQueryMinusRequest',
+                'Required parameter "v0GetNormQueryMinusRequest" was null or undefined when calling postV0NormqueryGetMinus().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/normquery/get-minus`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V0GetNormQueryMinusRequestToJSON(requestParameters['v0GetNormQueryMinusRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Список минус-фраз кампаний
+     */
+    async postV0NormqueryGetMinusRaw(requestParameters: PostV0NormqueryGetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryMinusResponse>> {
+        const requestOptions = await this.postV0NormqueryGetMinusRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryMinusResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список минус-фраз по:   - ID кампаний   - артикулам WB   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Список минус-фраз кампаний
+     */
+    async postV0NormqueryGetMinus(requestParameters: PostV0NormqueryGetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryMinusResponse> {
+        const response = await this.postV0NormqueryGetMinusRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV0NormqueryList without sending the request
+     */
+    async postV0NormqueryListRequestOpts(requestParameters: PostV0NormqueryListRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0GetNormQueryListRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v0GetNormQueryListRequest',
+                'Required parameter "v0GetNormQueryListRequest" was null or undefined when calling postV0NormqueryList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/normquery/list`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V0GetNormQueryListRequestToJSON(requestParameters['v0GetNormQueryListRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Списки активных и неактивных поисковых кластеров
+     */
+    async postV0NormqueryListRaw(requestParameters: PostV0NormqueryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryListResponse>> {
+        const requestOptions = await this.postV0NormqueryListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryListResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает списки активных и неактивных поисковых кластеров, по которым было не меньше 100 показов.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Списки активных и неактивных поисковых кластеров
+     */
+    async postV0NormqueryList(requestParameters: PostV0NormqueryListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryListResponse> {
+        const response = await this.postV0NormqueryListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV0NormquerySetMinus without sending the request
+     */
+    async postV0NormquerySetMinusRequestOpts(requestParameters: PostV0NormquerySetMinusRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0SetMinusNormQueryRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v0SetMinusNormQueryRequest',
+                'Required parameter "v0SetMinusNormQueryRequest" was null or undefined when calling postV0NormquerySetMinus().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/normquery/set-minus`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V0SetMinusNormQueryRequestToJSON(requestParameters['v0SetMinusNormQueryRequest']),
+        };
+    }
+
+    /**
+     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Установка и удаление минус-фраз
+     */
+    async postV0NormquerySetMinusRaw(requestParameters: PostV0NormquerySetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.postV0NormquerySetMinusRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод устанавливает и удаляет минус-фразы в кампаниях c единой и ручной ставкой.  <div class=\"description_important\">   Отправка пустого массива удаляет все минус-фразы </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Установка и удаление минус-фраз
+     */
+    async postV0NormquerySetMinus(requestParameters: PostV0NormquerySetMinusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postV0NormquerySetMinusRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for postV0NormqueryStats without sending the request
+     */
+    async postV0NormqueryStatsRequestOpts(requestParameters: PostV0NormqueryStatsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v0GetNormQueryStatsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v0GetNormQueryStatsRequest',
+                'Required parameter "v0GetNormQueryStatsRequest" was null or undefined when calling postV0NormqueryStats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/normquery/stats`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V0GetNormQueryStatsRequestToJSON(requestParameters['v0GetNormQueryStatsRequest']),
+        };
+    }
+
+    /**
+     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Статистика поисковых кластеров
+     */
+    async postV0NormqueryStatsRaw(requestParameters: PostV0NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V0GetNormQueryStatsResponse>> {
+        const requestOptions = await this.postV0NormqueryStatsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V0GetNormQueryStatsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод формирует статистику по поисковым кластерам за указанный период.<br> Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Статистика поисковых кластеров
+     */
+    async postV0NormqueryStats(requestParameters: PostV0NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V0GetNormQueryStatsResponse> {
+        const response = await this.postV0NormqueryStatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV0Rename without sending the request
+     */
+    async postV0RenameRequestOpts(requestParameters: PostV0RenameOperationRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/rename`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV0RenameRequestToJSON(requestParameters['postV0RenameRequest']),
+        };
+    }
+
+    /**
+     * Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Переименование кампании
+     */
+    async postV0RenameRaw(requestParameters: PostV0RenameOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.postV0RenameRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Переименование кампании
+     */
+    async postV0Rename(requestParameters: PostV0RenameOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.postV0RenameRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for postV1BidsMin without sending the request
+     */
+    async postV1BidsMinRequestOpts(requestParameters: PostV1BidsMinOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV1BidsMinRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV1BidsMinRequest',
+                'Required parameter "postV1BidsMinRequest" was null or undefined when calling postV1BidsMin().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/advert/v1/bids/min`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV1BidsMinRequestToJSON(requestParameters['postV1BidsMinRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Минимальные ставки для карточек товаров
+     */
+    async postV1BidsMinRaw(requestParameters: PostV1BidsMinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1BidsMin200Response>> {
+        const requestOptions = await this.postV1BidsMinRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV1BidsMin200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает минимальные ставки для карточек товаров в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) — по типу оплаты и местам размещения.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Минимальные ставки для карточек товаров
+     */
+    async postV1BidsMin(requestParameters: PostV1BidsMinOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1BidsMin200Response> {
+        const response = await this.postV1BidsMinRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV1BudgetDeposit without sending the request
+     */
+    async postV1BudgetDepositRequestOpts(requestParameters: PostV1BudgetDepositOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling postV1BudgetDeposit().'
+            );
+        }
+
+        if (requestParameters['postV1BudgetDepositRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV1BudgetDepositRequest',
+                'Required parameter "postV1BudgetDepositRequest" was null or undefined when calling postV1BudgetDeposit().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['id'] != null) {
+            queryParameters['id'] = requestParameters['id'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/budget/deposit`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV1BudgetDepositRequestToJSON(requestParameters['postV1BudgetDepositRequest']),
+        };
+    }
+
+    /**
+     * Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/getV1Budget) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Пополнение бюджета кампании
+     */
+    async postV1BudgetDepositRaw(requestParameters: PostV1BudgetDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResponseWithReturn>> {
+        const requestOptions = await this.postV1BudgetDepositRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ResponseWithReturnFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/getV1Budget) кампании. <br> Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Пополнение бюджета кампании
+     */
+    async postV1BudgetDeposit(requestParameters: PostV1BudgetDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseWithReturn> {
+        const response = await this.postV1BudgetDepositRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV1CalendarPromotionsUpload without sending the request
+     */
+    async postV1CalendarPromotionsUploadRequestOpts(requestParameters: PostV1CalendarPromotionsUploadOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV1CalendarPromotionsUploadRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV1CalendarPromotionsUploadRequest',
+                'Required parameter "postV1CalendarPromotionsUploadRequest" was null or undefined when calling postV1CalendarPromotionsUpload().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/v1/calendar/promotions/upload`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV1CalendarPromotionsUploadRequestToJSON(requestParameters['postV1CalendarPromotionsUploadRequest']),
+        };
+    }
+
+    /**
+     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Добавить товар в акцию
+     */
+    async postV1CalendarPromotionsUploadRaw(requestParameters: PostV1CalendarPromotionsUploadOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostV1CalendarPromotionsUpload200Response>> {
+        const requestOptions = await this.postV1CalendarPromotionsUploadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostV1CalendarPromotionsUpload200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br> Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).  <div class=\"description_important\">   Данный метод неприменим для автоакций. </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Добавить товар в акцию
+     */
+    async postV1CalendarPromotionsUpload(requestParameters: PostV1CalendarPromotionsUploadOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostV1CalendarPromotionsUpload200Response> {
+        const response = await this.postV1CalendarPromotionsUploadRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2829,13 +2575,267 @@ export class DefaultApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+    /**
+     * Creates request options for postV1NormqueryStats without sending the request
+     */
+    async postV1NormqueryStatsRequestOpts(requestParameters: PostV1NormqueryStatsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['v1GetNormQueryStatsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'v1GetNormQueryStatsRequest',
+                'Required parameter "v1GetNormQueryStatsRequest" was null or undefined when calling postV1NormqueryStats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/normquery/stats`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1GetNormQueryStatsRequestToJSON(requestParameters['v1GetNormQueryStatsRequest']),
+        };
+    }
+
+    /**
+     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Статистика по поисковым кластерам с детализацией по дням
+     */
+    async postV1NormqueryStatsRaw(requestParameters: PostV1NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1GetNormQueryStatsResponse>> {
+        const requestOptions = await this.postV1NormqueryStatsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1GetNormQueryStatsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод формирует статистику по поисковым кластерам за указанный период с детализацией по дням. Можно использовать для кампаний с моделями оплаты `cpm` — за показы и `cpc` — за клики.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Сервисный | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Статистика по поисковым кластерам с детализацией по дням
+     */
+    async postV1NormqueryStats(requestParameters: PostV1NormqueryStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1GetNormQueryStatsResponse> {
+        const response = await this.postV1NormqueryStatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV1Stats without sending the request
+     */
+    async postV1StatsRequestOpts(requestParameters: PostV1StatsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV1StatsRequestInner'] == null) {
+            throw new runtime.RequiredError(
+                'postV1StatsRequestInner',
+                'Required parameter "postV1StatsRequestInner" was null or undefined when calling postV1Stats().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v1/stats`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['postV1StatsRequestInner']!.map(PostV1StatsRequestInnerToJSON),
+        };
+    }
+
+    /**
+     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Статистика медиакампаний
+     */
+    async postV1StatsRaw(requestParameters: PostV1StatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PostV1Stats200ResponseInner>>> {
+        const requestOptions = await this.postV1StatsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PostV1Stats200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Статистика медиакампаний
+     */
+    async postV1Stats(requestParameters: PostV1StatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PostV1Stats200ResponseInner>> {
+        const response = await this.postV1StatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2SeacatSaveAd without sending the request
+     */
+    async postV2SeacatSaveAdRequestOpts(requestParameters: PostV2SeacatSaveAdOperationRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v2/seacat/save-ad`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV2SeacatSaveAdRequestToJSON(requestParameters['postV2SeacatSaveAdRequest']),
+        };
+    }
+
+    /**
+     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Создать кампанию
+     */
+    async postV2SeacatSaveAdRaw(requestParameters: PostV2SeacatSaveAdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<number>> {
+        const requestOptions = await this.postV2SeacatSaveAdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<number>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Метод создаёт кампанию:   - с ручной ставкой для продвижения товаров в поиске и/или рекомендациях   - с единой ставкой для продвижения товаров одновременно в поиске и рекомендациях  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+     * Создать кампанию
+     */
+    async postV2SeacatSaveAd(requestParameters: PostV2SeacatSaveAdOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number> {
+        const response = await this.postV2SeacatSaveAdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for postV2SupplierNms without sending the request
+     */
+    async postV2SupplierNmsRequestOpts(requestParameters: PostV2SupplierNmsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v2/supplier/nms`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters['requestBody'],
+        };
+    }
+
+    /**
+     * Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Карточки товаров для кампаний
+     */
+    async postV2SupplierNmsRaw(requestParameters: PostV2SupplierNmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PostV2SupplierNms200ResponseInner>>> {
+        const requestOptions = await this.postV2SupplierNmsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PostV2SupplierNms200ResponseInnerFromJSON));
+    }
+
+    /**
+     * Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Карточки товаров для кампаний
+     */
+    async postV2SupplierNms(requestParameters: PostV2SupplierNmsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PostV2SupplierNms200ResponseInner>> {
+        const response = await this.postV2SupplierNmsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for putV0AuctionPlacements without sending the request
+     */
+    async putV0AuctionPlacementsRequestOpts(requestParameters: PutV0AuctionPlacementsOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['putV0AuctionPlacementsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putV0AuctionPlacementsRequest',
+                'Required parameter "putV0AuctionPlacementsRequest" was null or undefined when calling putV0AuctionPlacements().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/adv/v0/auction/placements`;
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutV0AuctionPlacementsRequestToJSON(requestParameters['putV0AuctionPlacementsRequest']),
+        };
+    }
+
+    /**
+     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Изменение мест размещения в кампаниях с ручной ставкой
+     */
+    async putV0AuctionPlacementsRaw(requestParameters: PutV0AuctionPlacementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV0AuctionPlacementsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`. <br><br> Для кампаний в статусах `4`, `9` и `11`.   <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | </div> 
+     * Изменение мест размещения в кампаниях с ручной ставкой
+     */
+    async putV0AuctionPlacements(requestParameters: PutV0AuctionPlacementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV0AuctionPlacementsRaw(requestParameters, initOverrides);
+    }
+
 }
 
 /**
  * @export
  */
-export const ApiAdvertV2AdvertsGetPaymentTypeEnum = {
+export const GetV2AdvertsPaymentTypeEnum = {
     Cpm: 'cpm',
     Cpc: 'cpc',
 } as const;
-export type ApiAdvertV2AdvertsGetPaymentTypeEnum = typeof ApiAdvertV2AdvertsGetPaymentTypeEnum[keyof typeof ApiAdvertV2AdvertsGetPaymentTypeEnum];
+export type GetV2AdvertsPaymentTypeEnum = typeof GetV2AdvertsPaymentTypeEnum[keyof typeof GetV2AdvertsPaymentTypeEnum];

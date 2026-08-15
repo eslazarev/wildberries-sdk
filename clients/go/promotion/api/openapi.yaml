@@ -8,10 +8,10 @@ info:
     <div class="api-block">
 
     Методы маркетинга и продвижения позволяют:
-      1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)
-      2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями
-      3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний
-      4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний
+      1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/campaigns) и [медиакампаниях](/openapi/promotion#tag/media)
+      2. [Создавать](/openapi/promotion#tag/creatingCampaigns) и [управлять](/openapi/promotion#tag/campaignManagement) кампаниями
+      3. Управлять [финансами](/openapi/promotion#tag/finances) кампаний
+      4. Выгружать [статистику](/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний
       5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)
 
     Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>
@@ -29,18 +29,25 @@ security:
 tags:
 - description: ""
   name: Кампании
+  x-displayName: Кампании
 - description: ""
   name: Создание кампаний
+  x-displayName: Создание кампаний
 - description: ""
   name: Управление кампаниями
+  x-displayName: Управление кампаниями
 - description: ""
   name: Поисковые кластеры
+  x-displayName: Поисковые кластеры
 - description: ""
   name: Финансы
+  x-displayName: Финансы
 - description: ""
   name: Медиа
+  x-displayName: Медиа
 - description: ""
   name: Статистика
+  x-displayName: Статистика
 - description: ""
   name: Календарь акций
   x-displayName: Календарь акций
@@ -48,7 +55,7 @@ paths:
   /adv/v1/promotion/count:
     get:
       description: |
-        Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
+        Метод возвращает списки всех [рекламных кампаний](/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -61,6 +68,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
         </div>
+      operationId: getV1PromotionCount
       responses:
         "200":
           content:
@@ -79,7 +87,7 @@ paths:
                     changeTime: 2023-07-12T15:51:08.367478+03:00
                 all: 3
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_200_response"
+                $ref: "#/components/schemas/getV1PromotionCount_200_response"
           description: Успешно
         "401":
           content:
@@ -95,7 +103,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -110,7 +118,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -142,6 +150,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV2Adverts
       parameters:
       - description: "ID кампаний, максимум 50"
         explode: true
@@ -274,7 +283,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -289,7 +298,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -316,6 +325,7 @@ paths:
         | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV1BidsMin
       requestBody:
         content:
           application/json:
@@ -330,7 +340,7 @@ paths:
               - search
               - recommendation
             schema:
-              $ref: "#/components/schemas/_api_advert_v1_bids_min_post_request"
+              $ref: "#/components/schemas/postV1BidsMin_request"
         required: true
       responses:
         "200":
@@ -361,7 +371,7 @@ paths:
                     value: 250
                   nm_id: 87654321
               schema:
-                $ref: "#/components/schemas/_api_advert_v1_bids_min_post_200_response"
+                $ref: "#/components/schemas/postV1BidsMin_200_response"
           description: Успешно
         "400":
           content:
@@ -383,7 +393,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -398,7 +408,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       summary: Минимальные ставки для карточек товаров
       tags:
@@ -425,6 +435,7 @@ paths:
         | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV2SeacatSaveAd
       requestBody:
         content:
           application/json:
@@ -438,7 +449,7 @@ paths:
               - search
               - recommendations
             schema:
-              $ref: "#/components/schemas/_adv_v2_seacat_save_ad_post_request"
+              $ref: "#/components/schemas/postV2SeacatSaveAd_request"
       responses:
         "200":
           content:
@@ -470,7 +481,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -485,7 +496,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -504,7 +515,7 @@ paths:
   /adv/v1/supplier/subjects:
     get:
       description: |
-        Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get).
+        Метод возвращает список [предметов](/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -517,6 +528,7 @@ paths:
         | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: getV1SupplierSubjects
       parameters:
       - description: |
           Тип оплаты:
@@ -544,7 +556,7 @@ paths:
                   value: null
               schema:
                 items:
-                  $ref: "#/components/schemas/_adv_v1_supplier_subjects_get_200_response_inner"
+                  $ref: "#/components/schemas/getV1SupplierSubjects_200_response_inner"
                 nullable: true
                 type: array
                 x-nullable: true
@@ -563,7 +575,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "404":
           description: Не найдено
@@ -580,7 +592,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -599,7 +611,7 @@ paths:
   /adv/v2/supplier/nms:
     post:
       description: |
-        Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/Sozdanie-kampanij/paths/~1adv~1v1~1supplier~1subjects/get), также доступных для добавления в кампанию.
+        Метод возвращает список [карточек товаров](/openapi/work-with-products#tag/listings/paths/~1content~1v2~1get~1cards~1list/post), которые можно добавить в рекламную [кампанию](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -612,6 +624,7 @@ paths:
         | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: postV2SupplierNms
       requestBody:
         content:
           application/json:
@@ -632,7 +645,7 @@ paths:
               schema:
                 description: Карточки товаров для кампаний
                 items:
-                  $ref: "#/components/schemas/_adv_v2_supplier_nms_post_200_response_inner"
+                  $ref: "#/components/schemas/postV2SupplierNms_200_response_inner"
                 nullable: true
                 type: array
           description: Успешно
@@ -657,7 +670,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -672,7 +685,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -691,7 +704,7 @@ paths:
   /adv/v0/delete:
     get:
       description: |
-        Метод удаляет [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `4` — готова к запуску.<br><br>
+        Метод удаляет [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.<br><br>
 
         После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.
 
@@ -706,6 +719,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV0Delete
       parameters:
       - description: ID кампании
         explode: true
@@ -741,7 +755,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -756,7 +770,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -775,7 +789,7 @@ paths:
   /adv/v0/rename:
     post:
       description: |
-        Метод меняет название [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get). Это можно сделать в любой момент существования кампании.
+        Метод меняет название [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -788,6 +802,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: postV0Rename
       requestBody:
         content:
           application/json:
@@ -795,7 +810,7 @@ paths:
               advertId: 2233344
               name: newname
             schema:
-              $ref: "#/components/schemas/_adv_v0_rename_post_request"
+              $ref: "#/components/schemas/postV0Rename_request"
       responses:
         "200":
           description: Успешно
@@ -826,7 +841,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "422":
           content:
@@ -852,7 +867,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -871,8 +886,8 @@ paths:
   /adv/v0/start:
     get:
       description: |
-        Метод запускает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах `4` — готово к запуску — или `11` — пауза.
-        Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).
+        Метод запускает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
+        Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -885,6 +900,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV0Start
       parameters:
       - description: ID кампании
         explode: true
@@ -925,7 +941,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "422":
           content:
@@ -949,7 +965,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -968,7 +984,7 @@ paths:
   /adv/v0/pause:
     get:
       description: |
-        Метод ставит [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусе `9` — активна — на паузу.
+        Метод ставит [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -981,6 +997,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV0Pause
       parameters:
       - description: ID кампании
         explode: true
@@ -1019,7 +1036,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "422":
           content:
@@ -1043,7 +1060,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1062,7 +1079,7 @@ paths:
   /adv/v0/stop:
     get:
       description: |
-        Метод завершает [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) в статусах:
+        Метод завершает [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:
           - `9` — активна
           - `11` — пауза
 
@@ -1077,6 +1094,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV0Stop
       parameters:
       - description: ID кампании
         explode: true
@@ -1115,7 +1133,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "422":
           content:
@@ -1139,7 +1157,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1173,6 +1191,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: putV0AuctionPlacements
       requestBody:
         content:
           application/json:
@@ -1183,7 +1202,7 @@ paths:
                   search: true
                   recommendations: true
             schema:
-              $ref: "#/components/schemas/_adv_v0_auction_placements_put_request"
+              $ref: "#/components/schemas/putV0AuctionPlacements_request"
         required: true
       responses:
         "204":
@@ -1224,7 +1243,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1239,7 +1258,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1275,6 +1294,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: patchV1Bids
       requestBody:
         content:
           application/json:
@@ -1286,7 +1306,7 @@ paths:
                   bid_kopecks: 250
                   placement: recommendations
             schema:
-              $ref: "#/components/schemas/_api_advert_v1_bids_patch_request"
+              $ref: "#/components/schemas/patchV1Bids_request"
         required: true
       responses:
         "200":
@@ -1301,7 +1321,7 @@ paths:
                     placement: recommendations
                 currency: RUB
               schema:
-                $ref: "#/components/schemas/_api_advert_v1_bids_patch_200_response"
+                $ref: "#/components/schemas/patchV1Bids_200_response"
           description: Успешно
         "400":
           content:
@@ -1329,7 +1349,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1344,7 +1364,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1363,7 +1383,7 @@ paths:
           - балансе — максимальной сумме для оплаты кампании по взаиморасчету: удержании средств из будущих продаж. Баланс пополнить нельзя, он рассчитывается автоматически на основе отчётов по продвижению.
           - бонусных начислениях WB.
 
-        Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get).
+        Информацию о бюджете кампаний можно получить в [отдельном методе](/openapi/promotion#tag/finances/operation/getV1Budget).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1376,6 +1396,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: getV1Balance
       responses:
         "200":
           content:
@@ -1390,7 +1411,7 @@ paths:
                   percent: 50
                   expiration_date: 2026-04-17T10:46:02.176174Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_balance_get_200_response"
+                $ref: "#/components/schemas/getV1Balance_200_response"
           description: Успешно
         "400":
           content:
@@ -1415,7 +1436,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1430,7 +1451,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1449,7 +1470,7 @@ paths:
   /adv/v1/budget:
     get:
       description: |
-        Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget~1deposit/post).
+        Метод возвращает информацию о бюджете [кампании](/openapi/promotion#tag/campaigns/operation/getV2Adverts) — максимальной сумме затрат на кампанию. Бюджет кампании можно [пополнить](/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1462,6 +1483,7 @@ paths:
         | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса |
         | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |
         </div>
+      operationId: getV1Budget
       parameters:
       - description: ID кампании
         explode: true
@@ -1482,7 +1504,7 @@ paths:
                 total: 500
                 currency: RUB
               schema:
-                $ref: "#/components/schemas/_adv_v1_budget_get_200_response"
+                $ref: "#/components/schemas/getV1Budget_200_response"
           description: Успешно
         "400":
           content:
@@ -1507,7 +1529,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1522,7 +1544,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1541,8 +1563,8 @@ paths:
   /adv/v1/budget/deposit:
     post:
       description: |
-        Метод пополняет [бюджет](/openapi/promotion#tag/Finansy/paths/~1adv~1v1~1budget/get) кампании. <br>
-        Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/Upravlenie-kampaniyami/paths/~1adv~1v0~1start/get).
+        Метод пополняет [бюджет](/openapi/promotion#tag/finances/operation/getV1Budget) кампании. <br>
+        Чтобы запустить кампанию после пополнения бюджета, используйте метод [Запуск кампании](/openapi/promotion#tag/campaignManagement/operation/getV0Start).
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1555,6 +1577,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV1BudgetDeposit
       parameters:
       - description: ID кампании
         explode: true
@@ -1569,7 +1592,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/_adv_v1_budget_deposit_post_request"
+              $ref: "#/components/schemas/postV1BudgetDeposit_request"
         required: true
       responses:
         "200":
@@ -1592,7 +1615,7 @@ paths:
                   value:
                     error: "Invalid Params: minimum deposit amount is 1000"
               schema:
-                $ref: "#/components/schemas/_adv_v1_budget_deposit_post_400_response"
+                $ref: "#/components/schemas/postV1BudgetDeposit_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -1608,7 +1631,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1623,7 +1646,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1655,6 +1678,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1Upd
       parameters:
       - description: Начало интервала
         explode: true
@@ -1701,7 +1725,7 @@ paths:
                 advertStatus: 11
               schema:
                 items:
-                  $ref: "#/components/schemas/_adv_v1_upd_get_200_response_inner"
+                  $ref: "#/components/schemas/getV1Upd_200_response_inner"
                 type: array
           description: Успешно
         "400":
@@ -1727,7 +1751,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1742,7 +1766,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1774,6 +1798,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1Payments
       parameters:
       - description: Начало интервала
         explode: true
@@ -1818,7 +1843,7 @@ paths:
                 cardStatus: succeeded
               schema:
                 items:
-                  $ref: "#/components/schemas/_adv_v1_payments_get_200_response_inner"
+                  $ref: "#/components/schemas/getV1Payments_200_response_inner"
                 type: array
           description: Успешно
         "204":
@@ -1846,7 +1871,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1861,7 +1886,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1897,6 +1922,7 @@ paths:
         | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: patchV0AuctionNms
       requestBody:
         content:
           application/json:
@@ -1910,7 +1936,7 @@ paths:
                   delete:
                   - 55555555
             schema:
-              $ref: "#/components/schemas/_adv_v0_auction_nms_patch_request"
+              $ref: "#/components/schemas/patchV0AuctionNms_request"
         required: true
       responses:
         "200":
@@ -1926,7 +1952,7 @@ paths:
                     deleted:
                     - 55555555
               schema:
-                $ref: "#/components/schemas/_adv_v0_auction_nms_patch_200_response"
+                $ref: "#/components/schemas/patchV0AuctionNms_200_response"
           description: Успешно
         "400":
           content:
@@ -1955,7 +1981,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -1970,7 +1996,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -1985,7 +2011,7 @@ paths:
     get:
       description: |
         Метод возвращает рекомендуемые ставки для карточек товаров и поисковых кластеров кампании.
-        Только для кампаний с типом оплаты `cpm` — за показы.
+        Можно использовать для кампаний с типами оплаты `cpm` — за показы и `cpc` — за клики.
 
          <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -1998,6 +2024,7 @@ paths:
         | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов |
         | Базовый | 1 ч | 20 запросов | 3 мин | 1 запрос |
         </div>
+      operationId: getV0BidsRecommendations
       parameters:
       - description: Артикул WB
         example: 123456789
@@ -2023,27 +2050,13 @@ paths:
         "200":
           content:
             application/json:
-              example:
-                advertId: 987654321
-                base:
-                  competitiveBid:
-                    bidKopecks: 39500
-                  leadersBid:
-                    bidKopecks: 66900
-                  top2:
-                    bidKopecks: 0
-                nmId: 123456789
-                normQueries:
-                - normQuery: футболка
-                  reachMax:
-                    bidKopecks: 50500
-                    bidKopecksMin: 49500
-                  reachMedium:
-                    bidKopecks: 32000
-                  reachMin:
-                    bidKopecks: 32000
+              examples:
+                V0BidsRecommendationsCpmResponse:
+                  $ref: "#/components/examples/V0BidsRecommendationsCpmResponse"
+                V0BidsRecommendationsCpcResponse:
+                  $ref: "#/components/examples/V0BidsRecommendationsCpcResponse"
               schema:
-                $ref: "#/components/schemas/V0BidsRecommendationsResponse"
+                $ref: "#/components/schemas/getV0BidsRecommendations_200_response"
           description: Успешно
         "400":
           content:
@@ -2072,7 +2085,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -2087,7 +2100,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       summary: Рекомендуемые ставки для карточек товаров и поисковых кластеров
       tags:
@@ -2113,6 +2126,7 @@ paths:
         | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV0NormqueryStats
       requestBody:
         content:
           application/json:
@@ -2372,7 +2386,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "403":
           content:
@@ -2399,7 +2413,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       servers:
       - url: https://advert-api.wildberries.ru
@@ -2426,6 +2440,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV0NormqueryGetBids
       requestBody:
         content:
           application/json:
@@ -2489,7 +2504,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "403":
           content:
@@ -2516,7 +2531,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       servers:
       - url: https://advert-api.wildberries.ru
@@ -2528,7 +2543,7 @@ paths:
   /api/advert/v1/config:
     get:
       description: "Метод возвращает валюту, код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)\
-        \ и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/Poiskovye-klastery/operation/postV1NormqueryBids)\n\
+        \ и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)\n\
         \n\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
         >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
         \  <strong>Сервисному</strong> токену\n</div>\n\n<div class=\"description_limit\"\
@@ -2564,7 +2579,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -2579,7 +2594,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       summary: Конфигурационные значения продвижения
       tags:
@@ -2644,7 +2659,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -2659,7 +2674,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       summary: Установить ставки для поисковых кластеров в валюте аккаунта продавца
       tags:
@@ -2678,8 +2693,6 @@ paths:
         Можно использовать только для кампаний с:
           - ручной ставкой
           - моделью оплаты `cpm` — за показы
-
-
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
@@ -2691,6 +2704,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: deleteV0NormqueryBids
       requestBody:
         content:
           application/json:
@@ -2731,7 +2745,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "403":
           content:
@@ -2758,7 +2772,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       servers:
       - url: https://advert-api.wildberries.ru
@@ -2786,6 +2800,7 @@ paths:
         | Базовый с секретом | 1 сек | 2 запроса | 500 мс | 4 запроса |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV0NormqueryBids
       requestBody:
         content:
           application/json:
@@ -2827,7 +2842,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "403":
           content:
@@ -2854,7 +2869,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       servers:
       - url: https://advert-api.wildberries.ru
@@ -2882,6 +2897,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV0NormqueryGetMinus
       requestBody:
         content:
           application/json:
@@ -2931,7 +2947,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "403":
           content:
@@ -2958,7 +2974,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       servers:
       - url: https://advert-api.wildberries.ru
@@ -2987,6 +3003,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV0NormquerySetMinus
       requestBody:
         content:
           application/json:
@@ -3027,7 +3044,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "403":
           content:
@@ -3054,7 +3071,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       servers:
       - url: https://advert-api.wildberries.ru
@@ -3066,7 +3083,7 @@ paths:
   /adv/v1/count:
     get:
       description: |
-        Метод возвращает количество [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца с группировкой по статусам.
+        Метод возвращает количество [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3079,6 +3096,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1Count
       responses:
         "200":
           content:
@@ -3090,7 +3108,7 @@ paths:
                   status: 7
                   count: 2
               schema:
-                $ref: "#/components/schemas/_adv_v1_count_get_200_response"
+                $ref: "#/components/schemas/getV1Count_200_response"
           description: Успешно
         "401":
           content:
@@ -3106,7 +3124,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -3121,7 +3139,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3135,7 +3153,7 @@ paths:
   /adv/v1/adverts:
     get:
       description: |
-        Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/Media/paths/~1adv~1v1~1advert/get) продавца по их типам и статусам.
+        Метод возвращает список всех [медиакампаний](/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -3148,6 +3166,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1Adverts
       parameters:
       - description: |
           Статус медиакампании:
@@ -3244,7 +3263,7 @@ paths:
                 endTime: 2023-07-25T20:35:50.104978Z
               schema:
                 items:
-                  $ref: "#/components/schemas/_adv_v1_adverts_get_200_response_inner"
+                  $ref: "#/components/schemas/getV1Adverts_200_response_inner"
                 type: array
           description: Успешно
         "204":
@@ -3263,7 +3282,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -3278,7 +3297,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3305,6 +3324,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: getV1Advert
       parameters:
       - description: ID медиакампании
         explode: true
@@ -3320,7 +3340,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_adv_v1_advert_get_200_response"
+                $ref: "#/components/schemas/getV1Advert_200_response"
           description: Успешно
         "204":
           description: Медиакампания не найдена
@@ -3351,7 +3371,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -3366,7 +3386,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3399,6 +3419,7 @@ paths:
         | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV3Fullstats
       parameters:
       - description: "ID кампаний, максимум 50 значений"
         explode: true
@@ -3809,7 +3830,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -3824,7 +3845,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3851,6 +3872,7 @@ paths:
         | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: postV1Stats
       requestBody:
         content:
           application/json:
@@ -3865,7 +3887,7 @@ paths:
                 $ref: "#/components/examples/RequestAggregate"
             schema:
               items:
-                $ref: "#/components/schemas/_adv_v1_stats_post_request_inner"
+                $ref: "#/components/schemas/postV1Stats_request_inner"
               maxItems: 100
               minItems: 1
               type: array
@@ -3887,7 +3909,7 @@ paths:
                   $ref: "#/components/examples/RespStatCampaignNotFound"
               schema:
                 items:
-                  $ref: "#/components/schemas/_adv_v1_stats_post_200_response_inner"
+                  $ref: "#/components/schemas/postV1Stats_200_response_inner"
                 type: array
           description: Успешно
         "400":
@@ -3913,7 +3935,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -3928,7 +3950,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -3942,7 +3964,7 @@ paths:
   /api/v1/calendar/promotions:
     get:
       description: |
-        Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) в WB с датами и временем проведения.
+        Метод возвращает список [акций](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -3955,6 +3977,7 @@ paths:
         | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1CalendarPromotions
       parameters:
       - description: "Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`"
         explode: true
@@ -4016,13 +4039,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_get_200_response"
+                $ref: "#/components/schemas/getV1CalendarPromotions_200_response"
           description: Успешно
         "400":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_get_400_response"
+                $ref: "#/components/schemas/getV1CalendarPromotions_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -4038,7 +4061,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "402":
           content:
@@ -4048,7 +4071,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_get_402_response"
+                $ref: "#/components/schemas/getV1CalendarPromotions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -4063,7 +4086,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -4077,7 +4100,7 @@ paths:
   /api/v1/calendar/promotions/details:
     get:
       description: |
-        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get) по ID.
+        Метод возвращает подробную информацию об [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Календарь акций</strong>:
@@ -4090,6 +4113,7 @@ paths:
         | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: getV1CalendarPromotionsDetails
       parameters:
       - description: "ID акций, по которым нужно вернуть информацию"
         explode: true
@@ -4113,13 +4137,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_details_get_200_response"
+                $ref: "#/components/schemas/getV1CalendarPromotionsDetails_200_response"
           description: Успешно
         "400":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_get_400_response"
+                $ref: "#/components/schemas/getV1CalendarPromotions_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -4135,7 +4159,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "402":
           content:
@@ -4145,7 +4169,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_get_402_response"
+                $ref: "#/components/schemas/getV1CalendarPromotions_402_response"
           description: Требуется платёж
         "429":
           content:
@@ -4160,7 +4184,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -4174,7 +4198,7 @@ paths:
   /api/v1/calendar/promotions/nomenclatures:
     get:
       description: |
-        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1upload/post).
+        Метод формирует список товаров, подходящих для участия в [акции](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).
 
         <div class="description_important">
           Данный метод неприменим для автоакций.
@@ -4188,6 +4212,7 @@ paths:
         | 6 сек | 10 запросов | 600 мс | 5 запросов |
 
         </div>
+      operationId: getV1CalendarPromotionsNomenclatures
       parameters:
       - description: ID акции
         explode: true
@@ -4239,13 +4264,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_200_response"
+                $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_200_response"
           description: Успешно
         "400":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_400_response"
+                $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -4261,7 +4286,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "402":
           content:
@@ -4271,7 +4296,7 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_get_402_response"
+                $ref: "#/components/schemas/getV1CalendarPromotions_402_response"
           description: Требуется платёж
         "422":
           content:
@@ -4283,7 +4308,7 @@ paths:
                   value:
                     errorText: Unprocessable entity
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_422_response"
+                $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_422_response"
           description: Ошибка обработки параметров запроса
         "429":
           content:
@@ -4298,7 +4323,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -4312,7 +4337,7 @@ paths:
   /api/v1/calendar/promotions/upload:
     post:
       description: |
-        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/paths/~1api~1v1~1calendar~1promotions~1details/get).<br>
+        Метод создаёт задание на загрузку товара в [акцию](/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).<br>
         Состояние загрузки можно проверить с помощью [отдельных методов](/openapi/work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1history~1tasks/get).
 
         <div class="description_important">
@@ -4330,6 +4355,7 @@ paths:
         | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов |
         | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         </div>
+      operationId: postV1CalendarPromotionsUpload
       requestBody:
         $ref: "#/components/requestBodies/PromoSupplierTaskRequest"
       responses:
@@ -4337,13 +4363,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_200_response"
+                $ref: "#/components/schemas/postV1CalendarPromotionsUpload_200_response"
           description: Успешно
         "400":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_400_response"
+                $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_400_response"
           description: Неправильный запрос
         "401":
           content:
@@ -4359,7 +4385,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "402":
           content:
@@ -4369,13 +4395,13 @@ paths:
                 detail: wb solution for business has insufficient funds on its balance.
                   please top up the balance in the company's personal account https://dev.wildberries.ru/company
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_get_402_response"
+                $ref: "#/components/schemas/getV1CalendarPromotions_402_response"
           description: Требуется платёж
         "422":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_422_response"
+                $ref: "#/components/schemas/postV1CalendarPromotionsUpload_422_response"
           description: Ошибка обработки параметров запроса
         "429":
           content:
@@ -4390,7 +4416,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       security:
       - HeaderApiKey: []
@@ -4417,6 +4443,7 @@ paths:
         | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 10 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         </div>
+      operationId: postV0NormqueryList
       requestBody:
         content:
           application/json:
@@ -4479,7 +4506,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -4494,7 +4521,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       summary: Списки активных и неактивных поисковых кластеров
       tags:
@@ -4520,6 +4547,7 @@ paths:
         | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 20 запросов |
         | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
         </div>
+      operationId: postV1NormqueryStats
       requestBody:
         content:
           application/json:
@@ -4609,7 +4637,7 @@ paths:
                 statusText: Unauthorized
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Не авторизован
         "429":
           content:
@@ -4624,7 +4652,7 @@ paths:
                 statusText: Too Many Requests
                 timestamp: 2024-09-30T06:52:38Z
               schema:
-                $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+                $ref: "#/components/schemas/getV1PromotionCount_401_response"
           description: Слишком много запросов
       summary: Статистика по поисковым кластерам с детализацией по дням
       tags:
@@ -4637,6 +4665,39 @@ components:
   examples:
     InvalidRcIdAdv:
       value: Некорректный ID РК
+    V0BidsRecommendationsCpmResponse:
+      value:
+        advertId: 987654321
+        base:
+          competitiveBid:
+            bidKopecks: 39500
+          leadersBid:
+            bidKopecks: 66900
+          top2:
+            bidKopecks: 0
+        nmId: 123456789
+        normQueries:
+        - normQuery: футболка
+          reachMax:
+            bidKopecks: 50500
+            bidKopecksMin: 49500
+          reachMedium:
+            bidKopecks: 32000
+          reachMin:
+            bidKopecks: 32000
+        paymentType: cpm
+    V0BidsRecommendationsCpcResponse:
+      value:
+        advertId: 12345678
+        levels:
+        - range11To34:
+            bidKopecks: 628
+          range1To2:
+            bidKopecks: 2138
+          range3To10:
+            bidKopecks: 830
+        nmId: 123456789
+        paymentType: cpc
     IncorrectTypeAdv:
       value: Некорректное значение параметра type
     IncorrectUsingMethods:
@@ -5051,7 +5112,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_request"
+            $ref: "#/components/schemas/postV1CalendarPromotionsUpload_request"
       required: true
   responses:
     "401":
@@ -5068,7 +5129,7 @@ components:
             statusText: Unauthorized
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+            $ref: "#/components/schemas/getV1PromotionCount_401_response"
       description: Не авторизован
     "402":
       content:
@@ -5078,7 +5139,7 @@ components:
             detail: wb solution for business has insufficient funds on its balance.
               please top up the balance in the company's personal account https://dev.wildberries.ru/company
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_get_402_response"
+            $ref: "#/components/schemas/getV1CalendarPromotions_402_response"
       description: Требуется платёж
     "429":
       content:
@@ -5093,7 +5154,7 @@ components:
             statusText: Too Many Requests
             timestamp: 2024-09-30T06:52:38Z
           schema:
-            $ref: "#/components/schemas/_adv_v1_promotion_count_get_401_response"
+            $ref: "#/components/schemas/getV1PromotionCount_401_response"
       description: Слишком много запросов
     AccessDenied:
       content:
@@ -5116,49 +5177,49 @@ components:
               value:
                 errorText: Unprocessable entity
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_422_response"
+            $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_422_response"
       description: Ошибка обработки параметров запроса
     ErrorWrongParameters:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_400_response"
+            $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_400_response"
       description: Неправильный запрос
     ResponsePromoItemsLists:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_200_response"
+            $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_200_response"
       description: Успешно
     UploadSuccessResponse:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_200_response"
+            $ref: "#/components/schemas/postV1CalendarPromotionsUpload_200_response"
       description: Успешно
     UnprocessableEntity:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_422_response"
+            $ref: "#/components/schemas/postV1CalendarPromotionsUpload_422_response"
       description: Ошибка обработки параметров запроса
     PromosGetByIDSuccessResponse:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_details_get_200_response"
+            $ref: "#/components/schemas/getV1CalendarPromotionsDetails_200_response"
       description: Успешно
     PromoSuccessResponse:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_get_200_response"
+            $ref: "#/components/schemas/getV1CalendarPromotions_200_response"
       description: Успешно
     ErrorFailedParseData:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_get_400_response"
+            $ref: "#/components/schemas/getV1CalendarPromotions_400_response"
       description: Неправильный запрос
   schemas:
     V1SetNormQueryBidsRequestItem:
@@ -5180,7 +5241,7 @@ components:
         bidMinorUnits:
           description: |
             Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
-            Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/Upravlenie-kampaniyami/operation/getV1Config)
+            Допустимый шаг ставки указан в ответе метода [GET /api/advert/v1/config](./promotion#tag/campaignManagement/operation/getV1Config)
           type: integer
       required:
       - advertId
@@ -5346,7 +5407,7 @@ components:
       - currencyCode
       - minTopUp
       type: object
-    V0BidsRecommendationsResponse:
+    V0BidsRecommendationsCpmResponse:
       example:
         advertId: 0
         base:
@@ -5378,6 +5439,7 @@ components:
           reachMin:
             bidKopecks: 2
             bidKopecksMin: 4
+        paymentType: cpm
       properties:
         advertId:
           description: ID кампании
@@ -5394,6 +5456,62 @@ components:
           items:
             $ref: "#/components/schemas/V0BidRecommendationNormQuery"
           type: array
+        paymentType:
+          description: |
+            Тип оплаты:
+              - `cpm` — за показы
+          enum:
+          - cpm
+          type: string
+      type: object
+    V0BidsRecommendationsCpcResponse:
+      properties:
+        advertId:
+          description: ID кампании
+          format: int64
+          type: integer
+        levels:
+          description: Рекомендуемые ставки для карточек товаров
+          items:
+            $ref: "#/components/schemas/V0BidRecommendationCPCLevels"
+          type: array
+        nmId:
+          description: Артикул WB
+          format: int64
+          type: integer
+        paymentType:
+          description: |
+            Тип оплаты:
+              - `cpc` — за клики
+          enum:
+          - cpc
+          type: string
+      type: object
+    V0BidRecommendationCPCLevels:
+      properties:
+        range1To2:
+          allOf:
+          - $ref: "#/components/schemas/V0BidRecommendationBaseBid"
+          description: Ставка для попадания в позиции 1-2
+        range3To10:
+          allOf:
+          - $ref: "#/components/schemas/V0BidRecommendationBaseBid"
+          description: Ставка для попадания в позиции 3-10
+        range11To34:
+          allOf:
+          - $ref: "#/components/schemas/V0BidRecommendationBaseBid"
+          description: Ставка для попадания в позиции 11-34
+      required:
+      - range11To34
+      - range1To2
+      - range3To10
+      type: object
+    V0BidRecommendationBaseBid:
+      properties:
+        bidKopecks:
+          description: "Рекомендуемая ставка в разменных единицах — 0,01 от базово\
+            й валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)."
+          type: integer
       type: object
     V0BidRecommendationBase:
       description: Рекомендуемые ставки для карточек товаров
@@ -6693,7 +6811,7 @@ components:
           description: Название кампании
           type: string
         placements:
-          $ref: "#/components/schemas/_adv_v0_auction_placements_put_request_placements_inner_placements"
+          $ref: "#/components/schemas/putV0AuctionPlacements_request_placements_inner_placements"
       required:
       - name
       - payment_type
@@ -7369,7 +7487,7 @@ components:
       - status
       - title
       type: object
-    _adv_v1_promotion_count_get_200_response_adverts_inner_advert_list_inner:
+    getV1PromotionCount_200_response_adverts_inner_advert_list_inner:
       example:
         advertId: 5
         changeTime: 2000-01-23T04:56:07.000+00:00
@@ -7382,7 +7500,7 @@ components:
           format: date-time
           type: string
       type: object
-    _adv_v1_promotion_count_get_200_response_adverts_inner:
+    getV1PromotionCount_200_response_adverts_inner:
       example:
         type: 0
         status: 6
@@ -7397,7 +7515,7 @@ components:
           description: |
             Тип кампании:
               - `8` — кампания с единой ставкой (**устаревший тип**)
-              - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/Kampanii/paths/~1api~1advert~1v2~1adverts/get), поле `bid_type`
+              - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type`
           type: integer
         status:
           description: Статус кампании
@@ -7408,10 +7526,10 @@ components:
         advert_list:
           description: Список кампаний
           items:
-            $ref: "#/components/schemas/_adv_v1_promotion_count_get_200_response_adverts_inner_advert_list_inner"
+            $ref: "#/components/schemas/getV1PromotionCount_200_response_adverts_inner_advert_list_inner"
           type: array
       type: object
-    _adv_v1_promotion_count_get_200_response:
+    getV1PromotionCount_200_response:
       example:
         adverts:
         - type: 0
@@ -7435,14 +7553,14 @@ components:
         adverts:
           description: Данные по кампаниям
           items:
-            $ref: "#/components/schemas/_adv_v1_promotion_count_get_200_response_adverts_inner"
+            $ref: "#/components/schemas/getV1PromotionCount_200_response_adverts_inner"
           nullable: true
           type: array
         all:
           description: Общее количество кампаний всех статусов и типов
           type: integer
       type: object
-    _adv_v1_promotion_count_get_401_response:
+    getV1PromotionCount_401_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -7470,7 +7588,7 @@ components:
           format: date-time
           type: string
       type: object
-    _api_advert_v1_bids_min_post_request:
+    postV1BidsMin_request:
       properties:
         advert_id:
           description: ID кампании
@@ -7512,7 +7630,7 @@ components:
       - payment_type
       - placement_types
       type: object
-    _api_advert_v1_bids_min_post_200_response_bids_inner_bids_inner:
+    postV1BidsMin_200_response_bids_inner_bids_inner:
       example:
         currency: currency
         type: combined
@@ -7533,7 +7651,7 @@ components:
       - type
       - value
       type: object
-    _api_advert_v1_bids_min_post_200_response_bids_inner:
+    postV1BidsMin_200_response_bids_inner:
       example:
         bids:
         - currency: currency
@@ -7547,7 +7665,7 @@ components:
         bids:
           description: Список ставок по местам размещения
           items:
-            $ref: "#/components/schemas/_api_advert_v1_bids_min_post_200_response_bids_inner_bids_inner"
+            $ref: "#/components/schemas/postV1BidsMin_200_response_bids_inner_bids_inner"
           type: array
         nm_id:
           description: Артикул WB
@@ -7557,7 +7675,7 @@ components:
       - bids
       - nm_id
       type: object
-    _api_advert_v1_bids_min_post_200_response:
+    postV1BidsMin_200_response:
       example:
         bids:
         - bids:
@@ -7580,19 +7698,19 @@ components:
         bids:
           description: Список карточек товаров со ставками
           items:
-            $ref: "#/components/schemas/_api_advert_v1_bids_min_post_200_response_bids_inner"
+            $ref: "#/components/schemas/postV1BidsMin_200_response_bids_inner"
           type: array
       required:
       - bids
       type: object
-    _adv_v2_seacat_save_ad_post_request:
+    postV2SeacatSaveAd_request:
       properties:
         name:
           description: Название кампании
           type: string
         nms:
           description: |
-            Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/Sozdanie-kampanij/paths/~1adv~1v2~1supplier~1nms/post). Максимум 50 товаров (`nm`)
+            Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (`nm`)
           items:
             description: Артикул WB (`nmId`)
             type: integer
@@ -7635,7 +7753,7 @@ components:
       required:
       - name
       type: object
-    _adv_v1_supplier_subjects_get_200_response_inner:
+    getV1SupplierSubjects_200_response_inner:
       example:
         id: 0
         name: name
@@ -7651,7 +7769,7 @@ components:
           description: Количество Артикулов WB (`nmId`) с таким предметом.
           type: integer
       type: object
-    _adv_v2_supplier_nms_post_200_response_inner:
+    postV2SupplierNms_200_response_inner:
       example:
         title: Плед
         nm: 146168367
@@ -7670,7 +7788,7 @@ components:
           example: 765
           type: integer
       type: object
-    _adv_v0_rename_post_request:
+    postV0Rename_request:
       properties:
         advertId:
           description: "ID кампании, в которой меняется название"
@@ -7682,7 +7800,7 @@ components:
       - advertId
       - name
       type: object
-    _adv_v0_auction_placements_put_request_placements_inner_placements:
+    putV0AuctionPlacements_request_placements_inner_placements:
       description: Места размещения
       example:
         search: true
@@ -7704,30 +7822,30 @@ components:
       - recommendations
       - search
       type: object
-    _adv_v0_auction_placements_put_request_placements_inner:
+    putV0AuctionPlacements_request_placements_inner:
       properties:
         advert_id:
           description: ID кампании
           format: int64
           type: integer
         placements:
-          $ref: "#/components/schemas/_adv_v0_auction_placements_put_request_placements_inner_placements"
+          $ref: "#/components/schemas/putV0AuctionPlacements_request_placements_inner_placements"
       required:
       - advert_id
       - placements
       type: object
-    _adv_v0_auction_placements_put_request:
+    putV0AuctionPlacements_request:
       properties:
         placements:
           description: Места размещения в кампаниях
           items:
-            $ref: "#/components/schemas/_adv_v0_auction_placements_put_request_placements_inner"
+            $ref: "#/components/schemas/putV0AuctionPlacements_request_placements_inner"
           maxItems: 50
           type: array
       required:
       - placements
       type: object
-    _api_advert_v1_bids_patch_request_bids_inner_nm_bids_inner:
+    patchV1Bids_request_bids_inner_nm_bids_inner:
       properties:
         nm_id:
           description: Артикул WB
@@ -7754,7 +7872,7 @@ components:
       - nm_id
       - placement
       type: object
-    _api_advert_v1_bids_patch_request_bids_inner:
+    patchV1Bids_request_bids_inner:
       properties:
         advert_id:
           description: ID кампании
@@ -7763,25 +7881,25 @@ components:
         nm_bids:
           description: Ставки
           items:
-            $ref: "#/components/schemas/_api_advert_v1_bids_patch_request_bids_inner_nm_bids_inner"
+            $ref: "#/components/schemas/patchV1Bids_request_bids_inner_nm_bids_inner"
           maxItems: 50
           type: array
       required:
       - advert_id
       - nm_bids
       type: object
-    _api_advert_v1_bids_patch_request:
+    patchV1Bids_request:
       properties:
         bids:
           description: Ставки в кампаниях
           items:
-            $ref: "#/components/schemas/_api_advert_v1_bids_patch_request_bids_inner"
+            $ref: "#/components/schemas/patchV1Bids_request_bids_inner"
           maxItems: 50
           type: array
       required:
       - bids
       type: object
-    _api_advert_v1_bids_patch_200_response_bids_inner_nm_bids_inner:
+    patchV1Bids_200_response_bids_inner_nm_bids_inner:
       example:
         nm_id: 6
         bid_kopecks: 1
@@ -7807,7 +7925,7 @@ components:
       - nm_id
       - placement
       type: object
-    _api_advert_v1_bids_patch_200_response_bids_inner:
+    patchV1Bids_200_response_bids_inner:
       example:
         advert_id: 0
         nm_bids:
@@ -7825,13 +7943,13 @@ components:
         nm_bids:
           description: Ставки
           items:
-            $ref: "#/components/schemas/_api_advert_v1_bids_patch_200_response_bids_inner_nm_bids_inner"
+            $ref: "#/components/schemas/patchV1Bids_200_response_bids_inner_nm_bids_inner"
           type: array
       required:
       - advert_id
       - nm_bids
       type: object
-    _api_advert_v1_bids_patch_200_response:
+    patchV1Bids_200_response:
       example:
         bids:
         - advert_id: 0
@@ -7855,7 +7973,7 @@ components:
         bids:
           description: Результат отработки запроса
           items:
-            $ref: "#/components/schemas/_api_advert_v1_bids_patch_200_response_bids_inner"
+            $ref: "#/components/schemas/patchV1Bids_200_response_bids_inner"
           type: array
         currency:
           description: "Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
@@ -7865,7 +7983,7 @@ components:
       - bids
       - currency
       type: object
-    _adv_v1_balance_get_200_response_cashbacks_inner:
+    getV1Balance_200_response_cashbacks_inner:
       example:
         sum: 5
         percent: 5
@@ -7884,7 +8002,7 @@ components:
           format: ISO 8601
           type: string
       type: object
-    _adv_v1_balance_get_200_response:
+    getV1Balance_200_response:
       example:
         balance: 0
         net: 6
@@ -7914,10 +8032,10 @@ components:
         cashbacks:
           description: Промо-бонусы
           items:
-            $ref: "#/components/schemas/_adv_v1_balance_get_200_response_cashbacks_inner"
+            $ref: "#/components/schemas/getV1Balance_200_response_cashbacks_inner"
           type: array
       type: object
-    _adv_v1_budget_get_200_response:
+    getV1Budget_200_response:
       example:
         cash: 0
         netting: 6
@@ -7939,7 +8057,7 @@ components:
           format: ISO 4217
           type: string
       type: object
-    _adv_v1_budget_deposit_post_request:
+    postV1BudgetDeposit_request:
       properties:
         sum:
           description: "Общая сумма пополнения бюджета в базовых единицах валюты [а\
@@ -7950,10 +8068,10 @@ components:
           description: |
             Сумма пополнения бюджета промо-бонусами.
             <br>
-            Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get).
+            Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).
             <br>
             Оставшаяся часть общей суммы спишется с указанного источника пополнения.
-            Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get).
+            Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).
             <br>
             Оставшаяся часть общей суммы спишется с указанного источника пополнения.
             <br>
@@ -7964,7 +8082,7 @@ components:
           type: integer
         cashback_percent:
           description: |
-            Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/Finansy/paths/~1adv~1v1~1balance/get)
+            Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)
             <br>
             Если вы указали `cashback_sum`, параметр `cashback_percent` становится обязательным
           example: 50
@@ -7983,14 +8101,14 @@ components:
             е вернётся.)"
           type: boolean
       type: object
-    _adv_v1_budget_deposit_post_400_response:
+    postV1BudgetDeposit_400_response:
       example:
         error: error
       properties:
         error:
           type: string
       type: object
-    _adv_v1_upd_get_200_response_inner:
+    getV1Upd_200_response_inner:
       example:
         updNum: 0
         updTime: updTime
@@ -8041,7 +8159,7 @@ components:
             - `11` — на паузе
           type: integer
       type: object
-    _adv_v1_payments_get_200_response_inner:
+    getV1Payments_200_response_inner:
       example:
         id: 0
         date: date
@@ -8087,7 +8205,7 @@ components:
           format: ISO 4217
           type: string
       type: object
-    _adv_v0_auction_nms_patch_request_nms_inner_nms:
+    patchV0AuctionNms_request_nms_inner_nms:
       description: Карточки товаров. Максимум 50 товаров для одной кампании
       properties:
         add:
@@ -8101,30 +8219,30 @@ components:
             type: integer
           type: array
       type: object
-    _adv_v0_auction_nms_patch_request_nms_inner:
+    patchV0AuctionNms_request_nms_inner:
       properties:
         advert_id:
           description: ID кампании
           format: int64
           type: integer
         nms:
-          $ref: "#/components/schemas/_adv_v0_auction_nms_patch_request_nms_inner_nms"
+          $ref: "#/components/schemas/patchV0AuctionNms_request_nms_inner_nms"
       required:
       - advert_id
       - nms
       type: object
-    _adv_v0_auction_nms_patch_request:
+    patchV0AuctionNms_request:
       properties:
         nms:
           description: Карточки товаров в кампаниях
           items:
-            $ref: "#/components/schemas/_adv_v0_auction_nms_patch_request_nms_inner"
+            $ref: "#/components/schemas/patchV0AuctionNms_request_nms_inner"
           maxItems: 20
           type: array
       required:
       - nms
       type: object
-    _adv_v0_auction_nms_patch_200_response_nms_inner_nms:
+    patchV0AuctionNms_200_response_nms_inner_nms:
       description: Карточки товаров
       example:
         added:
@@ -8148,7 +8266,7 @@ components:
       - added
       - deleted
       type: object
-    _adv_v0_auction_nms_patch_200_response_nms_inner:
+    patchV0AuctionNms_200_response_nms_inner:
       example:
         advert_id: 0
         nms:
@@ -8164,12 +8282,12 @@ components:
           format: int64
           type: integer
         nms:
-          $ref: "#/components/schemas/_adv_v0_auction_nms_patch_200_response_nms_inner_nms"
+          $ref: "#/components/schemas/patchV0AuctionNms_200_response_nms_inner_nms"
       required:
       - advert_id
       - nms
       type: object
-    _adv_v0_auction_nms_patch_200_response:
+    patchV0AuctionNms_200_response:
       example:
         nms:
         - advert_id: 0
@@ -8192,12 +8310,16 @@ components:
         nms:
           description: Результат отработки запроса
           items:
-            $ref: "#/components/schemas/_adv_v0_auction_nms_patch_200_response_nms_inner"
+            $ref: "#/components/schemas/patchV0AuctionNms_200_response_nms_inner"
           type: array
       required:
       - nms
       type: object
-    _adv_v1_count_get_200_response_adverts:
+    getV0BidsRecommendations_200_response:
+      oneOf:
+      - $ref: "#/components/schemas/V0BidsRecommendationsCpmResponse"
+      - $ref: "#/components/schemas/V0BidsRecommendationsCpcResponse"
+    getV1Count_200_response_adverts:
       example:
         type: 6
         status: 1
@@ -8229,7 +8351,7 @@ components:
           description: Количество медиакампаний
           type: integer
       type: object
-    _adv_v1_count_get_200_response:
+    getV1Count_200_response:
       example:
         all: 0
         adverts:
@@ -8241,9 +8363,9 @@ components:
           description: Общее количество медиакампаний всех статусов и типов
           type: integer
         adverts:
-          $ref: "#/components/schemas/_adv_v1_count_get_200_response_adverts"
+          $ref: "#/components/schemas/getV1Count_200_response_adverts"
       type: object
-    _adv_v1_adverts_get_200_response_inner:
+    getV1Adverts_200_response_inner:
       example:
         advertId: 0
         name: name
@@ -8292,7 +8414,7 @@ components:
           format: date-time
           type: string
       type: object
-    _adv_v1_advert_get_200_response_extended:
+    getV1Advert_200_response_extended:
       properties:
         reason:
           description: Комментарий модератора
@@ -8329,7 +8451,7 @@ components:
           description: "ID контракта, для продавцов на контракте"
           type: integer
       type: object
-    _adv_v1_advert_get_200_response_items_inner_show_hours_inner:
+    getV1Advert_200_response_items_inner_show_hours_inner:
       properties:
         From:
           description: Начало показа
@@ -8338,7 +8460,7 @@ components:
           description: Конец показа
           type: integer
       type: object
-    _adv_v1_advert_get_200_response_items_inner:
+    getV1Advert_200_response_items_inner:
       properties:
         id:
           description: ID баннера
@@ -8436,13 +8558,13 @@ components:
         show_hours:
           description: Часы показа
           items:
-            $ref: "#/components/schemas/_adv_v1_advert_get_200_response_items_inner_show_hours_inner"
+            $ref: "#/components/schemas/getV1Advert_200_response_items_inner_show_hours_inner"
           type: array
         Erid:
           description: Уникальный ID медиакампании для работы с ОРД
           type: string
       type: object
-    _adv_v1_advert_get_200_response:
+    getV1Advert_200_response:
       example:
         advertId: 23569
         name: Реклама денег принеси
@@ -8526,28 +8648,28 @@ components:
           format: date-time
           type: string
         extended:
-          $ref: "#/components/schemas/_adv_v1_advert_get_200_response_extended"
+          $ref: "#/components/schemas/getV1Advert_200_response_extended"
         items:
           description: |
             Информация о баннере.
             <br>
             Наличие в ответе тех или иных полей зависит от конфигурации медиакампании.
           items:
-            $ref: "#/components/schemas/_adv_v1_advert_get_200_response_items_inner"
+            $ref: "#/components/schemas/getV1Advert_200_response_items_inner"
           type: array
       type: object
-    _adv_v1_stats_post_request_inner:
+    postV1Stats_request_inner:
       oneOf:
       - $ref: "#/components/schemas/RequestWithDate"
       - $ref: "#/components/schemas/RequestWithInterval"
       - $ref: "#/components/schemas/RequestWithCampaignID"
-    _adv_v1_stats_post_200_response_inner:
+    postV1Stats_200_response_inner:
       oneOf:
       - $ref: "#/components/schemas/StatInterval"
       - $ref: "#/components/schemas/StatDate"
       - $ref: "#/components/schemas/Stat"
       - $ref: "#/components/schemas/StatCampaignNotFound"
-    _api_v1_calendar_promotions_get_200_response_data_promotions_inner:
+    getV1CalendarPromotions_200_response_data_promotions_inner:
       example:
         id: 123
         name: скидки
@@ -8583,7 +8705,7 @@ components:
           - auto
           type: string
       type: object
-    _api_v1_calendar_promotions_get_200_response_data:
+    getV1CalendarPromotions_200_response_data:
       description: Данные ответа
       example:
         promotions:
@@ -8601,10 +8723,10 @@ components:
         promotions:
           description: Список акций
           items:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_get_200_response_data_promotions_inner"
+            $ref: "#/components/schemas/getV1CalendarPromotions_200_response_data_promotions_inner"
           type: array
       type: object
-    _api_v1_calendar_promotions_get_200_response:
+    getV1CalendarPromotions_200_response:
       example:
         data:
           promotions:
@@ -8620,9 +8742,9 @@ components:
             type: regular
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_calendar_promotions_get_200_response_data"
+          $ref: "#/components/schemas/getV1CalendarPromotions_200_response_data"
       type: object
-    _api_v1_calendar_promotions_get_400_response:
+    getV1CalendarPromotions_400_response:
       example:
         errorText: Failed to parse data
       properties:
@@ -8631,7 +8753,7 @@ components:
           example: Failed to parse data
           type: string
       type: object
-    _api_v1_calendar_promotions_get_402_response:
+    getV1CalendarPromotions_402_response:
       properties:
         title:
           description: Заголовок ошибки
@@ -8641,7 +8763,7 @@ components:
             алога решений для бизнеса](/business-solutions)"
           type: string
       type: object
-    _api_v1_calendar_promotions_details_get_200_response_data_promotions_inner_ranging_inner:
+    getV1CalendarPromotionsDetails_200_response_data_promotions_inner_ranging_inner:
       properties:
         condition:
           description: |
@@ -8662,7 +8784,7 @@ components:
           format: uint
           type: integer
       type: object
-    _api_v1_calendar_promotions_details_get_200_response_data_promotions_inner:
+    getV1CalendarPromotionsDetails_200_response_data_promotions_inner:
       example:
         id: 123
         name: ХИТЫ ГОДА
@@ -8779,10 +8901,10 @@ components:
             participationRate: 35
             boost: 30
           items:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_details_get_200_response_data_promotions_inner_ranging_inner"
+            $ref: "#/components/schemas/getV1CalendarPromotionsDetails_200_response_data_promotions_inner_ranging_inner"
           type: array
       type: object
-    _api_v1_calendar_promotions_details_get_200_response_data:
+    getV1CalendarPromotionsDetails_200_response_data:
       description: Данные ответа
       example:
         promotions:
@@ -8850,10 +8972,10 @@ components:
         promotions:
           description: Список акций
           items:
-            $ref: "#/components/schemas/_api_v1_calendar_promotions_details_get_200_response_data_promotions_inner"
+            $ref: "#/components/schemas/getV1CalendarPromotionsDetails_200_response_data_promotions_inner"
           type: array
       type: object
-    _api_v1_calendar_promotions_details_get_200_response:
+    getV1CalendarPromotionsDetails_200_response:
       example:
         data:
           promotions:
@@ -8919,9 +9041,9 @@ components:
               boost: 30
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_calendar_promotions_details_get_200_response_data"
+          $ref: "#/components/schemas/getV1CalendarPromotionsDetails_200_response_data"
       type: object
-    _api_v1_calendar_promotions_nomenclatures_get_200_response_data:
+    getV1CalendarPromotionsNomenclatures_200_response_data:
       description: Данные ответа
       example:
         nomenclatures:
@@ -8946,7 +9068,7 @@ components:
             $ref: "#/components/schemas/PromoItemsList"
           type: array
       type: object
-    _api_v1_calendar_promotions_nomenclatures_get_200_response:
+    getV1CalendarPromotionsNomenclatures_200_response:
       example:
         data:
           nomenclatures:
@@ -8966,9 +9088,9 @@ components:
             planDiscount: 34
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_calendar_promotions_nomenclatures_get_200_response_data"
+          $ref: "#/components/schemas/getV1CalendarPromotionsNomenclatures_200_response_data"
       type: object
-    _api_v1_calendar_promotions_nomenclatures_get_400_response:
+    getV1CalendarPromotionsNomenclatures_400_response:
       example:
         errorText: Invalid query params
       properties:
@@ -8977,7 +9099,7 @@ components:
           example: Invalid query params
           type: string
       type: object
-    _api_v1_calendar_promotions_nomenclatures_get_422_response:
+    getV1CalendarPromotionsNomenclatures_422_response:
       example:
         errorText: errorText
       properties:
@@ -8985,7 +9107,7 @@ components:
           description: Текст ошибки
           type: string
       type: object
-    _api_v1_calendar_promotions_upload_post_request_data:
+    postV1CalendarPromotionsUpload_request_data:
       description: Данные запроса
       properties:
         promotionID:
@@ -9014,12 +9136,12 @@ components:
           type: array
           uniqueItems: true
       type: object
-    _api_v1_calendar_promotions_upload_post_request:
+    postV1CalendarPromotionsUpload_request:
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_request_data"
+          $ref: "#/components/schemas/postV1CalendarPromotionsUpload_request_data"
       type: object
-    _api_v1_calendar_promotions_upload_post_200_response_data:
+    postV1CalendarPromotionsUpload_200_response_data:
       description: Данные ответа
       example:
         alreadyExists: false
@@ -9034,16 +9156,16 @@ components:
           example: 11
           type: integer
       type: object
-    _api_v1_calendar_promotions_upload_post_200_response:
+    postV1CalendarPromotionsUpload_200_response:
       example:
         data:
           alreadyExists: false
           uploadID: 11
       properties:
         data:
-          $ref: "#/components/schemas/_api_v1_calendar_promotions_upload_post_200_response_data"
+          $ref: "#/components/schemas/postV1CalendarPromotionsUpload_200_response_data"
       type: object
-    _api_v1_calendar_promotions_upload_post_422_response:
+    postV1CalendarPromotionsUpload_422_response:
       example:
         errorText: Unprocessable entity
       properties:

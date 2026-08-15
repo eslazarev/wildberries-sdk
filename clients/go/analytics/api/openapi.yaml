@@ -2326,97 +2326,6 @@ paths:
       - service
     servers:
     - url: https://seller-analytics-api.wildberries.ru
-  /api/analytics/v1/item-rating:
-    post:
-      deprecated: true
-      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
-        \  <strong>Сервисному</strong> токену\n</div>\n\nДанный метод устарел. Он\
-        \ будет удалён [30 июля](/release-notes?id=558).\n\n<div class=\"description_limit\"\
-        >\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Л\
-        имит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал\
-        \ | Всплеск |\n| --- | --- | --- | --- |\n| 1 мин | 3 запроса | 20 сек | 3\
-        \ запроса |\n</div>\n"
-      operationId: postV1ItemRating
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ItemRatingRequestV1"
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/postV1ItemRating_200_response"
-          description: Успешно
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorObject400"
-          description: Неправильный запрос
-        "401":
-          content:
-            application/problem+json:
-              example:
-                title: unauthorized
-                detail: "token problem; token is malformed: could not base64 decode\
-                  \ signature: illegal base64 data at input byte 84"
-                code: "07e4668e--a53a3d31f8b0-[UK-oWaVDUqNrKG]; 03bce=277; 84bd353bf-75"
-                requestId: 7b80742415072fe8b6b7f7761f1d1211
-                origin: s2s-api-auth-catalog
-                status: 401
-                statusText: Unauthorized
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
-          description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
-          description: Требуется платёж
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorObject403"
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/Response403General"
-          description: Доступ запрещён
-        "429":
-          content:
-            application/problem+json:
-              example:
-                title: too many requests
-                detail: limited by c122a060-a7fb-4bb4-abb0-32fd4e18d489
-                code: "07e4668e-ac2242c5c8c5-[UK-4dx7JUdskGZ]"
-                requestId: 9d3c02cc698f8b041c661a7c28bed293
-                origin: s2s-api-auth-catalog
-                status: 429
-                statusText: Too Many Requests
-                timestamp: 2024-09-30T06:52:38Z
-              schema:
-                $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
-          description: Слишком много запросов
-      summary: Получить отчёт
-      tags:
-      - Оценка товара
-      x-readonly-method: true
-      x-category: contentanalytics
-      x-token-types:
-      - personal
-      - service
-    servers:
-    - url: https://seller-analytics-api.wildberries.ru
   /api/analytics/v1/order-feed:
     post:
       description: |
@@ -7290,104 +7199,6 @@ components:
       required:
       - items
       type: object
-    ItemRatingRequestV1:
-      description: Параметры запроса
-      example:
-        currentPeriod:
-          start: 2026-02-10
-          end: 2026-02-10
-        pastPeriod:
-          start: 2026-02-08
-          end: 2026-02-08
-        nmIds:
-        - 162579635
-        - 166699779
-        subjectIds:
-        - 232
-        - 1364
-        brandNames:
-        - Abikas
-        - Tike
-        tagIds:
-        - 3
-        - 5
-        - 6
-        isNotIncludeNMsWithoutSales: true
-        orderBy:
-          field: feedbackCount
-          mode: desc
-        limit: 130
-        offset: 50
-      properties:
-        currentPeriod:
-          $ref: "#/components/schemas/PeriodItemRating"
-        pastPeriod:
-          $ref: "#/components/schemas/PastPeriodItemRating"
-        nmIds:
-          description: Список артикулов WB для фильтрации
-          example:
-          - 162579635
-          - 166699779
-          items:
-            format: int32
-            type: integer
-          maxItems: 50
-          type: array
-        subjectIds:
-          description: Список ID предметов для фильтрации
-          example:
-          - 232
-          - 1364
-          items:
-            format: int32
-            type: integer
-          maxItems: 50
-          type: array
-        brandNames:
-          description: Список брендов для фильтрации
-          example:
-          - Abikas
-          - Tike
-          items:
-            type: string
-          maxItems: 50
-          type: array
-        tagIds:
-          description: Список ID ярлыков для фильтрации
-          example:
-          - 3
-          - 5
-          - 6
-          items:
-            format: int64
-            type: integer
-          maxItems: 50
-          type: array
-        isNotIncludeNMsWithoutSales:
-          default: false
-          description: Не учитывать товары без продаж
-          example: true
-          type: boolean
-        orderBy:
-          $ref: "#/components/schemas/OrderByItemRating"
-        limit:
-          default: 100
-          description: Количество товаров в ответе
-          example: 130
-          format: uint32
-          maximum: 1000
-          type: integer
-        offset:
-          description: "Сколько элементов пропустить. Например, для значения `10`\
-            \ ответ начнётся с 11 элемента"
-          example: 50
-          format: uint32
-          type: integer
-      required:
-      - currentPeriod
-      - offset
-      - orderBy
-      type: object
     ItemRatingRequest:
       description: Параметры запроса
       example:
@@ -7584,118 +7395,6 @@ components:
       - field
       - mode
       type: object
-    ItemRatingResponseV1:
-      description: Данные ответа
-      example:
-        sellerRating:
-          current: 3.56
-          dynamics: 0.03
-        feedbackIncrease:
-          current: 26
-          total: 116
-          dynamics: 23
-          fiveStar:
-            current: 19
-            dynamics: 17
-            total: 51
-          fourStar:
-            current: 2
-            dynamics: 1
-            total: 13
-          threeStar:
-            current: 1
-            dynamics: 1
-            total: 11
-          twoStar:
-            current: 5
-            dynamics: 5
-            total: 34
-          oneStar:
-            current: -1
-            dynamics: -1
-            total: 7
-        cards:
-        - nmId: 123456789
-          title: iPh 17 512 ГБ Серебристый
-          vendorCode: wb3ha2668w
-          subjectId: 50
-          subjectName: Phones
-          brandName: Attlee
-          tagName: Phones
-          tagId: 65
-          pinnedFeedback: true
-          rating: 10
-          feedbackRating:
-            current: 3.87
-            dynamics: 0.31
-            percentile: 1.7
-          feedbackCount:
-            current: 12
-            dynamics: 9
-          fiveStar:
-            current: 9
-            dynamics: 7
-          fourStar:
-            current: 0
-            dynamics: -1
-          threeStar:
-            current: 1
-            dynamics: 1
-          twoStar:
-            current: 2
-            dynamics: 2
-          oneStar:
-            current: 0
-            dynamics: 0
-          disqualified: 7
-        - nmId: 123456789
-          title: iPh 17 512 ГБ Серебристый
-          vendorCode: wb3ha2668w
-          subjectId: 50
-          subjectName: Phones
-          brandName: Attlee
-          tagName: Phones
-          tagId: 65
-          pinnedFeedback: true
-          rating: 10
-          feedbackRating:
-            current: 3.87
-            dynamics: 0.31
-            percentile: 1.7
-          feedbackCount:
-            current: 12
-            dynamics: 9
-          fiveStar:
-            current: 9
-            dynamics: 7
-          fourStar:
-            current: 0
-            dynamics: -1
-          threeStar:
-            current: 1
-            dynamics: 1
-          twoStar:
-            current: 2
-            dynamics: 2
-          oneStar:
-            current: 0
-            dynamics: 0
-          disqualified: 7
-      properties:
-        sellerRating:
-          $ref: "#/components/schemas/TableItemFloat"
-        feedbackIncrease:
-          $ref: "#/components/schemas/FeedbacksIncreaseItem"
-        cards:
-          description: Данные по товарам
-          items:
-            $ref: "#/components/schemas/DistributionTableItemV1"
-          type: array
-      required:
-      - cards
-      - feedbackIncrease
-      - sellerRating
-      type: object
     ItemRatingResponse:
       description: Данные ответа
       example:
@@ -7888,105 +7587,6 @@ components:
       - total
       - twoStar
       type: object
-    DistributionTableItemV1:
-      example:
-        nmId: 123456789
-        title: iPh 17 512 ГБ Серебристый
-        vendorCode: wb3ha2668w
-        subjectId: 50
-        subjectName: Phones
-        brandName: Attlee
-        tagName: Phones
-        tagId: 65
-        pinnedFeedback: true
-        rating: 10
-        feedbackRating:
-          current: 3.87
-          dynamics: 0.31
-          percentile: 1.7
-        feedbackCount:
-          current: 12
-          dynamics: 9
-        fiveStar:
-          current: 9
-          dynamics: 7
-        fourStar:
-          current: 0
-          dynamics: -1
-        threeStar:
-          current: 1
-          dynamics: 1
-        twoStar:
-          current: 2
-          dynamics: 2
-        oneStar:
-          current: 0
-          dynamics: 0
-        disqualified: 7
-      properties:
-        nmId:
-          description: Артикул WB
-          example: 123456789
-          format: int64
-          type: integer
-        title:
-          description: Название товара
-          example: iPh 17 512 ГБ Серебристый
-          type: string
-        vendorCode:
-          description: Артикул продавца
-          example: wb3ha2668w
-          type: string
-        subjectId:
-          description: ID предмета
-          example: 50
-          format: uint64
-          type: integer
-        subjectName:
-          description: Название предмета
-          example: Phones
-          type: string
-        brandName:
-          description: Бренд
-          example: Attlee
-          type: string
-        tagName:
-          description: Название ярлыка
-          example: Phones
-          type: string
-        tagId:
-          description: ID ярлыка
-          example: 65
-          format: int64
-          type: integer
-        pinnedFeedback:
-          description: Отзыв закреплён
-          example: true
-          type: boolean
-        rating:
-          description: Рейтинг карточки товара
-          example: 10
-          format: float64
-          type: number
-        feedbackRating:
-          $ref: "#/components/schemas/DistributionTableItemV1_feedbackRating"
-        feedbackCount:
-          $ref: "#/components/schemas/DistributionTableItemV1_feedbackCount"
-        fiveStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_fiveStar"
-        fourStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_fourStar"
-        threeStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_threeStar"
-        twoStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_twoStar"
-        oneStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_oneStar"
-        disqualified:
-          description: "Отзывы, исключённые из рейтинга"
-          example: 7
-          type: integer
-      type: object
     DistributionTableItem:
       example:
         nmId: 123456789
@@ -8069,19 +7669,19 @@ components:
           format: float64
           type: number
         feedbackRating:
-          $ref: "#/components/schemas/DistributionTableItemV1_feedbackRating"
+          $ref: "#/components/schemas/DistributionTableItem_feedbackRating"
         feedbackCount:
-          $ref: "#/components/schemas/DistributionTableItemV1_feedbackCount"
+          $ref: "#/components/schemas/DistributionTableItem_feedbackCount"
         fiveStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_fiveStar"
+          $ref: "#/components/schemas/DistributionTableItem_fiveStar"
         fourStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_fourStar"
+          $ref: "#/components/schemas/DistributionTableItem_fourStar"
         threeStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_threeStar"
+          $ref: "#/components/schemas/DistributionTableItem_threeStar"
         twoStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_twoStar"
+          $ref: "#/components/schemas/DistributionTableItem_twoStar"
         oneStar:
-          $ref: "#/components/schemas/DistributionTableItemV1_oneStar"
+          $ref: "#/components/schemas/DistributionTableItem_oneStar"
         disqualified:
           description: "Отзывы, исключённые из рейтинга"
           example: 7
@@ -10366,109 +9966,6 @@ components:
       required:
       - data
       type: object
-    postV1ItemRating_200_response:
-      example:
-        data:
-          sellerRating:
-            current: 3.56
-            dynamics: 0.03
-          feedbackIncrease:
-            current: 26
-            total: 116
-            dynamics: 23
-            fiveStar:
-              current: 19
-              dynamics: 17
-              total: 51
-            fourStar:
-              current: 2
-              dynamics: 1
-              total: 13
-            threeStar:
-              current: 1
-              dynamics: 1
-              total: 11
-            twoStar:
-              current: 5
-              dynamics: 5
-              total: 34
-            oneStar:
-              current: -1
-              dynamics: -1
-              total: 7
-          cards:
-          - nmId: 123456789
-            title: iPh 17 512 ГБ Серебристый
-            vendorCode: wb3ha2668w
-            subjectId: 50
-            subjectName: Phones
-            brandName: Attlee
-            tagName: Phones
-            tagId: 65
-            pinnedFeedback: true
-            rating: 10
-            feedbackRating:
-              current: 3.87
-              dynamics: 0.31
-              percentile: 1.7
-            feedbackCount:
-              current: 12
-              dynamics: 9
-            fiveStar:
-              current: 9
-              dynamics: 7
-            fourStar:
-              current: 0
-              dynamics: -1
-            threeStar:
-              current: 1
-              dynamics: 1
-            twoStar:
-              current: 2
-              dynamics: 2
-            oneStar:
-              current: 0
-              dynamics: 0
-            disqualified: 7
-          - nmId: 123456789
-            title: iPh 17 512 ГБ Серебристый
-            vendorCode: wb3ha2668w
-            subjectId: 50
-            subjectName: Phones
-            brandName: Attlee
-            tagName: Phones
-            tagId: 65
-            pinnedFeedback: true
-            rating: 10
-            feedbackRating:
-              current: 3.87
-              dynamics: 0.31
-              percentile: 1.7
-            feedbackCount:
-              current: 12
-              dynamics: 9
-            fiveStar:
-              current: 9
-              dynamics: 7
-            fourStar:
-              current: 0
-              dynamics: -1
-            threeStar:
-              current: 1
-              dynamics: 1
-            twoStar:
-              current: 2
-              dynamics: 2
-            oneStar:
-              current: 0
-              dynamics: 0
-            disqualified: 7
-      properties:
-        data:
-          $ref: "#/components/schemas/ItemRatingResponseV1"
-      required:
-      - data
-      type: object
     postV1OrderFeed_200_response:
       example:
         data:
@@ -12483,7 +11980,7 @@ components:
       - current
       - total
       type: object
-    DistributionTableItemV1_feedbackRating:
+    DistributionTableItem_feedbackRating:
       description: Рейтинг товара по отзывам
       example:
         current: 3.87
@@ -12511,7 +12008,7 @@ components:
       - current
       - percentile
       type: object
-    DistributionTableItemV1_feedbackCount:
+    DistributionTableItem_feedbackCount:
       description: Все отзывы за период
       example:
         current: 12
@@ -12528,7 +12025,7 @@ components:
       required:
       - current
       type: object
-    DistributionTableItemV1_fiveStar:
+    DistributionTableItem_fiveStar:
       description: Отзывы 5 звёзд
       example:
         current: 9
@@ -12545,7 +12042,7 @@ components:
       required:
       - current
       type: object
-    DistributionTableItemV1_fourStar:
+    DistributionTableItem_fourStar:
       description: Отзывы 4 звезды
       example:
         current: 0
@@ -12562,7 +12059,7 @@ components:
       required:
       - current
       type: object
-    DistributionTableItemV1_threeStar:
+    DistributionTableItem_threeStar:
       description: Отзывы 3 звезды
       example:
         current: 1
@@ -12579,7 +12076,7 @@ components:
       required:
       - current
       type: object
-    DistributionTableItemV1_twoStar:
+    DistributionTableItem_twoStar:
       description: Отзывы 2 звезды
       example:
         current: 2
@@ -12596,7 +12093,7 @@ components:
       required:
       - current
       type: object
-    DistributionTableItemV1_oneStar:
+    DistributionTableItem_oneStar:
       description: Отзывы 1 звезда
       example:
         current: 0

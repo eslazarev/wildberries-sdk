@@ -236,45 +236,45 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_fbw.DefaultApiService.PostV1Supplies` — `POST /api/v1/supplies` — Список поставок
 
 ### promotion (`promotion`)
-- `promotion.DefaultApiService.AdvV0AuctionNmsPatch` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
-- `promotion.DefaultApiService.AdvV0AuctionPlacementsPut` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
-- `promotion.DefaultApiService.AdvV0DeleteGet` — `GET /adv/v0/delete` — Удаление кампании
-- `promotion.DefaultApiService.AdvV0NormqueryBidsDelete` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
-- `promotion.DefaultApiService.AdvV0NormqueryBidsPost` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров
-- `promotion.DefaultApiService.AdvV0NormqueryGetBidsPost` — `POST /adv/v0/normquery/get-bids` — Список ставок поисковых кластеров
-- `promotion.DefaultApiService.AdvV0NormqueryGetMinusPost` — `POST /adv/v0/normquery/get-minus` — Список минус-фраз кампаний
-- `promotion.DefaultApiService.AdvV0NormqueryListPost` — `POST /adv/v0/normquery/list` — Списки активных и неактивных поисковых кластеров
-- `promotion.DefaultApiService.AdvV0NormquerySetMinusPost` — `POST /adv/v0/normquery/set-minus` — Установка и удаление минус-фраз
-- `promotion.DefaultApiService.AdvV0NormqueryStatsPost` — `POST /adv/v0/normquery/stats` — Статистика поисковых кластеров
-- `promotion.DefaultApiService.AdvV0PauseGet` — `GET /adv/v0/pause` — Пауза кампании
-- `promotion.DefaultApiService.AdvV0RenamePost` — `POST /adv/v0/rename` — Переименование кампании
-- `promotion.DefaultApiService.AdvV0StartGet` — `GET /adv/v0/start` — Запуск кампании
-- `promotion.DefaultApiService.AdvV0StopGet` — `GET /adv/v0/stop` — Завершение кампании
-- `promotion.DefaultApiService.AdvV1AdvertGet` — `GET /adv/v1/advert` — Информация о медиакампании
-- `promotion.DefaultApiService.AdvV1AdvertsGet` — `GET /adv/v1/adverts` — Список медиакампаний
-- `promotion.DefaultApiService.AdvV1BalanceGet` — `GET /adv/v1/balance` — Баланс
-- `promotion.DefaultApiService.AdvV1BudgetDepositPost` — `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
-- `promotion.DefaultApiService.AdvV1BudgetGet` — `GET /adv/v1/budget` — Бюджет кампании
-- `promotion.DefaultApiService.AdvV1CountGet` — `GET /adv/v1/count` — Количество медиакампаний
-- `promotion.DefaultApiService.AdvV1NormqueryStatsPost` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
-- `promotion.DefaultApiService.AdvV1PaymentsGet` — `GET /adv/v1/payments` — Получение истории пополнений счёта
-- `promotion.DefaultApiService.AdvV1PromotionCountGet` — `GET /adv/v1/promotion/count` — Списки кампаний
-- `promotion.DefaultApiService.AdvV1StatsPost` — `POST /adv/v1/stats` — Статистика медиакампаний
-- `promotion.DefaultApiService.AdvV1SupplierSubjectsGet` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
-- `promotion.DefaultApiService.AdvV1UpdGet` — `GET /adv/v1/upd` — Получение истории затрат
-- `promotion.DefaultApiService.AdvV2SeacatSaveAdPost` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
-- `promotion.DefaultApiService.AdvV2SupplierNmsPost` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
-- `promotion.DefaultApiService.AdvV3FullstatsGet` — `GET /adv/v3/fullstats` — Статистика кампаний
-- `promotion.DefaultApiService.ApiAdvertV0BidsRecommendationsGet` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
-- `promotion.DefaultApiService.ApiAdvertV1BidsMinPost` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
-- `promotion.DefaultApiService.ApiAdvertV1BidsPatch` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
-- `promotion.DefaultApiService.ApiAdvertV2AdvertsGet` — `GET /api/advert/v2/adverts` — Информация о кампаниях
-- `promotion.DefaultApiService.ApiV1CalendarPromotionsDetailsGet` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
-- `promotion.DefaultApiService.ApiV1CalendarPromotionsGet` — `GET /api/v1/calendar/promotions` — Список акций
-- `promotion.DefaultApiService.ApiV1CalendarPromotionsNomenclaturesGet` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
-- `promotion.DefaultApiService.ApiV1CalendarPromotionsUploadPost` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
+- `promotion.DefaultApiService.DeleteV0NormqueryBids` — `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
+- `promotion.DefaultApiService.GetV0BidsRecommendations` — `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
+- `promotion.DefaultApiService.GetV0Delete` — `GET /adv/v0/delete` — Удаление кампании
+- `promotion.DefaultApiService.GetV0Pause` — `GET /adv/v0/pause` — Пауза кампании
+- `promotion.DefaultApiService.GetV0Start` — `GET /adv/v0/start` — Запуск кампании
+- `promotion.DefaultApiService.GetV0Stop` — `GET /adv/v0/stop` — Завершение кампании
+- `promotion.DefaultApiService.GetV1Advert` — `GET /adv/v1/advert` — Информация о медиакампании
+- `promotion.DefaultApiService.GetV1Adverts` — `GET /adv/v1/adverts` — Список медиакампаний
+- `promotion.DefaultApiService.GetV1Balance` — `GET /adv/v1/balance` — Баланс
+- `promotion.DefaultApiService.GetV1Budget` — `GET /adv/v1/budget` — Бюджет кампании
+- `promotion.DefaultApiService.GetV1CalendarPromotions` — `GET /api/v1/calendar/promotions` — Список акций
+- `promotion.DefaultApiService.GetV1CalendarPromotionsDetails` — `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
+- `promotion.DefaultApiService.GetV1CalendarPromotionsNomenclatures` — `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
 - `promotion.DefaultApiService.GetV1Config` — `GET /api/advert/v1/config` — Конфигурационные значения продвижения
+- `promotion.DefaultApiService.GetV1Count` — `GET /adv/v1/count` — Количество медиакампаний
+- `promotion.DefaultApiService.GetV1Payments` — `GET /adv/v1/payments` — Получение истории пополнений счёта
+- `promotion.DefaultApiService.GetV1PromotionCount` — `GET /adv/v1/promotion/count` — Списки кампаний
+- `promotion.DefaultApiService.GetV1SupplierSubjects` — `GET /adv/v1/supplier/subjects` — Предметы для кампаний
+- `promotion.DefaultApiService.GetV1Upd` — `GET /adv/v1/upd` — Получение истории затрат
+- `promotion.DefaultApiService.GetV2Adverts` — `GET /api/advert/v2/adverts` — Информация о кампаниях
+- `promotion.DefaultApiService.GetV3Fullstats` — `GET /adv/v3/fullstats` — Статистика кампаний
+- `promotion.DefaultApiService.PatchV0AuctionNms` — `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
+- `promotion.DefaultApiService.PatchV1Bids` — `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
+- `promotion.DefaultApiService.PostV0NormqueryBids` — `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров
+- `promotion.DefaultApiService.PostV0NormqueryGetBids` — `POST /adv/v0/normquery/get-bids` — Список ставок поисковых кластеров
+- `promotion.DefaultApiService.PostV0NormqueryGetMinus` — `POST /adv/v0/normquery/get-minus` — Список минус-фраз кампаний
+- `promotion.DefaultApiService.PostV0NormqueryList` — `POST /adv/v0/normquery/list` — Списки активных и неактивных поисковых кластеров
+- `promotion.DefaultApiService.PostV0NormquerySetMinus` — `POST /adv/v0/normquery/set-minus` — Установка и удаление минус-фраз
+- `promotion.DefaultApiService.PostV0NormqueryStats` — `POST /adv/v0/normquery/stats` — Статистика поисковых кластеров
+- `promotion.DefaultApiService.PostV0Rename` — `POST /adv/v0/rename` — Переименование кампании
+- `promotion.DefaultApiService.PostV1BidsMin` — `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
+- `promotion.DefaultApiService.PostV1BudgetDeposit` — `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
+- `promotion.DefaultApiService.PostV1CalendarPromotionsUpload` — `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
 - `promotion.DefaultApiService.PostV1NormqueryBids` — `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
+- `promotion.DefaultApiService.PostV1NormqueryStats` — `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
+- `promotion.DefaultApiService.PostV1Stats` — `POST /adv/v1/stats` — Статистика медиакампаний
+- `promotion.DefaultApiService.PostV2SeacatSaveAd` — `POST /adv/v2/seacat/save-ad` — Создать кампанию
+- `promotion.DefaultApiService.PostV2SupplierNms` — `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
+- `promotion.DefaultApiService.PutV0AuctionPlacements` — `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
 
 ### communications (`communications`)
 - `communications.DefaultApiService.DeleteFeedbacksV1Pins` — `DELETE /api/feedbacks/v1/pins` — Открепить отзывы
@@ -311,7 +311,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `rates.DefaultApiService.GetV1TariffsReturn` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
-- `analytics.DefaultApiService.PostV1ItemRating` — `POST /api/analytics/v1/item-rating` — Получить отчёт
 - `analytics.DefaultApiService.PostV1OrderFeed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
 - `analytics.DefaultApiService.PostV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApiService.PostV2ItemRating` — `POST /api/analytics/v2/item-rating` — Получить отчёт
@@ -338,7 +337,6 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `reports.DefaultApiService.GetV1AcceptanceReportTasksTaskIdStatus` — `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус
 - `reports.DefaultApiService.GetV1AnalyticsAntifraudDetails` — `GET /api/v1/analytics/antifraud-details` — Самовыкупы
 - `reports.DefaultApiService.GetV1AnalyticsBannedProducsBlocked` — `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт
-- `reports.DefaultApiService.GetV1AnalyticsBannedProductsShadowed` — `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога
 - `reports.DefaultApiService.GetV1AnalyticsBrandShare` — `GET /api/v1/analytics/brand-share` — Получить отчёт
 - `reports.DefaultApiService.GetV1AnalyticsBrandShareBrands` — `GET /api/v1/analytics/brand-share/brands` — Бренды продавца
 - `reports.DefaultApiService.GetV1AnalyticsBrandShareParentSubjects` — `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда

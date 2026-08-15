@@ -1,7 +1,7 @@
 /*
 Маркетинг и продвижение
 
-<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/Kampanii) и [медиакампаниях](/openapi/promotion#tag/Media)   2. [Создавать](/openapi/promotion#tag/Sozdanie-kampanij) и [управлять](/openapi/promotion#tag/Upravlenie-kampaniyami) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/Finansy) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/Statistika) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
+<div class=\"description_important\">   Узнать больше о маркетинге и продвижении можно в <a href=\"https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e\">справочном центре</a> </div>  <div class=\"api-block\">  Методы маркетинга и продвижения позволяют:   1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/campaigns) и [медиакампаниях](/openapi/promotion#tag/media)   2. [Создавать](/openapi/promotion#tag/creatingCampaigns) и [управлять](/openapi/promotion#tag/campaignManagement) кампаниями   3. Управлять [финансами](/openapi/promotion#tag/finances) кампаний   4. Выгружать [статистику](/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний   5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar)  Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.<br><br>  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/Prodvizhenie) для управления тестовым балансом  </div> 
 
 API version: promotion
 */
@@ -25,7 +25,7 @@ type AdvertSettings struct {
 	PaymentType string `json:"payment_type"`
 	// Название кампании
 	Name string `json:"name"`
-	Placements AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements `json:"placements"`
+	Placements PutV0AuctionPlacementsRequestPlacementsInnerPlacements `json:"placements"`
 }
 
 type _AdvertSettings AdvertSettings
@@ -34,7 +34,7 @@ type _AdvertSettings AdvertSettings
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdvertSettings(paymentType string, name string, placements AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements) *AdvertSettings {
+func NewAdvertSettings(paymentType string, name string, placements PutV0AuctionPlacementsRequestPlacementsInnerPlacements) *AdvertSettings {
 	this := AdvertSettings{}
 	this.PaymentType = paymentType
 	this.Name = name
@@ -99,9 +99,9 @@ func (o *AdvertSettings) SetName(v string) {
 }
 
 // GetPlacements returns the Placements field value
-func (o *AdvertSettings) GetPlacements() AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements {
+func (o *AdvertSettings) GetPlacements() PutV0AuctionPlacementsRequestPlacementsInnerPlacements {
 	if o == nil {
-		var ret AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements
+		var ret PutV0AuctionPlacementsRequestPlacementsInnerPlacements
 		return ret
 	}
 
@@ -110,7 +110,7 @@ func (o *AdvertSettings) GetPlacements() AdvV0AuctionPlacementsPutRequestPlaceme
 
 // GetPlacementsOk returns a tuple with the Placements field value
 // and a boolean to check if the value has been set.
-func (o *AdvertSettings) GetPlacementsOk() (*AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements, bool) {
+func (o *AdvertSettings) GetPlacementsOk() (*PutV0AuctionPlacementsRequestPlacementsInnerPlacements, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,7 +118,7 @@ func (o *AdvertSettings) GetPlacementsOk() (*AdvV0AuctionPlacementsPutRequestPla
 }
 
 // SetPlacements sets field value
-func (o *AdvertSettings) SetPlacements(v AdvV0AuctionPlacementsPutRequestPlacementsInnerPlacements) {
+func (o *AdvertSettings) SetPlacements(v PutV0AuctionPlacementsRequestPlacementsInnerPlacements) {
 	o.Placements = v
 }
 

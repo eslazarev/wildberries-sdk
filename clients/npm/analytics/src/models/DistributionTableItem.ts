@@ -13,55 +13,55 @@
  */
 
 import { mapValues } from '../runtime';
-import type { DistributionTableItemV1FiveStar } from './DistributionTableItemV1FiveStar';
+import type { DistributionTableItemFiveStar } from './DistributionTableItemFiveStar';
 import {
-    DistributionTableItemV1FiveStarFromJSON,
-    DistributionTableItemV1FiveStarFromJSONTyped,
-    DistributionTableItemV1FiveStarToJSON,
-    DistributionTableItemV1FiveStarToJSONTyped,
-} from './DistributionTableItemV1FiveStar';
-import type { DistributionTableItemV1OneStar } from './DistributionTableItemV1OneStar';
+    DistributionTableItemFiveStarFromJSON,
+    DistributionTableItemFiveStarFromJSONTyped,
+    DistributionTableItemFiveStarToJSON,
+    DistributionTableItemFiveStarToJSONTyped,
+} from './DistributionTableItemFiveStar';
+import type { DistributionTableItemTwoStar } from './DistributionTableItemTwoStar';
 import {
-    DistributionTableItemV1OneStarFromJSON,
-    DistributionTableItemV1OneStarFromJSONTyped,
-    DistributionTableItemV1OneStarToJSON,
-    DistributionTableItemV1OneStarToJSONTyped,
-} from './DistributionTableItemV1OneStar';
-import type { DistributionTableItemV1FeedbackCount } from './DistributionTableItemV1FeedbackCount';
+    DistributionTableItemTwoStarFromJSON,
+    DistributionTableItemTwoStarFromJSONTyped,
+    DistributionTableItemTwoStarToJSON,
+    DistributionTableItemTwoStarToJSONTyped,
+} from './DistributionTableItemTwoStar';
+import type { DistributionTableItemOneStar } from './DistributionTableItemOneStar';
 import {
-    DistributionTableItemV1FeedbackCountFromJSON,
-    DistributionTableItemV1FeedbackCountFromJSONTyped,
-    DistributionTableItemV1FeedbackCountToJSON,
-    DistributionTableItemV1FeedbackCountToJSONTyped,
-} from './DistributionTableItemV1FeedbackCount';
-import type { DistributionTableItemV1FourStar } from './DistributionTableItemV1FourStar';
+    DistributionTableItemOneStarFromJSON,
+    DistributionTableItemOneStarFromJSONTyped,
+    DistributionTableItemOneStarToJSON,
+    DistributionTableItemOneStarToJSONTyped,
+} from './DistributionTableItemOneStar';
+import type { DistributionTableItemFeedbackRating } from './DistributionTableItemFeedbackRating';
 import {
-    DistributionTableItemV1FourStarFromJSON,
-    DistributionTableItemV1FourStarFromJSONTyped,
-    DistributionTableItemV1FourStarToJSON,
-    DistributionTableItemV1FourStarToJSONTyped,
-} from './DistributionTableItemV1FourStar';
-import type { DistributionTableItemV1ThreeStar } from './DistributionTableItemV1ThreeStar';
+    DistributionTableItemFeedbackRatingFromJSON,
+    DistributionTableItemFeedbackRatingFromJSONTyped,
+    DistributionTableItemFeedbackRatingToJSON,
+    DistributionTableItemFeedbackRatingToJSONTyped,
+} from './DistributionTableItemFeedbackRating';
+import type { DistributionTableItemFourStar } from './DistributionTableItemFourStar';
 import {
-    DistributionTableItemV1ThreeStarFromJSON,
-    DistributionTableItemV1ThreeStarFromJSONTyped,
-    DistributionTableItemV1ThreeStarToJSON,
-    DistributionTableItemV1ThreeStarToJSONTyped,
-} from './DistributionTableItemV1ThreeStar';
-import type { DistributionTableItemV1TwoStar } from './DistributionTableItemV1TwoStar';
+    DistributionTableItemFourStarFromJSON,
+    DistributionTableItemFourStarFromJSONTyped,
+    DistributionTableItemFourStarToJSON,
+    DistributionTableItemFourStarToJSONTyped,
+} from './DistributionTableItemFourStar';
+import type { DistributionTableItemThreeStar } from './DistributionTableItemThreeStar';
 import {
-    DistributionTableItemV1TwoStarFromJSON,
-    DistributionTableItemV1TwoStarFromJSONTyped,
-    DistributionTableItemV1TwoStarToJSON,
-    DistributionTableItemV1TwoStarToJSONTyped,
-} from './DistributionTableItemV1TwoStar';
-import type { DistributionTableItemV1FeedbackRating } from './DistributionTableItemV1FeedbackRating';
+    DistributionTableItemThreeStarFromJSON,
+    DistributionTableItemThreeStarFromJSONTyped,
+    DistributionTableItemThreeStarToJSON,
+    DistributionTableItemThreeStarToJSONTyped,
+} from './DistributionTableItemThreeStar';
+import type { DistributionTableItemFeedbackCount } from './DistributionTableItemFeedbackCount';
 import {
-    DistributionTableItemV1FeedbackRatingFromJSON,
-    DistributionTableItemV1FeedbackRatingFromJSONTyped,
-    DistributionTableItemV1FeedbackRatingToJSON,
-    DistributionTableItemV1FeedbackRatingToJSONTyped,
-} from './DistributionTableItemV1FeedbackRating';
+    DistributionTableItemFeedbackCountFromJSON,
+    DistributionTableItemFeedbackCountFromJSONTyped,
+    DistributionTableItemFeedbackCountToJSON,
+    DistributionTableItemFeedbackCountToJSONTyped,
+} from './DistributionTableItemFeedbackCount';
 
 /**
  * 
@@ -112,31 +112,31 @@ export interface DistributionTableItem {
     /**
      * 
      */
-    feedbackRating: DistributionTableItemV1FeedbackRating;
+    feedbackRating: DistributionTableItemFeedbackRating;
     /**
      * 
      */
-    feedbackCount: DistributionTableItemV1FeedbackCount;
+    feedbackCount: DistributionTableItemFeedbackCount;
     /**
      * 
      */
-    fiveStar: DistributionTableItemV1FiveStar;
+    fiveStar: DistributionTableItemFiveStar;
     /**
      * 
      */
-    fourStar: DistributionTableItemV1FourStar;
+    fourStar: DistributionTableItemFourStar;
     /**
      * 
      */
-    threeStar: DistributionTableItemV1ThreeStar;
+    threeStar: DistributionTableItemThreeStar;
     /**
      * 
      */
-    twoStar: DistributionTableItemV1TwoStar;
+    twoStar: DistributionTableItemTwoStar;
     /**
      * 
      */
-    oneStar: DistributionTableItemV1OneStar;
+    oneStar: DistributionTableItemOneStar;
     /**
      * Отзывы, исключённые из рейтинга
      */
@@ -196,13 +196,13 @@ export function DistributionTableItemFromJSONTyped(json: any, ignoreDiscriminato
         'tagId': json['tagId'],
         'pinnedFeedback': json['pinnedFeedback'],
         'rating': json['rating'],
-        'feedbackRating': DistributionTableItemV1FeedbackRatingFromJSON(json['feedbackRating']),
-        'feedbackCount': DistributionTableItemV1FeedbackCountFromJSON(json['feedbackCount']),
-        'fiveStar': DistributionTableItemV1FiveStarFromJSON(json['fiveStar']),
-        'fourStar': DistributionTableItemV1FourStarFromJSON(json['fourStar']),
-        'threeStar': DistributionTableItemV1ThreeStarFromJSON(json['threeStar']),
-        'twoStar': DistributionTableItemV1TwoStarFromJSON(json['twoStar']),
-        'oneStar': DistributionTableItemV1OneStarFromJSON(json['oneStar']),
+        'feedbackRating': DistributionTableItemFeedbackRatingFromJSON(json['feedbackRating']),
+        'feedbackCount': DistributionTableItemFeedbackCountFromJSON(json['feedbackCount']),
+        'fiveStar': DistributionTableItemFiveStarFromJSON(json['fiveStar']),
+        'fourStar': DistributionTableItemFourStarFromJSON(json['fourStar']),
+        'threeStar': DistributionTableItemThreeStarFromJSON(json['threeStar']),
+        'twoStar': DistributionTableItemTwoStarFromJSON(json['twoStar']),
+        'oneStar': DistributionTableItemOneStarFromJSON(json['oneStar']),
         'disqualified': json['disqualified'],
         'isShadowed': json['isShadowed'],
     };
@@ -229,13 +229,13 @@ export function DistributionTableItemToJSONTyped(value?: DistributionTableItem |
         'tagId': value['tagId'],
         'pinnedFeedback': value['pinnedFeedback'],
         'rating': value['rating'],
-        'feedbackRating': DistributionTableItemV1FeedbackRatingToJSON(value['feedbackRating']),
-        'feedbackCount': DistributionTableItemV1FeedbackCountToJSON(value['feedbackCount']),
-        'fiveStar': DistributionTableItemV1FiveStarToJSON(value['fiveStar']),
-        'fourStar': DistributionTableItemV1FourStarToJSON(value['fourStar']),
-        'threeStar': DistributionTableItemV1ThreeStarToJSON(value['threeStar']),
-        'twoStar': DistributionTableItemV1TwoStarToJSON(value['twoStar']),
-        'oneStar': DistributionTableItemV1OneStarToJSON(value['oneStar']),
+        'feedbackRating': DistributionTableItemFeedbackRatingToJSON(value['feedbackRating']),
+        'feedbackCount': DistributionTableItemFeedbackCountToJSON(value['feedbackCount']),
+        'fiveStar': DistributionTableItemFiveStarToJSON(value['fiveStar']),
+        'fourStar': DistributionTableItemFourStarToJSON(value['fourStar']),
+        'threeStar': DistributionTableItemThreeStarToJSON(value['threeStar']),
+        'twoStar': DistributionTableItemTwoStarToJSON(value['twoStar']),
+        'oneStar': DistributionTableItemOneStarToJSON(value['oneStar']),
         'disqualified': value['disqualified'],
         'isShadowed': value['isShadowed'],
     };

@@ -15,18 +15,6 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`post_v1_item_rating`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PostV1ItemRatingError {
-    Status400(models::ErrorObject400),
-    Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
-    Status403(models::ErrorObject403),
-    Status429(models::PostV3SalesFunnelProducts401Response),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`post_v1_order_feed`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -205,53 +193,6 @@ pub enum PostV3SalesFunnelProductsHistoryError {
     UnknownValue(serde_json::Value),
 }
 
-
-///  <div class=\"description_token\">     Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\">доступен</a> по         <strong>Персональному</strong> токену,          <strong>Сервисному</strong> токену </div>  Данный метод устарел. Он будет удалён [30 июля](/release-notes?id=558).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 3 запроса | </div> 
-#[deprecated]
-pub async fn post_v1_item_rating(configuration: &configuration::Configuration, item_rating_request_v1: models::ItemRatingRequestV1) -> Result<models::PostV1ItemRating200Response, Error<PostV1ItemRatingError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_item_rating_request_v1 = item_rating_request_v1;
-
-    let uri_str = format!("{}/api/analytics/v1/item-rating", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_body_item_rating_request_v1);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostV1ItemRating200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostV1ItemRating200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<PostV1ItemRatingError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
 
 /// Метод формирует набор данных о заказах и продажах. <br><br> Данные отчёта обновляются в режиме реального времени. <br><br> > 1 заказ = 1 сборочное задание = 1 единица товара  Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца.<br> Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`. <br><br> Можно получить отчёт максимум за последние 31 день. <br><br> Заказы отдаются по времени текущего статуса, от самого нового к самому раннему. <br><br> Можно использовать пагинацию.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос | </div> 
 pub async fn post_v1_order_feed(configuration: &configuration::Configuration, order_feed_request: Option<models::OrderFeedRequest>) -> Result<models::PostV1OrderFeed200Response, Error<PostV1OrderFeedError>> {

@@ -607,6 +607,7 @@ pub enum ContentV3MediaSavePostError {
 pub enum PostV1RecommendationsListError {
     Status400(models::Response400GetRecom),
     Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status403(models::PostV1RecommendationsList403Response),
     Status429(models::ContentV2ObjectParentAllGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -617,6 +618,7 @@ pub enum PostV1RecommendationsListError {
 pub enum PostV1RecommendationsSetError {
     Status400(models::Response400SetRecom),
     Status401(models::ContentV2ObjectParentAllGet401Response),
+    Status403(models::PostV1RecommendationsList403Response),
     Status429(models::ContentV2ObjectParentAllGet401Response),
     UnknownValue(serde_json::Value),
 }

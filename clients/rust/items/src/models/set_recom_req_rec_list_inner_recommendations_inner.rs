@@ -16,7 +16,7 @@ pub struct SetRecomReqRecListInnerRecommendationsInner {
     /// Артикул WB рекомендуемого товара
     #[serde(rename = "recomNm", skip_serializing_if = "Option::is_none")]
     pub recom_nm: Option<i32>,
-    /// На каком месте находится товар в списке рекомендаций
+    /// Позиция товара в списке рекомендаций.   Допустимые значения:  - `1`–`20` — фиксированная позиция:    - при создании или замене (`replace: true`) задаёт порядок отображения    - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются  - `0` — автоматическая сортировка товаров:    - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`    - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations` 
     #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
     pub sort: Option<i32>,
 }

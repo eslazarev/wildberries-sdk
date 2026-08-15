@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.141"
+__version__ = "0.1.142"
 
 # Define package exports
 __all__ = [
@@ -40,8 +40,6 @@ __all__ = [
     "GetV1AnalyticsBannedProducsBlocked200Response",
     "GetV1AnalyticsBannedProducsBlocked200ResponseReportInner",
     "GetV1AnalyticsBannedProducsBlocked400Response",
-    "GetV1AnalyticsBannedProductsShadowed200Response",
-    "GetV1AnalyticsBannedProductsShadowed200ResponseReportInner",
     "GetV1AnalyticsBrandShare200Response",
     "GetV1AnalyticsBrandShare200ResponseReportInner",
     "GetV1AnalyticsBrandShareBrands200Response",
@@ -106,8 +104,6 @@ from wildberries_sdk.reports.models.get_v1_analytics_antifraud_details200_respon
 from wildberries_sdk.reports.models.get_v1_analytics_banned_producs_blocked200_response import GetV1AnalyticsBannedProducsBlocked200Response as GetV1AnalyticsBannedProducsBlocked200Response
 from wildberries_sdk.reports.models.get_v1_analytics_banned_producs_blocked200_response_report_inner import GetV1AnalyticsBannedProducsBlocked200ResponseReportInner as GetV1AnalyticsBannedProducsBlocked200ResponseReportInner
 from wildberries_sdk.reports.models.get_v1_analytics_banned_producs_blocked400_response import GetV1AnalyticsBannedProducsBlocked400Response as GetV1AnalyticsBannedProducsBlocked400Response
-from wildberries_sdk.reports.models.get_v1_analytics_banned_products_shadowed200_response import GetV1AnalyticsBannedProductsShadowed200Response as GetV1AnalyticsBannedProductsShadowed200Response
-from wildberries_sdk.reports.models.get_v1_analytics_banned_products_shadowed200_response_report_inner import GetV1AnalyticsBannedProductsShadowed200ResponseReportInner as GetV1AnalyticsBannedProductsShadowed200ResponseReportInner
 from wildberries_sdk.reports.models.get_v1_analytics_brand_share200_response import GetV1AnalyticsBrandShare200Response as GetV1AnalyticsBrandShare200Response
 from wildberries_sdk.reports.models.get_v1_analytics_brand_share200_response_report_inner import GetV1AnalyticsBrandShare200ResponseReportInner as GetV1AnalyticsBrandShare200ResponseReportInner
 from wildberries_sdk.reports.models.get_v1_analytics_brand_share_brands200_response import GetV1AnalyticsBrandShareBrands200Response as GetV1AnalyticsBrandShareBrands200Response

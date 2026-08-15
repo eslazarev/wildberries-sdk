@@ -32,7 +32,12 @@ export interface SetRecomReqRecListInner {
      */
     nmId?: number;
     /**
-     * Рекомендуемые товары
+     * Рекомендуемые товары.
+     * <br>
+     * Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`.
+     * <br>
+     * При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены.
+     * 
      */
     recommendations?: Array<SetRecomReqRecListInnerRecommendationsInner>;
 }

@@ -29,7 +29,7 @@ class SetRecomReqRecListInnerRecommendationsInner(BaseModel):
     SetRecomReqRecListInnerRecommendationsInner
     """ # noqa: E501
     recom_nm: Optional[StrictInt] = Field(default=0, description="Артикул WB рекомендуемого товара", alias="recomNm", json_schema_extra={"examples": [5870244]})
-    sort: Optional[Annotated[int, Field(le=20, strict=True, ge=0)]] = Field(default=20, description="На каком месте находится товар в списке рекомендаций", json_schema_extra={"examples": [1]})
+    sort: Optional[Annotated[int, Field(le=20, strict=True, ge=0)]] = Field(default=20, description="Позиция товара в списке рекомендаций.   Допустимые значения:  - `1`–`20` — фиксированная позиция:    - при создании или замене (`replace: true`) задаёт порядок отображения    - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются  - `0` — автоматическая сортировка товаров:    - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`    - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations` ", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["recomNm", "sort"]
 
     model_config = ConfigDict(

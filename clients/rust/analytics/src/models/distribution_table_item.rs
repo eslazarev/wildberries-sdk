@@ -44,19 +44,19 @@ pub struct DistributionTableItem {
     #[serde(rename = "rating")]
     pub rating: f64,
     #[serde(rename = "feedbackRating")]
-    pub feedback_rating: Box<models::DistributionTableItemV1FeedbackRating>,
+    pub feedback_rating: Box<models::DistributionTableItemFeedbackRating>,
     #[serde(rename = "feedbackCount")]
-    pub feedback_count: Box<models::DistributionTableItemV1FeedbackCount>,
+    pub feedback_count: Box<models::DistributionTableItemFeedbackCount>,
     #[serde(rename = "fiveStar")]
-    pub five_star: Box<models::DistributionTableItemV1FiveStar>,
+    pub five_star: Box<models::DistributionTableItemFiveStar>,
     #[serde(rename = "fourStar")]
-    pub four_star: Box<models::DistributionTableItemV1FourStar>,
+    pub four_star: Box<models::DistributionTableItemFourStar>,
     #[serde(rename = "threeStar")]
-    pub three_star: Box<models::DistributionTableItemV1ThreeStar>,
+    pub three_star: Box<models::DistributionTableItemThreeStar>,
     #[serde(rename = "twoStar")]
-    pub two_star: Box<models::DistributionTableItemV1TwoStar>,
+    pub two_star: Box<models::DistributionTableItemTwoStar>,
     #[serde(rename = "oneStar")]
-    pub one_star: Box<models::DistributionTableItemV1OneStar>,
+    pub one_star: Box<models::DistributionTableItemOneStar>,
     /// Отзывы, исключённые из рейтинга
     #[serde(rename = "disqualified")]
     pub disqualified: i32,
@@ -66,7 +66,7 @@ pub struct DistributionTableItem {
 }
 
 impl DistributionTableItem {
-    pub fn new(nm_id: i64, title: String, vendor_code: String, subject_id: i32, subject_name: String, brand_name: String, tag_name: String, tag_id: i64, pinned_feedback: bool, rating: f64, feedback_rating: models::DistributionTableItemV1FeedbackRating, feedback_count: models::DistributionTableItemV1FeedbackCount, five_star: models::DistributionTableItemV1FiveStar, four_star: models::DistributionTableItemV1FourStar, three_star: models::DistributionTableItemV1ThreeStar, two_star: models::DistributionTableItemV1TwoStar, one_star: models::DistributionTableItemV1OneStar, disqualified: i32, is_shadowed: bool) -> DistributionTableItem {
+    pub fn new(nm_id: i64, title: String, vendor_code: String, subject_id: i32, subject_name: String, brand_name: String, tag_name: String, tag_id: i64, pinned_feedback: bool, rating: f64, feedback_rating: models::DistributionTableItemFeedbackRating, feedback_count: models::DistributionTableItemFeedbackCount, five_star: models::DistributionTableItemFiveStar, four_star: models::DistributionTableItemFourStar, three_star: models::DistributionTableItemThreeStar, two_star: models::DistributionTableItemTwoStar, one_star: models::DistributionTableItemOneStar, disqualified: i32, is_shadowed: bool) -> DistributionTableItem {
         DistributionTableItem {
             nm_id,
             title,

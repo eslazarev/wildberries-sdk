@@ -3627,6 +3627,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_content_v2_object_parent_all_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/postV1RecommendationsList_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -3704,6 +3719,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_content_v2_object_parent_all_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/postV1RecommendationsList_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/problem+json:
@@ -7267,6 +7297,21 @@ components:
           schema:
             $ref: "#/components/schemas/_content_v2_tags_get_402_response"
       description: Требуется платёж
+    "403":
+      content:
+        application/problem+json:
+          example:
+            title: forbidden
+            detail: base token is not allowed
+            code: base token is not allowed for this path
+            requestId: 722199b2e15bbca48cc1d488a7989976
+            origin: s2s-finance
+            status: 403
+            statusText: Forbidden
+            timestamp: 2026-05-25T02:47:09Z
+          schema:
+            $ref: "#/components/schemas/postV1RecommendationsList_403_response"
+      description: Доступ запрещён
     "429":
       content:
         application/problem+json:
@@ -10975,6 +11020,34 @@ components:
             type: string
           type: array
       type: object
+    postV1RecommendationsList_403_response:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
+          type: string
+      type: object
     _api_v2_upload_task_post_request:
       properties:
         data:
@@ -12097,7 +12170,16 @@ components:
           type: integer
         sort:
           default: 20
-          description: На каком месте находится товар в списке рекомендаций
+          description: |
+            Позиция товара в списке рекомендаций.
+
+             Допустимые значения:
+             - `1`–`20` — фиксированная позиция:
+               - при создании или замене (`replace: true`) задаёт порядок отображения
+               - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются
+             - `0` — автоматическая сортировка товаров:
+               - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`
+               - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations`
           example: 1
           maximum: 20
           minimum: 0
@@ -12124,7 +12206,12 @@ components:
           example: 5870243
           type: integer
         recommendations:
-          description: Рекомендуемые товары
+          description: |
+            Рекомендуемые товары.
+            <br>
+            Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`.
+            <br>
+            При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены.
           items:
             $ref: "#/components/schemas/SetRecomReq_recList_inner_recommendations_inner"
           maxItems: 20

@@ -236,45 +236,45 @@ main().catch(console.error);
 - `orders_fbw.DefaultApi.postV1Supplies` — Список поставок
 
 ### promotion (`promotion`)
-- `promotion.DefaultApi.advV0AuctionNmsPatch` — Изменение списка карточек товаров в кампаниях
-- `promotion.DefaultApi.advV0AuctionPlacementsPut` — Изменение мест размещения в кампаниях с ручной ставкой
-- `promotion.DefaultApi.advV0DeleteGet` — Удаление кампании
-- `promotion.DefaultApi.advV0NormqueryBidsDelete` — Удалить ставки поисковых кластеров
-- `promotion.DefaultApi.advV0NormqueryBidsPost` — Установить ставки для поисковых кластеров
-- `promotion.DefaultApi.advV0NormqueryGetBidsPost` — Список ставок поисковых кластеров
-- `promotion.DefaultApi.advV0NormqueryGetMinusPost` — Список минус-фраз кампаний
-- `promotion.DefaultApi.advV0NormqueryListPost` — Списки активных и неактивных поисковых кластеров
-- `promotion.DefaultApi.advV0NormquerySetMinusPost` — Установка и удаление минус-фраз
-- `promotion.DefaultApi.advV0NormqueryStatsPost` — Статистика поисковых кластеров
-- `promotion.DefaultApi.advV0PauseGet` — Пауза кампании
-- `promotion.DefaultApi.advV0RenamePost` — Переименование кампании
-- `promotion.DefaultApi.advV0StartGet` — Запуск кампании
-- `promotion.DefaultApi.advV0StopGet` — Завершение кампании
-- `promotion.DefaultApi.advV1AdvertGet` — Информация о медиакампании
-- `promotion.DefaultApi.advV1AdvertsGet` — Список медиакампаний
-- `promotion.DefaultApi.advV1BalanceGet` — Баланс
-- `promotion.DefaultApi.advV1BudgetDepositPost` — Пополнение бюджета кампании
-- `promotion.DefaultApi.advV1BudgetGet` — Бюджет кампании
-- `promotion.DefaultApi.advV1CountGet` — Количество медиакампаний
-- `promotion.DefaultApi.advV1NormqueryStatsPost` — Статистика по поисковым кластерам с детализацией по дням
-- `promotion.DefaultApi.advV1PaymentsGet` — Получение истории пополнений счёта
-- `promotion.DefaultApi.advV1PromotionCountGet` — Списки кампаний
-- `promotion.DefaultApi.advV1StatsPost` — Статистика медиакампаний
-- `promotion.DefaultApi.advV1SupplierSubjectsGet` — Предметы для кампаний
-- `promotion.DefaultApi.advV1UpdGet` — Получение истории затрат
-- `promotion.DefaultApi.advV2SeacatSaveAdPost` — Создать кампанию
-- `promotion.DefaultApi.advV2SupplierNmsPost` — Карточки товаров для кампаний
-- `promotion.DefaultApi.advV3FullstatsGet` — Статистика кампаний
-- `promotion.DefaultApi.apiAdvertV0BidsRecommendationsGet` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
-- `promotion.DefaultApi.apiAdvertV1BidsMinPost` — Минимальные ставки для карточек товаров
-- `promotion.DefaultApi.apiAdvertV1BidsPatch` — Изменение ставок в кампаниях
-- `promotion.DefaultApi.apiAdvertV2AdvertsGet` — Информация о кампаниях
-- `promotion.DefaultApi.apiV1CalendarPromotionsDetailsGet` — Детальная информация об акциях
-- `promotion.DefaultApi.apiV1CalendarPromotionsGet` — Список акций
-- `promotion.DefaultApi.apiV1CalendarPromotionsNomenclaturesGet` — Список товаров для участия в акции
-- `promotion.DefaultApi.apiV1CalendarPromotionsUploadPost` — Добавить товар в акцию
+- `promotion.DefaultApi.deleteV0NormqueryBids` — Удалить ставки поисковых кластеров
+- `promotion.DefaultApi.getV0BidsRecommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
+- `promotion.DefaultApi.getV0Delete` — Удаление кампании
+- `promotion.DefaultApi.getV0Pause` — Пауза кампании
+- `promotion.DefaultApi.getV0Start` — Запуск кампании
+- `promotion.DefaultApi.getV0Stop` — Завершение кампании
+- `promotion.DefaultApi.getV1Advert` — Информация о медиакампании
+- `promotion.DefaultApi.getV1Adverts` — Список медиакампаний
+- `promotion.DefaultApi.getV1Balance` — Баланс
+- `promotion.DefaultApi.getV1Budget` — Бюджет кампании
+- `promotion.DefaultApi.getV1CalendarPromotions` — Список акций
+- `promotion.DefaultApi.getV1CalendarPromotionsDetails` — Детальная информация об акциях
+- `promotion.DefaultApi.getV1CalendarPromotionsNomenclatures` — Список товаров для участия в акции
 - `promotion.DefaultApi.getV1Config` — Конфигурационные значения продвижения
+- `promotion.DefaultApi.getV1Count` — Количество медиакампаний
+- `promotion.DefaultApi.getV1Payments` — Получение истории пополнений счёта
+- `promotion.DefaultApi.getV1PromotionCount` — Списки кампаний
+- `promotion.DefaultApi.getV1SupplierSubjects` — Предметы для кампаний
+- `promotion.DefaultApi.getV1Upd` — Получение истории затрат
+- `promotion.DefaultApi.getV2Adverts` — Информация о кампаниях
+- `promotion.DefaultApi.getV3Fullstats` — Статистика кампаний
+- `promotion.DefaultApi.patchV0AuctionNms` — Изменение списка карточек товаров в кампаниях
+- `promotion.DefaultApi.patchV1Bids` — Изменение ставок в кампаниях
+- `promotion.DefaultApi.postV0NormqueryBids` — Установить ставки для поисковых кластеров
+- `promotion.DefaultApi.postV0NormqueryGetBids` — Список ставок поисковых кластеров
+- `promotion.DefaultApi.postV0NormqueryGetMinus` — Список минус-фраз кампаний
+- `promotion.DefaultApi.postV0NormqueryList` — Списки активных и неактивных поисковых кластеров
+- `promotion.DefaultApi.postV0NormquerySetMinus` — Установка и удаление минус-фраз
+- `promotion.DefaultApi.postV0NormqueryStats` — Статистика поисковых кластеров
+- `promotion.DefaultApi.postV0Rename` — Переименование кампании
+- `promotion.DefaultApi.postV1BidsMin` — Минимальные ставки для карточек товаров
+- `promotion.DefaultApi.postV1BudgetDeposit` — Пополнение бюджета кампании
+- `promotion.DefaultApi.postV1CalendarPromotionsUpload` — Добавить товар в акцию
 - `promotion.DefaultApi.postV1NormqueryBids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца
+- `promotion.DefaultApi.postV1NormqueryStats` — Статистика по поисковым кластерам с детализацией по дням
+- `promotion.DefaultApi.postV1Stats` — Статистика медиакампаний
+- `promotion.DefaultApi.postV2SeacatSaveAd` — Создать кампанию
+- `promotion.DefaultApi.postV2SupplierNms` — Карточки товаров для кампаний
+- `promotion.DefaultApi.putV0AuctionPlacements` — Изменение мест размещения в кампаниях с ручной ставкой
 
 ### communications (`communications`)
 - `communications.DefaultApi.deleteFeedbacksV1Pins` — Открепить отзывы
@@ -315,7 +315,6 @@ main().catch(console.error);
 - `analytics.CSVApi.getV2NmReportDownloadsFileDownloadId` — Получить отчёт
 - `analytics.CSVApi.postV2NmReportDownloads` — Создать отчёт
 - `analytics.CSVApi.postV2NmReportDownloadsRetry` — Сгенерировать отчёт повторно
-- `analytics.DefaultApi.postV1ItemRating` — Получить отчёт
 - `analytics.DefaultApi.postV1OrderFeed` — Получить отчёт
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — Остатки на складах WB
 - `analytics.DefaultApi.postV2ItemRating` — Получить отчёт
@@ -339,7 +338,6 @@ main().catch(console.error);
 - `reports.DefaultApi.getV1AcceptanceReportTasksTaskIdStatus` — Проверить статус
 - `reports.DefaultApi.getV1AnalyticsAntifraudDetails` — Самовыкупы
 - `reports.DefaultApi.getV1AnalyticsBannedProducsBlocked` — Получить отчёт
-- `reports.DefaultApi.getV1AnalyticsBannedProductsShadowed` — Скрытые из каталога
 - `reports.DefaultApi.getV1AnalyticsBrandShare` — Получить отчёт
 - `reports.DefaultApi.getV1AnalyticsBrandShareBrands` — Бренды продавца
 - `reports.DefaultApi.getV1AnalyticsBrandShareParentSubjects` — Родительские категории бренда

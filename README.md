@@ -257,45 +257,45 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/warehouses` — Список складов (getV1Warehouses)
 
 ### Маркетинг и продвижение (`08-promotion.yaml`)
-- `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях
-- `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой
-- `GET /adv/v0/delete` — Удаление кампании
-- `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров
-- `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров
-- `POST /adv/v0/normquery/get-bids` — Список ставок поисковых кластеров
-- `POST /adv/v0/normquery/get-minus` — Список минус-фраз кампаний
-- `POST /adv/v0/normquery/list` — Списки активных и неактивных поисковых кластеров
-- `POST /adv/v0/normquery/set-minus` — Установка и удаление минус-фраз
-- `POST /adv/v0/normquery/stats` — Статистика поисковых кластеров
-- `GET /adv/v0/pause` — Пауза кампании
-- `POST /adv/v0/rename` — Переименование кампании
-- `GET /adv/v0/start` — Запуск кампании
-- `GET /adv/v0/stop` — Завершение кампании
-- `GET /adv/v1/advert` — Информация о медиакампании
-- `GET /adv/v1/adverts` — Список медиакампаний
-- `GET /adv/v1/balance` — Баланс
-- `GET /adv/v1/budget` — Бюджет кампании
-- `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании
-- `GET /adv/v1/count` — Количество медиакампаний
-- `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням
-- `GET /adv/v1/payments` — Получение истории пополнений счёта
-- `GET /adv/v1/promotion/count` — Списки кампаний
-- `POST /adv/v1/stats` — Статистика медиакампаний
-- `GET /adv/v1/supplier/subjects` — Предметы для кампаний
-- `GET /adv/v1/upd` — Получение истории затрат
-- `POST /adv/v2/seacat/save-ad` — Создать кампанию
-- `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний
-- `GET /adv/v3/fullstats` — Статистика кампаний
-- `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров
-- `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях
-- `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров
+- `PATCH /adv/v0/auction/nms` — Изменение списка карточек товаров в кампаниях (patchV0AuctionNms)
+- `PUT /adv/v0/auction/placements` — Изменение мест размещения в кампаниях с ручной ставкой (putV0AuctionPlacements)
+- `GET /adv/v0/delete` — Удаление кампании (getV0Delete)
+- `POST /adv/v0/normquery/bids` — Установить ставки для поисковых кластеров (postV0NormqueryBids)
+- `DELETE /adv/v0/normquery/bids` — Удалить ставки поисковых кластеров (deleteV0NormqueryBids)
+- `POST /adv/v0/normquery/get-bids` — Список ставок поисковых кластеров (postV0NormqueryGetBids)
+- `POST /adv/v0/normquery/get-minus` — Список минус-фраз кампаний (postV0NormqueryGetMinus)
+- `POST /adv/v0/normquery/list` — Списки активных и неактивных поисковых кластеров (postV0NormqueryList)
+- `POST /adv/v0/normquery/set-minus` — Установка и удаление минус-фраз (postV0NormquerySetMinus)
+- `POST /adv/v0/normquery/stats` — Статистика поисковых кластеров (postV0NormqueryStats)
+- `GET /adv/v0/pause` — Пауза кампании (getV0Pause)
+- `POST /adv/v0/rename` — Переименование кампании (postV0Rename)
+- `GET /adv/v0/start` — Запуск кампании (getV0Start)
+- `GET /adv/v0/stop` — Завершение кампании (getV0Stop)
+- `GET /adv/v1/advert` — Информация о медиакампании (getV1Advert)
+- `GET /adv/v1/adverts` — Список медиакампаний (getV1Adverts)
+- `GET /adv/v1/balance` — Баланс (getV1Balance)
+- `GET /adv/v1/budget` — Бюджет кампании (getV1Budget)
+- `POST /adv/v1/budget/deposit` — Пополнение бюджета кампании (postV1BudgetDeposit)
+- `GET /adv/v1/count` — Количество медиакампаний (getV1Count)
+- `POST /adv/v1/normquery/stats` — Статистика по поисковым кластерам с детализацией по дням (postV1NormqueryStats)
+- `GET /adv/v1/payments` — Получение истории пополнений счёта (getV1Payments)
+- `GET /adv/v1/promotion/count` — Списки кампаний (getV1PromotionCount)
+- `POST /adv/v1/stats` — Статистика медиакампаний (postV1Stats)
+- `GET /adv/v1/supplier/subjects` — Предметы для кампаний (getV1SupplierSubjects)
+- `GET /adv/v1/upd` — Получение истории затрат (getV1Upd)
+- `POST /adv/v2/seacat/save-ad` — Создать кампанию (postV2SeacatSaveAd)
+- `POST /adv/v2/supplier/nms` — Карточки товаров для кампаний (postV2SupplierNms)
+- `GET /adv/v3/fullstats` — Статистика кампаний (getV3Fullstats)
+- `GET /api/advert/v0/bids/recommendations` — Рекомендуемые ставки для карточек товаров и поисковых кластеров (getV0BidsRecommendations)
+- `PATCH /api/advert/v1/bids` — Изменение ставок в кампаниях (patchV1Bids)
+- `POST /api/advert/v1/bids/min` — Минимальные ставки для карточек товаров (postV1BidsMin)
 - `GET /api/advert/v1/config` — Конфигурационные значения продвижения (getV1Config)
 - `POST /api/advert/v1/normquery/bids` — Установить ставки для поисковых кластеров в валюте аккаунта продавца (postV1NormqueryBids)
-- `GET /api/advert/v2/adverts` — Информация о кампаниях
-- `GET /api/v1/calendar/promotions` — Список акций
-- `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях
-- `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции
-- `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию
+- `GET /api/advert/v2/adverts` — Информация о кампаниях (getV2Adverts)
+- `GET /api/v1/calendar/promotions` — Список акций (getV1CalendarPromotions)
+- `GET /api/v1/calendar/promotions/details` — Детальная информация об акциях (getV1CalendarPromotionsDetails)
+- `GET /api/v1/calendar/promotions/nomenclatures` — Список товаров для участия в акции (getV1CalendarPromotionsNomenclatures)
+- `POST /api/v1/calendar/promotions/upload` — Добавить товар в акцию (postV1CalendarPromotionsUpload)
 
 ### Общение с покупателями (`09-communications.yaml`)
 - `GET /api/feedbacks/v1/pins` — Список закреплённых и откреплённых отзывов (getFeedbacksV1Pins)
@@ -332,7 +332,6 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/tariffs/return` — Тарифы на возврат (getV1TariffsReturn)
 
 ### Аналитика и данные (`11-analytics.yaml`)
-- `POST /api/analytics/v1/item-rating` — Получить отчёт (postV1ItemRating)
 - `POST /api/analytics/v1/order-feed` — Получить отчёт (postV1OrderFeed)
 - `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB (postV1StocksReportWbWarehouses)
 - `POST /api/analytics/v2/item-rating` — Получить отчёт (postV2ItemRating)
@@ -362,7 +361,6 @@ SDK выпускается с security-first процессом:
 - `GET /api/v1/acceptance_report/tasks/{task_id}/status` — Проверить статус (getV1AcceptanceReportTasksTaskIdStatus)
 - `GET /api/v1/analytics/antifraud-details` — Самовыкупы (getV1AnalyticsAntifraudDetails)
 - `GET /api/v1/analytics/banned-products/blocked` — Получить отчёт (getV1AnalyticsBannedProducsBlocked)
-- `GET /api/v1/analytics/banned-products/shadowed` — Скрытые из каталога (getV1AnalyticsBannedProductsShadowed)
 - `GET /api/v1/analytics/brand-share` — Получить отчёт (getV1AnalyticsBrandShare)
 - `GET /api/v1/analytics/brand-share/brands` — Бренды продавца (getV1AnalyticsBrandShareBrands)
 - `GET /api/v1/analytics/brand-share/parent-subjects` — Родительские категории бренда (getV1AnalyticsBrandShareParentSubjects)

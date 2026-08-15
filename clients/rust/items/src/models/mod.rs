@@ -230,6 +230,8 @@ pub mod models_error_table_list_public_resp_v2_item;
 pub use self::models_error_table_list_public_resp_v2_item::ModelsErrorTableListPublicRespV2Item;
 pub mod office;
 pub use self::office::Office;
+pub mod post_v1_recommendations_list_403_response;
+pub use self::post_v1_recommendations_list_403_response::PostV1RecommendationsList403Response;
 pub mod post_v1_upload_task_b2b_wholesale_200_response;
 pub use self::post_v1_upload_task_b2b_wholesale_200_response::PostV1UploadTaskB2bWholesale200Response;
 pub mod post_v1_upload_task_b2b_wholesale_200_response_results_inner;

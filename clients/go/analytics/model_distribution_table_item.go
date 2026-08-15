@@ -41,13 +41,13 @@ type DistributionTableItem struct {
 	PinnedFeedback bool `json:"pinnedFeedback"`
 	// Рейтинг карточки товара
 	Rating float32 `json:"rating"`
-	FeedbackRating DistributionTableItemV1FeedbackRating `json:"feedbackRating"`
-	FeedbackCount DistributionTableItemV1FeedbackCount `json:"feedbackCount"`
-	FiveStar DistributionTableItemV1FiveStar `json:"fiveStar"`
-	FourStar DistributionTableItemV1FourStar `json:"fourStar"`
-	ThreeStar DistributionTableItemV1ThreeStar `json:"threeStar"`
-	TwoStar DistributionTableItemV1TwoStar `json:"twoStar"`
-	OneStar DistributionTableItemV1OneStar `json:"oneStar"`
+	FeedbackRating DistributionTableItemFeedbackRating `json:"feedbackRating"`
+	FeedbackCount DistributionTableItemFeedbackCount `json:"feedbackCount"`
+	FiveStar DistributionTableItemFiveStar `json:"fiveStar"`
+	FourStar DistributionTableItemFourStar `json:"fourStar"`
+	ThreeStar DistributionTableItemThreeStar `json:"threeStar"`
+	TwoStar DistributionTableItemTwoStar `json:"twoStar"`
+	OneStar DistributionTableItemOneStar `json:"oneStar"`
 	// Отзывы, исключённые из рейтинга
 	Disqualified int32 `json:"disqualified"`
 	// Является ли товар скрытым из каталога:   - `true` — товар скрыт из каталога   - `false` — товар не скрыт из каталога 
@@ -60,7 +60,7 @@ type _DistributionTableItem DistributionTableItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDistributionTableItem(nmId int64, title string, vendorCode string, subjectId int32, subjectName string, brandName string, tagName string, tagId int64, pinnedFeedback bool, rating float32, feedbackRating DistributionTableItemV1FeedbackRating, feedbackCount DistributionTableItemV1FeedbackCount, fiveStar DistributionTableItemV1FiveStar, fourStar DistributionTableItemV1FourStar, threeStar DistributionTableItemV1ThreeStar, twoStar DistributionTableItemV1TwoStar, oneStar DistributionTableItemV1OneStar, disqualified int32, isShadowed bool) *DistributionTableItem {
+func NewDistributionTableItem(nmId int64, title string, vendorCode string, subjectId int32, subjectName string, brandName string, tagName string, tagId int64, pinnedFeedback bool, rating float32, feedbackRating DistributionTableItemFeedbackRating, feedbackCount DistributionTableItemFeedbackCount, fiveStar DistributionTableItemFiveStar, fourStar DistributionTableItemFourStar, threeStar DistributionTableItemThreeStar, twoStar DistributionTableItemTwoStar, oneStar DistributionTableItemOneStar, disqualified int32, isShadowed bool) *DistributionTableItem {
 	this := DistributionTableItem{}
 	this.NmId = nmId
 	this.Title = title
@@ -333,9 +333,9 @@ func (o *DistributionTableItem) SetRating(v float32) {
 }
 
 // GetFeedbackRating returns the FeedbackRating field value
-func (o *DistributionTableItem) GetFeedbackRating() DistributionTableItemV1FeedbackRating {
+func (o *DistributionTableItem) GetFeedbackRating() DistributionTableItemFeedbackRating {
 	if o == nil {
-		var ret DistributionTableItemV1FeedbackRating
+		var ret DistributionTableItemFeedbackRating
 		return ret
 	}
 
@@ -344,7 +344,7 @@ func (o *DistributionTableItem) GetFeedbackRating() DistributionTableItemV1Feedb
 
 // GetFeedbackRatingOk returns a tuple with the FeedbackRating field value
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetFeedbackRatingOk() (*DistributionTableItemV1FeedbackRating, bool) {
+func (o *DistributionTableItem) GetFeedbackRatingOk() (*DistributionTableItemFeedbackRating, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -352,14 +352,14 @@ func (o *DistributionTableItem) GetFeedbackRatingOk() (*DistributionTableItemV1F
 }
 
 // SetFeedbackRating sets field value
-func (o *DistributionTableItem) SetFeedbackRating(v DistributionTableItemV1FeedbackRating) {
+func (o *DistributionTableItem) SetFeedbackRating(v DistributionTableItemFeedbackRating) {
 	o.FeedbackRating = v
 }
 
 // GetFeedbackCount returns the FeedbackCount field value
-func (o *DistributionTableItem) GetFeedbackCount() DistributionTableItemV1FeedbackCount {
+func (o *DistributionTableItem) GetFeedbackCount() DistributionTableItemFeedbackCount {
 	if o == nil {
-		var ret DistributionTableItemV1FeedbackCount
+		var ret DistributionTableItemFeedbackCount
 		return ret
 	}
 
@@ -368,7 +368,7 @@ func (o *DistributionTableItem) GetFeedbackCount() DistributionTableItemV1Feedba
 
 // GetFeedbackCountOk returns a tuple with the FeedbackCount field value
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetFeedbackCountOk() (*DistributionTableItemV1FeedbackCount, bool) {
+func (o *DistributionTableItem) GetFeedbackCountOk() (*DistributionTableItemFeedbackCount, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -376,14 +376,14 @@ func (o *DistributionTableItem) GetFeedbackCountOk() (*DistributionTableItemV1Fe
 }
 
 // SetFeedbackCount sets field value
-func (o *DistributionTableItem) SetFeedbackCount(v DistributionTableItemV1FeedbackCount) {
+func (o *DistributionTableItem) SetFeedbackCount(v DistributionTableItemFeedbackCount) {
 	o.FeedbackCount = v
 }
 
 // GetFiveStar returns the FiveStar field value
-func (o *DistributionTableItem) GetFiveStar() DistributionTableItemV1FiveStar {
+func (o *DistributionTableItem) GetFiveStar() DistributionTableItemFiveStar {
 	if o == nil {
-		var ret DistributionTableItemV1FiveStar
+		var ret DistributionTableItemFiveStar
 		return ret
 	}
 
@@ -392,7 +392,7 @@ func (o *DistributionTableItem) GetFiveStar() DistributionTableItemV1FiveStar {
 
 // GetFiveStarOk returns a tuple with the FiveStar field value
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetFiveStarOk() (*DistributionTableItemV1FiveStar, bool) {
+func (o *DistributionTableItem) GetFiveStarOk() (*DistributionTableItemFiveStar, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -400,14 +400,14 @@ func (o *DistributionTableItem) GetFiveStarOk() (*DistributionTableItemV1FiveSta
 }
 
 // SetFiveStar sets field value
-func (o *DistributionTableItem) SetFiveStar(v DistributionTableItemV1FiveStar) {
+func (o *DistributionTableItem) SetFiveStar(v DistributionTableItemFiveStar) {
 	o.FiveStar = v
 }
 
 // GetFourStar returns the FourStar field value
-func (o *DistributionTableItem) GetFourStar() DistributionTableItemV1FourStar {
+func (o *DistributionTableItem) GetFourStar() DistributionTableItemFourStar {
 	if o == nil {
-		var ret DistributionTableItemV1FourStar
+		var ret DistributionTableItemFourStar
 		return ret
 	}
 
@@ -416,7 +416,7 @@ func (o *DistributionTableItem) GetFourStar() DistributionTableItemV1FourStar {
 
 // GetFourStarOk returns a tuple with the FourStar field value
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetFourStarOk() (*DistributionTableItemV1FourStar, bool) {
+func (o *DistributionTableItem) GetFourStarOk() (*DistributionTableItemFourStar, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -424,14 +424,14 @@ func (o *DistributionTableItem) GetFourStarOk() (*DistributionTableItemV1FourSta
 }
 
 // SetFourStar sets field value
-func (o *DistributionTableItem) SetFourStar(v DistributionTableItemV1FourStar) {
+func (o *DistributionTableItem) SetFourStar(v DistributionTableItemFourStar) {
 	o.FourStar = v
 }
 
 // GetThreeStar returns the ThreeStar field value
-func (o *DistributionTableItem) GetThreeStar() DistributionTableItemV1ThreeStar {
+func (o *DistributionTableItem) GetThreeStar() DistributionTableItemThreeStar {
 	if o == nil {
-		var ret DistributionTableItemV1ThreeStar
+		var ret DistributionTableItemThreeStar
 		return ret
 	}
 
@@ -440,7 +440,7 @@ func (o *DistributionTableItem) GetThreeStar() DistributionTableItemV1ThreeStar 
 
 // GetThreeStarOk returns a tuple with the ThreeStar field value
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetThreeStarOk() (*DistributionTableItemV1ThreeStar, bool) {
+func (o *DistributionTableItem) GetThreeStarOk() (*DistributionTableItemThreeStar, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -448,14 +448,14 @@ func (o *DistributionTableItem) GetThreeStarOk() (*DistributionTableItemV1ThreeS
 }
 
 // SetThreeStar sets field value
-func (o *DistributionTableItem) SetThreeStar(v DistributionTableItemV1ThreeStar) {
+func (o *DistributionTableItem) SetThreeStar(v DistributionTableItemThreeStar) {
 	o.ThreeStar = v
 }
 
 // GetTwoStar returns the TwoStar field value
-func (o *DistributionTableItem) GetTwoStar() DistributionTableItemV1TwoStar {
+func (o *DistributionTableItem) GetTwoStar() DistributionTableItemTwoStar {
 	if o == nil {
-		var ret DistributionTableItemV1TwoStar
+		var ret DistributionTableItemTwoStar
 		return ret
 	}
 
@@ -464,7 +464,7 @@ func (o *DistributionTableItem) GetTwoStar() DistributionTableItemV1TwoStar {
 
 // GetTwoStarOk returns a tuple with the TwoStar field value
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetTwoStarOk() (*DistributionTableItemV1TwoStar, bool) {
+func (o *DistributionTableItem) GetTwoStarOk() (*DistributionTableItemTwoStar, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -472,14 +472,14 @@ func (o *DistributionTableItem) GetTwoStarOk() (*DistributionTableItemV1TwoStar,
 }
 
 // SetTwoStar sets field value
-func (o *DistributionTableItem) SetTwoStar(v DistributionTableItemV1TwoStar) {
+func (o *DistributionTableItem) SetTwoStar(v DistributionTableItemTwoStar) {
 	o.TwoStar = v
 }
 
 // GetOneStar returns the OneStar field value
-func (o *DistributionTableItem) GetOneStar() DistributionTableItemV1OneStar {
+func (o *DistributionTableItem) GetOneStar() DistributionTableItemOneStar {
 	if o == nil {
-		var ret DistributionTableItemV1OneStar
+		var ret DistributionTableItemOneStar
 		return ret
 	}
 
@@ -488,7 +488,7 @@ func (o *DistributionTableItem) GetOneStar() DistributionTableItemV1OneStar {
 
 // GetOneStarOk returns a tuple with the OneStar field value
 // and a boolean to check if the value has been set.
-func (o *DistributionTableItem) GetOneStarOk() (*DistributionTableItemV1OneStar, bool) {
+func (o *DistributionTableItem) GetOneStarOk() (*DistributionTableItemOneStar, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -496,7 +496,7 @@ func (o *DistributionTableItem) GetOneStarOk() (*DistributionTableItemV1OneStar,
 }
 
 // SetOneStar sets field value
-func (o *DistributionTableItem) SetOneStar(v DistributionTableItemV1OneStar) {
+func (o *DistributionTableItem) SetOneStar(v DistributionTableItemOneStar) {
 	o.OneStar = v
 }
 

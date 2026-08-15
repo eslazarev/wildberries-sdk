@@ -21,7 +21,7 @@ var _ MappedNullable = &SetRecomReqRecListInner{}
 type SetRecomReqRecListInner struct {
 	// Артикул WB
 	NmId *int32 `json:"nmId,omitempty"`
-	// Рекомендуемые товары
+	// Рекомендуемые товары. <br> Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`. <br> При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены. 
 	Recommendations []SetRecomReqRecListInnerRecommendationsInner `json:"recommendations,omitempty"`
 }
 
