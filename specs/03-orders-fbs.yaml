@@ -2937,6 +2937,8 @@ paths:
           **Prod**
     get:
       x-readonly-method: true
+      x-token-types:
+        - personal
       x-category: marketplace
       operationId: getMarketplaceV3FbsSettingsAutoreturns
       security:
@@ -2945,6 +2947,11 @@ paths:
         - Настройки автовозврата
       summary: Получить настройки автовозврата продавца
       description: |
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
+        </div>
+
         Метод возвращает информацию о настройках автовозврата, установленных продавцом.
 
         <div class="description_limit">
@@ -2985,6 +2992,8 @@ paths:
           $ref: '#/components/responses/429'
     patch:
       x-readonly-method: false
+      x-token-types:
+        - personal
       x-category: marketplace
       operationId: patchMarketplaceV3FbsSettingsAutoreturns
       security:
@@ -2993,6 +3002,11 @@ paths:
         - Настройки автовозврата
       summary: Обновить настройки автовозврата продавца
       description: |
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
+        </div>
+
         Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
 
         <div class="description_limit">
@@ -3047,6 +3061,8 @@ paths:
           **Prod**
     post:
       x-readonly-method: true
+      x-token-types:
+        - personal
       x-category: marketplace
       operationId: postMarketplaceV3FbsSettingsAutoreturnsItems
       security:
@@ -3055,6 +3071,11 @@ paths:
         - Настройки автовозврата
       summary: Получить настройки автовозврата товаров
       description: |
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
+        </div>
+
         Метод возвращает настройки автовозврата товаров.
 
         <div class="description_limit">
@@ -3166,6 +3187,8 @@ paths:
           $ref: '#/components/responses/429'
     patch:
       x-readonly-method: false
+      x-token-types:
+        - personal
       x-category: marketplace
       operationId: patchMarketplaceV3FbsSettingsAutoreturnsItems
       security:
@@ -3174,6 +3197,11 @@ paths:
         - Настройки автовозврата
       summary: Обновить настройки автовозврата товаров
       description: |
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
+        </div>
+
         Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
 
         <div class="description_limit">
@@ -3286,6 +3314,8 @@ paths:
           **Prod**
     get:
       x-readonly-method: true
+      x-token-types:
+        - personal
       x-category: marketplace
       operationId: getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
       security:
@@ -3294,6 +3324,11 @@ paths:
         - Настройки автовозврата
       summary: Получить предметы, которые не хранятся на складах WB
       description: |
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену
+        </div>
+
         Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
 
         <div class="description_limit">

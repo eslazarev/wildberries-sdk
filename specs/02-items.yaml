@@ -3919,6 +3919,8 @@ paths:
                 $ref: '#/components/schemas/response400GetRecom'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/content/v1/recommendations/set:
@@ -3977,6 +3979,8 @@ paths:
                 $ref: '#/components/schemas/response400SetRecom'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/upload/task:
@@ -6899,7 +6903,12 @@ components:
                 default: 0
                 example: 5870243
               recommendations:
-                description: Рекомендуемые товары
+                description: |
+                  Рекомендуемые товары.
+                  <br>
+                  Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`.
+                  <br>
+                  При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены.
                 type: array
                 maxItems: 20
                 minItems: 0
@@ -6912,7 +6921,16 @@ components:
                       default: 0
                       example: 5870244
                     sort:
-                      description: На каком месте находится товар в списке рекомендаций
+                      description: |
+                        Позиция товара в списке рекомендаций.
+
+                         Допустимые значения:
+                         - `1`–`20` — фиксированная позиция:
+                           - при создании или замене (`replace: true`) задаёт порядок отображения
+                           - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются
+                         - `0` — автоматическая сортировка товаров:
+                           - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`
+                           - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations`
                       type: integer
                       default: 20
                       maximum: 20
@@ -7236,6 +7254,47 @@ components:
           example:
             title: payment required
             detail: wb solution for business has insufficient funds on its balance. please top up the balance in the company's personal account https://dev.wildberries.ru/company
+    '403':
+      description: Доступ запрещён
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: forbidden
+            detail: base token is not allowed
+            code: base token is not allowed for this path
+            requestId: 722199b2e15bbca48cc1d488a7989976
+            origin: s2s-finance
+            status: 403
+            statusText: Forbidden
+            timestamp: '2026-05-25T02:47:09Z'
     '429':
       description: Слишком много запросов
       content:

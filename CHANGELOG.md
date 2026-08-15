@@ -1,6 +1,23 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.08.15)
+- Товары (Контент / Рекомендации): для `/api/content/v1/recommendations/get` и `/api/content/v1/recommendations/set` добавлен ответ `403 Forbidden` (новый общий `components/responses/403` с `application/problem+json`).
+- Товары (Контент / Рекомендации): уточнена семантика поля `recommendations` — передача пустого массива `[]` теперь явно описана как удаление всех текущих рекомендаций для указанного `nmId`.
+- Товары (Контент / Рекомендации): расширено описание поля `recommendations[].sort` — формализованы режимы `1–20` (фиксированная позиция) и `0` (автосортировка) с разным поведением для `replace: true/false`.
+
+- Заказы FBS (Настройки автовозврата): методы `GET/PATCH /marketplace/v3/fbs/settings/autoreturns`, `POST/PATCH /marketplace/v3/fbs/settings/autoreturns/items`, `GET /marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` помечены как доступные по `personal` токену (добавлен `x-token-types: [personal]` и соответствующее описание).
+
+- Продвижение (Кампании/Финансы/Статистика/Календарь акций): добавлены/проставлены `operationId` для ряда существующих методов (в т.ч. `getV2Adverts`, `getV1Balance`, `getV1Budget`, `postV1BudgetDeposit`, `getV3Fullstats`, методы promoCalendar и др.) — влияет на генерацию SDK/клиентов.
+- Продвижение (Ставки): `GET /adv/v0/bids/recommendations` расширен — теперь применим для кампаний с типом оплаты `cpm` и `cpc` (ранее только `cpm`).
+- Продвижение (Ставки): изменён контракт ответа `GET /adv/v0/bids/recommendations` — вместо `V0BidsRecommendationsResponse` используется `oneOf`:
+  - `V0BidsRecommendationsCpmResponse` (добавлено поле `paymentType: cpm`, структура как ранее для CPM),
+  - `V0BidsRecommendationsCpcResponse` (новая структура с `levels[]` и диапазонами позиций `range1To2`, `range3To10`, `range11To34`, поле `paymentType: cpc`).
+- Продвижение (Документация): переименованы/нормализованы ссылки на теги в описаниях (например, `campaigns`, `media`, `finances`, `statistics`, `creatingCampaigns`, `campaignManagement`, `searchClusters`), добавлены `x-displayName` для тегов — функционально API не меняет.
+
+- Аналитика: удалён устаревший эндпоинт `POST /api/analytics/v1/item-rating` (вместе со схемами `ItemRatingRequestV1`, `ItemRatingResponseV1`, `DistributionTableItemV1`).
+- Отчёты (Аналитика / Заблокированные карточки): удалён устаревший эндпоинт `GET /api/v1/analytics/banned-products/shadowed` («Скрытые из каталога»).
+
 ### Changed (2026.08.13)
 - General: поле `promotion` в схеме опций планов переведено на `allOf` (сохранён `$ref` на `PlanBuilderPromotion`, уточнено описание; поведение «не возвращается без акции/после истечения» без изменений).
 - Товары (Items): обновлено описание ошибки `ItemPropertyConflict` — теперь «Продажа оптового товара невозможна по этой схеме» (вместо привязки к DBS).
