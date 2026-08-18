@@ -45,7 +45,7 @@ paths:
         - Информация для формирования поставок
       summary: Опции приёмки
       description: |
-        Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -124,7 +124,7 @@ paths:
         - Информация для формирования поставок
       summary: Список складов
       description: |
-        Метод возвращает список складов WB.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -165,7 +165,7 @@ paths:
         - Информация для формирования поставок
       summary: Транзитные направления
       description: |
-        Метод возвращает информацию о доступных транзитных направлениях.
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

@@ -131,7 +131,7 @@ paths:
               example:
                 - date: '2022-03-04T18:08:31'
                   lastChangeDate: '2022-03-06T10:11:07'
-                  warehouseName: Подольск
+                  warehouseName: Склад WB РФ
                   warehouseType: Склад продавца
                   countryName: Россия
                   oblastOkrugName: Центральный федеральный округ
@@ -254,7 +254,7 @@ paths:
               example:
                 - date: '2022-03-04T18:08:31'
                   lastChangeDate: '2022-03-06T10:11:07'
-                  warehouseName: Подольск
+                  warehouseName: Склад WB РФ
                   warehouseType: Склад продавца
                   countryName: Россия
                   oblastOkrugName: Центральный федеральный округ
@@ -663,10 +663,12 @@ paths:
                       quantity: 4
                     - warehouseName: Всего находится на складах
                       quantity: 267
-                    - warehouseName: Невинномысск
+                    - warehouseName: Склад WB РФ
                       quantity: 134
-                    - warehouseName: Коледино
-                      quantity: 133
+                    - warehouseName: Склад WB СГТ РФ
+                      quantity: 10
+                    - warehouseName: Минск
+                      quantity: 123
         '204':
           description: Нет данных
         '400':
@@ -1531,9 +1533,9 @@ paths:
                 $ref: '#/components/schemas/ResponsePaidStorage'
               example:
                 - date: '2023-10-01'
-                  logWarehouseCoef: 1
-                  officeId: 507
-                  warehouse: Коледино
+                  logWarehouseCoef: 0
+                  officeId: 0
+                  warehouse: Склад WB РФ
                   warehouseCoef: 1.7
                   giId: 123456
                   chrtId: 1234567
@@ -1658,8 +1660,8 @@ paths:
         Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>
 
         Можно получить только бренды, которые:
-        - Продавались за последние 90 дней.
-        - Есть на складе WB.
+        - Продавались за последние 90 дней
+        - Есть в наличии, вне зависимости от склада хранения
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2675,16 +2677,16 @@ components:
             description: Дата, за которую был расчёт или перерасчёт
           logWarehouseCoef:
             type: number
-            description: Коэффициент логистики и хранения
+            description: Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
           officeId:
             type: integer
-            description: ID склада
+            description: ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
           warehouse:
             type: string
-            description: Название склада
+            description: Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`
           warehouseCoef:
             type: number
-            description: Коэффициент склада
+            description: Коэффициент хранения
           giId:
             type: integer
             description: ID поставки
@@ -2723,7 +2725,7 @@ components:
             description: Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
           palletPlaceCode:
             type: integer
-            description: Код паллетоместа
+            description: Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
           palletCount:
             type: number
             description: Количество паллет
