@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Информация о подписке Джем
  * @export
@@ -106,8 +106,8 @@ export function SubscriptionsJamInfoFromJSONTyped(json: any, ignoreDiscriminator
         'state': json['state'],
         'activationSource': json['activationSource'],
         'level': json['level'],
-        'since': (json['since'] == null ? json['since'] : new Date(json['since'])),
-        'till': (json['till'] == null ? json['till'] : new Date(json['till'])),
+        'since': (json['since'] == null ? json['since'] : parseDateTime(json['since'])),
+        'till': (json['till'] == null ? json['till'] : parseDateTime(json['till'])),
     };
 }
 
@@ -125,8 +125,8 @@ export function SubscriptionsJamInfoToJSONTyped(value?: SubscriptionsJamInfo | n
         'state': value['state'],
         'activationSource': value['activationSource'],
         'level': value['level'],
-        'since': value['since'] == null ? value['since'] : value['since'].toISOString(),
-        'till': value['till'] == null ? value['till'] : value['till'].toISOString(),
+        'since': value['since'] == null ? value['since'] : serializeDateTime(value['since']),
+        'till': value['till'] == null ? value['till'] : serializeDateTime(value['till']),
     };
 }
 

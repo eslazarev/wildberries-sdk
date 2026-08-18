@@ -88,7 +88,7 @@ class ContentV2GetCardsListPost200ResponseCardsInner implements ModelInterface, 
      */
     protected static $openAPIFormats = [
         'nm_id' => null,
-        'imt_id' => null,
+        'imt_id' => 'int64',
         'nm_uuid' => 'UUID',
         'subject_id' => null,
         'subject_name' => null,

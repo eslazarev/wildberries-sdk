@@ -25,7 +25,7 @@ type GetRecomResDataInner struct {
 	// Артикул WB
 	NmId int32 `json:"nmId"`
 	// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-	ImtId int32 `json:"imtId"`
+	ImtId int64 `json:"imtId"`
 	// Артикул продавца
 	VendorCode string `json:"vendorCode"`
 	// Бренд
@@ -54,7 +54,7 @@ type _GetRecomResDataInner GetRecomResDataInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetRecomResDataInner(nmId int32, imtId int32, vendorCode string, brandName string, picsCount int32, title string, subjectName string, pic string, recomCount int32, recomPics []string, recomNms []int32) *GetRecomResDataInner {
+func NewGetRecomResDataInner(nmId int32, imtId int64, vendorCode string, brandName string, picsCount int32, title string, subjectName string, pic string, recomCount int32, recomPics []string, recomNms []int32) *GetRecomResDataInner {
 	this := GetRecomResDataInner{}
 	this.NmId = nmId
 	this.ImtId = imtId
@@ -103,9 +103,9 @@ func (o *GetRecomResDataInner) SetNmId(v int32) {
 }
 
 // GetImtId returns the ImtId field value
-func (o *GetRecomResDataInner) GetImtId() int32 {
+func (o *GetRecomResDataInner) GetImtId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -114,7 +114,7 @@ func (o *GetRecomResDataInner) GetImtId() int32 {
 
 // GetImtIdOk returns a tuple with the ImtId field value
 // and a boolean to check if the value has been set.
-func (o *GetRecomResDataInner) GetImtIdOk() (*int32, bool) {
+func (o *GetRecomResDataInner) GetImtIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -122,7 +122,7 @@ func (o *GetRecomResDataInner) GetImtIdOk() (*int32, bool) {
 }
 
 // SetImtId sets field value
-func (o *GetRecomResDataInner) SetImtId(v int32) {
+func (o *GetRecomResDataInner) SetImtId(v int64) {
 	o.ImtId = v
 }
 

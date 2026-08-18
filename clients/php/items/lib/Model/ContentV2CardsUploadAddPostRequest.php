@@ -69,7 +69,7 @@ class ContentV2CardsUploadAddPostRequest implements ModelInterface, ArrayAccess,
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'imt_id' => null,
+        'imt_id' => 'int64',
         'cards_to_add' => null
     ];
 

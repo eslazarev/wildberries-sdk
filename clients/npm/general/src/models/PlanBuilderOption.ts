@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { PlanBuilderPromotion } from './PlanBuilderPromotion';
 import {
     PlanBuilderPromotionFromJSON,
@@ -102,8 +102,8 @@ export function PlanBuilderOptionFromJSONTyped(json: any, ignoreDiscriminator: b
         'slug': json['slug'] == null ? undefined : json['slug'],
         'name': json['name'] == null ? undefined : json['name'],
         'status': json['status'] == null ? undefined : json['status'],
-        'activatedAt': json['activatedAt'] == null ? undefined : (new Date(json['activatedAt'])),
-        'expiresAt': json['expiresAt'] == null ? undefined : (new Date(json['expiresAt'])),
+        'activatedAt': json['activatedAt'] == null ? undefined : (parseDateTime(json['activatedAt'])),
+        'expiresAt': json['expiresAt'] == null ? undefined : (parseDateTime(json['expiresAt'])),
         'commissionRate': json['commissionRate'] == null ? undefined : json['commissionRate'],
         'periodDuration': json['periodDuration'] == null ? undefined : json['periodDuration'],
         'promotion': json['promotion'] == null ? undefined : PlanBuilderPromotionFromJSON(json['promotion']),
@@ -125,8 +125,8 @@ export function PlanBuilderOptionToJSONTyped(value?: PlanBuilderOption | null, i
         'slug': value['slug'],
         'name': value['name'],
         'status': value['status'],
-        'activatedAt': value['activatedAt'] == null ? value['activatedAt'] : value['activatedAt'].toISOString(),
-        'expiresAt': value['expiresAt'] == null ? value['expiresAt'] : value['expiresAt'].toISOString(),
+        'activatedAt': value['activatedAt'] == null ? value['activatedAt'] : serializeDateTime(value['activatedAt']),
+        'expiresAt': value['expiresAt'] == null ? value['expiresAt'] : serializeDateTime(value['expiresAt']),
         'commissionRate': value['commissionRate'],
         'periodDuration': value['periodDuration'],
         'promotion': PlanBuilderPromotionToJSON(value['promotion']),

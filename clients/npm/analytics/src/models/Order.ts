@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Заказ
  * @export
@@ -59,11 +59,11 @@ export interface Order {
      */
     cancelType?: OrderCancelTypeEnum;
     /**
-     * Название склада
+     * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
      */
     warehouseName: string;
     /**
-     * Федеральный округ склада. Если склад не в России, возвращается страна
+     * Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`
      */
     warehouseRegion: string;
     /**
@@ -152,8 +152,8 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'nmId': json['nmId'],
         'chrtId': json['chrtId'],
         'srid': json['srid'],
-        'createdAt': (json['createdAt'] == null ? json['createdAt'] : new Date(json['createdAt'])),
-        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : new Date(json['updatedAt'])),
+        'createdAt': (json['createdAt'] == null ? json['createdAt'] : parseDateTime(json['createdAt'])),
+        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : parseDateTime(json['updatedAt'])),
         'status': json['status'],
         'cancelType': json['cancelType'] == null ? undefined : json['cancelType'],
         'warehouseName': json['warehouseName'],
@@ -180,8 +180,8 @@ export function OrderToJSONTyped(value?: Order | null, ignoreDiscriminator: bool
         'nmId': value['nmId'],
         'chrtId': value['chrtId'],
         'srid': value['srid'],
-        'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'createdAt': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
         'status': value['status'],
         'cancelType': value['cancelType'],
         'warehouseName': value['warehouseName'],

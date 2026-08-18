@@ -16,16 +16,16 @@ pub struct ResponsePaidStorageInner {
     /// Дата, за которую был расчёт или перерасчёт
     #[serde(rename = "date", skip_serializing_if = "Option::is_none")]
     pub date: Option<String>,
-    /// Коэффициент логистики и хранения
+    /// Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
     #[serde(rename = "logWarehouseCoef", skip_serializing_if = "Option::is_none")]
     pub log_warehouse_coef: Option<f64>,
-    /// ID склада
+    /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
     #[serde(rename = "officeId", skip_serializing_if = "Option::is_none")]
     pub office_id: Option<i32>,
-    /// Название склада
+    /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`
     #[serde(rename = "warehouse", skip_serializing_if = "Option::is_none")]
     pub warehouse: Option<String>,
-    /// Коэффициент склада
+    /// Коэффициент хранения
     #[serde(rename = "warehouseCoef", skip_serializing_if = "Option::is_none")]
     pub warehouse_coef: Option<f64>,
     /// ID поставки
@@ -64,7 +64,7 @@ pub struct ResponsePaidStorageInner {
     /// Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки
     #[serde(rename = "barcodesCount", skip_serializing_if = "Option::is_none")]
     pub barcodes_count: Option<i32>,
-    /// Код паллетоместа
+    /// Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
     #[serde(rename = "palletPlaceCode", skip_serializing_if = "Option::is_none")]
     pub pallet_place_code: Option<i32>,
     /// Количество паллет

@@ -7806,10 +7806,12 @@ components:
             \ и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post),\
             \ поле `currencyIsoCode4217`"
           example: 999
+          nullable: true
           type: integer
         discount:
           description: "Скидка,\_%"
           example: 30
+          nullable: true
           type: integer
       required:
       - nmID
@@ -9736,6 +9738,7 @@ components:
           type: array
         imtID:
           description: "Поиск по [ID для объединённых карточек товаров](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)"
+          format: int64
           type: integer
       type: object
     _content_v2_get_cards_list_post_request_settings_cursor:
@@ -9975,6 +9978,7 @@ components:
             \ карточек товаров.<br>Един для всех артикулов WB группы объединённых\
             \ карточек.<br>У каждой карточки товара есть `imtID`, даже если она не\
             \ объединена с другими карточками<br>"
+          format: int64
           type: integer
         nmUUID:
           description: Внутренний технический ID карточки товара
@@ -10975,6 +10979,7 @@ components:
         imtID:
           description: |
             `imtID` отдельной карточки товара или группы [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки
+          format: int64
           type: integer
         cardsToAdd:
           description: Добавляемые карточки товаров
@@ -12094,6 +12099,7 @@ components:
           description: "ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)\
             \ карточек товаров"
           example: 619043112
+          format: int64
           type: integer
         vendorCode:
           description: Артикул продавца

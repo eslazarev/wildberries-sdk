@@ -28,15 +28,15 @@ import {
  */
 export interface TableOfficeItem {
     /**
-     * Регион отгрузки
+     * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
      */
     regionName: string;
     /**
-     * ID склада
+     * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
      */
     officeID: number;
     /**
-     * Название склада
+     * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`
      */
     officeName: string;
     /**

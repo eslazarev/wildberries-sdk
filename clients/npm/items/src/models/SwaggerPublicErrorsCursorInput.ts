@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Пагинатор
  * @export
@@ -51,7 +51,7 @@ export function SwaggerPublicErrorsCursorInputFromJSONTyped(json: any, ignoreDis
     return {
         
         'limit': json['limit'] == null ? undefined : json['limit'],
-        'updatedAt': json['updatedAt'] == null ? undefined : (new Date(json['updatedAt'])),
+        'updatedAt': json['updatedAt'] == null ? undefined : (parseDateTime(json['updatedAt'])),
         'batchUUID': json['batchUUID'] == null ? undefined : json['batchUUID'],
     };
 }
@@ -68,7 +68,7 @@ export function SwaggerPublicErrorsCursorInputToJSONTyped(value?: SwaggerPublicE
     return {
         
         'limit': value['limit'],
-        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
         'batchUUID': value['batchUUID'],
     };
 }

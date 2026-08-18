@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { DomainReviewState } from './DomainReviewState';
 import {
     DomainReviewStateFromJSON,
@@ -131,7 +131,7 @@ export function OpenapiPinnedReviewItemResultFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'changeStateAt': (json['changeStateAt'] == null ? json['changeStateAt'] : new Date(json['changeStateAt'])),
+        'changeStateAt': (json['changeStateAt'] == null ? json['changeStateAt'] : parseDateTime(json['changeStateAt'])),
         'imtId': json['imtId'],
         'nmId': json['nmId'],
         'pinId': json['pinId'],
@@ -154,7 +154,7 @@ export function OpenapiPinnedReviewItemResultToJSONTyped(value?: OpenapiPinnedRe
 
     return {
         
-        'changeStateAt': value['changeStateAt'] == null ? value['changeStateAt'] : value['changeStateAt'].toISOString(),
+        'changeStateAt': value['changeStateAt'] == null ? value['changeStateAt'] : serializeDateTime(value['changeStateAt']),
         'imtId': value['imtId'],
         'nmId': value['nmId'],
         'pinId': value['pinId'],

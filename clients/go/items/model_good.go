@@ -24,9 +24,9 @@ type Good struct {
 	// Артикул WB
 	NmID int32 `json:"nmID"`
 	// Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post), поле `currencyIsoCode4217`
-	Price *int32 `json:"price,omitempty"`
+	Price NullableInt32 `json:"price,omitempty"`
 	// Скидка, %
-	Discount *int32 `json:"discount,omitempty"`
+	Discount NullableInt32 `json:"discount,omitempty"`
 }
 
 type _Good Good
@@ -73,68 +73,88 @@ func (o *Good) SetNmID(v int32) {
 	o.NmID = v
 }
 
-// GetPrice returns the Price field value if set, zero value otherwise.
+// GetPrice returns the Price field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Good) GetPrice() int32 {
-	if o == nil || IsNil(o.Price) {
+	if o == nil || IsNil(o.Price.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Price
+	return *o.Price.Get()
 }
 
 // GetPriceOk returns a tuple with the Price field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Good) GetPriceOk() (*int32, bool) {
-	if o == nil || IsNil(o.Price) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Price, true
+	return o.Price.Get(), o.Price.IsSet()
 }
 
 // HasPrice returns a boolean if a field has been set.
 func (o *Good) HasPrice() bool {
-	if o != nil && !IsNil(o.Price) {
+	if o != nil && o.Price.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPrice gets a reference to the given int32 and assigns it to the Price field.
+// SetPrice gets a reference to the given NullableInt32 and assigns it to the Price field.
 func (o *Good) SetPrice(v int32) {
-	o.Price = &v
+	o.Price.Set(&v)
+}
+// SetPriceNil sets the value for Price to be an explicit nil
+func (o *Good) SetPriceNil() {
+	o.Price.Set(nil)
 }
 
-// GetDiscount returns the Discount field value if set, zero value otherwise.
+// UnsetPrice ensures that no value is present for Price, not even an explicit nil
+func (o *Good) UnsetPrice() {
+	o.Price.Unset()
+}
+
+// GetDiscount returns the Discount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Good) GetDiscount() int32 {
-	if o == nil || IsNil(o.Discount) {
+	if o == nil || IsNil(o.Discount.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Discount
+	return *o.Discount.Get()
 }
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Good) GetDiscountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Discount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Discount, true
+	return o.Discount.Get(), o.Discount.IsSet()
 }
 
 // HasDiscount returns a boolean if a field has been set.
 func (o *Good) HasDiscount() bool {
-	if o != nil && !IsNil(o.Discount) {
+	if o != nil && o.Discount.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDiscount gets a reference to the given int32 and assigns it to the Discount field.
+// SetDiscount gets a reference to the given NullableInt32 and assigns it to the Discount field.
 func (o *Good) SetDiscount(v int32) {
-	o.Discount = &v
+	o.Discount.Set(&v)
+}
+// SetDiscountNil sets the value for Discount to be an explicit nil
+func (o *Good) SetDiscountNil() {
+	o.Discount.Set(nil)
+}
+
+// UnsetDiscount ensures that no value is present for Discount, not even an explicit nil
+func (o *Good) UnsetDiscount() {
+	o.Discount.Unset()
 }
 
 func (o Good) MarshalJSON() ([]byte, error) {
@@ -148,11 +168,11 @@ func (o Good) MarshalJSON() ([]byte, error) {
 func (o Good) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["nmID"] = o.NmID
-	if !IsNil(o.Price) {
-		toSerialize["price"] = o.Price
+	if o.Price.IsSet() {
+		toSerialize["price"] = o.Price.Get()
 	}
-	if !IsNil(o.Discount) {
-		toSerialize["discount"] = o.Discount
+	if o.Discount.IsSet() {
+		toSerialize["discount"] = o.Discount.Get()
 	}
 	return toSerialize, nil
 }

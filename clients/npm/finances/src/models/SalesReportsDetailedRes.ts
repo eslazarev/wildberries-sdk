@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Детализации к отчётам реализации
  * @export
@@ -384,6 +384,10 @@ export interface SalesReportsDetailedRes {
      */
     paidWithSocialCertificate: boolean;
     /**
+     * Коэффициент логистики
+     */
+    warehouseLogisticsCoeff: number;
+    /**
      * ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
      * 
      */
@@ -497,6 +501,7 @@ export function instanceOfSalesReportsDetailedRes(value: object): value is Sales
     if (!('salePriceWholesaleDiscountPrc' in value) || value['salePriceWholesaleDiscountPrc'] === undefined) return false;
     if (!('b2bCustomerTin' in value) || value['b2bCustomerTin'] === undefined) return false;
     if (!('paidWithSocialCertificate' in value) || value['paidWithSocialCertificate'] === undefined) return false;
+    if (!('warehouseLogisticsCoeff' in value) || value['warehouseLogisticsCoeff'] === undefined) return false;
     if (!('orderUid' in value) || value['orderUid'] === undefined) return false;
     if (!('srid' in value) || value['srid'] === undefined) return false;
     return true;
@@ -513,16 +518,16 @@ export function SalesReportsDetailedResFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'reportId': json['reportId'],
-        'dateFrom': (json['dateFrom'] == null ? json['dateFrom'] : new Date(json['dateFrom'])),
-        'dateTo': (json['dateTo'] == null ? json['dateTo'] : new Date(json['dateTo'])),
-        'createDate': (json['createDate'] == null ? json['createDate'] : new Date(json['createDate'])),
+        'dateFrom': (json['dateFrom'] == null ? json['dateFrom'] : parseDate(json['dateFrom'])),
+        'dateTo': (json['dateTo'] == null ? json['dateTo'] : parseDate(json['dateTo'])),
+        'createDate': (json['createDate'] == null ? json['createDate'] : parseDate(json['createDate'])),
         'currency': json['currency'],
         'reportType': json['reportType'],
         'rrdId': json['rrdId'],
         'giId': json['giId'],
         'dlvPrc': json['dlvPrc'],
-        'fixTariffDateFrom': (json['fixTariffDateFrom'] == null ? json['fixTariffDateFrom'] : new Date(json['fixTariffDateFrom'])),
-        'fixTariffDateTo': (json['fixTariffDateTo'] == null ? json['fixTariffDateTo'] : new Date(json['fixTariffDateTo'])),
+        'fixTariffDateFrom': (json['fixTariffDateFrom'] == null ? json['fixTariffDateFrom'] : parseDate(json['fixTariffDateFrom'])),
+        'fixTariffDateTo': (json['fixTariffDateTo'] == null ? json['fixTariffDateTo'] : parseDate(json['fixTariffDateTo'])),
         'subjectName': json['subjectName'],
         'nmId': json['nmId'],
         'brandName': json['brandName'],
@@ -538,9 +543,9 @@ export function SalesReportsDetailedResFromJSONTyped(json: any, ignoreDiscrimina
         'commissionPercent': json['commissionPercent'],
         'officeName': json['officeName'],
         'sellerOperName': json['sellerOperName'],
-        'orderDt': (json['orderDt'] == null ? json['orderDt'] : new Date(json['orderDt'])),
-        'saleDt': (json['saleDt'] == null ? json['saleDt'] : new Date(json['saleDt'])),
-        'rrDate': (json['rrDate'] == null ? json['rrDate'] : new Date(json['rrDate'])),
+        'orderDt': (json['orderDt'] == null ? json['orderDt'] : parseDateTime(json['orderDt'])),
+        'saleDt': (json['saleDt'] == null ? json['saleDt'] : parseDateTime(json['saleDt'])),
+        'rrDate': (json['rrDate'] == null ? json['rrDate'] : parseDate(json['rrDate'])),
         'shkId': json['shkId'],
         'retailPriceWithDisc': json['retailPriceWithDisc'],
         'deliveryAmount': json['deliveryAmount'],
@@ -602,6 +607,7 @@ export function SalesReportsDetailedResFromJSONTyped(json: any, ignoreDiscrimina
         'salePriceWholesaleDiscountPrc': json['salePriceWholesaleDiscountPrc'],
         'b2bCustomerTin': json['b2bCustomerTin'],
         'paidWithSocialCertificate': json['paidWithSocialCertificate'],
+        'warehouseLogisticsCoeff': json['warehouseLogisticsCoeff'],
         'orderUid': json['orderUid'],
         'srid': json['srid'],
     };
@@ -619,16 +625,16 @@ export function SalesReportsDetailedResToJSONTyped(value?: SalesReportsDetailedR
     return {
         
         'reportId': value['reportId'],
-        'dateFrom': value['dateFrom'] == null ? value['dateFrom'] : value['dateFrom'].toISOString().substring(0,10),
-        'dateTo': value['dateTo'] == null ? value['dateTo'] : value['dateTo'].toISOString().substring(0,10),
-        'createDate': value['createDate'] == null ? value['createDate'] : value['createDate'].toISOString().substring(0,10),
+        'dateFrom': value['dateFrom'] == null ? value['dateFrom'] : serializeDate(value['dateFrom']),
+        'dateTo': value['dateTo'] == null ? value['dateTo'] : serializeDate(value['dateTo']),
+        'createDate': value['createDate'] == null ? value['createDate'] : serializeDate(value['createDate']),
         'currency': value['currency'],
         'reportType': value['reportType'],
         'rrdId': value['rrdId'],
         'giId': value['giId'],
         'dlvPrc': value['dlvPrc'],
-        'fixTariffDateFrom': value['fixTariffDateFrom'] == null ? value['fixTariffDateFrom'] : value['fixTariffDateFrom'].toISOString().substring(0,10),
-        'fixTariffDateTo': value['fixTariffDateTo'] == null ? value['fixTariffDateTo'] : value['fixTariffDateTo'].toISOString().substring(0,10),
+        'fixTariffDateFrom': value['fixTariffDateFrom'] == null ? value['fixTariffDateFrom'] : serializeDate(value['fixTariffDateFrom']),
+        'fixTariffDateTo': value['fixTariffDateTo'] == null ? value['fixTariffDateTo'] : serializeDate(value['fixTariffDateTo']),
         'subjectName': value['subjectName'],
         'nmId': value['nmId'],
         'brandName': value['brandName'],
@@ -644,9 +650,9 @@ export function SalesReportsDetailedResToJSONTyped(value?: SalesReportsDetailedR
         'commissionPercent': value['commissionPercent'],
         'officeName': value['officeName'],
         'sellerOperName': value['sellerOperName'],
-        'orderDt': value['orderDt'] == null ? value['orderDt'] : value['orderDt'].toISOString(),
-        'saleDt': value['saleDt'] == null ? value['saleDt'] : value['saleDt'].toISOString(),
-        'rrDate': value['rrDate'] == null ? value['rrDate'] : value['rrDate'].toISOString().substring(0,10),
+        'orderDt': value['orderDt'] == null ? value['orderDt'] : serializeDateTime(value['orderDt']),
+        'saleDt': value['saleDt'] == null ? value['saleDt'] : serializeDateTime(value['saleDt']),
+        'rrDate': value['rrDate'] == null ? value['rrDate'] : serializeDate(value['rrDate']),
         'shkId': value['shkId'],
         'retailPriceWithDisc': value['retailPriceWithDisc'],
         'deliveryAmount': value['deliveryAmount'],
@@ -708,6 +714,7 @@ export function SalesReportsDetailedResToJSONTyped(value?: SalesReportsDetailedR
         'salePriceWholesaleDiscountPrc': value['salePriceWholesaleDiscountPrc'],
         'b2bCustomerTin': value['b2bCustomerTin'],
         'paidWithSocialCertificate': value['paidWithSocialCertificate'],
+        'warehouseLogisticsCoeff': value['warehouseLogisticsCoeff'],
         'orderUid': value['orderUid'],
         'srid': value['srid'],
     };

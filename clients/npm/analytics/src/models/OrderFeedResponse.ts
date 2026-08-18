@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { Order } from './Order';
 import {
     OrderFromJSON,
@@ -61,7 +61,7 @@ export function OrderFeedResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'snapshotTime': (json['snapshotTime'] == null ? json['snapshotTime'] : new Date(json['snapshotTime'])),
+        'snapshotTime': (json['snapshotTime'] == null ? json['snapshotTime'] : parseDateTime(json['snapshotTime'])),
         'currency': json['currency'],
         'orders': ((json['orders'] as Array<any>).map(OrderFromJSON)),
     };
@@ -78,7 +78,7 @@ export function OrderFeedResponseToJSONTyped(value?: OrderFeedResponse | null, i
 
     return {
         
-        'snapshotTime': value['snapshotTime'] == null ? value['snapshotTime'] : value['snapshotTime'].toISOString(),
+        'snapshotTime': value['snapshotTime'] == null ? value['snapshotTime'] : serializeDateTime(value['snapshotTime']),
         'currency': value['currency'],
         'orders': ((value['orders'] as Array<any>).map(OrderToJSON)),
     };

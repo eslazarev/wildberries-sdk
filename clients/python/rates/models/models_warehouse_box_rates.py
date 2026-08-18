@@ -36,8 +36,8 @@ class ModelsWarehouseBoxRates(BaseModel):
     box_storage_base: Optional[StrictStr] = Field(default=None, description="Хранение в день, первый литр, ₽", alias="boxStorageBase", json_schema_extra={"examples": ["0,14"]})
     box_storage_coef_expr: Optional[StrictStr] = Field(default=None, description="Коэффициент **Хранение**, %. На него умножается стоимость хранения в день. Уже учтён в тарифах", alias="boxStorageCoefExpr", json_schema_extra={"examples": ["115"]})
     box_storage_liter: Optional[StrictStr] = Field(default=None, description="Хранение в день, дополнительный литр, ₽", alias="boxStorageLiter", json_schema_extra={"examples": ["0,07"]})
-    geo_name: Optional[StrictStr] = Field(default=None, description="Страна, для РФ — округ", alias="geoName", json_schema_extra={"examples": ["Центральный федеральный округ"]})
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName", json_schema_extra={"examples": ["Коледино"]})
+    geo_name: Optional[StrictStr] = Field(default=None, description="Местонахождение склада", alias="geoName", json_schema_extra={"examples": ["Россия"]})
+    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName", json_schema_extra={"examples": ["Свой склад СГТ РФ"]})
     __properties: ClassVar[List[str]] = ["boxDeliveryBase", "boxDeliveryCoefExpr", "boxDeliveryLiter", "boxDeliveryMarketplaceBase", "boxDeliveryMarketplaceCoefExpr", "boxDeliveryMarketplaceLiter", "boxStorageBase", "boxStorageCoefExpr", "boxStorageLiter", "geoName", "warehouseName"]
 
     model_config = ConfigDict(

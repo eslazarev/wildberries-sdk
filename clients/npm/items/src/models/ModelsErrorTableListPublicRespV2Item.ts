@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { ModelsErrorSubcategory } from './ModelsErrorSubcategory';
 import {
     ModelsErrorSubcategoryFromJSON,
@@ -88,7 +88,7 @@ export function ModelsErrorTableListPublicRespV2ItemFromJSONTyped(json: any, ign
         'brands': (mapValues(json['brands'], ModelsErrorBrandFromJSON)),
         'vendorCodes': json['vendorCodes'],
         'errors': json['errors'],
-        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : new Date(json['updatedAt'])),
+        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : parseDateTime(json['updatedAt'])),
     };
 }
 
@@ -108,7 +108,7 @@ export function ModelsErrorTableListPublicRespV2ItemToJSONTyped(value?: ModelsEr
         'brands': (mapValues(value['brands'], ModelsErrorBrandToJSON)),
         'vendorCodes': value['vendorCodes'],
         'errors': value['errors'],
-        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
     };
 }
 

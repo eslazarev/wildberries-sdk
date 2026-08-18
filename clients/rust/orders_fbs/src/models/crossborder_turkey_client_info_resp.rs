@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CrossborderTurkeyClientInfoResp {
     /// Информация по клиенту для трансграничных поставок из Турции
-    #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]
-    pub orders: Option<Vec<models::CrossborderTurkeyClientInfo>>,
+    #[serde(rename = "orders", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub orders: Option<Option<Vec<models::CrossborderTurkeyClientInfo>>>,
 }
 
 impl CrossborderTurkeyClientInfoResp {

@@ -43,7 +43,7 @@ class StatisticsComparison(BaseModel):
     share_order_percent_dynamic: StrictInt = Field(description="Динамика доли в выручке", alias="shareOrderPercentDynamic", json_schema_extra={"examples": [-80]})
     add_to_wishlist_dynamic: StrictInt = Field(description="Динамика добавлений товара в избранное", alias="addToWishlistDynamic", json_schema_extra={"examples": [60]})
     time_to_ready_dynamic: ComparisonTimeToReadyDynamic = Field(alias="timeToReadyDynamic")
-    localization_percent_dynamic: StrictInt = Field(description="Динамика локальных заказов в рамках одного региона", alias="localizationPercentDynamic", json_schema_extra={"examples": [46]})
+    localization_percent_dynamic: StrictInt = Field(description="Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`", alias="localizationPercentDynamic", json_schema_extra={"examples": [0]})
     wb_club_dynamic: ComparisonWbClubDynamic = Field(alias="wbClubDynamic")
     conversions: StatisticConversions
     __properties: ClassVar[List[str]] = ["openCountDynamic", "cartCountDynamic", "orderCountDynamic", "orderSumDynamic", "buyoutCountDynamic", "buyoutSumDynamic", "cancelCountDynamic", "cancelSumDynamic", "avgOrdersCountPerDayDynamic", "avgPriceDynamic", "shareOrderPercentDynamic", "addToWishlistDynamic", "timeToReadyDynamic", "localizationPercentDynamic", "wbClubDynamic", "conversions"]

@@ -843,7 +843,7 @@ class StatisticsPast implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets localization_percent
      *
-     * @param int $localization_percent Локальные заказы в рамках одного региона
+     * @param int $localization_percent Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
      *
      * @return self
      */

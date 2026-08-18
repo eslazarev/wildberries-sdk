@@ -20,7 +20,7 @@ var _ MappedNullable = &ContentV2CardsUploadAddPostRequest{}
 // ContentV2CardsUploadAddPostRequest struct for ContentV2CardsUploadAddPostRequest
 type ContentV2CardsUploadAddPostRequest struct {
 	// `imtID` отдельной карточки товара или группы [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки 
-	ImtID *int32 `json:"imtID,omitempty"`
+	ImtID *int64 `json:"imtID,omitempty"`
 	// Добавляемые карточки товаров
 	CardsToAdd []ContentV2CardsUploadAddPostRequestCardsToAddInner `json:"cardsToAdd,omitempty"`
 }
@@ -43,9 +43,9 @@ func NewContentV2CardsUploadAddPostRequestWithDefaults() *ContentV2CardsUploadAd
 }
 
 // GetImtID returns the ImtID field value if set, zero value otherwise.
-func (o *ContentV2CardsUploadAddPostRequest) GetImtID() int32 {
+func (o *ContentV2CardsUploadAddPostRequest) GetImtID() int64 {
 	if o == nil || IsNil(o.ImtID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ImtID
@@ -53,7 +53,7 @@ func (o *ContentV2CardsUploadAddPostRequest) GetImtID() int32 {
 
 // GetImtIDOk returns a tuple with the ImtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2CardsUploadAddPostRequest) GetImtIDOk() (*int32, bool) {
+func (o *ContentV2CardsUploadAddPostRequest) GetImtIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ImtID) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *ContentV2CardsUploadAddPostRequest) HasImtID() bool {
 	return false
 }
 
-// SetImtID gets a reference to the given int32 and assigns it to the ImtID field.
-func (o *ContentV2CardsUploadAddPostRequest) SetImtID(v int32) {
+// SetImtID gets a reference to the given int64 and assigns it to the ImtID field.
+func (o *ContentV2CardsUploadAddPostRequest) SetImtID(v int64) {
 	o.ImtID = &v
 }
 

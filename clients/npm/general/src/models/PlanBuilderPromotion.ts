@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -47,7 +47,7 @@ export function PlanBuilderPromotionFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'commissionRate': json['commissionRate'] == null ? undefined : json['commissionRate'],
-        'expiresAt': json['expiresAt'] == null ? undefined : (new Date(json['expiresAt'])),
+        'expiresAt': json['expiresAt'] == null ? undefined : (parseDateTime(json['expiresAt'])),
     };
 }
 
@@ -63,7 +63,7 @@ export function PlanBuilderPromotionToJSONTyped(value?: PlanBuilderPromotion | n
     return {
         
         'commissionRate': value['commissionRate'],
-        'expiresAt': value['expiresAt'] == null ? value['expiresAt'] : value['expiresAt'].toISOString(),
+        'expiresAt': value['expiresAt'] == null ? value['expiresAt'] : serializeDateTime(value['expiresAt']),
     };
 }
 

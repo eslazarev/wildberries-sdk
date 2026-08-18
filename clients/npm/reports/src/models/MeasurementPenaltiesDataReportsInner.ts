@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -126,9 +126,9 @@ export function MeasurementPenaltiesDataReportsInnerFromJSONTyped(json: any, ign
         'lengthSup': json['lengthSup'] == null ? undefined : json['lengthSup'],
         'heightSup': json['heightSup'] == null ? undefined : json['heightSup'],
         'photoUrls': json['photoUrls'] == null ? undefined : json['photoUrls'],
-        'dtBonus': json['dtBonus'] == null ? undefined : (new Date(json['dtBonus'])),
+        'dtBonus': json['dtBonus'] == null ? undefined : (parseDateTime(json['dtBonus'])),
         'isValid': json['isValid'] == null ? undefined : json['isValid'],
-        'isValidDt': json['isValidDt'] == null ? undefined : (new Date(json['isValidDt'])),
+        'isValidDt': json['isValidDt'] == null ? undefined : (parseDateTime(json['isValidDt'])),
         'reversalAmount': json['reversalAmount'] == null ? undefined : json['reversalAmount'],
         'penaltyAmount': json['penaltyAmount'] == null ? undefined : json['penaltyAmount'],
     };
@@ -158,9 +158,9 @@ export function MeasurementPenaltiesDataReportsInnerToJSONTyped(value?: Measurem
         'lengthSup': value['lengthSup'],
         'heightSup': value['heightSup'],
         'photoUrls': value['photoUrls'],
-        'dtBonus': value['dtBonus'] == null ? value['dtBonus'] : value['dtBonus'].toISOString(),
+        'dtBonus': value['dtBonus'] == null ? value['dtBonus'] : serializeDateTime(value['dtBonus']),
         'isValid': value['isValid'],
-        'isValidDt': value['isValidDt'] == null ? value['isValidDt'] : value['isValidDt'].toISOString(),
+        'isValidDt': value['isValidDt'] == null ? value['isValidDt'] : serializeDateTime(value['isValidDt']),
         'reversalAmount': value['reversalAmount'],
         'penaltyAmount': value['penaltyAmount'],
     };

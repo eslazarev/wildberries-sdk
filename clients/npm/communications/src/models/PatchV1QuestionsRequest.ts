@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { PatchV1QuestionsRequestOneOf } from './PatchV1QuestionsRequestOneOf';
 import {
     instanceOfPatchV1QuestionsRequestOneOf,

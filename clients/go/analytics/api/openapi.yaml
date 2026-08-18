@@ -1146,10 +1146,13 @@ paths:
                   \ отгрузки. Для складов продавца значение в строках будет `Марке\
                   тплейс`, так как данные по складам продавца приходят в агрегиров\
                   анном виде — по всем сразу, без детализации по конкретным склада\
-                  м |\n| OfficeName | string\t| string | Название склада. Для скла\
-                  дов продавца значение в строках будет `Маркетплейс`, так как дан\
-                  ные по складам продавца приходят в агрегированном виде — по всем\
-                  \ сразу, без детализации по конкретным складам |\n| Availability\
+                  м. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+                  \ для складов WB может быть только `Склад WB` |\n| OfficeName |\
+                  \ string\t| string | Название склада. Для складов продавца значе\
+                  ние в строках будет `Маркетплейс`, так как данные по складам про\
+                  давца приходят в агрегированном виде — по всем сразу, без детали\
+                  зации по конкретным складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+                  \ для складов WB может быть только `Склад WB` |\n| Availability\
                   \ | string\t| enum | Доступность товара |\n| OrdersCount | integer\t\
                   | uint64 | Заказы, шт. |\n| OrdersSum | integer\t| uint64 | Зака\
                   зы, сумма |\n| BuyoutCount | integer\t| uint64 | Выкупы, шт. |\n\
@@ -1186,11 +1189,13 @@ paths:
                   ие склада. Для складов продавца значение в строках будет `Маркет\
                   плейс`, так как данные по складам продавца приходят в агрегирова\
                   нном виде — по всем сразу, без детализации по конкретным складам\
-                  \ |\n| DD.MM.YYYY | integer| uint64 | Остаток по состоянию на 23:59\
-                  \ дня в заголовке. Столбцы формируются динамически в зависимости\
-                  \ от переданного в запросе периода. Каждому дню периода соответс\
-                  твует один столбец. Если товара не было в конкретный день, значе\
-                  ние будет пропущено |\n"
+                  . [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+                  \ для складов WB может быть только `Склад WB` |\n| DD.MM.YYYY |\
+                  \ integer| uint64 | Остаток по состоянию на 23:59 дня в заголовк\
+                  е. Столбцы формируются динамически в зависимости от переданного\
+                  \ в запросе периода. Каждому дню периода соответствует один стол\
+                  бец. Если товара не было в конкретный день, значение будет пропу\
+                  щено |\n"
                 format: binary
                 type: string
           description: Успешно
@@ -2466,25 +2471,25 @@ components:
       description: ""
       value: |
         VendorCode,Name,NmID,SubjectName,BrandName,SizeName,ChrtID,RegionName,OfficeName,Availability,OrdersCount,OrdersSum,BuyoutCount,BuyoutSum,BuyoutPercent,AvgOrders,StockCount,StockSum,SaleRate,AvgStockTurnover,ToClientCount,FromClientCount,Price,OfficeMissingTime,LostOrdersCount,LostOrdersSum,LostBuyoutsCount,LostBuyoutsSum,AvgOrdersByMonth_11.2013,AvgOrdersByMonth_12.2013,AvgOrdersByMonth_01.2014,AvgOrdersByMonth_02.2014,AvgOrdersByMonth_03.2014,AvgOrdersByMonth_04.2014,AvgOrdersByMonth_05.2014,AvgOrdersByMonth_06.2014,AvgOrdersByMonth_07.2014,Currency
-        037456337500,Robust High-Performance Robot,1031126854494603033,Термокомплекты,Amazon Web Services,67-69,987654321,Central,Office1,nonLiquid,521124,521124000,123,123000,10,0.57,20,20000,-3,5,111,222,14008,-3,0.71,0.77,0.93,0.68,74067.12,29935.79,8895.27,37019.65,37934.89,62412.64,29857.97,0.00,72465.85,RUB
-        089201683406,Luxe Blender Nexus,8904325039176595105,Термокомплекты,iRecycle,54-56,987654071,North,Office2,nonLiquid,1231,1231000,456,456000,20,0.71,30,30000,2,-3,333,444,85162,-2,0.90,0.96,0.31,0.93,,,,,,2628.77,0.00,70534.86,0.00,RUB
-        059509746730,Pure Quartz Speaker,6780550382946145952,Термокомплекты,Next Step Living,60-62,984574321,South,Office3,balanced,3214,3214000,789,789000,30,0.30,40,40000,1,11,555,666,66484,-3,0.03,0.08,0.71,0.48,,,47297.22,55308.71,6463.43,48664.95,0.00,0.00,74502.72,RUB
-        058266400986,Modular Stainless Monitor,3475827302459171321,Термокомплекты,TagniFi,65-67,926554321,East,Office4,nonActual,312,312000,123,123000,40,0.71,50,50000,13,-2,666,888,53254,-3,0.96,0.01,0.97,0.92,,67227.50,4608.98,90300.06,15890.52,0.00,0.00,41891.11,0.00,RUB
-        070198970053,Microwave Quick Eco-Friendly,4734922922328623947,Термокомплекты,Boston Consulting Group,46-48,983234321,West,Office5,nonLiquid,343,343000,456,456000,50,0.92,60,60000,17,-2,777,101010,43823,-1,0.84,0.14,0.26,0.75,30463.57,8073.43,26678.35,0.00,339.99,56237.24,2172.75,74665.30,14296.76,RUB
+        037456337500,Robust High-Performance Robot,1031126854494603033,Термокомплекты,Amazon Web Services,67-69,987654321,Склад WB,Склад WB,nonLiquid,521124,521124000,123,123000,10,0.57,20,20000,-3,5,111,222,14008,-3,0.71,0.77,0.93,0.68,74067.12,29935.79,8895.27,37019.65,37934.89,62412.64,29857.97,0.00,72465.85,RUB
+        089201683406,Luxe Blender Nexus,8904325039176595105,Термокомплекты,iRecycle,54-56,987654071,Склад WB,Склад WB,nonLiquid,1231,1231000,456,456000,20,0.71,30,30000,2,-3,333,444,85162,-2,0.90,0.96,0.31,0.93,,,,,,2628.77,0.00,70534.86,0.00,RUB
+        059509746730,Pure Quartz Speaker,6780550382946145952,Термокомплекты,Next Step Living,60-62,984574321,Маркетплейс,Маркетплейс,balanced,3214,3214000,789,789000,30,0.30,40,40000,1,11,555,666,66484,-3,0.03,0.08,0.71,0.48,,,47297.22,55308.71,6463.43,48664.95,0.00,0.00,74502.72,RUB
+        058266400986,Modular Stainless Monitor,3475827302459171321,Термокомплекты,TagniFi,65-67,926554321,Маркетплейс,Маркетплейс,nonActual,312,312000,123,123000,40,0.71,50,50000,13,-2,666,888,53254,-3,0.96,0.01,0.97,0.92,,67227.50,4608.98,90300.06,15890.52,0.00,0.00,41891.11,0.00,RUB
+        070198970053,Microwave Quick Eco-Friendly,4734922922328623947,Термокомплекты,Boston Consulting Group,46-48,983234321,Склад WB,Склад WB,nonLiquid,343,343000,456,456000,50,0.92,60,60000,17,-2,777,101010,43823,-1,0.84,0.14,0.26,0.75,30463.57,8073.43,26678.35,0.00,339.99,56237.24,2172.75,74665.30,14296.76,RUB
     InventoryHistoryReportRes:
       description: ""
       value: |
         VendorCode,Name,NmID,SubjectName,BrandName,SizeName,ChrtID,OfficeName,13.12.2025,14.12.2025,15.12.2025
-        41058/прозрачный,Чехол для телефона прозрачный111,5870243,Чехлы для телефонов,Arizona.kz,-,20964883,Коледино,1,1,1
+        41058/прозрачный,Чехол для телефона прозрачный111,5870243,Чехлы для телефонов,Arizona.kz,-,20964883,Склад WB,1,1,1
         41058/прозрачный,Чехол для телефона прозрачный111,5870243,Чехлы для телефонов,Arizona.kz,-,20964883,Маркетплейс,1000,997,923
         wb59toaotq,Брюки,12862180,Болеро,,O,39533928,Маркетплейс,6,8,4
         451263124,Брюки 123,12862181,Брюки,DUB,A,39533929,Маркетплейс,11,10,11
         wb33q6504x,ПАЗЛ,13088345,Пазлы,CoolPuzzles,-,40030565,Маркетплейс,2,28,54
         4854554654/0,Альбом,13480414,Альбомы для коллекционирования,Эконом,-,40873579,Маркетплейс,25,20,19
         14053651Черный,Дубленка 333334,14652473,Дубленки,SARTORI DODICI,48,43253666,Маркетплейс,30,30,30
-        HGF56X,Чай,14986284,Чай,Lipton,-,43804848,Коледино,154,254,223
-        123401,Кроссовки,14917832,Кофе молотый,,-,43807552,Казань,0,0,0
-        123401,Кроссовки,14917832,Кофе молотый,,-,43807552,Подольск,4,0,23
+        HGF56X,Чай,14986284,Чай,Lipton,-,43804848,Склад WB,154,254,223
+        123401,Кроссовки,14917832,Кофе молотый,,-,43807552,Склад WB,0,0,0
+        123401,Кроссовки,14917832,Кофе молотый,,-,43807553,Склад WB,4,0,23
   responses:
     "401":
       content:
@@ -5953,25 +5958,25 @@ components:
     TableSizeResponse:
       example:
         offices:
-        - regionName: Центральный
-          officeID: 123456
-          officeName: Коледино
+        - regionName: Склад WB
+          officeID: -999999
+          officeName: ""
           metrics: ""
-        - regionName: Центральный
-          officeID: 123456
-          officeName: Коледино
+        - regionName: Склад WB
+          officeID: -999999
+          officeName: ""
           metrics: ""
         sizes:
         - name: "50"
           chrtID: 123321
           offices:
-          - regionName: Центральный
-            officeID: 123456
-            officeName: Коледино
+          - regionName: Склад WB
+            officeID: -999999
+            officeName: ""
             metrics: ""
-          - regionName: Центральный
-            officeID: 123456
-            officeName: Коледино
+          - regionName: Склад WB
+            officeID: -999999
+            officeName: ""
             metrics: ""
           metrics:
             ordersCount: 100
@@ -6010,13 +6015,13 @@ components:
         - name: "50"
           chrtID: 123321
           offices:
-          - regionName: Центральный
-            officeID: 123456
-            officeName: Коледино
+          - regionName: Склад WB
+            officeID: -999999
+            officeName: ""
             metrics: ""
-          - regionName: Центральный
-            officeID: 123456
-            officeName: Коледино
+          - regionName: Склад WB
+            officeID: -999999
+            officeName: ""
             metrics: ""
           metrics:
             ordersCount: 100
@@ -6074,23 +6079,26 @@ components:
     TableOfficeItem:
       description: Данные по складу
       example:
-        regionName: Центральный
-        officeID: 123456
-        officeName: Коледино
+        regionName: Склад WB
+        officeID: -999999
+        officeName: ""
         metrics: ""
       properties:
         regionName:
-          description: Регион отгрузки
-          example: Центральный
+          description: "Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ для складов WB может быть только `Склад WB`"
+          example: Склад WB
           type: string
         officeID:
-          description: ID склада
-          example: 123456
+          description: "ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ для складов WB может быть только `-999999`"
+          example: -999999
           format: int64
           type: integer
         officeName:
-          description: Название склада
-          example: Коледино
+          description: "Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ для складов WB может быть только `\"\"`"
+          example: ""
           type: string
         metrics:
           allOf:
@@ -6184,24 +6192,12 @@ components:
     TableShippingOfficeResponse:
       example:
         regions:
-        - regionName: Центральный
+        - regionName: Склад WB
           metrics: ""
-          offices:
-          - officeID: 123456
-            officeName: Коледино
-            metrics: ""
-          - officeID: 123456
-            officeName: Коледино
-            metrics: ""
-        - regionName: Центральный
+          offices: []
+        - regionName: Склад WB
           metrics: ""
-          offices:
-          - officeID: 123456
-            officeName: Коледино
-            metrics: ""
-          - officeID: 123456
-            officeName: Коледино
-            metrics: ""
+          offices: []
         currency: RUB
       properties:
         regions:
@@ -6219,26 +6215,23 @@ components:
     TableShippingOfficeItem:
       description: Данные по региону отгрузки
       example:
-        regionName: Центральный
+        regionName: Склад WB
         metrics: ""
-        offices:
-        - officeID: 123456
-          officeName: Коледино
-          metrics: ""
-        - officeID: 123456
-          officeName: Коледино
-          metrics: ""
+        offices: []
       properties:
         regionName:
-          description: Регион отгрузки
-          example: Центральный
+          description: "Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ для складов WB может быть только `Склад WB`"
+          example: Склад WB
           type: string
         metrics:
           allOf:
           - $ref: "#/components/schemas/TableShippingOfficeMetrics"
           description: Метрики по региону
         offices:
-          description: Данные по складам
+          description: "Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ может быть только `[]`"
+          example: []
           items:
             $ref: "#/components/schemas/TableShippingOfficeItem_offices_inner"
           type: array
@@ -6694,8 +6687,10 @@ components:
         timeToReady:
           $ref: "#/components/schemas/Statistic_timeToReady"
         localizationPercent:
-          description: Локальные заказы в рамках одного региона
-          example: 46
+          description: "Локальные заказы в рамках одного региона. [На данный момен\
+            т](https://dev.wildberries.ru/release-notes?id=570) может быть только\
+            \ `100`"
+          example: 100
           type: integer
         wbClub:
           $ref: "#/components/schemas/Statistic_wbClub"
@@ -6784,8 +6779,10 @@ components:
         timeToReadyDynamic:
           $ref: "#/components/schemas/Comparison_timeToReadyDynamic"
         localizationPercentDynamic:
-          description: Динамика локальных заказов в рамках одного региона
-          example: 46
+          description: "Динамика локальных заказов в рамках одного региона. [На да\
+            нный момент](https://dev.wildberries.ru/release-notes?id=570) может бы\
+            ть только `0`"
+          example: 0
           format: int
           type: integer
         wbClubDynamic:
@@ -7176,17 +7173,17 @@ components:
         items:
         - nmId: 47254354
           chrtId: 91663228
-          warehouseId: 507
-          warehouseName: Коледино
-          regionName: Центральный
+          warehouseId: -999999
+          warehouseName: Склад WB
+          regionName: Склад WB
           quantity: 43
           inWayToClient: 14
           inWayFromClient: 11
         - nmId: 47254354
           chrtId: 91663228
-          warehouseId: 507
-          warehouseName: Коледино
-          regionName: Центральный
+          warehouseId: -999999
+          warehouseName: Склад WB
+          regionName: Склад WB
           quantity: 43
           inWayToClient: 14
           inWayFromClient: 11
@@ -7830,8 +7827,8 @@ components:
           updatedAt: 2026-06-26T19:19:38+03:00
           status: cancel
           cancelType: app
-          warehouseName: Склад продавца Ростов-на-Дону
-          warehouseRegion: Южный и Северо-Кавказский
+          warehouseName: Склад WB
+          warehouseRegion: ""
           isMp: true
           destinationCity: Санкт-Петербург
           destinationDistrict: Северо-Западный
@@ -7844,8 +7841,8 @@ components:
           updatedAt: 2026-06-26T19:19:38+03:00
           status: cancel
           cancelType: app
-          warehouseName: Склад продавца Ростов-на-Дону
-          warehouseRegion: Южный и Северо-Кавказский
+          warehouseName: Склад WB
+          warehouseRegion: ""
           isMp: true
           destinationCity: Санкт-Петербург
           destinationDistrict: Северо-Западный
@@ -7882,8 +7879,8 @@ components:
         updatedAt: 2026-06-26T19:19:38+03:00
         status: cancel
         cancelType: app
-        warehouseName: Склад продавца Ростов-на-Дону
-        warehouseRegion: Южный и Северо-Кавказский
+        warehouseName: Склад WB
+        warehouseRegion: ""
         isMp: true
         destinationCity: Санкт-Петербург
         destinationDistrict: Северо-Западный
@@ -7946,13 +7943,15 @@ components:
           example: app
           type: string
         warehouseName:
-          description: Название склада
-          example: Склад продавца Ростов-на-Дону
+          description: "Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ для складов WB может быть только `Склад WB`"
+          example: Склад WB
           type: string
         warehouseRegion:
           description: "Федеральный округ склада. Если склад не в России, возвраща\
-            ется страна"
-          example: Южный и Северо-Кавказский
+            ется страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ для складов WB может быть только `\"\"`"
+          example: ""
           type: string
         isMp:
           description: |
@@ -8078,7 +8077,7 @@ components:
                 days: 1
                 hours: 8
                 mins: 34
-              localizationPercent: 46
+              localizationPercent: 100
               wbClub:
                 orderCount: 19
                 orderSum: 1262
@@ -8111,7 +8110,7 @@ components:
                 days: 1
                 hours: 8
                 mins: 34
-              localizationPercent: 46
+              localizationPercent: 100
               wbClub:
                 orderCount: 19
                 orderSum: 1262
@@ -8143,7 +8142,7 @@ components:
                 days: 1
                 hours: 8
                 mins: 34
-              localizationPercentDynamic: 46
+              localizationPercentDynamic: 0
               wbClubDynamic:
                 orderCount: -100
                 orderSum: -100
@@ -8195,7 +8194,7 @@ components:
                 days: 1
                 hours: 8
                 mins: 34
-              localizationPercent: 46
+              localizationPercent: 100
               wbClub:
                 orderCount: 19
                 orderSum: 1262
@@ -8228,7 +8227,7 @@ components:
                 days: 1
                 hours: 8
                 mins: 34
-              localizationPercent: 46
+              localizationPercent: 100
               wbClub:
                 orderCount: 19
                 orderSum: 1262
@@ -8260,7 +8259,7 @@ components:
                 days: 1
                 hours: 8
                 mins: 34
-              localizationPercentDynamic: 46
+              localizationPercentDynamic: 0
               wbClubDynamic:
                 orderCount: -100
                 orderSum: -100
@@ -8317,7 +8316,7 @@ components:
                   days: 1
                   hours: 8
                   mins: 34
-                localizationPercent: 46
+                localizationPercent: 100
                 wbClub:
                   orderCount: 19
                   orderSum: 1262
@@ -8350,7 +8349,7 @@ components:
                   days: 1
                   hours: 8
                   mins: 34
-                localizationPercent: 46
+                localizationPercent: 100
                 wbClub:
                   orderCount: 19
                   orderSum: 1262
@@ -8382,7 +8381,7 @@ components:
                   days: 1
                   hours: 8
                   mins: 34
-                localizationPercentDynamic: 46
+                localizationPercentDynamic: 0
                 wbClubDynamic:
                   orderCount: -100
                   orderSum: -100
@@ -8434,7 +8433,7 @@ components:
                   days: 1
                   hours: 8
                   mins: 34
-                localizationPercent: 46
+                localizationPercent: 100
                 wbClub:
                   orderCount: 19
                   orderSum: 1262
@@ -8467,7 +8466,7 @@ components:
                   days: 1
                   hours: 8
                   mins: 34
-                localizationPercent: 46
+                localizationPercent: 100
                 wbClub:
                   orderCount: 19
                   orderSum: 1262
@@ -8499,7 +8498,7 @@ components:
                   days: 1
                   hours: 8
                   mins: 34
-                localizationPercentDynamic: 46
+                localizationPercentDynamic: 0
                 wbClubDynamic:
                   orderCount: -100
                   orderSum: -100
@@ -9407,17 +9406,17 @@ components:
           items:
           - nmId: 47254354
             chrtId: 91663228
-            warehouseId: 507
-            warehouseName: Коледино
-            regionName: Центральный
+            warehouseId: -999999
+            warehouseName: Склад WB
+            regionName: Склад WB
             quantity: 43
             inWayToClient: 14
             inWayFromClient: 11
           - nmId: 47254354
             chrtId: 91663228
-            warehouseId: 507
-            warehouseName: Коледино
-            regionName: Центральный
+            warehouseId: -999999
+            warehouseName: Склад WB
+            regionName: Склад WB
             quantity: 43
             inWayToClient: 14
             inWayFromClient: 11
@@ -9726,25 +9725,25 @@ components:
       example:
         data:
           offices:
-          - regionName: Центральный
-            officeID: 123456
-            officeName: Коледино
+          - regionName: Склад WB
+            officeID: -999999
+            officeName: ""
             metrics: ""
-          - regionName: Центральный
-            officeID: 123456
-            officeName: Коледино
+          - regionName: Склад WB
+            officeID: -999999
+            officeName: ""
             metrics: ""
           sizes:
           - name: "50"
             chrtID: 123321
             offices:
-            - regionName: Центральный
-              officeID: 123456
-              officeName: Коледино
+            - regionName: Склад WB
+              officeID: -999999
+              officeName: ""
               metrics: ""
-            - regionName: Центральный
-              officeID: 123456
-              officeName: Коледино
+            - regionName: Склад WB
+              officeID: -999999
+              officeName: ""
               metrics: ""
             metrics:
               ordersCount: 100
@@ -9783,13 +9782,13 @@ components:
           - name: "50"
             chrtID: 123321
             offices:
-            - regionName: Центральный
-              officeID: 123456
-              officeName: Коледино
+            - regionName: Склад WB
+              officeID: -999999
+              officeName: ""
               metrics: ""
-            - regionName: Центральный
-              officeID: 123456
-              officeName: Коледино
+            - regionName: Склад WB
+              officeID: -999999
+              officeName: ""
               metrics: ""
             metrics:
               ordersCount: 100
@@ -9836,24 +9835,12 @@ components:
       example:
         data:
           regions:
-          - regionName: Центральный
+          - regionName: Склад WB
             metrics: ""
-            offices:
-            - officeID: 123456
-              officeName: Коледино
-              metrics: ""
-            - officeID: 123456
-              officeName: Коледино
-              metrics: ""
-          - regionName: Центральный
+            offices: []
+          - regionName: Склад WB
             metrics: ""
-            offices:
-            - officeID: 123456
-              officeName: Коледино
-              metrics: ""
-            - officeID: 123456
-              officeName: Коледино
-              metrics: ""
+            offices: []
           currency: RUB
       properties:
         data:
@@ -9979,8 +9966,8 @@ components:
             updatedAt: 2026-06-26T19:19:38+03:00
             status: cancel
             cancelType: app
-            warehouseName: Склад продавца Ростов-на-Дону
-            warehouseRegion: Южный и Северо-Кавказский
+            warehouseName: Склад WB
+            warehouseRegion: ""
             isMp: true
             destinationCity: Санкт-Петербург
             destinationDistrict: Северо-Западный
@@ -9993,8 +9980,8 @@ components:
             updatedAt: 2026-06-26T19:19:38+03:00
             status: cancel
             cancelType: app
-            warehouseName: Склад продавца Ростов-на-Дону
-            warehouseRegion: Южный и Северо-Кавказский
+            warehouseName: Склад WB
+            warehouseRegion: ""
             isMp: true
             destinationCity: Санкт-Петербург
             destinationDistrict: Северо-Западный
@@ -11185,13 +11172,13 @@ components:
         name: "50"
         chrtID: 123321
         offices:
-        - regionName: Центральный
-          officeID: 123456
-          officeName: Коледино
+        - regionName: Склад WB
+          officeID: -999999
+          officeName: ""
           metrics: ""
-        - regionName: Центральный
-          officeID: 123456
-          officeName: Коледино
+        - regionName: Склад WB
+          officeID: -999999
+          officeName: ""
           metrics: ""
         metrics:
           ordersCount: 100
@@ -11250,10 +11237,6 @@ components:
       - name
       type: object
     TableShippingOfficeItem_offices_inner:
-      example:
-        officeID: 123456
-        officeName: Коледино
-        metrics: ""
       properties:
         officeID:
           description: ID склада
@@ -11336,7 +11319,7 @@ components:
             days: 1
             hours: 8
             mins: 34
-          localizationPercent: 46
+          localizationPercent: 100
           wbClub:
             orderCount: 19
             orderSum: 1262
@@ -11369,7 +11352,7 @@ components:
             days: 1
             hours: 8
             mins: 34
-          localizationPercent: 46
+          localizationPercent: 100
           wbClub:
             orderCount: 19
             orderSum: 1262
@@ -11401,7 +11384,7 @@ components:
             days: 1
             hours: 8
             mins: 34
-          localizationPercentDynamic: 46
+          localizationPercentDynamic: 0
           wbClubDynamic:
             orderCount: -100
             orderSum: -100
@@ -11455,7 +11438,7 @@ components:
               days: 1
               hours: 8
               mins: 34
-            localizationPercent: 46
+            localizationPercent: 100
             wbClub:
               orderCount: 19
               orderSum: 1262
@@ -11488,7 +11471,7 @@ components:
               days: 1
               hours: 8
               mins: 34
-            localizationPercent: 46
+            localizationPercent: 100
             wbClub:
               orderCount: 19
               orderSum: 1262
@@ -11520,7 +11503,7 @@ components:
               days: 1
               hours: 8
               mins: 34
-            localizationPercentDynamic: 46
+            localizationPercentDynamic: 0
             wbClubDynamic:
               orderCount: -100
               orderSum: -100
@@ -11658,7 +11641,7 @@ components:
           days: 1
           hours: 8
           mins: 34
-        localizationPercent: 46
+        localizationPercent: 100
         wbClub:
           orderCount: 19
           orderSum: 1262
@@ -11696,7 +11679,7 @@ components:
           days: 1
           hours: 8
           mins: 34
-        localizationPercent: 46
+        localizationPercent: 100
         wbClub:
           orderCount: 19
           orderSum: 1262
@@ -11733,7 +11716,7 @@ components:
           days: 1
           hours: 8
           mins: 34
-        localizationPercentDynamic: 46
+        localizationPercentDynamic: 0
         wbClubDynamic:
           orderCount: -100
           orderSum: -100
@@ -11809,9 +11792,9 @@ components:
       example:
         nmId: 47254354
         chrtId: 91663228
-        warehouseId: 507
-        warehouseName: Коледино
-        regionName: Центральный
+        warehouseId: -999999
+        warehouseName: Склад WB
+        regionName: Склад WB
         quantity: 43
         inWayToClient: 14
         inWayFromClient: 11
@@ -11827,17 +11810,20 @@ components:
           format: int64
           type: integer
         warehouseId:
-          description: ID склада
-          example: 507
+          description: "ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ может быть только `-999999`"
+          example: -999999
           format: int64
           type: integer
         warehouseName:
-          description: Название склада
-          example: Коледино
+          description: "Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ может быть только `Склад WB`"
+          example: Склад WB
           type: string
         regionName:
-          description: Регион отгрузки
-          example: Центральный
+          description: "Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570)\
+            \ может быть только `Склад WB`"
+          example: Склад WB
           type: string
         quantity:
           description: "Количество товара на складе, доступное клиентам для добавл\

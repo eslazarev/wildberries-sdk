@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { DailyStats1Inner } from './DailyStats1Inner';
 import {
     DailyStats1InnerFromJSON,
@@ -144,8 +144,8 @@ export function StatsBlok1FromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'clicks': json['clicks'] == null ? undefined : json['clicks'],
         'cr': json['cr'] == null ? undefined : json['cr'],
         'ctr': json['ctr'] == null ? undefined : json['ctr'],
-        'dateFrom': json['date_from'] == null ? undefined : (new Date(json['date_from'])),
-        'dateTo': json['date_to'] == null ? undefined : (new Date(json['date_to'])),
+        'dateFrom': json['date_from'] == null ? undefined : (parseDateTime(json['date_from'])),
+        'dateTo': json['date_to'] == null ? undefined : (parseDateTime(json['date_to'])),
         'subjectName': json['subject_name'] == null ? undefined : json['subject_name'],
         'atbs': json['atbs'] == null ? undefined : json['atbs'],
         'orders': json['orders'] == null ? undefined : json['orders'],
@@ -179,8 +179,8 @@ export function StatsBlok1ToJSONTyped(value?: StatsBlok1 | null, ignoreDiscrimin
         'clicks': value['clicks'],
         'cr': value['cr'],
         'ctr': value['ctr'],
-        'date_from': value['dateFrom'] == null ? value['dateFrom'] : value['dateFrom'].toISOString(),
-        'date_to': value['dateTo'] == null ? value['dateTo'] : value['dateTo'].toISOString(),
+        'date_from': value['dateFrom'] == null ? value['dateFrom'] : serializeDateTime(value['dateFrom']),
+        'date_to': value['dateTo'] == null ? value['dateTo'] : serializeDateTime(value['dateTo']),
         'subject_name': value['subjectName'],
         'atbs': value['atbs'],
         'orders': value['orders'],

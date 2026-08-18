@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -67,10 +67,10 @@ export function GetV1AcceptanceReportTasksTaskIdDownload200ResponseInnerFromJSON
     return {
         
         'count': json['count'] == null ? undefined : json['count'],
-        'giCreateDate': json['giCreateDate'] == null ? undefined : (new Date(json['giCreateDate'])),
+        'giCreateDate': json['giCreateDate'] == null ? undefined : (parseDate(json['giCreateDate'])),
         'incomeId': json['incomeId'] == null ? undefined : json['incomeId'],
         'nmID': json['nmID'] == null ? undefined : json['nmID'],
-        'shkCreateDate': json['shkCreateDate'] == null ? undefined : (new Date(json['shkCreateDate'])),
+        'shkCreateDate': json['shkCreateDate'] == null ? undefined : (parseDate(json['shkCreateDate'])),
         'subjectName': json['subjectName'] == null ? undefined : json['subjectName'],
         'total': json['total'] == null ? undefined : json['total'],
     };
@@ -88,10 +88,10 @@ export function GetV1AcceptanceReportTasksTaskIdDownload200ResponseInnerToJSONTy
     return {
         
         'count': value['count'],
-        'giCreateDate': value['giCreateDate'] == null ? value['giCreateDate'] : value['giCreateDate'].toISOString().substring(0,10),
+        'giCreateDate': value['giCreateDate'] == null ? value['giCreateDate'] : serializeDate(value['giCreateDate']),
         'incomeId': value['incomeId'],
         'nmID': value['nmID'],
-        'shkCreateDate': value['shkCreateDate'] == null ? value['shkCreateDate'] : value['shkCreateDate'].toISOString().substring(0,10),
+        'shkCreateDate': value['shkCreateDate'] == null ? value['shkCreateDate'] : serializeDate(value['shkCreateDate']),
         'subjectName': value['subjectName'],
         'total': value['total'],
     };

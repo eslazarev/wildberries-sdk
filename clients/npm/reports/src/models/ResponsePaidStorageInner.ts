@@ -24,19 +24,19 @@ export interface ResponsePaidStorageInner {
      */
     date?: string;
     /**
-     * Коэффициент логистики и хранения
+     * Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
      */
     logWarehouseCoef?: number;
     /**
-     * ID склада
+     * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
      */
     officeId?: number;
     /**
-     * Название склада
+     * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`
      */
     warehouse?: string;
     /**
-     * Коэффициент склада
+     * Коэффициент хранения
      */
     warehouseCoef?: number;
     /**
@@ -88,7 +88,7 @@ export interface ResponsePaidStorageInner {
      */
     barcodesCount?: number;
     /**
-     * Код паллетоместа
+     * Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
      */
     palletPlaceCode?: number;
     /**

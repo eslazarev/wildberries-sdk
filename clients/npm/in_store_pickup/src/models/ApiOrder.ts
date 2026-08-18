@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { ApiOrderOptions } from './ApiOrderOptions';
 import {
     ApiOrderOptionsFromJSON,
@@ -178,7 +178,7 @@ export function ApiOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'article': json['article'] == null ? undefined : json['article'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'chrtId': json['chrtId'] == null ? undefined : json['chrtId'],
-        'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
+        'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
         'price': json['price'] == null ? undefined : json['price'],
         'finalPrice': json['finalPrice'] == null ? undefined : json['finalPrice'],
         'convertedPrice': json['convertedPrice'] == null ? undefined : json['convertedPrice'],
@@ -212,7 +212,7 @@ export function ApiOrderToJSONTyped(value?: ApiOrder | null, ignoreDiscriminator
         'article': value['article'],
         'cargoType': value['cargoType'],
         'chrtId': value['chrtId'],
-        'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
+        'createdAt': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
         'price': value['price'],
         'finalPrice': value['finalPrice'],
         'convertedPrice': value['convertedPrice'],

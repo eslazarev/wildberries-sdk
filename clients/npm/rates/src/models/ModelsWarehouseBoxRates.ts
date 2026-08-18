@@ -56,7 +56,7 @@ export interface ModelsWarehouseBoxRates {
      */
     boxStorageLiter?: string;
     /**
-     * Страна, для РФ — округ
+     * Местонахождение склада
      */
     geoName?: string;
     /**

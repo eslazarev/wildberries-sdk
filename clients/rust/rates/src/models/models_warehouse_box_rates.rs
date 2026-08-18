@@ -40,7 +40,7 @@ pub struct ModelsWarehouseBoxRates {
     /// Хранение в день, дополнительный литр, ₽
     #[serde(rename = "boxStorageLiter", skip_serializing_if = "Option::is_none")]
     pub box_storage_liter: Option<String>,
-    /// Страна, для РФ — округ
+    /// Местонахождение склада
     #[serde(rename = "geoName", skip_serializing_if = "Option::is_none")]
     pub geo_name: Option<String>,
     /// Название склада

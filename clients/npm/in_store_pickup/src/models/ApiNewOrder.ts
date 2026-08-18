@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { ApiNewOrderOptions } from './ApiNewOrderOptions';
 import {
     ApiNewOrderOptionsFromJSON,
@@ -198,7 +198,7 @@ export function ApiNewOrderFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'requiredMeta': json['requiredMeta'] === undefined ? undefined : json['requiredMeta'] === null ? null : json['requiredMeta'],
         'article': json['article'] == null ? undefined : json['article'],
         'rid': json['rid'] == null ? undefined : json['rid'],
-        'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
+        'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
         'warehouseAddress': json['warehouseAddress'] == null ? undefined : json['warehouseAddress'],
         'orderCode': json['orderCode'] == null ? undefined : json['orderCode'],
         'payMode': json['payMode'] == null ? undefined : json['payMode'],
@@ -235,7 +235,7 @@ export function ApiNewOrderToJSONTyped(value?: ApiNewOrder | null, ignoreDiscrim
         'requiredMeta': value['requiredMeta'],
         'article': value['article'],
         'rid': value['rid'],
-        'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
+        'createdAt': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
         'warehouseAddress': value['warehouseAddress'],
         'orderCode': value['orderCode'],
         'payMode': value['payMode'],

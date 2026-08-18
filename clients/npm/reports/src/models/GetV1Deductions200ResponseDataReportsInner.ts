@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -98,7 +98,7 @@ export function GetV1Deductions200ResponseDataReportsInnerFromJSONTyped(json: an
     }
     return {
         
-        'dtBonus': json['dtBonus'] == null ? undefined : (new Date(json['dtBonus'])),
+        'dtBonus': json['dtBonus'] == null ? undefined : (parseDateTime(json['dtBonus'])),
         'nmId': json['nmId'] == null ? undefined : json['nmId'],
         'oldShkId': json['oldShkId'] == null ? undefined : json['oldShkId'],
         'oldColor': json['oldColor'] == null ? undefined : json['oldColor'],
@@ -127,7 +127,7 @@ export function GetV1Deductions200ResponseDataReportsInnerToJSONTyped(value?: Ge
 
     return {
         
-        'dtBonus': value['dtBonus'] == null ? value['dtBonus'] : value['dtBonus'].toISOString(),
+        'dtBonus': value['dtBonus'] == null ? value['dtBonus'] : serializeDateTime(value['dtBonus']),
         'nmId': value['nmId'],
         'oldShkId': value['oldShkId'],
         'oldColor': value['oldColor'],

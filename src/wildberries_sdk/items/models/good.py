@@ -71,6 +71,16 @@ class Good(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if price (nullable) is None
+        # and model_fields_set contains the field
+        if self.price is None and "price" in self.model_fields_set:
+            _dict['price'] = None
+
+        # set to None if discount (nullable) is None
+        # and model_fields_set contains the field
+        if self.discount is None and "discount" in self.model_fields_set:
+            _dict['discount'] = None
+
         return _dict
 
     @classmethod

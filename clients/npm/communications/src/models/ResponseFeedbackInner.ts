@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { GetV1Feedback200ResponseDataPhotoLinksInner } from './GetV1Feedback200ResponseDataPhotoLinksInner';
 import {
     GetV1Feedback200ResponseDataPhotoLinksInnerFromJSON,
@@ -211,7 +211,7 @@ export function ResponseFeedbackInnerFromJSONTyped(json: any, ignoreDiscriminato
         'pros': json['pros'] == null ? undefined : json['pros'],
         'cons': json['cons'] == null ? undefined : json['cons'],
         'productValuation': json['productValuation'] == null ? undefined : json['productValuation'],
-        'createdDate': json['createdDate'] == null ? undefined : (new Date(json['createdDate'])),
+        'createdDate': json['createdDate'] == null ? undefined : (parseDateTime(json['createdDate'])),
         'answer': json['answer'] === undefined ? undefined : json['answer'] === null ? null : ResponseFeedbackInnerAnswerFromJSON(json['answer']),
         'state': json['state'] == null ? undefined : json['state'],
         'productDetails': json['productDetails'] == null ? undefined : ResponseFeedbackInnerProductDetailsFromJSON(json['productDetails']),
@@ -254,7 +254,7 @@ export function ResponseFeedbackInnerToJSONTyped(value?: ResponseFeedbackInner |
         'pros': value['pros'],
         'cons': value['cons'],
         'productValuation': value['productValuation'],
-        'createdDate': value['createdDate'] == null ? value['createdDate'] : value['createdDate'].toISOString(),
+        'createdDate': value['createdDate'] == null ? value['createdDate'] : serializeDateTime(value['createdDate']),
         'answer': ResponseFeedbackInnerAnswerToJSON(value['answer']),
         'state': value['state'],
         'productDetails': ResponseFeedbackInnerProductDetailsToJSON(value['productDetails']),

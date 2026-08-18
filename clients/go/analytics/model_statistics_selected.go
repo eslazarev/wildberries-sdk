@@ -48,7 +48,7 @@ type StatisticsSelected struct {
 	// Добавили в **Отложенные**
 	AddToWishlist int32 `json:"addToWishlist"`
 	TimeToReady StatisticTimeToReady `json:"timeToReady"`
-	// Локальные заказы в рамках одного региона
+	// Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
 	LocalizationPercent int32 `json:"localizationPercent"`
 	WbClub StatisticWbClub `json:"wbClub"`
 	Conversions StatisticConversions `json:"conversions"`

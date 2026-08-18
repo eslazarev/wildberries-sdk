@@ -27,7 +27,7 @@ type ApiV3OrdersStickersPost200ResponseStickersInner struct {
 	PartB *string `json:"partB,omitempty"`
 	// Закодированное значение стикера
 	Barcode *string `json:"barcode,omitempty"`
-	// Полное представление стикера в заданном формате (кодировка base64)
+	// Полное представление стикера в заданном формате
 	File *string `json:"file,omitempty"`
 }
 

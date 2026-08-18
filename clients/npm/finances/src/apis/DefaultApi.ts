@@ -417,11 +417,11 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['beginTime'] != null) {
-            queryParameters['beginTime'] = (requestParameters['beginTime'] as any).toISOString().substring(0,10);
+            queryParameters['beginTime'] = runtime.serializeDate(requestParameters['beginTime'] as any);
         }
 
         if (requestParameters['endTime'] != null) {
-            queryParameters['endTime'] = (requestParameters['endTime'] as any).toISOString().substring(0,10);
+            queryParameters['endTime'] = runtime.serializeDate(requestParameters['endTime'] as any);
         }
 
         if (requestParameters['sort'] != null) {

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -61,8 +61,8 @@ export function CourierContactsResponseFromJSONTyped(json: any, ignoreDiscrimina
         'carNumber': json['carNumber'] == null ? undefined : json['carNumber'],
         'fullName': json['fullName'] == null ? undefined : json['fullName'],
         'phone': json['phone'] == null ? undefined : json['phone'],
-        'pTimeFrom': json['pTimeFrom'] === undefined ? undefined : json['pTimeFrom'] === null ? null : (new Date(json['pTimeFrom'])),
-        'pTimeTo': json['pTimeTo'] === undefined ? undefined : json['pTimeTo'] === null ? null : (new Date(json['pTimeTo'])),
+        'pTimeFrom': json['pTimeFrom'] === undefined ? undefined : json['pTimeFrom'] === null ? null : (parseDateTime(json['pTimeFrom'])),
+        'pTimeTo': json['pTimeTo'] === undefined ? undefined : json['pTimeTo'] === null ? null : (parseDateTime(json['pTimeTo'])),
     };
 }
 
@@ -80,8 +80,8 @@ export function CourierContactsResponseToJSONTyped(value?: CourierContactsRespon
         'carNumber': value['carNumber'],
         'fullName': value['fullName'],
         'phone': value['phone'],
-        'pTimeFrom': value['pTimeFrom'] == null ? value['pTimeFrom'] : value['pTimeFrom'].toISOString(),
-        'pTimeTo': value['pTimeTo'] == null ? value['pTimeTo'] : value['pTimeTo'].toISOString(),
+        'pTimeFrom': value['pTimeFrom'] == null ? value['pTimeFrom'] : serializeDateTime(value['pTimeFrom']),
+        'pTimeTo': value['pTimeTo'] == null ? value['pTimeTo'] : serializeDateTime(value['pTimeTo']),
     };
 }
 

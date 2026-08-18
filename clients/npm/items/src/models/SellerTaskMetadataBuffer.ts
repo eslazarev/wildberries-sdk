@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Данные ответа
  * @export
@@ -65,8 +65,8 @@ export function SellerTaskMetadataBufferFromJSONTyped(json: any, ignoreDiscrimin
         
         'uploadID': json['uploadID'] == null ? undefined : json['uploadID'],
         'status': json['status'] == null ? undefined : json['status'],
-        'uploadDate': json['uploadDate'] == null ? undefined : (new Date(json['uploadDate'])),
-        'activationDate': json['activationDate'] == null ? undefined : (new Date(json['activationDate'])),
+        'uploadDate': json['uploadDate'] == null ? undefined : (parseDateTime(json['uploadDate'])),
+        'activationDate': json['activationDate'] == null ? undefined : (parseDateTime(json['activationDate'])),
         'overAllGoodsNumber': json['overAllGoodsNumber'] == null ? undefined : json['overAllGoodsNumber'],
         'successGoodsNumber': json['successGoodsNumber'] == null ? undefined : json['successGoodsNumber'],
     };
@@ -85,8 +85,8 @@ export function SellerTaskMetadataBufferToJSONTyped(value?: SellerTaskMetadataBu
         
         'uploadID': value['uploadID'],
         'status': value['status'],
-        'uploadDate': value['uploadDate'] == null ? value['uploadDate'] : value['uploadDate'].toISOString(),
-        'activationDate': value['activationDate'] == null ? value['activationDate'] : value['activationDate'].toISOString(),
+        'uploadDate': value['uploadDate'] == null ? value['uploadDate'] : serializeDateTime(value['uploadDate']),
+        'activationDate': value['activationDate'] == null ? value['activationDate'] : serializeDateTime(value['activationDate']),
         'overAllGoodsNumber': value['overAllGoodsNumber'],
         'successGoodsNumber': value['successGoodsNumber'],
     };

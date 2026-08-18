@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Данные приглашения
  * @export
@@ -61,7 +61,7 @@ export function CreateInviteResponseFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'inviteID': json['inviteID'],
-        'expiredAt': (json['expiredAt'] == null ? json['expiredAt'] : new Date(json['expiredAt'])),
+        'expiredAt': (json['expiredAt'] == null ? json['expiredAt'] : parseDateTime(json['expiredAt'])),
         'isSuccess': json['isSuccess'],
         'inviteUrl': json['inviteUrl'],
     };
@@ -79,7 +79,7 @@ export function CreateInviteResponseToJSONTyped(value?: CreateInviteResponse | n
     return {
         
         'inviteID': value['inviteID'],
-        'expiredAt': value['expiredAt'] == null ? value['expiredAt'] : value['expiredAt'].toISOString(),
+        'expiredAt': value['expiredAt'] == null ? value['expiredAt'] : serializeDateTime(value['expiredAt']),
         'isSuccess': value['isSuccess'],
         'inviteUrl': value['inviteUrl'],
     };

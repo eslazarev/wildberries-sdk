@@ -919,7 +919,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней. - Есть на складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней - Есть в наличии, вне зависимости от склада хранения  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Бренды продавца
      */
     async getV1AnalyticsBrandShareBrandsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetV1AnalyticsBrandShareBrands200Response>> {
@@ -930,7 +930,7 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней. - Есть на складе WB.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
+     * Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>  Можно получить только бренды, которые: - Продавались за последние 90 дней - Есть в наличии, вне зависимости от склада хранения  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | </div> 
      * Бренды продавца
      */
     async getV1AnalyticsBrandShareBrands(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetV1AnalyticsBrandShareBrands200Response> {
@@ -1039,11 +1039,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString().substring(0,10);
+            queryParameters['dateFrom'] = runtime.serializeDate(requestParameters['dateFrom'] as any);
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString().substring(0,10);
+            queryParameters['dateTo'] = runtime.serializeDate(requestParameters['dateTo'] as any);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1104,11 +1104,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString().substring(0,10);
+            queryParameters['dateFrom'] = runtime.serializeDate(requestParameters['dateFrom'] as any);
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString().substring(0,10);
+            queryParameters['dateTo'] = runtime.serializeDate(requestParameters['dateTo'] as any);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1234,11 +1234,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
+            queryParameters['dateFrom'] = runtime.serializeDateTime(requestParameters['dateFrom'] as any);
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
+            queryParameters['dateTo'] = runtime.serializeDateTime(requestParameters['dateTo'] as any);
         }
 
         if (requestParameters['sort'] != null) {
@@ -1315,11 +1315,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
+            queryParameters['dateFrom'] = runtime.serializeDateTime(requestParameters['dateFrom'] as any);
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
+            queryParameters['dateTo'] = runtime.serializeDateTime(requestParameters['dateTo'] as any);
         }
 
         if (requestParameters['limit'] != null) {
@@ -1678,11 +1678,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
+            queryParameters['dateFrom'] = runtime.serializeDateTime(requestParameters['dateFrom'] as any);
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
+            queryParameters['dateTo'] = runtime.serializeDateTime(requestParameters['dateTo'] as any);
         }
 
         if (requestParameters['limit'] != null) {

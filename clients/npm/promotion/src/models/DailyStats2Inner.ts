@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { DailyStats2InnerAppTypeStatsInner } from './DailyStats2InnerAppTypeStatsInner';
 import {
     DailyStats2InnerAppTypeStatsInnerFromJSON,
@@ -54,7 +54,7 @@ export function DailyStats2InnerFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'date': json['date'] == null ? undefined : (new Date(json['date'])),
+        'date': json['date'] == null ? undefined : (parseDateTime(json['date'])),
         'appTypeStats': json['app_type_stats'] == null ? undefined : ((json['app_type_stats'] as Array<any>).map(DailyStats2InnerAppTypeStatsInnerFromJSON)),
     };
 }
@@ -70,7 +70,7 @@ export function DailyStats2InnerToJSONTyped(value?: DailyStats2Inner | null, ign
 
     return {
         
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString(),
+        'date': value['date'] == null ? value['date'] : serializeDateTime(value['date']),
         'app_type_stats': value['appTypeStats'] == null ? undefined : ((value['appTypeStats'] as Array<any>).map(DailyStats2InnerAppTypeStatsInnerToJSON)),
     };
 }

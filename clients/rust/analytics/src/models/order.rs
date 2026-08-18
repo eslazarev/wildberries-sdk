@@ -35,10 +35,10 @@ pub struct Order {
     /// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена 
     #[serde(rename = "cancelType", skip_serializing_if = "Option::is_none")]
     pub cancel_type: Option<CancelType>,
-    /// Название склада
+    /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
     #[serde(rename = "warehouseName")]
     pub warehouse_name: String,
-    /// Федеральный округ склада. Если склад не в России, возвращается страна
+    /// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
     #[serde(rename = "warehouseRegion")]
     pub warehouse_region: String,
     /// Тип склада:   - `true` — склад продавца   - `false` — склад WB 

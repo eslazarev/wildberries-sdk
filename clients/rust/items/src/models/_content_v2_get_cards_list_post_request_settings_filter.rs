@@ -36,7 +36,7 @@ pub struct ContentV2GetCardsListPostRequestSettingsFilter {
     pub brands: Option<Vec<String>>,
     /// Поиск по [ID для объединённых карточек товаров](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
     #[serde(rename = "imtID", skip_serializing_if = "Option::is_none")]
-    pub imt_id: Option<i32>,
+    pub imt_id: Option<i64>,
 }
 
 impl ContentV2GetCardsListPostRequestSettingsFilter {

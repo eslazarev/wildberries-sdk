@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { GetV1Advert200ResponseItemsInnerShowHoursInner } from './GetV1Advert200ResponseItemsInnerShowHoursInner';
 import {
     GetV1Advert200ResponseItemsInnerShowHoursInnerFromJSON,
@@ -173,10 +173,10 @@ export function GetV1Advert200ResponseItemsInnerFromJSONTyped(json: any, ignoreD
         'cpm': json['cpm'] == null ? undefined : json['cpm'],
         'url': json['url'] == null ? undefined : json['url'],
         'advertType': json['advert_type'] == null ? undefined : json['advert_type'],
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'dateFrom': json['date_from'] == null ? undefined : (new Date(json['date_from'])),
-        'dateTo': json['date_to'] == null ? undefined : (new Date(json['date_to'])),
+        'createdAt': json['created_at'] == null ? undefined : (parseDateTime(json['created_at'])),
+        'updatedAt': json['updated_at'] == null ? undefined : (parseDateTime(json['updated_at'])),
+        'dateFrom': json['date_from'] == null ? undefined : (parseDateTime(json['date_from'])),
+        'dateTo': json['date_to'] == null ? undefined : (parseDateTime(json['date_to'])),
         'nms': json['nms'] == null ? undefined : json['nms'],
         'bottomText1': json['bottomText1'] == null ? undefined : json['bottomText1'],
         'bottomText2': json['bottomText2'] == null ? undefined : json['bottomText2'],
@@ -212,10 +212,10 @@ export function GetV1Advert200ResponseItemsInnerToJSONTyped(value?: GetV1Advert2
         'cpm': value['cpm'],
         'url': value['url'],
         'advert_type': value['advertType'],
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'date_from': value['dateFrom'] == null ? value['dateFrom'] : value['dateFrom'].toISOString(),
-        'date_to': value['dateTo'] == null ? value['dateTo'] : value['dateTo'].toISOString(),
+        'created_at': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
+        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
+        'date_from': value['dateFrom'] == null ? value['dateFrom'] : serializeDateTime(value['dateFrom']),
+        'date_to': value['dateTo'] == null ? value['dateTo'] : serializeDateTime(value['dateTo']),
         'nms': value['nms'],
         'bottomText1': value['bottomText1'],
         'bottomText2': value['bottomText2'],

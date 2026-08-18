@@ -46,7 +46,7 @@ type Comparison struct {
 	// Динамика добавлений товара в избранное
 	AddToWishlistDynamic int32 `json:"addToWishlistDynamic"`
 	TimeToReadyDynamic ComparisonTimeToReadyDynamic `json:"timeToReadyDynamic"`
-	// Динамика локальных заказов в рамках одного региона
+	// Динамика локальных заказов в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
 	LocalizationPercentDynamic int32 `json:"localizationPercentDynamic"`
 	WbClubDynamic ComparisonWbClubDynamic `json:"wbClubDynamic"`
 	Conversions StatisticConversions `json:"conversions"`

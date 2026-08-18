@@ -21,11 +21,11 @@ var _ MappedNullable = &TableOfficeItem{}
 
 // TableOfficeItem Данные по складу
 type TableOfficeItem struct {
-	// Регион отгрузки
+	// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
 	RegionName string `json:"regionName"`
-	// ID склада
+	// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
 	OfficeID int64 `json:"officeID"`
-	// Название склада
+	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
 	OfficeName string `json:"officeName"`
 	// Метрики склада
 	Metrics TableCommonMetrics `json:"metrics"`

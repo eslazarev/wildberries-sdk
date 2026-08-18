@@ -147,11 +147,7 @@ paths:
   /api/tariffs/v1/acceptance/coefficients:
     get:
       description: |
-        Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.
-
-        <div class="description_important">
-          Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code>
-        </div>
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -276,6 +272,7 @@ paths:
       operationId: getV1TariffsBox
       parameters:
       - description: Дата в формате ГГГГ-ММ-ДД
+        example: 2026-08-15
         explode: true
         in: query
         name: date
@@ -375,6 +372,7 @@ paths:
       operationId: getV1TariffsPallet
       parameters:
       - description: Дата в формате ГГГГ-ММ-ДД
+        example: 2026-08-15
         explode: true
         in: query
         name: date
@@ -470,6 +468,7 @@ paths:
       operationId: getV1TariffsReturn
       parameters:
       - description: Дата в формате ГГГГ-ММ-ДД
+        example: 2026-08-15
         explode: true
         in: query
         name: date
@@ -629,6 +628,7 @@ components:
   parameters:
     Date:
       description: Дата в формате ГГГГ-ММ-ДД
+      example: 2026-08-15
       explode: true
       in: query
       name: date
@@ -709,8 +709,8 @@ components:
             boxStorageBase: "0,14"
             boxStorageCoefExpr: "115"
             boxStorageLiter: "0,07"
-            geoName: Центральный федеральный округ
-            warehouseName: Коледино
+            geoName: Россия
+            warehouseName: Свой склад СГТ РФ
           - boxDeliveryBase: "48"
             boxDeliveryCoefExpr: "160"
             boxDeliveryLiter: "11,2"
@@ -720,8 +720,8 @@ components:
             boxStorageBase: "0,14"
             boxStorageCoefExpr: "115"
             boxStorageLiter: "0,07"
-            geoName: Центральный федеральный округ
-            warehouseName: Коледино
+            geoName: Россия
+            warehouseName: Свой склад СГТ РФ
       properties:
         data:
           $ref: "#/components/schemas/models.WarehousesBoxRates"
@@ -741,8 +741,8 @@ components:
           boxStorageBase: "0,14"
           boxStorageCoefExpr: "115"
           boxStorageLiter: "0,07"
-          geoName: Центральный федеральный округ
-          warehouseName: Коледино
+          geoName: Россия
+          warehouseName: Свой склад СГТ РФ
         - boxDeliveryBase: "48"
           boxDeliveryCoefExpr: "160"
           boxDeliveryLiter: "11,2"
@@ -752,8 +752,8 @@ components:
           boxStorageBase: "0,14"
           boxStorageCoefExpr: "115"
           boxStorageLiter: "0,07"
-          geoName: Центральный федеральный округ
-          warehouseName: Коледино
+          geoName: Россия
+          warehouseName: Свой склад СГТ РФ
       properties:
         currency:
           description: Валюта тарифов
@@ -785,8 +785,8 @@ components:
         boxStorageBase: "0,14"
         boxStorageCoefExpr: "115"
         boxStorageLiter: "0,07"
-        geoName: Центральный федеральный округ
-        warehouseName: Коледино
+        geoName: Россия
+        warehouseName: Свой склад СГТ РФ
       properties:
         boxDeliveryBase:
           description: "Логистика, первый литр,\_₽"
@@ -828,12 +828,12 @@ components:
           example: "0,07"
           type: string
         geoName:
-          description: "Страна, для РФ\_—\_округ"
-          example: Центральный федеральный округ
+          description: Местонахождение склада
+          example: Россия
           type: string
         warehouseName:
           description: Название склада
-          example: Коледино
+          example: Свой склад СГТ РФ
           type: string
       type: object
     models.RatesPalletResponse:
@@ -848,13 +848,13 @@ components:
             palletDeliveryValueLiter: "11,9"
             palletStorageExpr: "155"
             palletStorageValueExpr: "35.65"
-            warehouseName: Коледино
+            warehouseName: СЦ Брест
           - palletDeliveryExpr: "170"
             palletDeliveryValueBase: "51"
             palletDeliveryValueLiter: "11,9"
             palletStorageExpr: "155"
             palletStorageValueExpr: "35.65"
-            warehouseName: Коледино
+            warehouseName: СЦ Брест
       properties:
         data:
           $ref: "#/components/schemas/models.WarehousesPalletRates"
@@ -870,13 +870,13 @@ components:
           palletDeliveryValueLiter: "11,9"
           palletStorageExpr: "155"
           palletStorageValueExpr: "35.65"
-          warehouseName: Коледино
+          warehouseName: СЦ Брест
         - palletDeliveryExpr: "170"
           palletDeliveryValueBase: "51"
           palletDeliveryValueLiter: "11,9"
           palletStorageExpr: "155"
           palletStorageValueExpr: "35.65"
-          warehouseName: Коледино
+          warehouseName: СЦ Брест
       properties:
         currency:
           description: Валюта тарифов
@@ -904,7 +904,7 @@ components:
         palletDeliveryValueLiter: "11,9"
         palletStorageExpr: "155"
         palletStorageValueExpr: "35.65"
-        warehouseName: Коледино
+        warehouseName: СЦ Брест
       properties:
         palletDeliveryExpr:
           description: "Коэффициент доставки, %. На него умножается стоимость дост\
@@ -930,7 +930,7 @@ components:
           type: string
         warehouseName:
           description: Название склада
-          example: Коледино
+          example: СЦ Брест
           type: string
       type: object
     models.ReturnRatesResponse:
@@ -951,7 +951,7 @@ components:
             deliveryDumpSupOfficeBase: "129"
             deliveryDumpSupOfficeLiter: "9,1"
             deliveryDumpSupReturnExpr: "250"
-            warehouseName: Электросталь
+            warehouseName: Склад WB РФ
           - deliveryDumpKgtOfficeBase: 1 039
             deliveryDumpKgtOfficeLiter: "9,1"
             deliveryDumpKgtReturnExpr: 1 050
@@ -962,7 +962,7 @@ components:
             deliveryDumpSupOfficeBase: "129"
             deliveryDumpSupOfficeLiter: "9,1"
             deliveryDumpSupReturnExpr: "250"
-            warehouseName: Электросталь
+            warehouseName: Склад WB РФ
       properties:
         data:
           $ref: "#/components/schemas/models.WarehousesReturnRates"
@@ -984,7 +984,7 @@ components:
           deliveryDumpSupOfficeBase: "129"
           deliveryDumpSupOfficeLiter: "9,1"
           deliveryDumpSupReturnExpr: "250"
-          warehouseName: Электросталь
+          warehouseName: Склад WB РФ
         - deliveryDumpKgtOfficeBase: 1 039
           deliveryDumpKgtOfficeLiter: "9,1"
           deliveryDumpKgtReturnExpr: 1 050
@@ -995,7 +995,7 @@ components:
           deliveryDumpSupOfficeBase: "129"
           deliveryDumpSupOfficeLiter: "9,1"
           deliveryDumpSupReturnExpr: "250"
-          warehouseName: Электросталь
+          warehouseName: Склад WB РФ
       properties:
         currency:
           description: Валюта тарифов
@@ -1038,7 +1038,7 @@ components:
         deliveryDumpSupOfficeBase: "129"
         deliveryDumpSupOfficeLiter: "9,1"
         deliveryDumpSupReturnExpr: "250"
-        warehouseName: Электросталь
+        warehouseName: Склад WB РФ
       properties:
         deliveryDumpKgtOfficeBase:
           description: |
@@ -1119,7 +1119,7 @@ components:
           type: string
         warehouseName:
           description: Название склада
-          example: Электросталь
+          example: Склад WB РФ
           type: string
       type: object
     models.ErrorModel:
@@ -1248,8 +1248,8 @@ components:
               boxStorageBase: "0,14"
               boxStorageCoefExpr: "115"
               boxStorageLiter: "0,07"
-              geoName: Центральный федеральный округ
-              warehouseName: Коледино
+              geoName: Россия
+              warehouseName: Свой склад СГТ РФ
             - boxDeliveryBase: "48"
               boxDeliveryCoefExpr: "160"
               boxDeliveryLiter: "11,2"
@@ -1259,8 +1259,8 @@ components:
               boxStorageBase: "0,14"
               boxStorageCoefExpr: "115"
               boxStorageLiter: "0,07"
-              geoName: Центральный федеральный округ
-              warehouseName: Коледино
+              geoName: Россия
+              warehouseName: Свой склад СГТ РФ
       properties:
         response:
           $ref: "#/components/schemas/models.RatesBoxResponse"
@@ -1278,13 +1278,13 @@ components:
               palletDeliveryValueLiter: "11,9"
               palletStorageExpr: "155"
               palletStorageValueExpr: "35.65"
-              warehouseName: Коледино
+              warehouseName: СЦ Брест
             - palletDeliveryExpr: "170"
               palletDeliveryValueBase: "51"
               palletDeliveryValueLiter: "11,9"
               palletStorageExpr: "155"
               palletStorageValueExpr: "35.65"
-              warehouseName: Коледино
+              warehouseName: СЦ Брест
       properties:
         response:
           $ref: "#/components/schemas/models.RatesPalletResponse"
@@ -1308,7 +1308,7 @@ components:
               deliveryDumpSupOfficeBase: "129"
               deliveryDumpSupOfficeLiter: "9,1"
               deliveryDumpSupReturnExpr: "250"
-              warehouseName: Электросталь
+              warehouseName: Склад WB РФ
             - deliveryDumpKgtOfficeBase: 1 039
               deliveryDumpKgtOfficeLiter: "9,1"
               deliveryDumpKgtReturnExpr: 1 050
@@ -1319,7 +1319,7 @@ components:
               deliveryDumpSupOfficeBase: "129"
               deliveryDumpSupOfficeLiter: "9,1"
               deliveryDumpSupReturnExpr: "250"
-              warehouseName: Электросталь
+              warehouseName: Склад WB РФ
       properties:
         response:
           $ref: "#/components/schemas/models.ReturnRatesResponse"

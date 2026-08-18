@@ -148,6 +148,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_wholesale_discount_prc' => 'float',
         'b2b_customer_tin' => 'string',
         'paid_with_social_certificate' => 'bool',
+        'warehouse_logistics_coeff' => 'float',
         'order_uid' => 'string',
         'srid' => 'string'
     ];
@@ -250,6 +251,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_wholesale_discount_prc' => null,
         'b2b_customer_tin' => null,
         'paid_with_social_certificate' => null,
+        'warehouse_logistics_coeff' => null,
         'order_uid' => null,
         'srid' => null
     ];
@@ -350,6 +352,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_wholesale_discount_prc' => false,
         'b2b_customer_tin' => false,
         'paid_with_social_certificate' => false,
+        'warehouse_logistics_coeff' => false,
         'order_uid' => false,
         'srid' => false
     ];
@@ -530,6 +533,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_wholesale_discount_prc' => 'salePriceWholesaleDiscountPrc',
         'b2b_customer_tin' => 'b2bCustomerTin',
         'paid_with_social_certificate' => 'paidWithSocialCertificate',
+        'warehouse_logistics_coeff' => 'warehouseLogisticsCoeff',
         'order_uid' => 'orderUid',
         'srid' => 'srid'
     ];
@@ -630,6 +634,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_wholesale_discount_prc' => 'setSalePriceWholesaleDiscountPrc',
         'b2b_customer_tin' => 'setB2bCustomerTin',
         'paid_with_social_certificate' => 'setPaidWithSocialCertificate',
+        'warehouse_logistics_coeff' => 'setWarehouseLogisticsCoeff',
         'order_uid' => 'setOrderUid',
         'srid' => 'setSrid'
     ];
@@ -730,6 +735,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         'sale_price_wholesale_discount_prc' => 'getSalePriceWholesaleDiscountPrc',
         'b2b_customer_tin' => 'getB2bCustomerTin',
         'paid_with_social_certificate' => 'getPaidWithSocialCertificate',
+        'warehouse_logistics_coeff' => 'getWarehouseLogisticsCoeff',
         'order_uid' => 'getOrderUid',
         'srid' => 'getSrid'
     ];
@@ -898,6 +904,7 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('sale_price_wholesale_discount_prc', $data ?? [], null);
         $this->setIfExists('b2b_customer_tin', $data ?? [], null);
         $this->setIfExists('paid_with_social_certificate', $data ?? [], null);
+        $this->setIfExists('warehouse_logistics_coeff', $data ?? [], null);
         $this->setIfExists('order_uid', $data ?? [], null);
         $this->setIfExists('srid', $data ?? [], null);
     }
@@ -1195,6 +1202,9 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ($this->container['paid_with_social_certificate'] === null) {
             $invalidProperties[] = "'paid_with_social_certificate' can't be null";
+        }
+        if ($this->container['warehouse_logistics_coeff'] === null) {
+            $invalidProperties[] = "'warehouse_logistics_coeff' can't be null";
         }
         if ($this->container['order_uid'] === null) {
             $invalidProperties[] = "'order_uid' can't be null";
@@ -3653,6 +3663,33 @@ class SalesReportsDetailedRes implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable paid_with_social_certificate cannot be null');
         }
         $this->container['paid_with_social_certificate'] = $paid_with_social_certificate;
+
+        return $this;
+    }
+
+    /**
+     * Gets warehouse_logistics_coeff
+     *
+     * @return float
+     */
+    public function getWarehouseLogisticsCoeff()
+    {
+        return $this->container['warehouse_logistics_coeff'];
+    }
+
+    /**
+     * Sets warehouse_logistics_coeff
+     *
+     * @param float $warehouse_logistics_coeff Коэффициент логистики
+     *
+     * @return self
+     */
+    public function setWarehouseLogisticsCoeff($warehouse_logistics_coeff)
+    {
+        if (is_null($warehouse_logistics_coeff)) {
+            throw new \InvalidArgumentException('non-nullable warehouse_logistics_coeff cannot be null');
+        }
+        $this->container['warehouse_logistics_coeff'] = $warehouse_logistics_coeff;
 
         return $this;
     }

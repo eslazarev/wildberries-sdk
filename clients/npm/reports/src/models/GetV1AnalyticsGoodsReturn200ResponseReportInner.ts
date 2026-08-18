@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -137,7 +137,7 @@ export function GetV1AnalyticsGoodsReturn200ResponseReportInnerFromJSONTyped(jso
         'expiredDt': json['expiredDt'] === undefined ? undefined : json['expiredDt'] === null ? null : json['expiredDt'],
         'isStatusActive': json['isStatusActive'] == null ? undefined : json['isStatusActive'],
         'nmId': json['nmId'] == null ? undefined : json['nmId'],
-        'orderDt': json['orderDt'] == null ? undefined : (new Date(json['orderDt'])),
+        'orderDt': json['orderDt'] == null ? undefined : (parseDate(json['orderDt'])),
         'orderId': json['orderId'] == null ? undefined : json['orderId'],
         'readyToReturnDt': json['readyToReturnDt'] === undefined ? undefined : json['readyToReturnDt'] === null ? null : json['readyToReturnDt'],
         'reason': json['reason'] == null ? undefined : json['reason'],
@@ -170,7 +170,7 @@ export function GetV1AnalyticsGoodsReturn200ResponseReportInnerToJSONTyped(value
         'expiredDt': value['expiredDt'],
         'isStatusActive': value['isStatusActive'],
         'nmId': value['nmId'],
-        'orderDt': value['orderDt'] == null ? value['orderDt'] : value['orderDt'].toISOString().substring(0,10),
+        'orderDt': value['orderDt'] == null ? value['orderDt'] : serializeDate(value['orderDt']),
         'orderId': value['orderId'],
         'readyToReturnDt': value['readyToReturnDt'],
         'reason': value['reason'],

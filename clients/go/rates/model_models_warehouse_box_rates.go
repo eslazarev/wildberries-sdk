@@ -37,7 +37,7 @@ type ModelsWarehouseBoxRates struct {
 	BoxStorageCoefExpr *string `json:"boxStorageCoefExpr,omitempty"`
 	// Хранение в день, дополнительный литр, ₽
 	BoxStorageLiter *string `json:"boxStorageLiter,omitempty"`
-	// Страна, для РФ — округ
+	// Местонахождение склада
 	GeoName *string `json:"geoName,omitempty"`
 	// Название склада
 	WarehouseName *string `json:"warehouseName,omitempty"`

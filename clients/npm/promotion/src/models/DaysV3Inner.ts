@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { DaysV3InnerAppsInner } from './DaysV3InnerAppsInner';
 import {
     DaysV3InnerAppsInnerFromJSON,
@@ -114,7 +114,7 @@ export function DaysV3InnerFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'apps': ((json['apps'] as Array<any>).map(DaysV3InnerAppsInnerFromJSON)),
         'atbs': json['atbs'],
         'canceled': json['canceled'],
-        'date': (json['date'] == null ? json['date'] : new Date(json['date'])),
+        'date': (json['date'] == null ? json['date'] : parseDateTime(json['date'])),
         'clicks': json['clicks'],
         'cpc': json['cpc'],
         'cr': json['cr'],
@@ -141,7 +141,7 @@ export function DaysV3InnerToJSONTyped(value?: DaysV3Inner | null, ignoreDiscrim
         'apps': ((value['apps'] as Array<any>).map(DaysV3InnerAppsInnerToJSON)),
         'atbs': value['atbs'],
         'canceled': value['canceled'],
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString(),
+        'date': value['date'] == null ? value['date'] : serializeDateTime(value['date']),
         'clicks': value['clicks'],
         'cpc': value['cpc'],
         'cr': value['cr'],

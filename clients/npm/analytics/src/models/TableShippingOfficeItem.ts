@@ -35,7 +35,7 @@ import {
  */
 export interface TableShippingOfficeItem {
     /**
-     * Регион отгрузки
+     * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
      */
     regionName: string;
     /**
@@ -43,7 +43,7 @@ export interface TableShippingOfficeItem {
      */
     metrics: TableShippingOfficeMetrics;
     /**
-     * Данные по складам
+     * Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`
      */
     offices: Array<TableShippingOfficeItemOfficesInner>;
 }

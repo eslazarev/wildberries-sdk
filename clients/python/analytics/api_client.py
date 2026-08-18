@@ -91,7 +91,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/0.1.142/python'
+        self.user_agent = 'OpenAPI-Generator/0.1.143/python'
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):
@@ -439,6 +439,12 @@ class ApiClient:
             return None
 
         if isinstance(klass, str):
+            if klass.startswith('Optional['):
+                m = re.match(r'Optional\[(.*)]', klass)
+                assert m is not None, "Malformed Optional type definition"
+                # data is not None here, so the optionality is already resolved
+                return self.__deserialize(data, m.group(1))
+
             if klass.startswith('List['):
                 m = re.match(r'List\[(.*)]', klass)
                 assert m is not None, "Malformed List type definition"

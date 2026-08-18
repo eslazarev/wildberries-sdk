@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -101,7 +101,7 @@ export function GetRecomResDataInnerFromJSONTyped(json: any, ignoreDiscriminator
         'imtId': json['imtId'],
         'vendorCode': json['vendorCode'],
         'brandName': json['brandName'],
-        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : (new Date(json['updatedAt'])),
+        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : (parseDateTime(json['updatedAt'])),
         'picsCount': json['picsCount'],
         'title': json['title'],
         'subjectName': json['subjectName'],
@@ -127,7 +127,7 @@ export function GetRecomResDataInnerToJSONTyped(value?: GetRecomResDataInner | n
         'imtId': value['imtId'],
         'vendorCode': value['vendorCode'],
         'brandName': value['brandName'],
-        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
         'picsCount': value['picsCount'],
         'title': value['title'],
         'subjectName': value['subjectName'],

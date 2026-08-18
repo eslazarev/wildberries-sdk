@@ -47,7 +47,7 @@ export class APIApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['from'] != null) {
-            queryParameters['from'] = (requestParameters['from'] as any).toISOString().substring(0,10);
+            queryParameters['from'] = runtime.serializeDate(requestParameters['from'] as any);
         }
 
         if (requestParameters['fromID'] != null) {

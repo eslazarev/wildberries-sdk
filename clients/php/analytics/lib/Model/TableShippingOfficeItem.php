@@ -326,7 +326,7 @@ class TableShippingOfficeItem implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets region_name
      *
-     * @param string $region_name Регион отгрузки
+     * @param string $region_name Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class TableShippingOfficeItem implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets offices
      *
-     * @param \Wildberries\Sdk\Analytics\Model\TableShippingOfficeItemOfficesInner[] $offices Данные по складам
+     * @param \Wildberries\Sdk\Analytics\Model\TableShippingOfficeItemOfficesInner[] $offices Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`
      *
      * @return self
      */

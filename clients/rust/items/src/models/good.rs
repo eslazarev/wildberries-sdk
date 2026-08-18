@@ -17,11 +17,11 @@ pub struct Good {
     #[serde(rename = "nmID")]
     pub nm_id: i32,
     /// Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post), поле `currencyIsoCode4217`
-    #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
-    pub price: Option<i32>,
+    #[serde(rename = "price", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub price: Option<Option<i32>>,
     /// Скидка, %
-    #[serde(rename = "discount", skip_serializing_if = "Option::is_none")]
-    pub discount: Option<i32>,
+    #[serde(rename = "discount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub discount: Option<Option<i32>>,
 }
 
 impl Good {

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Ответ
  * @export
@@ -52,7 +52,7 @@ export function GetV1Question200ResponseDataAnswerFromJSONTyped(json: any, ignor
         
         'text': json['text'] == null ? undefined : json['text'],
         'editable': json['editable'] == null ? undefined : json['editable'],
-        'createDate': json['createDate'] == null ? undefined : (new Date(json['createDate'])),
+        'createDate': json['createDate'] == null ? undefined : (parseDateTime(json['createDate'])),
     };
 }
 
@@ -69,7 +69,7 @@ export function GetV1Question200ResponseDataAnswerToJSONTyped(value?: GetV1Quest
         
         'text': value['text'],
         'editable': value['editable'],
-        'createDate': value['createDate'] == null ? value['createDate'] : value['createDate'].toISOString(),
+        'createDate': value['createDate'] == null ? value['createDate'] : serializeDateTime(value['createDate']),
     };
 }
 

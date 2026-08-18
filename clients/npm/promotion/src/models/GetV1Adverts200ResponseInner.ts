@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -86,8 +86,8 @@ export function GetV1Adverts200ResponseInnerFromJSONTyped(json: any, ignoreDiscr
         'brand': json['brand'] == null ? undefined : json['brand'],
         'type': json['type'] == null ? undefined : json['type'],
         'status': json['status'] == null ? undefined : json['status'],
-        'createTime': json['createTime'] == null ? undefined : (new Date(json['createTime'])),
-        'endTime': json['endTime'] == null ? undefined : (new Date(json['endTime'])),
+        'createTime': json['createTime'] == null ? undefined : (parseDateTime(json['createTime'])),
+        'endTime': json['endTime'] == null ? undefined : (parseDateTime(json['endTime'])),
     };
 }
 
@@ -107,8 +107,8 @@ export function GetV1Adverts200ResponseInnerToJSONTyped(value?: GetV1Adverts200R
         'brand': value['brand'],
         'type': value['type'],
         'status': value['status'],
-        'createTime': value['createTime'] == null ? value['createTime'] : value['createTime'].toISOString(),
-        'endTime': value['endTime'] == null ? value['endTime'] : value['endTime'].toISOString(),
+        'createTime': value['createTime'] == null ? value['createTime'] : serializeDateTime(value['createTime']),
+        'endTime': value['endTime'] == null ? value['endTime'] : serializeDateTime(value['endTime']),
     };
 }
 

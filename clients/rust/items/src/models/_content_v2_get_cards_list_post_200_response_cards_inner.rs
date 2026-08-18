@@ -18,7 +18,7 @@ pub struct ContentV2GetCardsListPost200ResponseCardsInner {
     pub nm_id: Option<i32>,
     /// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
     #[serde(rename = "imtID", skip_serializing_if = "Option::is_none")]
-    pub imt_id: Option<i32>,
+    pub imt_id: Option<i64>,
     /// Внутренний технический ID карточки товара
     #[serde(rename = "nmUUID", skip_serializing_if = "Option::is_none")]
     pub nm_uuid: Option<uuid::Uuid>,

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Информация о приглашении, если пользователь приглашён
  * @export
@@ -63,7 +63,7 @@ export function GetUsersResponseUsersInnerInviteeInfoFromJSONTyped(json: any, ig
         'phoneNumber': json['phoneNumber'] == null ? undefined : json['phoneNumber'],
         'position': json['position'] == null ? undefined : json['position'],
         'inviteUuid': json['inviteUuid'] == null ? undefined : json['inviteUuid'],
-        'expiredAt': json['expiredAt'] == null ? undefined : (new Date(json['expiredAt'])),
+        'expiredAt': json['expiredAt'] == null ? undefined : (parseDateTime(json['expiredAt'])),
         'isActive': json['isActive'] == null ? undefined : json['isActive'],
     };
 }
@@ -82,7 +82,7 @@ export function GetUsersResponseUsersInnerInviteeInfoToJSONTyped(value?: GetUser
         'phoneNumber': value['phoneNumber'],
         'position': value['position'],
         'inviteUuid': value['inviteUuid'],
-        'expiredAt': value['expiredAt'] == null ? value['expiredAt'] : value['expiredAt'].toISOString(),
+        'expiredAt': value['expiredAt'] == null ? value['expiredAt'] : serializeDateTime(value['expiredAt']),
         'isActive': value['isActive'],
     };
 }

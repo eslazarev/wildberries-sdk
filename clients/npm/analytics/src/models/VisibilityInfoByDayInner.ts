@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -53,7 +53,7 @@ export function VisibilityInfoByDayInnerFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'dt': (json['dt'] == null ? json['dt'] : new Date(json['dt'])),
+        'dt': (json['dt'] == null ? json['dt'] : parseDate(json['dt'])),
         'visibility': json['visibility'],
         'open': json['open'],
     };
@@ -70,7 +70,7 @@ export function VisibilityInfoByDayInnerToJSONTyped(value?: VisibilityInfoByDayI
 
     return {
         
-        'dt': value['dt'] == null ? value['dt'] : value['dt'].toISOString().substring(0,10),
+        'dt': value['dt'] == null ? value['dt'] : serializeDate(value['dt']),
         'visibility': value['visibility'],
         'open': value['open'],
     };

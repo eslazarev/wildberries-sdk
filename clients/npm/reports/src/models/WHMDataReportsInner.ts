@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -82,7 +82,7 @@ export function WHMDataReportsInnerFromJSONTyped(json: any, ignoreDiscriminator:
         'length': json['length'] == null ? undefined : json['length'],
         'height': json['height'] == null ? undefined : json['height'],
         'photoUrls': json['photoUrls'] == null ? undefined : json['photoUrls'],
-        'dt': json['dt'] == null ? undefined : (new Date(json['dt'])),
+        'dt': json['dt'] == null ? undefined : (parseDateTime(json['dt'])),
     };
 }
 
@@ -105,7 +105,7 @@ export function WHMDataReportsInnerToJSONTyped(value?: WHMDataReportsInner | nul
         'length': value['length'],
         'height': value['height'],
         'photoUrls': value['photoUrls'],
-        'dt': value['dt'] == null ? value['dt'] : value['dt'].toISOString(),
+        'dt': value['dt'] == null ? value['dt'] : serializeDateTime(value['dt']),
     };
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { Event } from './Event';
 import {
     EventFromJSON,
@@ -67,8 +67,8 @@ export function EventsResultFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'next': json['next'] == null ? undefined : json['next'],
-        'newestEventTime': json['newestEventTime'] == null ? undefined : (new Date(json['newestEventTime'])),
-        'oldestEventTime': json['oldestEventTime'] == null ? undefined : (new Date(json['oldestEventTime'])),
+        'newestEventTime': json['newestEventTime'] == null ? undefined : (parseDateTime(json['newestEventTime'])),
+        'oldestEventTime': json['oldestEventTime'] == null ? undefined : (parseDateTime(json['oldestEventTime'])),
         'totalEvents': json['totalEvents'] == null ? undefined : json['totalEvents'],
         'events': json['events'] == null ? undefined : ((json['events'] as Array<any>).map(EventFromJSON)),
     };
@@ -86,8 +86,8 @@ export function EventsResultToJSONTyped(value?: EventsResult | null, ignoreDiscr
     return {
         
         'next': value['next'],
-        'newestEventTime': value['newestEventTime'] == null ? value['newestEventTime'] : value['newestEventTime'].toISOString(),
-        'oldestEventTime': value['oldestEventTime'] == null ? value['oldestEventTime'] : value['oldestEventTime'].toISOString(),
+        'newestEventTime': value['newestEventTime'] == null ? value['newestEventTime'] : serializeDateTime(value['newestEventTime']),
+        'oldestEventTime': value['oldestEventTime'] == null ? value['oldestEventTime'] : serializeDateTime(value['oldestEventTime']),
         'totalEvents': value['totalEvents'],
         'events': value['events'] == null ? undefined : ((value['events'] as Array<any>).map(EventToJSON)),
     };

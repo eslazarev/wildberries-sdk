@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { V1GetNormQueryStatsRequestItemsInner } from './V1GetNormQueryStatsRequestItemsInner';
 import {
     V1GetNormQueryStatsRequestItemsInnerFromJSON,
@@ -61,8 +61,8 @@ export function V1GetNormQueryStatsRequestFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'from': (json['from'] == null ? json['from'] : new Date(json['from'])),
-        'to': (json['to'] == null ? json['to'] : new Date(json['to'])),
+        'from': (json['from'] == null ? json['from'] : parseDate(json['from'])),
+        'to': (json['to'] == null ? json['to'] : parseDate(json['to'])),
         'items': ((json['items'] as Array<any>).map(V1GetNormQueryStatsRequestItemsInnerFromJSON)),
     };
 }
@@ -78,8 +78,8 @@ export function V1GetNormQueryStatsRequestToJSONTyped(value?: V1GetNormQueryStat
 
     return {
         
-        'from': value['from'] == null ? value['from'] : value['from'].toISOString().substring(0,10),
-        'to': value['to'] == null ? value['to'] : value['to'].toISOString().substring(0,10),
+        'from': value['from'] == null ? value['from'] : serializeDate(value['from']),
+        'to': value['to'] == null ? value['to'] : serializeDate(value['to']),
         'items': ((value['items'] as Array<any>).map(V1GetNormQueryStatsRequestItemsInnerToJSON)),
     };
 }

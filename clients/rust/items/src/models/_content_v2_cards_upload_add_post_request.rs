@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct ContentV2CardsUploadAddPostRequest {
     /// `imtID` отдельной карточки товара или группы [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки 
     #[serde(rename = "imtID", skip_serializing_if = "Option::is_none")]
-    pub imt_id: Option<i32>,
+    pub imt_id: Option<i64>,
     /// Добавляемые карточки товаров
     #[serde(rename = "cardsToAdd", skip_serializing_if = "Option::is_none")]
     pub cards_to_add: Option<Vec<models::ContentV2CardsUploadAddPostRequestCardsToAddInner>>,

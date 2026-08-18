@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -79,9 +79,9 @@ export function GetV1Advert200ResponseExtendedFromJSONTyped(json: any, ignoreDis
         
         'reason': json['reason'] === undefined ? undefined : json['reason'] === null ? null : json['reason'],
         'expenses': json['expenses'] == null ? undefined : json['expenses'],
-        'from': json['from'] == null ? undefined : (new Date(json['from'])),
-        'to': json['to'] == null ? undefined : (new Date(json['to'])),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
+        'from': json['from'] == null ? undefined : (parseDateTime(json['from'])),
+        'to': json['to'] == null ? undefined : (parseDateTime(json['to'])),
+        'updatedAt': json['updated_at'] == null ? undefined : (parseDateTime(json['updated_at'])),
         'price': json['price'] == null ? undefined : json['price'],
         'budget': json['budget'] == null ? undefined : json['budget'],
         'operation': json['operation'] == null ? undefined : json['operation'],
@@ -102,9 +102,9 @@ export function GetV1Advert200ResponseExtendedToJSONTyped(value?: GetV1Advert200
         
         'reason': value['reason'],
         'expenses': value['expenses'],
-        'from': value['from'] == null ? value['from'] : value['from'].toISOString(),
-        'to': value['to'] == null ? value['to'] : value['to'].toISOString(),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'from': value['from'] == null ? value['from'] : serializeDateTime(value['from']),
+        'to': value['to'] == null ? value['to'] : serializeDateTime(value['to']),
+        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
         'price': value['price'],
         'budget': value['budget'],
         'operation': value['operation'],

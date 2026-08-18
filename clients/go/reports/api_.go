@@ -1178,8 +1178,8 @@ GetV1AnalyticsBrandShareBrands Бренды продавца
 Метод возвращает список брендов продавца для отчёта о [доле бренда в продажах](https://seller.wildberries.ru/analytics-reports/brand-share). <br><br>
 
 Можно получить только бренды, которые:
-- Продавались за последние 90 дней.
-- Есть на складе WB.
+- Продавались за последние 90 дней
+- Есть в наличии, вне зависимости от склада хранения
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

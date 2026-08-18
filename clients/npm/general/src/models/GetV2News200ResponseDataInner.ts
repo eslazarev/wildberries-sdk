@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { GetV2News200ResponseDataInnerTypesInner } from './GetV2News200ResponseDataInnerTypesInner';
 import {
     GetV2News200ResponseDataInnerTypesInnerFromJSON,
@@ -67,7 +67,7 @@ export function GetV2News200ResponseDataInnerFromJSONTyped(json: any, ignoreDisc
     return {
         
         'content': json['content'] == null ? undefined : json['content'],
-        'date': json['date'] == null ? undefined : (new Date(json['date'])),
+        'date': json['date'] == null ? undefined : (parseDateTime(json['date'])),
         'header': json['header'] == null ? undefined : json['header'],
         'id': json['id'] == null ? undefined : json['id'],
         'types': json['types'] == null ? undefined : ((json['types'] as Array<any>).map(GetV2News200ResponseDataInnerTypesInnerFromJSON)),
@@ -86,7 +86,7 @@ export function GetV2News200ResponseDataInnerToJSONTyped(value?: GetV2News200Res
     return {
         
         'content': value['content'],
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString(),
+        'date': value['date'] == null ? value['date'] : serializeDateTime(value['date']),
         'header': value['header'],
         'id': value['id'],
         'types': value['types'] == null ? undefined : ((value['types'] as Array<any>).map(GetV2News200ResponseDataInnerTypesInnerToJSON)),

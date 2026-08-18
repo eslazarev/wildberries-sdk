@@ -1272,11 +1272,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['startDateTime'] != null) {
-            queryParameters['startDateTime'] = (requestParameters['startDateTime'] as any).toISOString();
+            queryParameters['startDateTime'] = runtime.serializeDateTime(requestParameters['startDateTime'] as any);
         }
 
         if (requestParameters['endDateTime'] != null) {
-            queryParameters['endDateTime'] = (requestParameters['endDateTime'] as any).toISOString();
+            queryParameters['endDateTime'] = runtime.serializeDateTime(requestParameters['endDateTime'] as any);
         }
 
         if (requestParameters['allPromo'] != null) {
@@ -1548,11 +1548,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['from'] != null) {
-            queryParameters['from'] = (requestParameters['from'] as any).toISOString().substring(0,10);
+            queryParameters['from'] = runtime.serializeDate(requestParameters['from'] as any);
         }
 
         if (requestParameters['to'] != null) {
-            queryParameters['to'] = (requestParameters['to'] as any).toISOString().substring(0,10);
+            queryParameters['to'] = runtime.serializeDate(requestParameters['to'] as any);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1710,11 +1710,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['from'] != null) {
-            queryParameters['from'] = (requestParameters['from'] as any).toISOString().substring(0,10);
+            queryParameters['from'] = runtime.serializeDate(requestParameters['from'] as any);
         }
 
         if (requestParameters['to'] != null) {
-            queryParameters['to'] = (requestParameters['to'] as any).toISOString().substring(0,10);
+            queryParameters['to'] = runtime.serializeDate(requestParameters['to'] as any);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1841,11 +1841,11 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['beginDate'] != null) {
-            queryParameters['beginDate'] = (requestParameters['beginDate'] as any).toISOString().substring(0,10);
+            queryParameters['beginDate'] = runtime.serializeDate(requestParameters['beginDate'] as any);
         }
 
         if (requestParameters['endDate'] != null) {
-            queryParameters['endDate'] = (requestParameters['endDate'] as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = runtime.serializeDate(requestParameters['endDate'] as any);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

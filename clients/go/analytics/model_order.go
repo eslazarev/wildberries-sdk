@@ -36,9 +36,9 @@ type Order struct {
 	Status string `json:"status"`
 	// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена 
 	CancelType *string `json:"cancelType,omitempty"`
-	// Название склада
+	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
 	WarehouseName string `json:"warehouseName"`
-	// Федеральный округ склада. Если склад не в России, возвращается страна
+	// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
 	WarehouseRegion string `json:"warehouseRegion"`
 	// Тип склада:   - `true` — склад продавца   - `false` — склад WB 
 	IsMp bool `json:"isMp"`

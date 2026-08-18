@@ -338,16 +338,16 @@ conf = wildberries_sdk.analytics.Configuration(
 
         # urllib3 does not read proxy environment variables itself:
         # https://github.com/urllib3/urllib3/issues/1785
+        # A proxy taken from the environment is re-resolved when the host is
+        # assigned; see the host setter.
+        self._proxy_from_env = proxy is None
         if proxy is None or no_proxy is None:
             proxies = getproxies()
             if proxy is None:
-                scheme = urlparse(self.host).scheme
-                proxy = proxies.get(scheme) or proxies.get("all")
+                proxy = self._env_proxy(proxies, self.host)
             if no_proxy is None:
                 no_proxy = proxies.get("no")
-        self.proxy = proxy
-        """Proxy URL
-        """
+        self._proxy = proxy
         self.no_proxy = no_proxy
         """Hosts that bypass the proxy
         """
@@ -583,7 +583,7 @@ conf = wildberries_sdk.analytics.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: analytics\n"\
-               "SDK Package Version: 0.1.142".\
+               "SDK Package Version: 0.1.143".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
@@ -653,3 +653,23 @@ conf = wildberries_sdk.analytics.Configuration(
         """Fix base path."""
         self._base_path = value
         self.server_index = None
+        if self._proxy_from_env:
+            # the scheme-specific proxy depends on the host, which is
+            # commonly assigned after construction
+            self._proxy = self._env_proxy(getproxies(), value)
+
+    @staticmethod
+    def _env_proxy(proxies: Dict[str, str], host: str) -> Optional[str]:
+        """Pick the environment proxy that applies to `host`."""
+        return proxies.get(urlparse(host).scheme) or proxies.get("all")
+
+    @property
+    def proxy(self) -> Optional[str]:
+        """Proxy URL
+        """
+        return self._proxy
+
+    @proxy.setter
+    def proxy(self, value: Optional[str]) -> None:
+        self._proxy = value
+        self._proxy_from_env = False

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -133,9 +133,9 @@ export function SupplyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
         'isB2b': json['isB2b'] === undefined ? undefined : json['isB2b'] === null ? null : json['isB2b'],
         'isPickupPointShipmentAllowed': json['isPickupPointShipmentAllowed'] == null ? undefined : json['isPickupPointShipmentAllowed'],
         'done': json['done'] == null ? undefined : json['done'],
-        'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
-        'closedAt': json['closedAt'] === undefined ? undefined : json['closedAt'] === null ? null : (new Date(json['closedAt'])),
-        'scanDt': json['scanDt'] === undefined ? undefined : json['scanDt'] === null ? null : (new Date(json['scanDt'])),
+        'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
+        'closedAt': json['closedAt'] === undefined ? undefined : json['closedAt'] === null ? null : (parseDateTime(json['closedAt'])),
+        'scanDt': json['scanDt'] === undefined ? undefined : json['scanDt'] === null ? null : (parseDateTime(json['scanDt'])),
         'name': json['name'] == null ? undefined : json['name'],
         'cargoType': json['cargoType'] == null ? undefined : json['cargoType'],
         'crossBorderType': json['crossBorderType'] === undefined ? undefined : json['crossBorderType'] === null ? null : json['crossBorderType'],
@@ -159,9 +159,9 @@ export function SupplyToJSONTyped(value?: Supply | null, ignoreDiscriminator: bo
         'isB2b': value['isB2b'],
         'isPickupPointShipmentAllowed': value['isPickupPointShipmentAllowed'],
         'done': value['done'],
-        'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'closedAt': value['closedAt'] == null ? value['closedAt'] : value['closedAt'].toISOString(),
-        'scanDt': value['scanDt'] == null ? value['scanDt'] : value['scanDt'].toISOString(),
+        'createdAt': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
+        'closedAt': value['closedAt'] == null ? value['closedAt'] : serializeDateTime(value['closedAt']),
+        'scanDt': value['scanDt'] == null ? value['scanDt'] : serializeDateTime(value['scanDt']),
         'name': value['name'],
         'cargoType': value['cargoType'],
         'crossBorderType': value['crossBorderType'],

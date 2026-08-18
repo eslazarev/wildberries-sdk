@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { ModelsVolumeTariff } from './ModelsVolumeTariff';
 import {
     ModelsVolumeTariffFromJSON,
@@ -68,7 +68,7 @@ export function ModelsTransitTariffFromJSONTyped(json: any, ignoreDiscriminator:
         
         'transitWarehouseName': json['transitWarehouseName'] == null ? undefined : json['transitWarehouseName'],
         'destinationWarehouseName': json['destinationWarehouseName'] == null ? undefined : json['destinationWarehouseName'],
-        'activeFrom': json['activeFrom'] == null ? undefined : (new Date(json['activeFrom'])),
+        'activeFrom': json['activeFrom'] == null ? undefined : (parseDateTime(json['activeFrom'])),
         'boxTariff': json['boxTariff'] === undefined ? undefined : json['boxTariff'] === null ? null : ((json['boxTariff'] as Array<any>).map(ModelsVolumeTariffFromJSON)),
         'palletTariff': json['palletTariff'] == null ? undefined : json['palletTariff'],
     };
@@ -87,7 +87,7 @@ export function ModelsTransitTariffToJSONTyped(value?: ModelsTransitTariff | nul
         
         'transitWarehouseName': value['transitWarehouseName'],
         'destinationWarehouseName': value['destinationWarehouseName'],
-        'activeFrom': value['activeFrom'] == null ? value['activeFrom'] : value['activeFrom'].toISOString(),
+        'activeFrom': value['activeFrom'] == null ? value['activeFrom'] : serializeDateTime(value['activeFrom']),
         'boxTariff': value['boxTariff'] == null ? undefined : ((value['boxTariff'] as Array<any>).map(ModelsVolumeTariffToJSON)),
         'palletTariff': value['palletTariff'],
     };

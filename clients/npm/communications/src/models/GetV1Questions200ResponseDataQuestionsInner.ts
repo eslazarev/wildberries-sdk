@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { GetV1Questions200ResponseDataQuestionsInnerAnswer } from './GetV1Questions200ResponseDataQuestionsInnerAnswer';
 import {
     GetV1Questions200ResponseDataQuestionsInnerAnswerFromJSON,
@@ -93,7 +93,7 @@ export function GetV1Questions200ResponseDataQuestionsInnerFromJSONTyped(json: a
         
         'id': json['id'] == null ? undefined : json['id'],
         'text': json['text'] == null ? undefined : json['text'],
-        'createdDate': json['createdDate'] == null ? undefined : (new Date(json['createdDate'])),
+        'createdDate': json['createdDate'] == null ? undefined : (parseDateTime(json['createdDate'])),
         'state': json['state'] == null ? undefined : json['state'],
         'answer': json['answer'] === undefined ? undefined : json['answer'] === null ? null : GetV1Questions200ResponseDataQuestionsInnerAnswerFromJSON(json['answer']),
         'productDetails': json['productDetails'] == null ? undefined : GetV1Questions200ResponseDataQuestionsInnerProductDetailsFromJSON(json['productDetails']),
@@ -115,7 +115,7 @@ export function GetV1Questions200ResponseDataQuestionsInnerToJSONTyped(value?: G
         
         'id': value['id'],
         'text': value['text'],
-        'createdDate': value['createdDate'] == null ? value['createdDate'] : value['createdDate'].toISOString(),
+        'createdDate': value['createdDate'] == null ? value['createdDate'] : serializeDateTime(value['createdDate']),
         'state': value['state'],
         'answer': GetV1Questions200ResponseDataQuestionsInnerAnswerToJSON(value['answer']),
         'productDetails': GetV1Questions200ResponseDataQuestionsInnerProductDetailsToJSON(value['productDetails']),

@@ -22,7 +22,7 @@ type ContentV2GetCardsListPost200ResponseCardsInner struct {
 	// Артикул WB
 	NmID *int32 `json:"nmID,omitempty"`
 	// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
-	ImtID *int32 `json:"imtID,omitempty"`
+	ImtID *int64 `json:"imtID,omitempty"`
 	// Внутренний технический ID карточки товара
 	NmUUID *string `json:"nmUUID,omitempty"`
 	// ID предмета
@@ -113,9 +113,9 @@ func (o *ContentV2GetCardsListPost200ResponseCardsInner) SetNmID(v int32) {
 }
 
 // GetImtID returns the ImtID field value if set, zero value otherwise.
-func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetImtID() int32 {
+func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetImtID() int64 {
 	if o == nil || IsNil(o.ImtID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ImtID
@@ -123,7 +123,7 @@ func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetImtID() int32 {
 
 // GetImtIDOk returns a tuple with the ImtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetImtIDOk() (*int32, bool) {
+func (o *ContentV2GetCardsListPost200ResponseCardsInner) GetImtIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ImtID) {
 		return nil, false
 	}
@@ -139,8 +139,8 @@ func (o *ContentV2GetCardsListPost200ResponseCardsInner) HasImtID() bool {
 	return false
 }
 
-// SetImtID gets a reference to the given int32 and assigns it to the ImtID field.
-func (o *ContentV2GetCardsListPost200ResponseCardsInner) SetImtID(v int32) {
+// SetImtID gets a reference to the given int64 and assigns it to the ImtID field.
+func (o *ContentV2GetCardsListPost200ResponseCardsInner) SetImtID(v int64) {
 	o.ImtID = &v
 }
 

@@ -615,7 +615,7 @@ class ModelsWarehouseBoxRates implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets geo_name
      *
-     * @param string|null $geo_name Страна, для РФ — округ
+     * @param string|null $geo_name Местонахождение склада
      *
      * @return self
      */

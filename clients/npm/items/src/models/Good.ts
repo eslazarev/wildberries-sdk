@@ -26,11 +26,11 @@ export interface Good {
     /**
      * Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post), поле `currencyIsoCode4217`
      */
-    price?: number;
+    price?: number | null;
     /**
      * Скидка, %
      */
-    discount?: number;
+    discount?: number | null;
 }
 
 /**
@@ -52,8 +52,8 @@ export function GoodFromJSONTyped(json: any, ignoreDiscriminator: boolean): Good
     return {
         
         'nmID': json['nmID'],
-        'price': json['price'] == null ? undefined : json['price'],
-        'discount': json['discount'] == null ? undefined : json['discount'],
+        'price': json['price'] === undefined ? undefined : json['price'] === null ? null : json['price'],
+        'discount': json['discount'] === undefined ? undefined : json['discount'] === null ? null : json['discount'],
     };
 }
 

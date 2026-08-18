@@ -28,9 +28,9 @@ class TableOfficeItem(BaseModel):
     """
     Данные по складу
     """ # noqa: E501
-    region_name: StrictStr = Field(description="Регион отгрузки", alias="regionName", json_schema_extra={"examples": ["Центральный"]})
-    office_id: StrictInt = Field(description="ID склада", alias="officeID", json_schema_extra={"examples": [123456]})
-    office_name: StrictStr = Field(description="Название склада", alias="officeName", json_schema_extra={"examples": ["Коледино"]})
+    region_name: StrictStr = Field(description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`", alias="regionName", json_schema_extra={"examples": ["Склад WB"]})
+    office_id: StrictInt = Field(description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`", alias="officeID", json_schema_extra={"examples": [-999999]})
+    office_name: StrictStr = Field(description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`", alias="officeName", json_schema_extra={"examples": [""]})
     metrics: TableCommonMetrics = Field(description="Метрики склада")
     __properties: ClassVar[List[str]] = ["regionName", "officeID", "officeName", "metrics"]
 

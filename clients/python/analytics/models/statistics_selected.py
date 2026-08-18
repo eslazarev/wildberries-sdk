@@ -45,7 +45,7 @@ class StatisticsSelected(BaseModel):
     share_order_percent: Union[StrictFloat, StrictInt] = Field(description="Доля в выручке", alias="shareOrderPercent", json_schema_extra={"examples": [3]})
     add_to_wishlist: StrictInt = Field(description="Добавили в **Отложенные**", alias="addToWishlist", json_schema_extra={"examples": [455]})
     time_to_ready: StatisticTimeToReady = Field(alias="timeToReady")
-    localization_percent: StrictInt = Field(description="Локальные заказы в рамках одного региона", alias="localizationPercent", json_schema_extra={"examples": [46]})
+    localization_percent: StrictInt = Field(description="Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`", alias="localizationPercent", json_schema_extra={"examples": [100]})
     wb_club: StatisticWbClub = Field(alias="wbClub")
     conversions: StatisticConversions
     __properties: ClassVar[List[str]] = ["period", "openCount", "cartCount", "orderCount", "orderSum", "buyoutCount", "buyoutSum", "cancelCount", "cancelSum", "avgPrice", "avgOrdersCountPerDay", "shareOrderPercent", "addToWishlist", "timeToReady", "localizationPercent", "wbClub", "conversions"]

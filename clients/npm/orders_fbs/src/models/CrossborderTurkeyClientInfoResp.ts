@@ -30,7 +30,7 @@ export interface CrossborderTurkeyClientInfoResp {
     /**
      * Информация по клиенту для трансграничных поставок из Турции
      */
-    orders?: Array<CrossborderTurkeyClientInfo>;
+    orders?: Array<CrossborderTurkeyClientInfo> | null;
 }
 
 /**
@@ -50,7 +50,7 @@ export function CrossborderTurkeyClientInfoRespFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'orders': json['orders'] == null ? undefined : ((json['orders'] as Array<any>).map(CrossborderTurkeyClientInfoFromJSON)),
+        'orders': json['orders'] === undefined ? undefined : json['orders'] === null ? null : ((json['orders'] as Array<any>).map(CrossborderTurkeyClientInfoFromJSON)),
     };
 }
 

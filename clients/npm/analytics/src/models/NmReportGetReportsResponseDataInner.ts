@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -85,8 +85,8 @@ export function NmReportGetReportsResponseDataInnerFromJSONTyped(json: any, igno
         'status': json['status'],
         'name': json['name'],
         'size': json['size'],
-        'startDate': (json['startDate'] == null ? json['startDate'] : new Date(json['startDate'])),
-        'endDate': (json['endDate'] == null ? json['endDate'] : new Date(json['endDate'])),
+        'startDate': (json['startDate'] == null ? json['startDate'] : parseDate(json['startDate'])),
+        'endDate': (json['endDate'] == null ? json['endDate'] : parseDate(json['endDate'])),
     };
 }
 
@@ -106,8 +106,8 @@ export function NmReportGetReportsResponseDataInnerToJSONTyped(value?: NmReportG
         'status': value['status'],
         'name': value['name'],
         'size': value['size'],
-        'startDate': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
-        'endDate': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
+        'startDate': value['startDate'] == null ? value['startDate'] : serializeDate(value['startDate']),
+        'endDate': value['endDate'] == null ? value['endDate'] : serializeDate(value['endDate']),
     };
 }
 

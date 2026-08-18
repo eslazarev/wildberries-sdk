@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -48,8 +48,8 @@ export function ItemsRequestSelectedPeriodFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'start': (json['start'] == null ? json['start'] : new Date(json['start'])),
-        'end': (json['end'] == null ? json['end'] : new Date(json['end'])),
+        'start': (json['start'] == null ? json['start'] : parseDate(json['start'])),
+        'end': (json['end'] == null ? json['end'] : parseDate(json['end'])),
     };
 }
 
@@ -64,8 +64,8 @@ export function ItemsRequestSelectedPeriodToJSONTyped(value?: ItemsRequestSelect
 
     return {
         
-        'start': value['start'] == null ? value['start'] : value['start'].toISOString().substring(0,10),
-        'end': value['end'] == null ? value['end'] : value['end'].toISOString().substring(0,10),
+        'start': value['start'] == null ? value['start'] : serializeDate(value['start']),
+        'end': value['end'] == null ? value['end'] : serializeDate(value['end']),
     };
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -93,7 +93,7 @@ export function HistoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): H
     }
     return {
         
-        'date': (json['date'] == null ? json['date'] : new Date(json['date'])),
+        'date': (json['date'] == null ? json['date'] : parseDate(json['date'])),
         'openCount': json['openCount'],
         'cartCount': json['cartCount'],
         'orderCount': json['orderCount'],
@@ -118,7 +118,7 @@ export function HistoryToJSONTyped(value?: History | null, ignoreDiscriminator: 
 
     return {
         
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString().substring(0,10),
+        'date': value['date'] == null ? value['date'] : serializeDate(value['date']),
         'openCount': value['openCount'],
         'cartCount': value['cartCount'],
         'orderCount': value['orderCount'],

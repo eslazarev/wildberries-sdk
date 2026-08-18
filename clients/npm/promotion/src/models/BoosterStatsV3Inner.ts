@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -54,7 +54,7 @@ export function BoosterStatsV3InnerFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'avgPosition': json['avg_position'],
-        'date': (json['date'] == null ? json['date'] : new Date(json['date'])),
+        'date': (json['date'] == null ? json['date'] : parseDate(json['date'])),
         'nm': json['nm'],
     };
 }
@@ -71,7 +71,7 @@ export function BoosterStatsV3InnerToJSONTyped(value?: BoosterStatsV3Inner | nul
     return {
         
         'avg_position': value['avgPosition'],
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString().substring(0,10),
+        'date': value['date'] == null ? value['date'] : serializeDate(value['date']),
         'nm': value['nm'],
     };
 }

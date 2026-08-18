@@ -483,7 +483,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets log_warehouse_coef
      *
-     * @param float|null $log_warehouse_coef Коэффициент логистики и хранения
+     * @param float|null $log_warehouse_coef Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
      *
      * @return self
      */
@@ -510,7 +510,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets office_id
      *
-     * @param int|null $office_id ID склада
+     * @param int|null $office_id ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
      *
      * @return self
      */
@@ -537,7 +537,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets warehouse
      *
-     * @param string|null $warehouse Название склада
+     * @param string|null $warehouse Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB РФ`
      *
      * @return self
      */
@@ -564,7 +564,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets warehouse_coef
      *
-     * @param float|null $warehouse_coef Коэффициент склада
+     * @param float|null $warehouse_coef Коэффициент хранения
      *
      * @return self
      */
@@ -915,7 +915,7 @@ class ResponsePaidStorageInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets pallet_place_code
      *
-     * @param int|null $pallet_place_code Код паллетоместа
+     * @param int|null $pallet_place_code Код паллетоместа. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `0`
      *
      * @return self
      */

@@ -18,7 +18,7 @@ pub struct GetRecomResDataInner {
     pub nm_id: i32,
     /// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
     #[serde(rename = "imtId")]
-    pub imt_id: i32,
+    pub imt_id: i64,
     /// Артикул продавца
     #[serde(rename = "vendorCode")]
     pub vendor_code: String,
@@ -52,7 +52,7 @@ pub struct GetRecomResDataInner {
 }
 
 impl GetRecomResDataInner {
-    pub fn new(nm_id: i32, imt_id: i32, vendor_code: String, brand_name: String, pics_count: i32, title: String, subject_name: String, pic: String, recom_count: i32, recom_pics: Vec<String>, recom_nms: Vec<i32>) -> GetRecomResDataInner {
+    pub fn new(nm_id: i32, imt_id: i64, vendor_code: String, brand_name: String, pics_count: i32, title: String, subject_name: String, pic: String, recom_count: i32, recom_pics: Vec<String>, recom_nms: Vec<i32>) -> GetRecomResDataInner {
         GetRecomResDataInner {
             nm_id,
             imt_id,

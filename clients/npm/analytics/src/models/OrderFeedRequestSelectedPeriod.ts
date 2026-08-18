@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Запрашиваемый период. По дате текущего статуса заказа
  * @export
@@ -47,8 +47,8 @@ export function OrderFeedRequestSelectedPeriodFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'start': (json['start'] == null ? json['start'] : new Date(json['start'])),
-        'end': json['end'] == null ? undefined : (new Date(json['end'])),
+        'start': (json['start'] == null ? json['start'] : parseDateTime(json['start'])),
+        'end': json['end'] == null ? undefined : (parseDateTime(json['end'])),
     };
 }
 
@@ -63,8 +63,8 @@ export function OrderFeedRequestSelectedPeriodToJSONTyped(value?: OrderFeedReque
 
     return {
         
-        'start': value['start'] == null ? value['start'] : value['start'].toISOString(),
-        'end': value['end'] == null ? value['end'] : value['end'].toISOString(),
+        'start': value['start'] == null ? value['start'] : serializeDateTime(value['start']),
+        'end': value['end'] == null ? value['end'] : serializeDateTime(value['end']),
     };
 }
 

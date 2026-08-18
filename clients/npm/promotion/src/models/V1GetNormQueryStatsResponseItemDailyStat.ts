@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { V1GetNormQueryStatsResponseItemStat } from './V1GetNormQueryStatsResponseItemStat';
 import {
     V1GetNormQueryStatsResponseItemStatFromJSON,
@@ -55,7 +55,7 @@ export function V1GetNormQueryStatsResponseItemDailyStatFromJSONTyped(json: any,
     }
     return {
         
-        'date': (json['date'] == null ? json['date'] : new Date(json['date'])),
+        'date': (json['date'] == null ? json['date'] : parseDate(json['date'])),
         'stat': json['stat'] == null ? undefined : V1GetNormQueryStatsResponseItemStatFromJSON(json['stat']),
     };
 }
@@ -71,7 +71,7 @@ export function V1GetNormQueryStatsResponseItemDailyStatToJSONTyped(value?: V1Ge
 
     return {
         
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString().substring(0,10),
+        'date': value['date'] == null ? value['date'] : serializeDate(value['date']),
         'stat': V1GetNormQueryStatsResponseItemStatToJSON(value['stat']),
     };
 }

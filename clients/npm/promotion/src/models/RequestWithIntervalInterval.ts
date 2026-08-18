@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Временной диапазон, за который необходимо выдать данные
  * @export
@@ -46,8 +46,8 @@ export function RequestWithIntervalIntervalFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'begin': json['begin'] == null ? undefined : (new Date(json['begin'])),
-        'end': json['end'] == null ? undefined : (new Date(json['end'])),
+        'begin': json['begin'] == null ? undefined : (parseDate(json['begin'])),
+        'end': json['end'] == null ? undefined : (parseDate(json['end'])),
     };
 }
 
@@ -62,8 +62,8 @@ export function RequestWithIntervalIntervalToJSONTyped(value?: RequestWithInterv
 
     return {
         
-        'begin': value['begin'] == null ? value['begin'] : value['begin'].toISOString().substring(0,10),
-        'end': value['end'] == null ? value['end'] : value['end'].toISOString().substring(0,10),
+        'begin': value['begin'] == null ? value['begin'] : serializeDate(value['begin']),
+        'end': value['end'] == null ? value['end'] : serializeDate(value['end']),
     };
 }
 

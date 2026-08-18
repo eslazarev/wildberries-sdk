@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner } from './ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInner';
 import {
     ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInnerFromJSON,
@@ -58,7 +58,7 @@ export function ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerFromJSONTyped(
     }
     return {
         
-        'deliveryDate': json['deliveryDate'] == null ? undefined : (new Date(json['deliveryDate'])),
+        'deliveryDate': json['deliveryDate'] == null ? undefined : (parseDateTime(json['deliveryDate'])),
         'statuses': json['statuses'] == null ? undefined : ((json['statuses'] as Array<any>).map(ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInnerFromJSON)),
         'orderID': json['orderID'] == null ? undefined : json['orderID'],
     };
@@ -75,7 +75,7 @@ export function ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerToJSONTyped(va
 
     return {
         
-        'deliveryDate': value['deliveryDate'] == null ? value['deliveryDate'] : value['deliveryDate'].toISOString(),
+        'deliveryDate': value['deliveryDate'] == null ? value['deliveryDate'] : serializeDateTime(value['deliveryDate']),
         'statuses': value['statuses'] == null ? undefined : ((value['statuses'] as Array<any>).map(ApiV3OrdersStatusHistoryPost200ResponseOrdersInnerStatusesInnerToJSON)),
         'orderID': value['orderID'],
     };

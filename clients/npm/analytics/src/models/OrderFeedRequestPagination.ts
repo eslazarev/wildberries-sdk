@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Пагинация
  * @export
@@ -50,7 +50,7 @@ export function OrderFeedRequestPaginationFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'snapshotTime': json['snapshotTime'] == null ? undefined : (new Date(json['snapshotTime'])),
+        'snapshotTime': json['snapshotTime'] == null ? undefined : (parseDateTime(json['snapshotTime'])),
         'offset': json['offset'] == null ? undefined : json['offset'],
         'limit': json['limit'] == null ? undefined : json['limit'],
     };
@@ -67,7 +67,7 @@ export function OrderFeedRequestPaginationToJSONTyped(value?: OrderFeedRequestPa
 
     return {
         
-        'snapshotTime': value['snapshotTime'] == null ? value['snapshotTime'] : value['snapshotTime'].toISOString(),
+        'snapshotTime': value['snapshotTime'] == null ? value['snapshotTime'] : serializeDateTime(value['snapshotTime']),
         'offset': value['offset'],
         'limit': value['limit'],
     };

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { GetV1Advert200ResponseItemsInner } from './GetV1Advert200ResponseItemsInner';
 import {
     GetV1Advert200ResponseItemsInnerFromJSON,
@@ -108,7 +108,7 @@ export function GetV1Advert200ResponseFromJSONTyped(json: any, ignoreDiscriminat
         'brand': json['brand'] == null ? undefined : json['brand'],
         'type': json['type'] == null ? undefined : json['type'],
         'status': json['status'] == null ? undefined : json['status'],
-        'createTime': json['createTime'] == null ? undefined : (new Date(json['createTime'])),
+        'createTime': json['createTime'] == null ? undefined : (parseDateTime(json['createTime'])),
         'extended': json['extended'] == null ? undefined : GetV1Advert200ResponseExtendedFromJSON(json['extended']),
         'items': json['items'] == null ? undefined : ((json['items'] as Array<any>).map(GetV1Advert200ResponseItemsInnerFromJSON)),
     };
@@ -130,7 +130,7 @@ export function GetV1Advert200ResponseToJSONTyped(value?: GetV1Advert200Response
         'brand': value['brand'],
         'type': value['type'],
         'status': value['status'],
-        'createTime': value['createTime'] == null ? value['createTime'] : value['createTime'].toISOString(),
+        'createTime': value['createTime'] == null ? value['createTime'] : serializeDateTime(value['createTime']),
         'extended': GetV1Advert200ResponseExtendedToJSON(value['extended']),
         'items': value['items'] == null ? undefined : ((value['items'] as Array<any>).map(GetV1Advert200ResponseItemsInnerToJSON)),
     };

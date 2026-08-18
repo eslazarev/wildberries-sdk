@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Пагинатор
  * @export
@@ -57,7 +57,7 @@ export function ViewerContractPublicErrorsCursorOutputFromJSONTyped(json: any, i
     return {
         
         'next': json['next'],
-        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : new Date(json['updatedAt'])),
+        'updatedAt': (json['updatedAt'] == null ? json['updatedAt'] : parseDateTime(json['updatedAt'])),
         'batchUUID': json['batchUUID'],
     };
 }
@@ -74,7 +74,7 @@ export function ViewerContractPublicErrorsCursorOutputToJSONTyped(value?: Viewer
     return {
         
         'next': value['next'],
-        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
         'batchUUID': value['batchUUID'],
     };
 }

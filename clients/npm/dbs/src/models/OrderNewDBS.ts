@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { OrderNewDBSAddress } from './OrderNewDBSAddress';
 import {
     OrderNewDBSAddressFromJSON,
@@ -224,7 +224,7 @@ export function OrderNewDBSFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'article': json['article'] == null ? undefined : json['article'],
         'colorCode': json['colorCode'] == null ? undefined : json['colorCode'],
         'rid': json['rid'] === undefined ? undefined : json['rid'] === null ? null : json['rid'],
-        'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
+        'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
         'deliveryType': json['deliveryType'] == null ? undefined : json['deliveryType'],
         'skus': json['skus'] == null ? undefined : json['skus'],
         'id': json['id'] == null ? undefined : json['id'],
@@ -264,7 +264,7 @@ export function OrderNewDBSToJSONTyped(value?: OrderNewDBS | null, ignoreDiscrim
         'article': value['article'],
         'colorCode': value['colorCode'],
         'rid': value['rid'],
-        'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
+        'createdAt': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
         'deliveryType': value['deliveryType'],
         'skus': value['skus'],
         'id': value['id'],

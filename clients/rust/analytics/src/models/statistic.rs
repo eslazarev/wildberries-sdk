@@ -54,7 +54,7 @@ pub struct Statistic {
     pub add_to_wishlist: i32,
     #[serde(rename = "timeToReady")]
     pub time_to_ready: Box<models::StatisticTimeToReady>,
-    /// Локальные заказы в рамках одного региона
+    /// Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`
     #[serde(rename = "localizationPercent")]
     pub localization_percent: i32,
     #[serde(rename = "wbClub")]

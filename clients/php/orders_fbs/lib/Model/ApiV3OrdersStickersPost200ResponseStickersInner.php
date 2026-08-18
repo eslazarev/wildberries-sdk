@@ -76,7 +76,7 @@ class ApiV3OrdersStickersPost200ResponseStickersInner implements ModelInterface,
         'part_a' => null,
         'part_b' => null,
         'barcode' => null,
-        'file' => 'byte'
+        'file' => null
     ];
 
     /**
@@ -438,7 +438,7 @@ class ApiV3OrdersStickersPost200ResponseStickersInner implements ModelInterface,
     /**
      * Sets file
      *
-     * @param string|null $file Полное представление стикера в заданном формате (кодировка base64)
+     * @param string|null $file Полное представление стикера в заданном формате
      *
      * @return self
      */

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Список отчётов об издержках на приём платежей
  * @export
@@ -80,9 +80,9 @@ export function AcquiringReportListResFromJSONTyped(json: any, ignoreDiscriminat
         
         'reportId': json['reportId'],
         'sellerFinanceName': json['sellerFinanceName'],
-        'dateFrom': (json['dateFrom'] == null ? json['dateFrom'] : new Date(json['dateFrom'])),
-        'dateTo': (json['dateTo'] == null ? json['dateTo'] : new Date(json['dateTo'])),
-        'createDate': (json['createDate'] == null ? json['createDate'] : new Date(json['createDate'])),
+        'dateFrom': (json['dateFrom'] == null ? json['dateFrom'] : parseDate(json['dateFrom'])),
+        'dateTo': (json['dateTo'] == null ? json['dateTo'] : parseDate(json['dateTo'])),
+        'createDate': (json['createDate'] == null ? json['createDate'] : parseDate(json['createDate'])),
         'currency': json['currency'],
         'acquiringFeeSum': json['acquiringFeeSum'],
         'acquiringFeeVatSum': json['acquiringFeeVatSum'],
@@ -102,9 +102,9 @@ export function AcquiringReportListResToJSONTyped(value?: AcquiringReportListRes
         
         'reportId': value['reportId'],
         'sellerFinanceName': value['sellerFinanceName'],
-        'dateFrom': value['dateFrom'] == null ? value['dateFrom'] : value['dateFrom'].toISOString().substring(0,10),
-        'dateTo': value['dateTo'] == null ? value['dateTo'] : value['dateTo'].toISOString().substring(0,10),
-        'createDate': value['createDate'] == null ? value['createDate'] : value['createDate'].toISOString().substring(0,10),
+        'dateFrom': value['dateFrom'] == null ? value['dateFrom'] : serializeDate(value['dateFrom']),
+        'dateTo': value['dateTo'] == null ? value['dateTo'] : serializeDate(value['dateTo']),
+        'createDate': value['createDate'] == null ? value['createDate'] : serializeDate(value['createDate']),
         'currency': value['currency'],
         'acquiringFeeSum': value['acquiringFeeSum'],
         'acquiringFeeVatSum': value['acquiringFeeVatSum'],

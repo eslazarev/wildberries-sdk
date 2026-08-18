@@ -80,7 +80,7 @@ class GetRecomResDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $openAPIFormats = [
         'nm_id' => null,
-        'imt_id' => null,
+        'imt_id' => 'int64',
         'vendor_code' => null,
         'brand_name' => null,
         'updated_at' => 'date-time',

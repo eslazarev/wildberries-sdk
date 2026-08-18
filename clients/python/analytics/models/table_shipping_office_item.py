@@ -29,9 +29,9 @@ class TableShippingOfficeItem(BaseModel):
     """
     Данные по региону отгрузки
     """ # noqa: E501
-    region_name: StrictStr = Field(description="Регион отгрузки", alias="regionName", json_schema_extra={"examples": ["Центральный"]})
+    region_name: StrictStr = Field(description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`", alias="regionName", json_schema_extra={"examples": ["Склад WB"]})
     metrics: TableShippingOfficeMetrics = Field(description="Метрики по региону")
-    offices: List[TableShippingOfficeItemOfficesInner] = Field(description="Данные по складам")
+    offices: List[TableShippingOfficeItemOfficesInner] = Field(description="Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`", json_schema_extra={"examples": [[]]})
     __properties: ClassVar[List[str]] = ["regionName", "metrics", "offices"]
 
     model_config = ConfigDict(

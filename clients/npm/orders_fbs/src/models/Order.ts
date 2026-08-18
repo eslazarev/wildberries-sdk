@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { OrderAddress } from './OrderAddress';
 import {
     OrderAddressFromJSON,
@@ -214,7 +214,7 @@ export function OrderFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ord
         'article': json['article'] == null ? undefined : json['article'],
         'colorCode': json['colorCode'] == null ? undefined : json['colorCode'],
         'rid': json['rid'] == null ? undefined : json['rid'],
-        'createdAt': json['createdAt'] == null ? undefined : (new Date(json['createdAt'])),
+        'createdAt': json['createdAt'] == null ? undefined : (parseDateTime(json['createdAt'])),
         'offices': json['offices'] === undefined ? undefined : json['offices'] === null ? null : json['offices'],
         'skus': json['skus'] == null ? undefined : json['skus'],
         'id': json['id'] == null ? undefined : json['id'],
@@ -253,7 +253,7 @@ export function OrderToJSONTyped(value?: Order | null, ignoreDiscriminator: bool
         'article': value['article'],
         'colorCode': value['colorCode'],
         'rid': value['rid'],
-        'createdAt': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
+        'createdAt': value['createdAt'] == null ? value['createdAt'] : serializeDateTime(value['createdAt']),
         'offices': value['offices'],
         'skus': value['skus'],
         'id': value['id'],

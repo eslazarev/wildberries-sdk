@@ -76,6 +76,11 @@ class CrossborderTurkeyClientInfoResp(BaseModel):
             for _item_orders in self.orders:
                 _items.append(_item_orders.to_dict() if _item_orders is not None else None)
             _dict['orders'] = _items
+        # set to None if orders (nullable) is None
+        # and model_fields_set contains the field
+        if self.orders is None and "orders" in self.model_fields_set:
+            _dict['orders'] = None
+
         return _dict
 
     @classmethod

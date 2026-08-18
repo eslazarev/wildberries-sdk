@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -53,7 +53,7 @@ export function ItemOrdersMetricsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'dt': (json['dt'] == null ? json['dt'] : new Date(json['dt'])),
+        'dt': (json['dt'] == null ? json['dt'] : parseDate(json['dt'])),
         'avgPosition': json['avgPosition'],
         'orders': json['orders'],
     };
@@ -70,7 +70,7 @@ export function ItemOrdersMetricsToJSONTyped(value?: ItemOrdersMetrics | null, i
 
     return {
         
-        'dt': value['dt'] == null ? value['dt'] : value['dt'].toISOString().substring(0,10),
+        'dt': value['dt'] == null ? value['dt'] : serializeDate(value['dt']),
         'avgPosition': value['avgPosition'],
         'orders': value['orders'],
     };

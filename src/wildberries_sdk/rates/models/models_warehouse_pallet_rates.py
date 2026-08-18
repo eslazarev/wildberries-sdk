@@ -32,7 +32,7 @@ class ModelsWarehousePalletRates(BaseModel):
     pallet_delivery_value_liter: Optional[StrictStr] = Field(default=None, description="Доставка каждого дополнительного литра, ₽", alias="palletDeliveryValueLiter", json_schema_extra={"examples": ["11,9"]})
     pallet_storage_expr: Optional[StrictStr] = Field(default=None, description="Коэффициент хранения, %. На него умножается стоимость хранения. Во всех тарифах этот коэффициент уже учтён", alias="palletStorageExpr", json_schema_extra={"examples": ["155"]})
     pallet_storage_value_expr: Optional[StrictStr] = Field(default=None, description="Хранение 1 монопаллеты, ₽", alias="palletStorageValueExpr", json_schema_extra={"examples": ["35.65"]})
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName", json_schema_extra={"examples": ["Коледино"]})
+    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName", json_schema_extra={"examples": ["СЦ Брест"]})
     __properties: ClassVar[List[str]] = ["palletDeliveryExpr", "palletDeliveryValueBase", "palletDeliveryValueLiter", "palletStorageExpr", "palletStorageValueExpr", "warehouseName"]
 
     model_config = ConfigDict(

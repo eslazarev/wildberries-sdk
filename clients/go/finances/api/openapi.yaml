@@ -1777,7 +1777,7 @@ components:
         retailAmount: "367"
         salePercent: 0
         commissionPercent: 24
-        officeName: Коледино
+        officeName: Склад WB
         sellerOperName: Продажа
         orderDt: 2026-03-14T00:00:00Z
         saleDt: 2026-03-21T00:00:00Z
@@ -1843,6 +1843,7 @@ components:
         salePriceWholesaleDiscountPrc: 0
         b2bCustomerTin: "010101010101"
         paidWithSocialCertificate: false
+        warehouseLogisticsCoeff: 0
         orderUid: id375f16c4bec295d9995393af803ff7b
         srid: 0f1c3999172603062979867564654dac5b702849
       properties:
@@ -1958,7 +1959,7 @@ components:
           type: number
         officeName:
           description: Склад
-          example: Коледино
+          example: Склад WB
           type: string
         sellerOperName:
           description: Обоснование для оплаты
@@ -2228,6 +2229,10 @@ components:
           description: Оплата социальным сертификатом
           example: false
           type: boolean
+        warehouseLogisticsCoeff:
+          description: Коэффициент логистики
+          example: 0
+          type: number
         orderUid:
           description: |
             ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
@@ -2326,6 +2331,7 @@ components:
       - vendorCode
       - vw
       - vwNds
+      - warehouseLogisticsCoeff
       - wibesDiscountPercent
       type: object
     AcquiringReportListReq:

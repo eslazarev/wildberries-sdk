@@ -621,7 +621,7 @@ func (r ApiGetV1TransitTariffsRequest) Execute() ([]ModelsTransitTariff, *http.R
 /*
 GetV1TransitTariffs Транзитные направления
 
-Метод возвращает информацию о доступных транзитных направлениях.
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -768,7 +768,7 @@ func (r ApiGetV1WarehousesRequest) Execute() ([]ModelsWarehousesResultItems, *ht
 /*
 GetV1Warehouses Список складов
 
-Метод возвращает список складов WB.
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -928,7 +928,7 @@ func (r ApiPostV1AcceptanceOptionsRequest) Execute() (*ModelsOptionsResultModel,
 /*
 PostV1AcceptanceOptions Опции приёмки
 
-Метод возвращает информацию о том, какие склады и типы упаковки доступны для поставки. Список складов определяется по баркоду и количеству товара.
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:

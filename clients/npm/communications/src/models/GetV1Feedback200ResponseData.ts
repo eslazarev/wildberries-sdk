@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { GetV1Feedback200ResponseDataPhotoLinksInner } from './GetV1Feedback200ResponseDataPhotoLinksInner';
 import {
     GetV1Feedback200ResponseDataPhotoLinksInnerFromJSON,
@@ -212,7 +212,7 @@ export function GetV1Feedback200ResponseDataFromJSONTyped(json: any, ignoreDiscr
         'cons': json['cons'] == null ? undefined : json['cons'],
         'matchingSize': json['matchingSize'] == null ? undefined : json['matchingSize'],
         'productValuation': json['productValuation'] == null ? undefined : json['productValuation'],
-        'createdDate': json['createdDate'] == null ? undefined : (new Date(json['createdDate'])),
+        'createdDate': json['createdDate'] == null ? undefined : (parseDateTime(json['createdDate'])),
         'answer': json['answer'] === undefined ? undefined : json['answer'] === null ? null : GetV1Feedback200ResponseDataAnswerFromJSON(json['answer']),
         'state': json['state'] == null ? undefined : json['state'],
         'productDetails': json['productDetails'] == null ? undefined : GetV1Feedback200ResponseDataProductDetailsFromJSON(json['productDetails']),
@@ -255,7 +255,7 @@ export function GetV1Feedback200ResponseDataToJSONTyped(value?: GetV1Feedback200
         'cons': value['cons'],
         'matchingSize': value['matchingSize'],
         'productValuation': value['productValuation'],
-        'createdDate': value['createdDate'] == null ? value['createdDate'] : value['createdDate'].toISOString(),
+        'createdDate': value['createdDate'] == null ? value['createdDate'] : serializeDateTime(value['createdDate']),
         'answer': GetV1Feedback200ResponseDataAnswerToJSON(value['answer']),
         'state': value['state'],
         'productDetails': GetV1Feedback200ResponseDataProductDetailsToJSON(value['productDetails']),

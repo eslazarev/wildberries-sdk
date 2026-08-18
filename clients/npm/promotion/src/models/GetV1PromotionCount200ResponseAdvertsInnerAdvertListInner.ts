@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -47,7 +47,7 @@ export function GetV1PromotionCount200ResponseAdvertsInnerAdvertListInnerFromJSO
     return {
         
         'advertId': json['advertId'] == null ? undefined : json['advertId'],
-        'changeTime': json['changeTime'] == null ? undefined : (new Date(json['changeTime'])),
+        'changeTime': json['changeTime'] == null ? undefined : (parseDateTime(json['changeTime'])),
     };
 }
 
@@ -63,7 +63,7 @@ export function GetV1PromotionCount200ResponseAdvertsInnerAdvertListInnerToJSONT
     return {
         
         'advertId': value['advertId'],
-        'changeTime': value['changeTime'] == null ? value['changeTime'] : value['changeTime'].toISOString(),
+        'changeTime': value['changeTime'] == null ? value['changeTime'] : serializeDateTime(value['changeTime']),
     };
 }
 

@@ -32,7 +32,7 @@ type ContentV2GetCardsListPostRequestSettingsFilter struct {
 	// Поиск по брендам
 	Brands []string `json:"brands,omitempty"`
 	// Поиск по [ID для объединённых карточек товаров](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-	ImtID *int32 `json:"imtID,omitempty"`
+	ImtID *int64 `json:"imtID,omitempty"`
 }
 
 // NewContentV2GetCardsListPostRequestSettingsFilter instantiates a new ContentV2GetCardsListPostRequestSettingsFilter object
@@ -249,9 +249,9 @@ func (o *ContentV2GetCardsListPostRequestSettingsFilter) SetBrands(v []string) {
 }
 
 // GetImtID returns the ImtID field value if set, zero value otherwise.
-func (o *ContentV2GetCardsListPostRequestSettingsFilter) GetImtID() int32 {
+func (o *ContentV2GetCardsListPostRequestSettingsFilter) GetImtID() int64 {
 	if o == nil || IsNil(o.ImtID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ImtID
@@ -259,7 +259,7 @@ func (o *ContentV2GetCardsListPostRequestSettingsFilter) GetImtID() int32 {
 
 // GetImtIDOk returns a tuple with the ImtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2GetCardsListPostRequestSettingsFilter) GetImtIDOk() (*int32, bool) {
+func (o *ContentV2GetCardsListPostRequestSettingsFilter) GetImtIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ImtID) {
 		return nil, false
 	}
@@ -275,8 +275,8 @@ func (o *ContentV2GetCardsListPostRequestSettingsFilter) HasImtID() bool {
 	return false
 }
 
-// SetImtID gets a reference to the given int32 and assigns it to the ImtID field.
-func (o *ContentV2GetCardsListPostRequestSettingsFilter) SetImtID(v int32) {
+// SetImtID gets a reference to the given int64 and assigns it to the ImtID field.
+func (o *ContentV2GetCardsListPostRequestSettingsFilter) SetImtID(v int64) {
 	o.ImtID = &v
 }
 

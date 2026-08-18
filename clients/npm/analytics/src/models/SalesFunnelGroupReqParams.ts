@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * Параметры отчёта
  * @export
@@ -80,8 +80,8 @@ export function SalesFunnelGroupReqParamsFromJSONTyped(json: any, ignoreDiscrimi
         'subjectIds': json['subjectIds'] == null ? undefined : json['subjectIds'],
         'brandNames': json['brandNames'] == null ? undefined : json['brandNames'],
         'tagIds': json['tagIds'] == null ? undefined : json['tagIds'],
-        'startDate': (json['startDate'] == null ? json['startDate'] : new Date(json['startDate'])),
-        'endDate': (json['endDate'] == null ? json['endDate'] : new Date(json['endDate'])),
+        'startDate': (json['startDate'] == null ? json['startDate'] : parseDate(json['startDate'])),
+        'endDate': (json['endDate'] == null ? json['endDate'] : parseDate(json['endDate'])),
         'timezone': json['timezone'] == null ? undefined : json['timezone'],
         'aggregationLevel': json['aggregationLevel'] == null ? undefined : json['aggregationLevel'],
         'skipDeletedNm': json['skipDeletedNm'] == null ? undefined : json['skipDeletedNm'],
@@ -102,8 +102,8 @@ export function SalesFunnelGroupReqParamsToJSONTyped(value?: SalesFunnelGroupReq
         'subjectIds': value['subjectIds'],
         'brandNames': value['brandNames'],
         'tagIds': value['tagIds'],
-        'startDate': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString().substring(0,10),
-        'endDate': value['endDate'] == null ? value['endDate'] : value['endDate'].toISOString().substring(0,10),
+        'startDate': value['startDate'] == null ? value['startDate'] : serializeDate(value['startDate']),
+        'endDate': value['endDate'] == null ? value['endDate'] : serializeDate(value['endDate']),
         'timezone': value['timezone'],
         'aggregationLevel': value['aggregationLevel'],
         'skipDeletedNm': value['skipDeletedNm'],

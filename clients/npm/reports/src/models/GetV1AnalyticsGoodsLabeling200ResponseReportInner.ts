@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -67,7 +67,7 @@ export function GetV1AnalyticsGoodsLabeling200ResponseReportInnerFromJSONTyped(j
     return {
         
         'amount': json['amount'] == null ? undefined : json['amount'],
-        'date': json['date'] == null ? undefined : (new Date(json['date'])),
+        'date': json['date'] == null ? undefined : (parseDateTime(json['date'])),
         'incomeId': json['incomeId'] == null ? undefined : json['incomeId'],
         'nmID': json['nmID'] == null ? undefined : json['nmID'],
         'photoUrls': json['photoUrls'] == null ? undefined : json['photoUrls'],
@@ -88,7 +88,7 @@ export function GetV1AnalyticsGoodsLabeling200ResponseReportInnerToJSONTyped(val
     return {
         
         'amount': value['amount'],
-        'date': value['date'] == null ? value['date'] : value['date'].toISOString(),
+        'date': value['date'] == null ? value['date'] : serializeDateTime(value['date']),
         'incomeId': value['incomeId'],
         'nmID': value['nmID'],
         'photoUrls': value['photoUrls'],

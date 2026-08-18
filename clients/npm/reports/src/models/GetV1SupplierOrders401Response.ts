@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -77,7 +77,7 @@ export function GetV1SupplierOrders401ResponseFromJSONTyped(json: any, ignoreDis
         'origin': json['origin'] == null ? undefined : json['origin'],
         'status': json['status'] == null ? undefined : json['status'],
         'statusText': json['statusText'] == null ? undefined : json['statusText'],
-        'timestamp': json['timestamp'] == null ? undefined : (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'] == null ? undefined : (parseDateTime(json['timestamp'])),
     };
 }
 
@@ -99,7 +99,7 @@ export function GetV1SupplierOrders401ResponseToJSONTyped(value?: GetV1SupplierO
         'origin': value['origin'],
         'status': value['status'],
         'statusText': value['statusText'],
-        'timestamp': value['timestamp'] == null ? value['timestamp'] : value['timestamp'].toISOString(),
+        'timestamp': value['timestamp'] == null ? value['timestamp'] : serializeDateTime(value['timestamp']),
     };
 }
 

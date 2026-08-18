@@ -286,6 +286,9 @@ pub struct SalesReportsDetailedRes {
     /// Оплата социальным сертификатом
     #[serde(rename = "paidWithSocialCertificate")]
     pub paid_with_social_certificate: bool,
+    /// Коэффициент логистики
+    #[serde(rename = "warehouseLogisticsCoeff")]
+    pub warehouse_logistics_coeff: f64,
     /// ID корзины заказа — транзакции.<br>Заказы в одной корзине покупателя будут иметь одинаковый `orderUid` 
     #[serde(rename = "orderUid")]
     pub order_uid: String,
@@ -296,7 +299,7 @@ pub struct SalesReportsDetailedRes {
 
 impl SalesReportsDetailedRes {
     /// Детализации к отчётам реализации
-    pub fn new(report_id: i64, date_from: chrono::NaiveDate, date_to: chrono::NaiveDate, create_date: chrono::NaiveDate, currency: String, report_type: ReportType, rrd_id: i32, gi_id: i32, dlv_prc: f64, fix_tariff_date_from: chrono::NaiveDate, fix_tariff_date_to: chrono::NaiveDate, subject_name: String, nm_id: i32, brand_name: String, vendor_code: String, title: String, tech_size: String, sku: String, doc_type_name: String, quantity: i32, retail_price: String, retail_amount: String, sale_percent: i32, commission_percent: f64, office_name: String, seller_oper_name: String, order_dt: chrono::DateTime<chrono::FixedOffset>, sale_dt: chrono::DateTime<chrono::FixedOffset>, rr_date: chrono::NaiveDate, shk_id: i32, retail_price_with_disc: String, delivery_amount: i32, return_amount: i32, delivery_service: String, gi_box_type_name: String, product_discount_for_report: f64, seller_promo: String, spp: f64, kvw_base: f64, kvw: f64, sup_rating_up: f64, is_kgvp_v2: f64, ppvz_sales_commission: String, for_pay: String, ppvz_reward: String, acquiring_fee: String, acquiring_percent: f64, payment_processing: String, acquiring_bank: String, vw: String, vw_nds: String, ppvz_office_name: String, ppvz_office_id: i32, ppvz_supplier_name: String, ppvz_supplier_inn: String, declaration_number: String, sticker_id: String, country: String, srv_dbs: bool, penalty: String, additional_payment: String, rebill_logistic_cost: String, paid_storage: String, deduction: String, paid_acceptance: String, order_id: i32, is_b2b: bool, trbx_id: String, installment_cofinancing_amount: String, wibes_discount_percent: f64, cashback_amount: String, cashback_discount: String, cashback_commission_change: String, payment_schedule: String, delivery_method: String, seller_promo_id: i32, seller_promo_discount: f64, loyalty_id: i32, loyalty_discount: f64, uuid_promocode: String, sale_price_promocode_discount_prc: f64, article_substitution: String, sale_price_affiliated_discount_prc: f64, sale_price_wholesale_discount_prc: f64, b2b_customer_tin: String, paid_with_social_certificate: bool, order_uid: String, srid: String) -> SalesReportsDetailedRes {
+    pub fn new(report_id: i64, date_from: chrono::NaiveDate, date_to: chrono::NaiveDate, create_date: chrono::NaiveDate, currency: String, report_type: ReportType, rrd_id: i32, gi_id: i32, dlv_prc: f64, fix_tariff_date_from: chrono::NaiveDate, fix_tariff_date_to: chrono::NaiveDate, subject_name: String, nm_id: i32, brand_name: String, vendor_code: String, title: String, tech_size: String, sku: String, doc_type_name: String, quantity: i32, retail_price: String, retail_amount: String, sale_percent: i32, commission_percent: f64, office_name: String, seller_oper_name: String, order_dt: chrono::DateTime<chrono::FixedOffset>, sale_dt: chrono::DateTime<chrono::FixedOffset>, rr_date: chrono::NaiveDate, shk_id: i32, retail_price_with_disc: String, delivery_amount: i32, return_amount: i32, delivery_service: String, gi_box_type_name: String, product_discount_for_report: f64, seller_promo: String, spp: f64, kvw_base: f64, kvw: f64, sup_rating_up: f64, is_kgvp_v2: f64, ppvz_sales_commission: String, for_pay: String, ppvz_reward: String, acquiring_fee: String, acquiring_percent: f64, payment_processing: String, acquiring_bank: String, vw: String, vw_nds: String, ppvz_office_name: String, ppvz_office_id: i32, ppvz_supplier_name: String, ppvz_supplier_inn: String, declaration_number: String, sticker_id: String, country: String, srv_dbs: bool, penalty: String, additional_payment: String, rebill_logistic_cost: String, paid_storage: String, deduction: String, paid_acceptance: String, order_id: i32, is_b2b: bool, trbx_id: String, installment_cofinancing_amount: String, wibes_discount_percent: f64, cashback_amount: String, cashback_discount: String, cashback_commission_change: String, payment_schedule: String, delivery_method: String, seller_promo_id: i32, seller_promo_discount: f64, loyalty_id: i32, loyalty_discount: f64, uuid_promocode: String, sale_price_promocode_discount_prc: f64, article_substitution: String, sale_price_affiliated_discount_prc: f64, sale_price_wholesale_discount_prc: f64, b2b_customer_tin: String, paid_with_social_certificate: bool, warehouse_logistics_coeff: f64, order_uid: String, srid: String) -> SalesReportsDetailedRes {
         SalesReportsDetailedRes {
             report_id,
             date_from,
@@ -388,6 +391,7 @@ impl SalesReportsDetailedRes {
             sale_price_wholesale_discount_prc,
             b2b_customer_tin,
             paid_with_social_certificate,
+            warehouse_logistics_coeff,
             order_uid,
             srid,
         }

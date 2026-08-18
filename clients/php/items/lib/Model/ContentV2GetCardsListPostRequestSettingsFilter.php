@@ -81,7 +81,7 @@ class ContentV2GetCardsListPostRequestSettingsFilter implements ModelInterface, 
         'allowed_categories_only' => null,
         'object_ids' => null,
         'brands' => null,
-        'imt_id' => null
+        'imt_id' => 'int64'
     ];
 
     /**

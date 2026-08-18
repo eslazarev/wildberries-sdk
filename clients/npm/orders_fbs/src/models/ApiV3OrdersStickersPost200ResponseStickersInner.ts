@@ -36,7 +36,7 @@ export interface ApiV3OrdersStickersPost200ResponseStickersInner {
      */
     barcode?: string;
     /**
-     * Полное представление стикера в заданном формате (кодировка base64)
+     * Полное представление стикера в заданном формате
      */
     file?: string;
 }

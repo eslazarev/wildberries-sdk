@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { CourierContactsResponse } from './CourierContactsResponse';
 import {
     CourierContactsResponseFromJSON,
@@ -65,7 +65,7 @@ export function CourierInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'contacts': json['contacts'] === undefined ? undefined : json['contacts'] === null ? null : CourierContactsResponseFromJSON(json['contacts']),
         'mustBeAssigned': json['mustBeAssigned'] == null ? undefined : json['mustBeAssigned'],
-        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : (new Date(json['updatedAt'])),
+        'updatedAt': json['updatedAt'] === undefined ? undefined : json['updatedAt'] === null ? null : (parseDateTime(json['updatedAt'])),
     };
 }
 
@@ -82,7 +82,7 @@ export function CourierInfoToJSONTyped(value?: CourierInfo | null, ignoreDiscrim
         
         'contacts': CourierContactsResponseToJSON(value['contacts']),
         'mustBeAssigned': value['mustBeAssigned'],
-        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
+        'updatedAt': value['updatedAt'] == null ? value['updatedAt'] : serializeDateTime(value['updatedAt']),
     };
 }
 

@@ -40,9 +40,9 @@ func NewCrossborderTurkeyClientInfoRespWithDefaults() *CrossborderTurkeyClientIn
 	return &this
 }
 
-// GetOrders returns the Orders field value if set, zero value otherwise.
+// GetOrders returns the Orders field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CrossborderTurkeyClientInfoResp) GetOrders() []CrossborderTurkeyClientInfo {
-	if o == nil || IsNil(o.Orders) {
+	if o == nil {
 		var ret []CrossborderTurkeyClientInfo
 		return ret
 	}
@@ -51,6 +51,7 @@ func (o *CrossborderTurkeyClientInfoResp) GetOrders() []CrossborderTurkeyClientI
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CrossborderTurkeyClientInfoResp) GetOrdersOk() ([]CrossborderTurkeyClientInfo, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
@@ -82,7 +83,7 @@ func (o CrossborderTurkeyClientInfoResp) MarshalJSON() ([]byte, error) {
 
 func (o CrossborderTurkeyClientInfoResp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Orders) {
+	if o.Orders != nil {
 		toSerialize["orders"] = o.Orders
 	}
 	return toSerialize, nil

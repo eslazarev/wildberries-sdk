@@ -336,7 +336,7 @@ class TableOfficeItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets region_name
      *
-     * @param string $region_name Регион отгрузки
+     * @param string $region_name Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
      *
      * @return self
      */
@@ -363,7 +363,7 @@ class TableOfficeItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets office_id
      *
-     * @param int $office_id ID склада
+     * @param int $office_id ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
      *
      * @return self
      */
@@ -390,7 +390,7 @@ class TableOfficeItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets office_name
      *
-     * @param string $office_name Название склада
+     * @param string $office_name Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
      *
      * @return self
      */

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 /**
  * 
  * @export
@@ -74,8 +74,8 @@ export function GetV1CalendarPromotions200ResponseDataPromotionsInnerFromJSONTyp
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'] == null ? undefined : json['name'],
-        'startDateTime': json['startDateTime'] == null ? undefined : (new Date(json['startDateTime'])),
-        'endDateTime': json['endDateTime'] == null ? undefined : (new Date(json['endDateTime'])),
+        'startDateTime': json['startDateTime'] == null ? undefined : (parseDateTime(json['startDateTime'])),
+        'endDateTime': json['endDateTime'] == null ? undefined : (parseDateTime(json['endDateTime'])),
         'type': json['type'] == null ? undefined : json['type'],
     };
 }
@@ -93,8 +93,8 @@ export function GetV1CalendarPromotions200ResponseDataPromotionsInnerToJSONTyped
         
         'id': value['id'],
         'name': value['name'],
-        'startDateTime': value['startDateTime'] == null ? value['startDateTime'] : value['startDateTime'].toISOString(),
-        'endDateTime': value['endDateTime'] == null ? value['endDateTime'] : value['endDateTime'].toISOString(),
+        'startDateTime': value['startDateTime'] == null ? value['startDateTime'] : serializeDateTime(value['startDateTime']),
+        'endDateTime': value['endDateTime'] == null ? value['endDateTime'] : serializeDateTime(value['endDateTime']),
         'type': value['type'],
     };
 }
