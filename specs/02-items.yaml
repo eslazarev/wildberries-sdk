@@ -1645,6 +1645,7 @@ paths:
                         imtID:
                           description: Поиск по [ID для объединённых карточек товаров](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
                           type: integer
+                          format: int64
                     cursor:
                       description: |
                         Курсор
@@ -1704,6 +1705,7 @@ paths:
                         imtID:
                           type: integer
                           description: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров.<br>Един для всех артикулов WB группы объединённых карточек.<br>У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками<br>
+                          format: int64
                         nmUUID:
                           type: string
                           format: UUID
@@ -3454,6 +3456,7 @@ paths:
               properties:
                 imtID:
                   type: integer
+                  format: int64
                   description: |
                     `imtID` отдельной карточки товара или группы [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки
                 cardsToAdd:
@@ -5978,10 +5981,12 @@ components:
           description: Артикул WB
         price:
           type: integer
+          nullable: true
           example: 999
           description: Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/get) и [Получить товары с ценами по артикулам](./work-with-products#tag/Ceny-i-skidki/paths/~1api~1v2~1list~1goods~1filter/post), поле `currencyIsoCode4217`
         discount:
           type: integer
+          nullable: true
           example: 30
           description: "Скидка,\_%"
     SizeItemsBody:
@@ -6803,6 +6808,7 @@ components:
                 example: 5870243
               imtId:
                 description: ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+                format: int64
                 type: integer
                 example: 619043112
               vendorCode:

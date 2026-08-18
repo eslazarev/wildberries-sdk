@@ -112,11 +112,7 @@ paths:
         - Тарифы на поставку
       summary: Тарифы на поставку
       description: |
-        Метод возвращает [тарифы на поставку](https://seller.wildberries.ru/dynamic-product-categories) для конкретных складов на ближайшие 14 дней.
-
-        <div class="description_important">
-          Приёмка для поставки доступна только при сочетании: <br> <code>coefficient</code> — <code>0</code> или <code>1</code> <br> и <code>allowUnload</code> — <code>true</code>
-        </div>
+        Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -370,6 +366,7 @@ components:
       in: query
       name: date
       required: true
+      example: '2026-08-15'
       description: Дата в формате ГГГГ-ММ-ДД
       schema:
         type: string
@@ -452,12 +449,12 @@ components:
           example: 0,07
         geoName:
           type: string
-          description: "Страна, для РФ\_—\_округ"
-          example: Центральный федеральный округ
+          description: Местонахождение склада
+          example: Россия
         warehouseName:
           type: string
           description: Название склада
-          example: Коледино
+          example: Свой склад СГТ РФ
     models.RatesPalletResponse:
       type: object
       properties:
@@ -510,7 +507,7 @@ components:
         warehouseName:
           type: string
           description: Название склада
-          example: Коледино
+          example: СЦ Брест
     models.ReturnRatesResponse:
       type: object
       properties:
@@ -615,7 +612,7 @@ components:
         warehouseName:
           type: string
           description: Название склада
-          example: Электросталь
+          example: Склад WB РФ
     models.ErrorModel:
       type: object
       properties:

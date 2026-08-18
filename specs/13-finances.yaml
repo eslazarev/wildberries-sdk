@@ -1184,6 +1184,7 @@ components:
         - salePriceWholesaleDiscountPrc
         - b2bCustomerTin
         - paidWithSocialCertificate
+        - warehouseLogisticsCoeff
         - orderUid
         - srid
       properties:
@@ -1294,7 +1295,7 @@ components:
           type: number
           description: Размер кВВ, %
         officeName:
-          example: Коледино
+          example: Склад WB
           type: string
           description: Склад
         sellerOperName:
@@ -1558,6 +1559,10 @@ components:
           type: boolean
           description: Оплата социальным сертификатом
           example: false
+        warehouseLogisticsCoeff:
+          type: number
+          description: Коэффициент логистики
+          example: 0
         orderUid:
           type: string
           description: |
