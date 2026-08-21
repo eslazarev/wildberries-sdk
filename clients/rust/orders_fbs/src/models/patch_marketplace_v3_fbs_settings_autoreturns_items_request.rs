@@ -16,7 +16,7 @@ pub struct PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
     /// Список ID размеров товаров в системе WB 
     #[serde(rename = "chrtIds")]
     pub chrt_ids: Vec<i32>,
-    /// Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — все товары отправляются на склад WB   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `byCourier` — возврат продавцу курьером 
+    /// Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов 
     #[serde(rename = "type")]
     pub r#type: Type,
 }
@@ -29,20 +29,18 @@ impl PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
         }
     }
 }
-/// Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — все товары отправляются на склад WB   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `byCourier` — возврат продавцу курьером 
+/// Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Type {
-    #[serde(rename = "allToWarehouse")]
-    AllToWarehouse,
-    #[serde(rename = "allToPickupPoint")]
-    AllToPickupPoint,
-    #[serde(rename = "byCourier")]
-    ByCourier,
+    #[serde(rename = "byWarehouse")]
+    ByWarehouse,
+    #[serde(rename = "byPickupPoint")]
+    ByPickupPoint,
 }
 
 impl Default for Type {
     fn default() -> Type {
-        Self::AllToWarehouse
+        Self::ByWarehouse
     }
 }
 

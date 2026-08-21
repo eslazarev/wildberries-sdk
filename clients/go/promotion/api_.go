@@ -46,6 +46,8 @@ DeleteV0NormqueryBids Удалить ставки поисковых класт�
 Можно использовать только для кампаний с:
   - ручной ставкой
   - моделью оплаты `cpm` — за показы
+
+
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 
@@ -5885,6 +5887,13 @@ func (r ApiPostV1NormqueryBidsRequest) Execute() (*V1SetNormQueryBidsResponse, *
 /*
 PostV1NormqueryBids Установить ставки для поисковых кластеров в валюте аккаунта продавца
 
+
+<div class="description_token">
+    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+        <strong>Персональному</strong> токену, 
+        <strong>Сервисному</strong> токену
+</div>
+
 Метод устанавливает ставки на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
 Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за показы.
 
@@ -5896,13 +5905,6 @@ PostV1NormqueryBids Установить ставки для поисковых 
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 2 запроса | 500 мс | 4 запроса |
 | Сервисный | 1 сек | 2 запроса | 500 мс | 4 запроса |
-</div>
-
-
-<div class="description_token">
-    Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
-        <strong>Персональному</strong> токену, 
-        <strong>Сервисному</strong> токену
 </div>
 
 

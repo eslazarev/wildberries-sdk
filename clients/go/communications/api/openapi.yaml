@@ -549,6 +549,10 @@ paths:
           - ответить на вопрос или отредактировать ответ
 
         <div class="description_important">
+        Все ответы продавцов проходят предварительную модерацию перед публикацией
+        </div>
+
+        <div class="description_important">
           Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа
         </div>
 
@@ -914,6 +918,9 @@ paths:
     get:
       description: |
         Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
+        Отзыв считается обработанным, если выполняется одно из условий:
+          - на отзыв получен ответ
+          - отзыв содержит только оценку (без текста и фото)
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -947,15 +954,14 @@ paths:
           type: integer
         style: form
       - description: |
-          Обработан ли отзыв:
+          Вернуть только обработанные отзывы:
             - `true` — да
             - `false` — нет
         explode: true
         in: query
         name: isAnswered
-        required: false
+        required: true
         schema:
-          default: true
           example: false
           type: boolean
         style: form
@@ -1047,7 +1053,10 @@ paths:
     get:
       description: |
         Метод возвращает список отзывов по заданным фильтрам. Вы можете:
-          - получить данные обработанных и необработанных отзывов
+          - получить данные обработанных и необработанных отзывов.
+            Отзыв считается обработанным, если выполняется одно из условий:
+              - на отзыв получен ответ
+              - отзыв содержит только оценку (без текста и фото)
           - сортировать отзывы по дате
           - настроить пагинацию и количество отзывов в ответе
 
@@ -1065,7 +1074,7 @@ paths:
       operationId: getV1Feedbacks
       parameters:
       - description: |
-          Обработан ли отзыв:
+          Вернуть только обработанные отзывы:
             - `true` — да
             - `false` — нет
         explode: true

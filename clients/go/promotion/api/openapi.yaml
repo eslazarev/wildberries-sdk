@@ -2608,17 +2608,16 @@ paths:
     - url: https://advert-api.wildberries.ru
   /api/advert/v1/normquery/bids:
     post:
-      description: "Метод устанавливает ставки на поисковые кластеры в валюте [акк\
-        аунта продавца](https://cmp.wildberries.ru/campaigns/finances).\nМожно исп\
-        ользовать только для кампаний c ручной ставкой и моделью оплаты `cpm` — за\
-        \ показы.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
+      description: "\n<div class=\"description_token\">\n    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
+        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
+        \  <strong>Сервисному</strong> токену\n</div>\n\nМетод устанавливает ставк\
+        и на поисковые кластеры в валюте [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).\n\
+        Можно использовать только для кампаний c ручной ставкой и моделью оплаты `cpm`\
+        \ — за показы.\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\"\
         >Лимит запросов</a> на один аккаунт продавца:\n\n\n| Тип | Период | Лимит\
         \ | Интервал | Всплеск |\n| --- | --- | --- | --- | --- |\n| Персональный\
         \ | 1 сек | 2 запроса | 500 мс | 4 запроса |\n| Сервисный | 1 сек | 2 запр\
-        оса | 500 мс | 4 запроса |\n</div>\n\n\n<div class=\"description_token\">\n\
-        \    Метод <a href=\"/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API\"\
-        >доступен</a> по\n        <strong>Персональному</strong> токену, \n      \
-        \  <strong>Сервисному</strong> токену\n</div>\n"
+        оса | 500 мс | 4 запроса |\n</div>\n"
       operationId: postV1NormqueryBids
       requestBody:
         content:
@@ -2693,6 +2692,8 @@ paths:
         Можно использовать только для кампаний с:
           - ручной ставкой
           - моделью оплаты `cpm` — за показы
+
+
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
 

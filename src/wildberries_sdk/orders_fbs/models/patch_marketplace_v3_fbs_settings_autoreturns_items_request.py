@@ -29,14 +29,14 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
     PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
     """ # noqa: E501
     chrt_ids: Annotated[List[StrictInt], Field(max_length=1000)] = Field(description="Список ID размеров товаров в системе WB ", alias="chrtIds", json_schema_extra={"examples": [[111111, 222222]]})
-    type: StrictStr = Field(description="Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — все товары отправляются на склад WB   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `byCourier` — возврат продавцу курьером ", json_schema_extra={"examples": ["allToWarehouse"]})
+    type: StrictStr = Field(description="Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов ", json_schema_extra={"examples": ["byWarehouse"]})
     __properties: ClassVar[List[str]] = ["chrtIds", "type"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['allToWarehouse', 'allToPickupPoint', 'byCourier']):
-            raise ValueError("must be one of enum values ('allToWarehouse', 'allToPickupPoint', 'byCourier')")
+        if value not in set(['byWarehouse', 'byPickupPoint']):
+            raise ValueError("must be one of enum values ('byWarehouse', 'byPickupPoint')")
         return value
 
     model_config = ConfigDict(

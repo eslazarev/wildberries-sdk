@@ -2076,7 +2076,7 @@ class DefaultApi:
     @validate_call
     def get_v1_feedbacks(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Обработан ли отзыв:   - `true` — да   - `false` — нет ")],
+        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
         take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
         skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска (max. 199990)")],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
@@ -2098,9 +2098,9 @@ class DefaultApi:
     ) -> GetV1Feedbacks200Response:
         """Список отзывов
 
-        Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов.     Отзыв считается обработанным, если выполняется одно из условий:       - на отзыв получен ответ       - отзыв содержит только оценку (без текста и фото)   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
-        :param is_answered: Обработан ли отзыв:   - `true` — да   - `false` — нет  (required)
+        :param is_answered: Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет  (required)
         :type is_answered: bool
         :param take: Количество отзывов (max. 5 000) (required)
         :type take: int
@@ -2172,7 +2172,7 @@ class DefaultApi:
     @validate_call
     def get_v1_feedbacks_with_http_info(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Обработан ли отзыв:   - `true` — да   - `false` — нет ")],
+        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
         take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
         skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска (max. 199990)")],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
@@ -2194,9 +2194,9 @@ class DefaultApi:
     ) -> ApiResponse[GetV1Feedbacks200Response]:
         """Список отзывов
 
-        Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов.     Отзыв считается обработанным, если выполняется одно из условий:       - на отзыв получен ответ       - отзыв содержит только оценку (без текста и фото)   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
-        :param is_answered: Обработан ли отзыв:   - `true` — да   - `false` — нет  (required)
+        :param is_answered: Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет  (required)
         :type is_answered: bool
         :param take: Количество отзывов (max. 5 000) (required)
         :type take: int
@@ -2268,7 +2268,7 @@ class DefaultApi:
     @validate_call
     def get_v1_feedbacks_without_preload_content(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Обработан ли отзыв:   - `true` — да   - `false` — нет ")],
+        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
         take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
         skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска (max. 199990)")],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
@@ -2290,9 +2290,9 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Список отзывов
 
-        Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов.     Отзыв считается обработанным, если выполняется одно из условий:       - на отзыв получен ответ       - отзыв содержит только оценку (без текста и фото)   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
-        :param is_answered: Обработан ли отзыв:   - `true` — да   - `false` — нет  (required)
+        :param is_answered: Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет  (required)
         :type is_answered: bool
         :param take: Количество отзывов (max. 5 000) (required)
         :type take: int
@@ -2798,9 +2798,9 @@ class DefaultApi:
     @validate_call
     def get_v1_feedbacks_count(
         self,
+        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
         date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
         date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
-        is_answered: Annotated[Optional[StrictBool], Field(description="Обработан ли отзыв:   - `true` — да   - `false` — нет ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2816,14 +2816,14 @@ class DefaultApi:
     ) -> GetV1FeedbacksCount200Response:
         """Количество отзывов
 
-        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий:   - на отзыв получен ответ   - отзыв содержит только оценку (без текста и фото)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
+        :param is_answered: Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет  (required)
+        :type is_answered: bool
         :param date_from: Дата начала периода в формате Unix timestamp
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp
         :type date_to: int
-        :param is_answered: Обработан ли отзыв:   - `true` — да   - `false` — нет 
-        :type is_answered: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2847,9 +2847,9 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_v1_feedbacks_count_serialize(
+            is_answered=is_answered,
             date_from=date_from,
             date_to=date_to,
-            is_answered=is_answered,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2878,9 +2878,9 @@ class DefaultApi:
     @validate_call
     def get_v1_feedbacks_count_with_http_info(
         self,
+        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
         date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
         date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
-        is_answered: Annotated[Optional[StrictBool], Field(description="Обработан ли отзыв:   - `true` — да   - `false` — нет ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2896,14 +2896,14 @@ class DefaultApi:
     ) -> ApiResponse[GetV1FeedbacksCount200Response]:
         """Количество отзывов
 
-        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий:   - на отзыв получен ответ   - отзыв содержит только оценку (без текста и фото)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
+        :param is_answered: Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет  (required)
+        :type is_answered: bool
         :param date_from: Дата начала периода в формате Unix timestamp
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp
         :type date_to: int
-        :param is_answered: Обработан ли отзыв:   - `true` — да   - `false` — нет 
-        :type is_answered: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2927,9 +2927,9 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_v1_feedbacks_count_serialize(
+            is_answered=is_answered,
             date_from=date_from,
             date_to=date_to,
-            is_answered=is_answered,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2958,9 +2958,9 @@ class DefaultApi:
     @validate_call
     def get_v1_feedbacks_count_without_preload_content(
         self,
+        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
         date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
         date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
-        is_answered: Annotated[Optional[StrictBool], Field(description="Обработан ли отзыв:   - `true` — да   - `false` — нет ")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2976,14 +2976,14 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Количество отзывов
 
-        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий:   - на отзыв получен ответ   - отзыв содержит только оценку (без текста и фото)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
+        :param is_answered: Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет  (required)
+        :type is_answered: bool
         :param date_from: Дата начала периода в формате Unix timestamp
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp
         :type date_to: int
-        :param is_answered: Обработан ли отзыв:   - `true` — да   - `false` — нет 
-        :type is_answered: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3007,9 +3007,9 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_v1_feedbacks_count_serialize(
+            is_answered=is_answered,
             date_from=date_from,
             date_to=date_to,
-            is_answered=is_answered,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3033,9 +3033,9 @@ class DefaultApi:
 
     def _get_v1_feedbacks_count_serialize(
         self,
+        is_answered,
         date_from,
         date_to,
-        is_answered,
         _request_auth,
         _content_type,
         _headers,
@@ -6306,7 +6306,7 @@ class DefaultApi:
     ) -> PatchV1Questions200Response:
         """Работа с вопросами
 
-        В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\"> Все ответы продавцов проходят предварительную модерацию перед публикацией </div>  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param patch_v1_questions_request:
         :type patch_v1_questions_request: PatchV1QuestionsRequest
@@ -6380,7 +6380,7 @@ class DefaultApi:
     ) -> ApiResponse[PatchV1Questions200Response]:
         """Работа с вопросами
 
-        В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\"> Все ответы продавцов проходят предварительную модерацию перед публикацией </div>  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param patch_v1_questions_request:
         :type patch_v1_questions_request: PatchV1QuestionsRequest
@@ -6454,7 +6454,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Работа с вопросами
 
-        В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+        В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\"> Все ответы продавцов проходят предварительную модерацию перед публикацией </div>  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 
         :param patch_v1_questions_request:
         :type patch_v1_questions_request: PatchV1QuestionsRequest

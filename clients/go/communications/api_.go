@@ -1292,7 +1292,7 @@ type ApiGetV1FeedbacksRequest struct {
 	dateTo *int32
 }
 
-// Обработан ли отзыв:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
+// Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
 func (r ApiGetV1FeedbacksRequest) IsAnswered(isAnswered bool) ApiGetV1FeedbacksRequest {
 	r.isAnswered = &isAnswered
 	return r
@@ -1342,7 +1342,10 @@ func (r ApiGetV1FeedbacksRequest) Execute() (*GetV1Feedbacks200Response, *http.R
 GetV1Feedbacks Список отзывов
 
 Метод возвращает список отзывов по заданным фильтрам. Вы можете:
-  - получить данные обработанных и необработанных отзывов
+  - получить данные обработанных и необработанных отзывов.
+    Отзыв считается обработанным, если выполняется одно из условий:
+      - на отзыв получен ответ
+      - отзыв содержит только оценку (без текста и фото)
   - сортировать отзывы по дате
   - настроить пагинацию и количество отзывов в ответе
 
@@ -1777,9 +1780,15 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 type ApiGetV1FeedbacksCountRequest struct {
 	ctx context.Context
 	ApiService *DefaultApiService
+	isAnswered *bool
 	dateFrom *int32
 	dateTo *int32
-	isAnswered *bool
+}
+
+// Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
+func (r ApiGetV1FeedbacksCountRequest) IsAnswered(isAnswered bool) ApiGetV1FeedbacksCountRequest {
+	r.isAnswered = &isAnswered
+	return r
 }
 
 // Дата начала периода в формате Unix timestamp
@@ -1794,12 +1803,6 @@ func (r ApiGetV1FeedbacksCountRequest) DateTo(dateTo int32) ApiGetV1FeedbacksCou
 	return r
 }
 
-// Обработан ли отзыв:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
-func (r ApiGetV1FeedbacksCountRequest) IsAnswered(isAnswered bool) ApiGetV1FeedbacksCountRequest {
-	r.isAnswered = &isAnswered
-	return r
-}
-
 func (r ApiGetV1FeedbacksCountRequest) Execute() (*GetV1FeedbacksCount200Response, *http.Response, error) {
 	return r.ApiService.GetV1FeedbacksCountExecute(r)
 }
@@ -1808,6 +1811,9 @@ func (r ApiGetV1FeedbacksCountRequest) Execute() (*GetV1FeedbacksCount200Respons
 GetV1FeedbacksCount Количество отзывов
 
 Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
+Отзыв считается обработанным, если выполняется одно из условий:
+  - на отзыв получен ответ
+  - отзыв содержит только оценку (без текста и фото)
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:
@@ -1852,6 +1858,9 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.isAnswered == nil {
+		return localVarReturnValue, nil, reportError("isAnswered is required and must be specified")
+	}
 
 	if r.dateFrom != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "dateFrom", r.dateFrom, "form", "")
@@ -1859,13 +1868,7 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 	if r.dateTo != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "dateTo", r.dateTo, "form", "")
 	}
-	if r.isAnswered != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isAnswered", r.isAnswered, "form", "")
-	} else {
-		var defaultValue bool = true
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isAnswered", defaultValue, "form", "")
-		r.isAnswered = &defaultValue
-	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "isAnswered", r.isAnswered, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -4039,6 +4042,10 @@ PatchV1Questions Работа с вопросами
   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный
   - отклонить вопрос
   - ответить на вопрос или отредактировать ответ
+
+<div class="description_important">
+Все ответы продавцов проходят предварительную модерацию перед публикацией
+</div>
 
 <div class="description_important">
   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа

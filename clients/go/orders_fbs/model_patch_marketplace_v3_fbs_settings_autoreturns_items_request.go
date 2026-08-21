@@ -23,7 +23,7 @@ var _ MappedNullable = &PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest{}
 type PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct {
 	// Список ID размеров товаров в системе WB 
 	ChrtIds []int32 `json:"chrtIds"`
-	// Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — все товары отправляются на склад WB   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `byCourier` — возврат продавцу курьером 
+	// Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов 
 	Type string `json:"type"`
 }
 

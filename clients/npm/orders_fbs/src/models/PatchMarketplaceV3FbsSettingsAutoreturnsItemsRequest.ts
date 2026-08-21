@@ -26,9 +26,8 @@ export interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
     chrtIds: Array<number>;
     /**
      * Тип автовозврата малогабаритных товаров:
-     *   - `allToWarehouse` — все товары отправляются на склад WB
-     *   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов
-     *   - `byCourier` — возврат продавцу курьером
+     *   - `byWarehouse` — все товары отправляются на склад WB
+     *   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов
      * 
      */
     type: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum;
@@ -39,9 +38,8 @@ export interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
  * @export
  */
 export const PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum = {
-    AllToWarehouse: 'allToWarehouse',
-    AllToPickupPoint: 'allToPickupPoint',
-    ByCourier: 'byCourier',
+    ByWarehouse: 'byWarehouse',
+    ByPickupPoint: 'byPickupPoint',
 } as const;
 export type PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum = typeof PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum[keyof typeof PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum];
 

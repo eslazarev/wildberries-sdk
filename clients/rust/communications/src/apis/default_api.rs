@@ -652,7 +652,7 @@ pub async fn get_v1_feedback(configuration: &configuration::Configuration, id: &
     }
 }
 
-/// Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// Метод возвращает список отзывов по заданным фильтрам. Вы можете:   - получить данные обработанных и необработанных отзывов.     Отзыв считается обработанным, если выполняется одно из условий:       - на отзыв получен ответ       - отзыв содержит только оценку (без текста и фото)   - сортировать отзывы по дате   - настроить пагинацию и количество отзывов в ответе  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn get_v1_feedbacks(configuration: &configuration::Configuration, is_answered: bool, take: i32, skip: i32, nm_id: Option<i32>, order: Option<&str>, date_from: Option<i32>, date_to: Option<i32>) -> Result<models::GetV1Feedbacks200Response, Error<GetV1FeedbacksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_is_answered = is_answered;
@@ -774,12 +774,12 @@ pub async fn get_v1_feedbacks_archive(configuration: &configuration::Configurati
     }
 }
 
-/// Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
-pub async fn get_v1_feedbacks_count(configuration: &configuration::Configuration, date_from: Option<i32>, date_to: Option<i32>, is_answered: Option<bool>) -> Result<models::GetV1FeedbacksCount200Response, Error<GetV1FeedbacksCountError>> {
+/// Метод возвращает количество обработанных или необработанных [отзывов](/openapi/user-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий:   - на отзыв получен ответ   - отзыв содержит только оценку (без текста и фото)  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+pub async fn get_v1_feedbacks_count(configuration: &configuration::Configuration, is_answered: bool, date_from: Option<i32>, date_to: Option<i32>) -> Result<models::GetV1FeedbacksCount200Response, Error<GetV1FeedbacksCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_is_answered = is_answered;
     let p_query_date_from = date_from;
     let p_query_date_to = date_to;
-    let p_query_is_answered = is_answered;
 
     let uri_str = format!("{}/api/v1/feedbacks/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -790,9 +790,7 @@ pub async fn get_v1_feedbacks_count(configuration: &configuration::Configuration
     if let Some(ref param_value) = p_query_date_to {
         req_builder = req_builder.query(&[("dateTo", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_query_is_answered {
-        req_builder = req_builder.query(&[("isAnswered", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("isAnswered", &p_query_is_answered.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1322,7 +1320,7 @@ pub async fn patch_v1_feedbacks_answer(configuration: &configuration::Configurat
     }
 }
 
-/// В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
+/// В зависимости от тела запроса, метод позволяет:   - отметить [вопрос](/openapi/user-communication#tag/questions/operation/getV1Questions) как просмотренный   - отклонить вопрос   - ответить на вопрос или отредактировать ответ  <div class=\"description_important\"> Все ответы продавцов проходят предварительную модерацию перед публикацией </div>  <div class=\"description_important\">   Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа </div>  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для всех методов категории <strong>Вопросы и отзывы</strong>:   | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос | </div> 
 pub async fn patch_v1_questions(configuration: &configuration::Configuration, patch_v1_questions_request: Option<models::PatchV1QuestionsRequest>) -> Result<models::PatchV1Questions200Response, Error<PatchV1QuestionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_patch_v1_questions_request = patch_v1_questions_request;

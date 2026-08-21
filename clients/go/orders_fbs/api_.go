@@ -49,6 +49,7 @@ GetMarketplaceV3FbsSettingsAutoreturns Получить настройки ав�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
 </div>
 
 
@@ -213,6 +214,7 @@ GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить �
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
 </div>
 
 
@@ -394,6 +396,7 @@ PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки а�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
 </div>
 
 
@@ -552,6 +555,7 @@ PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройк�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
 </div>
 
 
@@ -721,6 +725,7 @@ PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
 Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
 </div>
 
 

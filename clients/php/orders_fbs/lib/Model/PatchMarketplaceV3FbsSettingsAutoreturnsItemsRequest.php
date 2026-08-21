@@ -234,9 +234,8 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest implements ModelInter
         return self::$openAPIModelName;
     }
 
-    public const TYPE_ALL_TO_WAREHOUSE = 'allToWarehouse';
-    public const TYPE_ALL_TO_PICKUP_POINT = 'allToPickupPoint';
-    public const TYPE_BY_COURIER = 'byCourier';
+    public const TYPE_BY_WAREHOUSE = 'byWarehouse';
+    public const TYPE_BY_PICKUP_POINT = 'byPickupPoint';
 
     /**
      * Gets allowable values of the enum
@@ -246,9 +245,8 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest implements ModelInter
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_ALL_TO_WAREHOUSE,
-            self::TYPE_ALL_TO_PICKUP_POINT,
-            self::TYPE_BY_COURIER,
+            self::TYPE_BY_WAREHOUSE,
+            self::TYPE_BY_PICKUP_POINT,
         ];
     }
 
@@ -375,7 +373,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest implements ModelInter
     /**
      * Sets type
      *
-     * @param string $type Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — все товары отправляются на склад WB   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `byCourier` — возврат продавцу курьером
+     * @param string $type Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов
      *
      * @return self
      */
