@@ -325,6 +325,7 @@ print(feedbacks)
 ### analytics (`analytics`)
 - `analytics.DefaultApi.get_v2_nm_report_downloads` — `GET /api/v2/nm-report/downloads` — Получить список отчётов
 - `analytics.DefaultApi.get_v2_nm_report_downloads_file_download_id` — `GET /api/v2/nm-report/downloads/file/{downloadId}` — Получить отчёт
+- `analytics.DefaultApi.post_analytics_v1_stocks_report_seller_warehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.post_v1_order_feed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
 - `analytics.DefaultApi.post_v1_stocks_report_wb_warehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApi.post_v2_item_rating` — `POST /api/analytics/v2/item-rating` — Получить отчёт

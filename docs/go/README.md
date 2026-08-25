@@ -311,6 +311,7 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `rates.DefaultApiService.GetV1TariffsReturn` — `GET /api/v1/tariffs/return` — Тарифы на возврат
 
 ### analytics (`analytics`)
+- `analytics.DefaultApiService.PostAnalyticsV1StocksReportSellerWarehouses` — `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца
 - `analytics.DefaultApiService.PostV1OrderFeed` — `POST /api/analytics/v1/order-feed` — Получить отчёт
 - `analytics.DefaultApiService.PostV1StocksReportWbWarehouses` — `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB
 - `analytics.DefaultApiService.PostV2ItemRating` — `POST /api/analytics/v2/item-rating` — Получить отчёт

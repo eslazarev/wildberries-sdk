@@ -315,6 +315,7 @@ main().catch(console.error);
 - `analytics.CSVApi.getV2NmReportDownloadsFileDownloadId` — Получить отчёт
 - `analytics.CSVApi.postV2NmReportDownloads` — Создать отчёт
 - `analytics.CSVApi.postV2NmReportDownloadsRetry` — Сгенерировать отчёт повторно
+- `analytics.DefaultApi.postAnalyticsV1StocksReportSellerWarehouses` — Остатки на складах продавца
 - `analytics.DefaultApi.postV1OrderFeed` — Получить отчёт
 - `analytics.DefaultApi.postV1StocksReportWbWarehouses` — Остатки на складах WB
 - `analytics.DefaultApi.postV2ItemRating` — Получить отчёт

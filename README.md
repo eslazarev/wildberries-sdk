@@ -333,6 +333,7 @@ SDK выпускается с security-first процессом:
 
 ### Аналитика и данные (`11-analytics.yaml`)
 - `POST /api/analytics/v1/order-feed` — Получить отчёт (postV1OrderFeed)
+- `POST /api/analytics/v1/stocks-report/seller-warehouses` — Остатки на складах продавца (postAnalyticsV1StocksReportSellerWarehouses)
 - `POST /api/analytics/v1/stocks-report/wb-warehouses` — Остатки на складах WB (postV1StocksReportWbWarehouses)
 - `POST /api/analytics/v2/item-rating` — Получить отчёт (postV2ItemRating)
 - `POST /api/analytics/v3/sales-funnel/grouped/history` — Статистика групп карточек товаров по дням (postV3SalesFunnelGroupedHistory)

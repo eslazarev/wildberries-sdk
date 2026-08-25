@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.144"
+__version__ = "0.1.145"
 
 # Define package exports
 __all__ = [
@@ -68,6 +68,8 @@ __all__ = [
     "InventoryHistoryReportReqParams",
     "InventoryMetricsReportReq",
     "InventoryRequest",
+    "InventorySellerResponse",
+    "InventorySellerResponseItemsInner",
     "InventoryWbResponse",
     "InventoryWbResponseItemsInner",
     "Item",
@@ -118,6 +120,7 @@ __all__ = [
     "PositionInfo",
     "PositionInfoAverage",
     "PositionInfoMedian",
+    "PostAnalyticsV1StocksReportSellerWarehouses200Response",
     "PostV1OrderFeed200Response",
     "PostV1StocksReportWbWarehouses200Response",
     "PostV2ItemRating200Response",
@@ -278,6 +281,8 @@ from wildberries_sdk.analytics.models.inventory_history_report_req import Invent
 from wildberries_sdk.analytics.models.inventory_history_report_req_params import InventoryHistoryReportReqParams as InventoryHistoryReportReqParams
 from wildberries_sdk.analytics.models.inventory_metrics_report_req import InventoryMetricsReportReq as InventoryMetricsReportReq
 from wildberries_sdk.analytics.models.inventory_request import InventoryRequest as InventoryRequest
+from wildberries_sdk.analytics.models.inventory_seller_response import InventorySellerResponse as InventorySellerResponse
+from wildberries_sdk.analytics.models.inventory_seller_response_items_inner import InventorySellerResponseItemsInner as InventorySellerResponseItemsInner
 from wildberries_sdk.analytics.models.inventory_wb_response import InventoryWbResponse as InventoryWbResponse
 from wildberries_sdk.analytics.models.inventory_wb_response_items_inner import InventoryWbResponseItemsInner as InventoryWbResponseItemsInner
 from wildberries_sdk.analytics.models.item import Item as Item
@@ -328,6 +333,7 @@ from wildberries_sdk.analytics.models.position_cluster import PositionCluster as
 from wildberries_sdk.analytics.models.position_info import PositionInfo as PositionInfo
 from wildberries_sdk.analytics.models.position_info_average import PositionInfoAverage as PositionInfoAverage
 from wildberries_sdk.analytics.models.position_info_median import PositionInfoMedian as PositionInfoMedian
+from wildberries_sdk.analytics.models.post_analytics_v1_stocks_report_seller_warehouses200_response import PostAnalyticsV1StocksReportSellerWarehouses200Response as PostAnalyticsV1StocksReportSellerWarehouses200Response
 from wildberries_sdk.analytics.models.post_v1_order_feed200_response import PostV1OrderFeed200Response as PostV1OrderFeed200Response
 from wildberries_sdk.analytics.models.post_v1_stocks_report_wb_warehouses200_response import PostV1StocksReportWbWarehouses200Response as PostV1StocksReportWbWarehouses200Response
 from wildberries_sdk.analytics.models.post_v2_item_rating200_response import PostV2ItemRating200Response as PostV2ItemRating200Response
