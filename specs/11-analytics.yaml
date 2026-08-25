@@ -1326,6 +1326,83 @@ paths:
                     $ref: '#/components/schemas/InventoryWbResponse'
                 required:
                   - data
+        '204':
+          description: Нет данных
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorObject400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorObject403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response403General'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/analytics/v1/stocks-report/seller-warehouses:
+    servers:
+      - url: https://seller-analytics-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: contentanalytics
+      x-token-types:
+        - personal
+        - service
+      tags:
+        - История остатков
+      summary: Остатки на складах продавца
+      operationId: postAnalyticsV1StocksReportSellerWarehouses
+      description: |
+
+        <div class="description_token">
+            Метод <a href="/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API">доступен</a> по
+                <strong>Персональному</strong> токену, 
+                <strong>Сервисному</strong> токену
+        </div>
+
+        Метод возвращает текущие остатки товаров на складах продавца.
+        <br><br>
+        Данные обновляются 1 раз в 30 минут.
+        <br><br>
+        1 строка ответа — данные об 1 размере товара на 1 складе продавца.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        </div>
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InventoryRequest'
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/InventorySellerResponse'
+                required:
+                  - data
+        '204':
+          description: Нет данных
         '400':
           description: Неправильный запрос
           content:
@@ -5743,6 +5820,53 @@ components:
               - quantity
               - inWayToClient
               - inWayFromClient
+    InventorySellerResponse:
+      description: Текущие остатки товаров на складах продавца
+      type: object
+      required:
+        - items
+      properties:
+        items:
+          description: Остатки товаров на складах продавца по размерам
+          type: array
+          items:
+            type: object
+            properties:
+              nmId:
+                type: integer
+                description: Артикул WB
+                example: 47254354
+                format: int64
+              chrtId:
+                type: integer
+                description: ID размера
+                example: 91663228
+                format: int64
+              warehouseId:
+                type: integer
+                description: ID склада
+                example: 123456
+                format: int64
+              warehouseName:
+                type: string
+                description: Название склада
+                example: склад продавца Иркутск
+              regionName:
+                type: string
+                description: Регион отгрузки
+                example: Дальневосточный и Сибирский
+              quantity:
+                type: integer
+                description: Количество товара на складе, доступное клиентам для добавления в корзину
+                example: 43
+                format: uint64
+            required:
+              - nmId
+              - chrtId
+              - warehouseId
+              - warehouseName
+              - regionName
+              - quantity
     ItemRatingRequest:
       type: object
       required:
