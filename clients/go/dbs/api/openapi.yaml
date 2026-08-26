@@ -43,7 +43,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: getV3DbsOrdersNew
@@ -136,7 +136,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: getV3DbsOrders
@@ -365,7 +365,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsGroupsInfo
@@ -469,7 +469,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersClient
@@ -688,7 +688,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersDeliveryDate
@@ -823,7 +823,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersStatusInfo
@@ -940,7 +940,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersStatusCancel
@@ -1050,7 +1050,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersStatusConfirm
@@ -1295,7 +1295,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersStatusDeliver
@@ -1405,7 +1405,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersStatusReceive
@@ -1514,7 +1514,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersStatusReject
@@ -1739,7 +1739,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersMetaDelete
@@ -1862,7 +1862,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersMetaSgtin
@@ -1974,7 +1974,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersMetaUin
@@ -2092,7 +2092,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersMetaImei
@@ -2209,7 +2209,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersMetaGtin
@@ -2329,7 +2329,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3DbsOrdersMetaCustomsDeclaration

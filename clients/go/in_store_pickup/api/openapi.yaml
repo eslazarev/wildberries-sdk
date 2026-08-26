@@ -39,7 +39,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: getV3ClickCollectOrdersNew
@@ -133,7 +133,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: getV3ClickCollectOrders
@@ -270,7 +270,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersFinalPrice
@@ -365,7 +365,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersStatusConfirm
@@ -472,7 +472,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersStatusPrepare
@@ -583,7 +583,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersClient
@@ -689,7 +689,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersClientIdentity
@@ -811,7 +811,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersStatusReceive
@@ -918,7 +918,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersStatusReject
@@ -1039,7 +1039,7 @@ paths:
         имит запросов</a> на один аккаунт продавца:\n\n| Период | Лимит | Интервал\
         \ | Всплеск |\n| --- | --- | --- | --- |\n| 1 сек | 1 запрос | 1 сек | 10\
         \ запросов |\n\nОдин запрос с кодами ответов <code>4XX</code> учитывается\
-        \ как 10 запросов.\n\n<hr>\n\nВ <a href='/sandbox'>Песочнице</a> — максиму\
+        \ как 10 запросов.\n\n<hr>\n\nВ <a href='/sandbox'>песочнице</a> — максиму\
         м 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.\n\
         \n</div>\n"
       operationId: postV3ClickCollectOrdersStatusInfo
@@ -1147,7 +1147,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersStatusCancel
@@ -1357,7 +1357,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersMetaDelete
@@ -1466,7 +1466,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersMetaSgtin
@@ -1573,7 +1573,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersMetaUin
@@ -1681,7 +1681,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersMetaImei
@@ -1788,7 +1788,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersMetaGtin
@@ -1898,7 +1898,7 @@ paths:
 
         <hr>
 
-        В <a href='/sandbox'>Песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
 
         </div>
       operationId: postV3ClickCollectOrdersMetaCustomsDeclaration
