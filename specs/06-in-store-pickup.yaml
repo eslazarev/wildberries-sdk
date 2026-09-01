@@ -2023,7 +2023,6 @@ components:
                       allOf:
                         - $ref: '#/components/schemas/MetaDetailsErrors'
                         - description: Ошибки проверки идентификаторов маркировки
-                        - {}
                   type: object
                 type: array
                 description: Детали ошибки

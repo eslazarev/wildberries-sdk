@@ -1586,8 +1586,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/ResponseWithReturn'
+                $ref: '#/components/schemas/ResponseWithReturn'
               examples:
                 ResponseWithReturn:
                   $ref: '#/components/examples/ResponseWithReturn'
@@ -5613,7 +5612,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/BoosterStatsV3'
             - description: Статистика по бустеру
-            - {}
         canceled:
           type: integer
           description: Отмены, шт.
@@ -5636,7 +5634,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/DaysV3'
             - description: Статистика с разбивкой по дням
-            - {}
         orders:
           type: integer
           description: Количество заказов

@@ -1408,8 +1408,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/responseBodyContentError400'
+                $ref: '#/components/schemas/responseBodyContentError400'
               examples:
                 responseBodyContentError400:
                   $ref: '#/components/examples/responseBodyContentError400'
