@@ -45,12 +45,24 @@ pub struct Supply {
     /// Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует 
     #[serde(rename = "crossBorderType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cross_border_type: Option<Option<CrossBorderType>>,
-    /// ID склада назначения поставки. Если `null`, склад назначения не указан
+    /// ID склада хранения сборочных заданий в поставке. Если `null`, склад не указан
     #[serde(rename = "destinationOfficeId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub destination_office_id: Option<Option<i64>>,
     /// ID рекомендуемого склада для приёмки поставки для Москвы и МО. <br> Рекомендуется ближайший к покупателям склад, который определяется автоматически при передаче поставки в доставку с учётом параметров всех сборочных заданий в поставке.<br> Если `0`, рекомендуемый склад не определён 
     #[serde(rename = "recommendedWhId", skip_serializing_if = "Option::is_none")]
     pub recommended_wh_id: Option<i64>,
+    /// Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`
+    #[serde(rename = "shippingDt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub shipping_dt: Option<Option<String>>,
+    /// ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsShippingPoints)
+    #[serde(rename = "shippingPointId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub shipping_point_id: Option<Option<i32>>,
+    /// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid` 
+    #[serde(rename = "shippingType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub shipping_type: Option<Option<ShippingType>>,
+    /// ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`
+    #[serde(rename = "waybillUuid", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub waybill_uuid: Option<Option<String>>,
 }
 
 impl Supply {
@@ -68,6 +80,10 @@ impl Supply {
             cross_border_type: None,
             destination_office_id: None,
             recommended_wh_id: None,
+            shipping_dt: None,
+            shipping_point_id: None,
+            shipping_type: None,
+            waybill_uuid: None,
         }
     }
 }
@@ -117,6 +133,20 @@ impl std::fmt::Display for CrossBorderType {
 impl Default for CrossBorderType {
     fn default() -> CrossBorderType {
         Self::Variant0
+    }
+}
+/// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid` 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum ShippingType {
+    #[serde(rename = "selfShipping")]
+    SelfShipping,
+    #[serde(rename = "transportCompany")]
+    TransportCompany,
+}
+
+impl Default for ShippingType {
+    fn default() -> ShippingType {
+        Self::SelfShipping
     }
 }
 

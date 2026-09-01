@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.146"
+__version__ = "0.1.147"
 
 # Define package exports
 __all__ = [
@@ -95,9 +95,18 @@ __all__ = [
     "PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseResultsInner",
     "PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner",
     "PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest",
+    "ReplyBatchError",
+    "ShippingPoint",
+    "ShippingPointsResponse",
     "Supply",
     "SupplyTrbx",
     "TrbxStickers",
+    "UpdateSuppliesResponse",
+    "UpdateSuppliesShippingMethodRequest",
+    "UpdateSuppliesWaybill",
+    "UpdateSupplyShippingMethod",
+    "UpdateSupplyWaybill",
+    "UpdatedSupplies",
     "V3APIError",
     "V3APIErrorV2",
     "V3APIErrorV2ErrorsInner",
@@ -196,9 +205,18 @@ from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoretu
 from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items200_response_results_inner import PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseResultsInner as PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseResultsInner
 from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items200_response_results_inner_error_inner import PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner as PostMarketplaceV3FbsSettingsAutoreturnsItems200ResponseResultsInnerErrorInner
 from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_request import PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest as PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+from wildberries_sdk.orders_fbs.models.reply_batch_error import ReplyBatchError as ReplyBatchError
+from wildberries_sdk.orders_fbs.models.shipping_point import ShippingPoint as ShippingPoint
+from wildberries_sdk.orders_fbs.models.shipping_points_response import ShippingPointsResponse as ShippingPointsResponse
 from wildberries_sdk.orders_fbs.models.supply import Supply as Supply
 from wildberries_sdk.orders_fbs.models.supply_trbx import SupplyTrbx as SupplyTrbx
 from wildberries_sdk.orders_fbs.models.trbx_stickers import TrbxStickers as TrbxStickers
+from wildberries_sdk.orders_fbs.models.update_supplies_response import UpdateSuppliesResponse as UpdateSuppliesResponse
+from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_request import UpdateSuppliesShippingMethodRequest as UpdateSuppliesShippingMethodRequest
+from wildberries_sdk.orders_fbs.models.update_supplies_waybill import UpdateSuppliesWaybill as UpdateSuppliesWaybill
+from wildberries_sdk.orders_fbs.models.update_supply_shipping_method import UpdateSupplyShippingMethod as UpdateSupplyShippingMethod
+from wildberries_sdk.orders_fbs.models.update_supply_waybill import UpdateSupplyWaybill as UpdateSupplyWaybill
+from wildberries_sdk.orders_fbs.models.updated_supplies import UpdatedSupplies as UpdatedSupplies
 from wildberries_sdk.orders_fbs.models.v3_api_error import V3APIError as V3APIError
 from wildberries_sdk.orders_fbs.models.v3_api_error_v2 import V3APIErrorV2 as V3APIErrorV2
 from wildberries_sdk.orders_fbs.models.v3_api_error_v2_errors_inner import V3APIErrorV2ErrorsInner as V3APIErrorV2ErrorsInner

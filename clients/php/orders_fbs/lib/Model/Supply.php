@@ -68,7 +68,11 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'int',
         'cross_border_type' => 'int',
         'destination_office_id' => 'int',
-        'recommended_wh_id' => 'int'
+        'recommended_wh_id' => 'int',
+        'shipping_dt' => 'string',
+        'shipping_point_id' => 'int',
+        'shipping_type' => 'string',
+        'waybill_uuid' => 'string'
     ];
 
     /**
@@ -90,7 +94,11 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => null,
         'cross_border_type' => 'int32',
         'destination_office_id' => 'int64',
-        'recommended_wh_id' => 'int64'
+        'recommended_wh_id' => 'int64',
+        'shipping_dt' => null,
+        'shipping_point_id' => null,
+        'shipping_type' => null,
+        'waybill_uuid' => null
     ];
 
     /**
@@ -110,7 +118,11 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => false,
         'cross_border_type' => true,
         'destination_office_id' => true,
-        'recommended_wh_id' => false
+        'recommended_wh_id' => false,
+        'shipping_dt' => true,
+        'shipping_point_id' => true,
+        'shipping_type' => true,
+        'waybill_uuid' => true
     ];
 
     /**
@@ -210,7 +222,11 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'cargoType',
         'cross_border_type' => 'crossBorderType',
         'destination_office_id' => 'destinationOfficeId',
-        'recommended_wh_id' => 'recommendedWhId'
+        'recommended_wh_id' => 'recommendedWhId',
+        'shipping_dt' => 'shippingDt',
+        'shipping_point_id' => 'shippingPointId',
+        'shipping_type' => 'shippingType',
+        'waybill_uuid' => 'waybillUuid'
     ];
 
     /**
@@ -230,7 +246,11 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'setCargoType',
         'cross_border_type' => 'setCrossBorderType',
         'destination_office_id' => 'setDestinationOfficeId',
-        'recommended_wh_id' => 'setRecommendedWhId'
+        'recommended_wh_id' => 'setRecommendedWhId',
+        'shipping_dt' => 'setShippingDt',
+        'shipping_point_id' => 'setShippingPointId',
+        'shipping_type' => 'setShippingType',
+        'waybill_uuid' => 'setWaybillUuid'
     ];
 
     /**
@@ -250,7 +270,11 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'cargo_type' => 'getCargoType',
         'cross_border_type' => 'getCrossBorderType',
         'destination_office_id' => 'getDestinationOfficeId',
-        'recommended_wh_id' => 'getRecommendedWhId'
+        'recommended_wh_id' => 'getRecommendedWhId',
+        'shipping_dt' => 'getShippingDt',
+        'shipping_point_id' => 'getShippingPointId',
+        'shipping_type' => 'getShippingType',
+        'waybill_uuid' => 'getWaybillUuid'
     ];
 
     /**
@@ -300,6 +324,8 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CARGO_TYPE_NUMBER_3 = 3;
     public const CROSS_BORDER_TYPE_NUMBER_0 = 0;
     public const CROSS_BORDER_TYPE_NUMBER_1 = 1;
+    public const SHIPPING_TYPE_SELF_SHIPPING = 'selfShipping';
+    public const SHIPPING_TYPE_TRANSPORT_COMPANY = 'transportCompany';
 
     /**
      * Gets allowable values of the enum
@@ -330,6 +356,19 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getShippingTypeAllowableValues()
+    {
+        return [
+            self::SHIPPING_TYPE_SELF_SHIPPING,
+            self::SHIPPING_TYPE_TRANSPORT_COMPANY,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -356,6 +395,10 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('cross_border_type', $data ?? [], null);
         $this->setIfExists('destination_office_id', $data ?? [], null);
         $this->setIfExists('recommended_wh_id', $data ?? [], null);
+        $this->setIfExists('shipping_dt', $data ?? [], null);
+        $this->setIfExists('shipping_point_id', $data ?? [], null);
+        $this->setIfExists('shipping_type', $data ?? [], null);
+        $this->setIfExists('waybill_uuid', $data ?? [], null);
     }
 
     /**
@@ -399,6 +442,15 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'cross_border_type', must be one of '%s'",
                 $this->container['cross_border_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getShippingTypeAllowableValues();
+        if (!is_null($this->container['shipping_type']) && !in_array($this->container['shipping_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'shipping_type', must be one of '%s'",
+                $this->container['shipping_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -749,7 +801,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets destination_office_id
      *
-     * @param int|null $destination_office_id ID склада назначения поставки. Если `null`, склад назначения не указан
+     * @param int|null $destination_office_id ID склада хранения сборочных заданий в поставке. Если `null`, склад не указан
      *
      * @return self
      */
@@ -793,6 +845,152 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable recommended_wh_id cannot be null');
         }
         $this->container['recommended_wh_id'] = $recommended_wh_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_dt
+     *
+     * @return string|null
+     */
+    public function getShippingDt()
+    {
+        return $this->container['shipping_dt'];
+    }
+
+    /**
+     * Sets shipping_dt
+     *
+     * @param string|null $shipping_dt Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`
+     *
+     * @return self
+     */
+    public function setShippingDt($shipping_dt)
+    {
+        if (is_null($shipping_dt)) {
+            array_push($this->openAPINullablesSetToNull, 'shipping_dt');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shipping_dt', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shipping_dt'] = $shipping_dt;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_point_id
+     *
+     * @return int|null
+     */
+    public function getShippingPointId()
+    {
+        return $this->container['shipping_point_id'];
+    }
+
+    /**
+     * Sets shipping_point_id
+     *
+     * @param int|null $shipping_point_id ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsShippingPoints)
+     *
+     * @return self
+     */
+    public function setShippingPointId($shipping_point_id)
+    {
+        if (is_null($shipping_point_id)) {
+            array_push($this->openAPINullablesSetToNull, 'shipping_point_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shipping_point_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shipping_point_id'] = $shipping_point_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_type
+     *
+     * @return string|null
+     */
+    public function getShippingType()
+    {
+        return $this->container['shipping_type'];
+    }
+
+    /**
+     * Sets shipping_type
+     *
+     * @param string|null $shipping_type Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid`
+     *
+     * @return self
+     */
+    public function setShippingType($shipping_type)
+    {
+        if (is_null($shipping_type)) {
+            array_push($this->openAPINullablesSetToNull, 'shipping_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shipping_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getShippingTypeAllowableValues();
+        if (!is_null($shipping_type) && !in_array($shipping_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'shipping_type', must be one of '%s'",
+                    $shipping_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['shipping_type'] = $shipping_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets waybill_uuid
+     *
+     * @return string|null
+     */
+    public function getWaybillUuid()
+    {
+        return $this->container['waybill_uuid'];
+    }
+
+    /**
+     * Sets waybill_uuid
+     *
+     * @param string|null $waybill_uuid ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`
+     *
+     * @return self
+     */
+    public function setWaybillUuid($waybill_uuid)
+    {
+        if (is_null($waybill_uuid)) {
+            array_push($this->openAPINullablesSetToNull, 'waybill_uuid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('waybill_uuid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['waybill_uuid'] = $waybill_uuid;
 
         return $this;
     }

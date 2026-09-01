@@ -1920,16 +1920,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/postV3SalesFunnelProducts_401_response"
           description: Не авторизован
-        "402":
-          content:
-            application/problem+json:
-              example:
-                title: payment required
-                detail: wb solution for business has insufficient funds on its balance.
-                  please top up the balance in the company's personal account https://dev.wildberries.ru/company
-              schema:
-                $ref: "#/components/schemas/postV3SalesFunnelProducts_402_response"
-          description: Требуется платёж
         "403":
           content:
             application/json:

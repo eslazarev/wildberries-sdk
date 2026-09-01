@@ -38,9 +38,13 @@ class Supply(BaseModel):
     name: Optional[StrictStr] = Field(default=None, description="Наименование поставки", json_schema_extra={"examples": ["Тестовая поставка"]})
     cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
     cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует ", alias="crossBorderType", json_schema_extra={"examples": [1]})
-    destination_office_id: Optional[StrictInt] = Field(default=None, description="ID склада назначения поставки. Если `null`, склад назначения не указан", alias="destinationOfficeId", json_schema_extra={"examples": [123]})
+    destination_office_id: Optional[StrictInt] = Field(default=None, description="ID склада хранения сборочных заданий в поставке. Если `null`, склад не указан", alias="destinationOfficeId", json_schema_extra={"examples": [123]})
     recommended_wh_id: Optional[StrictInt] = Field(default=None, description="ID рекомендуемого склада для приёмки поставки для Москвы и МО. <br> Рекомендуется ближайший к покупателям склад, который определяется автоматически при передаче поставки в доставку с учётом параметров всех сборочных заданий в поставке.<br> Если `0`, рекомендуемый склад не определён ", alias="recommendedWhId", json_schema_extra={"examples": [123569]})
-    __properties: ClassVar[List[str]] = ["id", "isB2b", "isPickupPointShipmentAllowed", "done", "createdAt", "closedAt", "scanDt", "name", "cargoType", "crossBorderType", "destinationOfficeId", "recommendedWhId"]
+    shipping_dt: Optional[StrictStr] = Field(default=None, description="Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`", alias="shippingDt", json_schema_extra={"examples": ["2026-08-31"]})
+    shipping_point_id: Optional[StrictInt] = Field(default=None, description="ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsShippingPoints)", alias="shippingPointId", json_schema_extra={"examples": [100]})
+    shipping_type: Optional[StrictStr] = Field(default=None, description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid` ", alias="shippingType", json_schema_extra={"examples": ["transportCompany"]})
+    waybill_uuid: Optional[StrictStr] = Field(default=None, description="ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`", alias="waybillUuid", json_schema_extra={"examples": ["550e8400-e29b-41d4-a716-384579387429"]})
+    __properties: ClassVar[List[str]] = ["id", "isB2b", "isPickupPointShipmentAllowed", "done", "createdAt", "closedAt", "scanDt", "name", "cargoType", "crossBorderType", "destinationOfficeId", "recommendedWhId", "shippingDt", "shippingPointId", "shippingType", "waybillUuid"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -60,6 +64,16 @@ class Supply(BaseModel):
 
         if value not in set([0, 1]):
             raise ValueError("must be one of enum values (0, 1)")
+        return value
+
+    @field_validator('shipping_type')
+    def shipping_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['selfShipping', 'transportCompany']):
+            raise ValueError("must be one of enum values ('selfShipping', 'transportCompany')")
         return value
 
     model_config = ConfigDict(
@@ -126,6 +140,26 @@ class Supply(BaseModel):
         if self.destination_office_id is None and "destination_office_id" in self.model_fields_set:
             _dict['destinationOfficeId'] = None
 
+        # set to None if shipping_dt (nullable) is None
+        # and model_fields_set contains the field
+        if self.shipping_dt is None and "shipping_dt" in self.model_fields_set:
+            _dict['shippingDt'] = None
+
+        # set to None if shipping_point_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.shipping_point_id is None and "shipping_point_id" in self.model_fields_set:
+            _dict['shippingPointId'] = None
+
+        # set to None if shipping_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.shipping_type is None and "shipping_type" in self.model_fields_set:
+            _dict['shippingType'] = None
+
+        # set to None if waybill_uuid (nullable) is None
+        # and model_fields_set contains the field
+        if self.waybill_uuid is None and "waybill_uuid" in self.model_fields_set:
+            _dict['waybillUuid'] = None
+
         return _dict
 
     @classmethod
@@ -149,7 +183,11 @@ class Supply(BaseModel):
             "cargoType": obj.get("cargoType"),
             "crossBorderType": obj.get("crossBorderType"),
             "destinationOfficeId": obj.get("destinationOfficeId"),
-            "recommendedWhId": obj.get("recommendedWhId")
+            "recommendedWhId": obj.get("recommendedWhId"),
+            "shippingDt": obj.get("shippingDt"),
+            "shippingPointId": obj.get("shippingPointId"),
+            "shippingType": obj.get("shippingType"),
+            "waybillUuid": obj.get("waybillUuid")
         })
         return _obj
 

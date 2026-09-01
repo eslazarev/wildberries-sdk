@@ -78,7 +78,7 @@ export interface Supply {
      */
     crossBorderType?: SupplyCrossBorderTypeEnum | null;
     /**
-     * ID склада назначения поставки. Если `null`, склад назначения не указан
+     * ID склада хранения сборочных заданий в поставке. Если `null`, склад не указан
      */
     destinationOfficeId?: number | null;
     /**
@@ -88,6 +88,25 @@ export interface Supply {
      * 
      */
     recommendedWhId?: number;
+    /**
+     * Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`
+     */
+    shippingDt?: string | null;
+    /**
+     * ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsShippingPoints)
+     */
+    shippingPointId?: number | null;
+    /**
+     * Способ доставки до пункта отгрузки:
+     *   - `selfShipping` — доставка силами продавца
+     *   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid`
+     * 
+     */
+    shippingType?: SupplyShippingTypeEnum | null;
+    /**
+     * ID ЭТрН — электронной транспортной накладной. Обязателен при `"shippingType":"transportCompany"`
+     */
+    waybillUuid?: string | null;
 }
 
 
@@ -110,6 +129,15 @@ export const SupplyCrossBorderTypeEnum = {
     NUMBER_1: 1,
 } as const;
 export type SupplyCrossBorderTypeEnum = typeof SupplyCrossBorderTypeEnum[keyof typeof SupplyCrossBorderTypeEnum];
+
+/**
+ * @export
+ */
+export const SupplyShippingTypeEnum = {
+    SelfShipping: 'selfShipping',
+    TransportCompany: 'transportCompany',
+} as const;
+export type SupplyShippingTypeEnum = typeof SupplyShippingTypeEnum[keyof typeof SupplyShippingTypeEnum];
 
 
 /**
@@ -141,6 +169,10 @@ export function SupplyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
         'crossBorderType': json['crossBorderType'] === undefined ? undefined : json['crossBorderType'] === null ? null : json['crossBorderType'],
         'destinationOfficeId': json['destinationOfficeId'] === undefined ? undefined : json['destinationOfficeId'] === null ? null : json['destinationOfficeId'],
         'recommendedWhId': json['recommendedWhId'] == null ? undefined : json['recommendedWhId'],
+        'shippingDt': json['shippingDt'] === undefined ? undefined : json['shippingDt'] === null ? null : json['shippingDt'],
+        'shippingPointId': json['shippingPointId'] === undefined ? undefined : json['shippingPointId'] === null ? null : json['shippingPointId'],
+        'shippingType': json['shippingType'] === undefined ? undefined : json['shippingType'] === null ? null : json['shippingType'],
+        'waybillUuid': json['waybillUuid'] === undefined ? undefined : json['waybillUuid'] === null ? null : json['waybillUuid'],
     };
 }
 
@@ -167,6 +199,10 @@ export function SupplyToJSONTyped(value?: Supply | null, ignoreDiscriminator: bo
         'crossBorderType': value['crossBorderType'],
         'destinationOfficeId': value['destinationOfficeId'],
         'recommendedWhId': value['recommendedWhId'],
+        'shippingDt': value['shippingDt'],
+        'shippingPointId': value['shippingPointId'],
+        'shippingType': value['shippingType'],
+        'waybillUuid': value['waybillUuid'],
     };
 }
 

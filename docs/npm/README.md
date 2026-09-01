@@ -164,6 +164,9 @@ main().catch(console.error);
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxGet` — Получить список грузомест поставки
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxPost` — Добавить грузоместа к поставке
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — Получить стикеры грузомест поставки
+- `orders_fbs.FBSApi.getV3FbsShippingPoints` — Получить список пунктов отгрузки поставок
+- `orders_fbs.FBSApi.patchV3FbsSuppliesShippingMethod` — Установить параметры отгрузки поставок
+- `orders_fbs.FBSApi.patchV3FbsSuppliesWaybill` — Установить ID ЭТрН поставок
 
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DBWApi.getV3DbwOrders` — Получить информацию о завершенных сборочных заданиях

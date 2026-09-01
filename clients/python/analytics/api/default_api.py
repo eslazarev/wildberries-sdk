@@ -693,7 +693,6 @@ class DefaultApi:
             '204': None,
             '400': "ErrorObject400",
             '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
             '403': "ErrorObject403",
             '429': "PostV3SalesFunnelProducts401Response",
         }
@@ -766,7 +765,6 @@ class DefaultApi:
             '204': None,
             '400': "ErrorObject400",
             '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
             '403': "ErrorObject403",
             '429': "PostV3SalesFunnelProducts401Response",
         }
@@ -839,7 +837,6 @@ class DefaultApi:
             '204': None,
             '400': "ErrorObject400",
             '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
             '403': "ErrorObject403",
             '429': "PostV3SalesFunnelProducts401Response",
         }

@@ -21,7 +21,6 @@ use super::{Error, configuration, ContentType};
 pub enum PostAnalyticsV1StocksReportSellerWarehousesError {
     Status400(models::ErrorObject400),
     Status401(models::PostV3SalesFunnelProducts401Response),
-    Status402(models::PostV3SalesFunnelProducts402Response),
     Status403(models::ErrorObject403),
     Status429(models::PostV3SalesFunnelProducts401Response),
     UnknownValue(serde_json::Value),

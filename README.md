@@ -151,6 +151,9 @@ SDK выпускается с security-first процессом:
 - `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров (postMarketplaceV3FbsSettingsAutoreturnsItems)
 - `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров (patchMarketplaceV3FbsSettingsAutoreturnsItems)
 - `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB (getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted)
+- `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок (getV3FbsShippingPoints)
+- `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок (patchV3FbsSuppliesShippingMethod)
+- `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок (patchV3FbsSuppliesWaybill)
 - `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки

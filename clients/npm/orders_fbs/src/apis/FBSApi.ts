@@ -204,10 +204,30 @@ import {
     PassOfficeToJSON,
 } from '../models/PassOffice';
 import {
+    type ShippingPointsResponse,
+    ShippingPointsResponseFromJSON,
+    ShippingPointsResponseToJSON,
+} from '../models/ShippingPointsResponse';
+import {
     type Supply,
     SupplyFromJSON,
     SupplyToJSON,
 } from '../models/Supply';
+import {
+    type UpdateSuppliesResponse,
+    UpdateSuppliesResponseFromJSON,
+    UpdateSuppliesResponseToJSON,
+} from '../models/UpdateSuppliesResponse';
+import {
+    type UpdateSuppliesShippingMethodRequest,
+    UpdateSuppliesShippingMethodRequestFromJSON,
+    UpdateSuppliesShippingMethodRequestToJSON,
+} from '../models/UpdateSuppliesShippingMethodRequest';
+import {
+    type UpdateSuppliesWaybill,
+    UpdateSuppliesWaybillFromJSON,
+    UpdateSuppliesWaybillToJSON,
+} from '../models/UpdateSuppliesWaybill';
 import {
     type V3APIError,
     V3APIErrorFromJSON,
@@ -551,6 +571,35 @@ export interface ApiV3SuppliesSupplyIdTrbxStickersPostOperationRequest {
      * 
      */
     apiV3SuppliesSupplyIdTrbxStickersPostRequest?: ApiV3SuppliesSupplyIdTrbxStickersPostRequest;
+}
+
+export interface GetV3FbsShippingPointsRequest {
+    /**
+     * Населённый пункт отгрузки поставки, кириллица
+     */
+    city: string;
+    /**
+     * Тип товара, который принимает пункт отгрузки:
+     *   - `1` — малогабаритный товар (МГТ)
+     *   - `2` — сверхгабаритный товар (СГТ)
+     *   - `3` — крупногабаритный товар (КГТ+)
+     * 
+     */
+    cargoType: GetV3FbsShippingPointsCargoTypeEnum;
+}
+
+export interface PatchV3FbsSuppliesShippingMethodRequest {
+    /**
+     * Параметры отгрузки поставки
+     */
+    updateSuppliesShippingMethodRequest: UpdateSuppliesShippingMethodRequest;
+}
+
+export interface PatchV3FbsSuppliesWaybillRequest {
+    /**
+     * Данные ЭТрН
+     */
+    updateSuppliesWaybill: UpdateSuppliesWaybill;
 }
 
 /**
@@ -2220,7 +2269,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  Обязательно [указывайте параметры отгрузки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
      * Передать поставку в доставку
      */
     async apiV3SuppliesSupplyIdDeliverPatchRaw(requestParameters: ApiV3SuppliesSupplyIdDeliverPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -2231,7 +2280,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод закрывает [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) и переводит все [сборочные задания](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders/get) в ней в [статус](/openapi/orders-fbs#tag/Sborochnye-zadaniya-FBS/paths/~1api~1v3~1orders~1status/post) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя. <br><br> Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется. <br><br> Передать поставку в доставку можно, только если в ней:   - есть хотя бы одно сборочное задание   - для всех сборочных заданий указана обязательная маркировка   - маркировка всех сборочных заданий прошла проверку  Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.  Обязательно [указывайте параметры отгрузки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
      * Передать поставку в доставку
      */
     async apiV3SuppliesSupplyIdDeliverPatch(requestParameters: ApiV3SuppliesSupplyIdDeliverPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
@@ -2512,6 +2561,177 @@ export class FBSApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+    /**
+     * Creates request options for getV3FbsShippingPoints without sending the request
+     */
+    async getV3FbsShippingPointsRequestOpts(requestParameters: GetV3FbsShippingPointsRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['city'] == null) {
+            throw new runtime.RequiredError(
+                'city',
+                'Required parameter "city" was null or undefined when calling getV3FbsShippingPoints().'
+            );
+        }
+
+        if (requestParameters['cargoType'] == null) {
+            throw new runtime.RequiredError(
+                'cargoType',
+                'Required parameter "cargoType" was null or undefined when calling getV3FbsShippingPoints().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['city'] != null) {
+            queryParameters['city'] = requestParameters['city'];
+        }
+
+        if (requestParameters['cargoType'] != null) {
+            queryParameters['cargoType'] = requestParameters['cargoType'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/shipping-points`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить список пунктов отгрузки поставок
+     */
+    async getV3FbsShippingPointsRaw(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingPointsResponse>> {
+        const requestOptions = await this.getV3FbsShippingPointsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShippingPointsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Получить список пунктов отгрузки поставок
+     */
+    async getV3FbsShippingPoints(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingPointsResponse> {
+        const response = await this.getV3FbsShippingPointsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for patchV3FbsSuppliesShippingMethod without sending the request
+     */
+    async patchV3FbsSuppliesShippingMethodRequestOpts(requestParameters: PatchV3FbsSuppliesShippingMethodRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['updateSuppliesShippingMethodRequest'] == null) {
+            throw new runtime.RequiredError(
+                'updateSuppliesShippingMethodRequest',
+                'Required parameter "updateSuppliesShippingMethodRequest" was null or undefined when calling patchV3FbsSuppliesShippingMethod().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/supplies/shipping-method`;
+
+        return {
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateSuppliesShippingMethodRequestToJSON(requestParameters['updateSuppliesShippingMethodRequest']),
+        };
+    }
+
+    /**
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Установить параметры отгрузки поставок
+     */
+    async patchV3FbsSuppliesShippingMethodRaw(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesResponse>> {
+        const requestOptions = await this.patchV3FbsSuppliesShippingMethodRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Установить параметры отгрузки поставок
+     */
+    async patchV3FbsSuppliesShippingMethod(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesResponse> {
+        const response = await this.patchV3FbsSuppliesShippingMethodRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for patchV3FbsSuppliesWaybill without sending the request
+     */
+    async patchV3FbsSuppliesWaybillRequestOpts(requestParameters: PatchV3FbsSuppliesWaybillRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['updateSuppliesWaybill'] == null) {
+            throw new runtime.RequiredError(
+                'updateSuppliesWaybill',
+                'Required parameter "updateSuppliesWaybill" was null or undefined when calling patchV3FbsSuppliesWaybill().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/supplies/waybill`;
+
+        return {
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateSuppliesWaybillToJSON(requestParameters['updateSuppliesWaybill']),
+        };
+    }
+
+    /**
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Установить ID ЭТрН поставок
+     */
+    async patchV3FbsSuppliesWaybillRaw(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesResponse>> {
+        const requestOptions = await this.patchV3FbsSuppliesWaybillRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateSuppliesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Установить ID ЭТрН поставок
+     */
+    async patchV3FbsSuppliesWaybill(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesResponse> {
+        const response = await this.patchV3FbsSuppliesWaybillRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
 
 /**
@@ -2571,3 +2791,12 @@ export const ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum = {
     Png: 'png',
 } as const;
 export type ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum = typeof ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum[keyof typeof ApiV3SuppliesSupplyIdTrbxStickersPostOperationTypeEnum];
+/**
+ * @export
+ */
+export const GetV3FbsShippingPointsCargoTypeEnum = {
+    NUMBER_1: 1,
+    NUMBER_2: 2,
+    NUMBER_3: 3,
+} as const;
+export type GetV3FbsShippingPointsCargoTypeEnum = typeof GetV3FbsShippingPointsCargoTypeEnum[keyof typeof GetV3FbsShippingPointsCargoTypeEnum];

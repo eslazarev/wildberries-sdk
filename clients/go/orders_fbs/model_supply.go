@@ -40,10 +40,18 @@ type Supply struct {
 	CargoType *int32 `json:"cargoType,omitempty"`
 	// Тип поставки:   - `0` — внутренняя поставка   - `1` — трансграничная поставка   - `null` — значение отсутствует 
 	CrossBorderType NullableInt32 `json:"crossBorderType,omitempty"`
-	// ID склада назначения поставки. Если `null`, склад назначения не указан
+	// ID склада хранения сборочных заданий в поставке. Если `null`, склад не указан
 	DestinationOfficeId NullableInt64 `json:"destinationOfficeId,omitempty"`
 	// ID рекомендуемого склада для приёмки поставки для Москвы и МО. <br> Рекомендуется ближайший к покупателям склад, который определяется автоматически при передаче поставки в доставку с учётом параметров всех сборочных заданий в поставке.<br> Если `0`, рекомендуемый склад не определён 
 	RecommendedWhId *int64 `json:"recommendedWhId,omitempty"`
+	// Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`
+	ShippingDt NullableString `json:"shippingDt,omitempty"`
+	// ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsShippingPoints)
+	ShippingPointId NullableInt32 `json:"shippingPointId,omitempty"`
+	// Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid` 
+	ShippingType NullableString `json:"shippingType,omitempty"`
+	// ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`
+	WaybillUuid NullableString `json:"waybillUuid,omitempty"`
 }
 
 // NewSupply instantiates a new Supply object
@@ -497,6 +505,174 @@ func (o *Supply) SetRecommendedWhId(v int64) {
 	o.RecommendedWhId = &v
 }
 
+// GetShippingDt returns the ShippingDt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Supply) GetShippingDt() string {
+	if o == nil || IsNil(o.ShippingDt.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ShippingDt.Get()
+}
+
+// GetShippingDtOk returns a tuple with the ShippingDt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Supply) GetShippingDtOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShippingDt.Get(), o.ShippingDt.IsSet()
+}
+
+// HasShippingDt returns a boolean if a field has been set.
+func (o *Supply) HasShippingDt() bool {
+	if o != nil && o.ShippingDt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShippingDt gets a reference to the given NullableString and assigns it to the ShippingDt field.
+func (o *Supply) SetShippingDt(v string) {
+	o.ShippingDt.Set(&v)
+}
+// SetShippingDtNil sets the value for ShippingDt to be an explicit nil
+func (o *Supply) SetShippingDtNil() {
+	o.ShippingDt.Set(nil)
+}
+
+// UnsetShippingDt ensures that no value is present for ShippingDt, not even an explicit nil
+func (o *Supply) UnsetShippingDt() {
+	o.ShippingDt.Unset()
+}
+
+// GetShippingPointId returns the ShippingPointId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Supply) GetShippingPointId() int32 {
+	if o == nil || IsNil(o.ShippingPointId.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.ShippingPointId.Get()
+}
+
+// GetShippingPointIdOk returns a tuple with the ShippingPointId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Supply) GetShippingPointIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShippingPointId.Get(), o.ShippingPointId.IsSet()
+}
+
+// HasShippingPointId returns a boolean if a field has been set.
+func (o *Supply) HasShippingPointId() bool {
+	if o != nil && o.ShippingPointId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShippingPointId gets a reference to the given NullableInt32 and assigns it to the ShippingPointId field.
+func (o *Supply) SetShippingPointId(v int32) {
+	o.ShippingPointId.Set(&v)
+}
+// SetShippingPointIdNil sets the value for ShippingPointId to be an explicit nil
+func (o *Supply) SetShippingPointIdNil() {
+	o.ShippingPointId.Set(nil)
+}
+
+// UnsetShippingPointId ensures that no value is present for ShippingPointId, not even an explicit nil
+func (o *Supply) UnsetShippingPointId() {
+	o.ShippingPointId.Unset()
+}
+
+// GetShippingType returns the ShippingType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Supply) GetShippingType() string {
+	if o == nil || IsNil(o.ShippingType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ShippingType.Get()
+}
+
+// GetShippingTypeOk returns a tuple with the ShippingType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Supply) GetShippingTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShippingType.Get(), o.ShippingType.IsSet()
+}
+
+// HasShippingType returns a boolean if a field has been set.
+func (o *Supply) HasShippingType() bool {
+	if o != nil && o.ShippingType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShippingType gets a reference to the given NullableString and assigns it to the ShippingType field.
+func (o *Supply) SetShippingType(v string) {
+	o.ShippingType.Set(&v)
+}
+// SetShippingTypeNil sets the value for ShippingType to be an explicit nil
+func (o *Supply) SetShippingTypeNil() {
+	o.ShippingType.Set(nil)
+}
+
+// UnsetShippingType ensures that no value is present for ShippingType, not even an explicit nil
+func (o *Supply) UnsetShippingType() {
+	o.ShippingType.Unset()
+}
+
+// GetWaybillUuid returns the WaybillUuid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Supply) GetWaybillUuid() string {
+	if o == nil || IsNil(o.WaybillUuid.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.WaybillUuid.Get()
+}
+
+// GetWaybillUuidOk returns a tuple with the WaybillUuid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Supply) GetWaybillUuidOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WaybillUuid.Get(), o.WaybillUuid.IsSet()
+}
+
+// HasWaybillUuid returns a boolean if a field has been set.
+func (o *Supply) HasWaybillUuid() bool {
+	if o != nil && o.WaybillUuid.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWaybillUuid gets a reference to the given NullableString and assigns it to the WaybillUuid field.
+func (o *Supply) SetWaybillUuid(v string) {
+	o.WaybillUuid.Set(&v)
+}
+// SetWaybillUuidNil sets the value for WaybillUuid to be an explicit nil
+func (o *Supply) SetWaybillUuidNil() {
+	o.WaybillUuid.Set(nil)
+}
+
+// UnsetWaybillUuid ensures that no value is present for WaybillUuid, not even an explicit nil
+func (o *Supply) UnsetWaybillUuid() {
+	o.WaybillUuid.Unset()
+}
+
 func (o Supply) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -542,6 +718,18 @@ func (o Supply) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.RecommendedWhId) {
 		toSerialize["recommendedWhId"] = o.RecommendedWhId
+	}
+	if o.ShippingDt.IsSet() {
+		toSerialize["shippingDt"] = o.ShippingDt.Get()
+	}
+	if o.ShippingPointId.IsSet() {
+		toSerialize["shippingPointId"] = o.ShippingPointId.Get()
+	}
+	if o.ShippingType.IsSet() {
+		toSerialize["shippingType"] = o.ShippingType.Get()
+	}
+	if o.WaybillUuid.IsSet() {
+		toSerialize["waybillUuid"] = o.WaybillUuid.Get()
 	}
 	return toSerialize, nil
 }
