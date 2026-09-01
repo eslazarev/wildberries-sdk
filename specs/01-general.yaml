@@ -1490,7 +1490,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/PlanBuilderPromotion'
             - description: Акция, по которой подключена опция. Не возвращается, если опция подключена без акции или срок действия акции истёк
-            - {}
     PlanBuilderOptionShort:
       type: object
       properties:

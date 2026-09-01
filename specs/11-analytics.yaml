@@ -1411,8 +1411,6 @@ paths:
                 $ref: '#/components/schemas/ErrorObject400'
         '401':
           $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
         '403':
           description: Доступ запрещён
           content:
@@ -4576,7 +4574,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/CommonSizeFilters'
         - description: Параметры запроса об остатках по размерам товара
-        - {}
     CommonSizeFilters:
       type: object
       description: Общие фильтры по размеру
@@ -4693,7 +4690,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/CommonShippingOfficeFilters'
         - description: Параметры запроса об остатках по складам
-        - {}
     CommonShippingOfficeFilters:
       type: object
       description: Общие фильтры по регионам отгрузки
