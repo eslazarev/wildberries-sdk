@@ -1822,9 +1822,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorObject403'
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Response403General'
         '429':
           $ref: '#/components/responses/429'
 components:
