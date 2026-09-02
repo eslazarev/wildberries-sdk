@@ -157,6 +157,7 @@ pub enum GetV1CalendarPromotionsNomenclaturesError {
 #[serde(untagged)]
 pub enum GetV1ConfigError {
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1Config403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }
@@ -363,6 +364,7 @@ pub enum PostV1CalendarPromotionsUploadError {
 pub enum PostV1NormqueryBidsError {
     Status400(models::Response400),
     Status401(models::GetV1PromotionCount401Response),
+    Status403(models::GetV1Config403Response),
     Status429(models::GetV1PromotionCount401Response),
     UnknownValue(serde_json::Value),
 }

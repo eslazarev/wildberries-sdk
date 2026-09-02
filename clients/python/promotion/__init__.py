@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.147"
+__version__ = "0.1.148"
 
 # Define package exports
 __all__ = [
@@ -68,6 +68,7 @@ __all__ = [
     "GetV1CalendarPromotionsNomenclatures200ResponseData",
     "GetV1CalendarPromotionsNomenclatures400Response",
     "GetV1CalendarPromotionsNomenclatures422Response",
+    "GetV1Config403Response",
     "GetV1Count200Response",
     "GetV1Count200ResponseAdverts",
     "GetV1Payments200ResponseInner",
@@ -233,6 +234,7 @@ from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures20
 from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures200_response_data import GetV1CalendarPromotionsNomenclatures200ResponseData as GetV1CalendarPromotionsNomenclatures200ResponseData
 from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures400_response import GetV1CalendarPromotionsNomenclatures400Response as GetV1CalendarPromotionsNomenclatures400Response
 from wildberries_sdk.promotion.models.get_v1_calendar_promotions_nomenclatures422_response import GetV1CalendarPromotionsNomenclatures422Response as GetV1CalendarPromotionsNomenclatures422Response
+from wildberries_sdk.promotion.models.get_v1_config403_response import GetV1Config403Response as GetV1Config403Response
 from wildberries_sdk.promotion.models.get_v1_count200_response import GetV1Count200Response as GetV1Count200Response
 from wildberries_sdk.promotion.models.get_v1_count200_response_adverts import GetV1Count200ResponseAdverts as GetV1Count200ResponseAdverts
 from wildberries_sdk.promotion.models.get_v1_payments200_response_inner import GetV1Payments200ResponseInner as GetV1Payments200ResponseInner

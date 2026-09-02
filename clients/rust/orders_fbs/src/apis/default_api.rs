@@ -20,6 +20,7 @@ use super::{Error, configuration, ContentType};
 #[serde(untagged)]
 pub enum GetMarketplaceV3FbsSettingsAutoreturnsError {
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -30,6 +31,7 @@ pub enum GetMarketplaceV3FbsSettingsAutoreturnsError {
 pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
     Status400(models::AutoreturnError400),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -40,6 +42,7 @@ pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
 pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
     Status400(models::AutoreturnError400),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -50,6 +53,7 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
 pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
     Status400(models::AutoreturnError400),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }
@@ -60,6 +64,7 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
 pub enum PostMarketplaceV3FbsSettingsAutoreturnsItemsError {
     Status400(models::AutoreturnError400),
     Status401(models::ApiV3PassesOfficesGet401Response),
+    Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
     UnknownValue(serde_json::Value),
 }

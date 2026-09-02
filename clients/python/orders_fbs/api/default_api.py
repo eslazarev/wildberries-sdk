@@ -10639,6 +10639,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketplaceV3FbsSettingsAutoreturns200Response",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -10704,6 +10705,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketplaceV3FbsSettingsAutoreturns200Response",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -10769,6 +10771,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketplaceV3FbsSettingsAutoreturns200Response",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -10814,7 +10817,8 @@ class DefaultApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'application/json', 
+                    'application/problem+json'
                 ]
             )
 
@@ -10903,6 +10907,7 @@ class DefaultApi:
             '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -10977,6 +10982,7 @@ class DefaultApi:
             '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11051,6 +11057,7 @@ class DefaultApi:
             '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11485,6 +11492,7 @@ class DefaultApi:
             '204': None,
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11555,6 +11563,7 @@ class DefaultApi:
             '204': None,
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11625,6 +11634,7 @@ class DefaultApi:
             '204': None,
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11772,6 +11782,7 @@ class DefaultApi:
             '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11842,6 +11853,7 @@ class DefaultApi:
             '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -11912,6 +11924,7 @@ class DefaultApi:
             '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -12640,6 +12653,7 @@ class DefaultApi:
             '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -12710,6 +12724,7 @@ class DefaultApi:
             '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -12780,6 +12795,7 @@ class DefaultApi:
             '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
             '400': "AutoreturnError400",
             '401': "ApiV3PassesOfficesGet401Response",
+            '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(

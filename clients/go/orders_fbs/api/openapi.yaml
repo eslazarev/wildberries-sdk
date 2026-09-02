@@ -4773,6 +4773,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/json:
@@ -4850,6 +4865,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/json:
@@ -4938,6 +4968,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/json:
@@ -5019,6 +5064,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/json:
@@ -5126,6 +5186,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/_api_v3_passes_offices_get_401_response"
           description: Не авторизован
+        "403":
+          content:
+            application/problem+json:
+              example:
+                title: forbidden
+                detail: base token is not allowed
+                code: base token is not allowed for this path
+                requestId: 722199b2e15bbca48cc1d488a7989976
+                origin: s2s-finance
+                status: 403
+                statusText: Forbidden
+                timestamp: 2026-05-25T02:47:09Z
+              schema:
+                $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+          description: Доступ запрещён
         "429":
           content:
             application/json:
@@ -5428,6 +5503,21 @@ components:
           schema:
             $ref: "#/components/schemas/_api_v3_passes_offices_get_402_response"
       description: Требуется платёж
+    "403":
+      content:
+        application/problem+json:
+          example:
+            title: forbidden
+            detail: base token is not allowed
+            code: base token is not allowed for this path
+            requestId: 722199b2e15bbca48cc1d488a7989976
+            origin: s2s-finance
+            status: 403
+            statusText: Forbidden
+            timestamp: 2026-05-25T02:47:09Z
+          schema:
+            $ref: "#/components/schemas/getMarketplaceV3FbsSettingsAutoreturns_403_response"
+      description: Доступ запрещён
     "429":
       content:
         application/json:
@@ -7977,6 +8067,34 @@ components:
           type: string
       required:
       - type
+      type: object
+    getMarketplaceV3FbsSettingsAutoreturns_403_response:
+      properties:
+        title:
+          description: Заголовок ошибки
+          type: string
+        detail:
+          description: Детали ошибки
+          type: string
+        code:
+          description: Внутренний код ошибки
+          type: string
+        requestId:
+          description: ID запроса
+          type: string
+        origin:
+          description: ID внутреннего сервиса WB
+          type: string
+        status:
+          description: HTTP статус-код
+          type: number
+        statusText:
+          description: Расшифровка HTTP статус-кода
+          type: string
+        timestamp:
+          description: Дата и время запроса
+          format: date-time
+          type: string
       type: object
     patchMarketplaceV3FbsSettingsAutoreturns_request:
       properties:

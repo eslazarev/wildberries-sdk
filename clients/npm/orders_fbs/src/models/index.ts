@@ -43,6 +43,7 @@ export * from './AutoreturnError400';
 export * from './CrossborderTurkeyClientInfo';
 export * from './CrossborderTurkeyClientInfoResp';
 export * from './GetMarketplaceV3FbsSettingsAutoreturns200Response';
+export * from './GetMarketplaceV3FbsSettingsAutoreturns403Response';
 export * from './GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response';
 export * from './GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner';
 export * from './MetaDetailsInner';

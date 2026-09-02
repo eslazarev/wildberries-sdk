@@ -78,6 +78,8 @@ pub mod get_v1_calendar_promotions_nomenclatures_400_response;
 pub use self::get_v1_calendar_promotions_nomenclatures_400_response::GetV1CalendarPromotionsNomenclatures400Response;
 pub mod get_v1_calendar_promotions_nomenclatures_422_response;
 pub use self::get_v1_calendar_promotions_nomenclatures_422_response::GetV1CalendarPromotionsNomenclatures422Response;
+pub mod get_v1_config_403_response;
+pub use self::get_v1_config_403_response::GetV1Config403Response;
 pub mod get_v1_count_200_response;
 pub use self::get_v1_count_200_response::GetV1Count200Response;
 pub mod get_v1_count_200_response_adverts;

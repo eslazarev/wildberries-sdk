@@ -89,6 +89,11 @@ import {
     GetV1CalendarPromotionsNomenclatures422ResponseToJSON,
 } from '../models/GetV1CalendarPromotionsNomenclatures422Response';
 import {
+    type GetV1Config403Response,
+    GetV1Config403ResponseFromJSON,
+    GetV1Config403ResponseToJSON,
+} from '../models/GetV1Config403Response';
+import {
     type GetV1Count200Response,
     GetV1Count200ResponseFromJSON,
     GetV1Count200ResponseToJSON,

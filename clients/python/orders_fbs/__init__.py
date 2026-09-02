@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.147"
+__version__ = "0.1.148"
 
 # Define package exports
 __all__ = [
@@ -72,6 +72,7 @@ __all__ = [
     "CrossborderTurkeyClientInfoResp",
     "Error",
     "GetMarketplaceV3FbsSettingsAutoreturns200Response",
+    "GetMarketplaceV3FbsSettingsAutoreturns403Response",
     "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
     "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner",
     "MetaDetailsInner",
@@ -182,6 +183,7 @@ from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info import Cro
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp as CrossborderTurkeyClientInfoResp
 from wildberries_sdk.orders_fbs.models.error import Error as Error
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns200_response import GetMarketplaceV3FbsSettingsAutoreturns200Response as GetMarketplaceV3FbsSettingsAutoreturns200Response
+from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns403_response import GetMarketplaceV3FbsSettingsAutoreturns403Response as GetMarketplaceV3FbsSettingsAutoreturns403Response
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted200_response import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response as GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted200_response_data_inner import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner as GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseDataInner
 from wildberries_sdk.orders_fbs.models.meta_details_inner import MetaDetailsInner as MetaDetailsInner

@@ -3998,6 +3998,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V2GetConfigResponse",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1Config403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4063,6 +4064,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V2GetConfigResponse",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1Config403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -4128,6 +4130,7 @@ class DefaultApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V2GetConfigResponse",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1Config403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9802,6 +9805,7 @@ class DefaultApi:
             '200': "V1SetNormQueryBidsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1Config403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9872,6 +9876,7 @@ class DefaultApi:
             '200': "V1SetNormQueryBidsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1Config403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
@@ -9942,6 +9947,7 @@ class DefaultApi:
             '200': "V1SetNormQueryBidsResponse",
             '400': "Response400",
             '401': "GetV1PromotionCount401Response",
+            '403': "GetV1Config403Response",
             '429': "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(

@@ -5161,7 +5161,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Promotion\Model\V2GetConfigResponse|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     * @return \Wildberries\Sdk\Promotion\Model\V2GetConfigResponse|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1Config403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
      */
     public function getV1Config(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Config'][0])
     {
@@ -5184,7 +5184,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Promotion\Model\V2GetConfigResponse|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Promotion\Model\V2GetConfigResponse|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1Config403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getV1ConfigWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV1Config'][0])
     {
@@ -5223,6 +5223,12 @@ class DefaultApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1Config403Response',
                         $request,
                         $response,
                     );
@@ -5268,6 +5274,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1Config403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12656,7 +12670,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\Promotion\Model\V1SetNormQueryBidsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
+     * @return \Wildberries\Sdk\Promotion\Model\V1SetNormQueryBidsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1Config403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response
      */
     public function postV1NormqueryBids($v1_set_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1NormqueryBids'][0])
     {
@@ -12680,7 +12694,7 @@ class DefaultApi
      *
      * @throws \Wildberries\Sdk\Promotion\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\Promotion\Model\V1SetNormQueryBidsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\Promotion\Model\V1SetNormQueryBidsResponse|\Wildberries\Sdk\Promotion\Model\Response400|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response|\Wildberries\Sdk\Promotion\Model\GetV1Config403Response|\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function postV1NormqueryBidsWithHttpInfo($v1_set_norm_query_bids_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV1NormqueryBids'][0])
     {
@@ -12725,6 +12739,12 @@ class DefaultApi
                 case 401:
                     return $this->handleResponseWithDataType(
                         '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\Promotion\Model\GetV1Config403Response',
                         $request,
                         $response,
                     );
@@ -12778,6 +12798,14 @@ class DefaultApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Wildberries\Sdk\Promotion\Model\GetV1PromotionCount401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\Promotion\Model\GetV1Config403Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

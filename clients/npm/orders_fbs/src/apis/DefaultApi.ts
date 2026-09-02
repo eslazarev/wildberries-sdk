@@ -29,6 +29,11 @@ import {
     GetMarketplaceV3FbsSettingsAutoreturns200ResponseToJSON,
 } from '../models/GetMarketplaceV3FbsSettingsAutoreturns200Response';
 import {
+    type GetMarketplaceV3FbsSettingsAutoreturns403Response,
+    GetMarketplaceV3FbsSettingsAutoreturns403ResponseFromJSON,
+    GetMarketplaceV3FbsSettingsAutoreturns403ResponseToJSON,
+} from '../models/GetMarketplaceV3FbsSettingsAutoreturns403Response';
+import {
     type GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response,
     GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseFromJSON,
     GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200ResponseToJSON,

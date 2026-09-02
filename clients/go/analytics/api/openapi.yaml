@@ -2485,9 +2485,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorObject403"
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/Response403General"
           description: Доступ запрещён
         "429":
           content:

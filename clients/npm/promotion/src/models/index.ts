@@ -40,6 +40,7 @@ export * from './GetV1CalendarPromotionsNomenclatures200Response';
 export * from './GetV1CalendarPromotionsNomenclatures200ResponseData';
 export * from './GetV1CalendarPromotionsNomenclatures400Response';
 export * from './GetV1CalendarPromotionsNomenclatures422Response';
+export * from './GetV1Config403Response';
 export * from './GetV1Count200Response';
 export * from './GetV1Count200ResponseAdverts';
 export * from './GetV1Payments200ResponseInner';
