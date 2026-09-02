@@ -2476,6 +2476,8 @@ paths:
                 minTopUp: 10000
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/advert/v1/normquery/bids:
@@ -2538,6 +2540,8 @@ paths:
                 title: invalid payload
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/normquery/bids:
@@ -6083,6 +6087,47 @@ components:
           example:
             title: payment required
             detail: wb solution for business has insufficient funds on its balance. please top up the balance in the company's personal account https://dev.wildberries.ru/company
+    '403':
+      description: Доступ запрещён
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Заголовок ошибки
+              detail:
+                type: string
+                description: Детали ошибки
+              code:
+                type: string
+                description: Внутренний код ошибки
+              requestId:
+                type: string
+                description: ID запроса
+              origin:
+                type: string
+                description: ID внутреннего сервиса WB
+              status:
+                type: number
+                description: HTTP статус-код
+              statusText:
+                type: string
+                description: Расшифровка HTTP статус-кода
+              timestamp:
+                type: string
+                format: date-time
+                description: Дата и время запроса
+          example:
+            title: forbidden
+            detail: base token is not allowed
+            code: base token is not allowed for this path
+            requestId: 722199b2e15bbca48cc1d488a7989976
+            origin: s2s-finance
+            status: 403
+            statusText: Forbidden
+            timestamp: '2026-05-25T02:47:09Z'
     '429':
       description: Слишком много запросов
       content:

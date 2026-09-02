@@ -1,6 +1,13 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.02)
+- Orders FBS: для эндпоинтов настроек авто-возвратов добавлен ответ `403 Forbidden` (ссылка на `#/components/responses/403`) для операций `GET/PATCH` по путям `/api/marketplace/v3/fbs/settings/autoreturns/*`.
+- Orders FBS: добавлен общий компонент ответа `components.responses.403` с `Content-Type: application/problem+json` и полями `title`, `detail`, `code`, `requestId`, `origin`, `status`, `statusText`, `timestamp` (пример: `base token is not allowed`).
+- Promotion (Реклама): для эндпоинтов `/api/advert/v1/normquery/bids` и `/adv/v0/normquery/bids` добавлен ответ `403 Forbidden` (ссылка на `#/components/responses/403`).
+- Promotion (Реклама): добавлен общий компонент ответа `components.responses.403` в формате `application/problem+json` с тем же набором полей и примером.
+- Analytics: изменено описание ответа `403` — удалён вариант `application/problem+json` со схемой `Response403General`, оставлен только `application/json` со схемой `ErrorObject403`.
+
 ### Changed (2026.09.01)
 - Общие: в ряде схем удалены пустые элементы `allOf` (`- {}`) — косметическая правка без изменения модели данных.
 - Товары (Items): для одного из ответов `400` схема ошибки упрощена с `oneOf: [responseBodyContentError400]` до прямого `$ref` на `responseBodyContentError400` (поведение/контракт не меняется).
