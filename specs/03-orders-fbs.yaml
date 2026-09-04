@@ -2256,11 +2256,7 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.
-
-        <hr>
-
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
 
         </div>
       parameters:
@@ -2338,11 +2334,7 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.
-
-        <hr>
-
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
 
         </div>
       requestBody:
@@ -2413,11 +2405,7 @@ paths:
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
-        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.
-
-        <hr>
-
-        В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
 
         </div>
       requestBody:
@@ -3003,7 +2991,7 @@ paths:
         <br>
         Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ.
         <br>
-        Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.
+        Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
@@ -3233,6 +3221,279 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+  /api/marketplace/v3/fbs/dictionaries/countries/oksm:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+    get:
+      operationId: getV3FbsDictionariesCountriesOksm
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Поставки FBS
+      summary: Получить список стран ОКСМ
+      description: |
+        Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+        </div>
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountriesOKSMList'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/marketplace/v3/fbs/supplies/{supplyId}/spot:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+    put:
+      operationId: putV3FbsSuppliesSupplyIdSpot
+      x-readonly-method: false
+      x-category: marketplace
+      tags:
+        - Поставки FBS
+      summary: Добавить данные СПОТ в поставку
+      description: |
+        Метод добавляет данные СПОТ в поставку.<br><br>
+
+        СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `"spotAvailable":true`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+        </div>
+      parameters:
+        - description: ID поставки
+          in: path
+          name: supplyId
+          required: true
+          schema:
+            type: string
+          example: WB-GI-123456789
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - carrierTaxNumber
+                - carrierName
+                - carrierCountryCode
+                - vehicleRegistrationNumber
+              properties:
+                carrierName:
+                  type: string
+                  minLength: 1
+                  maxLength: 1000
+                  example: ООО СПОТ
+                  description: Наименование перевозчика
+                carrierTaxNumber:
+                  type: string
+                  minLength: 1
+                  maxLength: 50
+                  example: '7588179007'
+                  description: ИНН перевозчика
+                carrierCountryCode:
+                  type: string
+                  minLength: 3
+                  maxLength: 3
+                  example: '112'
+                  description: Код страны перевозчика по [ОКСМ](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsDictionariesCountriesOksm)
+                vehicleRegistrationNumber:
+                  type: string
+                  minLength: 1
+                  maxLength: 30
+                  example: А123АА100
+                  description: Регистрационный номер транспортного средства
+                trailerRegistrationNumber:
+                  type: string
+                  minLength: 1
+                  maxLength: 30
+                  example: АА000100
+                  description: Регистрационный номер прицепа
+      responses:
+        '204':
+          description: Добавлено
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorV3'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/ApiError400V3'
+        '401':
+          $ref: '#/components/responses/401'
+        '404':
+          description: Не найдено
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorV3'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/ApiError404V3'
+        '409':
+          description: Ошибка добавления данных СПОТ
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorV3'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/SpotApiError409V3'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/marketplace/v3/fbs/supplies/spot/list:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+    post:
+      x-readonly-method: true
+      x-category: marketplace
+      operationId: postV3FbsSuppliesSpotList
+      tags:
+        - Поставки FBS
+      summary: Получить данные СПОТ для списка поставок
+      description: |
+        Метод возвращает данные СПОТ для списка поставок.<br><br>
+
+        Вы можете получить данные СПОТ, только если выполняются все условия:
+          - поставка находится на этапе доставки
+          - продавец зарегистрирован в любой стране ЕАЭС кроме РФ
+          - склад назначения находится в РФ
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+        </div>
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - supplyIds
+              properties:
+                supplyIds:
+                  type: array
+                  minLength: 1
+                  maxLength: 100
+                  description: Список ID поставок
+                  items:
+                    type: string
+                    example: WB-GI-123456789
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupplySpotDataResponse'
+              examples:
+                SupplySpotDataResponse:
+                  $ref: '#/components/examples/SupplySpotDataResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorV3'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/ApiError400V3'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot:
+    servers:
+      - url: https://marketplace-api.wildberries.ru
+    get:
+      operationId: getV3FbsSuppliesSupplyIdStickersSpot
+      x-readonly-method: true
+      x-category: marketplace
+      tags:
+        - Поставки FBS
+      summary: Получить QR-код СПОТ
+      description: |
+        Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
+
+        Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.
+
+        <div class="description_limit">
+        <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+        | Период | Лимит | Интервал | Всплеск |
+        | --- | --- | --- | --- |
+        | 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+        Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+        </div>
+      parameters:
+        - description: ID поставки
+          in: path
+          name: supplyId
+          required: true
+          schema:
+            type: string
+          example: WB-GI-123456789
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupplySpotQRCode'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorV3'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/ApiError400V3'
+        '401':
+          $ref: '#/components/responses/401'
+        '404':
+          description: Не найдено
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorV3'
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/ApiError404V3'
+        '429':
+          $ref: '#/components/responses/429'
   /api/marketplace/v3/fbs/orders/archive:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -3304,10 +3565,10 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/v3.APIErrorV2'
+                $ref: '#/components/schemas/ArhiveOrderError400'
               examples:
                 BadRequest:
-                  $ref: '#/components/examples/APIError400V2'
+                  $ref: '#/components/examples/ArhiveOrderError400'
         '401':
           $ref: '#/components/responses/401-2'
         '402':
@@ -3317,7 +3578,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/v3.APIErrorV2'
+                $ref: '#/components/schemas/ArhiveOrderError400'
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/APIError403V2'
@@ -3443,10 +3704,10 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/AutoreturnError400'
+                $ref: '#/components/schemas/ApiErrorV3'
               examples:
                 BadRequest:
-                  $ref: '#/components/examples/AutoreturnError400'
+                  $ref: '#/components/examples/ApiError400V3'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -3577,10 +3838,10 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/AutoreturnError400'
+                $ref: '#/components/schemas/ApiErrorV3'
               examples:
                 BadRequest:
-                  $ref: '#/components/examples/AutoreturnError400'
+                  $ref: '#/components/examples/ApiError400V3'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -3698,10 +3959,10 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/AutoreturnError400'
+                $ref: '#/components/schemas/ApiErrorV3'
               examples:
                 BadRequest:
-                  $ref: '#/components/examples/AutoreturnError400'
+                  $ref: '#/components/examples/ApiError400V3'
                 SupplierSettingMustBeManual:
                   $ref: '#/components/examples/SupplierSettingMustBeManual'
         '401':
@@ -3801,7 +4062,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/AutoreturnError400'
+                $ref: '#/components/schemas/ApiErrorV3'
               examples:
                 BadRequest:
                   $ref: '#/components/examples/AutoreturnError400Parameter'
@@ -3932,7 +4193,7 @@ components:
       value:
         code: StatusChangeNotAllowed
         message: Задание перейдёт в завершенные после сканирования на пункте выдачи заказов (ПВЗ)
-    APIError400V2:
+    ArhiveOrderError400:
       value:
         code: BadRequest
         detail: Incorrect parameter
@@ -3944,10 +4205,18 @@ components:
         requestId: a0b5907c-2978-4db6-9a59-00666e8b8d54
         status: 400
         title: IncorrectParameter
-    AutoreturnError400:
+    ApiError400V3:
+      value:
+        detail: Not Found
+        title: NotFound
+    ApiError404V3:
       value:
         detail: Incorrect required body
         title: IncorrectRequestBody
+    SpotApiError409V3:
+      value:
+        detail: SPOT actions aren't available for this shipment
+        title: SpotActionNotAllowed
     AutoreturnError400Parameter:
       value:
         detail: Incorrect parameter
@@ -4041,6 +4310,34 @@ components:
       value:
         code: SupplyShippingRequired
         message: Specify shipping point, type and date to close the supply
+    SupplySpotDataResponse:
+      value:
+        supplies:
+          - id: WB-GI-0000001
+            spot:
+              carrierTaxNumber: '7588179007'
+              carrierName: ООО СПОТ
+              carrierCountryCode: '112'
+              vehicleRegistrationNumber: А123АА100
+              trailerRegistrationNumber: АА000100
+              status: completed
+          - id: WB-GI-0000002
+            spot:
+              carrierTaxNumber: '7588179007'
+              carrierName: ООО СПОТ
+              carrierCountryCode: '112'
+              vehicleRegistrationNumber: А123АА100
+              trailerRegistrationNumber: АА000100
+              status: failed
+              errorCode: doppFailed
+          - id: WB-GI-0000003
+            error:
+              title: NotFound
+              detail: Not Found
+          - id: WB-GI-0000004
+            error:
+              title: SpotActionNotAllowed
+              detail: Spot Action Not Allowed
   responses:
     '401':
       description: Не авторизован
@@ -4537,7 +4834,7 @@ components:
           type: object
           description: Дополнительные данные ошибки
           nullable: true
-    v3.APIErrorV2:
+    ArhiveOrderError400:
       required:
         - title
         - detail
@@ -4575,7 +4872,7 @@ components:
           description: Заголовок ошибки
           type: string
       type: object
-    AutoreturnError400:
+    ApiErrorV3:
       required:
         - title
         - detail
@@ -4867,6 +5164,8 @@ components:
                   - `true` — B2B-продажа
     Supply:
       type: object
+      required:
+        - spotAvailable
       properties:
         id:
           type: string
@@ -4985,6 +5284,13 @@ components:
           description: ID ЭТрН — электронной транспортной накладной. Обязателен при `"shippingType":"transportCompany"`
           type: string
           example: 550e8400-e29b-41d4-a716-384579387429
+        spotAvailable:
+          type: boolean
+          example: true
+          description: |
+            Доступен ли СПОТ для этой поставки:
+              - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList)
+              - `false` — нет
     OrderNew:
       type: object
       properties:
@@ -5683,3 +5989,104 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShippingPoint'
+    SupplySpotQRCode:
+      type: object
+      required:
+        - qrCode
+      properties:
+        qrCode:
+          description: QR-код поставки в кодировке base64
+          example: U3dhZ2dlciByb2Nrcw==
+          format: base64
+          type: string
+    CountriesOKSMList:
+      type: object
+      required:
+        - countries
+      properties:
+        countries:
+          description: Список стран ОКСМ
+          type: array
+          items:
+            type: object
+            required:
+              - code
+              - name
+            properties:
+              code:
+                description: Код страны
+                type: string
+                example: '036'
+              name:
+                description: Название страны
+                type: string
+                example: Австралия
+    SupplySpotDataResponse:
+      type: object
+      required:
+        - supplies
+      properties:
+        supplies:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                description: ID поставки
+                type: string
+              spot:
+                allOf:
+                  - description: Данные СПОТ
+                  - $ref: '#/components/schemas/SupplySpotData'
+              error:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorV3'
+                  - example:
+                      value:
+                        detail: Incorrect required body
+                        title: IncorrectRequestBody
+    SupplySpotData:
+      type: object
+      required:
+        - status
+        - carrierTaxNumber
+        - carrierName
+        - carrierCountryCode
+        - vehicleRegistrationNumber
+      properties:
+        status:
+          type: string
+          enum:
+            - pending
+            - completed
+            - failed
+          description: |
+            Статус СПОТ:
+              - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке
+              - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsSuppliesSupplyIdStickersSpot)
+              - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode`
+        carrierName:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: Наименование перевозчика
+        carrierTaxNumber:
+          type: string
+          description: ИНН перевозчика
+        carrierCountryCode:
+          type: string
+          description: Код страны перевозчика по [ОКСМ](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsDictionariesCountriesOksm)
+        vehicleRegistrationNumber:
+          type: string
+          description: Регистрационный номер транспортного средства
+        trailerRegistrationNumber:
+          type: string
+          description: Регистрационный номер прицепа
+        errorCode:
+          type: string
+          enum:
+            - doppFailed
+          description: |
+            Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `"status": "failed"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз
