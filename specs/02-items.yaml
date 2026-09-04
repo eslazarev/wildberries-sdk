@@ -1889,6 +1889,7 @@ paths:
                             properties:
                               chrtID:
                                 type: integer
+                                format: int64
                                 description: Числовой ID размера для данного артикула WB
                               techSize:
                                 type: string
@@ -5873,10 +5874,10 @@ components:
           description: Дополнительные ошибки
           oneOf:
             - type: object
-              nullable: true
               properties:
                 string:
                   type: string
+                  nullable: true
               additionalProperties: false
             - type: string
               nullable: true
@@ -5926,6 +5927,8 @@ components:
       additionalProperties: false
     responseIncorrectDate:
       type: object
+      required:
+        - error
       properties:
         error:
           type: string

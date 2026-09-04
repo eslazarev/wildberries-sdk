@@ -1,6 +1,19 @@
 # Changelog
 
 ## Unreleased
+### Changed (2026.09.04)
+- Товары (Items): в ответах/моделях для `chrtID` добавлен формат `int64` (ранее только `integer`)
+- Товары (Items): схема дополнительных ошибок `oneOf` изменена — убрана `nullable: true` у object-варианта, вместо этого поле `string` внутри объекта стало `nullable: true`
+- Товары (Items): `responseIncorrectDate` теперь требует обязательное поле `error` (`required: ["error"]`)
+- Заказы FBS / Поставки FBS: добавлен GET `/api/marketplace/v3/fbs/dictionaries/countries/oksm` — справочник стран ОКСМ (код + полное название)
+- Заказы FBS / Поставки FBS: добавлен PUT `/api/marketplace/v3/fbs/supplies/{supplyId}/spot` — добавление данных СПОТ в поставку (обязательные поля: `carrierTaxNumber`, `carrierName`, `carrierCountryCode` (3 символа ОКСМ), `vehicleRegistrationNumber`; опционально `trailerRegistrationNumber`); возможна ошибка `409 SpotActionNotAllowed`
+- Заказы FBS / Поставки FBS: добавлен POST `/api/marketplace/v3/fbs/supplies/spot/list` — получение данных СПОТ для списка поставок (`supplyIds`, до 100); ответ `SupplySpotDataResponse` с `spot.status` (`pending|completed|failed`) и `errorCode=doppFailed` при `failed`
+- Заказы FBS / Поставки FBS: добавлен GET `/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — получение QR-кода СПОТ (PNG base64) после `status=completed`
+- Заказы FBS / Поставки FBS: в модели `Supply` добавлено обязательное поле `spotAvailable` (boolean) — признак доступности СПОТ для поставки
+- Заказы FBS: обновлены/унифицированы схемы ошибок — для архива заказов `400/403` заменены ссылки на `ArhiveOrderError400` (вместо `v3.APIErrorV2`), для методов автовозврата `400` используется `ApiErrorV3`/`ApiError400V3` (вместо `AutoreturnError400`)
+- Заказы FBS / Поставки FBS: уточнено ограничение на количество грузомест — допускается не более 50% от числа заказов в поставке (пример: 10 заказов → ≤5 грузомест; 20 → ≤10; 100 → ≤50), вместо прежнего правила «товаров + 1»
+- Заказы FBS: в описаниях лимитов удалено упоминание ограничения песочницы «1 запрос/сек суммарно для всех методов Маркетплейса»; правило про учёт `4XX` как 10 запросов оставлено без изменений (текстовая правка)
+
 ### Changed (2026.09.02)
 - Orders FBS: для эндпоинтов настроек авто-возвратов добавлен ответ `403 Forbidden` (ссылка на `#/components/responses/403`) для операций `GET/PATCH` по путям `/api/marketplace/v3/fbs/settings/autoreturns/*`.
 - Orders FBS: добавлен общий компонент ответа `components.responses.403` с `Content-Type: application/problem+json` и полями `title`, `detail`, `code`, `requestId`, `origin`, `status`, `statusText`, `timestamp` (пример: `base token is not allowed`).
