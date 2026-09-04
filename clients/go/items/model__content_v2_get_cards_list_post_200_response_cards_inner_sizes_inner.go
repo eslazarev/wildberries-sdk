@@ -20,7 +20,7 @@ var _ MappedNullable = &ContentV2GetCardsListPost200ResponseCardsInnerSizesInner
 // ContentV2GetCardsListPost200ResponseCardsInnerSizesInner struct for ContentV2GetCardsListPost200ResponseCardsInnerSizesInner
 type ContentV2GetCardsListPost200ResponseCardsInnerSizesInner struct {
 	// Числовой ID размера для данного артикула WB
-	ChrtID *int32 `json:"chrtID,omitempty"`
+	ChrtID *int64 `json:"chrtID,omitempty"`
 	// Размер товара (А, XXL, 57 и др.)
 	TechSize *string `json:"techSize,omitempty"`
 	// Российский размер товара
@@ -47,9 +47,9 @@ func NewContentV2GetCardsListPost200ResponseCardsInnerSizesInnerWithDefaults() *
 }
 
 // GetChrtID returns the ChrtID field value if set, zero value otherwise.
-func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) GetChrtID() int32 {
+func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) GetChrtID() int64 {
 	if o == nil || IsNil(o.ChrtID) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ChrtID
@@ -57,7 +57,7 @@ func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) GetChrtID() i
 
 // GetChrtIDOk returns a tuple with the ChrtID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) GetChrtIDOk() (*int32, bool) {
+func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) GetChrtIDOk() (*int64, bool) {
 	if o == nil || IsNil(o.ChrtID) {
 		return nil, false
 	}
@@ -73,8 +73,8 @@ func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) HasChrtID() b
 	return false
 }
 
-// SetChrtID gets a reference to the given int32 and assigns it to the ChrtID field.
-func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) SetChrtID(v int32) {
+// SetChrtID gets a reference to the given int64 and assigns it to the ChrtID field.
+func (o *ContentV2GetCardsListPost200ResponseCardsInnerSizesInner) SetChrtID(v int64) {
 	o.ChrtID = &v
 }
 

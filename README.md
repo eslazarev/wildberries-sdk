@@ -145,6 +145,7 @@ SDK выпускается с security-first процессом:
 - `POST /content/v3/media/save` — Загрузить медиафайлы по ссылкам
 
 ### Заказы FBS (`03-orders-fbs.yaml`)
+- `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ (getV3FbsDictionariesCountriesOksm)
 - `GET /api/marketplace/v3/fbs/orders/archive` — Получить список архивных сборочных заданий
 - `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца (getMarketplaceV3FbsSettingsAutoreturns)
 - `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца (patchMarketplaceV3FbsSettingsAutoreturns)
@@ -153,7 +154,10 @@ SDK выпускается с security-first процессом:
 - `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB (getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted)
 - `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок (getV3FbsShippingPoints)
 - `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок (patchV3FbsSuppliesShippingMethod)
+- `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок (postV3FbsSuppliesSpotList)
 - `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок (patchV3FbsSuppliesWaybill)
+- `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку (putV3FbsSuppliesSupplyIdSpot)
+- `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ (getV3FbsSuppliesSupplyIdStickersSpot)
 - `POST /api/marketplace/v3/orders/meta` — Получить идентификаторы маркировки сборочных заданий
 - `PUT /api/marketplace/v3/orders/{orderId}/meta/customs-declaration` — Закрепить номер ДТ за сборочным заданием
 - `GET /api/marketplace/v3/supplies/{supplyId}/order-ids` — Получить ID сборочных заданий поставки

@@ -89,7 +89,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.1.148/go",
+		UserAgent:        "OpenAPI-Generator/0.1.149/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -470,7 +470,19 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
+			"FBSAPIService.GetV3FbsDictionariesCountriesOksm": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
 			"FBSAPIService.GetV3FbsShippingPoints": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"FBSAPIService.GetV3FbsSuppliesSupplyIdStickersSpot": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",
@@ -483,6 +495,18 @@ func NewConfiguration() *Configuration {
 				},
 			},
 			"FBSAPIService.PatchV3FbsSuppliesWaybill": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"FBSAPIService.PostV3FbsSuppliesSpotList": {
+				{
+					URL: "https://marketplace-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"FBSAPIService.PutV3FbsSuppliesSupplyIdSpot": {
 				{
 					URL: "https://marketplace-api.wildberries.ru",
 					Description: "No description provided",

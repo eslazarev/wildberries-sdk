@@ -71,7 +71,7 @@ class ContentV2GetCardsListPost200ResponseCardsInnerSizesInner implements ModelI
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'chrt_id' => null,
+        'chrt_id' => 'int64',
         'tech_size' => null,
         'wb_size' => null,
         'skus' => null

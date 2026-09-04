@@ -177,9 +177,13 @@ var_dump($response);
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxGet` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxPost` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
 - `orders_fbs.FBSApi.apiV3SuppliesSupplyIdTrbxStickersPost` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
+- `orders_fbs.FBSApi.getV3FbsDictionariesCountriesOksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.FBSApi.getV3FbsShippingPoints` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
+- `orders_fbs.FBSApi.getV3FbsSuppliesSupplyIdStickersSpot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.FBSApi.patchV3FbsSuppliesShippingMethod` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
 - `orders_fbs.FBSApi.patchV3FbsSuppliesWaybill` — `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок
+- `orders_fbs.FBSApi.postV3FbsSuppliesSpotList` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
+- `orders_fbs.FBSApi.putV3FbsSuppliesSupplyIdSpot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
 
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DBWApi.getV3DbwOrders` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях

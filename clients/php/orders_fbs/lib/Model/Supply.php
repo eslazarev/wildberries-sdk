@@ -72,7 +72,8 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping_dt' => 'string',
         'shipping_point_id' => 'int',
         'shipping_type' => 'string',
-        'waybill_uuid' => 'string'
+        'waybill_uuid' => 'string',
+        'spot_available' => 'bool'
     ];
 
     /**
@@ -98,7 +99,8 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping_dt' => null,
         'shipping_point_id' => null,
         'shipping_type' => null,
-        'waybill_uuid' => null
+        'waybill_uuid' => null,
+        'spot_available' => null
     ];
 
     /**
@@ -122,7 +124,8 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping_dt' => true,
         'shipping_point_id' => true,
         'shipping_type' => true,
-        'waybill_uuid' => true
+        'waybill_uuid' => true,
+        'spot_available' => false
     ];
 
     /**
@@ -226,7 +229,8 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping_dt' => 'shippingDt',
         'shipping_point_id' => 'shippingPointId',
         'shipping_type' => 'shippingType',
-        'waybill_uuid' => 'waybillUuid'
+        'waybill_uuid' => 'waybillUuid',
+        'spot_available' => 'spotAvailable'
     ];
 
     /**
@@ -250,7 +254,8 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping_dt' => 'setShippingDt',
         'shipping_point_id' => 'setShippingPointId',
         'shipping_type' => 'setShippingType',
-        'waybill_uuid' => 'setWaybillUuid'
+        'waybill_uuid' => 'setWaybillUuid',
+        'spot_available' => 'setSpotAvailable'
     ];
 
     /**
@@ -274,7 +279,8 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping_dt' => 'getShippingDt',
         'shipping_point_id' => 'getShippingPointId',
         'shipping_type' => 'getShippingType',
-        'waybill_uuid' => 'getWaybillUuid'
+        'waybill_uuid' => 'getWaybillUuid',
+        'spot_available' => 'getSpotAvailable'
     ];
 
     /**
@@ -399,6 +405,7 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('shipping_point_id', $data ?? [], null);
         $this->setIfExists('shipping_type', $data ?? [], null);
         $this->setIfExists('waybill_uuid', $data ?? [], null);
+        $this->setIfExists('spot_available', $data ?? [], null);
     }
 
     /**
@@ -455,6 +462,9 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['spot_available'] === null) {
+            $invalidProperties[] = "'spot_available' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -991,6 +1001,33 @@ class Supply implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['waybill_uuid'] = $waybill_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets spot_available
+     *
+     * @return bool
+     */
+    public function getSpotAvailable()
+    {
+        return $this->container['spot_available'];
+    }
+
+    /**
+     * Sets spot_available
+     *
+     * @param bool $spot_available Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList)   - `false` — нет
+     *
+     * @return self
+     */
+    public function setSpotAvailable($spot_available)
+    {
+        if (is_null($spot_available)) {
+            throw new \InvalidArgumentException('non-nullable spot_available cannot be null');
+        }
+        $this->container['spot_available'] = $spot_available;
 
         return $this;
     }

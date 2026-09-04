@@ -29,7 +29,7 @@ pub enum GetMarketplaceV3FbsSettingsAutoreturnsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
-    Status400(models::AutoreturnError400),
+    Status400(models::ApiErrorV3),
     Status401(models::ApiV3PassesOfficesGet401Response),
     Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
@@ -40,7 +40,7 @@ pub enum GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
-    Status400(models::AutoreturnError400),
+    Status400(models::ApiErrorV3),
     Status401(models::ApiV3PassesOfficesGet401Response),
     Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
@@ -51,7 +51,7 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
-    Status400(models::AutoreturnError400),
+    Status400(models::ApiErrorV3),
     Status401(models::ApiV3PassesOfficesGet401Response),
     Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),
@@ -62,7 +62,7 @@ pub enum PatchMarketplaceV3FbsSettingsAutoreturnsItemsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMarketplaceV3FbsSettingsAutoreturnsItemsError {
-    Status400(models::AutoreturnError400),
+    Status400(models::ApiErrorV3),
     Status401(models::ApiV3PassesOfficesGet401Response),
     Status403(models::GetMarketplaceV3FbsSettingsAutoreturns403Response),
     Status429(models::ApiV3PassesOfficesGet401Response),

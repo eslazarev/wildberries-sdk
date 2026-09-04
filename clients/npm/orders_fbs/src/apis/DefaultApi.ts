@@ -14,15 +14,15 @@
 
 import * as runtime from '../runtime';
 import {
+    type ApiErrorV3,
+    ApiErrorV3FromJSON,
+    ApiErrorV3ToJSON,
+} from '../models/ApiErrorV3';
+import {
     type ApiV3PassesOfficesGet401Response,
     ApiV3PassesOfficesGet401ResponseFromJSON,
     ApiV3PassesOfficesGet401ResponseToJSON,
 } from '../models/ApiV3PassesOfficesGet401Response';
-import {
-    type AutoreturnError400,
-    AutoreturnError400FromJSON,
-    AutoreturnError400ToJSON,
-} from '../models/AutoreturnError400';
 import {
     type GetMarketplaceV3FbsSettingsAutoreturns200Response,
     GetMarketplaceV3FbsSettingsAutoreturns200ResponseFromJSON,

@@ -12,6 +12,8 @@ package items
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ResponseIncorrectDate type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,18 @@ var _ MappedNullable = &ResponseIncorrectDate{}
 
 // ResponseIncorrectDate struct for ResponseIncorrectDate
 type ResponseIncorrectDate struct {
-	Error *string `json:"error,omitempty"`
+	Error string `json:"error"`
 }
+
+type _ResponseIncorrectDate ResponseIncorrectDate
 
 // NewResponseIncorrectDate instantiates a new ResponseIncorrectDate object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResponseIncorrectDate() *ResponseIncorrectDate {
+func NewResponseIncorrectDate(error_ string) *ResponseIncorrectDate {
 	this := ResponseIncorrectDate{}
+	this.Error = error_
 	return &this
 }
 
@@ -39,36 +44,28 @@ func NewResponseIncorrectDateWithDefaults() *ResponseIncorrectDate {
 	return &this
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// GetError returns the Error field value
 func (o *ResponseIncorrectDate) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Error
+
+	return o.Error
 }
 
-// GetErrorOk returns a tuple with the Error field value if set, nil otherwise
+// GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
 func (o *ResponseIncorrectDate) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return &o.Error, true
 }
 
-// HasError returns a boolean if a field has been set.
-func (o *ResponseIncorrectDate) HasError() bool {
-	if o != nil && !IsNil(o.Error) {
-		return true
-	}
-
-	return false
-}
-
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError sets field value
 func (o *ResponseIncorrectDate) SetError(v string) {
-	o.Error = &v
+	o.Error = v
 }
 
 func (o ResponseIncorrectDate) MarshalJSON() ([]byte, error) {
@@ -81,10 +78,45 @@ func (o ResponseIncorrectDate) MarshalJSON() ([]byte, error) {
 
 func (o ResponseIncorrectDate) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
-	}
+	toSerialize["error"] = o.Error
 	return toSerialize, nil
+}
+
+func (o *ResponseIncorrectDate) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"error",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varResponseIncorrectDate := _ResponseIncorrectDate{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varResponseIncorrectDate)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ResponseIncorrectDate(varResponseIncorrectDate)
+
+	return err
 }
 
 type NullableResponseIncorrectDate struct {

@@ -49,6 +49,7 @@ from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_post201_re
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_post_request import ApiV3SuppliesSupplyIdTrbxPostRequest
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post200_response import ApiV3SuppliesSupplyIdTrbxStickersPost200Response
 from wildberries_sdk.orders_fbs.models.api_v3_supplies_supply_id_trbx_stickers_post_request import ApiV3SuppliesSupplyIdTrbxStickersPostRequest
+from wildberries_sdk.orders_fbs.models.countries_oksm_list import CountriesOKSMList
 from wildberries_sdk.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns200_response import GetMarketplaceV3FbsSettingsAutoreturns200Response
 from wildberries_sdk.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted200_response import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response
@@ -60,8 +61,12 @@ from wildberries_sdk.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoret
 from wildberries_sdk.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_request import PatchMarketplaceV3FbsSettingsAutoreturnsRequest
 from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items200_response import PostMarketplaceV3FbsSettingsAutoreturnsItems200Response
 from wildberries_sdk.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_request import PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+from wildberries_sdk.orders_fbs.models.post_v3_fbs_supplies_spot_list_request import PostV3FbsSuppliesSpotListRequest
+from wildberries_sdk.orders_fbs.models.put_v3_fbs_supplies_supply_id_spot_request import PutV3FbsSuppliesSupplyIdSpotRequest
 from wildberries_sdk.orders_fbs.models.shipping_points_response import ShippingPointsResponse
 from wildberries_sdk.orders_fbs.models.supply import Supply
+from wildberries_sdk.orders_fbs.models.supply_spot_data_response import SupplySpotDataResponse
+from wildberries_sdk.orders_fbs.models.supply_spot_qr_code import SupplySpotQRCode
 from wildberries_sdk.orders_fbs.models.update_supplies_response import UpdateSuppliesResponse
 from wildberries_sdk.orders_fbs.models.update_supplies_shipping_method_request import UpdateSuppliesShippingMethodRequest
 from wildberries_sdk.orders_fbs.models.update_supplies_waybill import UpdateSuppliesWaybill
@@ -155,10 +160,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V3ArchiveOrders",
-            '400': "V3APIErrorV2",
+            '400': "ArhiveOrderError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '402': "ApiV3PassesOfficesGet402Response",
-            '403': "V3APIErrorV2",
+            '403': "ArhiveOrderError400",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -239,10 +244,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V3ArchiveOrders",
-            '400': "V3APIErrorV2",
+            '400': "ArhiveOrderError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '402': "ApiV3PassesOfficesGet402Response",
-            '403': "V3APIErrorV2",
+            '403': "ArhiveOrderError400",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -323,10 +328,10 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "V3ArchiveOrders",
-            '400': "V3APIErrorV2",
+            '400': "ArhiveOrderError400",
             '401': "ApiV3PassesOfficesGet401Response",
             '402': "ApiV3PassesOfficesGet402Response",
-            '403': "V3APIErrorV2",
+            '403': "ArhiveOrderError400",
             '429': "ApiV3PassesOfficesGet401Response",
         }
         response_data = self.api_client.call_api(
@@ -9966,7 +9971,7 @@ class DefaultApi:
     ) -> ApiV3SuppliesSupplyIdTrbxPost201Response:
         """Добавить грузоместа к поставке
 
-        Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
 
         :param supply_id: ID поставки (required)
         :type supply_id: str
@@ -10043,7 +10048,7 @@ class DefaultApi:
     ) -> ApiResponse[ApiV3SuppliesSupplyIdTrbxPost201Response]:
         """Добавить грузоместа к поставке
 
-        Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
 
         :param supply_id: ID поставки (required)
         :type supply_id: str
@@ -10120,7 +10125,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Добавить грузоместа к поставке
 
-        Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
 
         :param supply_id: ID поставки (required)
         :type supply_id: str
@@ -10905,7 +10910,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -10980,7 +10985,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11055,7 +11060,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11143,6 +11148,261 @@ class DefaultApi:
 
 
     @validate_call
+    def get_v3_fbs_dictionaries_countries_oksm(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> CountriesOKSMList:
+        """Получить список стран ОКСМ
+
+        Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v3_fbs_dictionaries_countries_oksm_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CountriesOKSMList",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v3_fbs_dictionaries_countries_oksm_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[CountriesOKSMList]:
+        """Получить список стран ОКСМ
+
+        Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v3_fbs_dictionaries_countries_oksm_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CountriesOKSMList",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v3_fbs_dictionaries_countries_oksm_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Получить список стран ОКСМ
+
+        Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v3_fbs_dictionaries_countries_oksm_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CountriesOKSMList",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v3_fbs_dictionaries_countries_oksm_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://marketplace-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/marketplace/v3/fbs/dictionaries/countries/oksm',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def get_v3_fbs_shipping_points(
         self,
         city: Annotated[StrictStr, Field(description="Населённый пункт отгрузки поставки, кириллица")],
@@ -11162,7 +11422,7 @@ class DefaultApi:
     ) -> ShippingPointsResponse:
         """Получить список пунктов отгрузки поставок
 
-        Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param city: Населённый пункт отгрузки поставки, кириллица (required)
         :type city: str
@@ -11236,7 +11496,7 @@ class DefaultApi:
     ) -> ApiResponse[ShippingPointsResponse]:
         """Получить список пунктов отгрузки поставок
 
-        Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param city: Населённый пункт отгрузки поставки, кириллица (required)
         :type city: str
@@ -11310,7 +11570,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Получить список пунктов отгрузки поставок
 
-        Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param city: Населённый пункт отгрузки поставки, кириллица (required)
         :type city: str
@@ -11436,6 +11696,283 @@ class DefaultApi:
 
 
     @validate_call
+    def get_v3_fbs_supplies_supply_id_stickers_spot(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> SupplySpotQRCode:
+        """Получить QR-код СПОТ
+
+        Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v3_fbs_supplies_supply_id_stickers_spot_serialize(
+            supply_id=supply_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SupplySpotQRCode",
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '404': "ApiErrorV3",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v3_fbs_supplies_supply_id_stickers_spot_with_http_info(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[SupplySpotQRCode]:
+        """Получить QR-код СПОТ
+
+        Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v3_fbs_supplies_supply_id_stickers_spot_serialize(
+            supply_id=supply_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SupplySpotQRCode",
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '404': "ApiErrorV3",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v3_fbs_supplies_supply_id_stickers_spot_without_preload_content(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Получить QR-код СПОТ
+
+        Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v3_fbs_supplies_supply_id_stickers_spot_serialize(
+            supply_id=supply_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SupplySpotQRCode",
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '404': "ApiErrorV3",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v3_fbs_supplies_supply_id_stickers_spot_serialize(
+        self,
+        supply_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://marketplace-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if supply_id is not None:
+            _path_params['supplyId'] = supply_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def patch_marketplace_v3_fbs_settings_autoreturns(
         self,
         patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsRequest] = None,
@@ -11490,7 +12027,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11561,7 +12098,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11632,7 +12169,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11780,7 +12317,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11851,7 +12388,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -11922,7 +12459,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItems200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -12034,7 +12571,7 @@ class DefaultApi:
     ) -> UpdateSuppliesResponse:
         """Установить параметры отгрузки поставок
 
-        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_shipping_method_request: (required)
         :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
@@ -12106,7 +12643,7 @@ class DefaultApi:
     ) -> ApiResponse[UpdateSuppliesResponse]:
         """Установить параметры отгрузки поставок
 
-        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_shipping_method_request: (required)
         :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
@@ -12178,7 +12715,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Установить параметры отгрузки поставок
 
-        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_shipping_method_request: (required)
         :type update_supplies_shipping_method_request: UpdateSuppliesShippingMethodRequest
@@ -12326,7 +12863,7 @@ class DefaultApi:
     ) -> UpdateSuppliesResponse:
         """Установить ID ЭТрН поставок
 
-        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_waybill: (required)
         :type update_supplies_waybill: UpdateSuppliesWaybill
@@ -12397,7 +12934,7 @@ class DefaultApi:
     ) -> ApiResponse[UpdateSuppliesResponse]:
         """Установить ID ЭТрН поставок
 
-        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_waybill: (required)
         :type update_supplies_waybill: UpdateSuppliesWaybill
@@ -12468,7 +13005,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Установить ID ЭТрН поставок
 
-        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+        Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
 
         :param update_supplies_waybill: (required)
         :type update_supplies_waybill: UpdateSuppliesWaybill
@@ -12651,7 +13188,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -12722,7 +13259,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -12793,7 +13330,7 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PostMarketplaceV3FbsSettingsAutoreturnsItems200Response",
-            '400': "AutoreturnError400",
+            '400': "ApiErrorV3",
             '401': "ApiV3PassesOfficesGet401Response",
             '403': "GetMarketplaceV3FbsSettingsAutoreturns403Response",
             '429': "ApiV3PassesOfficesGet401Response",
@@ -12871,6 +13408,601 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/marketplace/v3/fbs/settings/autoreturns/items',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def post_v3_fbs_supplies_spot_list(
+        self,
+        post_v3_fbs_supplies_spot_list_request: PostV3FbsSuppliesSpotListRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> SupplySpotDataResponse:
+        """Получить данные СПОТ для списка поставок
+
+        Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param post_v3_fbs_supplies_spot_list_request: (required)
+        :type post_v3_fbs_supplies_spot_list_request: PostV3FbsSuppliesSpotListRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_v3_fbs_supplies_spot_list_serialize(
+            post_v3_fbs_supplies_spot_list_request=post_v3_fbs_supplies_spot_list_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SupplySpotDataResponse",
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def post_v3_fbs_supplies_spot_list_with_http_info(
+        self,
+        post_v3_fbs_supplies_spot_list_request: PostV3FbsSuppliesSpotListRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[SupplySpotDataResponse]:
+        """Получить данные СПОТ для списка поставок
+
+        Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param post_v3_fbs_supplies_spot_list_request: (required)
+        :type post_v3_fbs_supplies_spot_list_request: PostV3FbsSuppliesSpotListRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_v3_fbs_supplies_spot_list_serialize(
+            post_v3_fbs_supplies_spot_list_request=post_v3_fbs_supplies_spot_list_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SupplySpotDataResponse",
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def post_v3_fbs_supplies_spot_list_without_preload_content(
+        self,
+        post_v3_fbs_supplies_spot_list_request: PostV3FbsSuppliesSpotListRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Получить данные СПОТ для списка поставок
+
+        Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param post_v3_fbs_supplies_spot_list_request: (required)
+        :type post_v3_fbs_supplies_spot_list_request: PostV3FbsSuppliesSpotListRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._post_v3_fbs_supplies_spot_list_serialize(
+            post_v3_fbs_supplies_spot_list_request=post_v3_fbs_supplies_spot_list_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SupplySpotDataResponse",
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _post_v3_fbs_supplies_spot_list_serialize(
+        self,
+        post_v3_fbs_supplies_spot_list_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://marketplace-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if post_v3_fbs_supplies_spot_list_request is not None:
+            _body_params = post_v3_fbs_supplies_spot_list_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/problem+json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/marketplace/v3/fbs/supplies/spot/list',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def put_v3_fbs_supplies_supply_id_spot(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        put_v3_fbs_supplies_supply_id_spot_request: PutV3FbsSuppliesSupplyIdSpotRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> None:
+        """Добавить данные СПОТ в поставку
+
+        Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param put_v3_fbs_supplies_supply_id_spot_request: (required)
+        :type put_v3_fbs_supplies_supply_id_spot_request: PutV3FbsSuppliesSupplyIdSpotRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._put_v3_fbs_supplies_supply_id_spot_serialize(
+            supply_id=supply_id,
+            put_v3_fbs_supplies_supply_id_spot_request=put_v3_fbs_supplies_supply_id_spot_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '404': "ApiErrorV3",
+            '409': "ApiErrorV3",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def put_v3_fbs_supplies_supply_id_spot_with_http_info(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        put_v3_fbs_supplies_supply_id_spot_request: PutV3FbsSuppliesSupplyIdSpotRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> ApiResponse[None]:
+        """Добавить данные СПОТ в поставку
+
+        Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param put_v3_fbs_supplies_supply_id_spot_request: (required)
+        :type put_v3_fbs_supplies_supply_id_spot_request: PutV3FbsSuppliesSupplyIdSpotRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._put_v3_fbs_supplies_supply_id_spot_serialize(
+            supply_id=supply_id,
+            put_v3_fbs_supplies_supply_id_spot_request=put_v3_fbs_supplies_supply_id_spot_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '404': "ApiErrorV3",
+            '409': "ApiErrorV3",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def put_v3_fbs_supplies_supply_id_spot_without_preload_content(
+        self,
+        supply_id: Annotated[StrictStr, Field(description="ID поставки")],
+        put_v3_fbs_supplies_supply_id_spot_request: PutV3FbsSuppliesSupplyIdSpotRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+    ) -> RESTResponseType:
+        """Добавить данные СПОТ в поставку
+
+        Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+
+        :param supply_id: ID поставки (required)
+        :type supply_id: str
+        :param put_v3_fbs_supplies_supply_id_spot_request: (required)
+        :type put_v3_fbs_supplies_supply_id_spot_request: PutV3FbsSuppliesSupplyIdSpotRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._put_v3_fbs_supplies_supply_id_spot_serialize(
+            supply_id=supply_id,
+            put_v3_fbs_supplies_supply_id_spot_request=put_v3_fbs_supplies_supply_id_spot_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '400': "ApiErrorV3",
+            '401': "ApiV3PassesOfficesGet401Response",
+            '404': "ApiErrorV3",
+            '409': "ApiErrorV3",
+            '429': "ApiV3PassesOfficesGet401Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _put_v3_fbs_supplies_supply_id_spot_serialize(
+        self,
+        supply_id,
+        put_v3_fbs_supplies_supply_id_spot_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _hosts = [
+            'https://marketplace-api.wildberries.ru'
+        ]
+        _host = _hosts[_host_index]
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if supply_id is not None:
+            _path_params['supplyId'] = supply_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if put_v3_fbs_supplies_supply_id_spot_request is not None:
+            _body_params = put_v3_fbs_supplies_supply_id_spot_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/problem+json', 
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'HeaderApiKey'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/api/marketplace/v3/fbs/supplies/{supplyId}/spot',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

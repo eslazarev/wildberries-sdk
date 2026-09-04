@@ -328,7 +328,7 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AutoreturnError400
+			var v ApiErrorV3
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -507,7 +507,7 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AutoreturnError400
+			var v ApiErrorV3
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -679,7 +679,7 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AutoreturnError400
+			var v ApiErrorV3
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -860,7 +860,7 @@ func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v AutoreturnError400
+			var v ApiErrorV3
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

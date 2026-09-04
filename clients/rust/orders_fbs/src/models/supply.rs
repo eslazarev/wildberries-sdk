@@ -63,10 +63,13 @@ pub struct Supply {
     /// ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`
     #[serde(rename = "waybillUuid", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub waybill_uuid: Option<Option<String>>,
+    /// Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList)   - `false` — нет 
+    #[serde(rename = "spotAvailable")]
+    pub spot_available: bool,
 }
 
 impl Supply {
-    pub fn new() -> Supply {
+    pub fn new(spot_available: bool) -> Supply {
         Supply {
             id: None,
             is_b2b: None,
@@ -84,6 +87,7 @@ impl Supply {
             shipping_point_id: None,
             shipping_type: None,
             waybill_uuid: None,
+            spot_available,
         }
     }
 }

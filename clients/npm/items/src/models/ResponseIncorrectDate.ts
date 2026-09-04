@@ -22,13 +22,14 @@ export interface ResponseIncorrectDate {
     /**
      * 
      */
-    error?: string;
+    error: string;
 }
 
 /**
  * Check if a given object implements the ResponseIncorrectDate interface.
  */
 export function instanceOfResponseIncorrectDate(value: object): value is ResponseIncorrectDate {
+    if (!('error' in value) || value['error'] === undefined) return false;
     return true;
 }
 
@@ -42,7 +43,7 @@ export function ResponseIncorrectDateFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'error': json['error'] == null ? undefined : json['error'],
+        'error': json['error'],
     };
 }
 

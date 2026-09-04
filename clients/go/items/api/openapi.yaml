@@ -7772,6 +7772,8 @@ components:
       properties:
         error:
           type: string
+      required:
+      - error
       type: object
     responseBodyContentError400:
       example:
@@ -10056,6 +10058,7 @@ components:
       properties:
         chrtID:
           description: Числовой ID размера для данного артикула WB
+          format: int64
           type: integer
         techSize:
           description: "Размер товара (А, XXL, 57 и др.)"
@@ -12120,9 +12123,9 @@ components:
       additionalProperties: false
       example:
         string: string
-      nullable: true
       properties:
         string:
+          nullable: true
           type: string
       type: object
     responseItemList_additionalErrors_oneOf_1:

@@ -583,7 +583,7 @@ conf = wildberries_sdk.rates.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: rates\n"\
-               "SDK Package Version: 0.1.148".\
+               "SDK Package Version: 0.1.149".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:

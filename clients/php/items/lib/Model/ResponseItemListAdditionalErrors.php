@@ -80,7 +80,7 @@ class ResponseItemListAdditionalErrors implements ModelInterface, ArrayAccess, \
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'string' => false,
+        'string' => true,
         'error' => false
     ];
 
@@ -320,7 +320,14 @@ class ResponseItemListAdditionalErrors implements ModelInterface, ArrayAccess, \
     public function setString($string)
     {
         if (is_null($string)) {
-            throw new \InvalidArgumentException('non-nullable string cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'string');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('string', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['string'] = $string;
 

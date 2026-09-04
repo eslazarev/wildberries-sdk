@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct ContentV2GetCardsListPost200ResponseCardsInnerSizesInner {
     /// Числовой ID размера для данного артикула WB
     #[serde(rename = "chrtID", skip_serializing_if = "Option::is_none")]
-    pub chrt_id: Option<i32>,
+    pub chrt_id: Option<i64>,
     /// Размер товара (А, XXL, 57 и др.)
     #[serde(rename = "techSize", skip_serializing_if = "Option::is_none")]
     pub tech_size: Option<String>,

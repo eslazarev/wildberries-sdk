@@ -22,7 +22,7 @@ export interface ResponseItemListAdditionalErrorsOneOf {
     /**
      * 
      */
-    string?: string;
+    string?: string | null;
 }
 
 /**
@@ -42,7 +42,7 @@ export function ResponseItemListAdditionalErrorsOneOfFromJSONTyped(json: any, ig
     }
     return {
         
-        'string': json['string'] == null ? undefined : json['string'],
+        'string': json['string'] === undefined ? undefined : json['string'] === null ? null : json['string'],
     };
 }
 

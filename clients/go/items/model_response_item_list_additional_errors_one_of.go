@@ -19,7 +19,7 @@ var _ MappedNullable = &ResponseItemListAdditionalErrorsOneOf{}
 
 // ResponseItemListAdditionalErrorsOneOf struct for ResponseItemListAdditionalErrorsOneOf
 type ResponseItemListAdditionalErrorsOneOf struct {
-	String *string `json:"string,omitempty"`
+	String NullableString `json:"string,omitempty"`
 }
 
 // NewResponseItemListAdditionalErrorsOneOf instantiates a new ResponseItemListAdditionalErrorsOneOf object
@@ -39,36 +39,46 @@ func NewResponseItemListAdditionalErrorsOneOfWithDefaults() *ResponseItemListAdd
 	return &this
 }
 
-// GetString returns the String field value if set, zero value otherwise.
+// GetString returns the String field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResponseItemListAdditionalErrorsOneOf) GetString() string {
-	if o == nil || IsNil(o.String) {
+	if o == nil || IsNil(o.String.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.String
+	return *o.String.Get()
 }
 
 // GetStringOk returns a tuple with the String field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResponseItemListAdditionalErrorsOneOf) GetStringOk() (*string, bool) {
-	if o == nil || IsNil(o.String) {
+	if o == nil {
 		return nil, false
 	}
-	return o.String, true
+	return o.String.Get(), o.String.IsSet()
 }
 
 // HasString returns a boolean if a field has been set.
 func (o *ResponseItemListAdditionalErrorsOneOf) HasString() bool {
-	if o != nil && !IsNil(o.String) {
+	if o != nil && o.String.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetString gets a reference to the given string and assigns it to the String field.
+// SetString gets a reference to the given NullableString and assigns it to the String field.
 func (o *ResponseItemListAdditionalErrorsOneOf) SetString(v string) {
-	o.String = &v
+	o.String.Set(&v)
+}
+// SetStringNil sets the value for String to be an explicit nil
+func (o *ResponseItemListAdditionalErrorsOneOf) SetStringNil() {
+	o.String.Set(nil)
+}
+
+// UnsetString ensures that no value is present for String, not even an explicit nil
+func (o *ResponseItemListAdditionalErrorsOneOf) UnsetString() {
+	o.String.Unset()
 }
 
 func (o ResponseItemListAdditionalErrorsOneOf) MarshalJSON() ([]byte, error) {
@@ -81,8 +91,8 @@ func (o ResponseItemListAdditionalErrorsOneOf) MarshalJSON() ([]byte, error) {
 
 func (o ResponseItemListAdditionalErrorsOneOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.String) {
-		toSerialize["string"] = o.String
+	if o.String.IsSet() {
+		toSerialize["string"] = o.String.Get()
 	}
 	return toSerialize, nil
 }

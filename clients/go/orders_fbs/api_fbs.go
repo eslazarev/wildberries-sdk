@@ -192,7 +192,7 @@ func (a *FBSAPIService) ApiMarketplaceV3FbsOrdersArchiveGetExecute(r ApiApiMarke
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v V3APIErrorV2
+			var v ArhiveOrderError400
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -225,7 +225,7 @@ func (a *FBSAPIService) ApiMarketplaceV3FbsOrdersArchiveGetExecute(r ApiApiMarke
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v V3APIErrorV2
+			var v ArhiveOrderError400
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -6806,7 +6806,7 @@ ApiV3SuppliesSupplyIdTrbxPost Добавить грузоместа к пост�
 <br>
 Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ.
 <br>
-Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.
+Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.
 
 <div class="description_limit">
 <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
@@ -7216,6 +7216,152 @@ func (a *FBSAPIService) ApiV3SuppliesSupplyIdTrbxStickersPostExecute(r ApiApiV3S
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetV3FbsDictionariesCountriesOksmRequest struct {
+	ctx context.Context
+	ApiService *FBSAPIService
+}
+
+func (r ApiGetV3FbsDictionariesCountriesOksmRequest) Execute() (*CountriesOKSMList, *http.Response, error) {
+	return r.ApiService.GetV3FbsDictionariesCountriesOksmExecute(r)
+}
+
+/*
+GetV3FbsDictionariesCountriesOksm Получить список стран ОКСМ
+
+Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetV3FbsDictionariesCountriesOksmRequest
+*/
+func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksm(ctx context.Context) ApiGetV3FbsDictionariesCountriesOksmRequest {
+	return ApiGetV3FbsDictionariesCountriesOksmRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return CountriesOKSMList
+func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDictionariesCountriesOksmRequest) (*CountriesOKSMList, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CountriesOKSMList
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3FbsDictionariesCountriesOksm")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/fbs/dictionaries/countries/oksm"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetV3FbsShippingPointsRequest struct {
 	ctx context.Context
 	ApiService *FBSAPIService
@@ -7255,11 +7401,7 @@ GetV3FbsShippingPoints Получить список пунктов отгруз
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.
-
-<hr>
-
-В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
 
 </div>
 
@@ -7403,6 +7545,180 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest struct {
+	ctx context.Context
+	ApiService *FBSAPIService
+	supplyId string
+}
+
+func (r ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest) Execute() (*SupplySpotQRCode, *http.Response, error) {
+	return r.ApiService.GetV3FbsSuppliesSupplyIdStickersSpotExecute(r)
+}
+
+/*
+GetV3FbsSuppliesSupplyIdStickersSpot Получить QR-код СПОТ
+
+Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
+
+Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param supplyId ID поставки
+ @return ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest
+*/
+func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpot(ctx context.Context, supplyId string) ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest {
+	return ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest{
+		ApiService: a,
+		ctx: ctx,
+		supplyId: supplyId,
+	}
+}
+
+// Execute executes the request
+//  @return SupplySpotQRCode
+func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest) (*SupplySpotQRCode, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SupplySpotQRCode
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3FbsSuppliesSupplyIdStickersSpot")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot"
+	localVarPath = strings.Replace(localVarPath, "{"+"supplyId"+"}", url.PathEscape(parameterValueToString(r.supplyId, "supplyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiErrorV3
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiErrorV3
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPatchV3FbsSuppliesShippingMethodRequest struct {
 	ctx context.Context
 	ApiService *FBSAPIService
@@ -7440,11 +7756,7 @@ PatchV3FbsSuppliesShippingMethod Установить параметры отг�
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.
-
-<hr>
-
-В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
 
 </div>
 
@@ -7638,11 +7950,7 @@ PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 
-Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.
-
-<hr>
-
-В <a href='/sandbox'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
 
 </div>
 
@@ -7792,4 +8100,362 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV3FbsSuppliesSpotListRequest struct {
+	ctx context.Context
+	ApiService *FBSAPIService
+	postV3FbsSuppliesSpotListRequest *PostV3FbsSuppliesSpotListRequest
+}
+
+func (r ApiPostV3FbsSuppliesSpotListRequest) PostV3FbsSuppliesSpotListRequest(postV3FbsSuppliesSpotListRequest PostV3FbsSuppliesSpotListRequest) ApiPostV3FbsSuppliesSpotListRequest {
+	r.postV3FbsSuppliesSpotListRequest = &postV3FbsSuppliesSpotListRequest
+	return r
+}
+
+func (r ApiPostV3FbsSuppliesSpotListRequest) Execute() (*SupplySpotDataResponse, *http.Response, error) {
+	return r.ApiService.PostV3FbsSuppliesSpotListExecute(r)
+}
+
+/*
+PostV3FbsSuppliesSpotList Получить данные СПОТ для списка поставок
+
+Метод возвращает данные СПОТ для списка поставок.<br><br>
+
+Вы можете получить данные СПОТ, только если выполняются все условия:
+  - поставка находится на этапе доставки
+  - продавец зарегистрирован в любой стране ЕАЭС кроме РФ
+  - склад назначения находится в РФ
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostV3FbsSuppliesSpotListRequest
+*/
+func (a *FBSAPIService) PostV3FbsSuppliesSpotList(ctx context.Context) ApiPostV3FbsSuppliesSpotListRequest {
+	return ApiPostV3FbsSuppliesSpotListRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return SupplySpotDataResponse
+func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesSpotListRequest) (*SupplySpotDataResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SupplySpotDataResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3FbsSuppliesSpotList")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/fbs/supplies/spot/list"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.postV3FbsSuppliesSpotListRequest == nil {
+		return localVarReturnValue, nil, reportError("postV3FbsSuppliesSpotListRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postV3FbsSuppliesSpotListRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiErrorV3
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPutV3FbsSuppliesSupplyIdSpotRequest struct {
+	ctx context.Context
+	ApiService *FBSAPIService
+	supplyId string
+	putV3FbsSuppliesSupplyIdSpotRequest *PutV3FbsSuppliesSupplyIdSpotRequest
+}
+
+func (r ApiPutV3FbsSuppliesSupplyIdSpotRequest) PutV3FbsSuppliesSupplyIdSpotRequest(putV3FbsSuppliesSupplyIdSpotRequest PutV3FbsSuppliesSupplyIdSpotRequest) ApiPutV3FbsSuppliesSupplyIdSpotRequest {
+	r.putV3FbsSuppliesSupplyIdSpotRequest = &putV3FbsSuppliesSupplyIdSpotRequest
+	return r
+}
+
+func (r ApiPutV3FbsSuppliesSupplyIdSpotRequest) Execute() (*http.Response, error) {
+	return r.ApiService.PutV3FbsSuppliesSupplyIdSpotExecute(r)
+}
+
+/*
+PutV3FbsSuppliesSupplyIdSpot Добавить данные СПОТ в поставку
+
+Метод добавляет данные СПОТ в поставку.<br><br>
+
+СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `"spotAvailable":true`.
+
+<div class="description_limit">
+<a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:
+
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 300 запросов | 200 мс | 20 запросов |
+
+Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов
+
+</div>
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param supplyId ID поставки
+ @return ApiPutV3FbsSuppliesSupplyIdSpotRequest
+*/
+func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpot(ctx context.Context, supplyId string) ApiPutV3FbsSuppliesSupplyIdSpotRequest {
+	return ApiPutV3FbsSuppliesSupplyIdSpotRequest{
+		ApiService: a,
+		ctx: ctx,
+		supplyId: supplyId,
+	}
+}
+
+// Execute executes the request
+func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSuppliesSupplyIdSpotRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3FbsSuppliesSupplyIdSpot")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/marketplace/v3/fbs/supplies/{supplyId}/spot"
+	localVarPath = strings.Replace(localVarPath, "{"+"supplyId"+"}", url.PathEscape(parameterValueToString(r.supplyId, "supplyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.putV3FbsSuppliesSupplyIdSpotRequest == nil {
+		return nil, reportError("putV3FbsSuppliesSupplyIdSpotRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/problem+json", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.putV3FbsSuppliesSupplyIdSpotRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["HeaderApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ApiErrorV3
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ApiErrorV3
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ApiErrorV3
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ApiV3PassesOfficesGet401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }

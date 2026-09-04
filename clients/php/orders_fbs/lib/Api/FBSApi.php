@@ -179,13 +179,25 @@ class FBSApi
         'apiV3SuppliesSupplyIdTrbxStickersPost' => [
             'application/json',
         ],
+        'getV3FbsDictionariesCountriesOksm' => [
+            'application/json',
+        ],
         'getV3FbsShippingPoints' => [
+            'application/json',
+        ],
+        'getV3FbsSuppliesSupplyIdStickersSpot' => [
             'application/json',
         ],
         'patchV3FbsSuppliesShippingMethod' => [
             'application/json',
         ],
         'patchV3FbsSuppliesWaybill' => [
+            'application/json',
+        ],
+        'postV3FbsSuppliesSpotList' => [
+            'application/json',
+        ],
+        'putV3FbsSuppliesSupplyIdSpot' => [
             'application/json',
         ],
     ];
@@ -255,7 +267,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     * @return \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
      */
     public function apiMarketplaceV3FbsOrdersArchiveGet($year, $month, $next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3FbsOrdersArchiveGet'][0])
     {
@@ -282,7 +294,7 @@ class FBSApi
      *
      * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\V3ArchiveOrders|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet402Response|\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function apiMarketplaceV3FbsOrdersArchiveGetWithHttpInfo($year, $month, $next, $limit, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['apiMarketplaceV3FbsOrdersArchiveGet'][0])
     {
@@ -320,7 +332,7 @@ class FBSApi
                     );
                 case 400:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2',
+                        '\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400',
                         $request,
                         $response,
                     );
@@ -338,7 +350,7 @@ class FBSApi
                     );
                 case 403:
                     return $this->handleResponseWithDataType(
-                        '\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2',
+                        '\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400',
                         $request,
                         $response,
                     );
@@ -383,7 +395,7 @@ class FBSApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2',
+                        '\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -407,7 +419,7 @@ class FBSApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildberries\Sdk\OrdersFbs\Model\V3APIErrorV2',
+                        '\Wildberries\Sdk\OrdersFbs\Model\ArhiveOrderError400',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14269,6 +14281,348 @@ class FBSApi
     }
 
     /**
+     * Operation getV3FbsDictionariesCountriesOksm
+     *
+     * Получить список стран ОКСМ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsDictionariesCountriesOksm'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     */
+    public function getV3FbsDictionariesCountriesOksm(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsDictionariesCountriesOksm'][0])
+    {
+        list($response) = $this->getV3FbsDictionariesCountriesOksmWithHttpInfo($hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getV3FbsDictionariesCountriesOksmWithHttpInfo
+     *
+     * Получить список стран ОКСМ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsDictionariesCountriesOksm'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getV3FbsDictionariesCountriesOksmWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsDictionariesCountriesOksm'][0])
+    {
+        $request = $this->getV3FbsDictionariesCountriesOksmRequest($hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getV3FbsDictionariesCountriesOksmAsync
+     *
+     * Получить список стран ОКСМ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsDictionariesCountriesOksm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV3FbsDictionariesCountriesOksmAsync(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsDictionariesCountriesOksm'][0])
+    {
+        return $this->getV3FbsDictionariesCountriesOksmAsyncWithHttpInfo($hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getV3FbsDictionariesCountriesOksmAsyncWithHttpInfo
+     *
+     * Получить список стран ОКСМ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsDictionariesCountriesOksm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV3FbsDictionariesCountriesOksmAsyncWithHttpInfo(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsDictionariesCountriesOksm'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\CountriesOKSMList';
+        $request = $this->getV3FbsDictionariesCountriesOksmRequest($hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getV3FbsDictionariesCountriesOksm'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsDictionariesCountriesOksm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getV3FbsDictionariesCountriesOksmRequest(?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsDictionariesCountriesOksm'][0])
+    {
+
+
+        $resourcePath = '/api/marketplace/v3/fbs/dictionaries/countries/oksm';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetV3FbsDictionariesCountriesOksm();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getV3FbsDictionariesCountriesOksm
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetV3FbsDictionariesCountriesOksm(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
      * Operation getV3FbsShippingPoints
      *
      * Получить список пунктов отгрузки поставок
@@ -14657,6 +15011,396 @@ class FBSApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForgetV3FbsShippingPoints(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation getV3FbsSuppliesSupplyIdStickersSpot
+     *
+     * Получить QR-код СПОТ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     */
+    public function getV3FbsSuppliesSupplyIdStickersSpot($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'][0])
+    {
+        list($response) = $this->getV3FbsSuppliesSupplyIdStickersSpotWithHttpInfo($supply_id, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getV3FbsSuppliesSupplyIdStickersSpotWithHttpInfo
+     *
+     * Получить QR-код СПОТ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getV3FbsSuppliesSupplyIdStickersSpotWithHttpInfo($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'][0])
+    {
+        $request = $this->getV3FbsSuppliesSupplyIdStickersSpotRequest($supply_id, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getV3FbsSuppliesSupplyIdStickersSpotAsync
+     *
+     * Получить QR-код СПОТ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV3FbsSuppliesSupplyIdStickersSpotAsync($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'][0])
+    {
+        return $this->getV3FbsSuppliesSupplyIdStickersSpotAsyncWithHttpInfo($supply_id, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getV3FbsSuppliesSupplyIdStickersSpotAsyncWithHttpInfo
+     *
+     * Получить QR-код СПОТ
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getV3FbsSuppliesSupplyIdStickersSpotAsyncWithHttpInfo($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotQRCode';
+        $request = $this->getV3FbsSuppliesSupplyIdStickersSpotRequest($supply_id, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getV3FbsSuppliesSupplyIdStickersSpot'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getV3FbsSuppliesSupplyIdStickersSpotRequest($supply_id, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getV3FbsSuppliesSupplyIdStickersSpot'][0])
+    {
+
+        // verify the required parameter 'supply_id' is set
+        if ($supply_id === null || (is_array($supply_id) && count($supply_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $supply_id when calling getV3FbsSuppliesSupplyIdStickersSpot'
+            );
+        }
+
+
+        $resourcePath = '/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($supply_id !== null) {
+            $resourcePath = str_replace(
+                '{supplyId}',
+                ObjectSerializer::toPathValue($supply_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForgetV3FbsSuppliesSupplyIdStickersSpot();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation getV3FbsSuppliesSupplyIdStickersSpot
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForgetV3FbsSuppliesSupplyIdStickersSpot(): array
     {
         return [
             [
@@ -15457,6 +16201,732 @@ class FBSApi
      * @return array an array of host settings
      */
     protected function getHostSettingsForpatchV3FbsSuppliesWaybill(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation postV3FbsSuppliesSpotList
+     *
+     * Получить данные СПОТ для списка поставок
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3FbsSuppliesSpotListRequest $post_v3_fbs_supplies_spot_list_request post_v3_fbs_supplies_spot_list_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3FbsSuppliesSpotList'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response
+     */
+    public function postV3FbsSuppliesSpotList($post_v3_fbs_supplies_spot_list_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3FbsSuppliesSpotList'][0])
+    {
+        list($response) = $this->postV3FbsSuppliesSpotListWithHttpInfo($post_v3_fbs_supplies_spot_list_request, $hostIndex, $variables, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation postV3FbsSuppliesSpotListWithHttpInfo
+     *
+     * Получить данные СПОТ для списка поставок
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3FbsSuppliesSpotListRequest $post_v3_fbs_supplies_spot_list_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3FbsSuppliesSpotList'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse|\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response|\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postV3FbsSuppliesSpotListWithHttpInfo($post_v3_fbs_supplies_spot_list_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3FbsSuppliesSpotList'][0])
+    {
+        $request = $this->postV3FbsSuppliesSpotListRequest($post_v3_fbs_supplies_spot_list_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postV3FbsSuppliesSpotListAsync
+     *
+     * Получить данные СПОТ для списка поставок
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3FbsSuppliesSpotListRequest $post_v3_fbs_supplies_spot_list_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3FbsSuppliesSpotList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3FbsSuppliesSpotListAsync($post_v3_fbs_supplies_spot_list_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3FbsSuppliesSpotList'][0])
+    {
+        return $this->postV3FbsSuppliesSpotListAsyncWithHttpInfo($post_v3_fbs_supplies_spot_list_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postV3FbsSuppliesSpotListAsyncWithHttpInfo
+     *
+     * Получить данные СПОТ для списка поставок
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3FbsSuppliesSpotListRequest $post_v3_fbs_supplies_spot_list_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3FbsSuppliesSpotList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postV3FbsSuppliesSpotListAsyncWithHttpInfo($post_v3_fbs_supplies_spot_list_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3FbsSuppliesSpotList'][0])
+    {
+        $returnType = '\Wildberries\Sdk\OrdersFbs\Model\SupplySpotDataResponse';
+        $request = $this->postV3FbsSuppliesSpotListRequest($post_v3_fbs_supplies_spot_list_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postV3FbsSuppliesSpotList'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PostV3FbsSuppliesSpotListRequest $post_v3_fbs_supplies_spot_list_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postV3FbsSuppliesSpotList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function postV3FbsSuppliesSpotListRequest($post_v3_fbs_supplies_spot_list_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['postV3FbsSuppliesSpotList'][0])
+    {
+
+        // verify the required parameter 'post_v3_fbs_supplies_spot_list_request' is set
+        if ($post_v3_fbs_supplies_spot_list_request === null || (is_array($post_v3_fbs_supplies_spot_list_request) && count($post_v3_fbs_supplies_spot_list_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $post_v3_fbs_supplies_spot_list_request when calling postV3FbsSuppliesSpotList'
+            );
+        }
+
+
+        $resourcePath = '/api/marketplace/v3/fbs/supplies/spot/list';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/problem+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($post_v3_fbs_supplies_spot_list_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($post_v3_fbs_supplies_spot_list_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $post_v3_fbs_supplies_spot_list_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForpostV3FbsSuppliesSpotList();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation postV3FbsSuppliesSpotList
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForpostV3FbsSuppliesSpotList(): array
+    {
+        return [
+            [
+                "url" => "https://marketplace-api.wildberries.ru",
+                "description" => "No description provided",
+            ]
+        ];
+    }
+
+    /**
+     * Operation putV3FbsSuppliesSupplyIdSpot
+     *
+     * Добавить данные СПОТ в поставку
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PutV3FbsSuppliesSupplyIdSpotRequest $put_v3_fbs_supplies_supply_id_spot_request put_v3_fbs_supplies_supply_id_spot_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putV3FbsSuppliesSupplyIdSpot'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function putV3FbsSuppliesSupplyIdSpot($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['putV3FbsSuppliesSupplyIdSpot'][0])
+    {
+        $this->putV3FbsSuppliesSupplyIdSpotWithHttpInfo($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, $hostIndex, $variables, $contentType);
+    }
+
+    /**
+     * Operation putV3FbsSuppliesSupplyIdSpotWithHttpInfo
+     *
+     * Добавить данные СПОТ в поставку
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PutV3FbsSuppliesSupplyIdSpotRequest $put_v3_fbs_supplies_supply_id_spot_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putV3FbsSuppliesSupplyIdSpot'] to see the possible values for this operation
+     *
+     * @throws \Wildberries\Sdk\OrdersFbs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function putV3FbsSuppliesSupplyIdSpotWithHttpInfo($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['putV3FbsSuppliesSupplyIdSpot'][0])
+    {
+        $request = $this->putV3FbsSuppliesSupplyIdSpotRequest($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, $hostIndex, $variables, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiErrorV3',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Wildberries\Sdk\OrdersFbs\Model\ApiV3PassesOfficesGet401Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation putV3FbsSuppliesSupplyIdSpotAsync
+     *
+     * Добавить данные СПОТ в поставку
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PutV3FbsSuppliesSupplyIdSpotRequest $put_v3_fbs_supplies_supply_id_spot_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putV3FbsSuppliesSupplyIdSpot'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putV3FbsSuppliesSupplyIdSpotAsync($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['putV3FbsSuppliesSupplyIdSpot'][0])
+    {
+        return $this->putV3FbsSuppliesSupplyIdSpotAsyncWithHttpInfo($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, $hostIndex, $variables, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation putV3FbsSuppliesSupplyIdSpotAsyncWithHttpInfo
+     *
+     * Добавить данные СПОТ в поставку
+     *
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PutV3FbsSuppliesSupplyIdSpotRequest $put_v3_fbs_supplies_supply_id_spot_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putV3FbsSuppliesSupplyIdSpot'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putV3FbsSuppliesSupplyIdSpotAsyncWithHttpInfo($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['putV3FbsSuppliesSupplyIdSpot'][0])
+    {
+        $returnType = '';
+        $request = $this->putV3FbsSuppliesSupplyIdSpotRequest($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, $hostIndex, $variables, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'putV3FbsSuppliesSupplyIdSpot'
+     *
+    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+    * if needed, use the 'variables' parameter to pass variables to the host.
+     * URL: https://marketplace-api.wildberries.ru
+     *
+     * @param  string $supply_id ID поставки (required)
+     * @param  \Wildberries\Sdk\OrdersFbs\Model\PutV3FbsSuppliesSupplyIdSpotRequest $put_v3_fbs_supplies_supply_id_spot_request (required)
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putV3FbsSuppliesSupplyIdSpot'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function putV3FbsSuppliesSupplyIdSpotRequest($supply_id, $put_v3_fbs_supplies_supply_id_spot_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['putV3FbsSuppliesSupplyIdSpot'][0])
+    {
+
+        // verify the required parameter 'supply_id' is set
+        if ($supply_id === null || (is_array($supply_id) && count($supply_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $supply_id when calling putV3FbsSuppliesSupplyIdSpot'
+            );
+        }
+
+        // verify the required parameter 'put_v3_fbs_supplies_supply_id_spot_request' is set
+        if ($put_v3_fbs_supplies_supply_id_spot_request === null || (is_array($put_v3_fbs_supplies_supply_id_spot_request) && count($put_v3_fbs_supplies_supply_id_spot_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $put_v3_fbs_supplies_supply_id_spot_request when calling putV3FbsSuppliesSupplyIdSpot'
+            );
+        }
+
+
+        $resourcePath = '/api/marketplace/v3/fbs/supplies/{supplyId}/spot';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($supply_id !== null) {
+            $resourcePath = str_replace(
+                '{supplyId}',
+                ObjectSerializer::toPathValue($supply_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/problem+json', 'application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($put_v3_fbs_supplies_supply_id_spot_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($put_v3_fbs_supplies_supply_id_spot_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $put_v3_fbs_supplies_supply_id_spot_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        # Preserve the original behavior of server indexing.
+        if ($hostIndex === null) {
+            $hostIndex = $this->hostIndex;
+        }
+
+        $hostSettings = $this->getHostSettingsForputV3FbsSuppliesSupplyIdSpot();
+
+        if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
+            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+        }
+        $operationHost = $this->config->isHostOverridden()
+            ? $this->config->getHost()
+            : Configuration::getHostString($hostSettings, $hostIndex, $variables);
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Returns an array of host settings for Operation putV3FbsSuppliesSupplyIdSpot
+     *
+     * @return array an array of host settings
+     */
+    protected function getHostSettingsForputV3FbsSuppliesSupplyIdSpot(): array
     {
         return [
             [

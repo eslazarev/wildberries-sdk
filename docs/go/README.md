@@ -164,9 +164,13 @@ go get github.com/eslazarev/wildberries-sdk/clients/go/orders_fbs
 - `orders_fbs.FBSAPIService.ApiV3SuppliesSupplyIdTrbxGet` — `GET /api/v3/supplies/{supplyId}/trbx` — Получить список грузомест поставки
 - `orders_fbs.FBSAPIService.ApiV3SuppliesSupplyIdTrbxPost` — `POST /api/v3/supplies/{supplyId}/trbx` — Добавить грузоместа к поставке
 - `orders_fbs.FBSAPIService.ApiV3SuppliesSupplyIdTrbxStickersPost` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
+- `orders_fbs.FBSAPIService.GetV3FbsDictionariesCountriesOksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.FBSAPIService.GetV3FbsShippingPoints` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
+- `orders_fbs.FBSAPIService.GetV3FbsSuppliesSupplyIdStickersSpot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.FBSAPIService.PatchV3FbsSuppliesShippingMethod` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
 - `orders_fbs.FBSAPIService.PatchV3FbsSuppliesWaybill` — `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок
+- `orders_fbs.FBSAPIService.PostV3FbsSuppliesSpotList` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
+- `orders_fbs.FBSAPIService.PutV3FbsSuppliesSupplyIdSpot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
 
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DBWAPIService.GetV3DbwOrders` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях

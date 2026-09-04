@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,7 +27,7 @@ class ResponseIncorrectDate(BaseModel):
     """
     ResponseIncorrectDate
     """ # noqa: E501
-    error: Optional[StrictStr] = None
+    error: StrictStr
     __properties: ClassVar[List[str]] = ["error"]
 
     model_config = ConfigDict(

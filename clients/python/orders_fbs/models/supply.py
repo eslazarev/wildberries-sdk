@@ -44,7 +44,8 @@ class Supply(BaseModel):
     shipping_point_id: Optional[StrictInt] = Field(default=None, description="ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/Postavki-FBS/operation/getV3FbsShippingPoints)", alias="shippingPointId", json_schema_extra={"examples": [100]})
     shipping_type: Optional[StrictStr] = Field(default=None, description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid` ", alias="shippingType", json_schema_extra={"examples": ["transportCompany"]})
     waybill_uuid: Optional[StrictStr] = Field(default=None, description="ID ЭТрН — электронной транспортной накладной. Обязателен при `\"shippingType\":\"transportCompany\"`", alias="waybillUuid", json_schema_extra={"examples": ["550e8400-e29b-41d4-a716-384579387429"]})
-    __properties: ClassVar[List[str]] = ["id", "isB2b", "isPickupPointShipmentAllowed", "done", "createdAt", "closedAt", "scanDt", "name", "cargoType", "crossBorderType", "destinationOfficeId", "recommendedWhId", "shippingDt", "shippingPointId", "shippingType", "waybillUuid"]
+    spot_available: StrictBool = Field(description="Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList)   - `false` — нет ", alias="spotAvailable", json_schema_extra={"examples": [True]})
+    __properties: ClassVar[List[str]] = ["id", "isB2b", "isPickupPointShipmentAllowed", "done", "createdAt", "closedAt", "scanDt", "name", "cargoType", "crossBorderType", "destinationOfficeId", "recommendedWhId", "shippingDt", "shippingPointId", "shippingType", "waybillUuid", "spotAvailable"]
 
     @field_validator('cargo_type')
     def cargo_type_validate_enum(cls, value):
@@ -187,7 +188,8 @@ class Supply(BaseModel):
             "shippingDt": obj.get("shippingDt"),
             "shippingPointId": obj.get("shippingPointId"),
             "shippingType": obj.get("shippingType"),
-            "waybillUuid": obj.get("waybillUuid")
+            "waybillUuid": obj.get("waybillUuid"),
+            "spotAvailable": obj.get("spotAvailable")
         })
         return _obj
 

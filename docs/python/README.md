@@ -173,12 +173,16 @@ print(feedbacks)
 - `orders_fbs.DefaultApi.api_v3_supplies_supply_id_trbx_stickers_post` — `POST /api/v3/supplies/{supplyId}/trbx/stickers` — Получить стикеры грузомест поставки
 - `orders_fbs.DefaultApi.get_marketplace_v3_fbs_settings_autoreturns` — `GET /api/marketplace/v3/fbs/settings/autoreturns` — Получить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted` — `GET /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted` — Получить предметы, которые не хранятся на складах WB
+- `orders_fbs.DefaultApi.get_v3_fbs_dictionaries_countries_oksm` — `GET /api/marketplace/v3/fbs/dictionaries/countries/oksm` — Получить список стран ОКСМ
 - `orders_fbs.DefaultApi.get_v3_fbs_shipping_points` — `GET /api/marketplace/v3/fbs/shipping-points` — Получить список пунктов отгрузки поставок
+- `orders_fbs.DefaultApi.get_v3_fbs_supplies_supply_id_stickers_spot` — `GET /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot` — Получить QR-код СПОТ
 - `orders_fbs.DefaultApi.patch_marketplace_v3_fbs_settings_autoreturns` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns` — Обновить настройки автовозврата продавца
 - `orders_fbs.DefaultApi.patch_marketplace_v3_fbs_settings_autoreturns_items` — `PATCH /api/marketplace/v3/fbs/settings/autoreturns/items` — Обновить настройки автовозврата товаров
 - `orders_fbs.DefaultApi.patch_v3_fbs_supplies_shipping_method` — `PATCH /api/marketplace/v3/fbs/supplies/shipping-method` — Установить параметры отгрузки поставок
 - `orders_fbs.DefaultApi.patch_v3_fbs_supplies_waybill` — `PATCH /api/marketplace/v3/fbs/supplies/waybill` — Установить ID ЭТрН поставок
 - `orders_fbs.DefaultApi.post_marketplace_v3_fbs_settings_autoreturns_items` — `POST /api/marketplace/v3/fbs/settings/autoreturns/items` — Получить настройки автовозврата товаров
+- `orders_fbs.DefaultApi.post_v3_fbs_supplies_spot_list` — `POST /api/marketplace/v3/fbs/supplies/spot/list` — Получить данные СПОТ для списка поставок
+- `orders_fbs.DefaultApi.put_v3_fbs_supplies_supply_id_spot` — `PUT /api/marketplace/v3/fbs/supplies/{supplyId}/spot` — Добавить данные СПОТ в поставку
 
 ### orders_dbw (`orders_dbw`)
 - `orders_dbw.DefaultApi.get_v3_dbw_orders` — `GET /api/v3/dbw/orders` — Получить информацию о завершенных сборочных заданиях

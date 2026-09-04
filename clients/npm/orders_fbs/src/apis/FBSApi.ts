@@ -14,6 +14,11 @@
 
 import * as runtime from '../runtime';
 import {
+    type ApiErrorV3,
+    ApiErrorV3FromJSON,
+    ApiErrorV3ToJSON,
+} from '../models/ApiErrorV3';
+import {
     type ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequest,
     ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequestFromJSON,
     ApiMarketplaceV3OrdersOrderIdMetaCustomsDeclarationPutRequestToJSON,
@@ -179,6 +184,16 @@ import {
     ApiV3SuppliesSupplyIdTrbxStickersPostRequestToJSON,
 } from '../models/ApiV3SuppliesSupplyIdTrbxStickersPostRequest';
 import {
+    type ArhiveOrderError400,
+    ArhiveOrderError400FromJSON,
+    ArhiveOrderError400ToJSON,
+} from '../models/ArhiveOrderError400';
+import {
+    type CountriesOKSMList,
+    CountriesOKSMListFromJSON,
+    CountriesOKSMListToJSON,
+} from '../models/CountriesOKSMList';
+import {
     type CrossborderTurkeyClientInfoResp,
     CrossborderTurkeyClientInfoRespFromJSON,
     CrossborderTurkeyClientInfoRespToJSON,
@@ -204,6 +219,16 @@ import {
     PassOfficeToJSON,
 } from '../models/PassOffice';
 import {
+    type PostV3FbsSuppliesSpotListRequest,
+    PostV3FbsSuppliesSpotListRequestFromJSON,
+    PostV3FbsSuppliesSpotListRequestToJSON,
+} from '../models/PostV3FbsSuppliesSpotListRequest';
+import {
+    type PutV3FbsSuppliesSupplyIdSpotRequest,
+    PutV3FbsSuppliesSupplyIdSpotRequestFromJSON,
+    PutV3FbsSuppliesSupplyIdSpotRequestToJSON,
+} from '../models/PutV3FbsSuppliesSupplyIdSpotRequest';
+import {
     type ShippingPointsResponse,
     ShippingPointsResponseFromJSON,
     ShippingPointsResponseToJSON,
@@ -213,6 +238,16 @@ import {
     SupplyFromJSON,
     SupplyToJSON,
 } from '../models/Supply';
+import {
+    type SupplySpotDataResponse,
+    SupplySpotDataResponseFromJSON,
+    SupplySpotDataResponseToJSON,
+} from '../models/SupplySpotDataResponse';
+import {
+    type SupplySpotQRCode,
+    SupplySpotQRCodeFromJSON,
+    SupplySpotQRCodeToJSON,
+} from '../models/SupplySpotQRCode';
 import {
     type UpdateSuppliesResponse,
     UpdateSuppliesResponseFromJSON,
@@ -233,11 +268,6 @@ import {
     V3APIErrorFromJSON,
     V3APIErrorToJSON,
 } from '../models/V3APIError';
-import {
-    type V3APIErrorV2,
-    V3APIErrorV2FromJSON,
-    V3APIErrorV2ToJSON,
-} from '../models/V3APIErrorV2';
 import {
     type V3ArchiveOrders,
     V3ArchiveOrdersFromJSON,
@@ -588,6 +618,13 @@ export interface GetV3FbsShippingPointsRequest {
     cargoType: GetV3FbsShippingPointsCargoTypeEnum;
 }
 
+export interface GetV3FbsSuppliesSupplyIdStickersSpotRequest {
+    /**
+     * ID поставки
+     */
+    supplyId: string;
+}
+
 export interface PatchV3FbsSuppliesShippingMethodRequest {
     /**
      * Параметры отгрузки поставки
@@ -600,6 +637,24 @@ export interface PatchV3FbsSuppliesWaybillRequest {
      * Данные ЭТрН
      */
     updateSuppliesWaybill: UpdateSuppliesWaybill;
+}
+
+export interface PostV3FbsSuppliesSpotListOperationRequest {
+    /**
+     * 
+     */
+    postV3FbsSuppliesSpotListRequest: PostV3FbsSuppliesSpotListRequest;
+}
+
+export interface PutV3FbsSuppliesSupplyIdSpotOperationRequest {
+    /**
+     * ID поставки
+     */
+    supplyId: string;
+    /**
+     * 
+     */
+    putV3FbsSuppliesSupplyIdSpotRequest: PutV3FbsSuppliesSupplyIdSpotRequest;
 }
 
 /**
@@ -2477,7 +2532,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
      * Добавить грузоместа к поставке
      */
     async apiV3SuppliesSupplyIdTrbxPostRaw(requestParameters: ApiV3SuppliesSupplyIdTrbxPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV3SuppliesSupplyIdTrbxPost201Response>> {
@@ -2488,7 +2543,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. Вы можете добавить столько же грузомест, сколько всего товаров в поставке, плюс ещё один.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D~1trbx/get) в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get). <br> <br> Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ. <br> Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
      * Добавить грузоместа к поставке
      */
     async apiV3SuppliesSupplyIdTrbxPost(requestParameters: ApiV3SuppliesSupplyIdTrbxPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV3SuppliesSupplyIdTrbxPost201Response> {
@@ -2562,6 +2617,49 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates request options for getV3FbsDictionariesCountriesOksm without sending the request
+     */
+    async getV3FbsDictionariesCountriesOksmRequestOpts(): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/dictionaries/countries/oksm`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить список стран ОКСМ
+     */
+    async getV3FbsDictionariesCountriesOksmRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountriesOKSMList>> {
+        const requestOptions = await this.getV3FbsDictionariesCountriesOksmRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CountriesOKSMListFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить список стран ОКСМ
+     */
+    async getV3FbsDictionariesCountriesOksm(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CountriesOKSMList> {
+        const response = await this.getV3FbsDictionariesCountriesOksmRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Creates request options for getV3FbsShippingPoints without sending the request
      */
     async getV3FbsShippingPointsRequestOpts(requestParameters: GetV3FbsShippingPointsRequest): Promise<runtime.RequestOpts> {
@@ -2607,7 +2705,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Получить список пунктов отгрузки поставок
      */
     async getV3FbsShippingPointsRaw(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShippingPointsResponse>> {
@@ -2618,11 +2716,62 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод возвращает доступные пункты отгрузки поставок с фильтрами:   - по населённым пунктам России   - по типам товаров, которые принимает пункт отгрузки  Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod).  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Получить список пунктов отгрузки поставок
      */
     async getV3FbsShippingPoints(requestParameters: GetV3FbsShippingPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShippingPointsResponse> {
         const response = await this.getV3FbsShippingPointsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for getV3FbsSuppliesSupplyIdStickersSpot without sending the request
+     */
+    async getV3FbsSuppliesSupplyIdStickersSpotRequestOpts(requestParameters: GetV3FbsSuppliesSupplyIdStickersSpotRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['supplyId'] == null) {
+            throw new runtime.RequiredError(
+                'supplyId',
+                'Required parameter "supplyId" was null or undefined when calling getV3FbsSuppliesSupplyIdStickersSpot().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot`;
+        urlPath = urlPath.replace('{supplyId}', encodeURIComponent(String(requestParameters['supplyId'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить QR-код СПОТ
+     */
+    async getV3FbsSuppliesSupplyIdStickersSpotRaw(requestParameters: GetV3FbsSuppliesSupplyIdStickersSpotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplySpotQRCode>> {
+        const requestOptions = await this.getV3FbsSuppliesSupplyIdStickersSpotRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupplySpotQRCodeFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.  Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList) будет признак `\"status\":\"completed\"`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить QR-код СПОТ
+     */
+    async getV3FbsSuppliesSupplyIdStickersSpot(requestParameters: GetV3FbsSuppliesSupplyIdStickersSpotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplySpotQRCode> {
+        const response = await this.getV3FbsSuppliesSupplyIdStickersSpotRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2660,7 +2809,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить параметры отгрузки поставок
      */
     async patchV3FbsSuppliesShippingMethodRaw(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesResponse>> {
@@ -2671,7 +2820,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.<br><br>  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill).<br><br>  <div class=\"description_important\">   Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки <code>\"shippingType\":\"transportCompany\"</code> на <code>selfShipping</code>. Если вы хотите изменить способ доставки обратно на <code>transportCompany</code>, <a href=\"/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesWaybill\">добавьте ID ЭТрН</a> заново. </div>  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить параметры отгрузки поставок
      */
     async patchV3FbsSuppliesShippingMethod(requestParameters: PatchV3FbsSuppliesShippingMethodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesResponse> {
@@ -2713,7 +2862,7 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить ID ЭТрН поставок
      */
     async patchV3FbsSuppliesWaybillRaw(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateSuppliesResponse>> {
@@ -2724,12 +2873,125 @@ export class FBSApi extends runtime.BaseAPI {
     }
 
     /**
-     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов.  <hr>  В <a href=\'/sandbox\'>песочнице</a> — максимум 1 запрос в секунду суммарно для всех методов <strong>Маркетплейса</strong>.  </div> 
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/Postavki-FBS/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.<br><br>  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.<br><br>  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
      * Установить ID ЭТрН поставок
      */
     async patchV3FbsSuppliesWaybill(requestParameters: PatchV3FbsSuppliesWaybillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateSuppliesResponse> {
         const response = await this.patchV3FbsSuppliesWaybillRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Creates request options for postV3FbsSuppliesSpotList without sending the request
+     */
+    async postV3FbsSuppliesSpotListRequestOpts(requestParameters: PostV3FbsSuppliesSpotListOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['postV3FbsSuppliesSpotListRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postV3FbsSuppliesSpotListRequest',
+                'Required parameter "postV3FbsSuppliesSpotListRequest" was null or undefined when calling postV3FbsSuppliesSpotList().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/supplies/spot/list`;
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostV3FbsSuppliesSpotListRequestToJSON(requestParameters['postV3FbsSuppliesSpotListRequest']),
+        };
+    }
+
+    /**
+     * Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить данные СПОТ для списка поставок
+     */
+    async postV3FbsSuppliesSpotListRaw(requestParameters: PostV3FbsSuppliesSpotListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SupplySpotDataResponse>> {
+        const requestOptions = await this.postV3FbsSuppliesSpotListRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SupplySpotDataResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Метод возвращает данные СПОТ для списка поставок.<br><br>  Вы можете получить данные СПОТ, только если выполняются все условия:   - поставка находится на этапе доставки   - продавец зарегистрирован в любой стране ЕАЭС кроме РФ   - склад назначения находится в РФ  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Получить данные СПОТ для списка поставок
+     */
+    async postV3FbsSuppliesSpotList(requestParameters: PostV3FbsSuppliesSpotListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SupplySpotDataResponse> {
+        const response = await this.postV3FbsSuppliesSpotListRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for putV3FbsSuppliesSupplyIdSpot without sending the request
+     */
+    async putV3FbsSuppliesSupplyIdSpotRequestOpts(requestParameters: PutV3FbsSuppliesSupplyIdSpotOperationRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['supplyId'] == null) {
+            throw new runtime.RequiredError(
+                'supplyId',
+                'Required parameter "supplyId" was null or undefined when calling putV3FbsSuppliesSupplyIdSpot().'
+            );
+        }
+
+        if (requestParameters['putV3FbsSuppliesSupplyIdSpotRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putV3FbsSuppliesSupplyIdSpotRequest',
+                'Required parameter "putV3FbsSuppliesSupplyIdSpotRequest" was null or undefined when calling putV3FbsSuppliesSupplyIdSpot().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // HeaderApiKey authentication
+        }
+
+
+        let urlPath = `/api/marketplace/v3/fbs/supplies/{supplyId}/spot`;
+        urlPath = urlPath.replace('{supplyId}', encodeURIComponent(String(requestParameters['supplyId'])));
+
+        return {
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutV3FbsSuppliesSupplyIdSpotRequestToJSON(requestParameters['putV3FbsSuppliesSupplyIdSpotRequest']),
+        };
+    }
+
+    /**
+     * Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Добавить данные СПОТ в поставку
+     */
+    async putV3FbsSuppliesSupplyIdSpotRaw(requestParameters: PutV3FbsSuppliesSupplyIdSpotOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.putV3FbsSuppliesSupplyIdSpotRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Метод добавляет данные СПОТ в поставку.<br><br>  СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/Postavki-FBS/paths/~1api~1v3~1supplies~1%7BsupplyId%7D/get) с признаком `\"spotAvailable\":true`.  <div class=\"description_limit\"> <a href=\"/openapi/api-information#tag/introduction/Limity-zaprosov\">Лимит запросов</a> на один аккаунт продавца для методов <strong>сборочных заданий, поставок, пропусков и настроек автовозврата FBS</strong>:  | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов |  Один запрос с кодами ответов <code>4XX</code> учитывается как 10 запросов  </div> 
+     * Добавить данные СПОТ в поставку
+     */
+    async putV3FbsSuppliesSupplyIdSpot(requestParameters: PutV3FbsSuppliesSupplyIdSpotOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.putV3FbsSuppliesSupplyIdSpotRaw(requestParameters, initOverrides);
     }
 
 }

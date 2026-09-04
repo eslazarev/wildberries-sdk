@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseIncorrectDate {
-    #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
-    pub error: Option<String>,
+    #[serde(rename = "error")]
+    pub error: String,
 }
 
 impl ResponseIncorrectDate {
-    pub fn new() -> ResponseIncorrectDate {
+    pub fn new(error: String) -> ResponseIncorrectDate {
         ResponseIncorrectDate {
-            error: None,
+            error,
         }
     }
 }

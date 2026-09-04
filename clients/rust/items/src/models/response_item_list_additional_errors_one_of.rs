@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseItemListAdditionalErrorsOneOf {
-    #[serde(rename = "string", skip_serializing_if = "Option::is_none")]
-    pub string: Option<String>,
+    #[serde(rename = "string", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub string: Option<Option<String>>,
 }
 
 impl ResponseItemListAdditionalErrorsOneOf {

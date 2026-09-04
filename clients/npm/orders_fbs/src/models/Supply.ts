@@ -107,6 +107,13 @@ export interface Supply {
      * ID ЭТрН — электронной транспортной накладной. Обязателен при `"shippingType":"transportCompany"`
      */
     waybillUuid?: string | null;
+    /**
+     * Доступен ли СПОТ для этой поставки:
+     *   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/Postavki-FBS/operation/postV3FbsSuppliesSpotList)
+     *   - `false` — нет
+     * 
+     */
+    spotAvailable: boolean;
 }
 
 
@@ -144,6 +151,7 @@ export type SupplyShippingTypeEnum = typeof SupplyShippingTypeEnum[keyof typeof 
  * Check if a given object implements the Supply interface.
  */
 export function instanceOfSupply(value: object): value is Supply {
+    if (!('spotAvailable' in value) || value['spotAvailable'] === undefined) return false;
     return true;
 }
 
@@ -173,6 +181,7 @@ export function SupplyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Su
         'shippingPointId': json['shippingPointId'] === undefined ? undefined : json['shippingPointId'] === null ? null : json['shippingPointId'],
         'shippingType': json['shippingType'] === undefined ? undefined : json['shippingType'] === null ? null : json['shippingType'],
         'waybillUuid': json['waybillUuid'] === undefined ? undefined : json['waybillUuid'] === null ? null : json['waybillUuid'],
+        'spotAvailable': json['spotAvailable'],
     };
 }
 
@@ -203,6 +212,7 @@ export function SupplyToJSONTyped(value?: Supply | null, ignoreDiscriminator: bo
         'shippingPointId': value['shippingPointId'],
         'shippingType': value['shippingType'],
         'waybillUuid': value['waybillUuid'],
+        'spotAvailable': value['spotAvailable'],
     };
 }
 
