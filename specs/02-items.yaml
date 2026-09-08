@@ -158,6 +158,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/object/all:
@@ -292,6 +298,8 @@ paths:
                 additionalErrors: null
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/object/charcs/{subjectId}:
@@ -470,6 +478,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/directory/colors:
@@ -568,6 +582,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/directory/kinds:
@@ -660,6 +680,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/directory/countries:
@@ -768,6 +794,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/directory/seasons:
@@ -860,6 +892,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/directory/vat:
@@ -957,6 +995,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/directory/tnved:
@@ -1081,6 +1125,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/content/v1/brands:
@@ -1142,6 +1192,8 @@ paths:
                   $ref: '#/components/examples/BrandsResponseBadRequest2'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '404':
           description: Не найдено
           content:
@@ -1238,6 +1290,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/tag:
@@ -1332,6 +1390,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/tag/{id}:
@@ -1424,6 +1488,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
     delete:
@@ -1492,6 +1562,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/tag/nomenclature/link:
@@ -1579,6 +1655,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/get/cards/list:
@@ -2012,6 +2094,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/cards/error/list:
@@ -2179,6 +2267,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/cards/update:
@@ -2396,6 +2490,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '413':
           description: Превышен лимит объёма данных в запросе
           content:
@@ -2544,6 +2644,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseItemList'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '413':
           description: Превышен лимит объёма данных в запросе
           content:
@@ -2654,6 +2760,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/cards/recover:
@@ -2750,6 +2862,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/get/cards/trash:
@@ -3089,6 +3207,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/cards/limits:
@@ -3179,6 +3303,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/barcodes:
@@ -3271,6 +3401,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/responseBodyContentError403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v2/cards/upload:
@@ -3463,6 +3599,8 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
         '413':
           description: Превышен лимит объёма данных в запросе
           content:
@@ -3743,6 +3881,8 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
         '413':
           description: Превышен лимит объёма данных в запросе
           content:
@@ -3866,6 +4006,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/mediaErrors'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /content/v3/media/save:
@@ -3946,6 +4092,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/mediaErrors'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка сохранения части ссылок
           content:
@@ -4011,7 +4163,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/content/v1/recommendations/set:
@@ -4071,7 +4232,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/upload/task:
@@ -4164,6 +4334,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка при конвертации валюты
           content:
@@ -4278,6 +4454,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка при конвертации валюты
           content:
@@ -4372,6 +4554,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '409':
           description: Ошибка при конвертации валюты
           content:
@@ -4459,7 +4647,12 @@ paths:
                 $ref: '#/components/schemas/ResponseErrorV3'
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Response403General'
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/history/tasks:
@@ -4526,6 +4719,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/history/goods/task:
@@ -4594,6 +4793,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/buffer/tasks:
@@ -4660,6 +4865,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/buffer/goods/task:
@@ -4728,6 +4939,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/list/goods/filter:
@@ -4803,6 +5020,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
     post:
@@ -4865,6 +5088,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/list/goods/size/nm:
@@ -4935,6 +5164,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v2/quarantine/goods:
@@ -4982,6 +5217,12 @@ paths:
               examples:
                 AccessDenied:
                   $ref: '#/components/examples/Result403'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '422':
           description: Неожидаемый результат
           content:
@@ -5080,7 +5321,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           $ref: '#/components/responses/NotFound'
         '406':
@@ -5187,7 +5441,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           description: Не найдено
           content:
@@ -5298,7 +5565,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           $ref: '#/components/responses/NotFound'
         '429':
@@ -5350,7 +5630,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/v3/warehouses:
@@ -5400,7 +5693,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
     post:
@@ -5480,7 +5786,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -5568,7 +5887,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -5614,7 +5946,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '404':
           $ref: '#/components/responses/NotFound'
         '429':
@@ -5691,7 +6036,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
     put:
@@ -5758,7 +6116,20 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
 components:
@@ -7209,42 +7580,34 @@ components:
           description: Детали ошибки
           type: string
           example: incorrect request body format
-    Response403General:
+    Response4XX:
       type: object
       properties:
         title:
           type: string
           description: Заголовок ошибки
-          example: forbidden
         detail:
           type: string
           description: Детали ошибки
-          example: base token is not allowed
         code:
           type: string
           description: Внутренний код ошибки
-          example: base token is not allowed for this path
         requestId:
           type: string
           description: ID запроса
-          example: 722199b2e15bbca48cc1d488a7989976
         origin:
           type: string
           description: ID внутреннего сервиса WB
-          example: s2s-finance
         status:
           type: number
           description: HTTP статус-код
-          example: 403
         statusText:
           type: string
           description: Расшифровка HTTP статус-кода
-          example: Forbidden
         timestamp:
           type: string
           format: date-time
           description: Дата и время запроса
-          example: '2026-05-25T02:47:09Z'
   parameters:
     Warehouse:
       name: warehouseId
@@ -7468,15 +7831,17 @@ components:
                 type: string
                 format: date-time
                 description: Дата и время запроса
-          example:
-            title: forbidden
-            detail: base token is not allowed
-            code: base token is not allowed for this path
-            requestId: 722199b2e15bbca48cc1d488a7989976
-            origin: s2s-finance
-            status: 403
-            statusText: Forbidden
-            timestamp: '2026-05-25T02:47:09Z'
+          examples:
+            Response403TokenCategory:
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: '2026-09-03T13:55:15Z'
+              description: Неверная категория токена
     '429':
       description: Слишком много запросов
       content:
@@ -7526,15 +7891,6 @@ components:
             $ref: '#/components/schemas/Error'
           example:
             code: NotFound
-            message: ''
-    AccessDenied:
-      description: Доступ запрещён
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            code: AccessDenied
             message: ''
     ResponseItemsLists:
       description: Успешно
@@ -8574,6 +8930,31 @@ components:
         detail: Brands not found
         origin: brands-api
         requestId: 102d2641a932d61bed60649d6c99d80a
+    AccessDenied:
+      value:
+        code: AccessDenied
+        message: ''
+    Response403TokenCategory:
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: '2026-09-03T13:55:15Z'
+      description: Неверная категория токена
+    Response403TokenType:
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: '2026-05-25T02:47:09Z'
+      description: Неверный тип токена
   securitySchemes:
     HeaderApiKey:
       type: apiKey

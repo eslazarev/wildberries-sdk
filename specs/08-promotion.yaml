@@ -139,6 +139,8 @@ paths:
                 all: 3
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/advert/v2/adverts:
@@ -278,6 +280,8 @@ paths:
                 title: invalid payload
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/advert/v1/bids/min:
@@ -435,6 +439,8 @@ paths:
                 $ref: '#/components/schemas/StandardizedBatchError'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v2/seacat/save-ad:
@@ -550,6 +556,8 @@ paths:
               example: Нет доступных категорий для рк. Создайте новую кампанию для попадания в текущие категории
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/supplier/subjects:
@@ -625,6 +633,8 @@ paths:
                   value: null
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '404':
           description: Не найдено
         '429':
@@ -706,6 +716,8 @@ paths:
               example: Ошибка обработки тела запроса
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/delete:
@@ -762,6 +774,8 @@ paths:
                   $ref: '#/components/examples/ResponseInvalidCampaignID'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/rename:
@@ -831,6 +845,8 @@ paths:
                   $ref: '#/components/examples/IncorrectSupplierIdAdv'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '422':
           description: Ошибка обработки параметров запроса
           content:
@@ -902,6 +918,8 @@ paths:
                   $ref: '#/components/examples/LowBudget'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '422':
           description: Статус не изменен
           content:
@@ -968,6 +986,8 @@ paths:
                   $ref: '#/components/examples/AdvertNotFound'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '422':
           description: Статус не изменен
           content:
@@ -1036,6 +1056,8 @@ paths:
                   $ref: '#/components/examples/AdvertNotFound'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '422':
           description: Статус не изменен
           content:
@@ -1149,6 +1171,8 @@ paths:
                     title: invalid payload
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/advert/v1/bids:
@@ -1320,6 +1344,8 @@ paths:
                 title: invalid payload
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/balance:
@@ -1415,6 +1441,8 @@ paths:
                   $ref: '#/components/examples/IncorrectSupplierIdAdv'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/budget:
@@ -1493,6 +1521,8 @@ paths:
                   $ref: '#/components/examples/CampaignNotBelongSeller'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/budget/deposit:
@@ -1608,6 +1638,8 @@ paths:
                     error: 'Invalid Params: minimum deposit amount is 1000'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/upd:
@@ -1736,6 +1768,8 @@ paths:
                   $ref: '#/components/examples/IncorrectSupplierIdAdv'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/payments:
@@ -1859,6 +1893,8 @@ paths:
                   $ref: '#/components/examples/IncorrectSupplierIdAdv'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/auction/nms:
@@ -1999,6 +2035,8 @@ paths:
                 title: invalid payload
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/advert/v0/bids/recommendations:
@@ -2072,6 +2110,8 @@ paths:
                   $ref: '#/components/examples/IncorrectUsingMethods'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/normquery/stats:
@@ -2347,7 +2387,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/normquery/get-bids:
@@ -2428,7 +2481,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /api/advert/v1/config:
@@ -2477,7 +2543,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /api/advert/v1/normquery/bids:
@@ -2541,7 +2616,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/403'
+          description: Доступ запрещён
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/normquery/bids:
@@ -2559,7 +2643,6 @@ paths:
         Можно использовать только для кампаний с:
           - ручной ставкой
           - моделью оплаты `cpm` — за показы
-
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2602,7 +2685,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
     delete:
@@ -2619,7 +2715,6 @@ paths:
         Можно использовать только для кампаний с:
           - ручной ставкой
           - моделью оплаты `cpm` — за показы
-
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2661,7 +2756,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/normquery/get-minus:
@@ -2678,7 +2786,6 @@ paths:
         Метод возвращает список минус-фраз по:
           - ID кампаний
           - артикулам WB
-
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Limity-zaprosov">Лимит запросов</a> на один аккаунт продавца:
@@ -2729,7 +2836,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /adv/v0/normquery/set-minus:
@@ -2789,7 +2909,20 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          $ref: '#/components/responses/AccessDenied'
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                AccessDenied:
+                  $ref: '#/components/examples/AccessDenied'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/count:
@@ -2865,6 +2998,8 @@ paths:
                   count: 2
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/adverts:
@@ -3017,6 +3152,8 @@ paths:
           description: Медиакампании не найдены
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/advert:
@@ -3312,6 +3449,8 @@ paths:
                   $ref: '#/components/examples/IncorrectSupplierIdAdv'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v3/fullstats:
@@ -3738,6 +3877,8 @@ paths:
                     type: bad request
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/stats:
@@ -3823,6 +3964,8 @@ paths:
                   $ref: '#/components/examples/IncorrectRequestBody'
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/v1/calendar/promotions:
@@ -3866,6 +4009,8 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/v1/calendar/promotions/details:
@@ -3905,6 +4050,8 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /api/v1/calendar/promotions/nomenclatures:
@@ -3948,6 +4095,8 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
         '422':
           $ref: '#/components/responses/ErrParameterValuesIncorrect'
         '429':
@@ -3994,6 +4143,8 @@ paths:
           $ref: '#/components/responses/401'
         '402':
           $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
         '429':
@@ -4072,6 +4223,8 @@ paths:
                 title: invalid request body
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
   /adv/v1/normquery/stats:
@@ -4176,6 +4329,8 @@ paths:
                 title: invalid request body
         '401':
           $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
 components:
@@ -5897,6 +6052,34 @@ components:
         - request_id
         - status
         - origin
+    Response4XX:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Заголовок ошибки
+        detail:
+          type: string
+          description: Детали ошибки
+        code:
+          type: string
+          description: Внутренний код ошибки
+        requestId:
+          type: string
+          description: ID запроса
+        origin:
+          type: string
+          description: ID внутреннего сервиса WB
+        status:
+          type: number
+          description: HTTP статус-код
+        statusText:
+          type: string
+          description: Расшифровка HTTP статус-кода
+        timestamp:
+          type: string
+          format: date-time
+          description: Дата и время запроса
   parameters:
     inAction:
       in: query
@@ -6119,15 +6302,17 @@ components:
                 type: string
                 format: date-time
                 description: Дата и время запроса
-          example:
-            title: forbidden
-            detail: base token is not allowed
-            code: base token is not allowed for this path
-            requestId: 722199b2e15bbca48cc1d488a7989976
-            origin: s2s-finance
-            status: 403
-            statusText: Forbidden
-            timestamp: '2026-05-25T02:47:09Z'
+          examples:
+            Response403TokenCategory:
+              value:
+                status: 403
+                statusText: Forbidden
+                title: Forbidden
+                detail: scope is not allowed for this resource
+                requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+                origin: ag-marketplace
+                timestamp: '2026-09-03T13:55:15Z'
+              description: Неверная категория токена
     '429':
       description: Слишком много запросов
       content:
@@ -6169,18 +6354,6 @@ components:
             status: 429
             statusText: Too Many Requests
             timestamp: '2024-09-30T06:52:38Z'
-    AccessDenied:
-      description: Доступ запрещён
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/StandardizedBatchError'
-          example:
-            detail: norm_query API not available
-            origin: camp-api-public-cache
-            request_id: 60aaf2bc6164e84a9399fae9565b568a
-            status: 403
-            title: request forbidden
     ErrParameterValuesIncorrect:
       description: Ошибка обработки параметров запроса
       content:
@@ -6752,6 +6925,34 @@ components:
           interval:
             begin: '2023-09-08'
             end: '2023-09-11'
+    AccessDenied:
+      value:
+        detail: norm_query API not available
+        origin: camp-api-public-cache
+        request_id: 60aaf2bc6164e84a9399fae9565b568a
+        status: 403
+        title: request forbidden
+    Response403TokenCategory:
+      value:
+        status: 403
+        statusText: Forbidden
+        title: Forbidden
+        detail: scope is not allowed for this resource
+        requestId: 2dbf6fc9-bad8-4ef9-a058-c938a8553ba5
+        origin: ag-marketplace
+        timestamp: '2026-09-03T13:55:15Z'
+      description: Неверная категория токена
+    Response403TokenType:
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: s2s-finance
+        status: 403
+        statusText: Forbidden
+        timestamp: '2026-05-25T02:47:09Z'
+      description: Неверный тип токена
   securitySchemes:
     HeaderApiKey:
       type: apiKey
